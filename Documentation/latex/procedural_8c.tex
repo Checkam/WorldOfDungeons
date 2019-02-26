@@ -8,8 +8,11 @@ Fonction du Programme de Test de la génération procédural grace a Perlin Nois
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include $<$math.\+h$>$}\newline
-{\ttfamily \#include \char`\"{}procedural.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}commun.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$commun.\+h$>$}\newline
+{\ttfamily \#include $<$procedural.\+h$>$}\newline
+{\ttfamily \#include $<$couleurs.\+h$>$}\newline
+{\ttfamily \#include $<$block.\+h$>$}\newline
 \subsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
@@ -34,14 +37,17 @@ float \mbox{\hyperlink{procedural_8c_aedcfadb36e2749eb7dafcd56c051c755}{noise2d}
 \mbox{\Hypertarget{procedural_8c_a2af0d3d29624c62a028497de1bdadcbe}\label{procedural_8c_a2af0d3d29624c62a028497de1bdadcbe}} 
 float \mbox{\hyperlink{procedural_8c_a2af0d3d29624c62a028497de1bdadcbe}{perlin2d}} (float x, float y, float freq, int depth)
 \begin{DoxyCompactList}\small\item\em A définir. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{procedural_8c_ae77d3775b76faf5769fbb258fd7d5c50}\label{procedural_8c_ae77d3775b76faf5769fbb258fd7d5c50}} 
+void {\bfseries init\+Tab} (int tab\mbox{[}$\,$\mbox{]}, int n)
+\item 
+\mbox{\Hypertarget{procedural_8c_aec31c8debb40e6f6010c92b9339e07eb}\label{procedural_8c_aec31c8debb40e6f6010c92b9339e07eb}} 
+int {\bfseries Preview\+Height} (int x, int P\+\_\+\+Height\mbox{[}$\,$\mbox{]}, int nb)
+\item 
+\mbox{\Hypertarget{procedural_8c_a54c9cd55a94b14a9263247587b7ca221}\label{procedural_8c_a54c9cd55a94b14a9263247587b7ca221}} 
+void {\bfseries create\+Tree} (int x, int map\mbox{[}M\+AX\mbox{]}, int y)
+\item 
 \mbox{\Hypertarget{procedural_8c_a6b4a1e5f0d96f8dbc8194c3c563710a9}\label{procedural_8c_a6b4a1e5f0d96f8dbc8194c3c563710a9}} 
-void \mbox{\hyperlink{procedural_8c_a6b4a1e5f0d96f8dbc8194c3c563710a9}{gen\+\_\+col}} (int $\ast$$\ast$tab, int i)
-\begin{DoxyCompactList}\small\item\em A définir. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{procedural_8c_a2f4d991e95ede2cbef5347b5f03f07ce}\label{procedural_8c_a2f4d991e95ede2cbef5347b5f03f07ce}} 
-int \mbox{\hyperlink{procedural_8c_a2f4d991e95ede2cbef5347b5f03f07ce}{arbre}} (int i)
-\begin{DoxyCompactList}\small\item\em A définir. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{procedural_8c_abfc57627d82d39158bfd5f6ff35e7a19}\label{procedural_8c_abfc57627d82d39158bfd5f6ff35e7a19}} 
-void \mbox{\hyperlink{procedural_8c_abfc57627d82d39158bfd5f6ff35e7a19}{draw\+\_\+arbre}} (int $\ast$$\ast$tab, int dep, int arr, int tronc)
+int \mbox{\hyperlink{procedural_8c_a6b4a1e5f0d96f8dbc8194c3c563710a9}{gen\+\_\+col}} (int $\ast$$\ast$tab, int i)
 \begin{DoxyCompactList}\small\item\em A définir. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
