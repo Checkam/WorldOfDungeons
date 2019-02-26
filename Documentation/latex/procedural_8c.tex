@@ -1,0 +1,65 @@
+\hypertarget{procedural_8c}{}\section{Référence du fichier procedural.\+c}
+\label{procedural_8c}\index{procedural.\+c@{procedural.\+c}}
+
+
+Fonction du Programme de Test de la génération procédural grace a Perlin Noise.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}procedural.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}commun.\+h\char`\"{}}\newline
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{procedural_8c_aed703b29f59fd7c998f13c1874729d18}\label{procedural_8c_aed703b29f59fd7c998f13c1874729d18}} 
+void {\bfseries change\+Biome} (int x, int y)
+\item 
+\mbox{\Hypertarget{procedural_8c_a4afa0abf4884c2dce2402ed2d0dea842}\label{procedural_8c_a4afa0abf4884c2dce2402ed2d0dea842}} 
+void \mbox{\hyperlink{procedural_8c_a4afa0abf4884c2dce2402ed2d0dea842}{init\+\_\+map}} (int $\ast$map)
+\begin{DoxyCompactList}\small\item\em Initialise un tableau d\textquotesingle{}entier a 0. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{procedural_8c_a0217acdda1d699354774af02e79d3f29}\label{procedural_8c_a0217acdda1d699354774af02e79d3f29}} 
+int \mbox{\hyperlink{procedural_8c_a0217acdda1d699354774af02e79d3f29}{noise2}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Renvoie une valeur d\textquotesingle{}un tableau dont l\textquotesingle{}indice est calculer a partir d\textquotesingle{}un S\+E\+ED. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{procedural_8c_abb5fc4a0d8a975da6f8bc1f72599195e}\label{procedural_8c_abb5fc4a0d8a975da6f8bc1f72599195e}} 
+float \mbox{\hyperlink{procedural_8c_abb5fc4a0d8a975da6f8bc1f72599195e}{lin\+\_\+inter}} (float x, float y, float s)
+\begin{DoxyCompactList}\small\item\em A définir. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{procedural_8c_af89ba8e2b0578dd6413d35e07a46ff6b}\label{procedural_8c_af89ba8e2b0578dd6413d35e07a46ff6b}} 
+float \mbox{\hyperlink{procedural_8c_af89ba8e2b0578dd6413d35e07a46ff6b}{smooth\+\_\+inter}} (float x, float y, float s)
+\begin{DoxyCompactList}\small\item\em A définir. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{procedural_8c_aedcfadb36e2749eb7dafcd56c051c755}\label{procedural_8c_aedcfadb36e2749eb7dafcd56c051c755}} 
+float \mbox{\hyperlink{procedural_8c_aedcfadb36e2749eb7dafcd56c051c755}{noise2d}} (float x, float y)
+\begin{DoxyCompactList}\small\item\em A définir. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{procedural_8c_a2af0d3d29624c62a028497de1bdadcbe}\label{procedural_8c_a2af0d3d29624c62a028497de1bdadcbe}} 
+float \mbox{\hyperlink{procedural_8c_a2af0d3d29624c62a028497de1bdadcbe}{perlin2d}} (float x, float y, float freq, int depth)
+\begin{DoxyCompactList}\small\item\em A définir. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{procedural_8c_a6b4a1e5f0d96f8dbc8194c3c563710a9}\label{procedural_8c_a6b4a1e5f0d96f8dbc8194c3c563710a9}} 
+void \mbox{\hyperlink{procedural_8c_a6b4a1e5f0d96f8dbc8194c3c563710a9}{gen\+\_\+col}} (int $\ast$$\ast$tab, int i)
+\begin{DoxyCompactList}\small\item\em A définir. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{procedural_8c_a2f4d991e95ede2cbef5347b5f03f07ce}\label{procedural_8c_a2f4d991e95ede2cbef5347b5f03f07ce}} 
+int \mbox{\hyperlink{procedural_8c_a2f4d991e95ede2cbef5347b5f03f07ce}{arbre}} (int i)
+\begin{DoxyCompactList}\small\item\em A définir. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{procedural_8c_abfc57627d82d39158bfd5f6ff35e7a19}\label{procedural_8c_abfc57627d82d39158bfd5f6ff35e7a19}} 
+void \mbox{\hyperlink{procedural_8c_abfc57627d82d39158bfd5f6ff35e7a19}{draw\+\_\+arbre}} (int $\ast$$\ast$tab, int dep, int arr, int tronc)
+\begin{DoxyCompactList}\small\item\em A définir. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{procedural_8c_a10d80a59134610b641f4cac8c8ff32e8}\label{procedural_8c_a10d80a59134610b641f4cac8c8ff32e8}} 
+biome\+\_\+t {\bfseries biome}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Fonction du Programme de Test de la génération procédural grace a Perlin Noise. 
+
+\begin{DoxyAuthor}{Auteur}
+\{Maxence.\+D Jasmin.\+G Tibane.\+G, Mathieu.\+V\} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+30 Janvier 2019 
+\end{DoxyDate}

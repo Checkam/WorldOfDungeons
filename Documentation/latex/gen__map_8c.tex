@@ -1,0 +1,48 @@
+\hypertarget{gen__map_8c}{}\section{Référence du fichier gen\+\_\+map.\+c}
+\label{gen__map_8c}\index{gen\+\_\+map.\+c@{gen\+\_\+map.\+c}}
+
+
+Programme de Test de la génération procédural grace a Perlin Noise.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$signal.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}seed.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}liste.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}gen\+\_\+map.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}commun.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}procedural.\+h\char`\"{}}\newline
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{gen__map_8c_a07463ae408d7f622767133ae196a07c1}\label{gen__map_8c_a07463ae408d7f622767133ae196a07c1}} 
+char $\ast$ \mbox{\hyperlink{gen__map_8c_a07463ae408d7f622767133ae196a07c1}{Couleur\+Block}} (int id)
+\begin{DoxyCompactList}\small\item\em donne la couleur de l\textquotesingle{}id d\textquotesingle{}un block \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{gen__map_8c_ac60945def8b58a4657022fb8b33a2b3b}\label{gen__map_8c_ac60945def8b58a4657022fb8b33a2b3b}} 
+void \mbox{\hyperlink{gen__map_8c_ac60945def8b58a4657022fb8b33a2b3b}{aff\+\_\+map}} ()
+\begin{DoxyCompactList}\small\item\em Afffiche une map stocker dans un liste, chaque element de la liste est un tableau de taille N. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{gen__map_8c_a94c5f1594386885d1c13e6ffbffc64ba}\label{gen__map_8c_a94c5f1594386885d1c13e6ffbffc64ba}} 
+void \mbox{\hyperlink{gen__map_8c_a94c5f1594386885d1c13e6ffbffc64ba}{save\+\_\+tab}} (F\+I\+LE $\ast$fichier, int $\ast$tab)
+\begin{DoxyCompactList}\small\item\em Sauvegarde une ligne (Tableau de int) de la map dans un fichier. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{gen__map_8c_a3b33e6f48f5d988f336e915c5346eb95}\label{gen__map_8c_a3b33e6f48f5d988f336e915c5346eb95}} 
+void {\bfseries int\+Handler} (int dummy)
+\item 
+\mbox{\Hypertarget{gen__map_8c_abf9e6b7e6f15df4b525a2e7705ba3089}\label{gen__map_8c_abf9e6b7e6f15df4b525a2e7705ba3089}} 
+int {\bfseries main} (int argc, char const $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Programme de Test de la génération procédural grace a Perlin Noise. 
+
+\begin{DoxyAuthor}{Auteur}
+\{Maxence.\+D, Jasmin.\+G, Tibane.\+G, Mathieu.\+V\} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+30 Janvier 2019 
+\end{DoxyDate}
