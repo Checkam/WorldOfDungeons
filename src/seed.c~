@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 
+/* j'ai dit que cette fonction de vait etre commentée !! */
 int seed_part(const char *const seed)
 {
     char * chaine = malloc(sizeof(char) * (strlen(seed) + 1));

@@ -20,7 +20,7 @@ all: $(PROG)
 $(PROG): $(OBJ_DIR)/$(OBJ)
 	$(CC) $(CFLAGS) $^ -o $(BIN_DIR)/$@  $(LIBS) $(INCLUDES) -I./$(INC_DIR)
 
-$(OBJ_DIR)/$(OBJ) : $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c $(INC_DIR)/%.h
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INC_DIR)/%.h
 	$(CC) -o $@ -c $< $(CFLAGS) $(LIBS) $(INCLUDES) -I./$(INC_DIR)
 	
 clean:
