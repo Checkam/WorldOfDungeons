@@ -5,6 +5,8 @@
 /* j'ai dit que cette fonction de vait etre commentée !! */
 
 
+/* A QUOI CA SERT ??? */
+
 int seed_part(const char *const seed)
 {
     char * chaine = malloc(sizeof(char) * (strlen(seed) + 1));

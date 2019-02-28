@@ -25,92 +25,18 @@
 #include <time.h>
 #include <math.h>
 #include <signal.h>
-
 #include <SDL2/SDL.h>
-
-#include <seed.h>
 #include <liste.h>
+#include <seed.h>
 #include <gen_map.h>
 #include <commun.h>
-#include <procedural.h>
+#include <generation.h>
 #include <couleurs.h>
 #include <block.h>
+#include <affichage.h>
 
 
 static int Program=1;
-
-block_type2_t blocks2[NB_BLOCK] = 
-{
-    {AIR,"air",BLACK},
-    {HERBE,"herbe",VERT},
-    {TERRE,"terre",MARRON},
-    {EAU,"eau",BLEU},
-    {SABLE,"sable",JAUNE},
-    {FEUILLE,"feuille",VERT},
-    {BOIS,"bois",MARRON},
-    {ROCHE,"roche",GREY},
-    {NEIGE,"neige", BLANC},
-    {GLACE,"glace", CYAN}
-};
-
-
-char * CouleurBlock(int id){
-    int i;
-    for(i=0;i<NB_BLOCK;i++)
-        if(blocks2[i].materiau==id)
-            return blocks2[i].texture;
-    return BLACK;
-}
-
-SDL_Surface * TextureBlock(int id,block_type_t blocks[]){
-    int i;
-    for(i=0;i<NB_BLOCK;i++)
-        if(blocks[i].materiau==id)
-            return blocks[i].texture;
-    return NULL;
-}
-
-int dansFenetre(SDL_Rect r){
-    if(r.x < width_window && r.x >= 0 && r.y >= 0 && r.y < height_window ){
-        return 1;
-    }else{
-        return 0;
-    }
-}
-
-void aff_map_sdl(SDL_Surface *screen,block_type_t blocks[],int min){
-    int i,j=0;
-    int *map; /*Tableau de recupèration de la liste*/
-    SDL_Rect r = {0,0,0,0};
-    if(min)
-    for (j=0,en_tete(); !hors_liste(); suivant()){
-        valeur_elt(&map);
-        for (i = MAX_SCREEN; i > 0; i--){
-            r.x=(j*(width_window/SIZE));
-            r.y=(height_window-(i*(height_window/MAX_SCREEN)));
-            if(dansFenetre(r))
-                SDL_BlitSurface(TextureBlock(*(map + i + min),blocks),NULL,screen,&r);
-           
-            //printf("x:%d y:%d\n",r.x,r.y);
-            //printf("%d\n",i); 
-        }
-        j++;       
-    }
-}
-
-
-void aff_map(int min, int max){
-    system("clear");
-    int i;
-    int *map;   //Tableau de recupèration de la liste
-    for (i = MAX_SCREEN - 1; i >= 0; i--){
-        for (en_tete(); !hors_liste(); suivant()){
-            valeur_elt(&map);
-            printf("%s %s",CouleurBlock(*(map + i)),BLACK);
-        }
-        printf("\n");
-    }
-}
 
 void save_tab(FILE *fichier, int *tab){
     int i;
@@ -199,6 +125,20 @@ int main(int argc, char const *argv[]){
         {GLACE,"glace", feuille_world}
     };
 
+    block_type2_t blocks2[NB_BLOCK] = 
+    {
+        {AIR,"air",NOIR},
+        {HERBE,"herbe",VERT},
+        {TERRE,"terre",MARRON},
+        {EAU,"eau",BLEU},
+        {SABLE,"sable",JAUNE},
+        {FEUILLE,"feuille",VERT},
+        {BOIS,"bois",MARRON},
+        {ROCHE,"roche",GRIS},
+        {NEIGE,"neige", BLANC},
+        {GLACE,"glace", CYAN}
+    };
+
     // ------------------------------------------------------------------------
     if (argc != 3){
         printf("Option:\n");
@@ -230,7 +170,7 @@ int main(int argc, char const *argv[]){
         ajout_droit(tab);
 
         //save_tab(fichier, tab);
-        //aff_map(taille_max-5,taille_max+50);
+        aff_map(taille_max-5,taille_max+50,blocks2);
         //if(taille_max < HAUTEUR_EAU) taille_max = HAUTEUR_EAU;
 
         taille = taille_mid_aff();

@@ -23,10 +23,5 @@ typedef enum {
        DESERTS
 } biome_t;
 
-int noise2(int x, int y);
-float lin_inter(float x, float y, float s);
-float smooth_inter(float x, float y, float s);
-float noise2d(float x, float y);
-float perlin2d(float x, float y, float freq, int depth);
 int gen_col(int **tab, int i);
 void init_map(int *map);
