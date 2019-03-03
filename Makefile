@@ -7,7 +7,7 @@ SDLLIB_DIR=$(SDL_DIR)/lib
 SDLINC_DIR=$(SDL_DIR)/include
 
 LIBS=-L$(SDLLIB_DIR) -lSDL2 -lSDL2_ttf -lSDL2_image
-INCLUDES=-I$(SDLINC_DIR) 
+INCLUDES=-I$(SDLINC_DIR)
 
 OBJ_DIR=obj
 SRC_DIR=src
@@ -18,7 +18,7 @@ SRC := $(wildcard $(SRC_DIR)/*.c)
 INC := $(wildcard $(SRC_DIR)/*.h)
 OBJ := $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
-DIRS = $(OBJ_DIR) $(BIN_DIR) 
+DIRS = $(OBJ_DIR) $(BIN_DIR)
 
 all: $(DIRS) $(BIN_DIR)/$(PROG)
 
@@ -32,7 +32,7 @@ $(BIN_DIR)/$(PROG): $(OBJ)
 
 $(OBJ) : $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c $(INC_DIR)/%.h
 	$(CC) -o $@ -c $< $(CFLAGS) $(LIBS) $(INCLUDES) -I./$(INC_DIR)
-	
+
 clean:
 	rm $(OBJ_DIR)/*.o
 	rm *.gch
