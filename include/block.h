@@ -20,7 +20,7 @@ typedef struct block_type_s{
     materiaux_t materiau;
     char * nom;
 	//int resistance;
-	SDL_Surface * texture;
+	SDL_Texture * texture;
 }block_type_t;
 
 typedef struct block_type2_s{

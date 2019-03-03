@@ -2,8 +2,8 @@
 
 /* Fenetre */
 int dansFenetre(SDL_Rect r);
-SDL_Surface * TextureBlock(int id,void *);
-void aff_map_sdl(SDL_Surface *screen,void *,int min);
+SDL_Texture * TextureBlock(int id,void *);
+void aff_map_sdl(SDL_Renderer *renderer,void *, int min);
 int taille_mid_aff();
 
 /* Terminale */

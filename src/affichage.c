@@ -22,7 +22,7 @@ char *CouleurBlock(int id, block_type2_t blocks[]) {
   return NOIR;
 }
 
-SDL_Surface *TextureBlock(int id, block_type_t blocks[]) {
+SDL_Texture *TextureBlock(int id, block_type_t blocks[]) {
   int i;
   for (i = 0; i < NB_BLOCK; i++)
     if (blocks[i].materiau == id)
@@ -49,7 +49,7 @@ int taille_mid_aff() {
   return -1;
 }
 
-void aff_map_sdl(SDL_Surface *screen, block_type_t blocks[], int min) {
+void aff_map_sdl(SDL_Renderer *renderer, block_type_t blocks[], int min) {
   int i, j = 0;
   int *map; /*Tableau de recupèration de la liste*/
   SDL_Rect r = {0, 0, 0, 0};
@@ -59,9 +59,11 @@ void aff_map_sdl(SDL_Surface *screen, block_type_t blocks[], int min) {
       for (i = MAX_SCREEN; i > 0; i--) {
         r.x = (j * (width_window / SIZE));
         r.y = (height_window - (i * (height_window / MAX_SCREEN)));
+        r.h = 50;
+        r.w = 50;
         if (dansFenetre(r))
-          SDL_BlitSurface(TextureBlock(*(map + i + min), blocks), NULL, screen,
-                          &r);
+          SDL_RenderCopy(renderer, TextureBlock(*(map + i + min), blocks), NULL,
+                         &r);
 
         // printf("x:%d y:%d\n",r.x,r.y);
         // printf("%d\n",i);
