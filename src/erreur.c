@@ -9,8 +9,6 @@
 #include <stdlib.h>
 #include <erreur.h>
 
-#define NB_ERREUR 5
-
 /**
  * \struct t_erreur_s
  * \brief Contient l'id du code erreur + le message correspondant à l'erreur
@@ -23,12 +21,12 @@ typedef struct s_erreur
 
 //Tableau contenant toutes erreurs + les messages correspondants
 t_erreur_s tab_err = {
-    {OK, "Tout c est bien passer"},
     {FILE_ERROR, "Erreur de fichier"},
     {OPEN_FILE_ERROR, "Erreur d ouverture du fichier"},
     {CLOSE_FILE_ERROR, "Erreur de fermeture du fichier"},
     {VALUE_ERROR, "Erreur de valeur"},
-    {ERROR_NOT_EXIST, "Cette erreur n existe pas"}
+    {ERROR_NOT_EXIST, "Cette erreur n existe pas"},
+    {OK, "Tout c est bien passer"}  //Toujours laisser OK en dernier
 }
 
 /**
@@ -38,13 +36,13 @@ t_erreur_s tab_err = {
 */
 t_erreur aff_erreur(t_erreur code_erreur){
     int i;
-    for(i = 0; i < NB_ERREUR; i++){
+    for(i = 0; tab_err[i].id != OK; i++){
         if(tab_err[i].id == code_erreur){
             break;
         }
     }
 
-    if(i >= NB_ERREUR){
+    if(tab_err[i].id != code_erreur){
         fprintf(stderr, "Erreur : Code erreur %d non trouve\n", code_erreur);
         return ERROR_NOT_EXIST;
     }

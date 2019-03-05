@@ -16,3 +16,5 @@ typedef enum e_erreur{
     VALUE_ERROR,
     ERROR_NOT_EXIST
 }t_erreur;
+
+t_erreur aff_erreur(t_erreur code_erreur);
