@@ -1,23 +1,10 @@
 /**
  *
- *   \file gen_map.c
- *   \brief Programme de Test de la génération procédural grace a Perlin Noise
+ *   \file world_of_dungeons.c
+ *   \brief Fichier main du projet World Of Dungeons
  *   \author {Maxence.D, Jasmin.G, Tibane.G, Mathieu.V}
  *   \version 0.1
  *   \date 30 Janvier 2019
- *
- *   \fn CouleurBlockc har * CouleurBlock(int id)
- *   \brief donne la couleur de l'id d'un block
- *
- *   \fn aff_map void aff_map()
- *   \brief Afffiche une map stocker dans un liste, chaque element de la liste
- * est un tableau de taille N
- *
- *   \fn save_tab void save_tab(FILE *fichier, int *tab)
- *   \brief Sauvegarde une ligne (Tableau de int) de la map dans un fichier
- *
- *   \struct block_s
- *   \brief Struture d'un block
  */
 
 #include <SDL2/SDL.h>
@@ -25,7 +12,6 @@
 #include <block.h>
 #include <commun.h>
 #include <couleurs.h>
-#include <gen_map.h>
 #include <generation.h>
 #include <liste.h>
 #include <math.h>
@@ -35,6 +21,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <world_of_dungeons.h>
 
 static int Program = 1;
 
