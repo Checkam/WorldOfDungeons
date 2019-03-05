@@ -3,6 +3,7 @@
  * \brief Gestion du menu (solo, multijoueur, ...)
  * \author Jasmin GALBRUN
  * \version 1
+<<<<<<< HEAD
  * \date 07/03/2019
 */
 #ifndef __MENU_H__
@@ -11,6 +12,12 @@
 #include <ctype.h>
 #include <SDL2/SDL.h>
 #include <erreur.h>
+=======
+ * \date 05/03/2019
+*/
+
+#include <SDL2/SDL.h>
+>>>>>>> 24ba29e... Ajout Module menu.
 
 /**
  * \enum t_type_menu
