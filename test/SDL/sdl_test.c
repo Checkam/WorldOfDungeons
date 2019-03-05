@@ -74,7 +74,7 @@ int main(int argc, char const *argv[]) {
   surface_to_tex = SDL_LoadBMP("./IMG/texture/feuille.bmp");
   feuille_world = SDL_CreateTextureFromSurface(renderer, surface_to_tex);
   SDL_FreeSurface(surface_to_tex);
-  surface_to_tex = SDL_LoadBMP("./IMG/texture/pierre.bmp");
+  surface_to_tex = SDL_LoadBMP("./IMG/texture/neige.bmp");
   roche_world = SDL_CreateTextureFromSurface(renderer, surface_to_tex);
 
   SDL_FreeSurface(surface_to_tex);
