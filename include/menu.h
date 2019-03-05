@@ -55,8 +55,4 @@ t_erreur SDL_afficher_menu(t_menu * menu, SDL_Renderer * renderer);
 t_erreur detruire_bouton_menu(t_bouton_menu ** btn);
 t_erreur detruire_menu(t_menu ** menu);
 
-/* Primitive de destruction d'un menu */
-t_erreur detruire_bouton_menu(t_bouton_menu ** btn);
-t_erreur detruire_menu(t_menu ** menu);
-
 #endif
