@@ -2,14 +2,13 @@
  * \file json.c
  * \brief Module qui lit et écrit des fichiers au format JSON.
  * \author GALBRUN Tibane
- * \version 0.1
- * \date 4 Mars 2019
+ * \version 0.2
+ * \date 5 Mars 2019
 */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-//#include "../include/json.h"
 #include <json.h>
 
 /* Variables Globales */
@@ -19,6 +18,11 @@
  * \brief La variable est égale à '#' par défaut quand on est ni dans un fichier ni dans un objet;
 */
 char crt_car = '#';
+
+/*################################################
+  ###### Création, Ouverture, Suppression, #######
+  ########## Fermeture de Fichier JSON ###########
+  ################################################*/
 
 /**
  * \fn FILE * new_json (char * name)
@@ -43,32 +47,38 @@ FILE * new_json (char * name)
 */
 int del_json (char * name)
 {
-    char * name_json = concat_str (name,".json");
+    char * name_json = concat_str(name,".json");
     FILE * file = fopen(name_json,"r");
-    fclose (file);
-    free(name_json);
+    fclose(file);
     if (file)
     {
-        remove (name_json);
+        remove(name_json);
+        free(name_json);
         return 0;
     }
+    free(name_json);
     return 1;
 }
 
 /**
- * \fn char * concat_str (char * str1, char * str2)
- * \brief Concatène 2 chaine de caractère.
- * \param str1 Chaine de caractère de gauche.
- * \param str2 Chaine de caractère de droite.
- * \return Une chaine de caractère résultat de la concatènation.
+ * \fn FILE * open_json (char * name)
+ * \brief Ouvre un fichier JSON en lecture.
+ * \param name Chaine de caractère représenant le nom du fichier sans le '.json' à lire.
+ * \return Un pointeur sur le fichier ouvert.
 */
-char * concat_str (char * str1, char * str2)
+FILE * open_json (char * name)
 {
-    char * str_res = malloc(sizeof(char) * (strlen(str1) + strlen(str2) + 1));
-    strcpy (str_res, str1);
-    strcat (str_res, str2);
-    return str_res;
+    char * name_json = concat_str(name,".json");
+    FILE * file = fopen(name_json,"r");
+    free(name_json);
+    return file;
+    
 }
+
+/*################################################
+  ############## Ecriture de Données #############
+  ################ au Format JSON ################
+  ################################################*/
 
 /**
  * \fn int write_json (FILE * file, char * key, void * value, char value_type)
@@ -92,12 +102,16 @@ int write_json (FILE * file, char * key, void * value, char value_type)
     switch (value_type)
     {
         /* ENTIER */
-        case 'd': fprintf(file,"%s:%d",key,value); break;
+        case 'd': fprintf(file,"\"%s\":%d",key,*(int *)value); break;
         /* FLOTTANT */
-        case 'f': fprintf(file,"%s:%.2f",key,value); break;
+        case 'f': fprintf(file,"\"%s\":%.2f",key,*(float *)value); break;
         /* STRING */
-        case 's': fprintf(file,"%s:%s",key,value); break;
+        case 's': fprintf(file,"\"%s\":\"%s\"",key,(char *)value); break;
+        /* TYPE_ERROR */
+        default: return 1;
     }
+
+    crt_car = '#';
 
     return 0;
 }
@@ -136,4 +150,80 @@ int close_json_obj (FILE * file)
     crt_car = '#';
 
     return 0;
+}
+
+/*################################################
+  ############## Lecture de Données ##############
+  ################ au Format JSON ################
+  ################################################*/
+
+/**
+ * \fn int read_json (FILE * file, char * key, void * value, char value_type)
+ * \brief Lit un objet JSON.
+ * \brief La lecture s'effectue dans le fichier 'file' et on va chercher la valeur correspondant à la 'key'.
+ * \param file Le fichier à lire.
+ * \param key La clé à chercher.
+ * \param value La valeur à modifier.
+ * \param value_type Le type de la valeur recherché.
+ * \return Un entier pour savoir si l'opération c'est bien passée.
+*/
+int read_json_obj (FILE * file, char * key, void * value, char value_type)
+{
+    /* FILE_ERROR */
+    if (!file) return 1;
+    /* VALUE_ERROR */
+    if (!key || !value) return 1;
+
+    char obj[LINE_MAX_LENGTH];
+    char * search;
+
+    /* Récupération objet JSON */
+    fgets(obj,LINE_MAX_LENGTH,file);
+
+    /* On cherche si la clé est présent dans l'objet JSON */
+    search = strstr(obj,key);
+    if (!search) return 1; /* KEY_NOT_FOUND */
+
+    /* On récupère la valeur */
+    char save_val[LINE_MAX_LENGTH];
+    int i, j;
+    for (i = search - obj + strlen(key), j = 0; obj[i] != ',' && obj[i] != '}', i++, j++)
+    {
+        save_val[j] = obj[i];
+    }
+    save_val[j] = '\0';
+
+    /* On traite la valeur */
+    switch (value_type)
+    {
+        /* ENTIER */
+        case 'd' : *(int *)value = atoi(save_val); break;
+        /* FLOAT */
+        case 'f' : *(float *)value = atof(save_val); break;
+        /* STRING */
+        case 's' : strcpy((char *)value,save_val); break;
+        /* TYPE_ERROR */
+        default : return 1;
+    }
+
+    return 0;
+}
+
+/*################################################
+  ############### Fonctions Autres ###############
+  ################################################*/
+
+/**
+ * \fn char * concat_str (char * str1, char * str2)
+ * \brief Concatène 2 chaine de caractère.
+ * \param str1 Chaine de caractère de gauche.
+ * \param str2 Chaine de caractère de droite.
+ * \return Une chaine de caractère résultat de la concatènation.
+*/
+char * concat_str (char * str1, char * str2)
+{
+    char * str_res = malloc(sizeof(char) * (strlen(str1) + strlen(str2) + 1));
+    strcpy(str_res, str1);
+    strcat(str_res, str2);
+    return str_res;
 }
