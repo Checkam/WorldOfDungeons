@@ -9,7 +9,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+//#include "../include/json.h"
 #include <json.h>
+
+/* Variables Globales */
+/**
+ * \var crt_car
+ * \brief Variable globale contenant le dernier caractère ajouté au fichier JSON en cours.
+ * \brief La variable est égale à '#' par défaut quand on est ni dans un fichier ni dans un objet;
+*/
+char crt_car = '#';
 
 /**
  * \fn FILE * new_json (char * name)
@@ -22,6 +31,7 @@ FILE * new_json (char * name)
     char * name_json = concat_str (name,".json");
     FILE * file = fopen(name_json,"w");
     free(name_json);
+    crt_car = '#';
     return file;
 }
 
@@ -37,7 +47,7 @@ int del_json (char * name)
     FILE * file = fopen(name_json,"r");
     fclose (file);
     free(name_json);
-    if (file != NULL)
+    if (file)
     {
         remove (name_json);
         return 0;
@@ -61,58 +71,69 @@ char * concat_str (char * str1, char * str2)
 }
 
 /**
- * \fn int write_json (FILE * file, char * key, void * value, int (*write) (FILE *, void *))
- * \brief Ecrit un objet au format JSON dans un fichier.
- * \brief L'écriture s'effectue dans le fichier 'file' en ajout avec pour contenu le couple clé/valeur '{key:value}'.
+ * \fn int write_json (FILE * file, char * key, void * value, char value_type)
+ * \brief Ecrit une clé/valeur au format JSON dans un fichier.
+ * \brief L'écriture s'effectue dans le fichier 'file' en ajout avec pour contenu le couple clé/valeur 'key:value'.
  * \param file Le fichier ou écrire.
  * \param key La clé correspondant à la valeur.
  * \param value La valeur à écrire.
- * \param (*write) La fonction pour écrire.
+ * \param value_type Le type de la valeur à écrire.
  * \return Un entier pour savoir si l'opération c'est bien passée.
 */
-int write_json (FILE * file, char * key, void * value, int (*write) (FILE *, void *))
+int write_json (FILE * file, char * key, void * value, char value_type)
 {
-    fprintf(file,"{%s:",key);
-    write(file,value);
+    /* FILE_ERROR */
+    if (!file) return 1;
+    /* VALUE_ERROR */
+    if (!key || !value) return 2;
+
+    if(crt_car != '{') fprintf(file,",");
+
+    switch (value_type)
+    {
+        /* ENTIER */
+        case 'd': fprintf(file,"%s:%d",key,value); break;
+        /* FLOTTANT */
+        case 'f': fprintf(file,"%s:%.2f",key,value); break;
+        /* STRING */
+        case 's': fprintf(file,"%s:%s",key,value); break;
+    }
+
+    return 0;
+}
+
+/**
+ * \fn int open_json_obj (FILE * file)
+ * \brief Démarre un nouvelle objet au format JSON dans un fichier.
+ * \brief L'écriture s'effectue dans le fichier 'file' en ajout avec pour contenu '{' et la variable crt_car est mis à jour.
+ * \param file Le fichier ou écrire.
+ * \return Un entier pour savoir si l'opération c'est bien passée.
+*/
+int open_json_obj (FILE * file)
+{
+    /* FILE_ERROR */
+    if (!file) return 1;
+
+    fprintf(file,"{");
+    crt_car = '{';
+
+    return 0;
+}
+
+/**
+ * \fn int close_json_obj (FILE * file)
+ * \brief Ferme l'objet JSON.
+ * \brief L'écriture s'effectue dans le fichier 'file' en ajout avec pour contenu '}' et la variable crt_car est mis à jour.
+ * \param file Le fichier ou écrire.
+ * \return Un entier pour savoir si l'opération c'est bien passée.
+*/
+int close_json_obj (FILE * file)
+{
+    /* FILE_ERROR */
+    if (!file) return 1;
+
     fprintf(file,"}\n");
-    return 0;
-}
+    crt_car = '#';
 
-/**
- * \fn int write_int (FILE * file, int * value)
- * \brief Ecrit un entier dans un fichier.
- * \param file Le fichier ou écrire.
- * \param La valeur à écrire.
- * \return Un entier pour savoir si tout c'est bien passée.
-*/
-int write_int (FILE * file, int * value)
-{
-    fprintf(file,"%d",*value);
-    return 0;
-}
-
-/**
- * \fn int write_str (FILE * file, char * value)
- * \brief Ecrit une chaine de caractère dans un fichier.
- * \param file Le fichier ou écrire.
- * \param La valeur à écrire.
- * \return Un entier pour savoir si tout c'est bien passée.
-*/
-int write_str (FILE * file, char * value)
-{
-    fprintf(file,"%s",value);
-    return 0;
-}
-
-/**
- * \fn int write_float (FILE * file, float * value)
- * \brief Ecrit un float dans un fichier.
- * \param file Le fichier ou écrire.
- * \param La valeur à écrire.
- * \return Un entier pour savoir si tout c'est bien passée.
-*/
-int write_float (FILE * file, float * value)
-{
-    fprintf(file,"%.2f",*value);
     return 0;
 }
