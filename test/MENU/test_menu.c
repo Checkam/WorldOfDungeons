@@ -14,10 +14,7 @@
 
 int main()
 {
-<<<<<<< HEAD
     /* Initialisation */
-=======
->>>>>>> 8e1e906... Modication test_menu.c
     t_menu * menu = NULL;
     int width_window = 600;
     int height_window = 600;
