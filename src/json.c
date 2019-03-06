@@ -2,7 +2,7 @@
  * \file json.c
  * \brief Module qui lit et écrit des fichiers au format JSON.
  * \author GALBRUN Tibane
- * \version 0.2
+ * \version 0.3
  * \date 5 Mars 2019
 */
 
@@ -158,6 +158,27 @@ int close_json_obj (FILE * file)
   ################################################*/
 
 /**
+ * \fn int extract_json_obj (FILE * file, char ** obj)
+ * \brief Récupère un objet JSON dans un fichier.
+ * \brief La lecture s'effectue dans le fichier 'file' et on récupère un objet.
+ * \param file Le fichier à lire.
+ * \param obj L'endroit ou enregistrer l'objet.
+ * \return Un entier pour savoir si l'opération c'est bien passée.
+*/
+int extract_json_obj (FILE * file, char ** obj)
+{
+    /* FILE_ERROR */
+    if (!file) return 1;
+    /* PTR_VALUE_ERROR */
+    if (!obj) return 1;
+    *obj = malloc(sizeof(char) * LINE_MAX_WIDTH);
+    fscanf(file,"%s\n",*obj);
+    *obj = realloc(*obj, sizeof(char) * strlen(*obj) + 1);
+    
+    return 0;
+}
+
+/**
  * \fn int read_json (FILE * file, char * key, void * value, char value_type)
  * \brief Lit un objet JSON.
  * \brief La lecture s'effectue dans le fichier 'file' et on va chercher la valeur correspondant à la 'key'.
@@ -167,27 +188,21 @@ int close_json_obj (FILE * file)
  * \param value_type Le type de la valeur recherché.
  * \return Un entier pour savoir si l'opération c'est bien passée.
 */
-int read_json_obj (FILE * file, char * key, void * value, char value_type)
+int read_json_obj (char * obj, char * key, void * value, char value_type)
 {
-    /* FILE_ERROR */
-    if (!file) return 1;
     /* VALUE_ERROR */
-    if (!key || !value) return 1;
+    if (!key || !obj) return 1;
 
-    char obj[LINE_MAX_LENGTH];
     char * search;
-
-    /* Récupération objet JSON */
-    fgets(obj,LINE_MAX_LENGTH,file);
 
     /* On cherche si la clé est présent dans l'objet JSON */
     search = strstr(obj,key);
     if (!search) return 1; /* KEY_NOT_FOUND */
 
     /* On récupère la valeur */
-    char save_val[LINE_MAX_LENGTH];
+    char save_val[strlen(obj)];
     int i, j;
-    for (i = search - obj + strlen(key), j = 0; obj[i] != ',' && obj[i] != '}', i++, j++)
+    for (i = search - obj + strlen(key) + 2, j = 0; obj[i] != ',' && obj[i] != '}'; i++, j++)
     {
         save_val[j] = obj[i];
     }
@@ -201,7 +216,7 @@ int read_json_obj (FILE * file, char * key, void * value, char value_type)
         /* FLOAT */
         case 'f' : *(float *)value = atof(save_val); break;
         /* STRING */
-        case 's' : strcpy((char *)value,save_val); break;
+        case 's' : strncpy((char *)value,save_val+1,sizeof(char) * strlen(save_val) - 2); break;
         /* TYPE_ERROR */
         default : return 1;
     }
