@@ -1,18 +1,9 @@
 /**
 *   \file affichage.c
-*   \brief Fonction de génération procédural grace a Perlin Noise
-*   \author {Maxence.D Jasmin.G Tibane.G, Mathieu.V}
+*   \brief Fonction d'affichage de liste de block
+*   \author {Maxence.D}
 *   \version 0.1 
 *   \date 28 fevrier 2019 
-*
-*   \fn void init_map(int *map)
-*   \brief Initialise un tableau d'entier a 0 
-*
-*   \fn void gen_col(int **tab, int i)
-*   \brief A définir
-*
-*   \enum biome_t 
-*   \brief Enumération des types de biomes (Toudra,Taiga ect) 
 **/
 #include <SDL2/SDL.h>
 #include <block.h>
@@ -22,14 +13,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
+/**
+ * \fn int dansFenetre(SDL_Rect r)
+ * \brief 
+ * \param
+ * \return 
+**/
 int dansFenetre(SDL_Rect r) {
-  if (r.x < width_window && r.x >= 0 && r.y >= 0 && r.y < height_window) {
-    return 1;
-  } else {
-    return 0;
-  }
+  return (r.x < width_window && r.x >= 0 && r.y >= 0 && r.y < height_window);
+
 }
 
+/**
+ * \fn char *CouleurBlock(int id, block_type2_t blocks[]) 
+ * \brief 
+ * \param
+ * \return 
+**/
 char *CouleurBlock(int id, block_type2_t blocks[]) {
   int i;
   for (i = 0; i < NB_BLOCK; i++)
@@ -38,6 +39,12 @@ char *CouleurBlock(int id, block_type2_t blocks[]) {
   return NOIR;
 }
 
+/**
+ * \fn SDL_Texture *TextureBlock(int id, block_type_t blocks[])
+ * \brief 
+ * \param
+ * \return 
+**/
 SDL_Texture *TextureBlock(int id, block_type_t blocks[]) {
   int i;
   for (i = 0; i < NB_BLOCK; i++)
@@ -46,6 +53,12 @@ SDL_Texture *TextureBlock(int id, block_type_t blocks[]) {
   return NULL;
 }
 
+/**
+ * \fn int taille_mid_aff()
+ * \brief 
+ * \param
+ * \return 
+**/
 int taille_mid_aff() {
   int *tab;
   int i = 0;
@@ -65,6 +78,12 @@ int taille_mid_aff() {
   return -1;
 }
 
+/**
+ * \fn void aff_map_sdl(SDL_Renderer *renderer, block_type_t blocks[], int min)
+ * \brief 
+ * \param
+ * \return 
+**/
 void aff_map_sdl(SDL_Renderer *renderer, block_type_t blocks[], int min) {
   int i, j = 0;
   int *map; /*Tableau de recupèration de la liste*/
@@ -88,6 +107,12 @@ void aff_map_sdl(SDL_Renderer *renderer, block_type_t blocks[], int min) {
     }
 }
 
+/**
+ * \fn void aff_map(int min, int max, block_type2_t blocks[])
+ * \brief 
+ * \param
+ * \return 
+**/
 void aff_map(int min, int max, block_type2_t blocks[]) {
   system("clear");
   int i;
