@@ -65,16 +65,20 @@ t_erreur ajout_bouton_menu(t_menu * menu, int x, int y, int width, int height, c
 }
 
 /**
- * \fn t_erreur creer_menu(t_type_menu type, int width, int height, t_menu * menu)
+ * \fn t_erreur creer_menu(t_type_menu type, int width, int height, SDL_Texture * texture, t_menu ** menu)
  * \param type Type de menu que l'on veut avoir (Solo,...)
  * \param width Largeur de la fenêtre d'affichage
  * \param height Hauteur de la fenêtre d'affichage
  * \param menu Double pointeur sur le menu que l'on veut créer
  * \return Retourne un code erreur
 */
-t_erreur creer_menu(t_type_menu type, int width, int height, t_menu ** menu){
+t_erreur creer_menu(t_type_menu type, int width, int height, SDL_Texture * texture, t_menu ** menu){
     int w, h; //Taille d'une colonne et d'une ligne
 
+    if(width < 0 || height < 0){
+        return VALUE_ERROR;
+    }
+    
     /* Création d'un menu */
     *menu = malloc(sizeof(t_menu));
     (*menu)->nb_bouton = 0;
@@ -84,18 +88,18 @@ t_erreur creer_menu(t_type_menu type, int width, int height, t_menu ** menu){
         
         w = width / 3;
         h = height / 15;
-        ajout_bouton_menu(*menu, w, 5 * h, w, 2 * h, "Solo", NULL);
-        ajout_bouton_menu(*menu, w, 7 * h, w, 2 * h, "Multijoueur", NULL);
-        ajout_bouton_menu(*menu, w, 9 * h, w, 2 * h, "Option", NULL);
-        ajout_bouton_menu(*menu, w, 11 * h, w, 2 * h, "Quitter", NULL);
+        ajout_bouton_menu(*menu, w, 5 * h, w, 2 * h, "Solo", texture);
+        ajout_bouton_menu(*menu, w, 7 * h, w, 2 * h, "Multijoueur", texture);
+        ajout_bouton_menu(*menu, w, 9 * h, w, 2 * h, "Option", texture);
+        ajout_bouton_menu(*menu, w, 11 * h, w, 2 * h, "Quitter", texture);
     }else if(type == SOLO){
         (*menu)->tab_bouton = malloc(sizeof(t_bouton_menu));
 
         w = width / 3;
         h = height / 15;
-        ajout_bouton_menu(*menu, w, 6 * h, w, 2 * h, "Nouvelle partie", NULL);
-        ajout_bouton_menu(*menu, w, 8 * h, w, 2 * h, "charger une partie", NULL);
-        ajout_bouton_menu(*menu, w, 10 * h, w, 2 * h, "Retour", NULL);
+        ajout_bouton_menu(*menu, w, 6 * h, w, 2 * h, "Nouvelle partie", texture);
+        ajout_bouton_menu(*menu, w, 8 * h, w, 2 * h, "charger une partie", texture);
+        ajout_bouton_menu(*menu, w, 10 * h, w, 2 * h, "Retour", texture);
     }else if(type == NOUVEAU_MENU){
         (*menu)->tab_bouton = NULL;
     }else{
@@ -105,10 +109,32 @@ t_erreur creer_menu(t_type_menu type, int width, int height, t_menu ** menu){
     return OK;
 }
 
-t_erreur afficher_menu_test(t_menu * menu){
+/**
+ * \fn t_erreur SDL_afficher_menu(t_menu * menu, SDL_Renderer * renderer)
+ * \param
+*/
+t_erreur SDL_afficher_menu(t_menu * menu, SDL_Renderer * renderer){
+    /* Vérification */
+    if(menu == NULL){
+        return UNDEFINED_MENU;
+    }
+    if(renderer == NULL){
+        return PTR_NULL;
+    }
+    if(menu->tab_bouton == NULL){
+        return PTR_NULL;
+    }
+
+    /* Affichage */
     int i;
     for(i = 0; i < menu->nb_bouton; i++){
-        printf("x=%d, y=%d, w=%d, h=%d, titre=%s\n", menu->tab_bouton[i]->x, menu->tab_bouton[i]->y, menu->tab_bouton[i]->width, menu->tab_bouton[i]->height, menu->tab_bouton[i]->titre);
+        SDL_Rect r = {
+            menu->tab_bouton[i]->x,
+            menu->tab_bouton[i]->y,
+            menu->tab_bouton[i]->width,
+            menu->tab_bouton[i]->height
+        };
+        SDL_RenderCopy(renderer, menu->tab_bouton[i]->texture, NULL, &r);
     }
     return OK;
 }
