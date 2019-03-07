@@ -32,8 +32,8 @@ ALL_INC = $(wildcard $(INC_DIR)/*.h)
 
  # Wildcard fonction qui récupère tous les fichiers
 
-SRC = $(filter-out $(SRC_DIR)/world_of_dungeons.c,$(ALL_SRC))
-INC = $(filter-out $(INC_DIR)/world_of_dungeons.h,$(ALL_INC))
+SRC = $(filter-out $(SRC_DIR)/world_of_dungeons.c $(SRC_DIR)/affichage.c,$(ALL_SRC))
+INC = $(filter-out $(INC_DIR)/world_of_dungeons.h $(INC_DIR)/affichage.h,$(ALL_INC))
 
 OBJ := $(subst .c,.o,$(SRC))
 OBJ := $(subst src,obj,$(OBJ))

@@ -16,32 +16,38 @@ int main()
     printf("----- Programme de Test des Listes -----\n");
 
     /* Valeurs */
-    int tab1[5] = {0,1,2,3,4};
-    int tab2[5] = {5,6,7,8,9};
+    int * tab1 = malloc(sizeof(int) * 5);
+    int * tab2 = malloc(sizeof(int) * 5);
+    int i;
+    for (i = 0; i < 5; tab1[i] = i, tab2[i] = i + 5, i++);
 
     /* Déclaration des listes */
     t_liste j1;
     t_liste j2;
 
     /* Création des listes */
-    printf("\t-> Création des Listes\n");
+    printf("\t--> Création des Listes\n");
     init_liste(&j1);
     init_liste(&j2);
+    printf("\t\t-- OK\n");
 
     /* Remplissage des listes avec des valeurs quelconques */
-    printf("\t-> Remplissage des Listes\n");
+    printf("\t--> Remplissage des Listes\n");
     remplir_liste(&j1,3,tab1);
-    remplir_liste(&j1,5,tab2);
+    remplir_liste(&j2,5,tab2);
+    printf("\t\t-- OK\n");
 
     /* Affichage des listes */
-    printf("\t-> Affichage des Listes\n");
+    printf("\t--> Affichage des Listes\n");
     afficher_liste(&j1);
     afficher_liste(&j2);
+    printf("\t\t-- OK\n");
 
     /* Destruction des listes */
-    printf("\t-> Destruction des Listes\n");
+    printf("\t--> Destruction des Listes\n");
     detruire_liste(&j1);
-    detruire_liste(&j1);
+    detruire_liste(&j2);
+    printf("\t\t-- OK\n");
 
     return EXIT_SUCCESS;
 }
