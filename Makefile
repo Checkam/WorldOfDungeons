@@ -6,7 +6,7 @@
 
 CC = gcc
 CFLAGS = -Wall -g
-PROG = world_
+PROG = world_of_dungeons
 MAKE=/usr/bin/make
 
 #----------------------------------------------------------------------------------
