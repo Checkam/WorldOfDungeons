@@ -190,3 +190,39 @@ t_erreur detruire_menu(t_menu ** menu){
     }
     return OK;
 }
+
+/**
+ * \fn t_erreur detruire_bouton_menu(t_bouton_menu ** btn)
+ * \param
+*/
+t_erreur detruire_bouton_menu(t_bouton_menu ** btn){
+    if(*btn != NULL){
+        if((*btn)->titre != NULL){
+            free((*btn)->titre);
+        }
+        (*btn)->titre = NULL;
+        free(*btn);
+        *btn = NULL;
+    }
+    return OK;
+}
+
+/**
+ * \fn t_erreur detruire_bouton_menu(t_menu ** menu)
+ * \param
+*/
+t_erreur detruire_menu(t_menu ** menu){
+    if(*menu != NULL){
+        if((*menu)->tab_bouton != NULL){
+            int i;
+            for(i = 0; i < (*menu)->nb_bouton; i++){
+                detruire_bouton_menu(&((*menu)->tab_bouton[i]));
+            }
+            free((*menu)->tab_bouton);
+            (*menu)->tab_bouton = NULL;
+        }
+        free(*menu);
+        *menu = NULL;
+    }
+    return OK;
+}
