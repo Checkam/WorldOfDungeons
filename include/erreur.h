@@ -1,3 +1,5 @@
+#ifndef __ERREUR_H__
+#define __ERREUR_H__
 /**
  * \file erreur.h
  * \author Jasmin GALBRUN
@@ -34,3 +36,5 @@ typedef enum e_erreur{
 }t_erreur;
 
 t_erreur aff_erreur(t_erreur code_erreur);
+
+#endif
