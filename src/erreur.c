@@ -27,8 +27,10 @@ t_erreur_s tab_err[NB_ERREUR] = {
     {VALUE_ERROR, "Erreur de valeur"},
     {ERROR_NOT_EXIST, "Cette erreur n existe pas"},
     {REMOVE_FILE_ERROR, "La Suppression du fichier a echoue"},
+    {PTR_NULL, "Le pointeur est NULL"}
     {PTR_VALUE_ERROR, "La valeur de Pointeur est Incorrect"},
     {TYPE_ERROR, "Le Type est Incorrect"},
+    {UNDEFINED_MENU, "Le pointeur sur le menu est NULL"}
     {KEY_NOT_FOUND, "La Cle n'a pas ete trouve"},
     {OK, "Tout c est bien passer"}  //Toujours laisser OK en dernier
 };

@@ -11,7 +11,7 @@
  * \brief Contient le nombre d'erreur.
  * \brief A modifier à chaque rajout d'une erreur.
 */
-#define NB_ERREUR 10
+#define NB_ERREUR 12
 
 /**
  * \enum t_erreur
@@ -25,8 +25,10 @@ typedef enum e_erreur{
     VALUE_ERROR,
     ERROR_NOT_EXIST,
     REMOVE_FILE_ERROR,
+    PTR_NULL,
     PTR_VALUE_ERROR,
     TYPE_ERROR,
+    UNDEFINED_MENU,
     KEY_NOT_FOUND
 }t_erreur;
 
