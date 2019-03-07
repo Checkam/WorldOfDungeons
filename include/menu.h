@@ -48,6 +48,11 @@ typedef struct s_menu{
 t_erreur ajout_bouton_menu(t_menu * menu, int x, int y, int width, int height, char * titre, SDL_Texture * texture);
 t_erreur creer_menu(t_type_menu type, int width, int height, t_menu ** menu);
 
+/* Primitive d'affichage d'un menu */
 t_erreur afficher_menu_test(t_menu * menu);
+
+/* Primitive de destruction d'un menu */
+t_erreur detruire_bouton_menu(t_bouton_menu ** btn);
+t_erreur detruire_menu(t_menu ** menu);
 
 #endif
