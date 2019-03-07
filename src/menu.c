@@ -186,7 +186,13 @@ t_erreur afficher_menu_test(t_menu * menu){
 t_erreur afficher_menu_test(t_menu * menu){
     int i;
     for(i = 0; i < menu->nb_bouton; i++){
-        printf("x=%d, y=%d, w=%d, h=%d, titre=%s\n", menu->tab_bouton[i]->x, menu->tab_bouton[i]->y, menu->tab_bouton[i]->width, menu->tab_bouton[i]->height, menu->tab_bouton[i]->titre);
+        SDL_Rect r = {
+            menu->tab_bouton[i]->x,
+            menu->tab_bouton[i]->y,
+            menu->tab_bouton[i]->width,
+            menu->tab_bouton[i]->height
+        };
+        SDL_RenderCopy(renderer, menu->tab_bouton[i]->texture, NULL, &r);
     }
     return OK;
 }
