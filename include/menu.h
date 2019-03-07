@@ -21,7 +21,8 @@ typedef enum e_type_menu {
     SOLO,
     MULTIJOUEUR,
     OPTION,
-    PAUSE
+    PAUSE,
+    NOUVEAU_MENU
 } t_type_menu;
 
 /**
@@ -29,7 +30,7 @@ typedef enum e_type_menu {
  * \brief Contient les informations d'un bouton
 */
 typedef struct s_bouton_menu{
-    uint16_t x, y, width, height;
+    int x, y, width, height;
     char * titre;
     SDL_Texture * texture;
 } t_bouton_menu;
@@ -39,12 +40,14 @@ typedef struct s_bouton_menu{
  * \brief Contient l'ensemble des boutons appartenant au menu
 */
 typedef struct s_menu{
-    t_bouton_menu * tab_bouton;
-    uint8_t nb_bouton;
+    t_bouton_menu *(*tab_bouton);
+    int nb_bouton;
 }t_menu;
 
 /* Primitive de création d'un menu */
-t_erreur ajout_bouton_menu(t_menu * menu, uint16_t x, uint16_t y, uint16_t width, uint16_t height, char * titre, SDL_Texture * texture);
-t_erreur creer_menu(t_type_menu type, uint16_t width, uint16_t height, t_menu * menu);
+t_erreur ajout_bouton_menu(t_menu * menu, int x, int y, int width, int height, char * titre, SDL_Texture * texture);
+t_erreur creer_menu(t_type_menu type, int width, int height, t_menu ** menu);
+
+t_erreur afficher_menu_test(t_menu * menu);
 
 #endif
