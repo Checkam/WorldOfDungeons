@@ -6,7 +6,7 @@
 
 CC = gcc
 CFLAGS = -Wall -g
-PROG = gen_map
+PROG = world_
 MAKE=/usr/bin/make
 
 #----------------------------------------------------------------------------------
@@ -47,10 +47,10 @@ all: $(DIRS) $(BIN_DIR)/$(PROG)
 	@echo -e '\033[42m Makefile du programme principal: $(PROG) \033[0m'
 
 $(BIN_DIR)/$(PROG): $(OBJ)
-	$(CC) $(CFLAGS) $^ -o $@  $(LIBS) $(INCLUDES) -I./$(INC_DIR)
+	$(CC) $^ -o $@  $(LIBS) $(INCLUDES) -I./$(INC_DIR) $(CFLAGS) 
 
 $(OBJ) : $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c $(INC_DIR)/%.h
-	$(CC) -o $@ -c $< $(CFLAGS) $(LIBS) $(INCLUDES) -I./$(INC_DIR)
+	$(CC) -o $@ -c $< $(LIBS) $(INCLUDES) -I./$(INC_DIR) $(CFLAGS)
 
 #PHONY oblige l'execution même si les dependences n'ont pas change (Obligatoire pour test sinon il ne s execute pas forcement)
 
