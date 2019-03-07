@@ -59,13 +59,13 @@ SDL_Texture *TextureBlock(int id, block_type_t blocks[]) {
  * \param
  * \return 
 **/
-int taille_mid_aff() {
+int taille_mid_aff(t_liste *list) {
   int *tab;
   int i = 0;
   int taille = MAX - 1;
-  if (taille_liste() > SIZE) { /* INCOMPREHENSIBLE */
-    for (en_tete(); !hors_liste(); suivant(), i++) {
-      valeur_elt(&tab);
+  if (taille_liste(list) > SIZE) { /* INCOMPREHENSIBLE */
+    for (en_tete(list); !hors_liste(list); suivant(list), i++) {
+      valeur_elt(list,&tab);
       if (i == (SIZE / 2)) {
         while (tab[taille] != HERBE && tab[taille] != NEIGE &&
                tab[taille] != EAU) {
@@ -84,13 +84,13 @@ int taille_mid_aff() {
  * \param
  * \return 
 **/
-void aff_map_sdl(SDL_Renderer *renderer, block_type_t blocks[], int min) {
+void aff_map_sdl(t_liste *list ,SDL_Renderer *renderer, block_type_t blocks[], int min) {
   int i, j = 0;
   int *map; /*Tableau de recupèration de la liste*/
   SDL_Rect r = {0, 0, 0, 0};
   if (min)
-    for (j = 0, en_tete(); !hors_liste(); suivant()) {
-      valeur_elt(&map);
+    for (j = 0, en_tete(list); !hors_liste(list); suivant(list)) {
+      valeur_elt(list,&map);
       for (i = MAX_SCREEN; i > 0; i--) {
         r.x = (j * (width_window / SIZE));
         r.y = (height_window - (i * (height_window / MAX_SCREEN)));
@@ -99,9 +99,6 @@ void aff_map_sdl(SDL_Renderer *renderer, block_type_t blocks[], int min) {
         if (dansFenetre(r))
           SDL_RenderCopy(renderer, TextureBlock(*(map + i + min), blocks), NULL,
                          &r);
-
-        // printf("x:%d y:%d\n",r.x,r.y);
-        // printf("%d\n",i);
       }
       j++;
     }
@@ -113,13 +110,13 @@ void aff_map_sdl(SDL_Renderer *renderer, block_type_t blocks[], int min) {
  * \param
  * \return 
 **/
-void aff_map(int min, int max, block_type2_t blocks[]) {
+void aff_map(t_liste *list ,int min, int max, block_type2_t blocks[]) {
   system("clear");
   int i;
   int *map; // Tableau de recupèration de la liste
   for (i = MAX_SCREEN - 1; i >= 0; i--) {
-    for (en_tete(); !hors_liste(); suivant()) {
-      valeur_elt(&map);
+    for (en_tete(list); !hors_liste(list); suivant(list)) {
+      valeur_elt(list,&map);
       printf("%s %s", CouleurBlock(*(map + i), blocks), NOIR);
     }
     printf("\n");
