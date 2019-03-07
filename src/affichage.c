@@ -1,3 +1,19 @@
+/**
+*   \file affichage.c
+*   \brief Fonction de génération procédural grace a Perlin Noise
+*   \author {Maxence.D Jasmin.G Tibane.G, Mathieu.V}
+*   \version 0.1 
+*   \date 28 fevrier 2019 
+*
+*   \fn void init_map(int *map)
+*   \brief Initialise un tableau d'entier a 0 
+*
+*   \fn void gen_col(int **tab, int i)
+*   \brief A définir
+*
+*   \enum biome_t 
+*   \brief Enumération des types de biomes (Toudra,Taiga ect) 
+**/
 #include <SDL2/SDL.h>
 #include <block.h>
 #include <commun.h>
