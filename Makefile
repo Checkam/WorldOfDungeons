@@ -61,12 +61,12 @@ $(OBJ) : $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c $(INC_DIR)/%.h
 #------------------------------------------------------------------------------------
 
 
-	clean:
-		rm $(OBJ_DIR)/*.o
-		rm $(BIN_DIR)/*
+clean:
+	rm $(OBJ_DIR)/*.o
+	rm $(BIN_DIR)/*
 
-	mrproper: clean
-		rm -i $(BIN_DIR)/$(PROG)
+mrproper: clean
+	rm -i $(BIN_DIR)/$(PROG)
 
 #-----------------------------------------------------------------------------------
 # Autre regle
