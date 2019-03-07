@@ -31,6 +31,7 @@ t_erreur_s tab_err[NB_ERREUR] = {
     {PTR_VALUE_ERROR, "La valeur de Pointeur est Incorrect"},
     {TYPE_ERROR, "Le Type est Incorrect"},
     {UNDEFINED_MENU, "Le pointeur sur le menu est NULL"},
+    {INCORRECT_MENU_TYPE, "Type de menu incorrect"},
     {KEY_NOT_FOUND, "La Cle n'a pas ete trouve"},
     {OK, "Tout c est bien passer"}  //Toujours laisser OK en dernier
 };
