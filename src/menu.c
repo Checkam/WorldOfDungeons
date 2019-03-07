@@ -3,11 +3,7 @@
  * \brief Gestion du menu (solo, multijoueur, ...)
  * \author Jasmin GALBRUN
  * \version 1
-<<<<<<< HEAD
  * \date 07/03/2019
-=======
- * \date 05/03/2019
->>>>>>> 00dabba... Ajout Module menu.
 */
 
 #include <stdio.h>
