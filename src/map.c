@@ -45,16 +45,23 @@ t_erreur MAP_creer(t_map ** map, char * nom_map, int SEED) {
     return OK;
 }
 
+
+/**
+    \fn t_erreur MAP_charger(t_map ** map, char * nom_map)
+    \brief Charge la map a partir des fichier
+    \param map Pointeur sur la map qui doit etre sauvegarder
+    \return Renvoie un code erreur en cas de problème sinon OK
+**/
 t_erreur MAP_charger(t_map ** map, char * nom_map){
     (*map)  = malloc(sizeof(t_map));
+    (*map)->nom = malloc(sizeof(char) * strlen(nom_map) + 1);
+    strcpy((*map)->nom,nom_map);
+
     char * path_dir = MAP_creer_path(*map);
     char * curr_dir;
     getcwd(curr_dir,500);
     if(chdir(path_dir)) return FILE_ERROR; //DIR_NO_FOUND
     chdir(curr_dir);
-
-    (*map)->nom = malloc(sizeof(char) * strlen(nom_map) + 1);
-    strcpy((*map)->nom,nom_map);
 
     //Charger le seed avec fct json
 
@@ -62,6 +69,12 @@ t_erreur MAP_charger(t_map ** map, char * nom_map){
     return OK;
 }
 
+/**
+    \fn t_erreur MAP_sauvegarder(t_map * map)
+    \brief Sauvegarde la map dans l'état actuel 
+    \param map Pointeur sur la map qui doit etre sauvegarder
+    \return Renvoie un code erreur en cas de problème sinon OK
+**/
 t_erreur MAP_lister(){
     
     return OK;
