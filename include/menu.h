@@ -5,9 +5,12 @@
  * \version 1
  * \date 07/03/2019
 */
+#ifndef __MENU_H__
+#define __MENU_H__
 
 #include <ctype.h>
 #include <SDL2/SDL.h>
+#include <erreur.h>
 
 /**
  * \enum t_type_menu
@@ -37,9 +40,11 @@ typedef struct s_bouton_menu{
 */
 typedef struct s_menu{
     t_bouton_menu * tab_bouton;
-    Uint8_t nb_bouton;
+    uint8_t nb_bouton;
 }t_menu;
 
 /* Primitive de création d'un menu */
 t_erreur ajout_bouton_menu(t_menu * menu, uint16_t x, uint16_t y, uint16_t width, uint16_t height, char * titre, SDL_Texture * texture);
 t_erreur creer_menu(t_type_menu type, uint16_t width, uint16_t height, t_menu * menu);
+
+#endif
