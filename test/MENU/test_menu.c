@@ -77,6 +77,7 @@ int main()
     printf("Test destruction Menu 2:\n");
     assert(detruire_menu(&menu) == OK);
     printf("\t-- OK\n");
+    SDL_RenderPresent(renderer);
 
     /* Test destruction menu 2 */
     printf("Test destruction Menu 2:\n");
