@@ -8,6 +8,7 @@
 
 #include <stdlib.h>
 #include <liste.h>
+#include <erreur.h>
 
 /**
  * \fn void init_liste(t_liste * p)
@@ -84,81 +85,104 @@ void precedent(t_liste * p){
 }
 
 /**
- * \fn void valeur_elt(t_liste * p, int** v)
+ * \fn t_erreur valeur_elt(t_liste * p, void ** v, int size_v)
  * \brief Récupère la valeur de l'élèment courant.
  * \param p La liste où se trouve l'élèment courant.
  * \param v L'endroit ou sauvegarder la valeur de l'élèment courant.
+ * \param size_v La taille de l'élèment à récupérer.
+ * \return Une erreur s'il y en a une.
 */
-void valeur_elt(t_liste * p, int** v){
-    if(!hors_liste(p))
-        *v = p->ec->tab;
+t_erreur valeur_elt(t_liste * p, void ** v, int size_v){
+    if(!v) return PTR_NULL;
+    if(!hors_liste(p)){
+        t_element * tamp = p->ec;
+        copie_cb(*(char **)v, (char *)(tamp->elem), size_v);
+    }
+    else return PTR_VALUE_ERROR;
+    return OK;
 }
 
 /**
- * \fn void modif_elt(t_liste * p, int * v)
+ * \fn t_erreur modif_elt(t_liste * p, void * v, int size_v)
  * \brief Modifie la valeur de l'élèment courant.
  * \param p La liste où se trouve l'élèment courant.
  * \param v La nouvelle valeur à enregistrer.
+ * \param size_v La taille de la valeur de remplacement.
+ * \return Une erreur s'il y en a une.
 */
-void modif_elt(t_liste * p, int * v){
-    if(!hors_liste(p))
-        p->ec->tab = v;
+t_erreur modif_elt(t_liste * p, void * v, int size_v){
+    if(!v) return PTR_NULL;
+    if(!hors_liste(p)){
+        t_element * tamp = p->ec;
+        copie_cb((char *)(tamp->elem), (char *)v, size_v);
+    }
+    else return PTR_VALUE_ERROR;
+    return OK;
 }
 
 /**
- * \fn void oter_elt(t_liste * p)
+ * \fn t_erreur oter_elt(t_liste * p)
  * \brief Supprime l'élèment courant.
  * \param p La liste où se trouve l'élèment courant.
+ * \return Une erreur s'il y en a une.
 */
-int * tab_pred = NULL;
-void oter_elt(t_liste * p){
+char * elem_pred = NULL;
+t_erreur oter_elt(t_liste * p){
     if(!hors_liste(p)){
-        if (p->ec->tab && p->ec->tab != tab_pred)
-            free(p->ec->tab);
-        tab_pred = p->ec->tab;
-        p->ec->succ->pred = p->ec->pred;
-        p->ec->pred->succ = p->ec->succ;
         t_element * tamp = p->ec;
-        p->ec = tamp->pred;
-        if (tamp)
-            free(tamp);
-    }
+        if ((char *)(tamp->elem) && (char *)(tamp->elem) != elem_pred)
+            free(tamp->elem);
+        elem_pred = (char *)(tamp->elem);
+        tamp->succ->pred = tamp->pred;
+        tamp->pred->succ = tamp->succ;
+        t_element * tamp2 = tamp;
+        tamp = tamp2->pred;
+        if (tamp2)
+            free(tamp2);
+    }else return PTR_VALUE_ERROR;
+    return OK;
 }
 
 /**
- * \fn void ajout_droit(t_liste * p, int * v)
+ * \fn t_erreur ajout_droit(t_liste * p, void * v, int size_v)
  * \brief Ajoute à droite de l'élèment courant la nouvelle valeur.
  * \param p La liste où se trouve l'élèment courant.
  * \param v La valeur à ajouter.
+ * \param size_v La taille de la valeur à ajouter.
+ * \return Une erreur s'il y en a une.
 */
-void ajout_droit(t_liste * p, int * v){
+t_erreur ajout_droit(t_liste * p, void * v, int size_v){
     if(liste_vide(p) || !hors_liste(p)){
         t_element * nouv = malloc(sizeof(t_element));
-        nouv->tab = v;
+        copie_cb((char *)(nouv->elem), (char *)v, size_v);
         nouv->pred = p->ec;
         nouv->succ = p->ec->succ;
         p->ec->succ->pred = nouv;
         p->ec->succ = nouv;
         p->ec = nouv;
-    }
+    }else return PTR_VALUE_ERROR;
+    return OK;
 }
 
 /**
- * \fn void ajout_gauche(t_liste * p, int * v)
+ * \fn t_erreur ajout_gauche(t_liste * p, void * v, int size_v)
  * \brief Ajoute à gauche de l'élèment courant la nouvelle valeur.
  * \param p La liste où se trouve l'élèment courant.
  * \param v La valeur à ajouter.
+ * \param size_v La taille de la valeur à ajouter.
+ * \return Une erreur s'il y en a une.
 */
-void ajout_gauche(t_liste * p, int * v){
+t_erreur ajout_gauche(t_liste * p, void * v, int size_v){
     if(liste_vide(p) || !hors_liste(p)){
         t_element * nouv = malloc(sizeof(t_element));
-        nouv->tab = v;
+        copie_cb((char *)(nouv->elem), (char *)v, size_v);
         nouv->succ = p->ec;
         nouv->pred = p->ec->pred;
         p->ec->pred->succ = nouv;
         p->ec->pred = nouv;
         p->ec = nouv;
-    }
+    }else return PTR_VALUE_ERROR;
+    return OK;
 }
 
 /**
@@ -184,5 +208,33 @@ void detruire_liste(t_liste * p){
     for(en_tete(p); !liste_vide(p); oter_elt(p), en_queue(p));
     if (p->drapeau)
         free(p->drapeau);
-    tab_pred = NULL;
+    elem_pred = NULL;
+}
+
+/**
+ * \fn char * copie( char * cible , char * source , int n)
+ * \brief Copie n octet de la source dans la cible.
+ * \param cible L'endroit où copier.
+ * \param source La source de la copie.
+ * \param n Le nombre d'octet à copier.
+ * \return L'adresse de la source.
+*/
+char * copie( char * cible , char * source , int n) 
+{
+  char * d = source ;
+  while( n-- ) *cible++ = *source++ ;
+  return d ;
+}
+
+/**
+ * \fn char * copie_cb( char * cible , char * source , int n)
+ * \brief Fonction de callback de la fonction copie.
+ * \param cible L'endroit où copier.
+ * \param source La source de la copie.
+ * \param n Le nombre d'octet à copier.
+ * \return L'adresse de la source.
+*/
+char * copie_cb (void * cible, void * source, int n)
+{
+  return (copie(cible,source,n));
 }

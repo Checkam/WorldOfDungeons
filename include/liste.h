@@ -8,12 +8,14 @@
  * \version 0.2
 */
 
+#include <erreur.h>
+
 /**
  * \struct t_element
  * \brief Element d'une liste.
 */
 typedef struct element{
-    int * tab;
+    void * elem;
     struct element * pred;
     struct element * succ;
 } t_element;
@@ -34,12 +36,15 @@ void en_tete(t_liste * p);
 void en_queue(t_liste * p);
 void precedent(t_liste * p);
 void suivant(t_liste * p);
-void valeur_elt(t_liste * p, int**);
-void modif_elt(t_liste * p, int*);
-void oter_elt(t_liste * p);
-void ajout_droit(t_liste * p, int*);
-void ajout_gauche(t_liste * p, int*);
+t_erreur valeur_elt(t_liste * p, void ** v, int size_v);
+t_erreur modif_elt(t_liste * p, void * v, int size_v);
+t_erreur oter_elt(t_liste * p);
+t_erreur ajout_droit(t_liste * p, void * v, int size_v);
+t_erreur ajout_gauche(t_liste * p, void * v, int size_v);
 int taille_liste(t_liste * p);
 void detruire_liste(t_liste * p);
+
+char  * copie( char * cible , char * source , int n);
+char * copie_cb (void * cible, void * source, int n);
 
 #endif
