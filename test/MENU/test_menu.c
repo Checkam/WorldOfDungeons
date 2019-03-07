@@ -13,6 +13,7 @@
 
 int main()
 {
+
     t_menu * menu = NULL;
     int width_window = 600;
     int height_window = 600;
