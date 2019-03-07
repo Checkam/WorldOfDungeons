@@ -13,7 +13,6 @@
 
 int main()
 {
-<<<<<<< HEAD
     t_menu * menu = NULL;
 
     /* Test création menu 1 */
@@ -25,10 +24,10 @@ int main()
     assert(afficher_menu_test(menu) == OK);
     printf("\t-- OK\n");
 
-    // /* Test destruction menu 1 */
-    // printf("Test destruction Menu 1:\n");
-    // assert();
-    // printf("\t-- OK\n");
+    /* Test destruction menu 1 */
+    printf("Test destruction Menu 1:\n");
+    assert(detruire_menu(&menu) == OK);
+    printf("\t-- OK\n");
 
     /* Test création menu 2 */
     printf("Test Creation Menu 2:\n");
@@ -38,6 +37,11 @@ int main()
     /* Test affichage menu 2 */
     printf("Test affichage Menu 2:\n");
     assert(afficher_menu_test(menu) == OK);
+    printf("\t-- OK\n");
+
+    /* Test destruction menu 2 */
+    printf("Test destruction Menu 2:\n");
+    assert(detruire_menu(&menu) == OK);
     printf("\t-- OK\n");
 
     /* Test création menu 3 */
@@ -51,11 +55,13 @@ int main()
     assert(ajout_bouton_menu(menu, 50, 60, 50, 10, "Bouton 2", NULL) == OK);
     printf("\t\t-- OK\n");
     
-
     /* Test affichage menu 3 */
     printf("Test affichage Menu 3:\n");
     assert(afficher_menu_test(menu) == OK);
+    printf("\t-- OK\n");
 
-    t_menu * menu;
-
-    /* Test création menu 1 */
+    /* Test destruction menu 3 */
+    printf("Test destruction Menu 3:\n");
+    assert(detruire_menu(&menu) == OK);
+    printf("\t-- OK\n");
+}
