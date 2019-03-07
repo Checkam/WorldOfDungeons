@@ -13,7 +13,6 @@
 
 int main()
 {
-
     t_menu * menu = NULL;
     int width_window = 600;
     int height_window = 600;
@@ -66,6 +65,11 @@ int main()
     assert(SDL_afficher_menu(menu, renderer) == OK);
     printf("\t-- OK\n");
     SDL_RenderPresent(renderer);
+
+    /* Test destruction menu 2 */
+    printf("Test destruction Menu 2:\n");
+    assert(detruire_menu(&menu) == OK);
+    printf("\t-- OK\n");
 
     /* Test destruction menu 2 */
     printf("Test destruction Menu 2:\n");
