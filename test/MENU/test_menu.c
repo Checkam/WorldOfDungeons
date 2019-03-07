@@ -13,10 +13,10 @@
 
 int main()
 {
+<<<<<<< HEAD
     t_menu * menu = NULL;
 
     /* Test création menu 1 */
-    printf("Test Creation Menu 1:\n");
     assert(creer_menu(PRINCIPAL, 100, 100, &menu) == OK);
     printf("\t-- OK\n");
 
@@ -55,7 +55,7 @@ int main()
     /* Test affichage menu 3 */
     printf("Test affichage Menu 3:\n");
     assert(afficher_menu_test(menu) == OK);
-    printf("\t-- OK\n");
 
-    return EXIT_SUCCESS;
-}
+    t_menu * menu;
+
+    /* Test création menu 1 */
