@@ -8,11 +8,8 @@
  * \version 0.2
 */
 
-<<<<<<< HEAD
 #include <erreur.h>
 
-=======
->>>>>>> 9ea0828... Modification module liste :
 /**
  * \struct t_element
  * \brief Element d'une liste.
