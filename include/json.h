@@ -23,7 +23,7 @@ int open_json_obj (FILE * file);
 int close_json_obj (FILE * file);
 
 /* Primitives de lecture */
-int extract_json_obj (FILE * file, char * obj);
+int extract_json_obj (FILE * file, char ** obj);
 int read_json_obj (char * obj, char * key, void * value, char value_type);
 
 /* Primitives Autres */
