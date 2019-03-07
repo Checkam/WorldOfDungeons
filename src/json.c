@@ -94,7 +94,7 @@ int write_json (FILE * file, char * key, void * value, char value_type)
 {
     /* FILE_ERROR */
     if (!file) return 1;
-    /* VALUE_ERROR */
+    /* PTR_VALUE_ERROR */
     if (!key || !value) return 2;
 
     if(crt_car != '{') fprintf(file,",");
@@ -190,7 +190,7 @@ int extract_json_obj (FILE * file, char ** obj)
 */
 int read_json_obj (char * obj, char * key, void * value, char value_type)
 {
-    /* VALUE_ERROR */
+    /* PTR_VALUE_ERROR */
     if (!key || !obj) return 1;
 
     char * search;

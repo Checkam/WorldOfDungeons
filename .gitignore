@@ -2,3 +2,4 @@
 *.gch
 bin/*
 obj/*
+*.DS_Store
