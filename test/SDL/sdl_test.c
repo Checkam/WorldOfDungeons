@@ -16,7 +16,6 @@
 #include <liste.h>
 #include <math.h>
 #include <sauvegarde_map.h>
-#include <seed.h>
 #include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
