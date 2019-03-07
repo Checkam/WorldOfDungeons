@@ -11,7 +11,6 @@
 #define RELEASED 0
 
 #define QUITTER 0
-
 #define AVANCER 1
 #define RECULER 2
 #define GAUCHE 3

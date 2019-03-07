@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*#include <ncurses.h>*/
 #include <stdlib.h>
 
@@ -6,6 +7,18 @@
 #include <SDL2/SDL.h>
 
 /*int TERM_touches () {
+=======
+#include <stdio.h>
+#include <curses.h>
+#include <stdlib.h>
+#include <ctype.h>
+
+#include <touches.h>
+
+#include <SDL2/SDL.h>
+
+int TERM_touches () {
+>>>>>>> 51031d4... premiere version du module touche
 
 	int t[100];
 
@@ -42,6 +55,7 @@
 	endwin();
 
 	return 0;
+<<<<<<< HEAD
 }*/
 
 int SDL_init_touches( uint8_t **keyboardState, configTouches_t **configuration ) {
@@ -278,6 +292,76 @@ int SDL_exit_touches ( uint8_t **keyboardState, configTouches_t **configuration 
 	}*/
 
 	free(*configuration);
+=======
+}
+
+int SDL_touches( Uint8 *keybaordState, configTouches_t *configuration ) {
+
+	SDL_Event event;
+
+	Uint16 i = 0;
+
+	while ( SDL_PollEvent(&event) ) {
+
+		if ( event.type = SDL_QUIT )
+			(keyboardState + QUITTER ) = PRESSED;
+		else {
+
+			if ( event.key.type == SDL_KEYUP ) {
+				
+				while ( event.key.keysym.sym != (configuration + i)->keycode )
+					i++;
+
+				(keyboardState + i) = RELEASED;
+			}
+		}
+	}
+}
+
+int SDL_init_touches( Uint8 *keyboardState, configTouches_t *configuration ) {
+
+	Uint16 i;
+
+	keyboardState = malloc( sizeof( Uint16 ) * NB_TOUCHES );
+
+	for ( i = 0 ; i < NB_TOUCHES ; i++ ) {
+
+		* ( keybordState + i ) = RELEASED;
+	}
+
+	/* pour l'instant a l'arrache, ce sera prope avec les fichiers json de tib*/
+	(( configuration + QUITTER )->descriptif) = malloc( sizeof(char) * LONGUEUR_MAX_DESCRIPTIF );
+	*(( configuration + QUITTER )->descriptif) = "quiter";
+	( configuration + QUITTER )->keyCode = NULL_TOUCHE;
+
+	(( configuration + AVANCER )->descriptif) = malloc( sizeof(char) * LONGUEUR_MAX_DESCRIPTIF );
+	*(( configuration + AVANCER )->descriptif) = "avancer";
+	( configuration + AVANCER )->keyCode = SDLK_z;
+
+	(( configuration + RECULER )->descriptif) = malloc( sizeof(char) * LONGUEUR_MAX_DESCRIPTIF );
+	*(( configuration + RECULER )->descriptif) = "reculer";
+	( configuration + RECULER )->keyCode = SDLK_s;
+
+	(( configuration + GAUCHE )->descriptif) = malloc( sizeof(char) * LONGUEUR_MAX_DESCRIPTIF );
+	*(( configuration + GAUCHE )->descriptif) = "gauche";
+	( configuration + GAUCHE )->keyCode = SDLK_q;
+
+	(( configuration + DROITE )->descriptif) = malloc( sizeof(char) * LONGUEUR_MAX_DESCRIPTIF );
+	*(( configuration + DROITE )->descriptif) = "droite";
+	( configuration + DROITE )->keyCode = SDLK_d;
+}
+
+
+int SDL_exit_touches ( Uint8 *keyboardState, configTouches_t *configuration ) {
+/* fermeture propre du module touches pour SDL */
+
+	Uint16 i;
+
+	free( keyboardState );
+
+	for ( i = 0 ; i < NB_TOUCHES ; i++ )
+		free( (configuration + i)->descriptif);
+>>>>>>> 51031d4... premiere version du module touche
 
 	return 0;
 }
