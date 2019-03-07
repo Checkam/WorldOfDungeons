@@ -17,6 +17,8 @@ int main()
 
     /* Valeurs */
     int a = 1;
+    int b = 2;
+    int c = 3;
 
     /* Déclaration des listes */
     t_liste j1;
@@ -29,9 +31,9 @@ int main()
     /* Remplissage des listes avec des valeurs quelconques */
     printf("\t--> Remplissage de la Liste Générique\n");
     en_tete(&j1);
-    ajout_droit(&j1,&a,sizeof(int *));a++;
-    ajout_droit(&j1,&a,sizeof(int *));a++;
-    ajout_droit(&j1,&a,sizeof(int *));a++;
+    ajout_droit(&j1,&a);
+    ajout_droit(&j1,&b);
+    ajout_droit(&j1,&c);
     printf("\t\t-- OK\n");
 
     /* Affichage des listes */
@@ -52,8 +54,8 @@ void afficher_liste(t_liste * p)
     for(en_tete(p);!hors_liste(p);suivant(p))
     {
         int * val;
-        valeur_elt(p,&val,sizeof(int *));
-        printf("%d ");
+        valeur_elt(p,(void **)&val,sizeof(int *));
+        printf("%d ", *val);
     }
     printf("\n");
 }

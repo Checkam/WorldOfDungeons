@@ -95,26 +95,23 @@ void precedent(t_liste * p){
 t_erreur valeur_elt(t_liste * p, void ** v, int size_v){
     if(!v) return PTR_NULL;
     if(!hors_liste(p)){
-        t_element * tamp = p->ec;
-        copie_cb(*(char **)v, (char *)(tamp->elem), size_v);
+        copie_cb(*v, p->ec->elem, size_v);
     }
     else return PTR_VALUE_ERROR;
     return OK;
 }
 
 /**
- * \fn t_erreur modif_elt(t_liste * p, void * v, int size_v)
+ * \fn t_erreur modif_elt(t_liste * p, void * v)
  * \brief Modifie la valeur de l'élèment courant.
  * \param p La liste où se trouve l'élèment courant.
  * \param v La nouvelle valeur à enregistrer.
- * \param size_v La taille de la valeur de remplacement.
  * \return Une erreur s'il y en a une.
 */
-t_erreur modif_elt(t_liste * p, void * v, int size_v){
+t_erreur modif_elt(t_liste * p, void * v){
     if(!v) return PTR_NULL;
     if(!hors_liste(p)){
-        t_element * tamp = p->ec;
-        copie_cb((char *)(tamp->elem), (char *)v, size_v);
+        p->ec->elem = v;
     }
     else return PTR_VALUE_ERROR;
     return OK;
@@ -126,35 +123,33 @@ t_erreur modif_elt(t_liste * p, void * v, int size_v){
  * \param p La liste où se trouve l'élèment courant.
  * \return Une erreur s'il y en a une.
 */
-char * elem_pred = NULL;
+void * elem_pred = NULL;
 t_erreur oter_elt(t_liste * p){
     if(!hors_liste(p)){
+        if (p->ec->elem && p->ec->elem != elem_pred)
+            free(p->ec->elem);
+        elem_pred = p->ec->elem;
+        p->ec->succ->pred = p->ec->pred;
+        p->ec->pred->succ = p->ec->succ;
         t_element * tamp = p->ec;
-        if ((char *)(tamp->elem) && (char *)(tamp->elem) != elem_pred)
-            free(tamp->elem);
-        elem_pred = (char *)(tamp->elem);
-        tamp->succ->pred = tamp->pred;
-        tamp->pred->succ = tamp->succ;
-        t_element * tamp2 = tamp;
-        tamp = tamp2->pred;
-        if (tamp2)
-            free(tamp2);
+        p->ec = tamp->pred;
+        if (tamp)
+            free(tamp);
     }else return PTR_VALUE_ERROR;
     return OK;
 }
 
 /**
- * \fn t_erreur ajout_droit(t_liste * p, void * v, int size_v)
+ * \fn t_erreur ajout_droit(t_liste * p, void * v)
  * \brief Ajoute à droite de l'élèment courant la nouvelle valeur.
  * \param p La liste où se trouve l'élèment courant.
  * \param v La valeur à ajouter.
- * \param size_v La taille de la valeur à ajouter.
  * \return Une erreur s'il y en a une.
 */
-t_erreur ajout_droit(t_liste * p, void * v, int size_v){
+t_erreur ajout_droit(t_liste * p, void * v){
     if(liste_vide(p) || !hors_liste(p)){
         t_element * nouv = malloc(sizeof(t_element));
-        copie_cb((char *)(nouv->elem), (char *)v, size_v);
+        nouv->elem = v;
         nouv->pred = p->ec;
         nouv->succ = p->ec->succ;
         p->ec->succ->pred = nouv;
@@ -165,17 +160,16 @@ t_erreur ajout_droit(t_liste * p, void * v, int size_v){
 }
 
 /**
- * \fn t_erreur ajout_gauche(t_liste * p, void * v, int size_v)
+ * \fn t_erreur ajout_gauche(t_liste * p, void * v)
  * \brief Ajoute à gauche de l'élèment courant la nouvelle valeur.
  * \param p La liste où se trouve l'élèment courant.
  * \param v La valeur à ajouter.
- * \param size_v La taille de la valeur à ajouter.
  * \return Une erreur s'il y en a une.
 */
-t_erreur ajout_gauche(t_liste * p, void * v, int size_v){
+t_erreur ajout_gauche(t_liste * p, void * v){
     if(liste_vide(p) || !hors_liste(p)){
         t_element * nouv = malloc(sizeof(t_element));
-        copie_cb((char *)(nouv->elem), (char *)v, size_v);
+        nouv->elem = v;
         nouv->succ = p->ec;
         nouv->pred = p->ec->pred;
         p->ec->pred->succ = nouv;
@@ -221,9 +215,9 @@ void detruire_liste(t_liste * p){
 */
 char * copie( char * cible , char * source , int n) 
 {
-  char * d = source ;
-  while( n-- ) *cible++ = *source++ ;
-  return d ;
+    char * d = source ;
+    while( n-- ) *cible++ = *source++ ;
+    return d ;
 }
 
 /**
@@ -236,5 +230,5 @@ char * copie( char * cible , char * source , int n)
 */
 char * copie_cb (void * cible, void * source, int n)
 {
-  return (copie(cible,source,n));
+    return (copie(cible,source,n));
 }

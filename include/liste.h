@@ -37,10 +37,10 @@ void en_queue(t_liste * p);
 void precedent(t_liste * p);
 void suivant(t_liste * p);
 t_erreur valeur_elt(t_liste * p, void ** v, int size_v);
-t_erreur modif_elt(t_liste * p, void * v, int size_v);
+t_erreur modif_elt(t_liste * p, void * v);
 t_erreur oter_elt(t_liste * p);
-t_erreur ajout_droit(t_liste * p, void * v, int size_v);
-t_erreur ajout_gauche(t_liste * p, void * v, int size_v);
+t_erreur ajout_droit(t_liste * p, void * v);
+t_erreur ajout_gauche(t_liste * p, void * v);
 int taille_liste(t_liste * p);
 void detruire_liste(t_liste * p);
 
