@@ -226,3 +226,11 @@ t_erreur detruire_menu(t_menu ** menu){
     }
     return OK;
 }
+
+t_erreur afficher_menu_test(t_menu * menu){
+    int i;
+    for(i = 0; i < menu->nb_bouton; i++){
+        printf("x=%d, y=%d, w=%d, h=%d, titre=%s\n", menu->tab_bouton[i]->x, menu->tab_bouton[i]->y, menu->tab_bouton[i]->width, menu->tab_bouton[i]->height, menu->tab_bouton[i]->titre);
+    }
+    return OK;
+}
