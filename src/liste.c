@@ -1,102 +1,95 @@
 #include <stdlib.h>
+#include <liste.h>
 
-typedef struct element{
-    int * tab;
-    struct element * pred;
-    struct element * succ;
-} t_element;
-t_element * drapeau;
-t_element * ec;
-
-void init_liste(){
-    drapeau = malloc(sizeof(t_element));
-    drapeau->pred = drapeau;
-    drapeau->succ = drapeau;
-    ec = drapeau;
+void init_liste(t_liste * p){
+    p->drapeau = malloc(sizeof(t_element));
+    p->drapeau->pred = p->drapeau;
+    p->drapeau->succ = p->drapeau;
+    p->ec = p->drapeau;
 }
 
-int liste_vide(){
-    return (drapeau->succ == drapeau);
+int liste_vide(t_liste * p){
+    return (p->drapeau->succ == p->drapeau);
 }
 
-int hors_liste(){
-    return (ec == drapeau);
+int hors_liste(t_liste * p){
+    return (p->ec == p->drapeau);
 }
 
-void en_tete(){
-    if(!liste_vide())
-        ec = drapeau->succ;
+void en_tete(t_liste * p){
+    if(!liste_vide(p))
+        p->ec = p->drapeau->succ;
 }
 
-void en_queue(){
-    if(!liste_vide())
-        ec = drapeau->pred;
+void en_queue(t_liste * p){
+    if(!liste_vide(p))
+        p->ec = p->drapeau->pred;
 }
 
-void suivant(){
-    if(!hors_liste())
-        ec = ec->succ;
+void suivant(t_liste * p){
+    if(!hors_liste(p))
+        p->ec = p->ec->succ;
 }
 
-void precedent(){
-    if(!hors_liste())
-        ec = ec->pred;
+void precedent(t_liste * p){
+    if(!hors_liste(p))
+        p->ec = p->ec->pred;
 }
 
-void valeur_elt(int** v){
-    if(!hors_liste())
-        *v = ec->tab;
+void valeur_elt(t_liste * p, int** v){
+    if(!hors_liste(p))
+        *v = p->ec->tab;
 }
 
-void modif_elt(int * v){
-    if(!hors_liste())
-        ec->tab = v;
+void modif_elt(t_liste * p, int * v){
+    if(!hors_liste(p))
+        p->ec->tab = v;
 }
 
-void oter_elt(){
-    if(!hors_liste()){
-        free(ec->tab);
-        ec->succ->pred = ec->pred;
-        ec->pred->succ = ec->succ;
-        t_element * tamp = ec;
-        ec = tamp->pred;
+void oter_elt(t_liste * p){
+    if(!hors_liste(p)){
+        free(p->ec->tab);
+        p->ec->succ->pred = p->ec->pred;
+        p->ec->pred->succ = p->ec->succ;
+        t_element * tamp = p->ec;
+        p->ec = tamp->pred;
         free(tamp);
     }
 }
 
-void ajout_droit(int * v){
-    if(liste_vide() || !hors_liste()){
+void ajout_droit(t_liste * p, int * v){
+    if(liste_vide(p) || !hors_liste(p)){
         t_element * nouv = malloc(sizeof(t_element));
         nouv->tab = v;
-        nouv->pred = ec;
-        nouv->succ = ec->succ;
-        ec->succ->pred = nouv;
-        ec->succ = nouv;
-        ec = nouv;
+        nouv->pred = p->ec;
+        nouv->succ = p->ec->succ;
+        p->ec->succ->pred = nouv;
+        p->ec->succ = nouv;
+        p->ec = nouv;
     }
 }
 
-void ajout_gauche(int * v){
-    if(liste_vide() || !hors_liste()){
+void ajout_gauche(t_liste * p, int * v){
+    if(liste_vide(p) || !hors_liste(p)){
         t_element * nouv = malloc(sizeof(t_element));
         nouv->tab = v;
-        nouv->succ = ec;
-        nouv->pred = ec->pred;
-        ec->pred->succ = nouv;
-        ec->pred = nouv;
-        ec = nouv;
+        nouv->succ = p->ec;
+        nouv->pred = p->ec->pred;
+        p->ec->pred->succ = nouv;
+        p->ec->pred = nouv;
+        p->ec = nouv;
     }
 }
 
-int taille_liste(void){
+int taille_liste(t_liste * p){
     int nb = 0;
-    for(en_tete(); !hors_liste(); suivant()){
+    for(en_tete(p); !hors_liste(p); suivant(p)){
         nb++;
     }
     return nb;
 }
 
-void detruire_liste(void){
-    for(en_tete(); !liste_vide(); oter_elt(), en_queue());
-    free(drapeau);
+void detruire_liste(t_liste * p){
+    for(en_tete(p); !liste_vide(p); oter_elt(p), en_queue(p));
+    free(p->drapeau);
 }
