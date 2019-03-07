@@ -11,26 +11,30 @@
 #include <string.h>
 #include <ctype.h>
 #include <SDL2/SDL.h>
-#include <erreur.h>
 #include <menu.h>
 
-
 /**
- * \fn t_erreur ajout_bouton_menu(t_menu * menu, uint16_t x, uint16_t y, uint16_t width, uint16_t height, char * titre, SDL_Texture * texture)
- * \param 
+ * \fn t_erreur ajout_bouton_menu(t_menu * menu, int x, int y, int width, int height, char * titre, SDL_Texture * texture)
+ * \param menu Pointeur sur un t_menu
+ * \param x Position en x du bouton
+ * \param y Position en y du bouton
+ * \param width Largeur du bouton
+ * \param height Hauteur du bouton
+ * \return Retourne un code erreur
 */
-t_erreur ajout_bouton_menu(t_menu * menu, uint16_t x, uint16_t y, uint16_t width, uint16_t height, char * titre, SDL_Texture * texture){
+t_erreur ajout_bouton_menu(t_menu * menu, int x, int y, int width, int height, char * titre, SDL_Texture * texture){
     if(menu == NULL){
         return UNDEFINED_MENU;
     }
 
-    /* On ajoute un bouton au menu */
+    /* Allocation de la mémoire pour un bouton au menu */
     if(menu->tab_bouton == NULL){
         menu->tab_bouton = malloc(sizeof(t_bouton_menu));
     }else{
         menu->tab_bouton = realloc(menu->tab_bouton, (menu->nb_bouton + 1) * sizeof(t_bouton_menu));
     }
 
+    /* Création d'un bouton */
     t_bouton_menu * btn = malloc(sizeof(t_bouton_menu));
 
     if(titre != NULL){
@@ -49,6 +53,7 @@ t_erreur ajout_bouton_menu(t_menu * menu, uint16_t x, uint16_t y, uint16_t width
         btn->texture = texture;
     }
 
+    /* Ajout du bouton au menu */
     menu->tab_bouton[menu->nb_bouton] = btn;
     menu->nb_bouton++;
 
@@ -56,35 +61,50 @@ t_erreur ajout_bouton_menu(t_menu * menu, uint16_t x, uint16_t y, uint16_t width
 }
 
 /**
- * \fn t_erreur creer_menu(t_type_menu type, uint16_t width, uint16_t height, t_menu * menu)
- * \param 
+ * \fn t_erreur creer_menu(t_type_menu type, int width, int height, t_menu * menu)
+ * \param type Type de menu que l'on veut avoir (Solo,...)
+ * \param width Largeur de la fenêtre d'affichage
+ * \param height Hauteur de la fenêtre d'affichage
+ * \param menu Double pointeur sur le menu que l'on veut créer
+ * \return Retourne un code erreur
 */
-t_erreur creer_menu(t_type_menu type, uint16_t width, uint16_t height, t_menu * menu){
+t_erreur creer_menu(t_type_menu type, int width, int height, t_menu ** menu){
     int w, h; //Taille d'une colonne et d'une ligne
 
-    menu = malloc(sizeof(t_menu));
-    menu->nb_bouton = 1;
-
+    /* Création d'un menu */
+    *menu = malloc(sizeof(t_menu));
+    (*menu)->nb_bouton = 0;
+    
     if(type == PRINCIPAL){
-        menu->tab_bouton = malloc(sizeof(t_bouton_menu));
-
+        (*menu)->tab_bouton = malloc(sizeof(t_bouton_menu));
+        
         w = width / 3;
         h = height / 15;
-        ajout_bouton_menu(w, 5 * h, w, 2 * h, "Solo", NULL, menu);
-        ajout_bouton_menu(w, 7 * h, w, 2 * h, "Multijoueur", NULL, menu);
-        ajout_bouton_menu(w, 9 * h, w, 2 * h, "Option", NULL, menu);
-        ajout_bouton_menu(w, 11 * h, w, 2 * h, "Quitter", NULL, menu);
+        ajout_bouton_menu(*menu, w, 5 * h, w, 2 * h, "Solo", NULL);
+        ajout_bouton_menu(*menu, w, 7 * h, w, 2 * h, "Multijoueur", NULL);
+        ajout_bouton_menu(*menu, w, 9 * h, w, 2 * h, "Option", NULL);
+        ajout_bouton_menu(*menu, w, 11 * h, w, 2 * h, "Quitter", NULL);
     }else if(type == SOLO){
-        menu->tab_bouton = malloc(sizeof(t_bouton_menu));
+        (*menu)->tab_bouton = malloc(sizeof(t_bouton_menu));
 
         w = width / 3;
         h = height / 15;
-        ajout_bouton_menu(w, 6 * h, w, 2 * h, "Nouvelle partie", NULL, menu);
-        ajout_bouton_menu(w, 8 * h, w, 2 * h, "charger une partie", NULL, menu);
-        ajout_bouton_menu(w, 10 * h, w, 2 * h, "Retour", NULL, menu);
+        ajout_bouton_menu(*menu, w, 6 * h, w, 2 * h, "Nouvelle partie", NULL);
+        ajout_bouton_menu(*menu, w, 8 * h, w, 2 * h, "charger une partie", NULL);
+        ajout_bouton_menu(*menu, w, 10 * h, w, 2 * h, "Retour", NULL);
+    }else if(type == NOUVEAU_MENU){
+        (*menu)->tab_bouton = NULL;
     }else{
-        menu->tab_bouton = NULL;
+        return INCORRECT_MENU_TYPE;
     }
 
+    return OK;
+}
+
+t_erreur afficher_menu_test(t_menu * menu){
+    int i;
+    for(i = 0; i < menu->nb_bouton; i++){
+        printf("x=%d, y=%d, w=%d, h=%d, titre=%s\n", menu->tab_bouton[i]->x, menu->tab_bouton[i]->y, menu->tab_bouton[i]->width, menu->tab_bouton[i]->height, menu->tab_bouton[i]->titre);
+    }
     return OK;
 }
