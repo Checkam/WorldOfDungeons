@@ -79,11 +79,6 @@ int main()
     printf("\t-- OK\n");
     SDL_RenderPresent(renderer);
 
-    /* Test destruction menu 2 */
-    printf("Test destruction Menu 2:\n");
-    assert(detruire_menu(&menu) == OK);
-    printf("\t-- OK\n");
-
     /* Test création menu 3 */
     printf("Test Creation Menu 3:\n");
     assert(creer_menu(NOUVEAU_MENU, width_window, height_window, fond, &menu) == OK);
