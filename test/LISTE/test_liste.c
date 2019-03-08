@@ -16,9 +16,9 @@ int main()
     printf("----- Programme de Test de Liste Générique -----\n");
 
     /* Valeurs */
-    int a = 1;
-    int b = 2;
-    int c = 3;
+    float * a = malloc(sizeof(float)); *a = 1.1;
+    float * b = malloc(sizeof(float)); *b = 2.2;
+    float * c = malloc(sizeof(float)); *c = 3.3;
 
     /* Déclaration des listes */
     t_liste j1;
@@ -31,9 +31,9 @@ int main()
     /* Remplissage des listes avec des valeurs quelconques */
     printf("\t--> Remplissage de la Liste Générique\n");
     en_tete(&j1);
-    ajout_droit(&j1,&a);
-    ajout_droit(&j1,&b);
-    ajout_droit(&j1,&c);
+    ajout_droit(&j1,a);
+    ajout_droit(&j1,b);
+    ajout_droit(&j1,c);
     printf("\t\t-- OK\n");
 
     /* Affichage des listes */
@@ -53,9 +53,9 @@ void afficher_liste(t_liste * p)
 {
     for(en_tete(p);!hors_liste(p);suivant(p))
     {
-        int * val;
-        valeur_elt(p,(void **)&val,sizeof(int *));
-        printf("%d ", *val);
+        float * val;
+        valeur_elt(p,(void **)&val,sizeof(float *));
+        printf("%.2f ", *val);
     }
     printf("\n");
 }
