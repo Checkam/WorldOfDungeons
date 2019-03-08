@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include <liste.h>
 #include <erreur.h>
+#include <stdio.h>
 
 /**
  * \fn void init_liste(t_liste * p)
@@ -92,10 +93,10 @@ void precedent(t_liste * p){
  * \param size_v La taille de l'élèment à récupérer.
  * \return Une erreur s'il y en a une.
 */
-t_erreur valeur_elt(t_liste * p, void ** v, int size_v){
+t_erreur valeur_elt(t_liste * p, void ** v){
     if(!v) return PTR_NULL;
     if(!hors_liste(p)){
-        copie_cb(*v, p->ec->elem, size_v);
+        *v = p->ec->elem;
     }
     else return PTR_VALUE_ERROR;
     return OK;
