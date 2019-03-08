@@ -50,11 +50,7 @@ t_erreur MAP_creer(t_map **map, char *nom_map, int SEED) {
     \return Renvoie un code erreur en cas de problème sinon OK
 **/
 t_erreur MAP_charger(t_map **map, char *nom_map) {
-  (*map) = malloc(sizeof(t_map));
-  (*map)->nom = malloc(sizeof(char) * strlen(nom_map) + 1);
-  strcpy((*map)->nom, nom_map);
-
-  char *path_dir = MAP_creer_path(*map);
+  char *path_dir = MAP_creer_path(nom_map);
   int size = 500;
   char *dir_curr = malloc(sizeof(char) * size + 1);
   getcwd(dir_curr, size);
@@ -62,9 +58,13 @@ t_erreur MAP_charger(t_map **map, char *nom_map) {
     return FILE_ERROR; // DIR_NO_FOUND
   chdir(dir_curr);
   free(dir_curr);
+  MAP_detruire_path(&path_dir); // Gestion des erreurs a faire
+
+  (*map) = malloc(sizeof(t_map));
+  (*map)->nom = malloc(sizeof(char) * strlen(nom_map) + 1);
+  strcpy((*map)->nom, nom_map);
   // Charger le seed avec fct json
 
-  MAP_detruire_path(&path_dir); // Gestion des erreurs a faire
   return OK;
 }
 
@@ -86,7 +86,7 @@ t_erreur MAP_sauvegarder(t_map *map) {
   if (map == NULL)
     return PTR_NULL;
 
-  char *path_dir = MAP_creer_path(map);
+  char *path_dir = MAP_creer_path(map->nom);
 
   // A finir avec le systeme de JSON est de path pas encore disponible
   // Sauvegarde de ou est le joueurs pour preload la map a afficher
@@ -106,7 +106,7 @@ t_erreur MAP_creer_dir(t_map *map) {
   if (map == NULL)
     return PTR_NULL;
   t_erreur erreur;
-  char *path_dir = MAP_creer_path(map);
+  char *path_dir = MAP_creer_path(map->nom);
 
   if (mkdir(path_dir, 755))
     return FILE_ERROR; // MKDIR_ERROR
@@ -128,7 +128,7 @@ t_erreur MAP_supprimer(t_map *map) {
   if (map == NULL)
     return PTR_NULL;
 
-  char *path_dir = MAP_creer_path(map);
+  char *path_dir = MAP_creer_path(map->nom);
 
   rmdir(path_dir);
 
@@ -162,11 +162,11 @@ t_erreur MAP_detruction(t_map **map) {
     \param map Pointeur de t_map
     \return Renvoie le path de la map
 **/
-char *MAP_creer_path(t_map *map) {
-  char *path_dir = malloc(sizeof(char) * strlen(map->nom) +
+char *MAP_creer_path(char *nom_map) {
+  char *path_dir = malloc(sizeof(char) * strlen(nom_map) +
                           sizeof(char) * strlen(PATH_MAP_DIR));
   strcpy(path_dir, PATH_MAP_DIR);
-  strcat(path_dir, map->nom);
+  strcat(path_dir, nom_map);
   return path_dir;
 }
 
