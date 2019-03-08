@@ -107,30 +107,30 @@ int main(int argc, char const *argv[]) {
   int repeat = 0;
   int taille = 0;
 
-  t_liste* list = NULL;
-  init_liste(list);
+  t_liste list;
+  init_liste(&list);
 
   while (1 && Program && !repeat) {
     taille_max = gen_col(&tab, i); /*Génère la nouvelle colonne*/
 
-    if (taille_liste(list) > SIZE) { /* INCOMPREHENSIBLE */
-      en_tete(list);
-      oter_elt(list);
+    if (taille_liste(&list) > SIZE) { /* INCOMPREHENSIBLE */
+      en_tete(&list);
+      oter_elt(&list);
     }
-    en_queue(list); /* PAREIL */
-    ajout_droit(list,tab);
+    en_queue(&list); /* PAREIL */
+    ajout_droit(&list, tab);
 
     // save_tab(fichier, tab);
-    // aff_map(list,taille_max - 5, taille_max + 50, blocks2);
+    // aff_map(&list,taille_max - 5, taille_max + 50, blocks2);
     // if(taille_max < HAUTEUR_EAU) taille_max = HAUTEUR_EAU;
 
-    taille = taille_mid_aff(list);
+    taille = taille_mid_aff(&list);
     if (taille == -1)
       taille = taille_max;
     SDL_RenderClear(renderer);
     SDL_RenderCopy(renderer, fond, NULL, &fondRect);
 
-    aff_map_sdl(list,renderer, blocks, taille - 4);
+    aff_map_sdl(&list, renderer, blocks, taille - 4);
     SDL_RenderPresent(renderer);
 
     while (SDL_PollEvent(&event))
@@ -145,7 +145,7 @@ int main(int argc, char const *argv[]) {
     i++;
   }
 
-  detruire_liste(list);
+  detruire_liste(&list);
 
   SDL_DestroyTexture(fond);
   SDL_DestroyTexture(herbe_world);
