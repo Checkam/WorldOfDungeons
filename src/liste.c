@@ -118,16 +118,17 @@ t_erreur modif_elt(t_liste * p, void * v){
 }
 
 /**
- * \fn t_erreur oter_elt(t_liste * p)
+ * \fn t_erreur oter_elt(t_liste * p, void (* effacer) (void *))
  * \brief Supprime l'élèment courant.
  * \param p La liste où se trouve l'élèment courant.
+ * \param effacer La fonction d'effacement de l'élèment courant.
  * \return Une erreur s'il y en a une.
 */
 void * elem_pred = NULL;
-t_erreur oter_elt(t_liste * p){
+t_erreur oter_elt(t_liste * p, void (* effacer) (void *)){
     if(!hors_liste(p)){
         if (p->ec->elem && p->ec->elem != elem_pred)
-            free(p->ec->elem);
+            effacer(p->ec->elem);
         elem_pred = p->ec->elem;
         p->ec->succ->pred = p->ec->pred;
         p->ec->pred->succ = p->ec->succ;
@@ -194,12 +195,13 @@ int taille_liste(t_liste * p){
 }
 
 /**
- * \fn void detruire_liste(t_liste * p)
+ * \fn void detruire_liste(t_liste * p, void (* effacer) (void *))
  * \brief Détruit la liste.
  * \param p La liste à détruire.
+ * \param effacer La fonction d'effacement de l'élèment courant.
 */
-void detruire_liste(t_liste * p){
-    for(en_tete(p); !liste_vide(p); oter_elt(p), en_queue(p));
+void detruire_liste(t_liste * p, void (* effacer) (void *)){
+    for(en_tete(p); !liste_vide(p); oter_elt(p,effacer), en_queue(p));
     if (p->drapeau)
         free(p->drapeau);
     elem_pred = NULL;

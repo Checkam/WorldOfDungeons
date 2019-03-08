@@ -4,5 +4,6 @@
 #include <liste.h>
 
 void afficher_liste(t_liste * p);
+void mettre_null (float * f);
  
 #endif
