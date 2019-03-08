@@ -163,8 +163,7 @@ t_erreur MAP_detruction(t_map **map) {
     \return Renvoie le path de la map
 **/
 char *MAP_creer_path(char *nom_map) {
-  char *path_dir = malloc(sizeof(char) * strlen(nom_map) +
-                          sizeof(char) * strlen(PATH_MAP_DIR));
+  char *path_dir = malloc(sizeof(char) * strlen(nom_map) + sizeof(char) * strlen(PATH_MAP_DIR));
   strcpy(path_dir, PATH_MAP_DIR);
   strcat(path_dir, nom_map);
   return path_dir;
