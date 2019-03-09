@@ -5,11 +5,17 @@
  *   \version 0.1
  *   \date 9 mars 2019
  **/
+
+#ifndef __AFFICHAGE_H__
+#define __AFFICHAGE_H__
 #include <SDL2/SDL.h>
+#include <liste.h>
+#endif
+
 #include <block.h>
 #include <commun.h>
 #include <couleurs.h>
-#include <liste.h>
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -19,9 +25,7 @@
  * \param r un carré SDL
  * \return un int 1 si dans la fenetre sinon 0
  **/
-int dansFenetre(SDL_Rect r) {
-  return (r.x < width_window && r.x >= 0 && r.y >= 0 && r.y < height_window);
-}
+int dansFenetre(SDL_Rect r) { return (r.x < width_window && r.x >= 0 && r.y >= 0 && r.y < height_window); }
 
 /**
  \fn char *CouleurBlock(int id, block_type2_t blocks[])
@@ -115,7 +119,6 @@ void aff_map_sdl(t_liste *list, SDL_Renderer *renderer, block_type_t blocks[], i
  * \return Retourne rien
  **/
 void aff_map(t_liste *list, int min, int max, block_type2_t blocks[]) {
-  system("clear");
   int i;
   int *map; // Tableau de recupèration de la liste
   for (i = MAX_SCREEN - 1; i >= 0; i--) {
@@ -125,4 +128,5 @@ void aff_map(t_liste *list, int min, int max, block_type2_t blocks[]) {
     }
     printf("\n");
   }
+  printf("\e[0m");
 }
