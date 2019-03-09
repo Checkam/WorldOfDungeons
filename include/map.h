@@ -3,6 +3,7 @@
 #define __MAP_H__
 
 #include <erreur.h>
+#include <liste.h>
 #endif
 
 #define PATH_MAP_DIR "map/"
@@ -14,7 +15,7 @@
 typedef struct s_map {
     char * nom;
     int SEED;
-    // Une liste
+    t_liste *list;
 } t_map;
 
 t_erreur MAP_creer(t_map ** map, char * nom_map, int SEED) ;
