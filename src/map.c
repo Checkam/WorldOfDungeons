@@ -9,6 +9,7 @@
 #ifndef __MAP_H__
 #define __MAP_H__
 #include <erreur.h>
+#include <liste.h>
 #endif
 
 #include <map.h>
@@ -23,10 +24,11 @@
 
 /**
     \fn t_erreur MAP_creer(t_map ** map, char * nom_map, int SEED)
-    \brief Créer une map (le dossier de saugarde et le pointeur pour manipuler
-cette map) \param map le pointeur de la map qui va être créer \param nom_map Le
-nom de la map \param SEED Le SEED de génération de la map \return Renvoie un
-code erreur en cas de problème sinon OK
+    \brief Créer une map (le dossier de saugarde et le pointeur pour manipuler cette map)
+    \param map le pointeur de la map qui va être créer
+    \param nom_map Le nom de la map
+    \param SEED Le SEED de génération de la map
+    \return Renvoie un code erreur en cas de problème sinon OK
 **/
 t_erreur MAP_creer(t_map **map, char *nom_map, int SEED) {
 
@@ -39,6 +41,9 @@ t_erreur MAP_creer(t_map **map, char *nom_map, int SEED) {
   MAP_creer_dir(*map);
 
   MAP_sauvegarder(*map);
+
+  (*map)->list = malloc(sizeof(t_liste));
+  init_liste((*map)->list);
 
   return OK;
 }
@@ -63,8 +68,12 @@ t_erreur MAP_charger(t_map **map, char *nom_map) {
   (*map) = malloc(sizeof(t_map));
   (*map)->nom = malloc(sizeof(char) * strlen(nom_map) + 1);
   strcpy((*map)->nom, nom_map);
-  // Charger le seed avec fct json
 
+  // Charger le seed avec fct json
+  (*map)->SEED = 1111111;
+  //Charger map a partir d'un fichier
+  (*map)->list = malloc(sizeof(t_liste));
+  init_liste((*map)->list);
   return OK;
 }
 
@@ -151,6 +160,7 @@ t_erreur MAP_detruction(t_map **map) {
     free((*map)->nom);
     (*map)->nom = NULL;
   }
+  detruire_liste((*map)->list, free);
   free(*map);
   map = NULL;
   return OK;
