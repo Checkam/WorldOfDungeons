@@ -128,7 +128,7 @@ t_erreur modif_elt(t_liste * p, void * v){
 void * elem_pred = NULL;
 t_erreur oter_elt(t_liste * p, void (* effacer) (void *)){
     if(!hors_liste(p)){
-        if (p->ec->elem && p->ec->elem != elem_pred)
+        if (p->ec->elem && p->ec->elem != elem_pred && effacer)
             effacer(p->ec->elem);
         elem_pred = p->ec->elem;
         p->ec->succ->pred = p->ec->pred;
