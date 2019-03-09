@@ -8,11 +8,12 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <erreur.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
-#include <outils.h>
+#include <outils_SDL.h>
 
 /**
  * \fn t_erreur Create_IMG_Texture(SDL_Renderer * renderer, char * chemin_img, SDL_Texture * *texture_dest)
@@ -42,7 +43,7 @@ t_erreur Create_IMG_Texture(SDL_Renderer * renderer, char * chemin_img, SDL_Text
     SDL_FreeSurface(image);
 
     if(*texture_dest == NULL){
-        return NULL;
+        return PTR_NULL;
     }
     return OK;
 }
@@ -71,6 +72,7 @@ t_erreur Create_Text_Texture(SDL_Renderer * renderer, char * texte, char * chemi
     /* Création police */
     TTF_Font *police = TTF_OpenFont(chemin_police, taille_police);
     if(police == NULL){
+        printf("%s\n", TTF_GetError());
         return PTR_NULL;
     }
 

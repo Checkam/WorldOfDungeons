@@ -5,8 +5,8 @@
  * \date 09/03/2019
  * \version 1
 */
-#ifndef __OUTILS_H__
-#define __OUTILS_H__
+#ifndef __OUTILS_SDL_H__
+#define __OUTILS_SDL_H__
 
 #include <SDL2/SDL.h>
 #include <erreur.h>
