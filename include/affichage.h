@@ -1,4 +1,9 @@
+#ifndef __AFFICHAGE_H__
+#define __AFFICHAGE_H__
+
 #include <liste.h>
+#include <SDL2/SDL.h>
+
 
 /* Fenetre */
 int dansFenetre(SDL_Rect r);
@@ -9,3 +14,5 @@ int taille_mid_aff(t_liste *list);
 /* Terminale */
 char * CouleurBlock(int id, void *);
 void aff_map(t_liste *list,int min, int max, void *);
+
+#endif
