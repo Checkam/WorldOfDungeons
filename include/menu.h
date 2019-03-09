@@ -50,13 +50,10 @@ t_erreur creer_menu(t_type_menu type, int width, int height, SDL_Texture * textu
 
 /* Primitive d'affichage d'un menu */
 t_erreur SDL_afficher_menu(t_menu * menu, SDL_Renderer * renderer);
-<<<<<<< HEAD
 
 /* Primitive de destruction d'un menu */
 t_erreur detruire_bouton_menu(t_bouton_menu ** btn);
 t_erreur detruire_menu(t_menu ** menu);
-=======
->>>>>>> cdef22f... Modification module menu
 
 /* Primitive de destruction d'un menu */
 t_erreur detruire_bouton_menu(t_bouton_menu ** btn);
