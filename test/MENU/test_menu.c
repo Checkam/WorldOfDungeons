@@ -108,14 +108,5 @@ int main()
     assert(detruire_menu(&menu) == OK);
     printf("\t-- OK\n");
 
-
-        while (SDL_PollEvent(&event)){
-            switch (event.type) {
-                case SDL_QUIT:
-                    repeat = 1;
-                    break;
-            }
-        }
-        SDL_Delay(50);
-    }
+    
 }
