@@ -115,7 +115,7 @@ int main(int argc, char const *argv[]) {
 
     if (taille_liste(&list) > SIZE) { /* INCOMPREHENSIBLE */
       en_tete(&list);
-      oter_elt(&list);
+      oter_elt(&list, free);
     }
     en_queue(&list); /* PAREIL */
     ajout_droit(&list, tab);
@@ -145,7 +145,7 @@ int main(int argc, char const *argv[]) {
     i++;
   }
 
-  detruire_liste(&list);
+  detruire_liste(&list, free);
 
   SDL_DestroyTexture(fond);
   SDL_DestroyTexture(herbe_world);
