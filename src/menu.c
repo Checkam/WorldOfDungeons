@@ -11,6 +11,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
 #include <menu.h>
 
 /**
@@ -125,6 +126,13 @@ t_erreur SDL_afficher_menu(t_menu * menu, SDL_Renderer * renderer){
         return PTR_NULL;
     }
 
+    /* Initialisation */
+    TTF_Font * police = TTF_OpenFont("/usr/share/fonts/truetype/Gargi/Gargi.ttf",40);
+    SDL_Color couleur_texte = {0,0,0};
+    SDL_Surface * texte;
+    SDL_Texture * texte_tex;
+    
+
     /* Affichage */
     int i;
     for(i = 0; i < menu->nb_bouton; i++){
@@ -134,8 +142,16 @@ t_erreur SDL_afficher_menu(t_menu * menu, SDL_Renderer * renderer){
             menu->tab_bouton[i]->width,
             menu->tab_bouton[i]->height
         };
+        texte = TTF_RenderText_Blended(police, menu->tab_bouton[i]->titre, couleur_texte);
+        texte_tex = SDL_CreateTextureFromSurface(renderer, texte);
+
         SDL_RenderCopy(renderer, menu->tab_bouton[i]->texture, NULL, &r);
+        SDL_RenderCopy(renderer, texte_tex, NULL, &r);
+
+        SDL_FreeSurface(texte);
+        SDL_DestroyTexture(texte_tex);
     }
+    TTF_CloseFont(police);
     return OK;
 }
 
