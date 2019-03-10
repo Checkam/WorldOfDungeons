@@ -76,8 +76,7 @@ $(OBJ): $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c $(INC_DIR)/%.h
 .PHONY: clean mrproper
 
 clean:
-	rm $(OBJ_DIR)/*.o
-	rm *.o
+	rm -f *.o
 
 mrproper: clean
 	rm -i $(BIN_DIR)/$(PROG)

@@ -47,7 +47,7 @@ all: $(DIRS) $(BIN_DIR)/$(PROG)
 	@echo -e '\033[42m Makefile du programme principal: $(PROG) \033[0m'
 
 $(BIN_DIR)/$(PROG): $(OBJ)
-	$(CC) $^ -o $@  $(LIBS) $(INCLUDES) -I./$(INC_DIR) $(CFLAGS) 
+	$(CC) $^ -o $@  $(LIBS) $(INCLUDES) -I./$(INC_DIR) $(CFLAGS)
 
 $(OBJ) : $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c $(INC_DIR)/%.h
 	$(CC) -o $@ -c $< $(LIBS) $(INCLUDES) -I./$(INC_DIR) $(CFLAGS)
@@ -62,8 +62,9 @@ $(OBJ) : $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c $(INC_DIR)/%.h
 
 
 clean:
-	rm $(OBJ_DIR)/*.o
-	rm $(BIN_DIR)/*
+	rm -f $(OBJ_DIR)/*.o
+	rm -f $(BIN_DIR)/*
+	$(foreach i,$(TEST_DIRS),$(MAKE) -C $(i) clean;)
 
 mrproper: clean
 	rm -i $(BIN_DIR)/$(PROG)
