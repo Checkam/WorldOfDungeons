@@ -43,7 +43,7 @@ int main(int argc, char **argv, char **env)
         printf("%s\n", SDL_GetError());
         return EXIT_FAILURE;
     }
-    SDL_Surface *surface_to_tex = NULL;
+    
     char * chemin_img;
     creation_chemin("IMG/texture/herbe.bmp", &chemin_img);
     SDL_Texture * fond;
@@ -63,7 +63,7 @@ int main(int argc, char **argv, char **env)
     assert(SDL_afficher_menu(menu, renderer, couleur_texte) == OK);
     printf("\t-- OK\n");
     SDL_RenderPresent(renderer);
-    SDL_Delay(5000);
+    SDL_Delay(1000);
 
     /* Test destruction menu 1 */
     printf("Test destruction Menu 1:\n");
@@ -81,7 +81,7 @@ int main(int argc, char **argv, char **env)
     assert(SDL_afficher_menu(menu, renderer, couleur_texte) == OK);
     printf("\t-- OK\n");
     SDL_RenderPresent(renderer);
-    SDL_Delay(5000);
+    SDL_Delay(1000);
 
     /* Test destruction menu 2 */
     printf("Test destruction Menu 2:\n");
@@ -106,13 +106,32 @@ int main(int argc, char **argv, char **env)
     assert(SDL_afficher_menu(menu, renderer, couleur_texte) == OK);
     printf("\t-- OK\n");
     SDL_RenderPresent(renderer);
-    SDL_Delay(5000);
+    SDL_Delay(1000);
 
     /* Test destruction menu 3 */
     printf("Test destruction Menu 3:\n");
     assert(detruire_menu(&menu) == OK);
     printf("\t-- OK\n");
 
+    /* Test gestion menu */
+    creer_menu(SOLO, width_window, height_window, fond, &menu);
+    int repeat = 10000;
+    int pos_btn_pressed;
+    SDL_Event event;
+    
+    while(repeat){
+        SDL_RenderClear(renderer);
+        SDL_PollEvent(&event);
+        assert(gestion_menu_SDL(menu, event.button, &pos_btn_pressed) == OK);
+        if(pos_btn_pressed != -1){
+            printf("--> %s\n", menu->tab_bouton[pos_btn_pressed]->titre);
+        }
+        SDL_afficher_menu(menu, renderer, couleur_texte);
+        SDL_RenderPresent(renderer);
+        repeat--;
+    }
+    detruire_menu(&menu);
+    
     free(WOD_PWD);
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(screen);

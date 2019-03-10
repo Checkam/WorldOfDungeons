@@ -53,6 +53,8 @@ t_erreur ajout_bouton_menu(t_menu * menu, int x, int y, int width, int height, c
     btn->y = y;
     btn->width = width;
     btn->height = height;
+    btn->state = SDL_RELEASED;
+    btn->focus = 0;
 
     if(texture == NULL){
         //valeur par défaut de la texture d'un bouton
@@ -115,7 +117,10 @@ t_erreur creer_menu(t_type_menu type, int width, int height, SDL_Texture * textu
 
 /**
  * \fn t_erreur SDL_afficher_menu(t_menu * menu, SDL_Renderer * renderer, SDL_Color couleur_texte)
- * \param
+ * \param menu Pointeur sur le menu que l'on veut afficher
+ * \param renderer Renderer sur le lequel on veut afficher le menu
+ * \param couleur_texte Couleur du texte
+ * \return Code erreur
 */
 t_erreur SDL_afficher_menu(t_menu * menu, SDL_Renderer * renderer, SDL_Color couleur_texte){
     /* Vérification */
@@ -161,6 +166,13 @@ t_erreur SDL_afficher_menu(t_menu * menu, SDL_Renderer * renderer, SDL_Color cou
             taille_police * strlen(menu->tab_bouton[i]->titre),
             taille_police
         };
+
+        /* Etat bouton */
+        if(menu->tab_bouton[i]->focus == 1){
+            couleur_texte.a = 100;
+        }else{
+            couleur_texte.a = 255;
+        }
         
         Create_Text_Texture(renderer, menu->tab_bouton[i]->titre, police, taille_police, couleur_texte, BLENDED, &texte_tex);
 
@@ -175,7 +187,8 @@ t_erreur SDL_afficher_menu(t_menu * menu, SDL_Renderer * renderer, SDL_Color cou
 
 /**
  * \fn t_erreur detruire_bouton_menu(t_bouton_menu ** btn)
- * \param
+ * \param btn Bouton que l'on veut détruire
+ * \return Code erreur
 */
 t_erreur detruire_bouton_menu(t_bouton_menu ** btn){
     if(*btn != NULL){
@@ -191,7 +204,8 @@ t_erreur detruire_bouton_menu(t_bouton_menu ** btn){
 
 /**
  * \fn t_erreur detruire_bouton_menu(t_menu ** menu)
- * \param
+ * \param menu Menu que l'on veut détruire
+ * \return Code erreur
 */
 t_erreur detruire_menu(t_menu ** menu){
     if(*menu != NULL){
@@ -206,5 +220,55 @@ t_erreur detruire_menu(t_menu ** menu){
         free(*menu);
         *menu = NULL;
     }
+    return OK;
+}
+
+/**
+ * \fn t_erreur gestion_bouton_menu(t_menu * menu, int mouseX, int mouseY)
+ * \param menu Menu que l'on veut gérer
+ * \param mouseX Position en X de la souris
+ * \param mouseY position en Y de la souris
+ * \return Code erreur
+*/
+t_erreur gestion_menu_SDL(t_menu * menu, SDL_MouseButtonEvent mouse, int * pos_btn_pressed){
+    /* Vérification */
+    if(menu == NULL){
+        return PTR_NULL;
+    }
+    if(menu->tab_bouton == NULL){
+        return PTR_NULL;
+    }
+    if(pos_btn_pressed == NULL){
+        return PTR_NULL;
+    }
+
+    /* Gestion souris menu */
+    *pos_btn_pressed = -1;
+    int i;
+    for(i = 0; i < menu->nb_bouton; i++){
+        SDL_Rect r = {
+            menu->tab_bouton[i]->x,
+            menu->tab_bouton[i]->y,
+            menu->tab_bouton[i]->width,
+            menu->tab_bouton[i]->height
+        };
+        SDL_Point p = {
+            mouse.x,
+            mouse.y
+        };
+        if(SDL_PointInRect(&p, &r)){
+            menu->tab_bouton[i]->focus = 1;
+            if(menu->tab_bouton[i]->state == SDL_PRESSED && mouse.state == SDL_RELEASED){
+                *pos_btn_pressed = i;
+                menu->tab_bouton[i]->state = SDL_RELEASED;
+            }else if(mouse.state == SDL_PRESSED){
+                menu->tab_bouton[i]->state = SDL_PRESSED;
+            }
+        }else{
+            menu->tab_bouton[i]->focus = 0;
+        }
+    }
+
+
     return OK;
 }

@@ -32,6 +32,7 @@ typedef struct s_bouton_menu{
     int x, y, width, height;
     char * titre;
     SDL_Texture * texture;
+    int state, focus;
 } t_bouton_menu;
 
 /**
@@ -53,5 +54,8 @@ t_erreur SDL_afficher_menu(t_menu * menu, SDL_Renderer * renderer, SDL_Color cou
 /* Primitive de destruction d'un menu */
 t_erreur detruire_bouton_menu(t_bouton_menu ** btn);
 t_erreur detruire_menu(t_menu ** menu);
+
+/* Primitive de gestion du menu */
+t_erreur gestion_menu_SDL(t_menu * menu, SDL_MouseButtonEvent mouse, int * pos_btn_pressed);
 
 #endif
