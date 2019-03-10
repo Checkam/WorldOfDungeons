@@ -14,6 +14,7 @@
 #include <SDL2/SDL_ttf.h>
 #include <menu.h>
 #include <outils_SDL.h>
+#include <chemin.h>
 
 /**
  * \fn t_erreur ajout_bouton_menu(t_menu * menu, int x, int y, int width, int height, char * titre, SDL_Texture * texture)
@@ -128,7 +129,8 @@ t_erreur SDL_afficher_menu(t_menu * menu, SDL_Renderer * renderer){
     }
 
     /* Initialisation */
-    char * police = "../../data/police/8-BIT_WONDER.ttf";
+    char * police;
+    creation_chemin("data/police/8-BIT_WONDER.ttf", &police);
     int taille_police = 30;
     SDL_Color couleur_texte = {255,255,255};
     SDL_Texture * texte_tex;
@@ -151,6 +153,7 @@ t_erreur SDL_afficher_menu(t_menu * menu, SDL_Renderer * renderer){
 
         SDL_DestroyTexture(texte_tex);
     }
+    free(police);
     return OK;
 }
 

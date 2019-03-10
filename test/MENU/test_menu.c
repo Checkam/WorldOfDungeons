@@ -11,13 +11,15 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <SDL2/SDL_ttf.h>
+#include <chemin.h>
 
-int main()
+int main(int argc, char **argv, char **env)
 {
     /* Initialisation */
     t_menu * menu = NULL;
     int width_window = 600;
     int height_window = 600;
+    getpwd(argv[0], getenv("PWD"));
 
     if(SDL_Init(SDL_INIT_EVERYTHING) == -1){
         printf("%s\n", SDL_GetError());
@@ -41,9 +43,12 @@ int main()
         return EXIT_FAILURE;
     }
     SDL_Surface *surface_to_tex = NULL;
-    surface_to_tex = SDL_LoadBMP("../../IMG/texture/herbe.bmp");
+    char * chemin_img;
+    creation_chemin("IMG/texture/herbe.bmp", &chemin_img);
+    surface_to_tex = SDL_LoadBMP(chemin_img);
     SDL_Texture * fond = SDL_CreateTextureFromSurface(renderer, surface_to_tex);
     SDL_FreeSurface(surface_to_tex);
+    free(chemin_img);
 
 
     /* Test création menu 1 */
@@ -107,6 +112,7 @@ int main()
     assert(detruire_menu(&menu) == OK);
     printf("\t-- OK\n");
 
+    free(WOD_PWD);
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(screen);
     TTF_Quit();

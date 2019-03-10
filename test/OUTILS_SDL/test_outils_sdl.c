@@ -14,12 +14,15 @@
 #include <SDL2/SDL_image.h>
 #include <erreur.h>
 #include <outils_SDL.h>
+#include <chemin.h>
 
 
 
-int main(int argc, char const *argv[]) {
+int main(int argc, char *argv[], char *env[]) {
 
   /* Inialisation */
+  getpwd(argv[0], getenv("PWD"));
+
   if(SDL_Init(SDL_INIT_EVERYTHING) == -1){
     printf("%s\n", SDL_GetError());
     return EXIT_FAILURE;
@@ -49,8 +52,11 @@ int main(int argc, char const *argv[]) {
 
   /* Test création texture image */
   printf("Test Création Texture Image\n");
+  char * chemin_img;
+  creation_chemin("IMG/texture/herbe.bmp", &chemin_img);
   SDL_Texture * texture = NULL;
-  assert(Create_IMG_Texture(renderer, "../../IMG/texture/herbe.bmp", &texture) == OK);
+  assert(Create_IMG_Texture(renderer, chemin_img, &texture) == OK);
+  free(chemin_img);
   printf("\t -- OK\n");
   
 
@@ -70,7 +76,10 @@ int main(int argc, char const *argv[]) {
   /* Test création texture texte */
   printf("Test Création Texture Texte\n");
   SDL_Color couleur = {255,0,0};
-  assert(Create_Text_Texture(renderer, "Test texte", "/usr/share/fonts/truetype/ubuntu/Ubuntu-B.ttf", 40, couleur, BLENDED, &texture) == OK);
+  char * chemin_police;
+  creation_chemin("/data/police/8-BIT_WONDER.ttf", &chemin_police);
+  assert(Create_Text_Texture(renderer, "Test texte", chemin_police, 40, couleur, BLENDED, &texture) == OK);
+  free(chemin_police);
   printf("\t -- OK\n");
   
 
@@ -86,6 +95,7 @@ int main(int argc, char const *argv[]) {
   SDL_DestroyTexture(texture);
   texture = NULL;
   
+  free(WOD_PWD);
   SDL_DestroyRenderer(renderer);
   SDL_DestroyWindow(screen);
   IMG_Quit();
