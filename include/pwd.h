@@ -25,4 +25,7 @@ t_erreur decomposer_PWD (t_liste * p, char * pwd);
 t_erreur getpwd(char * argv, char * env);
 t_erreur fusion_PWD(t_liste * env, t_liste * argv);
 
+/* Création chemin à partir de WOD_PWD */
+t_erreur creation_chemin (char * ajout, char ** res);
+
 #endif

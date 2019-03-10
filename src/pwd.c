@@ -144,3 +144,23 @@ t_erreur fusion_PWD(t_liste * env, t_liste * argv)
 
     return OK;
 }
+
+/**
+ * \fn t_erreur creation_chemin (char * ajout, char ** res)
+ * \brief Concatène 2 chaine de caractère.
+ * \param ajout Chaine de caractère à ajouter à gauche de WOD_PWD.
+ * \param res Chaine de caractère résultat.
+ * \return Une erreur s'il y en a une.
+*/
+t_erreur creation_chemin (char * ajout, char ** res)
+{
+    /* Erreur : pointeur NULL */
+    if (!ajout || !res) return PTR_NULL;
+
+    /* Concaténation */
+    *res = malloc(sizeof(char) * (strlen(WOD_PWD) + strlen(ajout) + 1));
+    strcpy(*res, WOD_PWD);
+    strcat(*res, ajout);
+
+    return OK;
+}
