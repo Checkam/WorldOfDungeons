@@ -3,7 +3,7 @@
  * \brief Gestion du menu (solo, multijoueur, ...)
  * \author Jasmin GALBRUN
  * \version 1
- * \date 07/03/2019
+ * \date 09/03/2019
 */
 #ifndef __MENU_H__
 #define __MENU_H__

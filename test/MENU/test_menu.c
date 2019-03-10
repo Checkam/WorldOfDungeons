@@ -1,9 +1,9 @@
 /**
- * \file test_erreur.c
+ * \file test_menu.c
  * \brief Programme qui teste le module erreur.
  * \author GALBRUN Tibane.
- * \date 07/03/2019
- * \version 0.1
+ * \date 09/03/2019
+ * \version 1
 */
 
 #include <menu.h>
@@ -19,12 +19,16 @@ int main()
     int width_window = 600;
     int height_window = 600;
 
-    SDL_Init(SDL_INIT_EVERYTHING);
+    if(SDL_Init(SDL_INIT_EVERYTHING) == -1){
+        printf("%s\n", SDL_GetError());
+        return EXIT_FAILURE;
+    }
 
     if(TTF_Init() == -1){
         printf("%s\n", TTF_GetError());
         return EXIT_FAILURE;
     }
+
     SDL_Window *screen = SDL_CreateWindow("World Of Dungeons", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,width_window, height_window, SDL_WINDOW_SHOWN);
     if(screen == NULL){
         printf("%s\n", SDL_GetError());
@@ -103,5 +107,8 @@ int main()
     assert(detruire_menu(&menu) == OK);
     printf("\t-- OK\n");
 
-    
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(screen);
+    TTF_Quit();
+    SDL_Quit();
 }

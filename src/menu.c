@@ -3,7 +3,7 @@
  * \brief Gestion du menu (solo, multijoueur, ...)
  * \author Jasmin GALBRUN
  * \version 1
- * \date 07/03/2019
+ * \date 09/03/2019
 */
 
 #include <stdio.h>
@@ -13,6 +13,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 #include <menu.h>
+#include <outils_SDL.h>
 
 /**
  * \fn t_erreur ajout_bouton_menu(t_menu * menu, int x, int y, int width, int height, char * titre, SDL_Texture * texture)
@@ -89,18 +90,18 @@ t_erreur creer_menu(t_type_menu type, int width, int height, SDL_Texture * textu
         
         w = width / 3;
         h = height / 15;
-        ajout_bouton_menu(*menu, w, 5 * h, w, 2 * h, "Solo", texture);
-        ajout_bouton_menu(*menu, w, 7 * h, w, 2 * h, "Multijoueur", texture);
-        ajout_bouton_menu(*menu, w, 9 * h, w, 2 * h, "Option", texture);
-        ajout_bouton_menu(*menu, w, 11 * h, w, 2 * h, "Quitter", texture);
+        ajout_bouton_menu(*menu, w, 3 * h, w, 2 * h, "Solo", texture);
+        ajout_bouton_menu(*menu, w, 5 * h, w, 2 * h, "Multijoueur", texture);
+        ajout_bouton_menu(*menu, w, 7 * h, w, 2 * h, "Option", texture);
+        ajout_bouton_menu(*menu, w, 9 * h, w, 2 * h, "Quitter", texture);
     }else if(type == SOLO){
         (*menu)->tab_bouton = malloc(sizeof(t_bouton_menu));
 
-        w = width / 3;
+        w = width / 4;
         h = height / 15;
-        ajout_bouton_menu(*menu, w, 6 * h, w, 2 * h, "Nouvelle partie", texture);
-        ajout_bouton_menu(*menu, w, 8 * h, w, 2 * h, "charger une partie", texture);
-        ajout_bouton_menu(*menu, w, 10 * h, w, 2 * h, "Retour", texture);
+        ajout_bouton_menu(*menu, w, 5 * h, 2 * w, 2 * h, "Nouvelle partie", texture);
+        ajout_bouton_menu(*menu, w, 7 * h, 2 * w, 2 * h, "charger une partie", texture);
+        ajout_bouton_menu(*menu, w, 9 * h, 2 * w, 2 * h, "Retour", texture);
     }else if(type == NOUVEAU_MENU){
         (*menu)->tab_bouton = NULL;
     }else{
@@ -127,9 +128,9 @@ t_erreur SDL_afficher_menu(t_menu * menu, SDL_Renderer * renderer){
     }
 
     /* Initialisation */
-    TTF_Font * police = TTF_OpenFont("/usr/share/fonts/truetype/Gargi/Gargi.ttf",40);
-    SDL_Color couleur_texte = {0,0,0};
-    SDL_Surface * texte;
+    char * police = "../../data/police/8-BIT_WONDER.ttf";
+    int taille_police = 30;
+    SDL_Color couleur_texte = {255,255,255};
     SDL_Texture * texte_tex;
     
 
@@ -142,16 +143,14 @@ t_erreur SDL_afficher_menu(t_menu * menu, SDL_Renderer * renderer){
             menu->tab_bouton[i]->width,
             menu->tab_bouton[i]->height
         };
-        texte = TTF_RenderText_Blended(police, menu->tab_bouton[i]->titre, couleur_texte);
-        texte_tex = SDL_CreateTextureFromSurface(renderer, texte);
+        
+        Create_Text_Texture(renderer, menu->tab_bouton[i]->titre, police, taille_police, couleur_texte, BLENDED, &texte_tex);
 
         SDL_RenderCopy(renderer, menu->tab_bouton[i]->texture, NULL, &r);
         SDL_RenderCopy(renderer, texte_tex, NULL, &r);
 
-        SDL_FreeSurface(texte);
         SDL_DestroyTexture(texte_tex);
     }
-    TTF_CloseFont(police);
     return OK;
 }
 
