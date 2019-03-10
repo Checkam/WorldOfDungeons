@@ -12,6 +12,7 @@
 #include <liste.h>
 #include <erreur.h>
 #include <string.h>
+#include <ctype.h>
 
 /**
  * \fn t_erreur decomposer_PWD (t_liste * p, char * pwd)
@@ -88,6 +89,11 @@ t_erreur fusion_PWD(t_liste * env, t_liste * argv)
     /* Erreur : pointeur NULL */
     if (!argv || !env) return PTR_NULL;
 
+    /* Mise en minuscule */
+    char * project_name_min;
+    char * val_min;
+    tolower_str(PROJECT_NAME,&project_name_min);
+
     /* Construction du WOD_PWD dans la liste env */
     char * val;
     int check = 0;
@@ -96,26 +102,32 @@ t_erreur fusion_PWD(t_liste * env, t_liste * argv)
     for (en_tete(env); !hors_liste(env); suivant(env))
     {
         valeur_elt(env,(void **)&val);
-        if (!strcmp(PROJECT_NAME,val)) check = 1;
+        tolower_str(val,&val_min);
+        if (!strcmp(project_name_min,val_min)) check = 1;
         else if (check) oter_elt(env,free);
+        free(val_min);
     }
     /* Sinon on va voir argv */
     if (!check)
     {
         en_tete(argv); en_queue(env);
         valeur_elt(argv,(void **)&val);
-        while (strcmp(PROJECT_NAME,val) && !hors_liste(argv))
+        tolower_str(val,&val_min);
+        while (strcmp(project_name_min,val_min) && !hors_liste(argv))
         {
             if (strcmp(".",val) && strcmp("..",val))
             {
                 ajout_droit(env,val);
                 oter_elt(argv,NULL);
             }
+            free(val_min);
             suivant(argv);
             valeur_elt(argv,(void **)&val);
+            tolower_str(val,&val_min);
         }
         ajout_droit(env,val);
         oter_elt(argv,NULL);
+        free(val_min);
     }
 
     /* Fusion des élèments de env pour reconstruction du WOD_PWD */
@@ -142,6 +154,7 @@ t_erreur fusion_PWD(t_liste * env, t_liste * argv)
     /* Mis à jour de WOD_PWD */
     WOD_PWD = pwd;
 
+    free(project_name_min);
     return OK;
 }
 
@@ -161,6 +174,28 @@ t_erreur creation_chemin (char * ajout, char ** res)
     *res = malloc(sizeof(char) * (strlen(WOD_PWD) + strlen(ajout) + 1));
     strcpy(*res, WOD_PWD);
     strcat(*res, ajout);
+
+    return OK;
+}
+
+/**
+ * \fn t_erreur tolower_str (char * str, char ** res)
+ * \brief Met en minuscule une chaine de caractère.
+ * \param str Chaine de caractère source.
+ * \param res Chaine de caractère résultat.
+ * \return Une erreur s'il y en a une.
+*/
+t_erreur tolower_str (char * str, char ** res)
+{
+    /* Erreur : pointeur NULL */
+    if (!str || !res) return PTR_NULL;
+
+    /* Mise en minuscule */
+    *res = malloc(sizeof(char) * (strlen(str) + 1));
+    int i;
+    for (i = 0; str[i]; i++)
+        (*res)[i] = tolower(str[i]);
+    (*res)[i] = '\0';
 
     return OK;
 }
