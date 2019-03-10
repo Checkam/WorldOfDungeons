@@ -22,7 +22,14 @@ int main(int argc, char ** argv, char ** env)
 
     printf("WOD_PWD = %s\n", WOD_PWD);
 
+    printf("Création d'un chemin vers de le dossier 'test/PWD/'\n");
+    char * chemin;
+    creation_chemin("test/PWD/",&chemin);
+    printf("\t-- OK\n");
+    printf("Chemin = %s\n", chemin);
+
     free(WOD_PWD);
+    free(chemin);
 
     return EXIT_SUCCESS;
 }
