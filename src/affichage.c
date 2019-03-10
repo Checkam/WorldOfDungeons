@@ -17,20 +17,20 @@
 #include <string.h>
 
 /**
- * \fn int dansFenetre(SDL_Rect r)
+ * \fn int AFF_RectInWindow(SDL_Rect r)
  * \brief Vérifie si les coordonées d'un carré (SDL_rect) est dans la fenetre
  * \param r un carré SDL
  * \return un int 1 si dans la fenetre sinon 0
  **/
-int dansFenetre(SDL_Rect r) { return (r.x < width_window && r.x >= 0 && r.y >= 0 && r.y < height_window); }
+int AFF_RectInWindow(SDL_Rect r) { return (r.x < width_window && r.x >= 0 && r.y >= 0 && r.y < height_window); }
 
 /**
- * \fn int taille_mid_aff()
+ * \fn int AFF_GetMidHeight(t_liste *list)
  * \brief Récupère la hauteur du milieu de la liste
  * \param list La liste des tableaux de block
  * \return return la hauteur du milieu d'affichage
  **/
-int taille_mid_aff(t_liste *list) {
+int AFF_GetMidHeight(t_liste *list) {
   int *tab;
   int i = 0;
   int taille = MAX - 1;
@@ -49,14 +49,14 @@ int taille_mid_aff(t_liste *list) {
 }
 
 /**
- * \fn void aff_map_sdl(SDL_Renderer *renderer, block_type_t blocks[], int min)
+ * \fn void AFF_map_sdl(t_liste *list, SDL_Renderer *renderer, int min)
  * \brief Affiche une liste de tableau de block en SDL
  * \param list La liste de tableau de blocks a afficher
  * \param renderer Le rendu SDL
  * \param min le minimun de l'affichage (exemple: )
  * \return Retourne rien
  **/
-void aff_map_sdl(t_liste *list, SDL_Renderer *renderer, int min) {
+void AFF_map_sdl(t_liste *list, SDL_Renderer *renderer, int min) {
   int i, j = 0;
   int *map; /*Tableau de recupèration de la liste*/
   SDL_Rect r = {0, 0, 0, 0};
@@ -68,7 +68,7 @@ void aff_map_sdl(t_liste *list, SDL_Renderer *renderer, int min) {
         r.y = (height_window - (i * (height_window / MAX_SCREEN)));
         r.h = 50;
         r.w = 50;
-        if (dansFenetre(r)) {
+        if (AFF_RectInWindow(r)) {
           char *chemin_texture = BLOCK_GetTexture_sdl(*(map + i + min));
           if (chemin_texture != NULL) {
             SDL_Texture *texture_block;
@@ -83,14 +83,14 @@ void aff_map_sdl(t_liste *list, SDL_Renderer *renderer, int min) {
 }
 
 /**
- * \fn void aff_map(int min, int max, block_type2_t blocks[])
+ * \fn void AFF_map_term(t_liste *list, int min, int max)
  * \brief Affiche une liste de tableau de block sur le terminal
  * \param list La liste de tableau de blocks a afficher
  * \param min le minimun de l'affichage
  * \param max le max de l'affichage
  * \return Retourne rien
  **/
-void aff_map(t_liste *list, int min, int max) {
+void AFF_map_term(t_liste *list, int min, int max) {
   int i;
   int *map; // Tableau de recupèration de la liste
   for (i = MAX_SCREEN - 1; i >= 0; i--) {
