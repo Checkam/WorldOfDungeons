@@ -1,3 +1,5 @@
+#ifndef __JSON_H__
+#define __JSON_H__
 /**
  * \file json.h
  * \brief Module contenant les primitives et les structures permettant l'écriture et la lecture de fichier JSON.
@@ -8,23 +10,44 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
-/* Defines */
-#define LINE_MAX_WIDTH 200 /* Taille maximum d'un objet JSON */
+#include <erreur.h>
 
 /* Primitives de création, d'ouverture, de fermeture et de suppression */
-FILE * new_json (char * name);
-int del_json (char * name);
-FILE * open_json (char * name);
+
+/* Création d'un fichier JSON /
+Utilisation : FILE * file = new_json("dossier/JSON", "name") */
+FILE * new_json (char * dossier, char * name);
+/* Suppression d'un fichier JSON /
+Utilisation : del_json("dossier/JSON", "name") */
+t_erreur del_json (char * dossier, char * name);
+/* Ouverture d'un fichier JSON /
+Utilisation : open_json("dossier/JSON", "name") */
+FILE * open_json (char * dossier, char * name);
 
 /* Primitives d'écriture */
-int write_json (FILE * file, char * key, void * value, char value_type);
-int open_json_obj (FILE * file);
-int close_json_obj (FILE * file);
+
+/* Ecriture dans un fichier JSON d'une valeur avec sa clé /
+Utilisation : write_json(file, cle, valeur, type_de_la_valeur) */
+t_erreur write_json (FILE * file, char * key, void * value, char value_type);
+/* Ouverture d'un nouvel objet dans un fichier JSON /
+Utilisation : open_json_obj(file) */
+t_erreur open_json_obj (FILE * file);
+/* Fermeture d'un objet dans un fichier JSON /
+Utilisation : close_json_obj(file) */
+t_erreur close_json_obj (FILE * file);
 
 /* Primitives de lecture */
-int extract_json_obj (FILE * file, char ** obj);
-int read_json_obj (char * obj, char * key, void * value, char value_type);
+
+/* Extraction d'un objet dans un fichier JSON /
+Utilisation : extract_json_obj(file, &obj) */
+t_erreur extract_json_obj (FILE * file, char ** obj);
+/* Lit le contenu d'un objet /
+Utilisation : read_json_obj(obj,cle,valeur,type_de_la_valeur)
+type_de_la_valeur = [d,s,f] */
+t_erreur read_json_obj (char * obj, char * key, void * value, char value_type);
 
 /* Primitives Autres */
+
 char * concat_str (char * str1, char * str2);
+
+#endif
