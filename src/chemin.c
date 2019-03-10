@@ -1,5 +1,5 @@
 /**
- * \file pwd.c
+ * \file chemin.c
  * \brief Module servant à récupérer le chemin absolu de la racine du projet.
  * \author GALBRUN Tibane
  * \date 09/03/2019
@@ -8,7 +8,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <pwd.h>
+#include <chemin.h>
 #include <liste.h>
 #include <erreur.h>
 #include <string.h>

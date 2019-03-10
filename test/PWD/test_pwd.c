@@ -8,7 +8,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include <pwd.h>
+#include <chemin.h>
 #include <assert.h>
 #include "test_pwd.h"
 

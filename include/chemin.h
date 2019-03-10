@@ -1,10 +1,10 @@
-#ifndef __PWD_H__
-#define __PWD_H__
+#ifndef __CHEMIN_H__
+#define __CHEMIN_H__
 /**
- * \file pwd.h
+ * \file chemin.h
  * \brief Module des primitives servant à la récupération du chemin absolu.
  * \author GALBRUN Tibane
- * \date 07/03/2019
+ * \date 09/03/2019
  * \version 0.2
 */
 #include <liste.h>
