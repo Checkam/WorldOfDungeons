@@ -1,8 +1,13 @@
 /**
  * \file test_menu.c
  * \brief Programme qui teste le module erreur.
+<<<<<<< HEAD
  * \author GALBRUN Jasmin.
  * \date 10/03/2019
+=======
+ * \author GALBRUN Tibane.
+ * \date 09/03/2019
+>>>>>>> 6b92278... Ajout police d'écriture
  * \version 1
 */
 
