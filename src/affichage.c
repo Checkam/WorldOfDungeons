@@ -6,18 +6,15 @@
  *   \date 9 mars 2019
  **/
 
-#ifndef __AFFICHAGE_H__
-#define __AFFICHAGE_H__
 #include <SDL2/SDL.h>
-#include <liste.h>
-#endif
-
 #include <block.h>
 #include <commun.h>
 #include <couleurs.h>
-
+#include <liste.h>
+#include <outils_SDL.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /**
  * \fn int dansFenetre(SDL_Rect r)
@@ -26,36 +23,6 @@
  * \return un int 1 si dans la fenetre sinon 0
  **/
 int dansFenetre(SDL_Rect r) { return (r.x < width_window && r.x >= 0 && r.y >= 0 && r.y < height_window); }
-
-/**
- \fn char *CouleurBlock(int id, block_type2_t blocks[])
- \brief Chercher la texture d'un block par rapport a son id et renvoie la texture terminal de ce block
- \param id C'est le chiffre qui represente la texture rechercher
- \param blocks un tableau de block
- \return la texture (une char * pour le terminal)
- **/
-char *CouleurBlock(int id, block_type2_t blocks[]) {
-  int i;
-  for (i = 0; i < NB_BLOCK; i++)
-    if (blocks[i].materiau == id)
-      return blocks[i].texture;
-  return NOIR;
-}
-
-/**
- * \fn SDL_Texture *TextureBlock(int id, block_type_t blocks[])
- * \brief Chercher la texture d'un block par rapport a son id et renvoie la texture terminal de ce block
- * \param id C'est le chiffre qui represente la texture rechercher
- * \param blocks un tableau de block
- * \return la texture (une char * pour le terminal)
- **/
-SDL_Texture *TextureBlock(int id, block_type_t blocks[]) {
-  int i;
-  for (i = 0; i < NB_BLOCK; i++)
-    if (blocks[i].materiau == id)
-      return blocks[i].texture;
-  return NULL;
-}
 
 /**
  * \fn int taille_mid_aff()
@@ -86,11 +53,10 @@ int taille_mid_aff(t_liste *list) {
  * \brief Affiche une liste de tableau de block en SDL
  * \param list La liste de tableau de blocks a afficher
  * \param renderer Le rendu SDL
- * \param blocks Un tableau de blocks
  * \param min le minimun de l'affichage (exemple: )
  * \return Retourne rien
  **/
-void aff_map_sdl(t_liste *list, SDL_Renderer *renderer, block_type_t blocks[], int min) {
+void aff_map_sdl(t_liste *list, SDL_Renderer *renderer, int min) {
   int i, j = 0;
   int *map; /*Tableau de recupèration de la liste*/
   SDL_Rect r = {0, 0, 0, 0};
@@ -102,8 +68,15 @@ void aff_map_sdl(t_liste *list, SDL_Renderer *renderer, block_type_t blocks[], i
         r.y = (height_window - (i * (height_window / MAX_SCREEN)));
         r.h = 50;
         r.w = 50;
-        if (dansFenetre(r))
-          SDL_RenderCopy(renderer, TextureBlock(*(map + i + min), blocks), NULL, &r);
+        if (dansFenetre(r)) {
+          char *chemin_texture = BLOCK_GetTexture_sdl(*(map + i + min));
+          if (chemin_texture != NULL) {
+            SDL_Texture *texture_block;
+            Create_IMG_Texture(renderer, chemin_texture, &texture_block);
+            SDL_RenderCopy(renderer, texture_block, NULL, &r);
+            SDL_DestroyTexture(texture_block);
+          }
+        }
       }
       j++;
     }
@@ -115,16 +88,15 @@ void aff_map_sdl(t_liste *list, SDL_Renderer *renderer, block_type_t blocks[], i
  * \param list La liste de tableau de blocks a afficher
  * \param min le minimun de l'affichage
  * \param max le max de l'affichage
- * \param blocks Un tableau de blocks
  * \return Retourne rien
  **/
-void aff_map(t_liste *list, int min, int max, block_type2_t blocks[]) {
+void aff_map(t_liste *list, int min, int max) {
   int i;
   int *map; // Tableau de recupèration de la liste
   for (i = MAX_SCREEN - 1; i >= 0; i--) {
     for (en_tete(list); !hors_liste(list); suivant(list)) {
       valeur_elt(list, (void **)&map);
-      printf("%s %s", CouleurBlock(*(map + i), blocks), NOIR);
+      printf("%s %s", BLOCK_GetTexture_term(*(map + i)), NOIR);
     }
     printf("\n");
   }
