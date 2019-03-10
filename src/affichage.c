@@ -31,14 +31,14 @@ int AFF_RectInWindow(SDL_Rect r) { return (r.x < width_window && r.x >= 0 && r.y
  * \return return la hauteur du milieu d'affichage
  **/
 int AFF_GetMidHeight(t_liste *list) {
-  int *tab;
+  t_block *tab;
   int i = 0;
   int taille = MAX - 1;
   if (taille_liste(list) > SIZE) { /* INCOMPREHENSIBLE */
     for (en_tete(list); !hors_liste(list); suivant(list), i++) {
       valeur_elt(list, (void **)&tab);
       if (i == (SIZE / 2)) {
-        while (tab[taille] != HERBE && tab[taille] != NEIGE && tab[taille] != EAU) {
+        while (tab[taille].id != HERBE && tab[taille].id != NEIGE && tab[taille].id != EAU) {
           taille--;
         }
         return taille;
@@ -58,7 +58,7 @@ int AFF_GetMidHeight(t_liste *list) {
  **/
 void AFF_map_sdl(t_liste *list, SDL_Renderer *renderer, int min) {
   int i, j = 0;
-  int *map; /*Tableau de recupèration de la liste*/
+  t_block *map; /*Tableau de recupèration de la liste*/
   SDL_Rect r = {0, 0, 0, 0};
   if (min)
     for (j = 0, en_tete(list); !hors_liste(list); suivant(list)) {
@@ -69,7 +69,7 @@ void AFF_map_sdl(t_liste *list, SDL_Renderer *renderer, int min) {
         r.h = 50;
         r.w = 50;
         if (AFF_RectInWindow(r)) {
-          char *chemin_texture = BLOCK_GetTexture_sdl(*(map + i + min));
+          char *chemin_texture = BLOCK_GetTexture_sdl(map[i + min].id);
           if (chemin_texture != NULL) {
             SDL_Texture *texture_block;
             Create_IMG_Texture(renderer, chemin_texture, &texture_block);
@@ -92,11 +92,11 @@ void AFF_map_sdl(t_liste *list, SDL_Renderer *renderer, int min) {
  **/
 void AFF_map_term(t_liste *list, int min, int max) {
   int i;
-  int *map; // Tableau de recupèration de la liste
+  t_block *map; // Tableau de recupèration de la liste
   for (i = MAX_SCREEN - 1; i >= 0; i--) {
     for (en_tete(list); !hors_liste(list); suivant(list)) {
       valeur_elt(list, (void **)&map);
-      printf("%s %s", BLOCK_GetTexture_term(*(map + i)), NOIR);
+      printf("%s %s", BLOCK_GetTexture_term(map[i].id), NOIR);
     }
     printf("\n");
   }
