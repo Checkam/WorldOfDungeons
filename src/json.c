@@ -213,7 +213,7 @@ t_erreur extract_json_obj (FILE * file, char ** obj)
 }
 
 /**
- * \fn t_erreur read_json (FILE * file, char * key, void * value, char value_type)
+ * \fn t_erreur read_json_obj (FILE * file, char * key, void * value, char value_type)
  * \brief Lit un objet JSON.
  * \brief La lecture s'effectue dans le fichier 'file' et on va chercher la valeur correspondant à la 'key'.
  * \param file Le fichier à lire.
