@@ -1,3 +1,10 @@
+/**
+ *   \file block.h
+ *   \brief Module block fonction et structure
+ *   \author {Maxence.D}
+ *   \version 0.1
+ *   \date 10 mars 2019
+ **/
 #ifndef __BLOCK_H__
 #define __BLOCK_H__
 

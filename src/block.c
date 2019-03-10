@@ -1,4 +1,10 @@
-
+/**
+ *   \file block.c
+ *   \brief Fonction sur les blocks
+ *   \author {Maxence.D}
+ *   \version 0.1
+ *   \date 10 mars 2019
+ **/
 #include <block.h>
 #include <stdio.h>
 #include <stdlib.h>

@@ -3,7 +3,7 @@
  *   \brief Fonction d'affichage de liste de block
  *   \author {Maxence.D}
  *   \version 0.1
- *   \date 9 mars 2019
+ *   \date 10 mars 2019
  **/
 
 #include <SDL2/SDL.h>

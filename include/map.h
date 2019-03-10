@@ -1,4 +1,10 @@
-
+/**
+ *   \file map.h
+ *   \brief Module permettant de géré une map
+ *   \author {Maxence.D}
+ *   \version 0.1
+ *   \date 10 mars 2019
+ **/
 #ifndef __MAP_H__
 #define __MAP_H__
 

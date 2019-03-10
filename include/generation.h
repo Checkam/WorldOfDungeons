@@ -1,3 +1,10 @@
+/**
+ *   \file generation.h
+ *   \brief Module de generation de la map
+ *   \author {Maxence.D}
+ *   \version 0.1
+ *   \date 10 mars 2019
+ **/
 #include <block.h>
 
 #define W_BIOME 200
