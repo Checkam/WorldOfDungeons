@@ -5,20 +5,33 @@
 
 #define NB_BLOCK 10
 
-typedef enum { AIR, HERBE, TERRE, EAU, SABLE, FEUILLE, BOIS, ROCHE, NEIGE, GLACE, DIAMAND } materiaux_t;
+/**
+ \enum t_materiaux
+ \brief Enum de tous les materiaux qui existe
+**/
+typedef enum { AIR, HERBE, TERRE, EAU, SABLE, FEUILLE, BOIS, ROCHE, NEIGE, GLACE, DIAMAND } t_materiaux;
 
+/**
+ \struct t_block_type
+ \brief Structure d'une type de block
+**/
 typedef struct block_type_s {
-  materiaux_t materiau;
+  t_materiaux materiau;
   char *nom;
   int resistance;
 
   char *texture_sdl;
   char *texture_term;
-} block_type_t;
+} t_block_type;
 
+
+/**
+ \enum t_block
+ \brief Structure d'un block
+**/
 typedef struct block_s {
   int id, x, y;
-} block_t;
+} t_block;
 
 #endif
 
