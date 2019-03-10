@@ -1,3 +1,5 @@
+#include <block.h>
+
 #define W_BIOME 200
 #define NB_BIOME 5
 
@@ -17,11 +19,11 @@
 
 typedef enum {
        FORET,
-       PRAIRIES, 
+       PRAIRIES,
        TAIGA,
        TOUNDRA,
        DESERTS
 } biome_t;
 
-int gen_col(int **tab, int i);
-void init_map(int *map);
+int gen_col(t_block **tab, int x) ;
+void init_map(t_block *map);
