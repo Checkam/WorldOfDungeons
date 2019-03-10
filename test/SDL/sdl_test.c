@@ -32,6 +32,7 @@ int main(int argc, char const *argv[]) {
   SDL_Init(SDL_INIT_EVERYTHING);
   SDL_Window *screen =
       SDL_CreateWindow("World Of Dungeons", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width_window, height_window, SDL_WINDOW_SHOWN);
+
   SDL_Event event;
 
   SDL_Rect fondRect = {0, 0, width_window, height_window};
@@ -43,7 +44,7 @@ int main(int argc, char const *argv[]) {
 
   SEED = 5454575;
 
-  int *tab;
+  t_block *tab;
 
   int taille_max = 0;
   int i = 100;
@@ -65,13 +66,13 @@ int main(int argc, char const *argv[]) {
     en_queue(&list);
     ajout_droit(&list, tab);
 
-    taille = taille_mid_aff(&list);
+    taille = AFF_GetMidHeight(&list);
     if (taille == -1)
       taille = taille_max;
     SDL_RenderClear(renderer);
     SDL_RenderCopy(renderer, fond, NULL, &fondRect);
 
-    aff_map_sdl(&list, renderer, taille - 4);
+    AFF_map_sdl(&list, renderer, taille - 4);
     SDL_RenderPresent(renderer);
 
     while (SDL_PollEvent(&event))

@@ -10,11 +10,8 @@
 
 int main(int argc, char const *argv[]) {
   t_map *map = NULL;
-  int *tab;
+  t_block *tab;
   int boucle = 0;
-  block_type2_t blocks2[NB_BLOCK] = {{AIR, "air", NOIR},      {HERBE, "herbe", VERT},     {TERRE, "terre", MARRON}, {EAU, "eau", BLEU},
-                                     {SABLE, "sable", JAUNE}, {FEUILLE, "feuille", VERT}, {BOIS, "bois", MARRON},   {ROCHE, "roche", GRIS},
-                                     {NEIGE, "neige", BLANC}, {GLACE, "glace", CYAN}};
 
   printf("Création de la map et du repertoire : --");
   aff_erreur(MAP_creer(&map, "World", 121212));
@@ -28,7 +25,7 @@ int main(int argc, char const *argv[]) {
     ajout_droit(map->list, tab);
   }
 
-  aff_map(map->list, 30, 80, blocks2);
+  AFF_map_term(map->list, 30, 80);
 
   printf("Destruction de la zone mémoire pointer par map : -- ");
   aff_erreur(MAP_detruction(&map));
