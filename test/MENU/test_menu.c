@@ -1,8 +1,8 @@
 /**
  * \file test_menu.c
  * \brief Programme qui teste le module erreur.
- * \author GALBRUN Tibane.
- * \date 09/03/2019
+ * \author GALBRUN Jasmin.
+ * \date 10/03/2019
  * \version 1
 */
 
@@ -12,12 +12,13 @@
 #include <assert.h>
 #include <SDL2/SDL_ttf.h>
 #include <chemin.h>
+#include <outils_SDL.h>
 
 int main(int argc, char **argv, char **env)
 {
     /* Initialisation */
     t_menu * menu = NULL;
-    int width_window = 600;
+    int width_window = 1000;
     int height_window = 600;
     getpwd(argv[0], getenv("PWD"));
 
@@ -45,10 +46,10 @@ int main(int argc, char **argv, char **env)
     SDL_Surface *surface_to_tex = NULL;
     char * chemin_img;
     creation_chemin("IMG/texture/herbe.bmp", &chemin_img);
-    surface_to_tex = SDL_LoadBMP(chemin_img);
-    SDL_Texture * fond = SDL_CreateTextureFromSurface(renderer, surface_to_tex);
-    SDL_FreeSurface(surface_to_tex);
+    SDL_Texture * fond;
+    Create_IMG_Texture(renderer, chemin_img, &fond);
     free(chemin_img);
+    SDL_Color couleur_texte = {255,255,255};
 
 
     /* Test création menu 1 */
@@ -59,10 +60,10 @@ int main(int argc, char **argv, char **env)
     /* Test affichage menu 1 */
     SDL_RenderClear(renderer);
     printf("Test affichage Menu 1:\n");
-    assert(SDL_afficher_menu(menu, renderer) == OK);
+    assert(SDL_afficher_menu(menu, renderer, couleur_texte) == OK);
     printf("\t-- OK\n");
     SDL_RenderPresent(renderer);
-    SDL_Delay(2000);
+    SDL_Delay(5000);
 
     /* Test destruction menu 1 */
     printf("Test destruction Menu 1:\n");
@@ -77,10 +78,10 @@ int main(int argc, char **argv, char **env)
     /* Test affichage menu 2 */
     SDL_RenderClear(renderer);
     printf("Test affichage Menu 2:\n");
-    assert(SDL_afficher_menu(menu, renderer) == OK);
+    assert(SDL_afficher_menu(menu, renderer, couleur_texte) == OK);
     printf("\t-- OK\n");
     SDL_RenderPresent(renderer);
-    SDL_Delay(2000);
+    SDL_Delay(5000);
 
     /* Test destruction menu 2 */
     printf("Test destruction Menu 2:\n");
@@ -102,10 +103,10 @@ int main(int argc, char **argv, char **env)
     /* Test affichage menu 3 */
     SDL_RenderClear(renderer);
     printf("Test affichage Menu 3:\n");
-    assert(SDL_afficher_menu(menu, renderer) == OK);
+    assert(SDL_afficher_menu(menu, renderer, couleur_texte) == OK);
     printf("\t-- OK\n");
     SDL_RenderPresent(renderer);
-    SDL_Delay(2000);
+    SDL_Delay(5000);
 
     /* Test destruction menu 3 */
     printf("Test destruction Menu 3:\n");

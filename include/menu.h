@@ -3,12 +3,11 @@
  * \brief Gestion du menu (solo, multijoueur, ...)
  * \author Jasmin GALBRUN
  * \version 1
- * \date 09/03/2019
+ * \date 10/03/2019
 */
 #ifndef __MENU_H__
 #define __MENU_H__
 
-#include <ctype.h>
 #include <SDL2/SDL.h>
 #include <erreur.h>
 
@@ -49,7 +48,7 @@ t_erreur ajout_bouton_menu(t_menu * menu, int x, int y, int width, int height, c
 t_erreur creer_menu(t_type_menu type, int width, int height, SDL_Texture * texture, t_menu ** menu);
 
 /* Primitive d'affichage d'un menu */
-t_erreur SDL_afficher_menu(t_menu * menu, SDL_Renderer * renderer);
+t_erreur SDL_afficher_menu(t_menu * menu, SDL_Renderer * renderer, SDL_Color couleur_texte);
 
 /* Primitive de destruction d'un menu */
 t_erreur detruire_bouton_menu(t_bouton_menu ** btn);

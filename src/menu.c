@@ -3,18 +3,19 @@
  * \brief Gestion du menu (solo, multijoueur, ...)
  * \author Jasmin GALBRUN
  * \version 1
- * \date 09/03/2019
+ * \date 10/03/2019
 */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 #include <menu.h>
 #include <outils_SDL.h>
 #include <chemin.h>
+
+#define POLICE_MENU "data/police/8-BIT_WONDER.ttf"
 
 /**
  * \fn t_erreur ajout_bouton_menu(t_menu * menu, int x, int y, int width, int height, char * titre, SDL_Texture * texture)
@@ -113,10 +114,10 @@ t_erreur creer_menu(t_type_menu type, int width, int height, SDL_Texture * textu
 }
 
 /**
- * \fn t_erreur SDL_afficher_menu(t_menu * menu, SDL_Renderer * renderer)
+ * \fn t_erreur SDL_afficher_menu(t_menu * menu, SDL_Renderer * renderer, SDL_Color couleur_texte)
  * \param
 */
-t_erreur SDL_afficher_menu(t_menu * menu, SDL_Renderer * renderer){
+t_erreur SDL_afficher_menu(t_menu * menu, SDL_Renderer * renderer, SDL_Color couleur_texte){
     /* Vérification */
     if(menu == NULL){
         return UNDEFINED_MENU;
@@ -130,26 +131,41 @@ t_erreur SDL_afficher_menu(t_menu * menu, SDL_Renderer * renderer){
 
     /* Initialisation */
     char * police;
-    creation_chemin("data/police/8-BIT_WONDER.ttf", &police);
-    int taille_police = 30;
-    SDL_Color couleur_texte = {255,255,255};
+    creation_chemin(POLICE_MENU, &police);
     SDL_Texture * texte_tex;
     
-
-    /* Affichage */
+    /* Définition taille de la police */
+    int taille_max_titre = 0;
     int i;
     for(i = 0; i < menu->nb_bouton; i++){
-        SDL_Rect r = {
+        if(strlen(menu->tab_bouton[i]->titre) > taille_max_titre)
+            taille_max_titre = strlen(menu->tab_bouton[i]->titre);
+    }
+    int taille_police = menu->tab_bouton[0]->width / taille_max_titre;
+
+    /* Affichage */
+    for(i = 0; i < menu->nb_bouton; i++){
+        SDL_Rect r_img = {
             menu->tab_bouton[i]->x,
             menu->tab_bouton[i]->y,
             menu->tab_bouton[i]->width,
             menu->tab_bouton[i]->height
         };
+
+        /* Centrer le texte */
+        int x_txt = (menu->tab_bouton[i]->width - taille_police * strlen(menu->tab_bouton[i]->titre)) / 2 + menu->tab_bouton[i]->x;
+        int y_txt = (menu->tab_bouton[i]->height - taille_police) / 2 + menu->tab_bouton[i]->y;
+        SDL_Rect r_txt = {
+            x_txt,
+            y_txt,
+            taille_police * strlen(menu->tab_bouton[i]->titre),
+            taille_police
+        };
         
         Create_Text_Texture(renderer, menu->tab_bouton[i]->titre, police, taille_police, couleur_texte, BLENDED, &texte_tex);
 
-        SDL_RenderCopy(renderer, menu->tab_bouton[i]->texture, NULL, &r);
-        SDL_RenderCopy(renderer, texte_tex, NULL, &r);
+        SDL_RenderCopy(renderer, menu->tab_bouton[i]->texture, NULL, &r_img);
+        SDL_RenderCopy(renderer, texte_tex, NULL, &r_txt);
 
         SDL_DestroyTexture(texte_tex);
     }
