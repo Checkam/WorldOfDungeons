@@ -7,7 +7,7 @@
 
 PROG = touche_test
 #Nom du fichier .c et .h du test
-NOM_TEST=test
+NOM_TEST=t_touche
 
 CFLAGS = -Wall -lcurses
 RACINE=../../
@@ -76,8 +76,7 @@ $(OBJ): $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c $(INC_DIR)/%.h
 .PHONY: clean mrproper
 
 clean:
-	rm $(OBJ_DIR)/*.o
-	rm *.o
+	rm -f *.o
 
 mrproper: clean
 	rm -i $(BIN_DIR)/$(PROG)
