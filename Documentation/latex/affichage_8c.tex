@@ -1,0 +1,124 @@
+\hypertarget{affichage_8c}{}\section{Référence du fichier src/affichage.c}
+\label{affichage_8c}\index{src/affichage.\+c@{src/affichage.\+c}}
+
+
+Fonction d\textquotesingle{}affichage de liste de block.  
+
+
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L.\+h$>$}\newline
+{\ttfamily \#include $<$block.\+h$>$}\newline
+{\ttfamily \#include $<$commun.\+h$>$}\newline
+{\ttfamily \#include $<$couleurs.\+h$>$}\newline
+{\ttfamily \#include $<$liste.\+h$>$}\newline
+{\ttfamily \#include $<$outils\+\_\+\+S\+D\+L.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{affichage_8c_a173bacc7dd7d14058ce8712b63b3ec40}{A\+F\+F\+\_\+\+Rect\+In\+Window} (S\+D\+L\+\_\+\+Rect r)
+\begin{DoxyCompactList}\small\item\em Vérifie si les coordonées d\textquotesingle{}un carré (S\+D\+L\+\_\+rect) est dans la fenetre. \end{DoxyCompactList}\item 
+int \hyperlink{affichage_8c_a1bc8c979188d7c9dce4ececfc56a551c}{A\+F\+F\+\_\+\+Get\+Mid\+Height} (\hyperlink{structt__liste}{t\+\_\+liste} $\ast$list)
+\begin{DoxyCompactList}\small\item\em Récupère la hauteur du milieu de la liste. \end{DoxyCompactList}\item 
+void \hyperlink{affichage_8c_a8317142dd0b92ca5481d2263c4475ca2}{A\+F\+F\+\_\+map\+\_\+sdl} (\hyperlink{structt__liste}{t\+\_\+liste} $\ast$list, S\+D\+L\+\_\+\+Renderer $\ast$renderer, int min)
+\begin{DoxyCompactList}\small\item\em Affiche une liste de tableau de block en S\+DL. \end{DoxyCompactList}\item 
+void \hyperlink{affichage_8c_ab1833fe0bc53d1fbb83d155b40724f56}{A\+F\+F\+\_\+map\+\_\+term} (\hyperlink{structt__liste}{t\+\_\+liste} $\ast$list, int min, int max)
+\begin{DoxyCompactList}\small\item\em Affiche une liste de tableau de block sur le terminal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Fonction d\textquotesingle{}affichage de liste de block. 
+
+\begin{DoxyAuthor}{Auteur}
+\{Maxence.\+D\} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+10 mars 2019 
+\end{DoxyDate}
+
+
+\subsection{Documentation des fonctions}
+\mbox{\Hypertarget{affichage_8c_a1bc8c979188d7c9dce4ececfc56a551c}\label{affichage_8c_a1bc8c979188d7c9dce4ececfc56a551c}} 
+\index{affichage.\+c@{affichage.\+c}!A\+F\+F\+\_\+\+Get\+Mid\+Height@{A\+F\+F\+\_\+\+Get\+Mid\+Height}}
+\index{A\+F\+F\+\_\+\+Get\+Mid\+Height@{A\+F\+F\+\_\+\+Get\+Mid\+Height}!affichage.\+c@{affichage.\+c}}
+\subsubsection{\texorpdfstring{A\+F\+F\+\_\+\+Get\+Mid\+Height()}{AFF\_GetMidHeight()}}
+{\footnotesize\ttfamily int A\+F\+F\+\_\+\+Get\+Mid\+Height (\begin{DoxyParamCaption}\item[{\hyperlink{structt__liste}{t\+\_\+liste} $\ast$}]{list }\end{DoxyParamCaption})}
+
+
+
+Récupère la hauteur du milieu de la liste. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em list} & La liste des tableaux de block \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+return la hauteur du milieu d\textquotesingle{}affichage 
+\end{DoxyReturn}
+\mbox{\Hypertarget{affichage_8c_a8317142dd0b92ca5481d2263c4475ca2}\label{affichage_8c_a8317142dd0b92ca5481d2263c4475ca2}} 
+\index{affichage.\+c@{affichage.\+c}!A\+F\+F\+\_\+map\+\_\+sdl@{A\+F\+F\+\_\+map\+\_\+sdl}}
+\index{A\+F\+F\+\_\+map\+\_\+sdl@{A\+F\+F\+\_\+map\+\_\+sdl}!affichage.\+c@{affichage.\+c}}
+\subsubsection{\texorpdfstring{A\+F\+F\+\_\+map\+\_\+sdl()}{AFF\_map\_sdl()}}
+{\footnotesize\ttfamily void A\+F\+F\+\_\+map\+\_\+sdl (\begin{DoxyParamCaption}\item[{\hyperlink{structt__liste}{t\+\_\+liste} $\ast$}]{list,  }\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{int}]{min }\end{DoxyParamCaption})}
+
+
+
+Affiche une liste de tableau de block en S\+DL. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em list} & La liste de tableau de blocks a afficher \\
+\hline
+{\em renderer} & Le rendu S\+DL \\
+\hline
+{\em min} & le minimun de l\textquotesingle{}affichage (exemple\+: ) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Retourne rien 
+\end{DoxyReturn}
+\mbox{\Hypertarget{affichage_8c_ab1833fe0bc53d1fbb83d155b40724f56}\label{affichage_8c_ab1833fe0bc53d1fbb83d155b40724f56}} 
+\index{affichage.\+c@{affichage.\+c}!A\+F\+F\+\_\+map\+\_\+term@{A\+F\+F\+\_\+map\+\_\+term}}
+\index{A\+F\+F\+\_\+map\+\_\+term@{A\+F\+F\+\_\+map\+\_\+term}!affichage.\+c@{affichage.\+c}}
+\subsubsection{\texorpdfstring{A\+F\+F\+\_\+map\+\_\+term()}{AFF\_map\_term()}}
+{\footnotesize\ttfamily void A\+F\+F\+\_\+map\+\_\+term (\begin{DoxyParamCaption}\item[{\hyperlink{structt__liste}{t\+\_\+liste} $\ast$}]{list,  }\item[{int}]{min,  }\item[{int}]{max }\end{DoxyParamCaption})}
+
+
+
+Affiche une liste de tableau de block sur le terminal. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em list} & La liste de tableau de blocks a afficher \\
+\hline
+{\em min} & le minimun de l\textquotesingle{}affichage \\
+\hline
+{\em max} & le max de l\textquotesingle{}affichage \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Retourne rien 
+\end{DoxyReturn}
+\mbox{\Hypertarget{affichage_8c_a173bacc7dd7d14058ce8712b63b3ec40}\label{affichage_8c_a173bacc7dd7d14058ce8712b63b3ec40}} 
+\index{affichage.\+c@{affichage.\+c}!A\+F\+F\+\_\+\+Rect\+In\+Window@{A\+F\+F\+\_\+\+Rect\+In\+Window}}
+\index{A\+F\+F\+\_\+\+Rect\+In\+Window@{A\+F\+F\+\_\+\+Rect\+In\+Window}!affichage.\+c@{affichage.\+c}}
+\subsubsection{\texorpdfstring{A\+F\+F\+\_\+\+Rect\+In\+Window()}{AFF\_RectInWindow()}}
+{\footnotesize\ttfamily int A\+F\+F\+\_\+\+Rect\+In\+Window (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Rect}]{r }\end{DoxyParamCaption})}
+
+
+
+Vérifie si les coordonées d\textquotesingle{}un carré (S\+D\+L\+\_\+rect) est dans la fenetre. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em r} & un carré S\+DL \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un int 1 si dans la fenetre sinon 0 
+\end{DoxyReturn}

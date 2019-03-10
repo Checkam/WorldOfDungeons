@@ -1,0 +1,101 @@
+\hypertarget{block_8c}{}\section{Référence du fichier src/block.c}
+\label{block_8c}\index{src/block.\+c@{src/block.\+c}}
+
+
+Fonction sur les blocks.  
+
+
+{\ttfamily \#include $<$block.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \hyperlink{block_8c_aee81cee5a3a132e9769b9520c3e2f415}{B\+L\+O\+C\+K\+\_\+\+Get\+Texture\+\_\+term} (int id)
+\begin{DoxyCompactList}\small\item\em Chercher la texture d\textquotesingle{}un block par rapport a son id et renvoie la texture terminal de ce block. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{block_8c_aeff28c7cf29db22f5dd1fd9112258b91}{B\+L\+O\+C\+K\+\_\+\+Get\+Texture\+\_\+sdl} (int id)
+\begin{DoxyCompactList}\small\item\em Chercher la texture d\textquotesingle{}un block par rapport a son id et renvoie la texture terminal de ce block. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structt__block__type}{t\+\_\+block\+\_\+type} \hyperlink{block_8c_a7b1c0c6ee83d49a39b4f5c5205ef4140}{blocks} \mbox{[}N\+B\+\_\+\+B\+L\+O\+CK\mbox{]}
+\begin{DoxyCompactList}\small\item\em tableau de tous les blocks \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Fonction sur les blocks. 
+
+\begin{DoxyAuthor}{Auteur}
+\{Maxence.\+D\} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+10 mars 2019 
+\end{DoxyDate}
+
+
+\subsection{Documentation des fonctions}
+\mbox{\Hypertarget{block_8c_aeff28c7cf29db22f5dd1fd9112258b91}\label{block_8c_aeff28c7cf29db22f5dd1fd9112258b91}} 
+\index{block.\+c@{block.\+c}!B\+L\+O\+C\+K\+\_\+\+Get\+Texture\+\_\+sdl@{B\+L\+O\+C\+K\+\_\+\+Get\+Texture\+\_\+sdl}}
+\index{B\+L\+O\+C\+K\+\_\+\+Get\+Texture\+\_\+sdl@{B\+L\+O\+C\+K\+\_\+\+Get\+Texture\+\_\+sdl}!block.\+c@{block.\+c}}
+\subsubsection{\texorpdfstring{B\+L\+O\+C\+K\+\_\+\+Get\+Texture\+\_\+sdl()}{BLOCK\_GetTexture\_sdl()}}
+{\footnotesize\ttfamily char $\ast$ B\+L\+O\+C\+K\+\_\+\+Get\+Texture\+\_\+sdl (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Chercher la texture d\textquotesingle{}un block par rapport a son id et renvoie la texture terminal de ce block. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em id} & C\textquotesingle{}est le chiffre qui represente la texture rechercher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+la texture (une char $\ast$ pour le terminal) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{block_8c_aee81cee5a3a132e9769b9520c3e2f415}\label{block_8c_aee81cee5a3a132e9769b9520c3e2f415}} 
+\index{block.\+c@{block.\+c}!B\+L\+O\+C\+K\+\_\+\+Get\+Texture\+\_\+term@{B\+L\+O\+C\+K\+\_\+\+Get\+Texture\+\_\+term}}
+\index{B\+L\+O\+C\+K\+\_\+\+Get\+Texture\+\_\+term@{B\+L\+O\+C\+K\+\_\+\+Get\+Texture\+\_\+term}!block.\+c@{block.\+c}}
+\subsubsection{\texorpdfstring{B\+L\+O\+C\+K\+\_\+\+Get\+Texture\+\_\+term()}{BLOCK\_GetTexture\_term()}}
+{\footnotesize\ttfamily char $\ast$ B\+L\+O\+C\+K\+\_\+\+Get\+Texture\+\_\+term (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Chercher la texture d\textquotesingle{}un block par rapport a son id et renvoie la texture terminal de ce block. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em id} & C\textquotesingle{}est le chiffre qui represente la texture rechercher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+la texture (une char $\ast$ pour le terminal) 
+\end{DoxyReturn}
+
+
+\subsection{Documentation des variables}
+\mbox{\Hypertarget{block_8c_a7b1c0c6ee83d49a39b4f5c5205ef4140}\label{block_8c_a7b1c0c6ee83d49a39b4f5c5205ef4140}} 
+\index{block.\+c@{block.\+c}!blocks@{blocks}}
+\index{blocks@{blocks}!block.\+c@{block.\+c}}
+\subsubsection{\texorpdfstring{blocks}{blocks}}
+{\footnotesize\ttfamily blocks}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}
+= \{\{AIR, \textcolor{stringliteral}{"air"}, 0, NULL, NOIR\},
+                                 \{HERBE, \textcolor{stringliteral}{"herbe"}, 5, \textcolor{stringliteral}{"./IMG/texture/herbe.bmp"}, VERT\},
+                                 \{TERRE, \textcolor{stringliteral}{"terre"}, 10, \textcolor{stringliteral}{"./IMG/texture/terre.bmp"}, MARRON\},
+                                 \{EAU, \textcolor{stringliteral}{"eau"}, 0, \textcolor{stringliteral}{"./IMG/texture/eau.bmp"}, BLEU\},
+                                 \{SABLE, \textcolor{stringliteral}{"sable"}, 5, \textcolor{stringliteral}{"./IMG/texture/terre.bmp"}, JAUNE\},
+                                 \{FEUILLE, \textcolor{stringliteral}{"feuille"}, 3, \textcolor{stringliteral}{"./IMG/texture/feuille.bmp"}, VERT\},
+                                 \{BOIS, \textcolor{stringliteral}{"bois"}, 15, \textcolor{stringliteral}{"./IMG/texture/tronc.bmp"}, MARRON\},
+                                 \{ROCHE, \textcolor{stringliteral}{"roche"}, 50, \textcolor{stringliteral}{"./IMG/texture/pierre.bmp"}, GRIS\},
+                                 \{NEIGE, \textcolor{stringliteral}{"neige"}, 3, \textcolor{stringliteral}{"./IMG/texture/neige.bmp"}, BLANC\},
+                                 \{GLACE, \textcolor{stringliteral}{"glace"}, 10, \textcolor{stringliteral}{"./IMG/texture/neige.bmp"}, CYAN\}\}
+\end{DoxyCode}
+
+
+tableau de tous les blocks 
+

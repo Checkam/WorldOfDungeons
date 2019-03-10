@@ -1,0 +1,110 @@
+\hypertarget{block_8h}{}\section{Référence du fichier include/block.h}
+\label{block_8h}\index{include/block.\+h@{include/block.\+h}}
+
+
+Module block fonction et structure.  
+
+
+{\ttfamily \#include $<$couleurs.\+h$>$}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structblock__type__s}{block\+\_\+type\+\_\+s}
+\item 
+struct \hyperlink{structblock__s}{block\+\_\+s}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{block_8h_a5503c48093fd459e1fb171d036c26808}\label{block_8h_a5503c48093fd459e1fb171d036c26808}} 
+\#define {\bfseries N\+B\+\_\+\+B\+L\+O\+CK}~10
+\end{DoxyCompactItemize}
+\subsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{block_8h_afaabacdd2e67b4ddaebf78edd61ea88f}\label{block_8h_afaabacdd2e67b4ddaebf78edd61ea88f}} 
+typedef struct \hyperlink{structblock__type__s}{block\+\_\+type\+\_\+s} {\bfseries t\+\_\+block\+\_\+type}
+\item 
+\mbox{\Hypertarget{block_8h_a4bfcfc0f563d3d562344446469d3e22e}\label{block_8h_a4bfcfc0f563d3d562344446469d3e22e}} 
+typedef struct \hyperlink{structblock__s}{block\+\_\+s} {\bfseries t\+\_\+block}
+\end{DoxyCompactItemize}
+\subsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{block_8h_a4030ebe0eea609635f372f2e86d4332a}\label{block_8h_a4030ebe0eea609635f372f2e86d4332a}} 
+enum \hyperlink{block_8h_a4030ebe0eea609635f372f2e86d4332a}{t\+\_\+materiaux} \{ \newline
+{\bfseries A\+IR}, 
+{\bfseries H\+E\+R\+BE}, 
+{\bfseries T\+E\+R\+RE}, 
+{\bfseries E\+AU}, 
+\newline
+{\bfseries S\+A\+B\+LE}, 
+{\bfseries F\+E\+U\+I\+L\+LE}, 
+{\bfseries B\+O\+IS}, 
+{\bfseries R\+O\+C\+HE}, 
+\newline
+{\bfseries N\+E\+I\+GE}, 
+{\bfseries G\+L\+A\+CE}, 
+{\bfseries D\+I\+A\+M\+A\+ND}
+ \}\begin{DoxyCompactList}\small\item\em Enum de tous les materiaux qui existe. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \hyperlink{block_8h_a93947ec480e6053e136e662594144150}{B\+L\+O\+C\+K\+\_\+\+Get\+Texture\+\_\+sdl} (int id)
+\begin{DoxyCompactList}\small\item\em Chercher la texture d\textquotesingle{}un block par rapport a son id et renvoie la texture terminal de ce block. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{block_8h_a8fd0387fcb14db6189965796e3cc2aa2}{B\+L\+O\+C\+K\+\_\+\+Get\+Texture\+\_\+term} (int id)
+\begin{DoxyCompactList}\small\item\em Chercher la texture d\textquotesingle{}un block par rapport a son id et renvoie la texture terminal de ce block. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Module block fonction et structure. 
+
+\begin{DoxyAuthor}{Auteur}
+\{Maxence.\+D\} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+10 mars 2019 
+\end{DoxyDate}
+
+
+\subsection{Documentation des fonctions}
+\mbox{\Hypertarget{block_8h_a93947ec480e6053e136e662594144150}\label{block_8h_a93947ec480e6053e136e662594144150}} 
+\index{block.\+h@{block.\+h}!B\+L\+O\+C\+K\+\_\+\+Get\+Texture\+\_\+sdl@{B\+L\+O\+C\+K\+\_\+\+Get\+Texture\+\_\+sdl}}
+\index{B\+L\+O\+C\+K\+\_\+\+Get\+Texture\+\_\+sdl@{B\+L\+O\+C\+K\+\_\+\+Get\+Texture\+\_\+sdl}!block.\+h@{block.\+h}}
+\subsubsection{\texorpdfstring{B\+L\+O\+C\+K\+\_\+\+Get\+Texture\+\_\+sdl()}{BLOCK\_GetTexture\_sdl()}}
+{\footnotesize\ttfamily char$\ast$ B\+L\+O\+C\+K\+\_\+\+Get\+Texture\+\_\+sdl (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Chercher la texture d\textquotesingle{}un block par rapport a son id et renvoie la texture terminal de ce block. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em id} & C\textquotesingle{}est le chiffre qui represente la texture rechercher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+la texture (une char $\ast$ pour le terminal) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{block_8h_a8fd0387fcb14db6189965796e3cc2aa2}\label{block_8h_a8fd0387fcb14db6189965796e3cc2aa2}} 
+\index{block.\+h@{block.\+h}!B\+L\+O\+C\+K\+\_\+\+Get\+Texture\+\_\+term@{B\+L\+O\+C\+K\+\_\+\+Get\+Texture\+\_\+term}}
+\index{B\+L\+O\+C\+K\+\_\+\+Get\+Texture\+\_\+term@{B\+L\+O\+C\+K\+\_\+\+Get\+Texture\+\_\+term}!block.\+h@{block.\+h}}
+\subsubsection{\texorpdfstring{B\+L\+O\+C\+K\+\_\+\+Get\+Texture\+\_\+term()}{BLOCK\_GetTexture\_term()}}
+{\footnotesize\ttfamily char$\ast$ B\+L\+O\+C\+K\+\_\+\+Get\+Texture\+\_\+term (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Chercher la texture d\textquotesingle{}un block par rapport a son id et renvoie la texture terminal de ce block. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em id} & C\textquotesingle{}est le chiffre qui represente la texture rechercher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+la texture (une char $\ast$ pour le terminal) 
+\end{DoxyReturn}

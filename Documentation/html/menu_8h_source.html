@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Génération Procedural et Stockage de donnée:  Fichier source de include/menu.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Génération Procedural et Stockage de donnée
+   </div>
+   <div id="projectbrief">Le but de ce projet de d&#39;apprendre a utilisé Perlin noise en commmencant a réfléchir au structure que nous aurons besoin</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">menu.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="menu_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef __MENU_H__</span></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define __MENU_H__</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;ctype.h&gt;</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL.h&gt;</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="erreur_8h.html">erreur.h</a>&gt;</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> e_type_menu {</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    PRINCIPAL,</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    SOLO,</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    MULTIJOUEUR,</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    OPTION,</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    PAUSE,</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    NOUVEAU_MENU</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;} t_type_menu;</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div><div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="structs__bouton__menu.html">   32</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structs__bouton__menu.html">s_bouton_menu</a>{</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">int</span> x, y, width, height;</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">char</span> * titre;</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    SDL_Texture * texture;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;} <a class="code" href="structt__bouton__menu.html">t_bouton_menu</a>;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div><div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="structs__menu.html">   42</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structs__menu.html">s_menu</a>{</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="structt__bouton__menu.html">t_bouton_menu</a> *(*tab_bouton);</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">int</span> nb_bouton;</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}<a class="code" href="structt__menu.html">t_menu</a>;</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">/* Primitive de création d&#39;un menu */</span></div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;t_erreur <a class="code" href="menu_8h.html#aa0357b96cd5e47de1b40527051e6748f">ajout_bouton_menu</a>(<a class="code" href="structt__menu.html">t_menu</a> * menu, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, <span class="keywordtype">char</span> * titre, SDL_Texture * texture);</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;t_erreur <a class="code" href="menu_8h.html#a1ddc849d5ab6828a80e9fade67d085c6">creer_menu</a>(t_type_menu type, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, SDL_Texture * texture, <a class="code" href="structt__menu.html">t_menu</a> ** menu);</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">/* Primitive d&#39;affichage d&#39;un menu */</span></div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;t_erreur <a class="code" href="menu_8h.html#ab38e64eae37ab172748fef3164e7a7a6">SDL_afficher_menu</a>(<a class="code" href="structt__menu.html">t_menu</a> * menu, SDL_Renderer * renderer);</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">/* Primitive de destruction d&#39;un menu */</span></div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;t_erreur <a class="code" href="menu_8h.html#ac2bb8edbf82cabcc1f60096f4c68c847">detruire_bouton_menu</a>(<a class="code" href="structt__bouton__menu.html">t_bouton_menu</a> ** btn);</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;t_erreur detruire_menu(<a class="code" href="structt__menu.html">t_menu</a> ** menu);</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="structt__menu_html"><div class="ttname"><a href="structt__menu.html">t_menu</a></div><div class="ttdoc">Contient l&amp;#39;ensemble des boutons appartenant au menu. </div></div>
+<div class="ttc" id="structt__bouton__menu_html"><div class="ttname"><a href="structt__bouton__menu.html">t_bouton_menu</a></div><div class="ttdoc">Contient les informations d&amp;#39;un bouton. </div></div>
+<div class="ttc" id="structs__bouton__menu_html"><div class="ttname"><a href="structs__bouton__menu.html">s_bouton_menu</a></div><div class="ttdef"><b>Definition:</b> menu.h:32</div></div>
+<div class="ttc" id="structs__menu_html"><div class="ttname"><a href="structs__menu.html">s_menu</a></div><div class="ttdef"><b>Definition:</b> menu.h:42</div></div>
+<div class="ttc" id="menu_8h_html_aa0357b96cd5e47de1b40527051e6748f"><div class="ttname"><a href="menu_8h.html#aa0357b96cd5e47de1b40527051e6748f">ajout_bouton_menu</a></div><div class="ttdeci">t_erreur ajout_bouton_menu(t_menu *menu, int x, int y, int width, int height, char *titre, SDL_Texture *texture)</div><div class="ttdef"><b>Definition:</b> menu.c:26</div></div>
+<div class="ttc" id="menu_8h_html_a1ddc849d5ab6828a80e9fade67d085c6"><div class="ttname"><a href="menu_8h.html#a1ddc849d5ab6828a80e9fade67d085c6">creer_menu</a></div><div class="ttdeci">t_erreur creer_menu(t_type_menu type, int width, int height, SDL_Texture *texture, t_menu **menu)</div><div class="ttdef"><b>Definition:</b> menu.c:76</div></div>
+<div class="ttc" id="menu_8h_html_ac2bb8edbf82cabcc1f60096f4c68c847"><div class="ttname"><a href="menu_8h.html#ac2bb8edbf82cabcc1f60096f4c68c847">detruire_bouton_menu</a></div><div class="ttdeci">t_erreur detruire_bouton_menu(t_bouton_menu **btn)</div><div class="ttdef"><b>Definition:</b> menu.c:162</div></div>
+<div class="ttc" id="menu_8h_html_ab38e64eae37ab172748fef3164e7a7a6"><div class="ttname"><a href="menu_8h.html#ab38e64eae37ab172748fef3164e7a7a6">SDL_afficher_menu</a></div><div class="ttdeci">t_erreur SDL_afficher_menu(t_menu *menu, SDL_Renderer *renderer)</div><div class="ttdef"><b>Definition:</b> menu.c:117</div></div>
+<div class="ttc" id="erreur_8h_html"><div class="ttname"><a href="erreur_8h.html">erreur.h</a></div><div class="ttdoc">Module de gestion des erreurs. </div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

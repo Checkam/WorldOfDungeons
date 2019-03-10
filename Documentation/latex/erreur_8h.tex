@@ -1,0 +1,90 @@
+\hypertarget{erreur_8h}{}\section{Référence du fichier include/erreur.h}
+\label{erreur_8h}\index{include/erreur.\+h@{include/erreur.\+h}}
+
+
+Module de gestion des erreurs.  
+
+
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{erreur_8h_ab12c362e97903df9a3e62d617dc22c37}{N\+B\+\_\+\+E\+R\+R\+E\+UR}~13
+\begin{DoxyCompactList}\small\item\em Contient le nombre d\textquotesingle{}erreur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{erreur_8h_a0c63ca30bfd752dda852a778c9f2dbf3}\label{erreur_8h_a0c63ca30bfd752dda852a778c9f2dbf3}} 
+typedef enum e\+\_\+erreur {\bfseries t\+\_\+erreur}
+\end{DoxyCompactItemize}
+\subsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{erreur_8h_aa0354fd52e22aa00035b34f3c21bad9b}\label{erreur_8h_aa0354fd52e22aa00035b34f3c21bad9b}} 
+enum {\bfseries e\+\_\+erreur} \{ \newline
+{\bfseries OK}, 
+{\bfseries F\+I\+L\+E\+\_\+\+E\+R\+R\+OR}, 
+{\bfseries O\+P\+E\+N\+\_\+\+F\+I\+L\+E\+\_\+\+E\+R\+R\+OR}, 
+{\bfseries C\+L\+O\+S\+E\+\_\+\+F\+I\+L\+E\+\_\+\+E\+R\+R\+OR}, 
+\newline
+{\bfseries V\+A\+L\+U\+E\+\_\+\+E\+R\+R\+OR}, 
+{\bfseries E\+R\+R\+O\+R\+\_\+\+N\+O\+T\+\_\+\+E\+X\+I\+ST}, 
+{\bfseries R\+E\+M\+O\+V\+E\+\_\+\+F\+I\+L\+E\+\_\+\+E\+R\+R\+OR}, 
+{\bfseries P\+T\+R\+\_\+\+N\+U\+LL}, 
+\newline
+{\bfseries P\+T\+R\+\_\+\+V\+A\+L\+U\+E\+\_\+\+E\+R\+R\+OR}, 
+{\bfseries T\+Y\+P\+E\+\_\+\+E\+R\+R\+OR}, 
+{\bfseries U\+N\+D\+E\+F\+I\+N\+E\+D\+\_\+\+M\+E\+NU}, 
+{\bfseries I\+N\+C\+O\+R\+R\+E\+C\+T\+\_\+\+M\+E\+N\+U\+\_\+\+T\+Y\+PE}, 
+\newline
+{\bfseries K\+E\+Y\+\_\+\+N\+O\+T\+\_\+\+F\+O\+U\+ND}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+t\+\_\+erreur \hyperlink{erreur_8h_ae7d18f55e6cb1d688610bf39a35f22eb}{aff\+\_\+erreur} (t\+\_\+erreur code\+\_\+erreur)
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Module de gestion des erreurs. 
+
+\begin{DoxyAuthor}{Auteur}
+Jasmin G\+A\+L\+B\+R\+UN 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+2 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+05/03/2019 
+\end{DoxyDate}
+
+
+\subsection{Documentation des macros}
+\mbox{\Hypertarget{erreur_8h_ab12c362e97903df9a3e62d617dc22c37}\label{erreur_8h_ab12c362e97903df9a3e62d617dc22c37}} 
+\index{erreur.\+h@{erreur.\+h}!N\+B\+\_\+\+E\+R\+R\+E\+UR@{N\+B\+\_\+\+E\+R\+R\+E\+UR}}
+\index{N\+B\+\_\+\+E\+R\+R\+E\+UR@{N\+B\+\_\+\+E\+R\+R\+E\+UR}!erreur.\+h@{erreur.\+h}}
+\subsubsection{\texorpdfstring{N\+B\+\_\+\+E\+R\+R\+E\+UR}{NB\_ERREUR}}
+{\footnotesize\ttfamily \#define N\+B\+\_\+\+E\+R\+R\+E\+UR~13}
+
+
+
+Contient le nombre d\textquotesingle{}erreur. 
+
+A modifier à chaque rajout d\textquotesingle{}une erreur. 
+
+\subsection{Documentation des fonctions}
+\mbox{\Hypertarget{erreur_8h_ae7d18f55e6cb1d688610bf39a35f22eb}\label{erreur_8h_ae7d18f55e6cb1d688610bf39a35f22eb}} 
+\index{erreur.\+h@{erreur.\+h}!aff\+\_\+erreur@{aff\+\_\+erreur}}
+\index{aff\+\_\+erreur@{aff\+\_\+erreur}!erreur.\+h@{erreur.\+h}}
+\subsubsection{\texorpdfstring{aff\+\_\+erreur()}{aff\_erreur()}}
+{\footnotesize\ttfamily t\+\_\+erreur aff\+\_\+erreur (\begin{DoxyParamCaption}\item[{t\+\_\+erreur}]{code\+\_\+erreur }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em code\+\_\+erreur} & Code erreur que le programme doit afficher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Retourne une erreur, OK si tout c\textquotesingle{}est bien passé 
+\end{DoxyReturn}

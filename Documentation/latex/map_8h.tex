@@ -1,0 +1,159 @@
+\hypertarget{map_8h}{}\section{Référence du fichier include/map.h}
+\label{map_8h}\index{include/map.\+h@{include/map.\+h}}
+
+
+Module permettant de géré une map.  
+
+
+{\ttfamily \#include $<$erreur.\+h$>$}\newline
+{\ttfamily \#include $<$liste.\+h$>$}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structs__map}{s\+\_\+map}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{map_8h_a60aa283b95f2797bcdb0a2e710e9aa9f}\label{map_8h_a60aa283b95f2797bcdb0a2e710e9aa9f}} 
+\#define {\bfseries P\+A\+T\+H\+\_\+\+M\+A\+P\+\_\+\+D\+IR}~\char`\"{}map/\char`\"{}
+\end{DoxyCompactItemize}
+\subsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{map_8h_a5b36510b652c393a34c33c9983aacb6c}\label{map_8h_a5b36510b652c393a34c33c9983aacb6c}} 
+typedef struct \hyperlink{structs__map}{s\+\_\+map} {\bfseries t\+\_\+map}
+\end{DoxyCompactItemize}
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+t\+\_\+erreur \hyperlink{map_8h_aef056582e45db1e9b9f32ed94ce342a3}{M\+A\+P\+\_\+creer} (\hyperlink{structt__map}{t\+\_\+map} $\ast$$\ast$map, char $\ast$nom\+\_\+map, int S\+E\+ED)
+\begin{DoxyCompactList}\small\item\em Créer une map (le dossier de saugarde et le pointeur pour manipuler cette map) \end{DoxyCompactList}\item 
+t\+\_\+erreur \hyperlink{map_8h_a924b98cbf202b64bbf0d220799b85618}{M\+A\+P\+\_\+charger} (\hyperlink{structt__map}{t\+\_\+map} $\ast$$\ast$map, char $\ast$nom\+\_\+map)
+\begin{DoxyCompactList}\small\item\em Charge la map a partir des fichier. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{map_8h_ae1929f4af7bc80c58f069d9b6633b989}\label{map_8h_ae1929f4af7bc80c58f069d9b6633b989}} 
+t\+\_\+erreur {\bfseries M\+A\+P\+\_\+detruction} (\hyperlink{structt__map}{t\+\_\+map} $\ast$$\ast$map)
+\item 
+t\+\_\+erreur \hyperlink{map_8h_a69443211920fe8027cdf8fc881ec8099}{M\+A\+P\+\_\+creer\+\_\+dir} (\hyperlink{structt__map}{t\+\_\+map} $\ast$map)
+\begin{DoxyCompactList}\small\item\em Créer le repertoire d\textquotesingle{}une map. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{map_8h_a441906150a1c586a7ef225ac226bd143}\label{map_8h_a441906150a1c586a7ef225ac226bd143}} 
+t\+\_\+erreur {\bfseries M\+A\+P\+\_\+supprimer} (\hyperlink{structt__map}{t\+\_\+map} $\ast$map)
+\item 
+t\+\_\+erreur \hyperlink{map_8h_a9cbabb7d85f1c202fe4365129d1a4fd9}{M\+A\+P\+\_\+sauvegarder} (\hyperlink{structt__map}{t\+\_\+map} $\ast$map)
+\begin{DoxyCompactList}\small\item\em Sauvegarde la map dans l\textquotesingle{}état actuel. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{map_8h_aa19ca208d8692fc9f01278738f1752dc}\label{map_8h_aa19ca208d8692fc9f01278738f1752dc}} 
+char $\ast$ {\bfseries M\+A\+P\+\_\+creer\+\_\+path} (char $\ast$nom\+\_\+map)
+\item 
+t\+\_\+erreur \hyperlink{map_8h_a68ce824f54aa0ce572d085d56f533a98}{M\+A\+P\+\_\+detruire\+\_\+path} (char $\ast$$\ast$path\+\_\+dir)
+\begin{DoxyCompactList}\small\item\em Libère la mémoire dynamique alloué pour le path. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Module permettant de géré une map. 
+
+\begin{DoxyAuthor}{Auteur}
+\{Maxence.\+D\} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+10 mars 2019 
+\end{DoxyDate}
+
+
+\subsection{Documentation des fonctions}
+\mbox{\Hypertarget{map_8h_a924b98cbf202b64bbf0d220799b85618}\label{map_8h_a924b98cbf202b64bbf0d220799b85618}} 
+\index{map.\+h@{map.\+h}!M\+A\+P\+\_\+charger@{M\+A\+P\+\_\+charger}}
+\index{M\+A\+P\+\_\+charger@{M\+A\+P\+\_\+charger}!map.\+h@{map.\+h}}
+\subsubsection{\texorpdfstring{M\+A\+P\+\_\+charger()}{MAP\_charger()}}
+{\footnotesize\ttfamily t\+\_\+erreur M\+A\+P\+\_\+charger (\begin{DoxyParamCaption}\item[{\hyperlink{structt__map}{t\+\_\+map} $\ast$$\ast$}]{map,  }\item[{char $\ast$}]{nom\+\_\+map }\end{DoxyParamCaption})}
+
+
+
+Charge la map a partir des fichier. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em map} & Pointeur sur la map qui doit etre sauvegarder \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Renvoie un code erreur en cas de problème sinon OK 
+\end{DoxyReturn}
+\mbox{\Hypertarget{map_8h_aef056582e45db1e9b9f32ed94ce342a3}\label{map_8h_aef056582e45db1e9b9f32ed94ce342a3}} 
+\index{map.\+h@{map.\+h}!M\+A\+P\+\_\+creer@{M\+A\+P\+\_\+creer}}
+\index{M\+A\+P\+\_\+creer@{M\+A\+P\+\_\+creer}!map.\+h@{map.\+h}}
+\subsubsection{\texorpdfstring{M\+A\+P\+\_\+creer()}{MAP\_creer()}}
+{\footnotesize\ttfamily t\+\_\+erreur M\+A\+P\+\_\+creer (\begin{DoxyParamCaption}\item[{\hyperlink{structt__map}{t\+\_\+map} $\ast$$\ast$}]{map,  }\item[{char $\ast$}]{nom\+\_\+map,  }\item[{int}]{S\+E\+ED }\end{DoxyParamCaption})}
+
+
+
+Créer une map (le dossier de saugarde et le pointeur pour manipuler cette map) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em map} & le pointeur de la map qui va être créer \\
+\hline
+{\em nom\+\_\+map} & Le nom de la map \\
+\hline
+{\em S\+E\+ED} & Le S\+E\+ED de génération de la map \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Renvoie un code erreur en cas de problème sinon OK 
+\end{DoxyReturn}
+\mbox{\Hypertarget{map_8h_a69443211920fe8027cdf8fc881ec8099}\label{map_8h_a69443211920fe8027cdf8fc881ec8099}} 
+\index{map.\+h@{map.\+h}!M\+A\+P\+\_\+creer\+\_\+dir@{M\+A\+P\+\_\+creer\+\_\+dir}}
+\index{M\+A\+P\+\_\+creer\+\_\+dir@{M\+A\+P\+\_\+creer\+\_\+dir}!map.\+h@{map.\+h}}
+\subsubsection{\texorpdfstring{M\+A\+P\+\_\+creer\+\_\+dir()}{MAP\_creer\_dir()}}
+{\footnotesize\ttfamily t\+\_\+erreur M\+A\+P\+\_\+creer\+\_\+dir (\begin{DoxyParamCaption}\item[{\hyperlink{structt__map}{t\+\_\+map} $\ast$}]{map }\end{DoxyParamCaption})}
+
+
+
+Créer le repertoire d\textquotesingle{}une map. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em map} & Pointeur sur la map dont le repertoire doit être créer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Renvoie un code erreur en cas de problème sinon OK 
+\end{DoxyReturn}
+\mbox{\Hypertarget{map_8h_a68ce824f54aa0ce572d085d56f533a98}\label{map_8h_a68ce824f54aa0ce572d085d56f533a98}} 
+\index{map.\+h@{map.\+h}!M\+A\+P\+\_\+detruire\+\_\+path@{M\+A\+P\+\_\+detruire\+\_\+path}}
+\index{M\+A\+P\+\_\+detruire\+\_\+path@{M\+A\+P\+\_\+detruire\+\_\+path}!map.\+h@{map.\+h}}
+\subsubsection{\texorpdfstring{M\+A\+P\+\_\+detruire\+\_\+path()}{MAP\_detruire\_path()}}
+{\footnotesize\ttfamily t\+\_\+erreur M\+A\+P\+\_\+detruire\+\_\+path (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{path\+\_\+dir }\end{DoxyParamCaption})}
+
+
+
+Libère la mémoire dynamique alloué pour le path. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em map} & Pointeur de pointeur sur le path \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Renvoie un code erreur en cas de problème sinon OK 
+\end{DoxyReturn}
+\mbox{\Hypertarget{map_8h_a9cbabb7d85f1c202fe4365129d1a4fd9}\label{map_8h_a9cbabb7d85f1c202fe4365129d1a4fd9}} 
+\index{map.\+h@{map.\+h}!M\+A\+P\+\_\+sauvegarder@{M\+A\+P\+\_\+sauvegarder}}
+\index{M\+A\+P\+\_\+sauvegarder@{M\+A\+P\+\_\+sauvegarder}!map.\+h@{map.\+h}}
+\subsubsection{\texorpdfstring{M\+A\+P\+\_\+sauvegarder()}{MAP\_sauvegarder()}}
+{\footnotesize\ttfamily t\+\_\+erreur M\+A\+P\+\_\+sauvegarder (\begin{DoxyParamCaption}\item[{\hyperlink{structt__map}{t\+\_\+map} $\ast$}]{map }\end{DoxyParamCaption})}
+
+
+
+Sauvegarde la map dans l\textquotesingle{}état actuel. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em map} & Pointeur sur la map qui doit etre sauvegarder \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Renvoie un code erreur en cas de problème sinon OK 
+\end{DoxyReturn}

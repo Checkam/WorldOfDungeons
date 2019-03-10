@@ -1,0 +1,132 @@
+\hypertarget{chemin_8h}{}\section{Référence du fichier include/chemin.h}
+\label{chemin_8h}\index{include/chemin.\+h@{include/chemin.\+h}}
+
+
+Module des primitives servant à la récupération du chemin absolu.  
+
+
+{\ttfamily \#include $<$liste.\+h$>$}\newline
+{\ttfamily \#include $<$erreur.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{chemin_8h_ae73053051efbb45c3a39751f5ce9fb36}\label{chemin_8h_ae73053051efbb45c3a39751f5ce9fb36}} 
+\#define {\bfseries P\+R\+O\+J\+E\+C\+T\+\_\+\+N\+A\+ME}~\char`\"{}World\+Of\+Dungeons\char`\"{}
+\end{DoxyCompactItemize}
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+t\+\_\+erreur \hyperlink{chemin_8h_a3d19e4065f963d93d23f046811107d80}{decomposer\+\_\+\+P\+WD} (\hyperlink{structt__liste}{t\+\_\+liste} $\ast$p, char $\ast$pwd)
+\begin{DoxyCompactList}\small\item\em Décompose dans une liste le P\+WD. \end{DoxyCompactList}\item 
+t\+\_\+erreur \hyperlink{chemin_8h_a23d897ae6db5736a272d0fd6b3e4a920}{getpwd} (char $\ast$argv, char $\ast$env)
+\begin{DoxyCompactList}\small\item\em Récupère le chemin absolu de la racine de W\+OD. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{chemin_8h_af02bc563f4c0e7190df6b3d397501beb}\label{chemin_8h_af02bc563f4c0e7190df6b3d397501beb}} 
+t\+\_\+erreur {\bfseries fusion\+\_\+\+P\+WD} (\hyperlink{structt__liste}{t\+\_\+liste} $\ast$env, \hyperlink{structt__liste}{t\+\_\+liste} $\ast$argv)
+\item 
+t\+\_\+erreur \hyperlink{chemin_8h_a426a590237f668eca1627c0cc3985cd2}{creation\+\_\+chemin} (char $\ast$ajout, char $\ast$$\ast$res)
+\begin{DoxyCompactList}\small\item\em Concatène 2 chaine de caractère. \end{DoxyCompactList}\item 
+t\+\_\+erreur \hyperlink{chemin_8h_a1fe1520dbe25f041e413193a6ab5225f}{tolower\+\_\+str} (char $\ast$str, char $\ast$$\ast$res)
+\begin{DoxyCompactList}\small\item\em Met en minuscule une chaine de caractère. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{chemin_8h_a6e3115fc9bfb27c4a03a99d1e113e7b1}\label{chemin_8h_a6e3115fc9bfb27c4a03a99d1e113e7b1}} 
+char $\ast$ \hyperlink{chemin_8h_a6e3115fc9bfb27c4a03a99d1e113e7b1}{W\+O\+D\+\_\+\+P\+WD}
+\begin{DoxyCompactList}\small\item\em Variable Globale contenant le chemin absolu de la racine du projet. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Module des primitives servant à la récupération du chemin absolu. 
+
+\begin{DoxyAuthor}{Auteur}
+G\+A\+L\+B\+R\+UN Tibane 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+09/03/2019 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+0.\+2 
+\end{DoxyVersion}
+
+
+\subsection{Documentation des fonctions}
+\mbox{\Hypertarget{chemin_8h_a426a590237f668eca1627c0cc3985cd2}\label{chemin_8h_a426a590237f668eca1627c0cc3985cd2}} 
+\index{chemin.\+h@{chemin.\+h}!creation\+\_\+chemin@{creation\+\_\+chemin}}
+\index{creation\+\_\+chemin@{creation\+\_\+chemin}!chemin.\+h@{chemin.\+h}}
+\subsubsection{\texorpdfstring{creation\+\_\+chemin()}{creation\_chemin()}}
+{\footnotesize\ttfamily t\+\_\+erreur creation\+\_\+chemin (\begin{DoxyParamCaption}\item[{char $\ast$}]{ajout,  }\item[{char $\ast$$\ast$}]{res }\end{DoxyParamCaption})}
+
+
+
+Concatène 2 chaine de caractère. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em ajout} & Chaine de caractère à ajouter à gauche de W\+O\+D\+\_\+\+P\+WD. \\
+\hline
+{\em res} & Chaine de caractère résultat. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Une erreur s\textquotesingle{}il y en a une. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{chemin_8h_a3d19e4065f963d93d23f046811107d80}\label{chemin_8h_a3d19e4065f963d93d23f046811107d80}} 
+\index{chemin.\+h@{chemin.\+h}!decomposer\+\_\+\+P\+WD@{decomposer\+\_\+\+P\+WD}}
+\index{decomposer\+\_\+\+P\+WD@{decomposer\+\_\+\+P\+WD}!chemin.\+h@{chemin.\+h}}
+\subsubsection{\texorpdfstring{decomposer\+\_\+\+P\+W\+D()}{decomposer\_PWD()}}
+{\footnotesize\ttfamily t\+\_\+erreur decomposer\+\_\+\+P\+WD (\begin{DoxyParamCaption}\item[{\hyperlink{structt__liste}{t\+\_\+liste} $\ast$}]{p,  }\item[{char $\ast$}]{pwd }\end{DoxyParamCaption})}
+
+
+
+Décompose dans une liste le P\+WD. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em p} & La liste où mettre ce qui a été décomposé. \\
+\hline
+{\em pwd} & Le P\+WD à décomposer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Une erreur s\textquotesingle{}il y en a une. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{chemin_8h_a23d897ae6db5736a272d0fd6b3e4a920}\label{chemin_8h_a23d897ae6db5736a272d0fd6b3e4a920}} 
+\index{chemin.\+h@{chemin.\+h}!getpwd@{getpwd}}
+\index{getpwd@{getpwd}!chemin.\+h@{chemin.\+h}}
+\subsubsection{\texorpdfstring{getpwd()}{getpwd()}}
+{\footnotesize\ttfamily t\+\_\+erreur getpwd (\begin{DoxyParamCaption}\item[{char $\ast$}]{argv,  }\item[{char $\ast$}]{env }\end{DoxyParamCaption})}
+
+
+
+Récupère le chemin absolu de la racine de W\+OD. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em argv} & Le P\+WD utiliser pour connaitre le W\+O\+D\+\_\+\+P\+WD. \\
+\hline
+{\em env} & Le P\+WD utiliser pour connaitre le W\+O\+D\+\_\+\+P\+WD. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Une erreur s\textquotesingle{}il y en a une. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{chemin_8h_a1fe1520dbe25f041e413193a6ab5225f}\label{chemin_8h_a1fe1520dbe25f041e413193a6ab5225f}} 
+\index{chemin.\+h@{chemin.\+h}!tolower\+\_\+str@{tolower\+\_\+str}}
+\index{tolower\+\_\+str@{tolower\+\_\+str}!chemin.\+h@{chemin.\+h}}
+\subsubsection{\texorpdfstring{tolower\+\_\+str()}{tolower\_str()}}
+{\footnotesize\ttfamily t\+\_\+erreur tolower\+\_\+str (\begin{DoxyParamCaption}\item[{char $\ast$}]{str,  }\item[{char $\ast$$\ast$}]{res }\end{DoxyParamCaption})}
+
+
+
+Met en minuscule une chaine de caractère. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em str} & Chaine de caractère source. \\
+\hline
+{\em res} & Chaine de caractère résultat. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Une erreur s\textquotesingle{}il y en a une. 
+\end{DoxyReturn}

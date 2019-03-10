@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Génération Procedural et Stockage de donnée: Référence du fichier include/generation.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Génération Procedural et Stockage de donnée
+   </div>
+   <div id="projectbrief">Le but de ce projet de d&#39;apprendre a utilisé Perlin noise en commmencant a réfléchir au structure que nous aurons besoin</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#enum-members">Énumérations</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier generation.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Module de generation de la map.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;<a class="el" href="block_8h_source.html">block.h</a>&gt;</code><br />
+</div>
+<p><a href="generation_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a1dafe13753403714f3e91ede9b49f57c"><td class="memItemLeft" align="right" valign="top"><a id="a1dafe13753403714f3e91ede9b49f57c"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>W_BIOME</b>&#160;&#160;&#160;200</td></tr>
+<tr class="separator:a1dafe13753403714f3e91ede9b49f57c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc6672ace24bb39a3093661ea72b75a4"><td class="memItemLeft" align="right" valign="top"><a id="acc6672ace24bb39a3093661ea72b75a4"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>NB_BIOME</b>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:acc6672ace24bb39a3093661ea72b75a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b04ec1cde4d3032f558ed8ad05930a4"><td class="memItemLeft" align="right" valign="top"><a id="a1b04ec1cde4d3032f558ed8ad05930a4"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>FREQ</b>&#160;&#160;&#160;0.01   /* third parameter of perlin2d function */</td></tr>
+<tr class="separator:a1b04ec1cde4d3032f558ed8ad05930a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50267d552ca6f788254032e40046b770"><td class="memItemLeft" align="right" valign="top"><a id="a50267d552ca6f788254032e40046b770"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>DEPTH</b>&#160;&#160;&#160;5     /* fourth parameter of perlin2d function */</td></tr>
+<tr class="separator:a50267d552ca6f788254032e40046b770"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae82f8498c679a1cb688813d52397eed9"><td class="memItemLeft" align="right" valign="top"><a id="ae82f8498c679a1cb688813d52397eed9"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>HAUTEUR_SURFACE</b>&#160;&#160;&#160;4</td></tr>
+<tr class="separator:ae82f8498c679a1cb688813d52397eed9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a619867e5a9ebab1dd9ee2151b1d90586"><td class="memItemLeft" align="right" valign="top"><a id="a619867e5a9ebab1dd9ee2151b1d90586"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>PROFONDEUR_GROTTE</b>&#160;&#160;&#160;15</td></tr>
+<tr class="separator:a619867e5a9ebab1dd9ee2151b1d90586"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93d050707744a50de04189dbfe0024d4"><td class="memItemLeft" align="right" valign="top"><a id="a93d050707744a50de04189dbfe0024d4"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BEDROCK</b>&#160;&#160;&#160;3</td></tr>
+<tr class="separator:a93d050707744a50de04189dbfe0024d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75f69fa326bd0e66b1af94fcfb63683b"><td class="memItemLeft" align="right" valign="top"><a id="a75f69fa326bd0e66b1af94fcfb63683b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SIZE_GROTTE</b>&#160;&#160;&#160;3</td></tr>
+<tr class="separator:a75f69fa326bd0e66b1af94fcfb63683b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84ef257dd5f4f0c4fccea513783d609d"><td class="memItemLeft" align="right" valign="top"><a id="a84ef257dd5f4f0c4fccea513783d609d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>HAUTEUR_EAU</b>&#160;&#160;&#160;MAX / 2.5</td></tr>
+<tr class="separator:a84ef257dd5f4f0c4fccea513783d609d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f5e9d11d8cfbb8d59be39028d12999c"><td class="memItemLeft" align="right" valign="top"><a id="a7f5e9d11d8cfbb8d59be39028d12999c"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>HAUTEUR_ARBRE</b>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:a7f5e9d11d8cfbb8d59be39028d12999c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2367bc1a4c3db39723ed16b57737459"><td class="memItemLeft" align="right" valign="top"><a id="ad2367bc1a4c3db39723ed16b57737459"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>FREQ_ARBRE</b>&#160;&#160;&#160;HAUTEUR_ARBRE - 3</td></tr>
+<tr class="separator:ad2367bc1a4c3db39723ed16b57737459"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2848413ecf02e70d061c135c2a0c86a9"><td class="memItemLeft" align="right" valign="top"><a id="a2848413ecf02e70d061c135c2a0c86a9"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>H_MIN_GEN_ARBRE</b>&#160;&#160;&#160;HAUTEUR_EAU + 10</td></tr>
+<tr class="separator:a2848413ecf02e70d061c135c2a0c86a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab778c167835ff0396216273bd741b038"><td class="memItemLeft" align="right" valign="top"><a id="ab778c167835ff0396216273bd741b038"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>H_MAX_GEN_ARBRE</b>&#160;&#160;&#160;100</td></tr>
+<tr class="separator:ab778c167835ff0396216273bd741b038"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2243664481a860b30e959c778cc7d7e0"><td class="memItemLeft" align="right" valign="top"><a id="a2243664481a860b30e959c778cc7d7e0"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>DIST_MAX_TREE</b>&#160;&#160;&#160;10</td></tr>
+<tr class="separator:a2243664481a860b30e959c778cc7d7e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:a77b4c00a966c8e93f7e089661bc26122"><td class="memItemLeft" align="right" valign="top"><a id="a77b4c00a966c8e93f7e089661bc26122"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>biome_t</b> { <br />
+&#160;&#160;<b>FORET</b>, 
+<b>PRAIRIES</b>, 
+<b>TAIGA</b>, 
+<b>TOUNDRA</b>, 
+<br />
+&#160;&#160;<b>DESERTS</b>
+<br />
+ }</td></tr>
+<tr class="separator:a77b4c00a966c8e93f7e089661bc26122"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a1b453ad188ec7c0ed8977c968084dac7"><td class="memItemLeft" align="right" valign="top"><a id="a1b453ad188ec7c0ed8977c968084dac7"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="generation_8h.html#a1b453ad188ec7c0ed8977c968084dac7">gen_col</a> (<a class="el" href="structblock__s.html">t_block</a> **tab, int x)</td></tr>
+<tr class="memdesc:a1b453ad188ec7c0ed8977c968084dac7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Génere une colone de block. <br /></td></tr>
+<tr class="separator:a1b453ad188ec7c0ed8977c968084dac7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad2416efebb977a75ac71f7e90e41601"><td class="memItemLeft" align="right" valign="top"><a id="aad2416efebb977a75ac71f7e90e41601"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="generation_8h.html#aad2416efebb977a75ac71f7e90e41601">init_map</a> (<a class="el" href="structblock__s.html">t_block</a> *map)</td></tr>
+<tr class="memdesc:aad2416efebb977a75ac71f7e90e41601"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise un tableau de block. <br /></td></tr>
+<tr class="separator:aad2416efebb977a75ac71f7e90e41601"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Module de generation de la map. </p>
+<dl class="section author"><dt>Auteur</dt><dd>{Maxence.D} </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>10 mars 2019 </dd></dl>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

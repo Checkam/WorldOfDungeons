@@ -1,0 +1,597 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Génération Procedural et Stockage de donnée: Référence du fichier src/liste.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Génération Procedural et Stockage de donnée
+   </div>
+   <div id="projectbrief">Le but de ce projet de d&#39;apprendre a utilisé Perlin noise en commmencant a réfléchir au structure que nous aurons besoin</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier liste.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Module de gestion de listes.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="liste_8h_source.html">liste.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="erreur_8h_source.html">erreur.h</a>&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:ae54cf55c0d15211e5433ce9b5abf099d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="liste_8c.html#ae54cf55c0d15211e5433ce9b5abf099d">init_liste</a> (<a class="el" href="structt__liste.html">t_liste</a> *p)</td></tr>
+<tr class="memdesc:ae54cf55c0d15211e5433ce9b5abf099d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise une nouvelle liste.  <a href="#ae54cf55c0d15211e5433ce9b5abf099d">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ae54cf55c0d15211e5433ce9b5abf099d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae25051845f03a0ee659aed8e855dad5b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="liste_8c.html#ae25051845f03a0ee659aed8e855dad5b">liste_vide</a> (<a class="el" href="structt__liste.html">t_liste</a> *p)</td></tr>
+<tr class="memdesc:ae25051845f03a0ee659aed8e855dad5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Regarde si la liste est vide ou non.  <a href="#ae25051845f03a0ee659aed8e855dad5b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ae25051845f03a0ee659aed8e855dad5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa42eefd0ac04de255ffb11f5e9fdabd6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="liste_8c.html#aa42eefd0ac04de255ffb11f5e9fdabd6">hors_liste</a> (<a class="el" href="structt__liste.html">t_liste</a> *p)</td></tr>
+<tr class="memdesc:aa42eefd0ac04de255ffb11f5e9fdabd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Regarde si on est en dehors de la liste ou non.  <a href="#aa42eefd0ac04de255ffb11f5e9fdabd6">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aa42eefd0ac04de255ffb11f5e9fdabd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a2af94927570339b5708b99c4831cf3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="liste_8c.html#a9a2af94927570339b5708b99c4831cf3">en_tete</a> (<a class="el" href="structt__liste.html">t_liste</a> *p)</td></tr>
+<tr class="memdesc:a9a2af94927570339b5708b99c4831cf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Place l'élèment courant sur la tete de liste.  <a href="#a9a2af94927570339b5708b99c4831cf3">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a9a2af94927570339b5708b99c4831cf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a182d1a7bdc30807ebdd00d566994548d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="liste_8c.html#a182d1a7bdc30807ebdd00d566994548d">en_queue</a> (<a class="el" href="structt__liste.html">t_liste</a> *p)</td></tr>
+<tr class="memdesc:a182d1a7bdc30807ebdd00d566994548d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Place l'élèment courant sur la queue de liste.  <a href="#a182d1a7bdc30807ebdd00d566994548d">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a182d1a7bdc30807ebdd00d566994548d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac95aadbae271f7e76ca486b6187dd8dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="liste_8c.html#ac95aadbae271f7e76ca486b6187dd8dd">suivant</a> (<a class="el" href="structt__liste.html">t_liste</a> *p)</td></tr>
+<tr class="memdesc:ac95aadbae271f7e76ca486b6187dd8dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Passe à l'élèment suivant s'il existe.  <a href="#ac95aadbae271f7e76ca486b6187dd8dd">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ac95aadbae271f7e76ca486b6187dd8dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a580b4a7d8c45590284303c3d1103a3e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="liste_8c.html#a580b4a7d8c45590284303c3d1103a3e3">precedent</a> (<a class="el" href="structt__liste.html">t_liste</a> *p)</td></tr>
+<tr class="memdesc:a580b4a7d8c45590284303c3d1103a3e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Passe à l'élèment précédent s'il existe.  <a href="#a580b4a7d8c45590284303c3d1103a3e3">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a580b4a7d8c45590284303c3d1103a3e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4eaf58887e3dd578a2699aefc5963fe4"><td class="memItemLeft" align="right" valign="top"><a id="a4eaf58887e3dd578a2699aefc5963fe4"></a>
+t_erreur&#160;</td><td class="memItemRight" valign="bottom"><b>valeur_elt</b> (<a class="el" href="structt__liste.html">t_liste</a> *p, void **v)</td></tr>
+<tr class="separator:a4eaf58887e3dd578a2699aefc5963fe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88c83322ecd7db55a1df405689f5d70f"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="liste_8c.html#a88c83322ecd7db55a1df405689f5d70f">modif_elt</a> (<a class="el" href="structt__liste.html">t_liste</a> *p, void *v)</td></tr>
+<tr class="memdesc:a88c83322ecd7db55a1df405689f5d70f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifie la valeur de l'élèment courant.  <a href="#a88c83322ecd7db55a1df405689f5d70f">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a88c83322ecd7db55a1df405689f5d70f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad613f3378b165515b6f7a4cbe45265a0"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="liste_8c.html#ad613f3378b165515b6f7a4cbe45265a0">oter_elt</a> (<a class="el" href="structt__liste.html">t_liste</a> *p, void(*effacer)(void *))</td></tr>
+<tr class="memdesc:ad613f3378b165515b6f7a4cbe45265a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supprime l'élèment courant.  <a href="#ad613f3378b165515b6f7a4cbe45265a0">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad613f3378b165515b6f7a4cbe45265a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d7b14b429cf2009912b48ad88e4af3a"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="liste_8c.html#a8d7b14b429cf2009912b48ad88e4af3a">ajout_droit</a> (<a class="el" href="structt__liste.html">t_liste</a> *p, void *v)</td></tr>
+<tr class="memdesc:a8d7b14b429cf2009912b48ad88e4af3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute à droite de l'élèment courant la nouvelle valeur.  <a href="#a8d7b14b429cf2009912b48ad88e4af3a">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a8d7b14b429cf2009912b48ad88e4af3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a627993b6dd4c2f5e3f7b5a5a4172d557"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="liste_8c.html#a627993b6dd4c2f5e3f7b5a5a4172d557">ajout_gauche</a> (<a class="el" href="structt__liste.html">t_liste</a> *p, void *v)</td></tr>
+<tr class="memdesc:a627993b6dd4c2f5e3f7b5a5a4172d557"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute à gauche de l'élèment courant la nouvelle valeur.  <a href="#a627993b6dd4c2f5e3f7b5a5a4172d557">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a627993b6dd4c2f5e3f7b5a5a4172d557"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a591fc3936d195adcc3fb62f521dcd2ed"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="liste_8c.html#a591fc3936d195adcc3fb62f521dcd2ed">taille_liste</a> (<a class="el" href="structt__liste.html">t_liste</a> *p)</td></tr>
+<tr class="memdesc:a591fc3936d195adcc3fb62f521dcd2ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcule la taille de la liste.  <a href="#a591fc3936d195adcc3fb62f521dcd2ed">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a591fc3936d195adcc3fb62f521dcd2ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4be7faf10eecc64ca729578b1b8cdbb4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="liste_8c.html#a4be7faf10eecc64ca729578b1b8cdbb4">detruire_liste</a> (<a class="el" href="structt__liste.html">t_liste</a> *p, void(*effacer)(void *))</td></tr>
+<tr class="memdesc:a4be7faf10eecc64ca729578b1b8cdbb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit la liste.  <a href="#a4be7faf10eecc64ca729578b1b8cdbb4">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a4be7faf10eecc64ca729578b1b8cdbb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af83977b343e1ab3ea0da557d6c4cbc5e"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="liste_8c.html#af83977b343e1ab3ea0da557d6c4cbc5e">copie</a> (char *cible, char *source, int n)</td></tr>
+<tr class="memdesc:af83977b343e1ab3ea0da557d6c4cbc5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copie n octet de la source dans la cible.  <a href="#af83977b343e1ab3ea0da557d6c4cbc5e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af83977b343e1ab3ea0da557d6c4cbc5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24f2e06b9af19c1f07ae98d4093e27dd"><td class="memItemLeft" align="right" valign="top"><a id="a24f2e06b9af19c1f07ae98d4093e27dd"></a>
+char *&#160;</td><td class="memItemRight" valign="bottom"><b>copie_cb</b> (void *cible, void *source, int n)</td></tr>
+<tr class="separator:a24f2e06b9af19c1f07ae98d4093e27dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:accfd29ff36ebccd13ea5597526562d9d"><td class="memItemLeft" align="right" valign="top"><a id="accfd29ff36ebccd13ea5597526562d9d"></a>
+void *&#160;</td><td class="memItemRight" valign="bottom"><b>elem_pred</b> = NULL</td></tr>
+<tr class="separator:accfd29ff36ebccd13ea5597526562d9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Module de gestion de listes. </p>
+<dl class="section author"><dt>Auteur</dt><dd>GALBRUN Tibane </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>07/03/2019 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.2 </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a8d7b14b429cf2009912b48ad88e4af3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d7b14b429cf2009912b48ad88e4af3a">&#9670;&nbsp;</a></span>ajout_droit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">t_erreur ajout_droit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__liste.html">t_liste</a> *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ajoute à droite de l'élèment courant la nouvelle valeur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>La liste où se trouve l'élèment courant. </td></tr>
+    <tr><td class="paramname">v</td><td>La valeur à ajouter. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Une erreur s'il y en a une. </dd></dl>
+
+</div>
+</div>
+<a id="a627993b6dd4c2f5e3f7b5a5a4172d557"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a627993b6dd4c2f5e3f7b5a5a4172d557">&#9670;&nbsp;</a></span>ajout_gauche()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">t_erreur ajout_gauche </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__liste.html">t_liste</a> *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ajoute à gauche de l'élèment courant la nouvelle valeur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>La liste où se trouve l'élèment courant. </td></tr>
+    <tr><td class="paramname">v</td><td>La valeur à ajouter. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Une erreur s'il y en a une. </dd></dl>
+
+</div>
+</div>
+<a id="af83977b343e1ab3ea0da557d6c4cbc5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af83977b343e1ab3ea0da557d6c4cbc5e">&#9670;&nbsp;</a></span>copie()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char * copie </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>cible</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Copie n octet de la source dans la cible. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cible</td><td>L'endroit où copier. </td></tr>
+    <tr><td class="paramname">source</td><td>La source de la copie. </td></tr>
+    <tr><td class="paramname">n</td><td>Le nombre d'octet à copier. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>L'adresse de la source. </dd></dl>
+
+</div>
+</div>
+<a id="a4be7faf10eecc64ca729578b1b8cdbb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4be7faf10eecc64ca729578b1b8cdbb4">&#9670;&nbsp;</a></span>detruire_liste()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void detruire_liste </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__liste.html">t_liste</a> *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(*)(void *)&#160;</td>
+          <td class="paramname"><em>effacer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Détruit la liste. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>La liste à détruire. </td></tr>
+    <tr><td class="paramname">effacer</td><td>La fonction d'effacement de l'élèment courant. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a182d1a7bdc30807ebdd00d566994548d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a182d1a7bdc30807ebdd00d566994548d">&#9670;&nbsp;</a></span>en_queue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void en_queue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__liste.html">t_liste</a> *&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Place l'élèment courant sur la queue de liste. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>La liste où se trouve l'élèment courant à modifier. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9a2af94927570339b5708b99c4831cf3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a2af94927570339b5708b99c4831cf3">&#9670;&nbsp;</a></span>en_tete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void en_tete </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__liste.html">t_liste</a> *&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Place l'élèment courant sur la tete de liste. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>La liste où se trouve l'élèment courant à modifier. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa42eefd0ac04de255ffb11f5e9fdabd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa42eefd0ac04de255ffb11f5e9fdabd6">&#9670;&nbsp;</a></span>hors_liste()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int hors_liste </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__liste.html">t_liste</a> *&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Regarde si on est en dehors de la liste ou non. </p>
+<p>Renvoie vrai si on est en dehors de la liste, faux sinon. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>La liste à vérifier. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Un entier qui vaut vrai si on est hors-liste. </dd></dl>
+
+</div>
+</div>
+<a id="ae54cf55c0d15211e5433ce9b5abf099d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae54cf55c0d15211e5433ce9b5abf099d">&#9670;&nbsp;</a></span>init_liste()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void init_liste </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__liste.html">t_liste</a> *&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialise une nouvelle liste. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>La liste à initialiser. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae25051845f03a0ee659aed8e855dad5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae25051845f03a0ee659aed8e855dad5b">&#9670;&nbsp;</a></span>liste_vide()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int liste_vide </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__liste.html">t_liste</a> *&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Regarde si la liste est vide ou non. </p>
+<p>Renvoie vrai si la liste est vide, faux sinon. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>La liste à vérifier. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Un entier qui vaut vrai si la liste est vide. </dd></dl>
+
+</div>
+</div>
+<a id="a88c83322ecd7db55a1df405689f5d70f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88c83322ecd7db55a1df405689f5d70f">&#9670;&nbsp;</a></span>modif_elt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">t_erreur modif_elt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__liste.html">t_liste</a> *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Modifie la valeur de l'élèment courant. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>La liste où se trouve l'élèment courant. </td></tr>
+    <tr><td class="paramname">v</td><td>La nouvelle valeur à enregistrer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Une erreur s'il y en a une. </dd></dl>
+
+</div>
+</div>
+<a id="ad613f3378b165515b6f7a4cbe45265a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad613f3378b165515b6f7a4cbe45265a0">&#9670;&nbsp;</a></span>oter_elt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">t_erreur oter_elt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__liste.html">t_liste</a> *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(*)(void *)&#160;</td>
+          <td class="paramname"><em>effacer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Supprime l'élèment courant. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>La liste où se trouve l'élèment courant. </td></tr>
+    <tr><td class="paramname">effacer</td><td>La fonction d'effacement de l'élèment courant. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Une erreur s'il y en a une. </dd></dl>
+
+</div>
+</div>
+<a id="a580b4a7d8c45590284303c3d1103a3e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a580b4a7d8c45590284303c3d1103a3e3">&#9670;&nbsp;</a></span>precedent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void precedent </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__liste.html">t_liste</a> *&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Passe à l'élèment précédent s'il existe. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>La liste où se trouve l'élèment courant à modifier. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac95aadbae271f7e76ca486b6187dd8dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac95aadbae271f7e76ca486b6187dd8dd">&#9670;&nbsp;</a></span>suivant()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void suivant </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__liste.html">t_liste</a> *&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Passe à l'élèment suivant s'il existe. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>La liste où se trouve l'élèment courant à modifier. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a591fc3936d195adcc3fb62f521dcd2ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a591fc3936d195adcc3fb62f521dcd2ed">&#9670;&nbsp;</a></span>taille_liste()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int taille_liste </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__liste.html">t_liste</a> *&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcule la taille de la liste. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>La liste à mesurer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>La taille de la liste. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

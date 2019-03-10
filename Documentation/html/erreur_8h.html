@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Génération Procedural et Stockage de donnée: Référence du fichier include/erreur.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Génération Procedural et Stockage de donnée
+   </div>
+   <div id="projectbrief">Le but de ce projet de d&#39;apprendre a utilisé Perlin noise en commmencant a réfléchir au structure que nous aurons besoin</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Définitions de type</a> &#124;
+<a href="#enum-members">Énumérations</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier erreur.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Module de gestion des erreurs.  
+<a href="#details">Plus de détails...</a></p>
+
+<p><a href="erreur_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ab12c362e97903df9a3e62d617dc22c37"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="erreur_8h.html#ab12c362e97903df9a3e62d617dc22c37">NB_ERREUR</a>&#160;&#160;&#160;13</td></tr>
+<tr class="memdesc:ab12c362e97903df9a3e62d617dc22c37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contient le nombre d'erreur.  <a href="#ab12c362e97903df9a3e62d617dc22c37">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ab12c362e97903df9a3e62d617dc22c37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Définitions de type</h2></td></tr>
+<tr class="memitem:a0c63ca30bfd752dda852a778c9f2dbf3"><td class="memItemLeft" align="right" valign="top"><a id="a0c63ca30bfd752dda852a778c9f2dbf3"></a>
+typedef enum e_erreur&#160;</td><td class="memItemRight" valign="bottom"><b>t_erreur</b></td></tr>
+<tr class="separator:a0c63ca30bfd752dda852a778c9f2dbf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:aa0354fd52e22aa00035b34f3c21bad9b"><td class="memItemLeft" align="right" valign="top"><a id="aa0354fd52e22aa00035b34f3c21bad9b"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>e_erreur</b> { <br />
+&#160;&#160;<b>OK</b>, 
+<b>FILE_ERROR</b>, 
+<b>OPEN_FILE_ERROR</b>, 
+<b>CLOSE_FILE_ERROR</b>, 
+<br />
+&#160;&#160;<b>VALUE_ERROR</b>, 
+<b>ERROR_NOT_EXIST</b>, 
+<b>REMOVE_FILE_ERROR</b>, 
+<b>PTR_NULL</b>, 
+<br />
+&#160;&#160;<b>PTR_VALUE_ERROR</b>, 
+<b>TYPE_ERROR</b>, 
+<b>UNDEFINED_MENU</b>, 
+<b>INCORRECT_MENU_TYPE</b>, 
+<br />
+&#160;&#160;<b>KEY_NOT_FOUND</b>
+<br />
+ }</td></tr>
+<tr class="separator:aa0354fd52e22aa00035b34f3c21bad9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:ae7d18f55e6cb1d688610bf39a35f22eb"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="erreur_8h.html#ae7d18f55e6cb1d688610bf39a35f22eb">aff_erreur</a> (t_erreur code_erreur)</td></tr>
+<tr class="separator:ae7d18f55e6cb1d688610bf39a35f22eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Module de gestion des erreurs. </p>
+<dl class="section author"><dt>Auteur</dt><dd>Jasmin GALBRUN </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>2 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>05/03/2019 </dd></dl>
+</div><h2 class="groupheader">Documentation des macros</h2>
+<a id="ab12c362e97903df9a3e62d617dc22c37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab12c362e97903df9a3e62d617dc22c37">&#9670;&nbsp;</a></span>NB_ERREUR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NB_ERREUR&#160;&#160;&#160;13</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Contient le nombre d'erreur. </p>
+<p>A modifier à chaque rajout d'une erreur. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="ae7d18f55e6cb1d688610bf39a35f22eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7d18f55e6cb1d688610bf39a35f22eb">&#9670;&nbsp;</a></span>aff_erreur()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">t_erreur aff_erreur </td>
+          <td>(</td>
+          <td class="paramtype">t_erreur&#160;</td>
+          <td class="paramname"><em>code_erreur</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">code_erreur</td><td>Code erreur que le programme doit afficher </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Retourne une erreur, OK si tout c'est bien passé </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

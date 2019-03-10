@@ -1,0 +1,89 @@
+\hypertarget{erreur_8c}{}\section{Référence du fichier src/erreur.c}
+\label{erreur_8c}\index{src/erreur.\+c@{src/erreur.\+c}}
+
+
+Module de gestion des erreurs.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$erreur.\+h$>$}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structs__erreur}{s\+\_\+erreur}
+\end{DoxyCompactItemize}
+\subsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{erreur_8c_ae3921a851f4390e669fc5d1c2cb237f3}\label{erreur_8c_ae3921a851f4390e669fc5d1c2cb237f3}} 
+typedef struct \hyperlink{structs__erreur}{s\+\_\+erreur} {\bfseries t\+\_\+erreur\+\_\+s}
+\end{DoxyCompactItemize}
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+t\+\_\+erreur \hyperlink{erreur_8c_ae7d18f55e6cb1d688610bf39a35f22eb}{aff\+\_\+erreur} (t\+\_\+erreur code\+\_\+erreur)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structt__erreur__s}{t\+\_\+erreur\+\_\+s} {\bfseries tab\+\_\+err} \mbox{[}\hyperlink{erreur_8h_ab12c362e97903df9a3e62d617dc22c37}{N\+B\+\_\+\+E\+R\+R\+E\+UR}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Module de gestion des erreurs. 
+
+\begin{DoxyAuthor}{Auteur}
+Jasmin G\+A\+L\+B\+R\+UN 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+2 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+05/03/2019 
+\end{DoxyDate}
+
+
+\subsection{Documentation des fonctions}
+\mbox{\Hypertarget{erreur_8c_ae7d18f55e6cb1d688610bf39a35f22eb}\label{erreur_8c_ae7d18f55e6cb1d688610bf39a35f22eb}} 
+\index{erreur.\+c@{erreur.\+c}!aff\+\_\+erreur@{aff\+\_\+erreur}}
+\index{aff\+\_\+erreur@{aff\+\_\+erreur}!erreur.\+c@{erreur.\+c}}
+\subsubsection{\texorpdfstring{aff\+\_\+erreur()}{aff\_erreur()}}
+{\footnotesize\ttfamily t\+\_\+erreur aff\+\_\+erreur (\begin{DoxyParamCaption}\item[{t\+\_\+erreur}]{code\+\_\+erreur }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em code\+\_\+erreur} & Code erreur que le programme doit afficher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Retourne une erreur, OK si tout c\textquotesingle{}est bien passé 
+\end{DoxyReturn}
+
+
+\subsection{Documentation des variables}
+\mbox{\Hypertarget{erreur_8c_a7f22cef488a4ae71437b9171ef02ba3d}\label{erreur_8c_a7f22cef488a4ae71437b9171ef02ba3d}} 
+\index{erreur.\+c@{erreur.\+c}!tab\+\_\+err@{tab\+\_\+err}}
+\index{tab\+\_\+err@{tab\+\_\+err}!erreur.\+c@{erreur.\+c}}
+\subsubsection{\texorpdfstring{tab\+\_\+err}{tab\_err}}
+{\footnotesize\ttfamily \hyperlink{structt__erreur__s}{t\+\_\+erreur\+\_\+s} tab\+\_\+err\mbox{[}\hyperlink{erreur_8h_ab12c362e97903df9a3e62d617dc22c37}{N\+B\+\_\+\+E\+R\+R\+E\+UR}\mbox{]}}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}
+= \{
+    \{FILE\_ERROR, \textcolor{stringliteral}{"Erreur de fichier"}\},
+    \{OPEN\_FILE\_ERROR, \textcolor{stringliteral}{"Erreur d ouverture du fichier"}\},
+    \{CLOSE\_FILE\_ERROR, \textcolor{stringliteral}{"Erreur de fermeture du fichier"}\},
+    \{VALUE\_ERROR, \textcolor{stringliteral}{"Erreur de valeur"}\},
+    \{ERROR\_NOT\_EXIST, \textcolor{stringliteral}{"Cette erreur n existe pas"}\},
+    \{REMOVE\_FILE\_ERROR, \textcolor{stringliteral}{"La Suppression du fichier a echoue"}\},
+    \{PTR\_NULL, \textcolor{stringliteral}{"Le pointeur est NULL"}\},
+    \{PTR\_VALUE\_ERROR, \textcolor{stringliteral}{"La valeur de Pointeur est Incorrect"}\},
+    \{TYPE\_ERROR, \textcolor{stringliteral}{"Le Type est Incorrect"}\},
+    \{UNDEFINED\_MENU, \textcolor{stringliteral}{"Le pointeur sur le menu est NULL"}\},
+    \{INCORRECT\_MENU\_TYPE, \textcolor{stringliteral}{"Type de menu incorrect"}\},
+    \{KEY\_NOT\_FOUND, \textcolor{stringliteral}{"La Cle n'a pas ete trouve"}\},
+    \{OK, \textcolor{stringliteral}{"Tout c est bien passer"}\}  
+\}
+\end{DoxyCode}
