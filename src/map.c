@@ -117,7 +117,7 @@ t_erreur MAP_creer_dir(t_map *map) {
   t_erreur erreur;
   char *path_dir = MAP_creer_path(map->nom);
 
-  if (mkdir(path_dir, 755))
+  if (mkdir(path_dir, S_IRWXU | S_IRWXG | S_IROTH))
     return FILE_ERROR; // MKDIR_ERROR
 
   erreur = MAP_detruire_path(&path_dir);
