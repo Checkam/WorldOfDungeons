@@ -77,11 +77,11 @@ t_erreur getpwd(char * argv, char * env)
 }
 
 /**
- * \fn t_erreur fusion_PWD(char * root_dir_name, t_liste * env, t_liste * argv)
+ * \fn t_erreur fusion_PWD(t_liste * env, t_liste * argv)
  * \brief Récupère le chemin absolu de la racine de WOD.
  * \brief Met à jour la valeur de WOD_PWD, qui sera accessible de tout le programme.
- * \param argv Le PWD utiliser pour connaitre le WOD_PWD.
  * \param env Le PWD utiliser pour connaitre le WOD_PWD.
+ * \param argv Le PWD utiliser pour connaitre le WOD_PWD.
  * \return Une erreur s'il y en a une.
 */
 t_erreur fusion_PWD(t_liste * env, t_liste * argv)
@@ -115,10 +115,15 @@ t_erreur fusion_PWD(t_liste * env, t_liste * argv)
         tolower_str(val,&val_min);
         while (strcmp(project_name_min,val_min) && !hors_liste(argv))
         {
-            if (strcmp(".",val) && strcmp("..",val))
+            if (strcmp(".",val))
             {
-                ajout_droit(env,val);
-                oter_elt(argv,NULL);
+                /* Si '..', on enleve un elem à env sinon on ajoute un elem à env */
+                if(!strcmp("..",val))
+                    oter_elt(env,free);
+                else{
+                    ajout_droit(env,val);
+                    oter_elt(argv,NULL);
+                }
             }
             free(val_min);
             suivant(argv);
