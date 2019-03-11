@@ -27,14 +27,14 @@ char crt_car = '#';
   ################################################*/
 
 /**
- * \fn FILE * new_json (char * dossier, char * name, char * mode)
+ * \fn FILE * open_json (char * dossier, char * name, char * mode)
  * \brief Créer, s'il ne l'est pas, le fichier JSON et l'ouvre.
  * \param dossier Chaine de caractère représentant le dossier ou se trouve le json.
  * \param name Chaine de caractère représenant le nom du fichier sans le '.json'.
  * \param mode Mode d'ouverture du fichier.
  * \return Un pointeur sur le fichier ouvert.
 */
-FILE * new_json (char * dossier, char * name, char * mode)
+FILE * open_json (char * dossier, char * name, char * mode)
 {
     /* Création chemin + nom_fichier */
     char * chemin;
@@ -78,27 +78,6 @@ t_erreur del_json (char * dossier, char * name)
     free(chemin);
     free(lieu);
     return REMOVE_FILE_ERROR;
-}
-
-/**
- * \fn FILE * open_json (char * dossier, char * name, char * mode)
- * \brief Ouvre un fichier JSON.
- * \param dossier Chaine de caractère représentant le dossier ou se trouve le json.
- * \param name Chaine de caractère représenant le nom du fichier sans le '.json' à ouvrir.
- * \param mode Mode d'ouverture du fichier.
- * \return Un pointeur sur le fichier ouvert.
-*/
-FILE * open_json (char * dossier, char * name, char * mode)
-{
-    char * chemin;
-    creation_chemin(dossier, &chemin);
-    char * name_json = concat_str (name,".json");
-    char * lieu = concat_str (chemin,name_json);
-    FILE * file = fopen(lieu,mode);
-    free(name_json);
-    free(chemin);
-    free(lieu);
-    return file;
 }
 
 /*################################################

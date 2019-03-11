@@ -16,7 +16,7 @@ int main(int argc, char **argv, char ** env) {
 
     /* Création fichier JSON */
     printf("Création de fichier JSON :\n");
-    FILE * file = new_json("test/JSON/", "test");
+    FILE * file = open_json("test/JSON/", "test", "r+");
     assert(file);
     printf("\t-- OK\n");
 
@@ -55,13 +55,8 @@ int main(int argc, char **argv, char ** env) {
     assert(close_json_obj(file) == OK);
     printf("\t-- OK\n");
 
-    /* Fermeture d'un fichier JSON */
-    printf("Fermeture d'un fichier JSON :\n");
-    fclose(file);
-    printf("\t-- OK\n");
-
     /* Lecture d'un objet */
-    file = open_json("test/JSON/", "test");
+    fstart(file);
     printf("Récupération objet JSON 1 :\n");
     assert(extract_json_obj(file,&objet) == OK);
     printf("\t-- OK\n");
@@ -74,7 +69,12 @@ int main(int argc, char **argv, char ** env) {
 
     printf("Contenu : nom = %s, poids = %.2f\n", nom, val);
 
+    /* Fermeture d'un fichier JSON */
+    printf("Fermeture d'un fichier JSON :\n");
     fclose(file);
+    printf("\t-- OK\n");
+
+
     free(objet);
     free(WOD_PWD);
     return OK;
