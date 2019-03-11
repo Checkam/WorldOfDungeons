@@ -70,8 +70,10 @@ t_erreur del_json (char * dossier, char * name)
     fclose(file);
     if (file)
     {
-        remove(name_json);
+        remove(lieu);
         free(name_json);
+        free(chemin);
+        free(lieu);
         return OK;
     }
     free(name_json);
