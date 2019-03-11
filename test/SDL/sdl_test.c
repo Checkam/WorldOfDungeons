@@ -41,8 +41,8 @@ int main(int argc, char const *argv[]) {
 
   SDL_Texture *fond;
   Create_IMG_Texture(renderer, "./IMG/texture/fond.bmp", &fond);
-
-  SEED = 5454575;
+  BLOCK_CreateTexture_sdl(renderer);
+  SEED = 898989;
 
   t_block *tab;
 
@@ -54,7 +54,7 @@ int main(int argc, char const *argv[]) {
   t_liste list;
   init_liste(&list);
 
-  int boucle = 100;
+  int boucle = 10000000;
 
   while (boucle-- && Program && !repeat) {
     taille_max = gen_col(&tab, i);
@@ -67,13 +67,16 @@ int main(int argc, char const *argv[]) {
     ajout_droit(&list, tab);
 
     taille = AFF_GetMidHeight(&list);
+
     if (taille == -1)
       taille = taille_max;
     SDL_RenderClear(renderer);
     SDL_RenderCopy(renderer, fond, NULL, &fondRect);
 
-    AFF_map_sdl(&list, renderer, taille - 4);
+    AFF_map_sdl(&list, renderer, taille - 7);
     SDL_RenderPresent(renderer);
+
+    //AFF_map_term(&list, 0, 400);
 
     while (SDL_PollEvent(&event))
       switch (event.type) {
@@ -85,9 +88,12 @@ int main(int argc, char const *argv[]) {
     i++;
   }
 
+  BLOCK_DestroyTexture_sdl(renderer);
   detruire_liste(&list, free);
   SDL_DestroyTexture(fond);
   SDL_DestroyRenderer(renderer);
+  SDL_DestroyWindow(screen);
+  SDL_Quit();
 
   return 0;
 }
