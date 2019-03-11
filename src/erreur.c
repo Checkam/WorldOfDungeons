@@ -7,7 +7,9 @@
  */
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include <erreur.h>
+#include <chemin.h>
 
 /**
  * \struct t_erreur_s
@@ -37,22 +39,42 @@ t_erreur_s tab_err[NB_ERREUR] = {
 };
 
 /**
- * \fn t_erreur aff_erreur(t_erreur code_erreur)
+ * \fn t_erreur aff_erreur(t_erreur code_erreur, char * msg_detail)
  * \param code_erreur Code erreur que le programme doit afficher
  * \return Retourne une erreur, OK si tout c'est bien passé
 */
-t_erreur aff_erreur(t_erreur code_erreur)
+t_erreur aff_erreur(t_erreur code_erreur, char * msg_detail)
 {
     /* On cherche l'erreur */
     int i;
     for(i = 0; tab_err[i].id != OK && tab_err[i].id != code_erreur; i++);
-
+    printf("C\n");
     /* On affiche msg erreur si erreur non trouve */
     if(tab_err[i].id != code_erreur){
-        aff_erreur(ERROR_NOT_EXIST);
+        aff_erreur(ERROR_NOT_EXIST, NULL);
         return ERROR_NOT_EXIST;
     }
 
-    fprintf(stderr, "Erreur : [%d] - %s\n", tab_err[i].id, tab_err[i].msg);
+    /* Création ou ajout du fichier d'enregistrement */
+    struct tm * temps = localtime((const time_t*)time(NULL));
+    char * nom_fichier = NULL;
+    char * fichier_log = NULL;
+
+    sprintf(nom_fichier, "log/%d-%d-%d_erreur_log.txt", temps->tm_mday, temps->tm_mon + 1, temps->tm_year + 1900);
+    creation_chemin(nom_fichier, &fichier_log);
+    FILE * log_erreur = fopen(fichier_log, "a");
+    if(log_erreur == NULL){
+        return PTR_NULL;
+    }
+
+    if(msg_detail){
+        fprintf(log_erreur, "%d:%d:%d - Erreur : [%d] - %s : %s\n", temps->tm_hour, temps->tm_min, temps->tm_sec, code_erreur, tab_err[i].msg, msg_detail);
+    }else{
+        fprintf(log_erreur, "%d:%d:%d - Erreur : [%d] - %s\n", temps->tm_hour, temps->tm_min, temps->tm_sec, code_erreur, tab_err[i].msg);
+    }
+
+    free(fichier_log);
+    free(nom_fichier);
+    fclose(log_erreur);
     return OK;
 }

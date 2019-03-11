@@ -10,55 +10,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
+#include <chemin.h>
 
-int main()
+int main(int argc, char ** argv, char ** env)
 {
-    int num_test = 1;
+    getpwd(argv[0], getenv("PWD"));
 
-    /* Test erreur de fichier */
-    printf("Test Erreur %d :\tFILE_ERROR\n",num_test++);
-    assert(aff_erreur(FILE_ERROR) == OK);
-    printf("\t-- OK\n");
+    /* Test de toutes les erreurs */
+    int i;
+    for(i = 0; i < NB_ERREUR; i++){
+        printf("Test Erreur %d\n", i);
+        assert(aff_erreur(i, NULL) == OK);
+        printf("\t-- OK\n");
+    }
 
-    /* Test erreur d'ouverture de fichier */
-    printf("Test Erreur %d :\tOPEN_FILE_ERROR\n",num_test++);
-    assert(aff_erreur(OPEN_FILE_ERROR) == OK);
-    printf("\t-- OK\n");
-
-    /* Test erreur de fermeture de fichier */
-    printf("Test Erreur %d :\tCLOSE_FILE_ERROR\n",num_test++);
-    assert(aff_erreur(CLOSE_FILE_ERROR) == OK);
-    printf("\t-- OK\n");
-
-    /* Test erreur de valeur */
-    printf("Test Erreur %d :\tVALUE_ERROR\n",num_test++);
-    assert(aff_erreur(VALUE_ERROR) == OK);
-    printf("\t-- OK\n");
-
-    /* Test erreur de suppression de fichier */
-    printf("Test Erreur %d :\tREMOVE_FILE_ERROR\n",num_test++);
-    assert(aff_erreur(REMOVE_FILE_ERROR) == OK);
-    printf("\t-- OK\n");
-
-    /* Test valeur de ptr incorrect */
-    printf("Test Erreur %d :\tPTR_VALUE_ERROR\n",num_test++);
-    assert(aff_erreur(PTR_VALUE_ERROR) == OK);
-    printf("\t-- OK\n");
-
-    /* Test erreur de type */
-    printf("Test Erreur %d :\tTYPE_ERROR\n",num_test++);
-    assert(aff_erreur(TYPE_ERROR) == OK);
-    printf("\t-- OK\n");
-
-    /* Test erreur de clé */
-    printf("Test Erreur %d :\tKEY_NOT_FOUND\n",num_test++);
-    assert(aff_erreur(KEY_NOT_FOUND) == OK);
-    printf("\t-- OK\n");
-
-    /* Test erreur non existante */
-    printf("Test Erreur %d :\tERROR\n",num_test++);
-    assert(aff_erreur(100) == ERROR_NOT_EXIST);
-    printf("\t-- OK\n");
-
+    free(WOD_PWD);
     return EXIT_SUCCESS;
 }

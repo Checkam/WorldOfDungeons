@@ -35,6 +35,6 @@ typedef enum e_erreur{
     KEY_NOT_FOUND
 }t_erreur;
 
-t_erreur aff_erreur(t_erreur code_erreur);
+t_erreur aff_erreur(t_erreur code_erreur, char * msg_detail);
 
 #endif
