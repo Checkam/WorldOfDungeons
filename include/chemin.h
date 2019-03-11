@@ -25,8 +25,9 @@ t_erreur decomposer_PWD (t_liste * p, char * pwd);
 Utilisation : getpwd(argv[0],getenv("PWD"));
 Ne pas oublier de récupérer les arguments du main :
 int main (int argc, char ** argv, char ** env) */
-t_erreur getpwd(char * argv, char * env);
+t_erreur pwd_init(char * argv, char * env);
 t_erreur fusion_PWD(t_liste * env, t_liste * argv);
+t_erreur pwd_quit(void);
 
 /* Création chemin à partir de WOD_PWD
 Utilisation : creation_chemin ("chemin_après_WOD_PWD",&str_res); */

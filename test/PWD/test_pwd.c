@@ -17,7 +17,7 @@ int main(int argc, char ** argv, char ** env)
     printf("----- Programme de Test de Récupération du PWD de WoD -----\n");
 
     printf("Création de WOD_PWD :\n");
-    assert(getpwd(argv[0], getenv("PWD")) == OK);
+    assert(pwd_init(argv[0], getenv("PWD")) == OK);
     printf("\t-- OK\n");
 
     printf("WOD_PWD = %s\n", WOD_PWD);
@@ -28,7 +28,7 @@ int main(int argc, char ** argv, char ** env)
     printf("\t-- OK\n");
     printf("Chemin = %s\n", chemin);
 
-    free(WOD_PWD);
+    pwd_quit();
     free(chemin);
 
     return EXIT_SUCCESS;

@@ -52,7 +52,7 @@ t_erreur decomposer_PWD (t_liste * p, char * pwd)
  * \param env Le PWD utiliser pour connaitre le WOD_PWD.
  * \return Une erreur s'il y en a une.
 */
-t_erreur getpwd(char * argv, char * env)
+t_erreur pwd_init(char * argv, char * env)
 {
     /* Erreur : pointeur NULL */
     if (!argv || !env) return PTR_NULL;
@@ -73,6 +73,17 @@ t_erreur getpwd(char * argv, char * env)
     detruire_liste(&env_dec, free);
     detruire_liste(&argv_dec, free);
 
+    return OK;
+}
+
+/**
+ * \fn t_erreur pwd_quit(void)
+ * \brief Unset la variable globale WOD_PWD.
+ * \return Une erreur s'il y en a une.
+*/
+t_erreur pwd_quit(void)
+{
+    free(WOD_PWD);
     return OK;
 }
 
