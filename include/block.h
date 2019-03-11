@@ -9,6 +9,8 @@
 #define __BLOCK_H__
 
 #include <couleurs.h>
+#include <SDL2/SDL.h>
+#include <erreur.h>
 
 #define NB_BLOCK 10
 
@@ -27,8 +29,10 @@ typedef struct block_type_s {
   char *nom;
   int resistance;
 
-  char *texture_sdl;
+  char *texture_path_sdl;
   char *texture_term;
+
+  SDL_Texture *texture_sdl;
 } t_block_type;
 
 
@@ -42,5 +46,8 @@ typedef struct block_s {
 
 #endif
 
-char *BLOCK_GetTexture_sdl(int id);
+SDL_Texture *BLOCK_GetTexture_sdl(int id);
 char *BLOCK_GetTexture_term(int id);
+
+t_erreur BLOCK_DestroyTexture_sdl(SDL_Renderer *renderer);
+t_erreur BLOCK_CreateTexture_sdl(SDL_Renderer *renderer);
