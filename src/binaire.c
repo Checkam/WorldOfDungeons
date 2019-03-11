@@ -8,10 +8,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-<<<<<<< HEAD
 #include <string.h>
-=======
->>>>>>> 189023a... Création module binaire
 #include <binaire.h>
 #include <chemin.h>
 #include <erreur.h>
@@ -29,24 +26,15 @@ FILE * open_bin (char * dossier, char * name, char * mode)
     /* Création chemin + nom_fichier */
     char * chemin;
     creation_chemin(dossier, &chemin);
-<<<<<<< HEAD
     char * name_dat = concat_string (name,".dat");
 
     /* Création et Ouverture Fichier */
     char * lieu = concat_string (chemin,name_dat);
-=======
-
-    /* Création et Ouverture Fichier */
-    char * lieu = concat_str (chemin,name);
->>>>>>> 189023a... Création module binaire
     FILE * file = fopen(lieu,mode);
 
     free(chemin);
     free(lieu);
-<<<<<<< HEAD
     free(name_dat);
-=======
->>>>>>> 189023a... Création module binaire
     return file;
 }
 
@@ -61,12 +49,8 @@ t_erreur del_bin (char * dossier, char * name)
 {
     char * chemin;
     creation_chemin(dossier, &chemin);
-<<<<<<< HEAD
     char * name_dat = concat_string (name,".dat");
     char * lieu = concat_string (chemin,name_dat);
-=======
-    char * lieu = concat_str (chemin,name);
->>>>>>> 189023a... Création module binaire
 
     FILE * file = fopen(lieu,"r");
     fclose(file);
@@ -75,15 +59,11 @@ t_erreur del_bin (char * dossier, char * name)
         remove(lieu);
         free(lieu);
         free(chemin);
-<<<<<<< HEAD
         free(name_dat);
-=======
->>>>>>> 189023a... Création module binaire
         return OK;
     }
     free(chemin);
     free(lieu);
-<<<<<<< HEAD
     free(name_dat);
     return REMOVE_FILE_ERROR;
 }
@@ -101,7 +81,4 @@ char * concat_string (char * str1, char * str2)
     strcpy(str_res, str1);
     strcat(str_res, str2);
     return str_res;
-=======
-    return REMOVE_FILE_ERROR;
->>>>>>> 189023a... Création module binaire
 }
