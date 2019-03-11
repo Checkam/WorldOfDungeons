@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <binaire.h>
 #include <chemin.h>
 #include <erreur.h>
@@ -25,13 +26,15 @@ FILE * open_bin (char * dossier, char * name, char * mode)
     /* Création chemin + nom_fichier */
     char * chemin;
     creation_chemin(dossier, &chemin);
+    char * name_dat = concat_string (name,".dat");
 
     /* Création et Ouverture Fichier */
-    char * lieu = concat_str (chemin,name);
+    char * lieu = concat_string (chemin,name_dat);
     FILE * file = fopen(lieu,mode);
 
     free(chemin);
     free(lieu);
+    free(name_dat);
     return file;
 }
 
@@ -46,7 +49,8 @@ t_erreur del_bin (char * dossier, char * name)
 {
     char * chemin;
     creation_chemin(dossier, &chemin);
-    char * lieu = concat_str (chemin,name);
+    char * name_dat = concat_string (name,".dat");
+    char * lieu = concat_string (chemin,name_dat);
 
     FILE * file = fopen(lieu,"r");
     fclose(file);
@@ -55,9 +59,26 @@ t_erreur del_bin (char * dossier, char * name)
         remove(lieu);
         free(lieu);
         free(chemin);
+        free(name_dat);
         return OK;
     }
     free(chemin);
     free(lieu);
+    free(name_dat);
     return REMOVE_FILE_ERROR;
+}
+
+/**
+ * \fn char * concat_string (char * str1, char * str2)
+ * \brief Concatène 2 chaine de caractère.
+ * \param str1 Chaine de caractère de gauche.
+ * \param str2 Chaine de caractère de droite.
+ * \return Une chaine de caractère résultat de la concatènation.
+*/
+char * concat_string (char * str1, char * str2)
+{
+    char * str_res = malloc(sizeof(char) * (strlen(str1) + strlen(str2) + 1));
+    strcpy(str_res, str1);
+    strcat(str_res, str2);
+    return str_res;
 }
