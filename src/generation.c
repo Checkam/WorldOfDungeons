@@ -9,10 +9,11 @@
 *   \brief Initialise un tableau de block
 *
 *   \fn int gen_col(t_block **tab, int x)
-*   \brief Génere une colone de block 
+*   \brief Génere une colone de block
 *
 **/
 
+#include <biome.h>
 #include <block.h>
 #include <commun.h>
 #include <couleurs.h>
@@ -22,8 +23,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-biome_t biome;
+#include <structure_block.h>
 
 void changeBiome(int x, int y) {
   if (x % W_BIOME == SEED % W_BIOME) {
@@ -54,48 +54,6 @@ int PreviewHeight(int x, int P_Height[], int nb) {
   return 1;
 }
 
-//LOI QUI PERMET DE CREE DES ARBRES
-//Marche plus car fonction de prediction plus bonne
-void createTree(int x, int map[MAX], int y) {
-  static int tree = 0;
-  static int new_tree = 0;
-
-  int preview = 10;
-  int P_Height[preview];
-  initTab(P_Height, preview);
-
-  PreviewHeight(x, P_Height, preview);
-  //P_Height[1]==P_Height[2] && P_Height[2]==P_Height[3] && P_Height[3]==P_Height[4] && P_Height[4]==P_Height[5] && P_Height[5]==P_Height[6] && P_Height[6]==P_Height[7] &&
-  if (P_Height[1] == P_Height[2] && P_Height[2] == P_Height[3] && P_Height[3] == P_Height[4] && !tree && !new_tree && y > H_MIN_GEN_ARBRE &&
-      y < H_MAX_GEN_ARBRE && (biome == FORET || biome == TAIGA) && y > HAUTEUR_EAU) {
-    tree = 7;
-    new_tree = (int)((double)x * perlin2d(x, MAX, FREQ, DEPTH) * (double)W_BIOME + 1) % DIST_MAX_TREE;
-  } else if (tree) {
-    char line[50];
-    FILE *arbre = NULL;
-
-    if (biome == TAIGA)
-      arbre = fopen("structure/arbre/arbre_taiga", "r");
-    else if (biome == FORET)
-      arbre = fopen("structure/arbre/arbre_foret", "r");
-
-    if (arbre != NULL) {
-      for (int j = 0; j < tree; j++) {
-        for (int l = 0; l < 50; l++)
-          line[l] = 0;
-        fgets(line, 50, arbre);
-      }
-      for (int j = 0; j < strlen(line) && (j + y < MAX - 1); j++)
-        map[y + j] = line[j] - '0';
-
-      fclose(arbre);
-    }
-    tree--;
-  } else if (new_tree > 0) {
-    new_tree--;
-  }
-}
-
 int gen_col(t_block **tab, int x) {
   int rnd, j;
   int taille_max = perlin2d(x, MAX, FREQ, DEPTH) * MAX;
@@ -103,35 +61,49 @@ int gen_col(t_block **tab, int x) {
   init_map(*tab);
   changeBiome(x, taille_max);
 
+  STRUCT_generation(x, *tab, taille_max);
+
   /* génération eau */
   for (j = 0; taille_max + j < HAUTEUR_EAU; j++) {
-    (*tab)[taille_max + j].id = EAU;
-    (*tab)[taille_max + j].y = taille_max + j;
-    (*tab)[taille_max + j].x = x;
+    if (j + taille_max == HAUTEUR_EAU - 1 && (biome == TOUNDRA || biome == TAIGA)) {
+      (*tab)[taille_max + j].id = GLACE;
+      (*tab)[taille_max + j].y = taille_max + j;
+      (*tab)[taille_max + j].x = x;
+    } else if ((*tab)[taille_max + j].id == AIR) {
+      (*tab)[taille_max + j].id = EAU;
+      (*tab)[taille_max + j].y = taille_max + j;
+      (*tab)[taille_max + j].x = x;
+    }
   }
 
-  /* génération herbe + sable*/
+  /* génération herbe + sable + terre */
   for (j = 1; j <= HAUTEUR_SURFACE; j++) {
-    if ((*tab)[taille_max].id == EAU) {
+    if (((*tab)[taille_max].id == EAU || (*tab)[taille_max].id == GLACE) && j == 1) {
       (*tab)[taille_max - j].id = SABLE;
-      (*tab)[taille_max - j].y = taille_max + j;
+      (*tab)[taille_max - j].y = taille_max - j;
       (*tab)[taille_max - j].x = x;
-    } else if (biome == PRAIRIES || biome == FORET || biome == DESERTS) {
-      if (j == 1) {
+    } else if (j == 1) {
+      if (biome == PRAIRIES || biome == FORET) {
         (*tab)[taille_max - j].id = HERBE;
         (*tab)[taille_max - j].y = taille_max - j;
         (*tab)[taille_max - j].x = x;
-      } else {
-        (*tab)[taille_max - j].id = TERRE;
+      } else if (biome == TOUNDRA || biome == TAIGA) {
+        (*tab)[taille_max - j].id = NEIGE;
+        (*tab)[taille_max - j].y = taille_max - j;
+        (*tab)[taille_max - j].x = x;
+      } else if (biome == DESERTS) {
+        (*tab)[taille_max - j].id = SABLE;
         (*tab)[taille_max - j].y = taille_max - j;
         (*tab)[taille_max - j].x = x;
       }
-    } else if (biome == TOUNDRA || biome == TAIGA) {
-      (*tab)[taille_max - j].id = NEIGE;
+    } else {
+      (*tab)[taille_max - j].id = TERRE;
       (*tab)[taille_max - j].y = taille_max - j;
       (*tab)[taille_max - j].x = x;
     }
   }
+
+  (*tab)[taille_max - HAUTEUR_SURFACE].id = GRAVIER;
 
   /* Génération profondeur */
   for (j = 0; j < taille_max - HAUTEUR_SURFACE; j++) {
