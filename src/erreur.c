@@ -8,6 +8,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <sys/stat.h>
+#include <sys/types.h>
 #include <erreur.h>
 #include <chemin.h>
 
@@ -58,14 +60,21 @@ t_erreur erreur_save(t_erreur code_erreur, char * msg_detail)
     /* Création ou ajout du fichier d'enregistrement */
     time_t timestamp = time(NULL);
     struct tm * temps = localtime(&timestamp);
-    char nom_fichier[100];
+    char nom_fichier[300];
     char * fichier_log = NULL;
-    
+    char * path_dir = NULL;
+
     sprintf(nom_fichier, "log/%d:%d:%d-erreur_log.txt", temps->tm_mday, temps->tm_mon + 1, temps->tm_year + 1900);
     if(creation_chemin(nom_fichier, &fichier_log) != OK){
         return PTR_NULL;
     }
-
+    if(creation_chemin("log", &path_dir) != OK){
+        return PTR_NULL;
+    }
+    
+    /* Création du dossier log */
+    mkdir(path_dir, S_IRWXU | S_IRWXG | S_IROTH);
+    
     FILE * log_erreur = fopen(fichier_log, "a");
     if(log_erreur == NULL){
         return PTR_NULL;
@@ -77,6 +86,7 @@ t_erreur erreur_save(t_erreur code_erreur, char * msg_detail)
         fprintf(log_erreur, "%d:%d:%d - %s\n", temps->tm_hour, temps->tm_min, temps->tm_sec, tab_err[i].msg);
     }
 
+    free(path_dir);
     free(fichier_log);
     fclose(log_erreur);
     return OK;
