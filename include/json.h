@@ -15,14 +15,14 @@
 /* Primitives de création, d'ouverture, de fermeture et de suppression */
 
 /* Création d'un fichier JSON /
-Utilisation : FILE * file = new_json("dossier/JSON", "name") */
-FILE * new_json (char * dossier, char * name);
+Utilisation : FILE * file = new_json("dossier/JSON", "name", "mode") */
+FILE * new_json (char * dossier, char * name, char * mode);
 /* Suppression d'un fichier JSON /
 Utilisation : del_json("dossier/JSON", "name") */
 t_erreur del_json (char * dossier, char * name);
 /* Ouverture d'un fichier JSON /
 Utilisation : open_json("dossier/JSON", "name") */
-FILE * open_json (char * dossier, char * name);
+FILE * open_json (char * dossier, char * name, char * mode);
 
 /* Primitives d'écriture */
 
@@ -49,5 +49,7 @@ t_erreur read_json_obj (char * obj, char * key, void * value, char value_type);
 /* Primitives Autres */
 
 char * concat_str (char * str1, char * str2);
+/* Remet au début du fichier */
+t_erreur fstart (FILE * file);
 
 #endif

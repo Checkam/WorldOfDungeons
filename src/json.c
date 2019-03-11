@@ -27,13 +27,14 @@ char crt_car = '#';
   ################################################*/
 
 /**
- * \fn FILE * new_json (char * dossier, char * name)
- * \brief Créer, s'il ne l'est pas, le fichier JSON et l'ouvre en écriture.
+ * \fn FILE * new_json (char * dossier, char * name, char * mode)
+ * \brief Créer, s'il ne l'est pas, le fichier JSON et l'ouvre.
  * \param dossier Chaine de caractère représentant le dossier ou se trouve le json.
  * \param name Chaine de caractère représenant le nom du fichier sans le '.json'.
+ * \param mode Mode d'ouverture du fichier.
  * \return Un pointeur sur le fichier ouvert.
 */
-FILE * new_json (char * dossier, char * name)
+FILE * new_json (char * dossier, char * name, char * mode)
 {
     /* Création chemin + nom_fichier */
     char * chemin;
@@ -42,7 +43,7 @@ FILE * new_json (char * dossier, char * name)
 
     /* Création et Ouverture Fichier */
     char * lieu = concat_str (chemin,name_json);
-    FILE * file = fopen(lieu,"w");
+    FILE * file = fopen(lieu,mode);
 
     free(name_json);
     free(chemin);
@@ -80,19 +81,20 @@ t_erreur del_json (char * dossier, char * name)
 }
 
 /**
- * \fn FILE * open_json (char * dossier, char * name)
- * \brief Ouvre un fichier JSON en lecture.
+ * \fn FILE * open_json (char * dossier, char * name, char * mode)
+ * \brief Ouvre un fichier JSON.
  * \param dossier Chaine de caractère représentant le dossier ou se trouve le json.
- * \param name Chaine de caractère représenant le nom du fichier sans le '.json' à lire.
+ * \param name Chaine de caractère représenant le nom du fichier sans le '.json' à ouvrir.
+ * \param mode Mode d'ouverture du fichier.
  * \return Un pointeur sur le fichier ouvert.
 */
-FILE * open_json (char * dossier, char * name)
+FILE * open_json (char * dossier, char * name, char * mode)
 {
     char * chemin;
     creation_chemin(dossier, &chemin);
     char * name_json = concat_str (name,".json");
     char * lieu = concat_str (chemin,name_json);
-    FILE * file = fopen(lieu,"r");
+    FILE * file = fopen(lieu,mode);
     free(name_json);
     free(chemin);
     free(lieu);
@@ -276,4 +278,17 @@ char * concat_str (char * str1, char * str2)
     strcpy(str_res, str1);
     strcat(str_res, str2);
     return str_res;
+}
+
+/**
+ * \fn t_erreur fstart (FILE * file)
+ * \brief Remet le pointeur file au début du fichier.
+ * \param str1 Chaine de caractère de gauche.
+ * \return Une erreur s'il y en a une.
+*/
+t_erreur fstart (FILE * file)
+{
+    if (!file) return PTR_NULL;
+    fseek(file, 0, SEEK_SET);
+    return OK;
 }
