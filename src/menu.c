@@ -18,7 +18,7 @@
 #define POLICE_MENU "data/police/8-BIT_WONDER.ttf"
 
 /**
- * \fn t_erreur ajout_bouton_menu(t_menu * menu, int x, int y, int width, int height, char * titre, SDL_Texture * texture)
+ * \fn t_erreur menu_ajout_bouton(t_menu * menu, int x, int y, int width, int height, char * titre, SDL_Texture * texture)
  * \param menu Pointeur sur un t_menu
  * \param x Position en x du bouton
  * \param y Position en y du bouton
@@ -26,7 +26,7 @@
  * \param height Hauteur du bouton
  * \return Retourne un code erreur
 */
-t_erreur ajout_bouton_menu(t_menu * menu, int x, int y, int width, int height, char * titre, SDL_Texture * texture){
+t_erreur menu_ajout_bouton(t_menu * menu, int x, int y, int width, int height, char * titre, SDL_Texture * texture){
     /* Vérification */
     if(menu == NULL){
         return UNDEFINED_MENU;
@@ -71,14 +71,14 @@ t_erreur ajout_bouton_menu(t_menu * menu, int x, int y, int width, int height, c
 }
 
 /**
- * \fn t_erreur creer_menu(t_type_menu type, int width, int height, SDL_Texture * texture, t_menu ** menu)
+ * \fn t_erreur menu_creer(t_type_menu type, int width, int height, SDL_Texture * texture, t_menu ** menu)
  * \param type Type de menu que l'on veut avoir (Solo,...)
  * \param width Largeur de la fenêtre d'affichage
  * \param height Hauteur de la fenêtre d'affichage
  * \param menu Double pointeur sur le menu que l'on veut créer
  * \return Retourne un code erreur
 */
-t_erreur creer_menu(t_type_menu type, int width, int height, SDL_Texture * texture, t_menu ** menu){
+t_erreur menu_creer(t_type_menu type, int width, int height, SDL_Texture * texture, t_menu ** menu){
     int w, h; //Taille d'une colonne et d'une ligne
 
     if(width < 0 || height < 0){
@@ -116,13 +116,13 @@ t_erreur creer_menu(t_type_menu type, int width, int height, SDL_Texture * textu
 }
 
 /**
- * \fn t_erreur SDL_afficher_menu(t_menu * menu, SDL_Renderer * renderer, SDL_Color couleur_texte)
+ * \fn t_erreur menu_afficher_SDL(t_menu * menu, SDL_Renderer * renderer, SDL_Color couleur_texte)
  * \param menu Pointeur sur le menu que l'on veut afficher
  * \param renderer Renderer sur le lequel on veut afficher le menu
  * \param couleur_texte Couleur du texte
  * \return Code erreur
 */
-t_erreur SDL_afficher_menu(t_menu * menu, SDL_Renderer * renderer, SDL_Color couleur_texte){
+t_erreur menu_afficher_SDL(t_menu * menu, SDL_Renderer * renderer, SDL_Color couleur_texte){
     /* Vérification */
     if(menu == NULL){
         return UNDEFINED_MENU;
@@ -186,11 +186,19 @@ t_erreur SDL_afficher_menu(t_menu * menu, SDL_Renderer * renderer, SDL_Color cou
 }
 
 /**
- * \fn t_erreur detruire_bouton_menu(t_bouton_menu ** btn)
+ * \fn
+ * \param
+*/
+t_erreur menu_afficher_Term(t_menu * menu){
+    /* Vérification */
+}
+
+/**
+ * \fn t_erreur menu_detruire_bouton(t_bouton_menu ** btn)
  * \param btn Bouton que l'on veut détruire
  * \return Code erreur
 */
-t_erreur detruire_bouton_menu(t_bouton_menu ** btn){
+t_erreur menu_detruire_bouton(t_bouton_menu ** btn){
     if(*btn != NULL){
         if((*btn)->titre != NULL){
             free((*btn)->titre);
@@ -203,11 +211,11 @@ t_erreur detruire_bouton_menu(t_bouton_menu ** btn){
 }
 
 /**
- * \fn t_erreur detruire_bouton_menu(t_menu ** menu)
+ * \fn t_erreur menu_detruire(t_menu ** menu)
  * \param menu Menu que l'on veut détruire
  * \return Code erreur
 */
-t_erreur detruire_menu(t_menu ** menu){
+t_erreur menu_detruire(t_menu ** menu){
     if(*menu != NULL){
         if((*menu)->tab_bouton != NULL){
             int i;
@@ -224,13 +232,13 @@ t_erreur detruire_menu(t_menu ** menu){
 }
 
 /**
- * \fn t_erreur gestion_bouton_menu(t_menu * menu, int mouseX, int mouseY)
+ * \fn t_erreur menu_gestion_SDL(t_menu * menu, int mouseX, int mouseY)
  * \param menu Menu que l'on veut gérer
  * \param mouseX Position en X de la souris
  * \param mouseY position en Y de la souris
  * \return Code erreur
 */
-t_erreur gestion_menu_SDL(t_menu * menu, SDL_MouseButtonEvent mouse, int * pos_btn_pressed){
+t_erreur menu_gestion_SDL(t_menu * menu, SDL_MouseButtonEvent mouse, int * pos_btn_pressed){
     /* Vérification */
     if(menu == NULL){
         return PTR_NULL;

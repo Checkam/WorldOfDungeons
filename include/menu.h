@@ -45,17 +45,17 @@ typedef struct s_menu{
 }t_menu;
 
 /* Primitive de création d'un menu */
-t_erreur ajout_bouton_menu(t_menu * menu, int x, int y, int width, int height, char * titre, SDL_Texture * texture);
-t_erreur creer_menu(t_type_menu type, int width, int height, SDL_Texture * texture, t_menu ** menu);
+t_erreur menu_ajout_bouton(t_menu * menu, int x, int y, int width, int height, char * titre, SDL_Texture * texture);
+t_erreur menu_creer(t_type_menu type, int width, int height, SDL_Texture * texture, t_menu ** menu);
 
 /* Primitive d'affichage d'un menu */
-t_erreur SDL_afficher_menu(t_menu * menu, SDL_Renderer * renderer, SDL_Color couleur_texte);
+t_erreur menu_afficher_SDL(t_menu * menu, SDL_Renderer * renderer, SDL_Color couleur_texte);
 
 /* Primitive de destruction d'un menu */
-t_erreur detruire_bouton_menu(t_bouton_menu ** btn);
-t_erreur detruire_menu(t_menu ** menu);
+t_erreur menu_detruire_bouton(t_bouton_menu ** btn);
+t_erreur menu_detruire(t_menu ** menu);
 
 /* Primitive de gestion du menu */
-t_erreur gestion_menu_SDL(t_menu * menu, SDL_MouseButtonEvent mouse, int * pos_btn_pressed);
+t_erreur menu_gestion_SDL(t_menu * menu, SDL_MouseButtonEvent mouse, int * pos_btn_pressed);
 
 #endif
