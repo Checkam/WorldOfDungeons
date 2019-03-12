@@ -43,9 +43,6 @@ Utilisation : read_json_obj(obj,cle,valeur,type_de_la_valeur)
 type_de_la_valeur = [d,s,f] */
 t_erreur read_json_obj (char * obj, char * key, void * value, char * value_type);
 
-/* Primitives Autres */
-
-char * concat_str (char * str1, char * str2);
 /* Remet au début du fichier */
 t_erreur fstart (FILE * file);
 

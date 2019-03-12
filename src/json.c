@@ -12,6 +12,7 @@
 #include <json.h>
 #include <chemin.h>
 #include <erreur.h>
+#include <fichier.h>
 
 /* Variables Globales */
 /**
@@ -36,20 +37,8 @@ char crt_car = '#';
 */
 FILE * open_json (char * dossier, char * name, char * mode)
 {
-    /* Création chemin + nom_fichier */
-    char * chemin;
-    creation_chemin(dossier, &chemin);
-    char * name_json = concat_str (name,".json");
-
-    /* Création et Ouverture Fichier */
-    char * lieu = concat_str (chemin,name_json);
-    FILE * file = fopen(lieu,mode);
-
-    free(name_json);
-    free(chemin);
-    free(lieu);
     crt_car = '#';
-    return file;
+    return open_file(dossier,name,".json",mode);
 }
 
 /**
@@ -61,25 +50,7 @@ FILE * open_json (char * dossier, char * name, char * mode)
 */
 t_erreur del_json (char * dossier, char * name)
 {
-    char * chemin;
-    creation_chemin(dossier, &chemin);
-    char * name_json = concat_str (name,".json");
-    char * lieu = concat_str (chemin,name_json);
-
-    FILE * file = fopen(lieu,"r");
-    fclose(file);
-    if (file)
-    {
-        remove(lieu);
-        free(name_json);
-        free(chemin);
-        free(lieu);
-        return OK;
-    }
-    free(name_json);
-    free(chemin);
-    free(lieu);
-    return REMOVE_FILE_ERROR;
+    return del_file(dossier,name,".json");
 }
 
 /*################################################
@@ -249,21 +220,6 @@ t_erreur read_json_obj (char * obj, char * key, void * value, char * value_type)
 /*################################################
   ############### Fonctions Autres ###############
   ################################################*/
-
-/**
- * \fn char * concat_str (char * str1, char * str2)
- * \brief Concatène 2 chaine de caractère.
- * \param str1 Chaine de caractère de gauche.
- * \param str2 Chaine de caractère de droite.
- * \return Une chaine de caractère résultat de la concatènation.
-*/
-char * concat_str (char * str1, char * str2)
-{
-    char * str_res = malloc(sizeof(char) * (strlen(str1) + strlen(str2) + 1));
-    strcpy(str_res, str1);
-    strcat(str_res, str2);
-    return str_res;
-}
 
 /**
  * \fn t_erreur fstart (FILE * file)

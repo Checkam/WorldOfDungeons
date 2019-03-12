@@ -12,6 +12,7 @@
 #include <binaire.h>
 #include <chemin.h>
 #include <erreur.h>
+#include <fichier.h>
 
 /**
  * \fn FILE * open_file (char * dossier, char * name, char * ext, char * mode)
@@ -27,10 +28,10 @@ FILE * open_file (char * dossier, char * name, char * ext, char * mode)
     /* Création chemin + nom_fichier */
     char * chemin;
     creation_chemin(dossier, &chemin);
-    char * name_ext = concat_string (name,ext);
+    char * name_ext = concat_str (name,ext);
 
     /* Création et Ouverture Fichier */
-    char * lieu = concat_string (chemin,name_ext);
+    char * lieu = concat_str (chemin,name_ext);
     FILE * file = fopen(lieu,mode);
 
     free(chemin);
@@ -51,8 +52,8 @@ t_erreur del_file (char * dossier, char * name, char * ext)
 {
     char * chemin;
     creation_chemin(dossier, &chemin);
-    char * name_ext = concat_string (name,ext);
-    char * lieu = concat_string (chemin,name_ext);
+    char * name_ext = concat_str (name,ext);
+    char * lieu = concat_str (chemin,name_ext);
 
     FILE * file = fopen(lieu,"r");
     fclose(file);
@@ -71,7 +72,7 @@ t_erreur del_file (char * dossier, char * name, char * ext)
 }
 
 /**
- * \fn char * concat_string (char * str1, char * str2)
+ * \fn char * concat_str (char * str1, char * str2)
  * \brief Concatène 2 chaine de caractère.
  * \param str1 Chaine de caractère de gauche.
  * \param str2 Chaine de caractère de droite.

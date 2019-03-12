@@ -8,8 +8,8 @@
 int main(int argc, char **argv, char ** env) {
     printf("-------- Programme de Test du Module BINAIRE --------\n");
 
-    getpwd(argv[0],getenv("PWD"));
+    pwd_init(argv[0],getenv("PWD"));
 
-    free(WOD_PWD);
+    pwd_quit();
     return OK;
 }
