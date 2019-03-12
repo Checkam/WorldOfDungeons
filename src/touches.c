@@ -1,48 +1,8 @@
-/*#include <ncurses.h>*/
 #include <stdlib.h>
 
 #include "touches.h"
 
 #include <SDL2/SDL.h>
-
-/*int TERM_touches () {
-
-	int t[100];
-
-	int j, max;
-	int c;
-
-	initscr();
-		
-	timeout(1);
-	c = getch();
-	j = 0;
-
-	while ( c != -1 ) {
-		
-		t[j] = c;
-		c = getch();
-		j++;
-	}
-
-	printf("system clear ...");
-	system("clear");
-
-	max = j;
-	j = 0;
-
-	mvprintw(0, 0, "affichage : ");
-
-	while ( j < max ) {
-
-		printw("%c", t[j]);
-		j++;
-	}
-
-	endwin();
-
-	return 0;
-}*/
 
 int SDL_init_touches( uint8_t **keyboardState, configTouches_t **configuration ) {
 	/* permet d'allouer les zone memoire necessaire au bon fonctionnement du module touches */
