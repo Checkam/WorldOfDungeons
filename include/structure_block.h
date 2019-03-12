@@ -12,7 +12,7 @@
 #include <commun.h>
 #include <block.h>
 
-#define NB_STRUCT_BLOCK 4
+#define NB_STRUCT_BLOCK 5
 
 #define HAUTEUR_ARBRE 5
 #define FREQ_ARBRE HAUTEUR_ARBRE - 3
@@ -24,7 +24,8 @@ typedef enum {
   ARBRE_TAIGA,
   ARBRE_FORET,
   CACTUS,
-  BUISSON
+  BUISSON,
+  GRAND_ARBRE_FORET
 } t_struct_block_type;
 
 typedef struct {
