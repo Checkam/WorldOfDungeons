@@ -16,6 +16,4 @@
 FILE * open_bin (char * dossier, char * name, char * mode);
 t_erreur del_bin (char * dossier, char * name);
 
-char * concat_string (char * str1, char * str2);
-
 #endif
