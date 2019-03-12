@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> 21af0be1fcd58bb1a19fab4a86987be45278c57f
 #include <stdlib.h>
 
 #include "touches.h"

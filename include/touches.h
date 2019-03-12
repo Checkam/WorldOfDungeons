@@ -29,8 +29,4 @@ uint8_t SDL_touche_appuyer ( uint8_t *keyboardState, uint16_t touche );
 
 int SDL_exit_touches ( uint8_t **keyboardState, configTouches_t **configuration );
 
-<<<<<<< HEAD
 #endif
-=======
-#endif
->>>>>>> 21af0be1fcd58bb1a19fab4a86987be45278c57f
