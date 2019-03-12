@@ -4,6 +4,6 @@
 #include <liste.h>
 
 void afficher_liste(t_liste * p);
-void mettre_null (float * f);
+int comparer_float(void * f1, void * f2);
  
 #endif

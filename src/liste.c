@@ -86,11 +86,10 @@ void precedent(t_liste * p){
 }
 
 /**
- * \fn t_erreur valeur_elt(t_liste * p, void ** v, int size_v)
+ * \fn t_erreur valeur_elt(t_liste * p, void ** v)
  * \brief Récupère la valeur de l'élèment courant.
  * \param p La liste où se trouve l'élèment courant.
  * \param v L'endroit ou sauvegarder la valeur de l'élèment courant.
- * \param size_v La taille de l'élèment à récupérer.
  * \return Une erreur s'il y en a une.
 */
 t_erreur valeur_elt(t_liste * p, void ** v){
@@ -196,6 +195,49 @@ int taille_liste(t_liste * p){
 }
 
 /**
+ * \fn t_erreur valeur_liste(t_liste * p, int ind, void ** v)
+ * \brief Récupère la valeur de l'élèment à l'indice donné.
+ * \param p La liste où se trouve l'élèment courant.
+ * \param ind L'indice de la valeur à récupérer.
+ * \param v L'endroit ou sauvegarder la valeur de l'élèment.
+ * \return Une erreur s'il y en a une.
+*/
+t_erreur valeur_liste(t_liste * p, int ind, void ** v)
+{
+    if (!p || !v) return PTR_NULL;
+    if (ind < 0) return VALUE_ERROR;
+
+    int i = 0;
+    for (en_tete(p); !hors_liste(p) && i < ind; suivant(p), i++);
+    if (hors_liste(p)) return VALUE_ERROR;
+    valeur_elt(p,v);
+
+    return OK;
+}
+
+/**
+ * \fn int recherche_liste(t_liste * p, void * v, int (*comparer) (void *, void *))
+ * \brief Recherche si une valeur est présente dans la liste.
+ * \param p La liste où chercher la valeur.
+ * \param v La valeur à rechercher.
+ * \param comparer Fonction de comparaison de deux valeurs.
+ * \return VRAI si valeur trouvée, FAUX sinon.
+*/
+int recherche_liste(t_liste * p, void * v, int (*comparer) (void *, void *))
+{
+    if (!p || !v || !comparer) return 0;
+    
+    void * val;
+    for(en_tete(p); !hors_liste(p); suivant(p))
+    {
+        valeur_elt(p,&val);
+        if (comparer(val,v)) return 1;
+    }
+    
+    return 0;
+}
+
+/**
  * \fn void detruire_liste(t_liste * p, void (* effacer) (void *))
  * \brief Détruit la liste.
  * \param p La liste à détruire.
@@ -231,7 +273,7 @@ char * copie( char * cible , char * source , int n)
  * \param n Le nombre d'octet à copier.
  * \return L'adresse de la source.
 */
-char * copie_cb (void * cible, void * source, int n)
+char * copie_cb(void * cible, void * source, int n)
 {
     return (copie(cible,source,n));
 }

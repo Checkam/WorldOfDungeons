@@ -43,8 +43,10 @@ t_erreur ajout_droit(t_liste * p, void * v);
 t_erreur ajout_gauche(t_liste * p, void * v);
 int taille_liste(t_liste * p);
 void detruire_liste(t_liste * p, void (* effacer) (void *));
+t_erreur valeur_liste(t_liste * p, int ind, void ** v);
+int recherche_liste(t_liste * p, void * v, int (*comparer) (void *, void *));
 
 char  * copie( char * cible , char * source , int n);
-char * copie_cb (void * cible, void * source, int n);
+char * copie_cb(void * cible, void * source, int n);
 
 #endif

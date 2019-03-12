@@ -10,6 +10,7 @@
 #include <liste.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <assert.h>
 
 int main() {
   printf("----- Programme de Test de Liste Générique -----\n");
@@ -31,9 +32,9 @@ int main() {
   /* Remplissage des listes avec des valeurs quelconques */
   printf("\t--> Remplissage de la Liste Générique\n");
   en_tete(&j1);
-  ajout_droit(&j1, &a);
-  ajout_droit(&j1, &b);
-  ajout_droit(&j1, &c);
+  assert(ajout_droit(&j1, &a) == OK);
+  assert(ajout_droit(&j1, &b) == OK);
+  assert(ajout_droit(&j1, &c) == OK);
   printf("\t\t-- OK\n");
 
   /* Affichage des listes */
@@ -41,9 +42,22 @@ int main() {
   afficher_liste(&j1);
   printf("\t\t-- OK\n");
 
+  /* Récupération d'une valeur dans la liste */
+  float * val;
+  printf("\t--> Récupération de la valeur 2 de la liste\n");
+  assert(valeur_liste(&j1,1,(void **)&val) == OK);
+  printf("Valeur : %.2f\n", *val);
+  printf("\t\t-- OK\n");
+
+  /* Recherche de valeur dans la liste */
+  float val2 = 5;
+  printf("\t--> Récupération de la valeur 5\n");
+  printf("Valeur trouvée ? : %d\n", recherche_liste(&j1,(void *)&val2, comparer_float));
+  printf("\t\t-- OK\n");
+
   /* Destruction des listes */
   printf("\t--> Destruction des Listes\n");
-  detruire_liste(&j1, (void *)mettre_null);
+  detruire_liste(&j1, NULL);
   printf("\t\t-- OK\n");
 
   return EXIT_SUCCESS;
@@ -58,4 +72,7 @@ void afficher_liste(t_liste *p) {
   printf("\n");
 }
 
-void mettre_null(float *f) { f = NULL; }
+int comparer_float(void * f1, void * f2)
+{
+  return *(float*)f1 == *(float*)f2;
+}
