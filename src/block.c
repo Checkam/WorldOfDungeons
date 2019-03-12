@@ -17,16 +17,16 @@
   \brief tableau de tous les blocks
 **/
 t_block_type blocks[NB_BLOCK] = {{AIR, "air", 0, NULL, NOIR, NULL},
-                                 {HERBE, "herbe", 5, "./IMG/texture/herbe.bmp", VERT, NULL},
-                                 {TERRE, "terre", 10, "./IMG/texture/terre.bmp", MARRON, NULL},
-                                 {EAU, "eau", 0, "./IMG/texture/eau.bmp", BLEU, NULL},
-                                 {SABLE, "sable", 5, "./IMG/texture/sable.bmp", JAUNE, NULL},
-                                 {FEUILLE, "feuille", 3, "./IMG/texture/feuille.bmp", VERT, NULL},
-                                 {BOIS, "bois", 15, "./IMG/texture/tronc.bmp", MARRON, NULL},
-                                 {ROCHE, "roche", 50, "./IMG/texture/pierre.bmp", GRIS, NULL},
-                                 {NEIGE, "neige", 3, "./IMG/texture/neige.bmp", BLANC, NULL},
-                                 {GLACE, "glace", 10, "./IMG/texture/glace.bmp", CYAN, NULL},
-                                 {GRAVIER, "gravier", 20, "./IMG/texture/gravier.bmp", GRIS, NULL}};
+                                 {HERBE, "herbe", 5, "./IMG/texture/herbe.png", VERT, NULL},
+                                 {TERRE, "terre", 10, "./IMG/texture/terre.png", MARRON, NULL},
+                                 {EAU, "eau", 0, "./IMG/texture/eau.png", BLEU, NULL},
+                                 {SABLE, "sable", 5, "./IMG/texture/sable.png", JAUNE, NULL},
+                                 {FEUILLE, "feuille", 3, "./IMG/texture/feuille.png", VERT, NULL},
+                                 {BOIS, "bois", 15, "./IMG/texture/tronc.png", MARRON, NULL},
+                                 {ROCHE, "roche", 50, "./IMG/texture/pierre.png", GRIS, NULL},
+                                 {NEIGE, "neige", 3, "./IMG/texture/neige.png", BLANC, NULL},
+                                 {GLACE, "glace", 10, "./IMG/texture/glace.png", CYAN, NULL},
+                                 {GRAVIER, "gravier", 20, "./IMG/texture/gravier.png", GRIS, NULL}};
 
 /**
  \fn char *BLOCK_GetTexture_term(int id)
