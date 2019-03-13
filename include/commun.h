@@ -1,10 +1,12 @@
-#define N 800       /* Number of iterations */
-#define MAX 60     /* Heigth of screen */
-#define width_window 1200
+int height_window;
+int width_window;
+
 #define widthBrick 25
-#define height_window 700
 #define heightBrick 25
+
+#define MAX 100 /* Height tab */
+
 #define SIZE (width_window / widthBrick)    /* Width of screen */
-#define MAX_SCREEN (height_window / heightBrick)
+#define MAX_SCREEN (height_window / heightBrick)  /* Heigth of screen */
 
 int SEED;
