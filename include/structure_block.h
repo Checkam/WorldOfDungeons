@@ -14,11 +14,7 @@
 
 #define NB_STRUCT_BLOCK 5
 
-#define HAUTEUR_ARBRE 5
-#define FREQ_ARBRE HAUTEUR_ARBRE - 3
-#define H_MIN_GEN_ARBRE HAUTEUR_EAU + 10
-#define H_MAX_GEN_ARBRE 100
-#define DIST_MAX_TREE 10
+#define DIST_MAX_STRUCT 15
 
 typedef enum {
   ARBRE_TAIGA,
