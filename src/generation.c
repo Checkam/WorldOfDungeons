@@ -25,12 +25,6 @@
 #include <string.h>
 #include <structure_block.h>
 
-void changeBiome(int x, int y) {
-  if (x % W_BIOME == SEED % W_BIOME) {
-    biome = (int)((double)x * perlin2d(x - 1, y, FREQ, DEPTH) * (double)HAUTEUR_SURFACE + 1) % NB_BIOME;
-  }
-}
-
 void init_map(t_block *map) {
   int i;
   for (i = 0; i < MAX; i++) {
