@@ -14,7 +14,7 @@
 
 int main(int argc, char ** argv, char ** env)
 {
-    getpwd(argv[0], getenv("PWD"));
+    pwd_init(argv[0], getenv("PWD"));
 
     /* Test de l'affichage de toutes les erreurs */
     printf("Test affichage de toutes les erreurs\n");
@@ -41,6 +41,6 @@ int main(int argc, char ** argv, char ** env)
     assert(erreur_save(PTR_NULL, "menu_creer() - pointeur sur le menu") == OK);
     printf("\t--OK\n");
 
-    free(WOD_PWD);
+    pwd_quit();
     return EXIT_SUCCESS;
 }

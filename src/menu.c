@@ -115,17 +115,17 @@ t_erreur menu_creer(t_type_menu type, int width, int height, SDL_Texture * textu
         w = width / 3;
         h = height / 15;
         menu_ajout_bouton(*menu, w, 3 * h, w, 2 * h, "Solo", texture_bouton, SOLO);
-        menu_ajout_bouton(*menu, w, 5 * h, w, 2 * h, "Multijoueur", texture_bouton, MENU_NULL);
-        menu_ajout_bouton(*menu, w, 7 * h, w, 2 * h, "Option", texture_bouton, MENU_NULL);
+        menu_ajout_bouton(*menu, w, 5 * h, w, 2 * h, "Multijoueur", texture_bouton, PRINCIPAL);
+        menu_ajout_bouton(*menu, w, 7 * h, w, 2 * h, "Option", texture_bouton, PRINCIPAL);
         menu_ajout_bouton(*menu, w, 9 * h, w, 2 * h, "Quitter", texture_bouton, MENU_NULL);
     }else if(type == SOLO){
         (*menu)->tab_bouton = malloc(sizeof(t_bouton_menu));
 
         w = width / 4;
         h = height / 15;
-        menu_ajout_bouton(*menu, w, 5 * h, 2 * w, 2 * h, "Nouvelle partie", texture_bouton, MENU_NULL);
-        menu_ajout_bouton(*menu, w, 7 * h, 2 * w, 2 * h, "charger une partie", texture_bouton, MENU_NULL);
-        menu_ajout_bouton(*menu, w, 9 * h, 2 * w, 2 * h, "Retour", texture_bouton, PRINCIPAL);
+        menu_ajout_bouton(*menu, w, 4 * h, 2 * w, 2 * h, "Nouvelle partie", texture_bouton, SOLO);
+        menu_ajout_bouton(*menu, w, 6 * h, 2 * w, 2 * h, "charger une partie", texture_bouton, SOLO);
+        menu_ajout_bouton(*menu, w, 8 * h, 2 * w, 2 * h, "Retour", texture_bouton, PRINCIPAL);
     }else if(type == NOUVEAU_MENU){
         (*menu)->tab_bouton = NULL;
     }else{

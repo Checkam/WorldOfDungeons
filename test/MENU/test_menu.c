@@ -45,16 +45,20 @@ int main(int argc, char **argv, char **env)
     }
     
     char * chemin_img;
-    creation_chemin("IMG/texture/herbe.bmp", &chemin_img);
+    creation_chemin("IMG/texture/feuille.bmp", &chemin_img);
     SDL_Texture * fond;
     Create_IMG_Texture(renderer, chemin_img, &fond);
+    free(chemin_img);
+    creation_chemin("IMG/texture/terre.bmp", &chemin_img);
+    SDL_Texture * bouton_tex;
+    Create_IMG_Texture(renderer, chemin_img, &bouton_tex);
     free(chemin_img);
     SDL_Color couleur_texte = {255,255,255};
 
 
     /* Test création menu avec texture */
     printf("Test création Menu avec texture:\n");
-    assert(menu_creer(PRINCIPAL, width_window, height_window, fond, fond, &menu) == OK);
+    assert(menu_creer(PRINCIPAL, width_window, height_window, bouton_tex, fond, &menu) == OK);
     printf("\t-- OK\n");
 
     /* Test affichage menu avec texture */
@@ -91,13 +95,13 @@ int main(int argc, char **argv, char **env)
 
     /* Test création nouveau menu */
     printf("Test Creation nouveau Menu:\n");
-    assert(menu_creer(NOUVEAU_MENU, width_window, height_window, fond, fond, &menu) == OK);
+    assert(menu_creer(NOUVEAU_MENU, width_window, height_window, bouton_tex, fond, &menu) == OK);
     printf("\t-- OK\n");
     printf("\tTest Ajout Bouton 1 Menu 3:\n");
-    assert(menu_ajout_bouton(menu, 300, 300, 200, 50, "Bouton 1", fond, MENU_NULL) == OK);
+    assert(menu_ajout_bouton(menu, 300, 300, 200, 50, "Bouton 1", bouton_tex, MENU_NULL) == OK);
     printf("\t\t-- OK\n");
     printf("\tTest Ajout Bouton 2 Menu 3:\n");
-    assert(menu_ajout_bouton(menu, 300, 360, 200, 50, "Bouton 2", fond, MENU_NULL) == OK);
+    assert(menu_ajout_bouton(menu, 300, 360, 200, 50, "Bouton 2", bouton_tex, MENU_NULL) == OK);
     printf("\t\t-- OK\n");
     
     /* Test affichage nouveau menu */
@@ -114,7 +118,7 @@ int main(int argc, char **argv, char **env)
     printf("\t-- OK\n");
 
     /* Test gestion menu */
-    menu_creer(PRINCIPAL, width_window, height_window, fond, fond, &menu);
+    menu_creer(PRINCIPAL, width_window, height_window, bouton_tex, fond, &menu);
     int pos_btn_pressed;
     SDL_Event event;
     
@@ -130,6 +134,8 @@ int main(int argc, char **argv, char **env)
     }
     
     pwd_quit();
+    SDL_DestroyTexture(fond);
+    SDL_DestroyTexture(bouton_tex);
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(screen);
     TTF_Quit();

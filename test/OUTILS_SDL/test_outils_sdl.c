@@ -21,7 +21,7 @@
 int main(int argc, char *argv[], char *env[]) {
 
   /* Inialisation */
-  getpwd(argv[0], getenv("PWD"));
+  pwd_init(argv[0], getenv("PWD"));
 
   if(SDL_Init(SDL_INIT_EVERYTHING) == -1){
     printf("%s\n", SDL_GetError());
@@ -95,7 +95,7 @@ int main(int argc, char *argv[], char *env[]) {
   SDL_DestroyTexture(texture);
   texture = NULL;
   
-  free(WOD_PWD);
+  pwd_quit();
   SDL_DestroyRenderer(renderer);
   SDL_DestroyWindow(screen);
   IMG_Quit();
