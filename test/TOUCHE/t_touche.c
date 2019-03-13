@@ -38,6 +38,9 @@ int main () {
 	if ( SDL_touche_appuyer( ks, GAUCHE) )
             printf("Gauche !\n");
 
+    if ( SDL_touche_appuyer( ks, ESCAPE) )
+            printf("Escape !\n");
+
         SDL_Delay(33);
     }
 

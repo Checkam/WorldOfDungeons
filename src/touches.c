@@ -34,6 +34,9 @@ int SDL_init_touches( uint8_t **keyboardState, configTouches_t **configuration )
 	(( (*configuration) + DROITE )->descriptif) = "droite";
 	( (*configuration) + DROITE )->keyCode = SDLK_d;
 
+	(( (*configuration) + ESCAPE )->descriptif) = "escape";
+	( (*configuration) + ESCAPE )->keyCode = SDLK_ESCAPE;
+
 	return 0;
 }
 
