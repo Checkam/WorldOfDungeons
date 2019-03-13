@@ -2,8 +2,8 @@
  * \file menu.h
  * \brief Gestion du menu (solo, multijoueur, ...)
  * \author Jasmin GALBRUN
- * \version 1
- * \date 10/03/2019
+ * \version 2
+ * \date 13/03/2019
 */
 #ifndef __MENU_H__
 #define __MENU_H__
@@ -21,7 +21,8 @@ typedef enum e_type_menu {
     MULTIJOUEUR,
     OPTION,
     PAUSE,
-    NOUVEAU_MENU
+    NOUVEAU_MENU,
+    MENU_NULL
 } t_type_menu;
 
 /**
@@ -33,6 +34,7 @@ typedef struct s_bouton_menu{
     char * titre;
     SDL_Texture * texture;
     int state, focus;
+    t_type_menu suivant;
 } t_bouton_menu;
 
 /**
@@ -42,11 +44,13 @@ typedef struct s_bouton_menu{
 typedef struct s_menu{
     t_bouton_menu *(*tab_bouton);
     int nb_bouton;
+    SDL_Texture * fond;
+    int width, height;
 }t_menu;
 
 /* Primitive de création d'un menu */
-t_erreur menu_ajout_bouton(t_menu * menu, int x, int y, int width, int height, char * titre, SDL_Texture * texture);
-t_erreur menu_creer(t_type_menu type, int width, int height, SDL_Texture * texture, t_menu ** menu);
+t_erreur menu_ajout_bouton(t_menu * menu, int x, int y, int width, int height, char * titre, SDL_Texture * texture, t_type_menu type);
+t_erreur menu_creer(t_type_menu type, int width, int height, SDL_Texture * texture_bouton, SDL_Texture * fond, t_menu ** menu);
 
 /* Primitive d'affichage d'un menu */
 t_erreur menu_afficher_SDL(t_menu * menu, SDL_Renderer * renderer, SDL_Color couleur_texte);
@@ -57,5 +61,6 @@ t_erreur menu_detruire(t_menu ** menu);
 
 /* Primitive de gestion du menu */
 t_erreur menu_gestion_SDL(t_menu * menu, SDL_MouseButtonEvent mouse, int * pos_btn_pressed);
+t_erreur menu_suivant(t_menu ** menu, int pos_btn_pressed);
 
 #endif
