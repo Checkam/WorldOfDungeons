@@ -56,13 +56,14 @@ $(BIN_DIR):
 
 
 all: $(DIRS) $(BIN_DIR)/$(PROG)
-		@echo -e '\033[42m Makefile Test : $(NOM_TEST) \033[0m'
+		@echo -e '\033[42m Fin Compilation : $(NOM_TEST) \033[0m'
 
 $(BIN_DIR)/$(PROG): $(OBJ) $(NOM_TEST).o
 	@echo Compilation de $@ grace a $^
 	$(CC) $(CFLAGS) $^ -o $@  $(LIBS) $(INCLUDES) -I$(INC_DIR)
 
 $(NOM_TEST).o: $(NOM_TEST).c $(NOM_TEST).h
+	@echo -e '\033[42m Début Compilation : $(NOM_TEST) \033[0m'
 	$(CC) -o $@ -c $< $(CFLAGS) $(LIBS) $(INCLUDES) -I$(INC_DIR)
 
 $(OBJ): $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c $(INC_DIR)/%.h
