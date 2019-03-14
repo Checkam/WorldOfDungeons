@@ -2,13 +2,14 @@
  * \file menu.h
  * \brief Gestion du menu (solo, multijoueur, ...)
  * \author Jasmin GALBRUN
- * \version 2
- * \date 13/03/2019
+ * \version 3
+ * \date 14/03/2019
 */
 #ifndef __MENU_H__
 #define __MENU_H__
 
 #include <SDL2/SDL.h>
+#include <stdbool.h>
 #include <erreur.h>
 
 /**
@@ -22,7 +23,10 @@ typedef enum e_type_menu {
     OPTION,
     PAUSE,
     NOUVEAU_MENU,
-    MENU_NULL
+    MENU_NULL,
+    NOUVELLE_PARTIE,
+    CHARGER_PARTIE,
+    QUITTER
 } t_type_menu;
 
 /**
@@ -32,7 +36,6 @@ typedef enum e_type_menu {
 typedef struct s_bouton_menu{
     int x, y, width, height;
     char * titre;
-    SDL_Texture * texture;
     int state, focus;
     t_type_menu suivant;
 } t_bouton_menu;
@@ -44,23 +47,26 @@ typedef struct s_bouton_menu{
 typedef struct s_menu{
     t_bouton_menu *(*tab_bouton);
     int nb_bouton;
-    SDL_Texture * fond;
     int width, height;
 }t_menu;
 
+/* Primitive Initialisation + Finalisation d'un menu */
+t_erreur menu_init(SDL_Renderer * renderer);
+t_erreur menu_quit(void);
+
 /* Primitive de création d'un menu */
-t_erreur menu_ajout_bouton(t_menu * menu, int x, int y, int width, int height, char * titre, SDL_Texture * texture, t_type_menu type);
-t_erreur menu_creer(t_type_menu type, int width, int height, SDL_Texture * texture_bouton, SDL_Texture * fond, t_menu ** menu);
+t_erreur menu_ajout_bouton(t_menu * menu, int x, int y, int width, int height, char * titre, t_type_menu type);
+t_erreur menu_creer(t_type_menu type, int width, int height, t_menu ** menu);
 
 /* Primitive d'affichage d'un menu */
-t_erreur menu_afficher_SDL(t_menu * menu, SDL_Renderer * renderer, SDL_Color couleur_texte);
+t_erreur menu_afficher_SDL(t_menu * menu, SDL_Renderer * renderer);
 
 /* Primitive de destruction d'un menu */
 t_erreur menu_detruire_bouton(t_bouton_menu ** btn);
 t_erreur menu_detruire(t_menu ** menu);
 
 /* Primitive de gestion du menu */
-t_erreur menu_gestion_SDL(t_menu * menu, SDL_MouseButtonEvent mouse, int * pos_btn_pressed);
-t_erreur menu_suivant(t_menu ** menu, int pos_btn_pressed);
+t_erreur menu_gestion_SDL(t_menu * menu, int mouseX, int mouseY, int mouseState, t_type_menu * type_menu_suivant);
+t_erreur menu_suivant(t_menu ** menu, t_type_menu type_menu_suivant);
 
 #endif

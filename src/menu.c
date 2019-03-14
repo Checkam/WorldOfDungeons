@@ -2,12 +2,13 @@
  * \file menu.c
  * \brief Gestion du menu (solo, multijoueur, ...)
  * \author Jasmin GALBRUN
- * \version 2
- * \date 13/03/2019
+ * \version 3
+ * \date 14/03/2019
 */
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include <string.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
@@ -16,6 +17,55 @@
 #include <chemin.h>
 
 #define POLICE_MENU "data/police/8-BIT_WONDER.ttf"
+#define FOND_MENU "IMG/texture/feuille.bmp"
+#define BOUTON_MENU "IMG/texture/terre.bmp"
+
+SDL_Texture * menu_texture[2];
+
+/**
+ * 
+*/
+typedef struct s_type_titre{
+    t_type_menu type_menu;
+    char * titre;
+}t_type_titre;
+
+#define NB_TITRE 1
+t_type_titre tab_menu_titre[NB_TITRE] = {
+    {PRINCIPAL, "World Of Dungeons"}
+};
+
+/**
+ * 
+*/
+t_erreur menu_init(SDL_Renderer * renderer){
+    char *fond, *bouton;
+    creation_chemin(FOND_MENU, &fond);
+    creation_chemin(BOUTON_MENU, &bouton);
+    SDL_Texture *fond_tex, *bouton_tex;
+
+    /* Création Texture */
+    Create_IMG_Texture(renderer, fond, &fond_tex);
+    Create_IMG_Texture(renderer, bouton, &bouton_tex);
+
+    menu_texture[0] = fond_tex;
+    menu_texture[1] = bouton_tex;
+
+    free(fond);
+    free(bouton);
+
+    return OK;
+}
+
+/**
+ * 
+*/
+t_erreur menu_quit(void){
+    SDL_DestroyTexture(menu_texture[0]);
+    SDL_DestroyTexture(menu_texture[1]);
+
+    return OK;
+}
 
 /**
  * \fn t_erreur menu_ajout_bouton(t_menu * menu, int x, int y, int width, int height, char * titre, SDL_Texture * texture, t_type_menu type)
@@ -29,7 +79,7 @@
  * \param type Type du menu suivant
  * \return Retourne un code erreur
 */
-t_erreur menu_ajout_bouton(t_menu * menu, int x, int y, int width, int height, char * titre, SDL_Texture * texture, t_type_menu type){
+t_erreur menu_ajout_bouton(t_menu * menu, int x, int y, int width, int height, char * titre, t_type_menu type){
     /* Vérification */
     if(menu == NULL){
         erreur_save(PTR_NULL, "menu_ajout_bouton() : Pointeur sur le menu NULL");
@@ -62,13 +112,6 @@ t_erreur menu_ajout_bouton(t_menu * menu, int x, int y, int width, int height, c
     btn->focus = 0;
     btn->suivant = type;
 
-    if(texture == NULL){
-        //valeur par défaut de la texture d'un bouton
-        btn->texture = NULL;
-    }else{
-        btn->texture = texture;
-    }
-
     /* Ajout du bouton au menu */
     menu->tab_bouton[menu->nb_bouton] = btn;
     menu->nb_bouton++;
@@ -86,7 +129,7 @@ t_erreur menu_ajout_bouton(t_menu * menu, int x, int y, int width, int height, c
  * \param menu Double pointeur sur le menu que l'on veut créer
  * \return Retourne un code erreur
 */
-t_erreur menu_creer(t_type_menu type, int width, int height, SDL_Texture * texture_bouton, SDL_Texture * fond, t_menu ** menu){
+t_erreur menu_creer(t_type_menu type, int width, int height, t_menu ** menu){
     /* Vérification */
     if(width < 0 || height < 0){
         erreur_save(VALUE_ERROR, "menu_creer() : Taille du menu incorrect");
@@ -98,13 +141,8 @@ t_erreur menu_creer(t_type_menu type, int width, int height, SDL_Texture * textu
     }
     
     /* Création d'un menu */
-    if(type == MENU_NULL){
-        *menu = NULL;
-        return OK;
-    }
     *menu = malloc(sizeof(t_menu));
     (*menu)->nb_bouton = 0;
-    (*menu)->fond = fond;
     (*menu)->width = width;
     (*menu)->height = height;
     
@@ -114,25 +152,47 @@ t_erreur menu_creer(t_type_menu type, int width, int height, SDL_Texture * textu
         
         w = width / 3;
         h = height / 15;
-        menu_ajout_bouton(*menu, w, 3 * h, w, 2 * h, "Solo", texture_bouton, SOLO);
-        menu_ajout_bouton(*menu, w, 5 * h, w, 2 * h, "Multijoueur", texture_bouton, PRINCIPAL);
-        menu_ajout_bouton(*menu, w, 7 * h, w, 2 * h, "Option", texture_bouton, PRINCIPAL);
-        menu_ajout_bouton(*menu, w, 9 * h, w, 2 * h, "Quitter", texture_bouton, MENU_NULL);
+        menu_ajout_bouton(*menu, w, 5 * h, w, 2 * h, "Solo", SOLO);
+        menu_ajout_bouton(*menu, w, 7 * h, w, 2 * h, "Multijoueur", PRINCIPAL);
+        menu_ajout_bouton(*menu, w, 9 * h, w, 2 * h, "Option", PRINCIPAL);
+        menu_ajout_bouton(*menu, w, 11 * h, w, 2 * h, "Quitter", QUITTER);
     }else if(type == SOLO){
         (*menu)->tab_bouton = malloc(sizeof(t_bouton_menu));
 
         w = width / 4;
         h = height / 15;
-        menu_ajout_bouton(*menu, w, 4 * h, 2 * w, 2 * h, "Nouvelle partie", texture_bouton, SOLO);
-        menu_ajout_bouton(*menu, w, 6 * h, 2 * w, 2 * h, "charger une partie", texture_bouton, SOLO);
-        menu_ajout_bouton(*menu, w, 8 * h, 2 * w, 2 * h, "Retour", texture_bouton, PRINCIPAL);
+        menu_ajout_bouton(*menu, w, 4 * h, 2 * w, 2 * h, "Nouvelle partie", NOUVELLE_PARTIE);
+        menu_ajout_bouton(*menu, w, 6 * h, 2 * w, 2 * h, "charger une partie", CHARGER_PARTIE);
+        menu_ajout_bouton(*menu, w, 8 * h, 2 * w, 2 * h, "Retour", PRINCIPAL);
     }else if(type == NOUVEAU_MENU){
         (*menu)->tab_bouton = NULL;
     }else{
-        erreur_save(INCORRECT_MENU_TYPE, "menu_creer() : Type de menu incorrect");
-        return INCORRECT_MENU_TYPE;
+        (*menu)->tab_bouton = NULL;
+        menu_detruire(menu);
     }
 
+    return OK;
+}
+
+/**
+ * 
+*/
+t_erreur menu_afficher_titre_SDL(SDL_Renderer * renderer, t_type_menu type){
+    /* On récupère le titre correspondant au type de menu */
+    char * titre = NULL;
+    int i;
+    for(i = 0; i < NB_TITRE; i++){
+        if(type == tab_menu_titre[i].type_menu){
+            strcpy(titre, tab_menu_titre[i].titre);
+        }
+    }
+    
+    if(titre == NULL)
+        return OK;
+
+    /* On affiche le titre */
+    int x;
+    int taille_police;
     return OK;
 }
 
@@ -143,7 +203,7 @@ t_erreur menu_creer(t_type_menu type, int width, int height, SDL_Texture * textu
  * \param couleur_texte Couleur du texte
  * \return Code erreur
 */
-t_erreur menu_afficher_SDL(t_menu * menu, SDL_Renderer * renderer, SDL_Color couleur_texte){
+t_erreur menu_afficher_SDL(t_menu * menu, SDL_Renderer * renderer){
     /* Vérification */
     if(menu == NULL){
         return UNDEFINED_MENU;
@@ -156,9 +216,10 @@ t_erreur menu_afficher_SDL(t_menu * menu, SDL_Renderer * renderer, SDL_Color cou
     }
 
     /* Initialisation */
-    char * police;
+    SDL_Color couleur_texte = {255,255,255};
+    char *police;
     creation_chemin(POLICE_MENU, &police);
-    SDL_Texture * texte_tex;
+    SDL_Texture *texte_tex;
     
     /* Définition taille de la police */
     int taille_max_titre = 0;
@@ -170,15 +231,14 @@ t_erreur menu_afficher_SDL(t_menu * menu, SDL_Renderer * renderer, SDL_Color cou
     int taille_police = menu->tab_bouton[0]->width / taille_max_titre;
 
     /* Affichage */
-    if(menu->fond != NULL){
-        SDL_Rect fenetre = {
-            0,
-            0,
-            menu->width,
-            menu->height
-        };
-        SDL_RenderCopy(renderer, menu->fond, NULL, &fenetre);
-    }
+    SDL_Rect fenetre = {
+        0,
+        0,
+        menu->width,
+        menu->height
+    };
+    SDL_RenderCopy(renderer, menu_texture[0], NULL, &fenetre);
+    
     for(i = 0; i < menu->nb_bouton; i++){
         SDL_Rect r_img = {
             menu->tab_bouton[i]->x,
@@ -197,19 +257,22 @@ t_erreur menu_afficher_SDL(t_menu * menu, SDL_Renderer * renderer, SDL_Color cou
             taille_police
         };
 
+        /* Création Texture texte */
+        Create_Text_Texture(renderer, menu->tab_bouton[i]->titre, police, taille_police, couleur_texte, BLENDED, &texte_tex);
+
         /* Etat bouton */
         if(menu->tab_bouton[i]->focus == 1){
             couleur_texte.a = 100;
         }else{
             couleur_texte.a = 255;
         }
-        
-        Create_Text_Texture(renderer, menu->tab_bouton[i]->titre, police, taille_police, couleur_texte, BLENDED, &texte_tex);
 
-        SDL_RenderCopy(renderer, menu->tab_bouton[i]->texture, NULL, &r_img);
+        if(menu->tab_bouton[i]->texture == true)
+            SDL_RenderCopy(renderer, menu_texture[1], NULL, &r_img);
+
         SDL_RenderCopy(renderer, texte_tex, NULL, &r_txt);
-
         SDL_DestroyTexture(texte_tex);
+
     }
     free(police);
     return OK;
@@ -269,7 +332,7 @@ t_erreur menu_detruire(t_menu ** menu){
  * \param pos_btn_pressed Pointeur sur la position du bouton cliquer, -1 sinon
  * \return Code erreur
 */
-t_erreur menu_gestion_SDL(t_menu * menu, SDL_MouseButtonEvent mouse, int * pos_btn_pressed){
+t_erreur menu_gestion_SDL(t_menu * menu, int mouseX, int mouseY, int mouseState, t_type_menu * type_menu_suivant){
     /* Vérification */
     if(menu == NULL){
         erreur_save(PTR_NULL, "menu_gestion_SDL() : Pointeur sur le menu NULL");
@@ -279,13 +342,13 @@ t_erreur menu_gestion_SDL(t_menu * menu, SDL_MouseButtonEvent mouse, int * pos_b
         erreur_save(PTR_NULL, "menu_gestion_SDL() : Pointeur sur le tab_bouton NULL");
         return PTR_NULL;
     }
-    if(pos_btn_pressed == NULL){
+    if(type_menu_suivant == NULL){
         erreur_save(PTR_NULL, "menu_gestion_SDL() : Pointeur sur le pos_btn_pressed NULL");
         return PTR_NULL;
     }
 
     /* Gestion souris menu */
-    *pos_btn_pressed = -1;
+    *type_menu_suivant = MENU_NULL;
     int i;
     for(i = 0; i < menu->nb_bouton; i++){
         SDL_Rect r = {
@@ -295,15 +358,15 @@ t_erreur menu_gestion_SDL(t_menu * menu, SDL_MouseButtonEvent mouse, int * pos_b
             menu->tab_bouton[i]->height
         };
         SDL_Point p = {
-            mouse.x,
-            mouse.y
+            mouseX,
+            mouseY
         };
         if(SDL_PointInRect(&p, &r)){
             menu->tab_bouton[i]->focus = 1;
-            if(menu->tab_bouton[i]->state == SDL_PRESSED && mouse.state == SDL_RELEASED){
-                *pos_btn_pressed = i;
+            if(menu->tab_bouton[i]->state == SDL_PRESSED && mouseState == SDL_RELEASED){
+                *type_menu_suivant = menu->tab_bouton[i]->suivant;
                 menu->tab_bouton[i]->state = SDL_RELEASED;
-            }else if(mouse.state == SDL_PRESSED){
+            }else if(mouseState == SDL_PRESSED){
                 menu->tab_bouton[i]->state = SDL_PRESSED;
             }
         }else{
@@ -321,7 +384,7 @@ t_erreur menu_gestion_SDL(t_menu * menu, SDL_MouseButtonEvent mouse, int * pos_b
  * \param pos_btn_pressed Position du bouton
  * \return Code erreur
 */
-t_erreur menu_suivant(t_menu ** menu, int pos_btn_pressed){
+t_erreur menu_suivant(t_menu ** menu, t_type_menu type_menu_suivant){
     /* Vérification */
     if(menu == NULL){
         erreur_save(PTR_NULL, "menu_suivant() : Double pointeur sur le menu NULL");
@@ -331,14 +394,10 @@ t_erreur menu_suivant(t_menu ** menu, int pos_btn_pressed){
         erreur_save(PTR_NULL, "menu_suivant() : Pointeur sur le menu NULL");
         return PTR_NULL;
     }
-    if(pos_btn_pressed < 0 || pos_btn_pressed >= (*menu)->nb_bouton){
-        erreur_save(VALUE_ERROR, "menu_suivant() : Position du bouton incorrecte");
-        return VALUE_ERROR;
-    }
 
     /* Création + destruction du menu */
     t_menu * tamp;
-    menu_creer((*menu)->tab_bouton[pos_btn_pressed]->suivant, (*menu)->width, (*menu)->height, (*menu)->tab_bouton[pos_btn_pressed]->texture, (*menu)->fond, &tamp);
+    menu_creer(type_menu_suivant, (*menu)->width, (*menu)->height, &tamp);
     menu_detruire(menu);
     *menu = tamp;
 
