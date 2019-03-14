@@ -9,20 +9,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
 #include <entite.h>
 #include <erreur.h>
 #include <chemin.h>
 #include <outils_SDL.h>
 
-t_lieu_t_a * t_a_joueur = {
-    {IMMOBILE, "texture/entite/joueur/immobile"},
-    {DROITE, "texture/entite/joueur/droite"},
-    {GAUCHE, "texture/entite/joueur/gauche"},
-    {DEVANT, "texture/entite/joueur/devant"}
+/****** SPRITE TEXTURE ACTION ******/
+t_s_a * t_a_joueur = {
+    {IMMOBILE, 3, 1},
+    {MARCHE_DROITE, 12, 9},
+    {MARCHE_GAUCHE, 10, 9},
+    {MARCHE_DEVANT, 9, 9},
+    {MARCHE_DROITE, 11, 9}
 };
 
 /**
- * \fn t_entite * creer_entite_defaut (char * name, t_hitbox hitbox, SDL_Texture * texture, t_entite_type type)
+ * \fn t_entite * creer_entite_defaut (char * name, SDL_Rect hitbox, SDL_Texture * texture, t_entite_type type)
  * \brief Créer une entité avec des paramètres par défaut.
  * \param name Le nom de l'entité.
  * \param hitbox La hitbox de l'entité.
@@ -30,7 +34,7 @@ t_lieu_t_a * t_a_joueur = {
  * \param type Le type de l'entité.
  * \return Un pointeur sur l'entité créée.
 */
-t_entite * creer_entite_defaut (char * name, t_hitbox hitbox, SDL_Texture * texture, t_entite_type type)
+t_entite * creer_entite_defaut (char * name, SDL_Rect hitbox, SDL_Texture * texture, t_entite_type type)
 {
     if (!texture) return NULL;
     switch (type){
@@ -42,7 +46,7 @@ t_entite * creer_entite_defaut (char * name, t_hitbox hitbox, SDL_Texture * text
 }
 
 /**
- * \fn t_entite * creer_entite (char * name, int mana, int mana_max, int pv, int pv_max, SDL_Texture * texture, t_hitbox hitbox)
+ * \fn t_entite * creer_entite (char * name, int mana, int mana_max, int pv, int pv_max, SDL_Texture * texture, SDL_Rect hitbox, t_s_a * t_a)
  * \brief Créer une entité.
  * \param name Le nom de l'entité.
  * \param mana Le mana de départ de l'entité.
@@ -51,9 +55,10 @@ t_entite * creer_entite_defaut (char * name, t_hitbox hitbox, SDL_Texture * text
  * \param pv_max Les pv max de l'entité.
  * \param texture La texture de l'entité.
  * \param hitbox La hitbox de l'entité.
+ * \param t_a Emplacement des textures liées à une action.
  * \return Un pointeur sur l'entité créée.
 */
-t_entite * creer_entite (char * name, int mana, int mana_max, int pv, int pv_max, SDL_Texture * texture, t_hitbox hitbox)
+t_entite * creer_entite (char * name, int mana, int mana_max, int pv, int pv_max, SDL_Texture * texture, SDL_Rect hitbox, t_s_a * t_a)
 {
     if (!texture || !name) return NULL;
     if (mana > mana_max || pv > pv_max) {mana = mana_max; pv = pv_max;};
@@ -74,7 +79,7 @@ t_entite * creer_entite (char * name, int mana, int mana_max, int pv, int pv_max
 }
 
 /**
- * \fn t_hitbox creer_hitbox (int x, int y, int largeur, int hauteur)
+ * \fn SDL_Rect creer_hitbox (int x, int y, int largeur, int hauteur)
  * \brief Créer une hitbox.
  * \param x La coordonnée en x de départ.
  * \param y La coordonnée en y de départ.
@@ -82,13 +87,9 @@ t_entite * creer_entite (char * name, int mana, int mana_max, int pv, int pv_max
  * \param hauteur La hauteur de la hitbox.
  * \return Un pointeur sur l'entité créée.
 */
-t_hitbox creer_hitbox (int x, int y, int largeur, int hauteur)
+SDL_Rect creer_hitbox (int x, int y, int largeur, int hauteur)
 {
-    t_hitbox hit;
-    hit.x = x;
-    hit.y = y;
-    hit.l = largeur;
-    hit.h = hauteur;
+    SDL_Rect hit = {x,y,largeur,hauteur};
     return hit;
 }
 

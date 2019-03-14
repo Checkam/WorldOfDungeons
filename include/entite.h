@@ -11,6 +11,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
+#include <chemin.h>
 #include <erreur.h>
 
 /**
@@ -24,16 +27,6 @@ typedef enum{
 }t_entite_type;
 
 /**
- * \struct t_hitbox
- * \brief Contient la position et la taille de la hitbox.
-*/
-typedef struct s_hitbox
-{
-    int x,y;
-    int l,h;
-}t_hitbox;
-
-/**
  * \struct t_entite
  * \brief Contient une entite et ses paramètres.
 */
@@ -45,9 +38,34 @@ typedef struct s_entite
     int mana, pv, faim;
     int mana_max, pv_max, faim_max;
     SDL_Texture * texture;
-    t_hitbox hitbox;
+    t_s_a * texture_action;
+    SDL_Rect hitbox;
     // Structure inventaire à rajouter
 }t_entite;
+
+
+/* Crée une entité avec des paramètres par défaut */
+t_entite * creer_entite_defaut (char * name, SDL_Rect hitbox, SDL_Texture * texture, t_entite_type type);
+/* Crée une entité */
+t_entite * creer_entite (char * name, int mana, int mana_max, int pv, int pv_max, SDL_Texture * texture, SDL_Rect hitbox, t_s_a * t_a);
+/* Crée une hitbox */
+SDL_Rect creer_hitbox (int x, int y, int largeur, int hauteur);
+/* Détruit une entité */
+t_erreur detruire_entite (t_entite * entite);
+/* Initialise les textures d'une entité */
+t_erreur init_texture_entite (t_entite * entite, t_entite_type type);
+
+
+/******** PARTIE SPRITE ********/
+
+#define H_SPRITE 1344
+#define W_SPRITE 832
+
+#define NB_LIGNES_SPRITE 21
+#define NB_COLONNES_SPRITE 13
+
+#define DECAL_H_SPRITE 8
+#define DECAL_W_SPRITE 0
 
 /**
  * \enum t_action
@@ -55,41 +73,20 @@ typedef struct s_entite
 */
 typedef enum{
     IMMOBILE,
-    DROITE,
-    GAUCHE,
-    DEVANT
+    MARCHE_DROITE,
+    MARCHE_GAUCHE,
+    MARCHE_DEVANT,
+    MARCHE_DERRIERE
 }t_action;
 
 /**
- * \struct t_t_a
- * \brief Contient la texture correspondant à une action.
+ * \struct t_s_a
+ * \brief Contient l'emplacement des textures associées à une action.
 */
-typedef struct s_t_a
+typedef struct s_s_a
 {
     t_action action;
-    SDL_Texture * texture;
-}t_t_a;
-
-/**
- * \struct t_lieu_t_a
- * \brief Contient le chemin de la texture correspondant à une action.
-*/
-typedef struct s_lieu_t_a
-{
-    t_action action;
-    char * lieu;
-}t_lieu_t_a;
-
-
-/* Crée une entité avec des paramètres par défaut */
-t_entite * creer_entite_defaut (char * name, t_hitbox hitbox, SDL_Texture * texture, t_entite_type type);
-/* Crée une entité */
-t_entite * creer_entite (char * name, int mana, int mana_max, int pv, int pv_max, SDL_Texture * texture, t_hitbox hitbox);
-/* Crée une hitbox */
-t_hitbox creer_hitbox (int x, int y, int largeur, int longueur);
-/* Détruit une entité */
-t_erreur detruire_entite (t_entite * entite);
-/* Initialise les textures d'une entité */
-t_erreur init_texture_entite (t_entite * entite, t_entite_type type);
+    int ligne, nb_col;
+}t_s_a;
 
 #endif
