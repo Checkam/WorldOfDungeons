@@ -13,6 +13,10 @@
 #include <SDL2/SDL.h>
 #include <erreur.h>
 
+/**
+ * \enum t_entite_type
+ * \brief Les différents types d'entités prédéfinis.
+*/
 typedef enum{
     JOUEUR,
     ZOMBIE,
@@ -45,6 +49,38 @@ typedef struct s_entite
     // Structure inventaire à rajouter
 }t_entite;
 
+/**
+ * \enum t_action
+ * \brief Les différentes actions possible par l'entité.
+*/
+typedef enum{
+    IMMOBILE,
+    DROITE,
+    GAUCHE,
+    DEVANT
+}t_action;
+
+/**
+ * \struct t_t_a
+ * \brief Contient la texture correspondant à une action.
+*/
+typedef struct s_t_a
+{
+    t_action action;
+    SDL_Texture * texture;
+}t_t_a;
+
+/**
+ * \struct t_lieu_t_a
+ * \brief Contient le chemin de la texture correspondant à une action.
+*/
+typedef struct s_lieu_t_a
+{
+    t_action action;
+    char * lieu;
+}t_lieu_t_a;
+
+
 /* Crée une entité avec des paramètres par défaut */
 t_entite * creer_entite_defaut (char * name, t_hitbox hitbox, SDL_Texture * texture, t_entite_type type);
 /* Crée une entité */
@@ -53,5 +89,7 @@ t_entite * creer_entite (char * name, int mana, int mana_max, int pv, int pv_max
 t_hitbox creer_hitbox (int x, int y, int largeur, int longueur);
 /* Détruit une entité */
 t_erreur detruire_entite (t_entite * entite);
+/* Initialise les textures d'une entité */
+t_erreur init_texture_entite (t_entite * entite, t_entite_type type);
 
 #endif

@@ -11,6 +11,15 @@
 #include <SDL2/SDL.h>
 #include <entite.h>
 #include <erreur.h>
+#include <chemin.h>
+#include <outils_SDL.h>
+
+t_lieu_t_a * t_a_joueur = {
+    {IMMOBILE, "texture/entite/joueur/immobile"},
+    {DROITE, "texture/entite/joueur/droite"},
+    {GAUCHE, "texture/entite/joueur/gauche"},
+    {DEVANT, "texture/entite/joueur/devant"}
+};
 
 /**
  * \fn t_entite * creer_entite_defaut (char * name, t_hitbox hitbox, SDL_Texture * texture, t_entite_type type)
