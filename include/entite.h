@@ -16,45 +16,6 @@
 #include <chemin.h>
 #include <erreur.h>
 
-/**
- * \enum t_entite_type
- * \brief Les différents types d'entités prédéfinis.
-*/
-typedef enum{
-    JOUEUR,
-    ZOMBIE,
-    BOSS
-}t_entite_type;
-
-/**
- * \struct t_entite
- * \brief Contient une entite et ses paramètres.
-*/
-typedef struct s_entite
-{
-    int id;
-    char * name;
-    long int xp;
-    int mana, pv, faim;
-    int mana_max, pv_max, faim_max;
-    SDL_Texture * texture;
-    t_s_a * texture_action;
-    SDL_Rect hitbox;
-    // Structure inventaire à rajouter
-}t_entite;
-
-
-/* Crée une entité avec des paramètres par défaut */
-t_entite * creer_entite_defaut (char * name, SDL_Rect hitbox, SDL_Texture * texture, t_entite_type type);
-/* Crée une entité */
-t_entite * creer_entite (char * name, int mana, int mana_max, int pv, int pv_max, SDL_Texture * texture, SDL_Rect hitbox, t_s_a * t_a);
-/* Crée une hitbox */
-SDL_Rect creer_hitbox (int x, int y, int largeur, int hauteur);
-/* Détruit une entité */
-t_erreur detruire_entite (t_entite * entite);
-/* Initialise les textures d'une entité */
-t_erreur init_texture_entite (t_entite * entite, t_entite_type type);
-
 
 /******** PARTIE SPRITE ********/
 
@@ -88,5 +49,52 @@ typedef struct s_s_a
     t_action action;
     int ligne, nb_col;
 }t_s_a;
+
+
+/******** PARTIE ENTITE ********/
+
+/**
+ * \enum t_entite_type
+ * \brief Les différents types d'entités prédéfinis.
+*/
+typedef enum{
+    JOUEUR,
+    ZOMBIE,
+    BOSS
+}t_entite_type;
+
+/**
+ * \struct t_entite
+ * \brief Contient une entite et ses paramètres.
+*/
+typedef struct s_entite
+{
+    int id;
+    char * name;
+    long int xp;
+    int mana, pv, faim;
+    int mana_max, pv_max, faim_max;
+    SDL_Texture * texture;
+    t_s_a * texture_action;
+    SDL_Rect hitbox;
+    // Structure inventaire à rajouter
+}t_entite;
+
+
+/****** Primitives des fonctions qui gèrent les entités ******/
+
+/* Crée une entité avec des paramètres par défaut */
+t_entite * creer_entite_defaut (char * name, SDL_Rect hitbox, SDL_Texture * texture, t_entite_type type);
+/* Crée une entité */
+t_entite * creer_entite (char * name, int mana, int mana_max, int pv, int pv_max, SDL_Texture * texture, SDL_Rect hitbox, t_s_a * t_a);
+/* Crée une hitbox */
+SDL_Rect creer_hitbox (int x, int y, int largeur, int hauteur);
+/* Détruit une entité */
+t_erreur detruire_entite (t_entite * entite);
+/* Initialise les textures d'une entité */
+t_erreur init_texture_entite (t_entite * entite, t_entite_type type);
+
+
+/****** Primitives des fonctions qui gèrent les sprites ******/
 
 #endif

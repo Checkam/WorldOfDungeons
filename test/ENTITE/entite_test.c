@@ -21,7 +21,7 @@ int main (int argc, char ** argv, char ** env)
 
 
     char * chemin;
-    creation_chemin("IMG/texture/entite/zombie/sprite_apoil.png",&chemin);
+    creation_chemin("IMG/texture/entite/joueur/sprite_apoil.png",&chemin);
 
     SDL_Texture * texture;
     Create_IMG_Texture(renderer,chemin,&texture);
@@ -33,10 +33,10 @@ int main (int argc, char ** argv, char ** env)
     int h = 1344/21;
 
     SDL_Rect R2 = {0,0,width,height};
-    SDL_Rect R = {0,3*h + 8,w,h};
+    SDL_Rect R = {0,11*h + 8,w,h};
 
     int i, j;
-    for (i = 0, j = 0; i < 7 && j < 15; i++)
+    for (i = 0, j = 0; i < 9 && j < 15; i++)
     {
         SDL_RenderClear(renderer);
         R.x = i*w;

@@ -17,12 +17,12 @@
 #include <outils_SDL.h>
 
 /****** SPRITE TEXTURE ACTION ******/
-t_s_a * t_a_joueur = {
+t_s_a t_a_joueur[NB_LIGNES_SPRITE] = {
     {IMMOBILE, 3, 1},
     {MARCHE_DROITE, 12, 9},
     {MARCHE_GAUCHE, 10, 9},
-    {MARCHE_DEVANT, 9, 9},
-    {MARCHE_DROITE, 11, 9}
+    {MARCHE_DERRIERE, 9, 9},
+    {MARCHE_DEVANT, 11, 9}
 };
 
 /**
@@ -38,9 +38,9 @@ t_entite * creer_entite_defaut (char * name, SDL_Rect hitbox, SDL_Texture * text
 {
     if (!texture) return NULL;
     switch (type){
-        case JOUEUR : return creer_entite((name) ? name : "PLAYER", 20, 20, 10, 10, texture, hitbox);
-        case ZOMBIE : return creer_entite((name) ? name : "ZOMBIE", 0, 0, 10, 10, texture, hitbox);
-        case BOSS : return creer_entite((name) ? name : "BOSS", 50, 50, 30, 30, texture, hitbox);
+        case JOUEUR : return creer_entite((name) ? name : "PLAYER", 20, 20, 10, 10, texture, hitbox, NULL);
+        case ZOMBIE : return creer_entite((name) ? name : "ZOMBIE", 0, 0, 10, 10, texture, hitbox, NULL);
+        case BOSS : return creer_entite((name) ? name : "BOSS", 50, 50, 30, 30, texture, hitbox, NULL);
     }
     return NULL;
 }
