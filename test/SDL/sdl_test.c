@@ -46,6 +46,7 @@ int main(int argc, char const *argv[]) {
   Create_IMG_Texture(renderer, "./IMG/texture/fond.bmp", &fond);
   BLOCK_CreateTexture_sdl(renderer);
   SEED = 898989;
+  BIOME_init();
 
   t_block *tab;
 
@@ -89,6 +90,8 @@ int main(int argc, char const *argv[]) {
       }
     i++;
   }
+
+  BIOME_Quit();
 
   BLOCK_DestroyTexture_sdl(renderer);
   detruire_liste(&list, free);
