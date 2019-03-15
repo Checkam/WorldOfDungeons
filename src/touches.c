@@ -19,8 +19,6 @@ int SDL_init_touches( uint8_t **keyboardState, configTouches_t **configuration )
 
 	/* pour l'instant a l'arrache, ce sera prope avec les fichiers json de tib*/
 	(( (*configuration) + QUITTER )->descriptif) = "quitter";
-
-	printf("%s", ( (*configuration) + QUITTER )->descriptif);
 	( (*configuration) + QUITTER )->keyCode = NULL_TOUCHE;
 
 	(( (*configuration) + AVANCER )->descriptif) = "avancer";
