@@ -28,6 +28,9 @@
 #define DECAL_H_SPRITE 8
 #define DECAL_W_SPRITE 0
 
+#define W_PART_SPRITE W_SPRITE/NB_COLONNES_SPRITE
+#define H_PART_SPRITE H_SPRITE/NB_LIGNES_SPRITE
+
 /**
  * \enum t_action
  * \brief Les différentes actions possible par l'entité.
@@ -37,7 +40,9 @@ typedef enum{
     MARCHE_DROITE,
     MARCHE_GAUCHE,
     MARCHE_DEVANT,
-    MARCHE_DERRIERE
+    MARCHE_DERRIERE,
+    ATTAQUE_GAUCHE,
+    ATTAQUE_DROITE
 }t_action;
 
 /**
@@ -77,6 +82,7 @@ typedef struct s_entite
     SDL_Texture * texture;
     t_s_a * texture_action;
     SDL_Rect hitbox;
+    int act_prec;
     // Structure inventaire à rajouter
 }t_entite;
 
@@ -84,9 +90,9 @@ typedef struct s_entite
 /****** Primitives des fonctions qui gèrent les entités ******/
 
 /* Crée une entité avec des paramètres par défaut */
-t_entite * creer_entite_defaut (char * name, SDL_Rect hitbox, SDL_Texture * texture, t_entite_type type);
+t_entite * creer_entite_defaut (char * name, SDL_Texture * texture, t_entite_type type);
 /* Crée une entité */
-t_entite * creer_entite (char * name, int mana, int mana_max, int pv, int pv_max, SDL_Texture * texture, SDL_Rect hitbox, t_s_a * t_a);
+t_entite * creer_entite (char * name, int mana, int mana_max, int pv, int pv_max, SDL_Texture * texture, t_s_a * t_a);
 /* Crée une hitbox */
 SDL_Rect creer_hitbox (int x, int y, int largeur, int hauteur);
 /* Détruit une entité */
@@ -96,5 +102,12 @@ t_erreur init_texture_entite (t_entite * entite, t_entite_type type);
 
 
 /****** Primitives des fonctions qui gèrent les sprites ******/
+
+/* Crée la texture associée à l'image */
+SDL_Texture * Create_Sprite (char * lieu, SDL_Renderer * renderer);
+/* Charge l'animation sur le renderer */
+t_erreur Charger_Anima (SDL_Renderer * renderer, SDL_Rect fenetre, t_entite * entite, t_action action);
+/* Recherche l'indice d'une action */
+int Search_Action (t_s_a * t_a, t_action action);
 
 #endif
