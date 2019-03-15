@@ -1,9 +1,9 @@
 #Les tests ne peuvent pas être make dans la racine du projet
 #Un fichier est dédié pour les tests (test)
 #Ceci est le makefile de test
-PROG = ERREUR_test
+PROG = BIOME_test
 #Nom du fichier .c et .h du test
-NOM_TEST=test_erreur
+NOM_TEST=test_biome
 
 CFLAGS = -Wall -g
 RACINE=../../
