@@ -13,7 +13,7 @@
 #include <liste.h>
 
 #define W_BIOME 200
-#define NB_BIOME 7
+#define NB_BIOME 5
 
 /**
  * \enum t_biome_type
@@ -24,9 +24,7 @@ typedef enum {
        PRAIRIES,
        TAIGA,
        TOUNDRA,
-       DESERTS,
-       HELL,
-       HEAVEN
+       DESERTS
 } t_biome_type;
 
 
@@ -44,8 +42,6 @@ typedef struct {
 } t_biome;
 
 
-#endif
-
 t_biome_type BIOME_change_type(int x, int y);
 void BIOME_init();
 t_biome *BIOME_CreateBiome(t_biome_type type);
@@ -54,3 +50,6 @@ t_biome *BIOME_rechercheParType(t_biome_type type);
 void BIOME_Quit();
 void BIOME_DestroyLayer(t_layer *layer);
 void BIOME_Destoy(t_biome *b);
+
+
+#endif

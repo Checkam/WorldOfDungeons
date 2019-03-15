@@ -24,6 +24,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <structure_block.h>
+#include <touches.h>
 
 void init_map(t_block *map) {
   int i;
@@ -48,14 +49,15 @@ int PreviewHeight(int x, int P_Height[], int nb) {
   return 1;
 }
 
-int gen_col(t_block **tab, int x) {
+int gen_col(t_liste *list, int x, int dir) {
   int rnd, j;
   int taille_max = perlin2d(x, MAX, FREQ, DEPTH) * MAX;
-  *tab = malloc(sizeof(t_block) * MAX);
-  init_map(*tab);
+
+  t_block *tab = malloc(sizeof(t_block) * MAX);
+  init_map(tab);
   biome = BIOME_change_type(x, taille_max);
 
-  STRUCT_generation(x, *tab, taille_max);
+  STRUCT_generation(x, tab, taille_max); //Génération a revoir
   t_biome *b = BIOME_rechercheParType(biome);
 
   /* génération eau */
@@ -70,50 +72,39 @@ int gen_col(t_block **tab, int x) {
   //     (*tab)[taille_max + j].x = x;
   //   }
   // }
-  for (int i = 0, layer = 0; i < b->nb_layers; i++) {
-    for (int j = layer, k = 0; k < b->layers[i].nb_couche && layer < taille_max; j++, layer++, k++) {
-      (*tab)[taille_max - j].id = b->layers[i].block_type;
-      (*tab)[taille_max - j].y = taille_max - j;
-      (*tab)[taille_max - j].x = x;
+  if (b)
+    for (int i = 0, layer = 0; i < b->nb_layers; i++) {
+      for (int j = layer, k = 0; k < b->layers[i].nb_couche && layer < taille_max; j++, layer++, k++) {
+        tab[taille_max - j].id = b->layers[i].block_type;
+        tab[taille_max - j].y = taille_max - j;
+        tab[taille_max - j].x = x;
+      }
     }
-    printf("%d\n", layer);
-  }
-
-  /* génération herbe + sable + terre */
-  // for (j = 1; j <= HAUTEUR_SURFACE; j++) {
-  //   if (((*tab)[taille_max].id == EAU || (*tab)[taille_max].id == GLACE) && j == 1) {
-  //     (*tab)[taille_max - j].id = SABLE;
-  //     (*tab)[taille_max - j].y = taille_max - j;
-  //     (*tab)[taille_max - j].x = x;
-  //   } else if (j == 1) {
-  //     if (biome == PRAIRIES || biome == FORET) {
-  //       (*tab)[taille_max - j].id = HERBE;
-  //       (*tab)[taille_max - j].y = taille_max - j;
-  //       (*tab)[taille_max - j].x = x;
-  //     } else if (biome == TOUNDRA || biome == TAIGA) {
-  //       (*tab)[taille_max - j].id = NEIGE;
-  //       (*tab)[taille_max - j].y = taille_max - j;
-  //       (*tab)[taille_max - j].x = x;
-  //     } else if (biome == DESERTS) {
-  //       (*tab)[taille_max - j].id = SABLE;
-  //       (*tab)[taille_max - j].y = taille_max - j;
-  //       (*tab)[taille_max - j].x = x;
-  //     }
-  //   } else {
-  //     (*tab)[taille_max - j].id = TERRE;
-  //     (*tab)[taille_max - j].y = taille_max - j;
-  //     (*tab)[taille_max - j].x = x;
-  //   }
-  // }
 
   /* Génération profondeur */
   for (j = 0; j <= taille_max - HAUTEUR_SURFACE; j++) {
     rnd = perlin2d(x, j, FREQ, DEPTH) * MAX;
     if (taille_max - j > PROFONDEUR_GROTTE && j >= BEDROCK && rnd >= (MAX / 2 - SIZE_GROTTE) && rnd <= (MAX / 2 + SIZE_GROTTE)) { /* grotte */
-      (*tab)[j].id = AIR;
-      (*tab)[j].y = j;
-      (*tab)[j].x = x;
+      tab[j].id = AIR;
+      tab[j].y = j;
+      tab[j].x = x;
     }
   }
+  if (dir == DROITE) {
+    if (taille_liste(list) > SIZE) {
+      en_tete(list);
+      oter_elt(list, free);
+    }
+    en_queue(list);
+    ajout_droit(list, tab);
+  } else if (dir == GAUCHE) {
+    if (taille_liste(list) > SIZE) {
+      en_queue(list);
+      oter_elt(list, free);
+    }
+    en_tete(list);
+    ajout_droit(list, tab);
+  }
+
   return taille_max;
 }
