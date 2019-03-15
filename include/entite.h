@@ -25,8 +25,8 @@
 #define NB_LIGNES_SPRITE 21
 #define NB_COLONNES_SPRITE 13
 
-#define DECAL_H_SPRITE 8
-#define DECAL_W_SPRITE 0
+#define DECAL_H_SPRITE 12
+#define DECAL_W_SPRITE 16
 
 #define W_PART_SPRITE W_SPRITE/NB_COLONNES_SPRITE
 #define H_PART_SPRITE H_SPRITE/NB_LIGNES_SPRITE
@@ -53,6 +53,7 @@ typedef struct s_s_a
 {
     t_action action;
     int ligne, nb_col;
+    int temps_anim;
 }t_s_a;
 
 
@@ -75,15 +76,16 @@ typedef enum{
 typedef struct s_entite
 {
     int id;
-    char * name;
-    long int xp;
-    int mana, pv, faim;
-    int mana_max, pv_max, faim_max;
-    SDL_Texture * texture;
-    t_s_a * texture_action;
-    SDL_Rect hitbox;
+    char * name; // Nom de l'entité
+    long int xp; // XP gagné
+    int mana, pv, faim; // Mana, PV et Faim courante
+    int mana_max, pv_max, faim_max; // Mana, PV et Faim Max
+    SDL_Texture * texture; // Texture contenant toutes les animations de l'entité
+    t_s_a * texture_action; // Tableau contenant pour chaque action une animation et sa durée
+    SDL_Rect hitbox; // Hitbox de l'entité
     int col_act_prec; // Animation de l'action précèdente
     t_action act_pred; // Action précèdente
+    int temp_dep; // Temps de départ de l'animation courante
     // Structure inventaire à rajouter
 }t_entite;
 
@@ -91,7 +93,7 @@ typedef struct s_entite
 /****** Primitives des fonctions qui gèrent les entités ******/
 
 /* Crée une entité avec des paramètres par défaut */
-t_entite * creer_entite_defaut (char * name, SDL_Texture * texture, t_entite_type type);
+t_entite * creer_entite_defaut (char * name, t_entite_type type);
 /* Crée une entité */
 t_entite * creer_entite (char * name, int mana, int mana_max, int pv, int pv_max, SDL_Texture * texture, t_s_a * t_a);
 /* Crée une hitbox */
@@ -104,6 +106,10 @@ t_erreur init_texture_entite (t_entite * entite, t_entite_type type);
 
 /****** Primitives des fonctions qui gèrent les sprites ******/
 
+/* Initialise tous les sprites */
+t_erreur Init_Sprite(SDL_Renderer * renderer);
+/* Détruit tous les sprites */
+t_erreur Quit_Sprite(void);
 /* Crée la texture associée à l'image */
 SDL_Texture * Create_Sprite (char * lieu, SDL_Renderer * renderer);
 /* Charge l'animation sur le renderer */
