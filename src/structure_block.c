@@ -39,6 +39,7 @@ char *STRUCT_GetPath(t_struct_block *struct_block, t_struct_block_type type) {
  * \param y hauteur du tableau actuel
 **/
 void STRUCT_generation(int x, t_block map[MAX], int y) {
+  y++;
   static int struct_spawn = 0;
   static int new_struct = 0;
   static t_struct_block_type type_spawn;
