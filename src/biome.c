@@ -51,19 +51,6 @@ void BIOME_init() {
   BIOME_AddLayer(b, SABLE, 1);
   BIOME_AddLayer(b, TERRE, 4);
   BIOME_AddLayer(b, ROCHE, MAX);
-
-  b = BIOME_CreateBiome(HELL);
-  BIOME_AddLayer(b, ROCHE, 1);
-  BIOME_AddLayer(b, ROCHE, 4);
-  BIOME_AddLayer(b, ROCHE, MAX);
-
-  b = BIOME_CreateBiome(HEAVEN);
-  BIOME_AddLayer(b, GLACE, 1);
-  BIOME_AddLayer(b, FEUILLE, 1);
-  BIOME_AddLayer(b, TERRE, 1);
-  BIOME_AddLayer(b, HERBE, 1);
-  BIOME_AddLayer(b, TERRE, 1);
-  BIOME_AddLayer(b, GLACE, MAX);
 }
 
 t_biome *BIOME_rechercheParType(t_biome_type type) {
