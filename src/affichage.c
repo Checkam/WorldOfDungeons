@@ -24,6 +24,7 @@
  **/
 int AFF_RectInWindow(SDL_Rect r) { return (r.x < width_window && r.x >= 0 && r.y >= 0 && r.y < height_window); }
 
+//FONCTION PROVISOIR POUR L'AFFICHAGE
 /**
  * \fn int AFF_GetMidHeight(t_liste *list)
  * \brief Récupère la hauteur du milieu de la liste
@@ -34,11 +35,11 @@ int AFF_GetMidHeight(t_liste *list) {
   t_block *tab;
   int i = 0;
   int taille = MAX - 1;
-  if (taille_liste(list) > SIZE) { /* INCOMPREHENSIBLE */
+  if (taille_liste(list) > SIZE) {
     for (en_tete(list); !hors_liste(list); suivant(list), i++) {
       valeur_elt(list, (void **)&tab);
       if (i == (SIZE / 2)) {
-        while (tab[taille].id != HERBE && tab[taille].id != NEIGE && tab[taille].id != EAU) {
+        while (tab[taille].id != HERBE && tab[taille].id != NEIGE && tab[taille].id != EAU && tab[taille].id != SABLE && tab[taille].id != GLACE) {
           taille--;
         }
         return taille;
@@ -66,16 +67,15 @@ void AFF_map_sdl(t_liste *list, SDL_Renderer *renderer, int min) {
       for (i = MAX_SCREEN; i > 0; i--) {
         r.x = (j * (width_window / SIZE));
         r.y = (height_window - (i * (height_window / MAX_SCREEN)));
-        r.h = 50;
-        r.w = 50;
-        if (AFF_RectInWindow(r)) {
-          char *chemin_texture = BLOCK_GetTexture_sdl(map[i + min].id);
-          if (chemin_texture != NULL) {
-            SDL_Texture *texture_block;
-            Create_IMG_Texture(renderer, chemin_texture, &texture_block);
+        r.h = heightBrick;
+        r.w = widthBrick;
+        if (i + min < MAX && i + min >= 0) {
+          if (AFF_RectInWindow(r)) {
+            SDL_Texture *texture_block = BLOCK_GetTexture_sdl(map[i + min].id);
             SDL_RenderCopy(renderer, texture_block, NULL, &r);
-            SDL_DestroyTexture(texture_block);
           }
+        } else {
+          SDL_RenderCopy(renderer, NULL, NULL, &r);
         }
       }
       j++;

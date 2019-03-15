@@ -1,9 +1,9 @@
 #Les tests ne peuvent pas être make dans la racine du projet
 #Un fichier est dédié pour les tests (test)
 #Ceci est le makefile de test
-PROG = MENU_test
+PROG = BIOME_test
 #Nom du fichier .c et .h du test
-NOM_TEST=test_menu
+NOM_TEST=test_biome
 
 CFLAGS = -Wall -g
 RACINE=../../
@@ -40,12 +40,8 @@ OBJ := $(subst src,obj,$(OBJ))
 
 DIRS = $(OBJ_DIR) $(BIN_DIR)
 
-.PHONY: debut 
-debut:
-	@echo -e '\033[42m Debut Compilation : $(NOM_TEST) \033[0m'
-
-all: debut $(DIRS) $(BIN_DIR)/$(PROG)
-		@echo -e '\033[42m Fin Compilation : $(NOM_TEST) \033[0m'
+all: $(DIRS) $(BIN_DIR)/$(PROG)
+		@echo -e '\033[42m Makefile Test : $(NOM_TEST) \033[0m'
 
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
