@@ -69,7 +69,7 @@ void AFF_map_sdl(t_liste *list, SDL_Renderer *renderer, int min) {
         r.y = (height_window - (i * (height_window / MAX_SCREEN)));
         r.h = heightBrick;
         r.w = widthBrick;
-        if (i + min < MAX && i + min > 0) {
+        if (i + min < MAX && i + min >= 0) {
           if (AFF_RectInWindow(r)) {
             SDL_Texture *texture_block = BLOCK_GetTexture_sdl(map[i + min].id);
             SDL_RenderCopy(renderer, texture_block, NULL, &r);
