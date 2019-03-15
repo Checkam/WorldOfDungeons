@@ -82,7 +82,8 @@ typedef struct s_entite
     SDL_Texture * texture;
     t_s_a * texture_action;
     SDL_Rect hitbox;
-    int act_prec;
+    int col_act_prec; // Animation de l'action précèdente
+    t_action act_pred; // Action précèdente
     // Structure inventaire à rajouter
 }t_entite;
 

@@ -98,7 +98,8 @@ t_entite * creer_entite (char * name, int mana, int mana_max, int pv, int pv_max
     entite->texture = texture;
     entite->hitbox = Hit_ent;
     entite->texture_action = t_a;
-    entite->act_prec = 0;
+    entite->col_act_prec = 0;
+    entite->act_pred = IMMOBILE;
 
     return entite;
 }
@@ -154,13 +155,15 @@ t_erreur Charger_Anima (SDL_Renderer * renderer, SDL_Rect fenetre, t_entite * en
     int i = Search_Action(entite->texture_action, action);
     if (i == -1) return VALUE_ERROR;
 
-    if (entite->act_prec == entite->texture_action[i].nb_col) entite->act_prec = 0;
+    if (entite->col_act_prec == entite->texture_action[i].nb_col) entite->col_act_prec = 0;
+    if (entite->act_pred != action) entite->col_act_prec = 0;
 
     entite->hitbox.y = (entite->texture_action[i].ligne - 1) * H_PART_SPRITE + DECAL_H_SPRITE;
-    entite->hitbox.x = (entite->act_prec) * W_PART_SPRITE + DECAL_W_SPRITE;
+    entite->hitbox.x = (entite->col_act_prec) * W_PART_SPRITE + DECAL_W_SPRITE;
     SDL_RenderCopy(renderer,entite->texture,&(entite->hitbox),&fenetre);
 
-    (entite->act_prec)++;
+    (entite->col_act_prec)++;
+    entite->act_pred = action;
 
     return OK;
 }
