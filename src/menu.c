@@ -17,8 +17,8 @@
 #include <chemin.h>
 
 #define POLICE_MENU "data/police/8-BIT_WONDER.ttf"
-#define FOND_MENU "IMG/texture/feuille.bmp"
-#define BOUTON_MENU "IMG/texture/terre.bmp"
+#define FOND_MENU "IMG/texture/menu/fond_menu.png"
+#define BOUTON_MENU "IMG/texture/menu/bouton_menu.png"
 #define WIDTH_TITRE 80 //100 maximum
 
 SDL_Texture * menu_texture[2];
@@ -155,8 +155,8 @@ t_erreur menu_creer(t_type_menu type, int width, int height, t_menu ** menu){
     int hauteur_btn, largeur_btn;
     w = width / 100;
     h = height / 100;
-    largeur_btn = 60 * w;
-    hauteur_btn = 15 * h;
+    largeur_btn = 50 * w;
+    hauteur_btn = 12 * h;
     SDL_Rect btn = {
         (width - largeur_btn) / 2,
         15 * w,
@@ -168,19 +168,19 @@ t_erreur menu_creer(t_type_menu type, int width, int height, t_menu ** menu){
         (*menu)->tab_bouton = malloc(sizeof(t_bouton_menu));
 
         menu_ajout_bouton(*menu, btn, "Solo", SOLO);
-        btn.y += btn.h + 1;
+        btn.y += btn.h + 20;
         menu_ajout_bouton(*menu, btn, "Multijoueur", PRINCIPAL);
-        btn.y += btn.h + 1;
+        btn.y += btn.h + 20;
         menu_ajout_bouton(*menu, btn, "Option", PRINCIPAL);
-        btn.y += btn.h + 1;
+        btn.y += btn.h + 20;
         menu_ajout_bouton(*menu, btn, "Quitter", QUITTER);
     }else if(type == SOLO){
         (*menu)->tab_bouton = malloc(sizeof(t_bouton_menu));
 
         menu_ajout_bouton(*menu, btn, "Nouvelle partie", NOUVELLE_PARTIE);
-        btn.y += btn.h + 1;
+        btn.y += btn.h + 20;
         menu_ajout_bouton(*menu, btn, "charger une partie", CHARGER_PARTIE);
-        btn.y += btn.h + 1;
+        btn.y += btn.h + 20;
         menu_ajout_bouton(*menu, btn, "Retour", PRINCIPAL);
     }else if(type == NOUVEAU_MENU){
         (*menu)->tab_bouton = NULL;
