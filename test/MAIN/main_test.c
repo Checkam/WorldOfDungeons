@@ -56,7 +56,7 @@ int main(int argc, char const *argv[]) {
 
   int i = 100;
 
-  int taille = 0;
+  int taille = 30;
 
   t_liste list;
   init_liste(&list);
@@ -65,24 +65,29 @@ int main(int argc, char const *argv[]) {
 
   while (boucle) {
 
-    taille = AFF_GetMidHeight(&list);
+    //taille = AFF_GetMidHeight(&list);
 
     SDL_RenderClear(renderer);
     SDL_RenderCopy(renderer, fond, NULL, &fondRect);
 
-    AFF_map_sdl(&list, renderer, 30);
+    AFF_map_sdl(&list, renderer, taille);
     SDL_RenderPresent(renderer);
 
     SDL_touches(ks, ct);
-    if (SDL_touche_appuyer(ks, QUITTER))
+    if (SDL_touche_appuyer(ks, QUITTER)) {
       boucle = 0;
-    else if (SDL_touche_appuyer(ks, DROITE)) {
+    } else if (SDL_touche_appuyer(ks, DROITE)) {
       i++;
       gen_col(&list, i, DROITE);
     } else if (SDL_touche_appuyer(ks, GAUCHE)) {
       i--;
       gen_col(&list, i - SIZE, GAUCHE);
+    } else if (SDL_touche_appuyer(ks, AVANCER)) {
+      taille++;
+    } else if (SDL_touche_appuyer(ks, RECULER)) {
+      taille--;
     }
+
     SDL_Delay(1);
     //AFF_map_term(&list, 0, 400);
   }
