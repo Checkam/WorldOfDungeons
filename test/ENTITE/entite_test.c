@@ -28,11 +28,24 @@ int main (int argc, char ** argv, char ** env)
     /* Création de l'entité */
     t_entite * J = creer_entite_defaut(NULL,texture,JOUEUR);
 
+    SDL_Event event;
     int i;
-    for (i = 0; i < 20; i++)
+    for (i = 0; i < 10000; i++)
     {
         SDL_RenderClear(renderer);
-        Charger_Anima(renderer,fenetre,J,IMMOBILE);
+        while(SDL_PollEvent(&event)){
+            if(event.type == SDL_KEYDOWN){
+                if(event.key.keysym.sym == SDLK_q)
+                    Charger_Anima(renderer,fenetre,J,MARCHE_GAUCHE);
+                else if(event.key.keysym.sym == SDLK_d)
+                    Charger_Anima(renderer,fenetre,J,MARCHE_DROITE);
+                else if(event.key.keysym.sym == SDLK_z)
+                    Charger_Anima(renderer,fenetre,J,MARCHE_DEVANT);
+                else if(event.key.keysym.sym == SDLK_s)
+                    Charger_Anima(renderer,fenetre,J,MARCHE_DERRIERE);                    
+            }
+        }
+        if(event) Charger_Anima(renderer,fenetre,J,IMMOBILE);
         SDL_RenderPresent(renderer);
         SDL_Delay(150);
     }
