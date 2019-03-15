@@ -15,11 +15,12 @@ int SDL_init_touches( uint8_t **keyboardState, configTouches_t **configuration )
 	for ( i = 0 ; i < NB_TOUCHES ; i++ ) {
 
 		* ( (*keyboardState) + i ) = RELEASED;
-		((*configuration) + i)->descriptif = malloc( sizeof(char) * LONGUEUR_MAX_DESCRIPTIF );
 	}
 
 	/* pour l'instant a l'arrache, ce sera prope avec les fichiers json de tib*/
-	(( (*configuration) + QUITTER )->descriptif) = "quiter";
+	(( (*configuration) + QUITTER )->descriptif) = "quitter";
+
+	printf("%s", ( (*configuration) + QUITTER )->descriptif);
 	( (*configuration) + QUITTER )->keyCode = NULL_TOUCHE;
 
 	(( (*configuration) + AVANCER )->descriptif) = "avancer";
@@ -119,16 +120,6 @@ int SDL_exit_touches ( uint8_t **keyboardState, configTouches_t **configuration 
 /* fermeture propre du module touches pour SDL */
 
 	free( *keyboardState );
-
-	/*for ( i = 0 ; i < NB_TOUCHES ; i++ ) {
-
-		if ( ((*configuration) + i)->descriptif != NULL ) {
-
-			printf("%s", ((*configuration) + i)->descriptif );
-			free( ((*configuration) + i)->descriptif);
-		}
-	}*/
-
 	free(*configuration);
 
 	return 0;
