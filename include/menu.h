@@ -3,7 +3,7 @@
  * \brief Gestion du menu (solo, multijoueur, ...)
  * \author Jasmin GALBRUN
  * \version 3
- * \date 14/03/2019
+ * \date 15/03/2019
 */
 #ifndef __MENU_H__
 #define __MENU_H__
@@ -48,6 +48,7 @@ typedef struct s_menu{
     t_bouton_menu *(*tab_bouton);
     int nb_bouton;
     int width, height;
+    t_type_menu type;
 }t_menu;
 
 /* Primitive Initialisation + Finalisation d'un menu */
@@ -55,7 +56,7 @@ t_erreur menu_init(SDL_Renderer * renderer);
 t_erreur menu_quit(void);
 
 /* Primitive de création d'un menu */
-t_erreur menu_ajout_bouton(t_menu * menu, int x, int y, int width, int height, char * titre, t_type_menu type);
+t_erreur menu_ajout_bouton(t_menu * menu, SDL_Rect rect, char * titre, t_type_menu type);
 t_erreur menu_creer(t_type_menu type, int width, int height, t_menu ** menu);
 
 /* Primitive d'affichage d'un menu */
@@ -66,7 +67,7 @@ t_erreur menu_detruire_bouton(t_bouton_menu ** btn);
 t_erreur menu_detruire(t_menu ** menu);
 
 /* Primitive de gestion du menu */
-t_erreur menu_gestion_SDL(t_menu * menu, int mouseX, int mouseY, int mouseState, t_type_menu * type_menu_suivant);
+t_erreur menu_gestion_SDL(t_menu * menu, int mouseState, t_type_menu * type_menu_suivant);
 t_erreur menu_suivant(t_menu ** menu, t_type_menu type_menu_suivant);
 
 #endif

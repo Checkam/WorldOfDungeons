@@ -40,7 +40,11 @@ OBJ := $(subst src,obj,$(OBJ))
 
 DIRS = $(OBJ_DIR) $(BIN_DIR)
 
-all: $(DIRS) $(BIN_DIR)/$(PROG)
+.PHONY: debut 
+debut:
+	@echo -e '\033[42m Debut Compilation : $(NOM_TEST) \033[0m'
+
+all: debut $(DIRS) $(BIN_DIR)/$(PROG)
 		@echo -e '\033[42m Fin Compilation : $(NOM_TEST) \033[0m'
 
 $(OBJ_DIR):
@@ -53,7 +57,6 @@ $(BIN_DIR)/$(PROG): $(OBJ) $(NOM_TEST).o
 	$(CC) $(CFLAGS) $^ -o $@  $(LIBS) $(INCLUDES) -I$(INC_DIR)
 
 $(NOM_TEST).o: $(NOM_TEST).c $(NOM_TEST).h
-	@echo -e '\033[42m Debut Compilation : $(NOM_TEST) \033[0m'
 	$(CC) -o $@ -c $< $(CFLAGS) $(LIBS) $(INCLUDES) -I$(INC_DIR)
 
 $(OBJ): $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c $(INC_DIR)/%.h
