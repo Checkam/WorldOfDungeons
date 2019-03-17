@@ -80,9 +80,10 @@ typedef struct s_entite
     long int xp; // XP gagné
     int mana, pv, faim; // Mana, PV et Faim courante
     int mana_max, pv_max, faim_max; // Mana, PV et Faim Max
+    SDL_Rect hitbox; // Hitbox de l'entité
     SDL_Texture * texture; // Texture contenant toutes les animations de l'entité
     t_s_a * texture_action; // Tableau contenant pour chaque action une animation et sa durée
-    SDL_Rect hitbox; // Hitbox de l'entité
+    SDL_Rect texture_part; // Partie de la texture à afficher
     int col_act_prec; // Animation de l'action précèdente
     t_action act_pred; // Action précèdente
     int temp_dep; // Temps de départ de l'animation courante
@@ -90,14 +91,12 @@ typedef struct s_entite
 }t_entite;
 
 
-/****** Primitives des fonctions qui gèrent les entités ******/
+/****** Primitives des fonctions qui créent et suppriment les entités ******/
 
 /* Crée une entité avec des paramètres par défaut */
-t_entite * creer_entite_defaut (char * name, t_entite_type type);
+t_entite * creer_entite_defaut (char * name, t_entite_type type, int x_dep, int y_dep);
 /* Crée une entité */
-t_entite * creer_entite (char * name, int mana, int mana_max, int pv, int pv_max, SDL_Texture * texture, t_s_a * t_a);
-/* Crée une hitbox */
-SDL_Rect creer_hitbox (int x, int y, int largeur, int hauteur);
+t_entite * creer_entite (char * name, int mana, int mana_max, int pv, int pv_max, SDL_Texture * texture, t_s_a * t_a, int x_dep, int y_dep);
 /* Détruit une entité */
 t_erreur detruire_entite (t_entite * entite);
 /* Initialise les textures d'une entité */
@@ -113,8 +112,17 @@ t_erreur Quit_Sprite(void);
 /* Crée la texture associée à l'image */
 SDL_Texture * Create_Sprite (char * lieu, SDL_Renderer * renderer);
 /* Charge l'animation sur le renderer */
-t_erreur Charger_Anima (SDL_Renderer * renderer, SDL_Rect fenetre, t_entite * entite, t_action action);
+t_erreur Charger_Anima (SDL_Renderer * renderer, t_entite * entite, t_action action);
 /* Recherche l'indice d'une action */
 int Search_Action (t_s_a * t_a, t_action action);
+
+
+/****** Primitives des fonctions qui gèrent les collisions des entités ******/
+
+
+
+
+/* Affiche les animations et modifie l'emplacement du joueur suivant les touches appuyées */
+t_erreur Gestion_Entite (SDL_Renderer * renderer, t_entite * entite, uint8_t * ks);
 
 #endif

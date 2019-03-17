@@ -24,10 +24,7 @@ int main (int argc, char ** argv, char ** env)
     Init_Sprite(renderer);
 
     /* Création de l'entité */
-    t_entite * J = creer_entite_defaut(NULL,JOUEUR);
-
-    /* Création de la fenetre d'affichage du sprite */
-    SDL_Rect fenetre = {0,0,J->hitbox.w * 3,J->hitbox.h * 3};
+    t_entite * J = creer_entite_defaut(NULL,JOUEUR,250,600);
 
     uint8_t *ks;
     configTouches_t *ct;
@@ -35,27 +32,17 @@ int main (int argc, char ** argv, char ** env)
     SDL_init_touches( &ks, &ct);
     while (continuer)
     {
-        SDL_touches( ks, ct);
         SDL_RenderClear(renderer);
-        
-        if (SDL_touche_appuyer( ks, QUITTER)) /*permet de tester si une touche donner au second parametre est appuyer ou non ( voir dans /include/touches.h quelle touche sont disponible ) */
+        SDL_touches( ks, ct);
+
+        /* Check si on doit quitter le programme */
+        if (SDL_touche_appuyer( ks, QUITTER))
             continuer = 0;
-
-        else if (SDL_touche_appuyer( ks, AVANCER))
-            Charger_Anima(renderer,fenetre,J,MARCHE_DEVANT);
-
-	    else if (SDL_touche_appuyer( ks, RECULER))
-            Charger_Anima(renderer,fenetre,J,MARCHE_DERRIERE);
-
-	    else if (SDL_touche_appuyer( ks, DROITE))
-            Charger_Anima(renderer,fenetre,J,MARCHE_DROITE);
-
-	    else if (SDL_touche_appuyer( ks, GAUCHE))
-            Charger_Anima(renderer,fenetre,J,MARCHE_GAUCHE);
-
-        else Charger_Anima(renderer,fenetre,J,IMMOBILE);
+        
+        Gestion_Entite(renderer,J,ks);
+        
         SDL_RenderPresent(renderer);
-        //SDL_Delay(10);
+        SDL_Delay(20);
     }
 
     SDL_exit_touches( &ks, &ct);
