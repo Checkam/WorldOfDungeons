@@ -103,8 +103,6 @@ t_erreur detruire_entite (t_entite * entite);
 /* Initialise les textures d'une entité */
 t_erreur init_texture_entite (t_entite * entite, t_entite_type type);
 
-#define SAUTER 10
-
 
 /****** Primitives des fonctions qui gèrent les sprites ******/
 

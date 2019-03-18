@@ -33,6 +33,12 @@ int SDL_init_touches( uint8_t **keyboardState, configTouches_t **configuration )
 	(( (*configuration) + DROITE )->descriptif) = "droite";
 	( (*configuration) + DROITE )->keyCode = SDLK_d;
 
+	(( (*configuration) + SPACE )->descriptif) = "sauter";
+	( (*configuration) + SPACE )->keyCode = SDLK_SPACE;
+
+	(( (*configuration) + SHIFT )->descriptif) = "shift";
+	( (*configuration) + SHIFT )->keyCode = SDLK_LSHIFT;
+
 	(( (*configuration) + ESCAPE )->descriptif) = "escape";
 	( (*configuration) + ESCAPE )->keyCode = SDLK_ESCAPE;
 
@@ -109,9 +115,9 @@ uint8_t SDL_touche_appuyer ( uint8_t *keyboardState, uint16_t touche ) {
 	return RELEASED;
 }
 
-void SDL_coord_souris ( uint16_t *x, uint16_t *y ) {
+void SDL_coord_souris ( uint32_t *x, uint32_t *y ) {
 
-	SDL_GetMouseState(x, y);
+	SDL_GetMouseState( x, y);
 }
 
 int SDL_exit_touches ( uint8_t **keyboardState, configTouches_t **configuration ) {
