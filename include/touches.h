@@ -6,7 +6,7 @@
 #define NB_TOUCHES 10
 #define NB_TOUCHES_REEL 9
 #define LONGUEUR_MAX_DESCRIPTIF 20 /* longueur max en caractere du descriptif de la touche */
-#define NULL_TOUCHE 64999
+#define NULL_TOUCHE 4199999
 
 
 #define PRESSED 1
@@ -48,5 +48,7 @@ uint8_t SDL_touche_appuyer ( uint8_t *keyboardState, uint16_t touche );
 void SDL_coord_souris ( int32_t *x, int32_t *y );
 
 int SDL_exit_touches ( uint8_t **keyboardState, configTouches_t **configuration );
+
+static void SDL_touche_default ( configTouches_t **configuration );
 
 #endif

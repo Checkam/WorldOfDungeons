@@ -1,13 +1,21 @@
 #include <stdlib.h>
+#include <stdio.h>
 
-#include "touches.h"
+#include <touches.h>
+static void SDL_touche_default ( configTouches_t **configuration );
+
+#include <chemin.h>
+#include <json.h>
 
 #include <SDL2/SDL.h>
 
 int SDL_init_touches( uint8_t **keyboardState, configTouches_t **configuration ) {
 	/* permet d'allouer les zone memoire necessaire au bon fonctionnement du module touches */
 
-	short i;
+	uint16_t i;
+	int16_t keyID = -1, value;
+	char descr[LONGUEUR_MAX_DESCRIPTIF];
+	uint8_t continuer = 1;
 
 	*keyboardState = malloc( sizeof( short ) * NB_TOUCHES );
 	*configuration = malloc( sizeof( configTouches_t) * NB_TOUCHES);
@@ -17,36 +25,42 @@ int SDL_init_touches( uint8_t **keyboardState, configTouches_t **configuration )
 		* ( (*keyboardState) + i ) = RELEASED;
 	}
 
-	/* pour l'instant a l'arrache, ce sera prope avec les fichiers json de tib*/
-	(( (*configuration) + QUITTER )->descriptif) = "quitter";
-	( (*configuration) + QUITTER )->keyCode = NULL_TOUCHE;
+	FILE *config = open_json("data/data/", "configuration_touches", "r");
 
-	(( (*configuration) + AVANCER )->descriptif) = "avancer";
-	( (*configuration) + AVANCER )->keyCode = SDLK_z;
+	if ( config ) {
 
-	(( (*configuration) + RECULER )->descriptif) = "reculer";
-	( (*configuration) + RECULER )->keyCode = SDLK_s;
+		char *ligne;
 
-	(( (*configuration) + GAUCHE )->descriptif) = "gauche";
-	( (*configuration) + GAUCHE )->keyCode = SDLK_q;
+		fstart(config);
 
-	(( (*configuration) + DROITE )->descriptif) = "droite";
-	( (*configuration) + DROITE )->keyCode = SDLK_d;
+		extract_json_obj( config, &ligne);
 
-	(( (*configuration) + SPACE )->descriptif) = "sauter";
-	( (*configuration) + SPACE )->keyCode = SDLK_SPACE;
+		for ( i = 0 ; i < NB_TOUCHES_REEL && continuer ; i++ ) {
 
-	(( (*configuration) + SHIFT )->descriptif) = "shift";
-	( (*configuration) + SHIFT )->keyCode = SDLK_LSHIFT;
+			read_json_obj( ligne, "keyID", &keyID, 'd');
+			read_json_obj( ligne, "value", &value, 'd');
+			read_json_obj( ligne, "descr", &descr, 's');
 
-	(( (*configuration) + ESCAPE )->descriptif) = "escape";
-	( (*configuration) + ESCAPE )->keyCode = SDLK_ESCAPE;
+			if ( keyID == -1 ) {
 
-	(( (*configuration) + SOURIS_BTN_1 )->descriptif) = "souris_gauche";
-	( (*configuration) + SOURIS_BTN_1 )->keyCode = SDL_BUTTON_LEFT;
+				printf("Erreur : fichier de sauvegarde des touches corrompu ... ");
+				continuer = 0;
+			} else {
 
-	(( (*configuration) + AVOID_OUTWRITE )->descriptif) = "NULL";
-	( (*configuration) + AVOID_OUTWRITE )->keyCode = NULL_TOUCHE;
+				strcpy( (( (*configuration) + keyID )->descriptif), descr);
+				( (*configuration) + keyID )->keyCode = value;
+
+				keyID = -1;
+			}
+		}
+	}
+
+	if ( !continuer || !config ) {
+
+		printf("Restauration des touches par default ...\n");
+
+		SDL_touche_default( configuration );
+	}
 
 	return 0;
 }
@@ -127,4 +141,37 @@ int SDL_exit_touches ( uint8_t **keyboardState, configTouches_t **configuration 
 	free(*configuration);
 
 	return 0;
+}
+
+static void SDL_touche_default ( configTouches_t **configuration ) {
+
+	(( (*configuration) + QUITTER )->descriptif) = "quitter";
+	( (*configuration) + QUITTER )->keyCode = NULL_TOUCHE;
+
+	(( (*configuration) + AVANCER )->descriptif) = "avancer";
+	( (*configuration) + AVANCER )->keyCode = SDLK_z;
+
+	(( (*configuration) + RECULER )->descriptif) = "reculer";
+	( (*configuration) + RECULER )->keyCode = SDLK_s;
+
+	(( (*configuration) + GAUCHE )->descriptif) = "gauche";
+	( (*configuration) + GAUCHE )->keyCode = SDLK_q;
+
+	(( (*configuration) + DROITE )->descriptif) = "droite";
+	( (*configuration) + DROITE )->keyCode = SDLK_d;
+
+	(( (*configuration) + SPACE )->descriptif) = "sauter";
+	( (*configuration) + SPACE )->keyCode = SDLK_SPACE;
+
+	(( (*configuration) + SHIFT )->descriptif) = "shift";
+	( (*configuration) + SHIFT )->keyCode = SDLK_LSHIFT;
+
+	(( (*configuration) + ESCAPE )->descriptif) = "escape";
+	( (*configuration) + ESCAPE )->keyCode = SDLK_ESCAPE;
+
+	(( (*configuration) + SOURIS_BTN_1 )->descriptif) = "souris_gauche";
+	( (*configuration) + SOURIS_BTN_1 )->keyCode = SDL_BUTTON_LEFT;
+
+	(( (*configuration) + AVOID_OUTWRITE )->descriptif) = "NULL";
+	( (*configuration) + AVOID_OUTWRITE )->keyCode = NULL_TOUCHE;
 }
