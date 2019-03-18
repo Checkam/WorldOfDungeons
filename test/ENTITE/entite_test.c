@@ -6,6 +6,7 @@
 #include <outils_SDL.h>
 #include <entite.h>
 #include <touches.h>
+#include <fps.h>
 
 int main (int argc, char ** argv, char ** env)
 {
@@ -26,12 +27,14 @@ int main (int argc, char ** argv, char ** env)
     /* Création de l'entité */
     t_entite * J = creer_entite_defaut(NULL,JOUEUR,250,height-100);
 
-    /** Sol pour test gravité et collision **/
+    /** Création Sol pour test gravité et collision **/
     SDL_Rect plaque = {0,height-40,width,40};
     char * chemin; creation_chemin("IMG/texture/pierre.bmp",&chemin);
     SDL_Texture * tex_pla; Create_IMG_Texture(renderer,chemin,&tex_pla);
     free(chemin);
 
+    fps_init();
+    double coef_fps = 1;
     uint8_t *ks;
     configTouches_t *ct;
     int continuer = 1;
@@ -47,10 +50,10 @@ int main (int argc, char ** argv, char ** env)
         if (SDL_touche_appuyer( ks, QUITTER))
             continuer = 0;
         
-        Gestion_Entite(renderer,J,ks);
-        
+        Gestion_Entite(renderer,J,ks,coef_fps);
         SDL_RenderPresent(renderer);
-        SDL_Delay(20);
+        SDL_Delay(200);
+        coef_fps = fps();
     }
 
     SDL_exit_touches( &ks, &ct);
