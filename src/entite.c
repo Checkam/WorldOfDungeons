@@ -112,7 +112,7 @@ t_entite * creer_entite (char * name, int mana, int mana_max, int pv, int pv_max
     entite->act_pred = IMMOBILE;
     entite->temp_dep = SDL_GetTicks();
     entite->hitbox = hit;
-    entite->accX = 0;
+    entite->accX = 5;
     entite->accY = 0.5;
     entite->velX = 0;
     entite->velY = 0;
@@ -253,12 +253,19 @@ t_erreur update_pos_entite(t_entite * entite){
     
     entite->velY += entite->accY;
     entite->hitbox.y += entite->velY;
-    if(entite->hitbox.y + entite->hitbox.h > 500){
+    if(est_au_sol(entite)/*entite->hitbox.y + entite->hitbox.h > 500*/){
         entite->velY = 0;
-        entite->hitbox.y = 500 - entite->hitbox.h;
+        //entite->hitbox.y = 500 - entite->hitbox.h;
     }
 
     return OK;
+}
+
+int est_au_sol(t_entite * entite, SDL_Rect sol)
+{
+    if (!entite) return 0;
+    SDL_Rect result;
+    return SDL_IntersectRect(&(entite->hitbox),&sol,&result);
 }
 
 
@@ -290,22 +297,22 @@ t_erreur Gestion_Entite (SDL_Renderer * renderer, t_entite * entite, uint8_t * k
     /* Modif pour la touche DROITE */
     else if (SDL_touche_appuyer( ks, DROITE))
     {
-        entite->hitbox.x += 5;
+        entite->hitbox.x += entite->accX;
         Charger_Anima(renderer,entite,MARCHE_DROITE);
     }
     /* Modif pour la touche GAUCHE */
     else if (SDL_touche_appuyer( ks, GAUCHE))
     {
-        entite->hitbox.x += -5;
+        entite->hitbox.x -= entite->accX;
         Charger_Anima(renderer,entite,MARCHE_GAUCHE);
     }
     /* Modif quand on appui sur AUCUNE touche */
     else Charger_Anima(renderer,entite,IMMOBILE);
 
     /* Modif pour la touche SAUTER */
-    if (SDL_touche_appuyer( ks, SAUTER))
+    if (!(entite->velY) && !est_au_sol(entite) && SDL_touche_appuyer( ks, SAUTER))
     {
-        entite->velY = -8;
+        entite->velY = -9;
     }
 
     /* Gravité */

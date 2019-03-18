@@ -120,8 +120,7 @@ int Search_Action (t_anim_action * t_a, t_action action);
 
 /****** Primitives des fonctions qui gèrent les collisions des entités ainsi que la gravité ******/
 t_erreur update_pos_entite(t_entite * entite);
-
-
+int est_au_sol(t_entite * entite, SDL_Rect sol);
 
 /* Affiche les animations et modifie l'emplacement du joueur suivant les touches appuyées */
 t_erreur Gestion_Entite (SDL_Renderer * renderer, t_entite * entite, uint8_t * ks);
