@@ -40,8 +40,12 @@ OBJ := $(subst src,obj,$(OBJ))
 
 DIRS = $(OBJ_DIR) $(BIN_DIR)
 
-all: $(DIRS) $(BIN_DIR)/$(PROG)
-		@echo -e '\033[42m Makefile Test : $(NOM_TEST) \033[0m'
+.PHONY: debut 
+debut:
+	@echo -e '\033[42m Debut Compilation : $(NOM_TEST) \033[0m'
+
+all: debut $(DIRS) $(BIN_DIR)/$(PROG)
+		@echo -e '\033[42m Fin Compilation : $(NOM_TEST) \033[0m'
 
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)

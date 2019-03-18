@@ -15,11 +15,10 @@ int SDL_init_touches( uint8_t **keyboardState, configTouches_t **configuration )
 	for ( i = 0 ; i < NB_TOUCHES ; i++ ) {
 
 		* ( (*keyboardState) + i ) = RELEASED;
-		((*configuration) + i)->descriptif = malloc( sizeof(char) * LONGUEUR_MAX_DESCRIPTIF );
 	}
 
 	/* pour l'instant a l'arrache, ce sera prope avec les fichiers json de tib*/
-	(( (*configuration) + QUITTER )->descriptif) = "quiter";
+	(( (*configuration) + QUITTER )->descriptif) = "quitter";
 	( (*configuration) + QUITTER )->keyCode = NULL_TOUCHE;
 
 	(( (*configuration) + AVANCER )->descriptif) = "avancer";
@@ -34,17 +33,29 @@ int SDL_init_touches( uint8_t **keyboardState, configTouches_t **configuration )
 	(( (*configuration) + DROITE )->descriptif) = "droite";
 	( (*configuration) + DROITE )->keyCode = SDLK_d;
 
+	(( (*configuration) + ESCAPE )->descriptif) = "escape";
+	( (*configuration) + ESCAPE )->keyCode = SDLK_ESCAPE;
+
+	(( (*configuration) + SOURIS_BTN_1 )->descriptif) = "souris_gauche";
+	( (*configuration) + SOURIS_BTN_1 )->keyCode = SDL_BUTTON_LEFT;
+
+	(( (*configuration) + AVOID_OUTWRITE )->descriptif) = "NULL";
+	( (*configuration) + AVOID_OUTWRITE )->keyCode = NULL_TOUCHE;
+
 	return 0;
 }
 
 int SDL_touches( uint8_t *keyboardState, configTouches_t *configuration ) {
-	/* fonction a apeller a chaque image afin de recuperer l'etat ( appuyer ou relacher ) a chaque image */
+	/*	fonction a apeller a chaque image afin de recuperer l'etat ( appuyer ou relacher ) a chaque image
+		x et y ne servent uniquement a recuperer les coordonees de la souris */
 
 	SDL_Event event;
 
-	short i = 0;
+	short i;
 
 	while ( SDL_PollEvent(&event) ) {
+
+		i = 0;
 
 		switch( event.type ) {
 
@@ -55,7 +66,7 @@ int SDL_touches( uint8_t *keyboardState, configTouches_t *configuration ) {
 
 			case SDL_KEYDOWN:
 
-				while ( event.key.keysym.sym != ( configuration + i)->keyCode && i < NB_TOUCHES )
+				while ( event.key.keysym.sym != ( configuration + i)->keyCode && i < NB_TOUCHES_REEL )
 					i++;
 
 				*( keyboardState + i ) = PRESSED;
@@ -63,7 +74,23 @@ int SDL_touches( uint8_t *keyboardState, configTouches_t *configuration ) {
 
 			case SDL_KEYUP:
 
-				while ( event.key.keysym.sym != ( configuration + i)->keyCode && i < NB_TOUCHES )
+				while ( event.key.keysym.sym != ( configuration + i)->keyCode && i < NB_TOUCHES_REEL )
+					i++;
+
+				*( keyboardState + i ) = RELEASED;
+				break;
+
+			case SDL_MOUSEBUTTONDOWN:
+
+				while ( event.button.button != ( configuration + i)->keyCode && i < NB_TOUCHES_REEL )
+					i++;
+
+				*( keyboardState + i ) = PRESSED;
+				break;
+
+			case SDL_MOUSEBUTTONUP:
+
+				while ( event.button.button != ( configuration + i)->keyCode && i < NB_TOUCHES_REEL )
 					i++;
 
 				*( keyboardState + i ) = RELEASED;
@@ -82,20 +109,15 @@ uint8_t SDL_touche_appuyer ( uint8_t *keyboardState, uint16_t touche ) {
 	return RELEASED;
 }
 
+void SDL_coord_souris ( uint16_t *x, uint16_t *y ) {
+
+	SDL_GetMouseState(x, y);
+}
+
 int SDL_exit_touches ( uint8_t **keyboardState, configTouches_t **configuration ) {
 /* fermeture propre du module touches pour SDL */
 
 	free( *keyboardState );
-
-	/*for ( i = 0 ; i < NB_TOUCHES ; i++ ) {
-
-		if ( ((*configuration) + i)->descriptif != NULL ) {
-
-			printf("%s", ((*configuration) + i)->descriptif );
-			free( ((*configuration) + i)->descriptif);
-		}
-	}*/
-
 	free(*configuration);
 
 	return 0;

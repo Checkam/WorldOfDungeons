@@ -1,9 +1,9 @@
 /**
- * \file test_erreur.c
+ * \file test_menu.c
  * \brief Programme qui teste le module erreur.
- * \author GALBRUN Tibane.
- * \date 07/03/2019
- * \version 0.1
+ * \author GALBRUN Jasmin.
+ * \date 15/03/2019
+ * \version 2
 */
 
 #include <menu.h>
@@ -11,20 +11,27 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <SDL2/SDL_ttf.h>
+#include <chemin.h>
+#include <outils_SDL.h>
 
-int main()
+int main(int argc, char **argv, char **env)
 {
     /* Initialisation */
     t_menu * menu = NULL;
-    int width_window = 600;
+    int width_window = 1000;
     int height_window = 600;
+    pwd_init(argv[0], getenv("PWD"));
 
-    SDL_Init(SDL_INIT_EVERYTHING);
+    if(SDL_Init(SDL_INIT_EVERYTHING) == -1){
+        printf("%s\n", SDL_GetError());
+        return EXIT_FAILURE;
+    }
 
     if(TTF_Init() == -1){
         printf("%s\n", TTF_GetError());
         return EXIT_FAILURE;
     }
+
     SDL_Window *screen = SDL_CreateWindow("World Of Dungeons", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,width_window, height_window, SDL_WINDOW_SHOWN);
     if(screen == NULL){
         printf("%s\n", SDL_GetError());
@@ -36,72 +43,79 @@ int main()
         printf("%s\n", SDL_GetError());
         return EXIT_FAILURE;
     }
-    SDL_Surface *surface_to_tex = NULL;
-    surface_to_tex = SDL_LoadBMP("../../IMG/texture/herbe.bmp");
-    SDL_Texture * fond = SDL_CreateTextureFromSurface(renderer, surface_to_tex);
-    SDL_FreeSurface(surface_to_tex);
+    
+    menu_init(renderer);
 
 
-    /* Test création menu 1 */
-    printf("Test Creation Menu 1:\n");
-    assert(creer_menu(PRINCIPAL, width_window, height_window, fond, &menu) == OK);
+    /* Test création menu */
+    printf("Test création Menu avec texture:\n");
+    assert(menu_creer(PRINCIPAL, width_window, height_window, &menu) == OK);
     printf("\t-- OK\n");
 
-    /* Test affichage menu 1 */
+    /* Test affichage menu */
     SDL_RenderClear(renderer);
-    printf("Test affichage Menu 1:\n");
-    assert(SDL_afficher_menu(menu, renderer) == OK);
+    printf("Test affichage Menu avec texture:\n");
+    assert(menu_afficher_SDL(menu, renderer) == OK);
     printf("\t-- OK\n");
     SDL_RenderPresent(renderer);
-    SDL_Delay(2000);
+    SDL_Delay(1000);
 
-    /* Test destruction menu 1 */
-    printf("Test destruction Menu 1:\n");
-    assert(detruire_menu(&menu) == OK);
+    /* Test destruction menu */
+    printf("Test destruction Menu avec texture:\n");
+    assert(menu_detruire(&menu) == OK);
     printf("\t-- OK\n");
 
-    /* Test création menu 2 */
-    printf("Test Creation Menu 2:\n");
-    assert(creer_menu(SOLO, width_window, height_window, fond, &menu) == OK);
+    /* Test création nouveau menu */
+    printf("Test Creation nouveau Menu:\n");
+    assert(menu_creer(NOUVEAU_MENU, width_window, height_window, &menu) == OK);
     printf("\t-- OK\n");
-
-    /* Test affichage menu 2 */
-    SDL_RenderClear(renderer);
-    printf("Test affichage Menu 2:\n");
-    assert(SDL_afficher_menu(menu, renderer) == OK);
-    printf("\t-- OK\n");
-    SDL_RenderPresent(renderer);
-    SDL_Delay(2000);
-
-    /* Test destruction menu 2 */
-    printf("Test destruction Menu 2:\n");
-    assert(detruire_menu(&menu) == OK);
-    printf("\t-- OK\n");
-    SDL_RenderPresent(renderer);
-
-    /* Test création menu 3 */
-    printf("Test Creation Menu 3:\n");
-    assert(creer_menu(NOUVEAU_MENU, width_window, height_window, fond, &menu) == OK);
-    printf("\t-- OK\n");
+    SDL_Rect btn_rect = {
+        width_window / 2,
+        height_window / 2,
+        width_window / 10,
+        height_window / 10
+    };
     printf("\tTest Ajout Bouton 1 Menu 3:\n");
-    assert(ajout_bouton_menu(menu, 300, 300, 200, 50, "Bouton 1", fond) == OK);
+    assert(menu_ajout_bouton(menu, btn_rect, "Bouton 1", MENU_NULL) == OK);
     printf("\t\t-- OK\n");
     printf("\tTest Ajout Bouton 2 Menu 3:\n");
-    assert(ajout_bouton_menu(menu, 300, 360, 200, 50, "Bouton 2", fond) == OK);
+    btn_rect.y += btn_rect.h;
+    assert(menu_ajout_bouton(menu, btn_rect, "Bouton 2", MENU_NULL) == OK);
     printf("\t\t-- OK\n");
     
-    /* Test affichage menu 3 */
+    /* Test affichage nouveau menu */
     SDL_RenderClear(renderer);
-    printf("Test affichage Menu 3:\n");
-    assert(SDL_afficher_menu(menu, renderer) == OK);
+    printf("Test affichage nouveau Menu:\n");
+    assert(menu_afficher_SDL(menu, renderer) == OK);
     printf("\t-- OK\n");
     SDL_RenderPresent(renderer);
-    SDL_Delay(2000);
+    SDL_Delay(1000);
 
-    /* Test destruction menu 3 */
-    printf("Test destruction Menu 3:\n");
-    assert(detruire_menu(&menu) == OK);
+    /* Test destruction nouveau menu */
+    printf("Test destruction nouveau Menu:\n");
+    assert(menu_detruire(&menu) == OK);
     printf("\t-- OK\n");
 
+    /* Test gestion menu */
+    menu_creer(PRINCIPAL, width_window, height_window, &menu);
+    t_type_menu type_bouton;
+    SDL_Event event;
     
+    while(menu){
+        SDL_RenderClear(renderer);
+        SDL_PollEvent(&event);
+        assert(menu_gestion_SDL(menu, event.button.state, &type_bouton) == OK);
+        if(type_bouton != MENU_NULL){
+            menu_suivant(&menu, type_bouton);
+        }
+        menu_afficher_SDL(menu, renderer);
+        SDL_RenderPresent(renderer);
+    }
+    
+    pwd_quit();
+    menu_quit();
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(screen);
+    TTF_Quit();
+    SDL_Quit();
 }
