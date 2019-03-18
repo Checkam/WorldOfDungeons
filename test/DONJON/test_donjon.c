@@ -31,18 +31,20 @@ void aff_tab(int tab[NB_SALLE][NB_SALLE]){
 
 int main(int argc, char **argv, char **env){
 
-    if(argc != 2)
+    if(argc != 2){
+    	fprintf(stderr, "Usage:%s SEED\n", argv[0]);
         return EXIT_FAILURE;
+    }
 
     SEED = atoi(argv[1]);
-    
+
     t_liste *liste;
     int tab[NB_SALLE][NB_SALLE];
-    
+
     int cpt = 10;
     while(cpt--){
         donjon_creer(&liste, NB_SALLE);
-        
+
         init_tab(tab);
 
         t_salle_donjon * salle;

@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <chemin.h>
-#include <SDL2/SDL.h>
+//#include <SDL2/SDL.h>
 #include <liste.h>
 #include <erreur.h>
 #include <commun.h>
@@ -48,7 +48,7 @@ t_erreur donjon_creer(t_liste ** liste, int nb_salle){
  * \fn
  * \param
 */
-t_erreur donjon_ajout_salle(t_liste * liste, int taille_donjon){
+static t_erreur donjon_ajout_salle(t_liste * liste, int taille_donjon){
     /* Vérification */
     if(liste == NULL){
         erreur_save(PTR_NULL, "donjon_ajout_salle() : Poiteur sur la liste NULL");
@@ -98,7 +98,7 @@ t_erreur donjon_ajout_salle(t_liste * liste, int taille_donjon){
  * \fn
  * \param
 */
-t_erreur donjon_creer_salle(t_salle_donjon ** salle, int x, int y){
+static t_erreur donjon_creer_salle(t_salle_donjon ** salle, int x, int y){
     /* Vérification */
     if(salle == NULL){
         erreur_save(PTR_NULL, "donjon_creer_salle() : Doule pointeur sur la salle NULL");
@@ -121,7 +121,7 @@ t_erreur donjon_creer_salle(t_salle_donjon ** salle, int x, int y){
  * \fn
  * \param
 */
-int nb_voisin_salle(t_salle_donjon * salle){
+static int nb_voisin_salle(t_salle_donjon * salle){
     int nb = 0;
     if(salle == NULL)
         return nb;
@@ -137,7 +137,7 @@ int nb_voisin_salle(t_salle_donjon * salle){
  * \fn
  * \param
 */
-t_erreur selection_voisin(t_salle_donjon * salle, int * choix){
+static t_erreur selection_voisin(t_salle_donjon * salle, int * choix){
     /* Vérification */
     if(salle == NULL){
         erreur_save(PTR_NULL, "selection_voisin() : Pointeur sur salle NULL");
@@ -180,7 +180,7 @@ t_erreur selection_voisin(t_salle_donjon * salle, int * choix){
  * \param
  * \return La position dans la liste, -1 sinon
 */
-int chercher_salle(t_liste *liste){
+static int chercher_salle(t_liste *liste){
     /* On sélectionne une salle aléatoire */
     int taille_l = taille_liste(liste);
     srand(SEED * taille_l);
@@ -207,7 +207,7 @@ int chercher_salle(t_liste *liste){
 /**
  * 
 */
-t_erreur update_voisin(t_liste * liste, int taille_donjon){
+static t_erreur update_voisin(t_liste * liste, int taille_donjon){
     t_salle_donjon *salle_courante, *salle_suivante;
 
     int i;
