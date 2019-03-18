@@ -3,7 +3,7 @@
  * \brief Module servant à gérer les entités.
  * \author GALBRUN Tibane
  * \date 13/03/2019
- * \version 0.1
+ * \version 0.2
 */
 
 #include <stdio.h>
@@ -20,7 +20,7 @@
 /****** SPRITE TEXTURE ACTION ******/
 
 SDL_Texture * Textures_Joueur;
-t_s_a t_a_joueur[NB_LIGNES_SPRITE] = {
+t_anim_action t_a_joueur[NB_LIGNES_SPRITE] = {
     {MARCHE_DROITE, 12, 9, 100},
     {MARCHE_GAUCHE, 10, 9, 100},
     {MARCHE_DERRIERE, 11, 9, 100},
@@ -29,7 +29,7 @@ t_s_a t_a_joueur[NB_LIGNES_SPRITE] = {
 };
 
 SDL_Texture * Textures_Zombie;
-t_s_a t_a_zombie[NB_LIGNES_SPRITE] = {
+t_anim_action t_a_zombie[NB_LIGNES_SPRITE] = {
     {MARCHE_DROITE, 12, 9, 100},
     {MARCHE_GAUCHE, 10, 9, 100},
     {MARCHE_DERRIERE, 11, 9, 100},
@@ -40,7 +40,7 @@ t_s_a t_a_zombie[NB_LIGNES_SPRITE] = {
 };
 
 SDL_Texture * Textures_Boss;
-t_s_a t_a_boss[NB_LIGNES_SPRITE] = {
+t_anim_action t_a_boss[NB_LIGNES_SPRITE] = {
     {MARCHE_DROITE, 12, 9, 100},
     {MARCHE_GAUCHE, 10, 9, 100},
     {MARCHE_DERRIERE, 11, 9, 100},
@@ -72,7 +72,7 @@ t_entite * creer_entite_defaut (char * name, t_entite_type type, int x_dep, int 
 }
 
 /**
- * \fn t_entite * creer_entite (char * name, int mana, int mana_max, int pv, int pv_max, SDL_Texture * texture, t_s_a * t_a)
+ * \fn t_entite * creer_entite (char * name, int mana, int mana_max, int pv, int pv_max, SDL_Texture * texture, t_anim_action * t_a)
  * \brief Créer une entité.
  * \param name Le nom de l'entité.
  * \param mana Le mana de départ de l'entité.
@@ -85,7 +85,7 @@ t_entite * creer_entite_defaut (char * name, t_entite_type type, int x_dep, int 
  * \param y_dep Coordonnée de départ de l'entité.
  * \return Un pointeur sur l'entité créée.
 */
-t_entite * creer_entite (char * name, int mana, int mana_max, int pv, int pv_max, SDL_Texture * texture, t_s_a * t_a, int x_dep, int y_dep)
+t_entite * creer_entite (char * name, int mana, int mana_max, int pv, int pv_max, SDL_Texture * texture, t_anim_action * t_a, int x_dep, int y_dep)
 {
     if (!texture || !name || !t_a) return NULL;
     if (mana > mana_max || pv > pv_max) {mana = mana_max; pv = pv_max;};
@@ -112,6 +112,10 @@ t_entite * creer_entite (char * name, int mana, int mana_max, int pv, int pv_max
     entite->act_pred = IMMOBILE;
     entite->temp_dep = SDL_GetTicks();
     entite->hitbox = hit;
+    entite->accX = 0;
+    entite->accY = 0.5;
+    entite->velX = 0;
+    entite->velY = 0;
 
     return entite;
 }
@@ -132,6 +136,13 @@ t_erreur detruire_entite (t_entite * entite)
 
 /****** FONCTIONS GESTION SPRITE ******/
 
+/**
+ * \fn SDL_Texture * Create_Sprite (char * lieu, SDL_Renderer * renderer)
+ * \brief Crée la texture d'un sprite.
+ * \param lieu L'endroit où se situe le sprite à charger.
+ * \param renderer Renderer de la fenêtre.
+ * \return Un pointeur sur une structure.
+*/
 SDL_Texture * Create_Sprite (char * lieu, SDL_Renderer * renderer)
 {
     if (!renderer || !lieu) return NULL;
@@ -146,6 +157,14 @@ SDL_Texture * Create_Sprite (char * lieu, SDL_Renderer * renderer)
     return texture;
 }
 
+/**
+ * \fn t_erreur Charger_Anima (SDL_Renderer * renderer, t_entite * entite, t_action action)
+ * \brief Charge dans le renderer, suivant une action et une entité, l'image suivante (pour animation) où une nouvelle image si l'action à changer.
+ * \param renderer Renderer de la fenêtre.
+ * \param entite L'entité à afficher.
+ * \param action L'action à afficher.
+ * \return Une erreur s'il y en a une.
+*/
 t_erreur Charger_Anima (SDL_Renderer * renderer, t_entite * entite, t_action action)
 {
     if (!renderer || !entite) return PTR_NULL;
@@ -175,7 +194,14 @@ t_erreur Charger_Anima (SDL_Renderer * renderer, t_entite * entite, t_action act
     return OK;
 }
 
-int Search_Action (t_s_a * t_a, t_action action)
+/**
+ * \fn int Search_Action (t_anim_action * t_a, t_action action)
+ * \brief Cherche dans un tableau d'action/description l'indice correspondant à l'action qu'on cherche.
+ * \param t_a Le tableau de recherche.
+ * \param action L'action que l'on cherche.
+ * \return L'indice de l'action recherchée.
+*/
+int Search_Action (t_anim_action * t_a, t_action action)
 {
     if (!t_a) return -1;
 
@@ -185,6 +211,12 @@ int Search_Action (t_s_a * t_a, t_action action)
     return i;
 }
 
+/**
+ * \fn t_erreur Init_Sprite(SDL_Renderer * renderer)
+ * \brief Initialise la texture associée au sprite de chaque entité par défaut.
+ * \param renderer Renderer de la fenêtre.
+ * \return Une erreur s'il y en a une.
+*/
 t_erreur Init_Sprite(SDL_Renderer * renderer)
 {
     if (!renderer) return PTR_NULL;
@@ -196,6 +228,11 @@ t_erreur Init_Sprite(SDL_Renderer * renderer)
     return OK;
 }
 
+/**
+ * \fn t_erreur Quit_Sprite(void)
+ * \brief Détruit toutes les textures précédement initialisées.
+ * \return Une erreur s'il y en a une.
+*/
 t_erreur Quit_Sprite(void)
 {
     /* Destruction des textures */
@@ -206,39 +243,73 @@ t_erreur Quit_Sprite(void)
 }
 
 
-/****** FONCTION GESTION COLLISION ENTITE ******/
+/****** FONCTION GESTION COLLISION ENTITE + GRAVITE ******/
 
+/**
+ * 
+*/
+t_erreur update_pos_entite(t_entite * entite){
+    if (!entite) return PTR_NULL;
+    
+    entite->velY += entite->accY;
+    entite->hitbox.y += entite->velY;
+    if(entite->hitbox.y + entite->hitbox.h > 500){
+        entite->velY = 0;
+        entite->hitbox.y = 500 - entite->hitbox.h;
+    }
+
+    return OK;
+}
 
 
 /************** Focntion qui gère les déplacements et les animations de l'entité **************/
+
+/**
+ * \fn t_erreur Gestion_Entite (SDL_Renderer * renderer, t_entite * entite, uint8_t * ks)
+ * \brief Gère une entité (collision, déplacement, animation).
+ * \brief Gère les animations ainsi que les modifications apportées à l'entité (gravité, collision, déplacement) correspondant aux différents appuis de touches.
+ * \param renderer Renderer de la fenêtre.
+ * \param entite L'entité à gérer.
+ * \param ks Etat du clavier pour la gestion de l'appui des touches.
+ * \return Une erreur s'il y en a une.
+*/
 t_erreur Gestion_Entite (SDL_Renderer * renderer, t_entite * entite, uint8_t * ks)
 {
     if (!renderer || !entite || !ks) return PTR_NULL;
 
+    /* Modif pour la touche AVANCER */
     if (SDL_touche_appuyer( ks, AVANCER))
     {
         Charger_Anima(renderer,entite,MARCHE_DEVANT);
     }
+    /* Modif pour la touche RECULER */
     else if (SDL_touche_appuyer( ks, RECULER))
     {
         Charger_Anima(renderer,entite,MARCHE_DERRIERE);
     }
+    /* Modif pour la touche DROITE */
     else if (SDL_touche_appuyer( ks, DROITE))
     {
         entite->hitbox.x += 5;
         Charger_Anima(renderer,entite,MARCHE_DROITE);
     }
+    /* Modif pour la touche GAUCHE */
     else if (SDL_touche_appuyer( ks, GAUCHE))
     {
         entite->hitbox.x += -5;
         Charger_Anima(renderer,entite,MARCHE_GAUCHE);
     }
+    /* Modif quand on appui sur AUCUNE touche */
     else Charger_Anima(renderer,entite,IMMOBILE);
 
+    /* Modif pour la touche SAUTER */
     if (SDL_touche_appuyer( ks, SAUTER))
     {
-        entite->hitbox.y += -10;
+        entite->velY = -8;
     }
+
+    /* Gravité */
+    update_pos_entite(entite);
 
     return OK;
 }

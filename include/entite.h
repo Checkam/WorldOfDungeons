@@ -5,7 +5,7 @@
  * \brief Module contenant les primitives de gestion des entités.
  * \author GALBRUN Tibane
  * \date 13/03/2019
- * \version 0.1
+ * \version 0.2
 */
 
 #include <stdio.h>
@@ -46,15 +46,15 @@ typedef enum{
 }t_action;
 
 /**
- * \struct t_s_a
- * \brief Contient l'emplacement des textures associées à une action.
+ * \struct t_anim_action
+ * \brief Contient l'emplacement des textures associées à une action ainsi que la durée d'une animation.
 */
-typedef struct s_s_a
+typedef struct s_anim_action
 {
     t_action action;
     int ligne, nb_col;
     int temps_anim;
-}t_s_a;
+}t_anim_action;
 
 
 /******** PARTIE ENTITE ********/
@@ -82,11 +82,12 @@ typedef struct s_entite
     int mana_max, pv_max, faim_max; // Mana, PV et Faim Max
     SDL_Rect hitbox; // Hitbox de l'entité
     SDL_Texture * texture; // Texture contenant toutes les animations de l'entité
-    t_s_a * texture_action; // Tableau contenant pour chaque action une animation et sa durée
+    t_anim_action * texture_action; // Tableau contenant pour chaque action une animation et sa durée
     SDL_Rect texture_part; // Partie de la texture à afficher
     int col_act_prec; // Animation de l'action précèdente
     t_action act_pred; // Action précèdente
     int temp_dep; // Temps de départ de l'animation courante
+    float velX, velY, accX, accY;
     // Structure inventaire à rajouter
 }t_entite;
 
@@ -96,7 +97,7 @@ typedef struct s_entite
 /* Crée une entité avec des paramètres par défaut */
 t_entite * creer_entite_defaut (char * name, t_entite_type type, int x_dep, int y_dep);
 /* Crée une entité */
-t_entite * creer_entite (char * name, int mana, int mana_max, int pv, int pv_max, SDL_Texture * texture, t_s_a * t_a, int x_dep, int y_dep);
+t_entite * creer_entite (char * name, int mana, int mana_max, int pv, int pv_max, SDL_Texture * texture, t_anim_action * t_a, int x_dep, int y_dep);
 /* Détruit une entité */
 t_erreur detruire_entite (t_entite * entite);
 /* Initialise les textures d'une entité */
@@ -114,11 +115,11 @@ SDL_Texture * Create_Sprite (char * lieu, SDL_Renderer * renderer);
 /* Charge l'animation sur le renderer */
 t_erreur Charger_Anima (SDL_Renderer * renderer, t_entite * entite, t_action action);
 /* Recherche l'indice d'une action */
-int Search_Action (t_s_a * t_a, t_action action);
+int Search_Action (t_anim_action * t_a, t_action action);
 
 
-/****** Primitives des fonctions qui gèrent les collisions des entités ******/
-
+/****** Primitives des fonctions qui gèrent les collisions des entités ainsi que la gravité ******/
+t_erreur update_pos_entite(t_entite * entite);
 
 
 
