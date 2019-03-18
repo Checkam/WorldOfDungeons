@@ -19,7 +19,7 @@ t_liste biomes;
 t_biome_type BIOME_change_type(int x, int y) {
   if (x % W_BIOME == SEED % W_BIOME) {
     // Génere un chiffre entre 0 et le nombre de biome qui existe
-    return (t_biome_type)((int)((double)x * perlin2d(x - 1, y, FREQ, DEPTH) * SEED + 1) % NB_BIOME);
+    return (t_biome_type)((int)((double)(x % 200) * perlin2d(x, y, FREQ, DEPTH) * (SEED % 50) + 1) % NB_BIOME);
   }
   return biome;
 }
