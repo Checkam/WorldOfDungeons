@@ -28,7 +28,8 @@ double fps () {
 
         tdelay.tv_nsec = ( tempsImage - ( SDL_GetTicks() - debutImage ) ) * 1000 - 1000 ;
 
-        nanosleep(&tdelay, NULL);
+        //nanosleep(&tdelay, NULL);
+        SDL_Delay(tdelay.tv_nsec / 1000);
     }
 
     while ( SDL_GetTicks() - debutImage < tempsImage );
