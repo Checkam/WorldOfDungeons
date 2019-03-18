@@ -3,18 +3,22 @@
  * \brief Module de création + de gestion d'un donjon
  * \author Jasmin GALBRUN
  * \version 1
- * \date 17/03/2019
+ * \date 18/03/2019
 */
 
 #include <stdlib.h>
 #include <stdio.h>
 #include <chemin.h>
-//#include <SDL2/SDL.h>
+#include <SDL2/SDL.h>
 #include <liste.h>
 #include <erreur.h>
 #include <commun.h>
 #include <donjon.h>
+#include <perlin.h>
+#include <block.h>
 
+#define FREQ 0.01
+#define DEPTH 5
 
 /**
  * \fn
@@ -38,9 +42,18 @@ t_erreur donjon_creer(t_liste ** liste, int nb_salle){
     /* Calcul taille donjon */
     int taille_donjon = nb_salle;
 
+    /* Création Structure donjon */
     while(nb_salle--){
         donjon_ajout_salle(*liste, taille_donjon);
     }
+
+    /* Création structure salle */
+    t_salle_donjon * salle = NULL;
+    for(en_tete(liste); !hors_liste(liste); suivant(liste)){
+        valeur_elt(liste, &salle);
+        donjon_creer_structure_salle(salle);
+    }
+
     return OK;
 }
 
@@ -248,6 +261,29 @@ static t_erreur update_voisin(t_liste * liste, int taille_donjon){
     }
 
     return OK;
+}
+
+/**
+ * 
+*/
+donjon_creer_structure_salle(t_salle_donjon * salle){
+    /* Vérification */
+    if(salle == NULL){
+        erreur_save(PTR_NULL, "donjon_creer_structure_salle() : Pointeur sur salle NULL");
+        return PTR_NULL;
+    }
+
+    /**/
+    t_liste * liste = malloc(sizeof(t_liste));
+    salle->structure = liste;
+
+    t_block * tab = NULL;
+    int i;
+    for(i = 0; i < SIZE; i++){
+        tab = malloc(sizeof(t_block) * MAX_SCREEN);
+        int hauteur_min = perlin2d(i, MAX_SCREEN, FREQ, DEPTH) * (MAX_SCREEN / 2);
+        
+    }
 }
 
 /**

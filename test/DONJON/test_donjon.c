@@ -1,3 +1,11 @@
+/**
+ * \file test_donjon.c
+ * \brief Module de création + de gestion d'un donjon
+ * \author Jasmin GALBRUN
+ * \version 1
+ * \date 18/03/2019
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 //#include <chemin.h>
@@ -41,23 +49,18 @@ int main(int argc, char **argv, char **env){
     t_liste *liste;
     int tab[NB_SALLE][NB_SALLE];
 
-    int cpt = 10;
-    while(cpt--){
-        donjon_creer(&liste, NB_SALLE);
+    donjon_creer(&liste, NB_SALLE);
 
-        init_tab(tab);
+    init_tab(tab);
 
-        t_salle_donjon * salle;
-        for(en_tete(liste); !hors_liste(liste); suivant(liste)){
-            valeur_elt(liste, (void **)&salle);
-            tab[salle->x][salle->y] = 1;
-        }
-
-        aff_tab(tab);
-        donjon_detruire(&liste);
-        SEED++;
-        system("sleep 1");
+    t_salle_donjon * salle;
+    for(en_tete(liste); !hors_liste(liste); suivant(liste)){
+        valeur_elt(liste, (void **)&salle);
+        tab[salle->x][salle->y] = 1;
     }
+
+    aff_tab(tab);
+    donjon_detruire(&liste);
 
 
     return EXIT_SUCCESS;
