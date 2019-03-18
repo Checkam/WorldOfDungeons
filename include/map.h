@@ -12,7 +12,7 @@
 #include <liste.h>
 #endif
 
-#define PATH_MAP_DIR "map/"
+#define PATH_MAP_DIR "data/map/"
 
 /**
  \struct t_map

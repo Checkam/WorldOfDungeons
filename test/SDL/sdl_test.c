@@ -9,8 +9,7 @@
 
 #include <SDL2/SDL.h>
 #include <affichage.h>
-#include <block.h>
-#include <commun.h>
+#include <biome.h>
 #include <couleurs.h>
 #include <generation.h>
 #include <liste.h>
@@ -21,9 +20,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <world_of_dungeons.h>
-
-static int Program = 1;
+#include <touches.h>
 
 int main(int argc, char const *argv[]) {
 
@@ -48,8 +45,6 @@ int main(int argc, char const *argv[]) {
   SEED = 898989;
   BIOME_init();
 
-  t_block *tab;
-
   int taille_max = 0;
   int i = 100;
   int repeat = 0;
@@ -60,15 +55,8 @@ int main(int argc, char const *argv[]) {
 
   int boucle = 10000000;
 
-  while (boucle-- && Program && !repeat) {
-    taille_max = gen_col(&tab, i);
-
-    if (taille_liste(&list) > SIZE) {
-      en_tete(&list);
-      oter_elt(&list, free);
-    }
-    en_queue(&list);
-    ajout_droit(&list, tab);
+  while (boucle-- && !repeat) {
+    taille_max = gen_col(&list, i, DROITE);
 
     taille = AFF_GetMidHeight(&list);
 

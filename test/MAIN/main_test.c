@@ -33,8 +33,6 @@ int main(int argc, char const *argv[]) {
 
   SDL_GetWindowSize(screen, &width_window, &height_window);
 
-  SDL_Event event;
-
   SDL_Rect fondRect = {0, 0, width_window, height_window};
 
   SDL_Renderer *renderer = SDL_CreateRenderer(screen, -1, SDL_RENDERER_ACCELERATED);
@@ -51,8 +49,6 @@ int main(int argc, char const *argv[]) {
   SEED = 898989;
 
   BIOME_init();
-
-  t_block *tab;
 
   int i = 100;
 
