@@ -115,7 +115,7 @@ uint8_t SDL_touche_appuyer ( uint8_t *keyboardState, uint16_t touche ) {
 	return RELEASED;
 }
 
-void SDL_coord_souris ( uint32_t *x, uint32_t *y ) {
+void SDL_coord_souris ( int32_t *x, int32_t *y ) {
 
 	SDL_GetMouseState( x, y);
 }

@@ -8,7 +8,7 @@
 void fps_init () {
     /* la premiere fois, fps retourne une valeur aleatoire. permet d eviter cela*/
 
-    double t = fps();
+    fps();
 }
 
 double fps () {

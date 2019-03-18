@@ -45,7 +45,7 @@ int SDL_init_touches( uint8_t **keybordState, configTouches_t **configuration );
 
 int SDL_touches ( uint8_t *keybordState, configTouches_t *configuration);
 uint8_t SDL_touche_appuyer ( uint8_t *keyboardState, uint16_t touche );
-void SDL_coord_souris ( uint32_t *x, uint32_t *y );
+void SDL_coord_souris ( int32_t *x, int32_t *y );
 
 int SDL_exit_touches ( uint8_t **keyboardState, configTouches_t **configuration );
 
