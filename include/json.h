@@ -25,7 +25,7 @@ t_erreur del_json (char * dossier, char * name);
 
 /* Ecriture dans un fichier JSON d'une valeur avec sa clé /
 Utilisation : write_json(file, cle, valeur, type_de_la_valeur) */
-t_erreur write_json (FILE * file, char * key, void * value, char value_type);
+t_erreur write_json (FILE * file, char * key, void * value, char * value_type);
 /* Ouverture d'un nouvel objet dans un fichier JSON /
 Utilisation : open_json_obj(file) */
 t_erreur open_json_obj (FILE * file);
@@ -41,7 +41,7 @@ t_erreur extract_json_obj (FILE * file, char ** obj);
 /* Lit le contenu d'un objet /
 Utilisation : read_json_obj(obj,cle,valeur,type_de_la_valeur)
 type_de_la_valeur = [d,s,f] */
-t_erreur read_json_obj (char * obj, char * key, void * value, char value_type);
+t_erreur read_json_obj (char * obj, char * key, void * value, char * value_type);
 
 /* Primitives Autres */
 

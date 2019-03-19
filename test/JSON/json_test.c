@@ -8,7 +8,7 @@
 int main(int argc, char **argv, char ** env) {
     printf("-------- Programme de Test du Module JSON --------\n");
 
-    getpwd(argv[0],getenv("PWD"));
+    pwd_init(argv[0],getenv("PWD"));
 
     char * objet;
     char nom[10];
@@ -16,7 +16,7 @@ int main(int argc, char **argv, char ** env) {
 
     /* Création fichier JSON */
     printf("Création de fichier JSON :\n");
-    FILE * file = open_json("test/JSON/", "test", "r+");
+    FILE * file = open_json("test/JSON/", "test", "w+");
     assert(file);
     printf("\t-- OK\n");
 
@@ -27,11 +27,11 @@ int main(int argc, char **argv, char ** env) {
     printf("\t-- OK\n");
 
     printf("Insertion valeur 1 :\n");
-    assert(write_json(file,"nom","jean",'s') == OK);
+    assert(write_json(file,"nom","jean","s") == OK);
     printf("\t-- OK\n");
 
     printf("Insertion valeur 2 :\n");
-    assert(write_json(file,"poids",(void *)&val,'f') == OK);
+    assert(write_json(file,"poids",(void *)&val,"f") == OK);
     printf("\t-- OK\n");
 
     printf("Fermerture objet JSON 1 :\n");
@@ -44,11 +44,11 @@ int main(int argc, char **argv, char ** env) {
     printf("\t-- OK\n");
 
     printf("Insertion valeur 1 :\n");
-    assert(write_json(file,"nom","jean",'s') == OK);
+    assert(write_json(file,"nom","jean","s") == OK);
     printf("\t-- OK\n");
 
     printf("Insertion valeur 2 :\n");
-    assert(write_json(file,"poids",(void *)&val,'f') == OK);
+    assert(write_json(file,"poids",(void *)&val,"f") == OK);
     printf("\t-- OK\n");
 
     printf("Fermerture objet JSON 2 :\n");
@@ -62,9 +62,9 @@ int main(int argc, char **argv, char ** env) {
     printf("\t-- OK\n");
 
     printf("Récupération du contenu :\n");
-    assert(read_json_obj(objet,"nom",nom,'s') == OK);
+    assert(read_json_obj(objet,"nom",nom,"s") == OK);
     printf("\t-- OK\n");
-    assert(read_json_obj(objet,"poids",&val,'f') == OK);
+    assert(read_json_obj(objet,"poids",&val,"f") == OK);
     printf("\t-- OK\n");
 
     printf("Contenu : nom = %s, poids = %.2f\n", nom, val);
@@ -76,6 +76,6 @@ int main(int argc, char **argv, char ** env) {
 
 
     free(objet);
-    free(WOD_PWD);
+    pwd_quit();
     return OK;
 }

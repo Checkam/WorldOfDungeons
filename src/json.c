@@ -88,7 +88,7 @@ t_erreur del_json (char * dossier, char * name)
   ################################################*/
 
 /**
- * \fn t_erreur write_json (FILE * file, char * key, void * value, char value_type)
+ * \fn t_erreur write_json (FILE * file, char * key, void * value, char * value_type)
  * \brief Ecrit une clé/valeur au format JSON dans un fichier.
  * \brief L'écriture s'effectue dans le fichier 'file' en ajout avec pour contenu le couple clé/valeur 'key:value'.
  * \param file Le fichier ou écrire.
@@ -97,26 +97,24 @@ t_erreur del_json (char * dossier, char * name)
  * \param value_type Le type de la valeur à écrire.
  * \return Une erreur s'il y en a une.
 */
-t_erreur write_json (FILE * file, char * key, void * value, char value_type)
+t_erreur write_json (FILE * file, char * key, void * value, char * value_type)
 {
     /* FILE_ERROR */
     if (!file) return FILE_ERROR;
     /* PTR_NULL */
-    if (!key || !value) return PTR_NULL;
+    if (!key || !value || !value_type) return PTR_NULL;
 
     if(crt_car != '{') fprintf(file,",");
 
-    switch (value_type)
-    {
-        /* ENTIER */
-        case 'd': fprintf(file,"\"%s\":%d",key,*(int *)value); break;
-        /* FLOTTANT */
-        case 'f': fprintf(file,"\"%s\":%.2f",key,*(float *)value); break;
-        /* STRING */
-        case 's': fprintf(file,"\"%s\":\"%s\"",key,(char *)value); break;
-        /* TYPE_ERROR */
-        default: return TYPE_ERROR;
-    }
+    /* ENTIER */
+    if (!strcmp(value_type,"d")) fprintf(file,"\"%s\":%d",key,*(int *)value);
+    /* FLOAT */
+    else if (!strcmp(value_type,"f")) fprintf(file,"\"%s\":%.2f",key,*(float *)value);
+    /* STRING */
+    else if (!strcmp(value_type,"s")) fprintf(file,"\"%s\":\"%s\"",key,(char *)value);
+    /* U_INT */
+    else if (!strcmp(value_type,"u")) fprintf(file,"\"%s\":%u",key,*(unsigned int *)value);
+    else return TYPE_ERROR;
 
     crt_car = '#';
 
@@ -196,7 +194,7 @@ t_erreur extract_json_obj (FILE * file, char ** obj)
 }
 
 /**
- * \fn t_erreur read_json_obj (FILE * file, char * key, void * value, char value_type)
+ * \fn t_erreur read_json_obj (FILE * file, char * key, void * value, char * value_type)
  * \brief Lit un objet JSON.
  * \brief La lecture s'effectue dans le fichier 'file' et on va chercher la valeur correspondant à la 'key'.
  * \param file Le fichier à lire.
@@ -205,7 +203,7 @@ t_erreur extract_json_obj (FILE * file, char ** obj)
  * \param value_type Le type de la valeur recherché.
  * \return Une erreur s'il y en a une.
 */
-t_erreur read_json_obj (char * obj, char * key, void * value, char value_type)
+t_erreur read_json_obj (char * obj, char * key, void * value, char * value_type)
 {
     /* PTR_NULL */
     if (!key || !obj) return PTR_NULL;
@@ -227,17 +225,15 @@ t_erreur read_json_obj (char * obj, char * key, void * value, char value_type)
     save_val[j] = '\0';
 
     /* On traite la valeur */
-    switch (value_type)
-    {
-        /* ENTIER */
-        case 'd' : *(int *)value = atoi(save_val); break;
-        /* FLOAT */
-        case 'f' : *(float *)value = atof(save_val); break;
-        /* STRING */
-        case 's' : strncpy((char *)value,save_val+1,sizeof(char) * strlen(save_val)); break;
-        /* TYPE_ERROR */
-        default : return TYPE_ERROR;
-    }
+    /* ENTIER */
+    if (!strcmp(value_type,"d")) *(int *)value = atoi(save_val);
+    /* FLOAT */
+    else if (!strcmp(value_type,"f")) *(float *)value = atof(save_val);
+    /* STRING */
+    else if (!strcmp(value_type,"s")) strncpy((char *)value,save_val+1,sizeof(char) * strlen(save_val));
+    /* U_INT */
+    else if (!strcmp(value_type,"u")) *(unsigned int *)value = atoi(save_val);
+    else return TYPE_ERROR;
 
     return OK;
 }
