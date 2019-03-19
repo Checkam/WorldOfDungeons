@@ -61,7 +61,7 @@ int main(int argc, char **argv, char **env){
 
     aff_tab(tab);
     donjon_detruire(&liste);
-
+    
 
     return EXIT_SUCCESS;
 }

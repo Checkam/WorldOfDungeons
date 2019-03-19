@@ -25,7 +25,7 @@ static int nb_voisin_salle(t_salle_donjon * salle);
 static t_erreur selection_voisin(t_salle_donjon * salle, int * choix);
 static int chercher_salle(t_liste *liste);
 static t_erreur update_voisin(t_liste * liste, int taille_donjon);
-
+t_erreur donjon_creer_structure_salle(t_salle_donjon * salle);
 
 
 /* Primitives de destruction d'un donjon */

@@ -48,7 +48,7 @@ t_erreur donjon_creer(t_liste ** liste, int nb_salle){
     }
 
     /* Création structure salle */
-    t_salle_donjon * salle = NULL;
+    t_salle_donjon * salle;
     for(en_tete(liste); !hors_liste(liste); suivant(liste)){
         valeur_elt(liste, &salle);
         donjon_creer_structure_salle(salle);
@@ -266,7 +266,7 @@ static t_erreur update_voisin(t_liste * liste, int taille_donjon){
 /**
  * 
 */
-donjon_creer_structure_salle(t_salle_donjon * salle){
+t_erreur donjon_creer_structure_salle(t_salle_donjon * salle){
     /* Vérification */
     if(salle == NULL){
         erreur_save(PTR_NULL, "donjon_creer_structure_salle() : Pointeur sur salle NULL");
@@ -281,9 +281,28 @@ donjon_creer_structure_salle(t_salle_donjon * salle){
     int i;
     for(i = 0; i < SIZE; i++){
         tab = malloc(sizeof(t_block) * MAX_SCREEN);
-        int hauteur_min = perlin2d(i, MAX_SCREEN, FREQ, DEPTH) * (MAX_SCREEN / 2);
+        int hauteur;
+
+        if(i == 0 || i == SIZE - 1){
+            hauteur = MAX_SCREEN - 1;
+        }else{
+            hauteur = perlin2d(i, MAX_SCREEN, FREQ, DEPTH) * (MAX_SCREEN / 2);
+        }
         
+        int j;
+        for(j = 0; j < MAX_SCREEN; j++){
+            tab[j].x = j * heightBrick;
+            tab[j].y = i * widthBrick;
+            if(j <= hauteur)
+                tab[j].id = ROCHE;
+            else
+                tab[j].id = AIR;
+        }
+        en_queue(liste);
+        ajout_droit(liste, tab);
     }
+
+    return OK;
 }
 
 /**
