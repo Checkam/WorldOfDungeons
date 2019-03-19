@@ -52,7 +52,6 @@ int main (int argc, char ** argv, char ** env)
         
         Gestion_Entite(renderer,J,ks,coef_fps);
         SDL_RenderPresent(renderer);
-        SDL_Delay(200);
         coef_fps = fps();
     }
 

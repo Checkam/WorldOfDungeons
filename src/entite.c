@@ -259,6 +259,17 @@ t_erreur Quit_Sprite(void)
   return OK;
 }
 
+t_erreur Anim_Update (t_entite * entite, t_action action, int new_time)
+{
+    if (!entite) return PTR_NULL;
+    if (new_time < 0) return VALUE_ERROR;
+
+    int i = Search_Action(entite->texture_action, MARCHE_DROITE);
+    entite->texture_action[i].temps_anim = new_time;
+
+    return OK;
+}
+
 /****** FONCTION GESTION COLLISION ENTITE + GRAVITE ******/
 
 /**
@@ -269,8 +280,12 @@ t_erreur update_posY_entite(t_entite *entite, double coef_fps)
   if (!entite)
     return PTR_NULL;
 
-  entite->velY += entite->accY * coef_fps;
-  entite->hitbox.y += entite->velY;
+  int i;
+  for (i = 0; i < coef_fps; i++)
+  {
+    entite->velY += entite->accY;
+    entite->hitbox.y += entite->velY;
+  }
   if (/*est_au_sol(entite)*/ entite->hitbox.y + entite->hitbox.h > 560)
   {
     entite->velY = 0;
@@ -334,24 +349,24 @@ t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, d
   if (SDL_touche_appuyer(ks, SHIFT))
   {
     entite->accX = VITESSE_DEPLACEMENT * ACCELERATION;
-    int i = Search_Action(entite->texture_action, MARCHE_DROITE);
-    entite->texture_action[i].temps_anim = 25;
-    i = Search_Action(entite->texture_action, MARCHE_GAUCHE);
-    entite->texture_action[i].temps_anim = 25;
+    Anim_Update(entite,MARCHE_DROITE,25);
+    Anim_Update(entite,MARCHE_GAUCHE,25);
+    Anim_Update(entite,MARCHE_DEVANT,25);
+    Anim_Update(entite,MARCHE_DERRIERE,25);
   }
   else
   {
     entite->accX = VITESSE_DEPLACEMENT;
-    int i = Search_Action(entite->texture_action, MARCHE_DROITE);
-    entite->texture_action[i].temps_anim = 100;
-    i = Search_Action(entite->texture_action, MARCHE_GAUCHE);
-    entite->texture_action[i].temps_anim = 100;
+    Anim_Update(entite,MARCHE_DROITE,100);
+    Anim_Update(entite,MARCHE_GAUCHE,100);
+    Anim_Update(entite,MARCHE_DEVANT,100);
+    Anim_Update(entite,MARCHE_DERRIERE,100);
   }
 
   /* Modif pour la touche SAUTER */
   if (!(entite->velY) && /*est_au_sol(entite) &&*/ SDL_touche_appuyer(ks, SAUTER))
   {
-    entite->velY -= HAUTEUR_SAUT * entite->accY * coef_fps;
+    entite->velY -= HAUTEUR_SAUT;
   }
 
   /* Gravité */
