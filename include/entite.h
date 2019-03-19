@@ -121,6 +121,8 @@ SDL_Texture * Create_Sprite (char * lieu, SDL_Renderer * renderer);
 t_erreur Charger_Anima (SDL_Renderer * renderer, t_entite * entite, t_action action);
 /* Recherche l'indice d'une action */
 int Search_Action (t_anim_action * t_a, t_action action);
+/* Modifie le temps d'une animation associée à une action */
+t_erreur Anim_Update (t_entite * entite, t_action action, int new_time);
 
 
 /****** Primitives des fonctions qui gèrent les collisions des entités ainsi que la gravité ******/
