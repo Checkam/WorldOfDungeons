@@ -9,6 +9,7 @@ int main(int argc, char **argv, char **env)
   float ETAL = 2;
   int NB_B = 5, NB = NB_B * ETAL;
   int check = 0;
+
   if (!(NB_B % 2)) check = 1;
   int tab[NB];
   int i;
@@ -22,6 +23,7 @@ int main(int argc, char **argv, char **env)
     //printf("%d ", res - NB_B/2 - 1 + check);
     tab[res]++;
   }
+  
   printf("\n");
   for (i = 0; i < NB; i++)
     printf("%d ", tab[i] * 100 / N);

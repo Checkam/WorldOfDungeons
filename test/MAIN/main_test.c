@@ -28,8 +28,9 @@
 #include <world_of_dungeons.h>
 
 int main(int argc, char *argv[], char **env) {
-  SEED = 898989;
-  int i = 100;
+  srand(time(NULL));
+  SEED = rand() % 256;
+  int i = rand() % 256;
   int taille = 30;
 
   SDL_Init(SDL_INIT_EVERYTHING);
@@ -54,6 +55,12 @@ int main(int argc, char *argv[], char **env) {
   MAP_creer(&map, "World", 12281783);
 
   int boucle = 1;
+  int x_mouse = 0,y_mouse = 0;
+
+  while(taille_liste(map->list)<= SIZE){
+      i++;
+      gen_col(map->list, i, DROITE);
+  }
 
   while (boucle) {
 
@@ -71,10 +78,6 @@ int main(int argc, char *argv[], char **env) {
     } else if (SDL_touche_appuyer(ks, DROITE)) {
       i++;
       gen_col(map->list, i, DROITE);
-      // Récuperation d'un block dans la liste
-      t_block b = MAP_GetBlockFromList(map, 10, 40);
-      // printf("Block id: %d x:%d, y:%d\n", b.id, b.x, b.y);
-
     } else if (SDL_touche_appuyer(ks, GAUCHE)) {
       i--;
       gen_col(map->list, i - SIZE, GAUCHE);
@@ -82,6 +85,13 @@ int main(int argc, char *argv[], char **env) {
       taille++;
     } else if (SDL_touche_appuyer(ks, RECULER)) {
       taille--;
+    } else if(SDL_touche_appuyer(ks, SOURIS_GAUCHE)){
+      SDL_coord_souris(&x_mouse,&y_mouse);
+      // Récuperation d'un block dans la liste
+      t_block b = MAP_GetBlockFromList(map, i- (x_mouse/width_block_sdl) ,(y_mouse/height_block_sdl)+taille);
+
+      printf("Block id: %d x:%d, y:%d x_mouse:%d y_mouse:%d\n", b.id, b.x, b.y,i - (x_mouse/width_block_sdl) ,(y_mouse/height_block_sdl)+taille);
+
     }
 
     SDL_Delay(1);

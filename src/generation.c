@@ -57,7 +57,7 @@ int gen_col(t_liste *list, int x, int dir) {
   init_map(tab);
   biome = BIOME_change_type(x, taille_max);
 
-  STRUCT_generation(x, tab, taille_max); //Génération a revoir
+  //STRUCT_generation(x, tab, taille_max); //Génération a revoir
   t_biome *b = BIOME_rechercheParType(biome);
 
   /* génération eau */
