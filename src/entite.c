@@ -223,8 +223,7 @@ int Search_Action(t_anim_action *t_a, t_action action)
     return -1;
 
   int i;
-  for (i = 0; t_a[i].action != action && t_a[i].action != IMMOBILE; i++)
-    ;
+  for (i = 0; t_a[i].action != action && t_a[i].action != IMMOBILE; i++);
 
   return i;
 }
