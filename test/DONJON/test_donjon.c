@@ -28,8 +28,8 @@ void init_tab(int tab[NB_SALLE * SIZE][NB_SALLE * MAX_SCREEN]){
 
 void aff_tab(int tab[NB_SALLE * SIZE][NB_SALLE * MAX_SCREEN]){
     int i, j;
-    for(i = 0; i < NB_SALLE * SIZE; i++){
-        for(j = 0; j < NB_SALLE * MAX_SCREEN; j++){
+    for(j = 0; i < NB_SALLE * SIZE; i++){
+        for(j = NB_SALLE * MAX_SCREEN - 1; j >= 0; j--){
             if(tab[i][j])
                 printf("#");
             else
@@ -59,10 +59,13 @@ int main(int argc, char **argv, char **env){
     for(en_tete(liste); !hors_liste(liste); suivant(liste)){
         valeur_elt(liste, (void **)&salle);
         for(en_tete(salle->structure); !hors_liste(salle->structure); suivant(salle->structure)){
-            
+            t_block * salle_struct = NULL;
+            valeur_elt(salle->structure, &salle_struct);
+            int j;
+            for(j = 0; j < MAX_SCREEN; j++){
+                tab[salle->y * MAX_SCREEN + salle_struct[j].y][salle->x * SIZE + salle_struct[j].x] = salle_struct[j].id;
+            }
         }
-
-        
     }
 
     aff_tab(tab);
