@@ -6,7 +6,7 @@
  *   \date 13 mars 2019
  **/
 
-#define FREQ 0.01   /* third parameter of perlin2d function */
+#define FREQ 0.008  /* third parameter of perlin2d function */
 #define DEPTH 5     /* fourth parameter of perlin2d function */
 
 
