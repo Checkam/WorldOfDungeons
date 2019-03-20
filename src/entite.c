@@ -259,12 +259,20 @@ t_erreur Quit_Sprite(void)
   return OK;
 }
 
+/**
+ * \fn t_erreur Anim_Update (t_entite * entite, t_action action, int new_time)
+ * \brief Modifie pour une entité le temps d'une animation correspondant à une action.
+ * \param entite L'entité où il faut changer le temps d'animation.
+ * \param action L'action où l'on modifie le temps d'animation.
+ * \param new_time Le nouveau temps d'animation.
+ * \return Une erreur s'il y en a une.
+*/
 t_erreur Anim_Update (t_entite * entite, t_action action, int new_time)
 {
     if (!entite) return PTR_NULL;
     if (new_time < 0) return VALUE_ERROR;
 
-    int i = Search_Action(entite->texture_action, MARCHE_DROITE);
+    int i = Search_Action(entite->texture_action, action);
     entite->texture_action[i].temps_anim = new_time;
 
     return OK;
