@@ -17,11 +17,28 @@
 t_liste biomes;
 
 t_biome_type BIOME_change_type(int x, int y) {
-  if (x % W_BIOME == SEED % W_BIOME) {
-    // Génere un chiffre entre 0 et le nombre de biome qui existe
-    return (t_biome_type)((int)((double)(x % 200) * perlin2d(x, y, FREQ, DEPTH) * (SEED % 50) + 1) % NB_BIOME);
-  }
-  return biome;
+
+
+  // float ETAL = 2;
+  // int NB = NB_BIOME * ETAL;
+  // int check = 0;
+
+  // if (!(NB_BIOME % 2)) check = 1;
+
+  // int res;
+  // res = perlin2d(x,x,FREQ,DEPTH) * NB;
+  // if (res <= NB/2 - NB_BIOME/2) res = NB/2 - NB_BIOME/2;
+  // if (res >= NB/2 + NB_BIOME/2 - check) res = NB/2 + NB_BIOME/2 - check;
+
+  // res = res - NB_BIOME/2 - 1 + check;
+  // return (t_biome_type) res;
+
+  //Génere un chiffre entre 0 et le nombre de biome qui existe
+  // int res = perlin2d(x, x, 0.01, 1) * NB_BIOME;
+  //  return (t_biome_type) res;
+
+    return (t_biome_type)(x / W_BIOME) % NB_BIOME;
+
 }
 
 void BIOME_init() {

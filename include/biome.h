@@ -20,11 +20,11 @@
  * \brief Enumeration de type de biome
 **/
 typedef enum {
-       FORET = 0,
-       PRAIRIES,
-       TAIGA,
-       TOUNDRA,
-       DESERTS
+        TAIGA,
+        TOUNDRA,
+        FORET,
+        DESERTS,
+        PRAIRIES
 } t_biome_type;
 
 
