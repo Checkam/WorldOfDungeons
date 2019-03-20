@@ -286,12 +286,12 @@ t_erreur donjon_creer_structure_salle(t_salle_donjon * salle){
         int hauteur;
 
         /* Génération relief plafond */
-        hauteur = perlin2d(i, salle->x * salle->y, FREQ * 10, DEPTH) * MAX_SCREEN * 1.5;
+        hauteur = perlin2d(i, salle->x * salle->y, FREQ * 20, DEPTH) * (MAX_SCREEN) + (MAX_SCREEN / 4);
         if(hauteur >= MAX_SCREEN - 1)
             hauteur = MAX_SCREEN - 1;
         
         int j;
-        for(j = MAX_SCREEN; j >= 0; j--){
+        for(j = MAX_SCREEN - 1; j >= 0; j--){
             tab[j].x = i;
             tab[j].y = j;
             if(j >= hauteur || i == 0 || i == SIZE - 1 || j == 0)
