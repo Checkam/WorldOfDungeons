@@ -49,8 +49,8 @@ t_erreur donjon_creer(t_liste ** liste, int nb_salle){
 
     /* Création structure salle */
     t_salle_donjon * salle;
-    for(en_tete(liste); !hors_liste(liste); suivant(liste)){
-        valeur_elt(liste, &salle);
+    for(en_tete(*liste); !hors_liste(*liste); suivant(*liste)){
+        valeur_elt(*liste, (void **)&salle);
         donjon_creer_structure_salle(salle);
     }
 
@@ -80,7 +80,7 @@ static t_erreur donjon_ajout_salle(t_liste * liste, int taille_donjon){
     /* On sélectionne une salle */
     int i = chercher_salle(liste);
     t_salle_donjon * tamp;
-    valeur_liste(liste, i, &tamp);
+    valeur_liste(liste, i, (void **)&tamp);
 
     /* On sélectionne une case voisine */
     int choix;
@@ -169,7 +169,7 @@ static t_erreur selection_voisin(t_salle_donjon * salle, int * choix){
         if(salle->voisin[i] == 0){
             int * tamp = malloc(sizeof(int));
             *tamp = i;
-            ajout_droit(liste, tamp);
+            ajout_droit(liste, (void *)tamp);
         }
     }
 
@@ -177,7 +177,7 @@ static t_erreur selection_voisin(t_salle_donjon * salle, int * choix){
     int choix_voisin;
     choix_voisin = rand() % taille_liste(liste);
     int *choix_inter;
-    valeur_liste(liste, choix_voisin, &choix_inter);
+    valeur_liste(liste, choix_voisin, (void **)&choix_inter);
     *choix = *choix_inter;
 
     /* On libère la mémoire */
@@ -203,7 +203,7 @@ static int chercher_salle(t_liste *liste){
     t_salle_donjon * salle;
     int verif = 0;
     while(!verif){
-        valeur_liste(liste, i, &salle);
+        valeur_liste(liste, i, (void **)&salle);
 
         if(nb_voisin_salle(salle) <= 0){
             if(i >= taille_l - 1)
@@ -225,10 +225,10 @@ static t_erreur update_voisin(t_liste * liste, int taille_donjon){
 
     int i;
     for(i = 0; i < taille_liste(liste); i++){
-        valeur_liste(liste, i, &salle_courante);
+        valeur_liste(liste, i, (void **)&salle_courante);
 
         for(en_tete(liste); !hors_liste(liste); suivant(liste)){
-            valeur_elt(liste, &salle_suivante);
+            valeur_elt(liste, (void **)&salle_suivante);
             if(salle_courante != salle_suivante){
                 if(salle_courante->y == salle_suivante->y){
                     if(salle_courante->x - 1 == salle_suivante->x){
@@ -273,27 +273,28 @@ t_erreur donjon_creer_structure_salle(t_salle_donjon * salle){
         return PTR_NULL;
     }
 
-    /**/
+    /* Initialisation structure salle */
     t_liste * liste = malloc(sizeof(t_liste));
+    init_liste(liste);
     salle->structure = liste;
 
+    /* Création structure salle */
     t_block * tab = NULL;
     int i;
     for(i = 0; i < SIZE; i++){
         tab = malloc(sizeof(t_block) * MAX_SCREEN);
         int hauteur;
 
-        if(i == 0 || i == SIZE - 1){
+        /* Génération relief plafond */
+        hauteur = perlin2d(i, salle->x * salle->y, FREQ * 10, DEPTH) * MAX_SCREEN * 1.5;
+        if(hauteur >= MAX_SCREEN - 1)
             hauteur = MAX_SCREEN - 1;
-        }else{
-            hauteur = perlin2d(i, MAX_SCREEN, FREQ, DEPTH) * (MAX_SCREEN / 2);
-        }
         
         int j;
-        for(j = 0; j < MAX_SCREEN; j++){
-            tab[j].x = j * heightBrick;
-            tab[j].y = i * widthBrick;
-            if(j <= hauteur)
+        for(j = MAX_SCREEN; j >= 0; j--){
+            tab[j].x = i;
+            tab[j].y = j;
+            if(j >= hauteur || i == 0 || i == SIZE - 1 || j == 0)
                 tab[j].id = ROCHE;
             else
                 tab[j].id = AIR;
@@ -319,9 +320,11 @@ t_erreur donjon_detruire(t_liste **liste){
     }
 
     /* Destruction donjon */
-    detruire_liste(*liste, donjon_detruire_salle);
+    detruire_liste(*liste, (void *)donjon_detruire_salle);
     free(*liste);
     *liste = NULL;
+
+    return OK;
 }
 
 /**
@@ -329,6 +332,10 @@ t_erreur donjon_detruire(t_liste **liste){
 */
 void donjon_detruire_salle(t_salle_donjon *salle){
     if(salle != NULL){
+        if(salle->structure != NULL){
+            detruire_liste(salle->structure, free);
+            salle->structure = NULL;
+        }
         free(salle);
     }
 }

@@ -12,8 +12,10 @@
 //#include <SDL2/SDL.h>
 #include <commun.h>
 #include <donjon.h>
+#include <affichage.h>
+#include <block.h>
 
-#define NB_SALLE 30
+#define NB_SALLE 10
 
 void init_tab(int tab[NB_SALLE][NB_SALLE]){
     int i, j;
@@ -37,6 +39,23 @@ void aff_tab(int tab[NB_SALLE][NB_SALLE]){
     }
 }
 
+void aff_salle(t_liste * salle){
+    int i;
+    t_block * tab = NULL;
+    for(i = MAX_SCREEN; i >= 0; i--){
+        for(en_tete(salle); !hors_liste(salle); suivant(salle)){
+        
+            valeur_elt(salle, &tab);
+            if(tab[i].id == ROCHE)
+                printf("#");
+            else
+                printf(" ");
+        }
+        printf("\n");
+    }
+    printf("\n\n");
+}
+
 int main(int argc, char **argv, char **env){
 
     if(argc != 2){
@@ -56,10 +75,13 @@ int main(int argc, char **argv, char **env){
     t_salle_donjon * salle;
     for(en_tete(liste); !hors_liste(liste); suivant(liste)){
         valeur_elt(liste, (void **)&salle);
+        //aff_salle(salle->structure);
+        AFF_map_term(salle->structure, 0, 0);
         tab[salle->x][salle->y] = 1;
     }
 
     aff_tab(tab);
+
     donjon_detruire(&liste);
     
 
