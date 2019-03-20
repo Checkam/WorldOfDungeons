@@ -31,6 +31,17 @@ char *STRUCT_GetPath(t_struct_block *struct_block, t_struct_block_type type) {
   return 0;
 }
 
+
+int spawn_for_biome(t_struct_block *struct_block,t_struct_block_type *spawn_biome){
+  int j;
+  for(int i=0, j=0;i < NB_STRUCT_BLOCK;i++){
+    if(struct_block[i].biome == biome){
+      spawn_biome[j++] = struct_block[i].type;
+    } 
+  }
+  return j;
+}
+
 /**
  * \fn void STRUCT_generation(int x, t_block map[MAX], int y)
  * \brief Permet de generer les structures block
@@ -42,17 +53,16 @@ void STRUCT_generation(int x, t_block map[MAX], int y) {
   y++;
   static int struct_spawn = 0;
   static int new_struct = 0;
-  static t_struct_block_type type_spawn;
-  static t_struct_block_type type_can_spawn[NB_STRUCT_BLOCK];
-  int nb_can_spawn = 0;
-  int pourcent = 0;
-  int struct_random = 0;
 
-  t_struct_block struct_block[NB_STRUCT_BLOCK] = {{ARBRE_TAIGA, 7, "structure/arbre_taiga", 30, (biome == TAIGA)},
-                                                  {ARBRE_FORET, 7, "structure/arbre_foret", 80, (biome == FORET)},
-                                                  {GRAND_ARBRE_FORET, 7, "structure/arbre_foret2", 10, (biome == FORET)},
-                                                  {BUISSON, 8, "structure/buisson", 60, (biome == FORET)},
-                                                  {CACTUS, 3, "structure/cactus", 30, (biome == DESERTS)}};
+  static t_struct_block_type spawn_biome[NB_STRUCT_BLOCK];
+  static t_struct_block_type type_spawn;
+
+
+  t_struct_block struct_block[NB_STRUCT_BLOCK] = {{ARBRE_TAIGA, 7, "structure/arbre_taiga", 30, TAIGA},
+                                                  {ARBRE_FORET, 7, "structure/arbre_foret", 80,  FORET},
+                                                  {GRAND_ARBRE_FORET, 7, "structure/arbre_foret2", 10, FORET},
+                                                  {BUISSON, 8, "structure/buisson", 60, FORET},
+                                                  {CACTUS, 3, "structure/cactus", 30, DESERTS}};
 
   if (struct_spawn) { // Permet de prendre la ligne du block a test
     char line[50];
@@ -76,19 +86,17 @@ void STRUCT_generation(int x, t_block map[MAX], int y) {
     new_struct--;
   }
 
-  for (int i = 0; i < NB_STRUCT_BLOCK; i++) {
-    if (nb_can_spawn < NB_STRUCT_BLOCK && !new_struct && struct_block[i].condition && y > HAUTEUR_EAU) {
-      pourcent = ((int)((double)x * perlin2d(x, MAX, FREQ, DEPTH) * 1232321) % 100) + 1;
-      if (pourcent < struct_block[i].pourcent_spawn) {
-        type_can_spawn[nb_can_spawn] = struct_block[i].type;
-        nb_can_spawn++;
-      }
-    }
-  }
-  if (!struct_spawn && !new_struct && nb_can_spawn > 0) {
-    new_struct = (int)((double)x * perlin2d(x, MAX, FREQ, DEPTH) * (double)W_BIOME + 1) % DIST_MAX_STRUCT;
-    struct_random = (int)((double)x * perlin2d(x, MAX, FREQ, DEPTH) * (double)W_BIOME + 1) % nb_can_spawn;
-    type_spawn = type_can_spawn[struct_random];
+  if (!struct_spawn && !new_struct) {
+    
+    new_struct = (int)((double)x * perlin2d(x, x, FREQ, DEPTH) * (double)W_BIOME + 1) % DIST_MAX_STRUCT;
+
+    int nb_biome = spawn_for_biome(struct_block,spawn_biome);
+
+    type_spawn = spawn_biome[((int)((double)x * perlin2d(x, x, FREQ, DEPTH) * (double)W_BIOME + 1) % nb_biome)];
+    
     struct_spawn = STRUCT_GetWidth(struct_block, type_spawn);
   }
 }
+
+
+

@@ -11,6 +11,7 @@
 
 #include <commun.h>
 #include <block.h>
+#include <biome.h>
 
 #define NB_STRUCT_BLOCK 5
 
@@ -29,7 +30,7 @@ typedef struct {
    int largeur;
    char * path;
    int pourcent_spawn;
-   int condition;
+   t_biome_type biome;
 } t_struct_block;
 
 void STRUCT_generation(int x, t_block map[MAX], int y);
