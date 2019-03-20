@@ -193,9 +193,11 @@ t_erreur Charger_Anima(SDL_Renderer *renderer, t_entite *entite, t_action action
     entite->col_act_prec = 0;
 
   /* On met à jour l'animation */
+  SDL_Rect posEnt = entite->hitbox; // Position de l'entité dans la fenêtre.
+  posEnt.x = POS_ENT_SCREEN;
   entite->texture_part.y = (entite->texture_action[i].ligne - 1) * H_PART_SPRITE + DECAL_H_SPRITE;
   entite->texture_part.x = (entite->col_act_prec) * W_PART_SPRITE + DECAL_W_SPRITE;
-  SDL_RenderCopy(renderer, entite->texture, &(entite->texture_part), &(entite->hitbox));
+  SDL_RenderCopy(renderer, entite->texture, &(entite->texture_part), &posEnt);
 
   /* On regarde si l'animation est finie avant de passer à la suivante */
   if (entite->act_pred == action && (SDL_GetTicks() - entite->temp_dep) >= entite->texture_action[i].temps_anim)

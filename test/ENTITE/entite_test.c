@@ -27,12 +27,6 @@ int main (int argc, char ** argv, char ** env)
     /* Création de l'entité */
     t_entite * J = creer_entite_defaut(NULL,JOUEUR,250,height-100);
 
-    /** Création Sol pour test gravité et collision **/
-    SDL_Rect plaque = {0,height-40,width,40};
-    char * chemin; creation_chemin("IMG/texture/pierre.bmp",&chemin);
-    SDL_Texture * tex_pla; Create_IMG_Texture(renderer,chemin,&tex_pla);
-    free(chemin);
-
     fps_init();
     double coef_fps = 1;
     uint8_t *ks;
@@ -43,8 +37,6 @@ int main (int argc, char ** argv, char ** env)
     {
         SDL_RenderClear(renderer);
         SDL_touches( ks, ct);
-
-        SDL_RenderCopy(renderer,tex_pla,NULL,&plaque);
 
         /* Check si on doit quitter le programme */
         if (SDL_touche_appuyer( ks, QUITTER))
