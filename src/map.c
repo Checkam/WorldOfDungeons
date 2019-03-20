@@ -6,11 +6,10 @@
  *   \date 07 mars 2019
  **/
 
-#ifndef __MAP_H__
-#define __MAP_H__
+#include <block.h>
+#include <commun.h>
 #include <erreur.h>
 #include <liste.h>
-#endif
 
 #include <map.h>
 #include <stdio.h>
@@ -194,4 +193,16 @@ t_erreur MAP_detruire_path(char **path_dir) {
   free(*path_dir);
   path_dir = NULL;
   return OK;
+}
+
+t_block MAP_GetBlockFromList(t_map *map, int x, int y) {
+  t_block *tab;
+  t_block b = {10, 10, 10};
+  t_erreur err = valeur_liste(map->list, x, (void **)&tab);
+  if (err == OK) {
+    b = tab[y];
+    return b;
+  } else {
+    return b;
+  }
 }
