@@ -31,6 +31,8 @@
 #define W_PART_SPRITE W_SPRITE/NB_COLONNES_SPRITE
 #define H_PART_SPRITE H_SPRITE/NB_LIGNES_SPRITE
 
+#define POS_ENT_SCREEN 300
+
 /**
  * \enum t_action
  * \brief Les différentes actions possible par l'entité.
