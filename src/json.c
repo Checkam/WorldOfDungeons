@@ -228,13 +228,13 @@ t_erreur read_json_obj (char * obj, char * key, void * value, char * value_type)
     /* ENTIER */
     if (!strcmp(value_type,"d")) *(int *)value = atoi(save_val);
     /* ENTIER 8_T*/
-    if (!strcmp(value_type,"d16")) *(int8_t *)value = atoi(save_val);
+    if (!strcmp(value_type,"d8")) *(int8_t *)value = atoi(save_val);
     /* ENTIER 16_T*/
     if (!strcmp(value_type,"d16")) *(int16_t *)value = atoi(save_val);
     /* ENTIER 32_T*/
-    if (!strcmp(value_type,"d16")) *(int32_t *)value = atoi(save_val);
+    if (!strcmp(value_type,"d32")) *(int32_t *)value = atoi(save_val);
     /* ENTIER 64_T*/
-    if (!strcmp(value_type,"d16")) *(int64_t *)value = atoi(save_val);
+    if (!strcmp(value_type,"d64")) *(int64_t *)value = atoi(save_val);
     /* FLOAT */
     else if (!strcmp(value_type,"f")) *(float *)value = atof(save_val);
     /* STRING */
