@@ -7,6 +7,7 @@
 #include <entite.h>
 #include <touches.h>
 #include <fps.h>
+#include <commun.h>
 
 int main (int argc, char ** argv, char ** env)
 {
@@ -17,15 +18,16 @@ int main (int argc, char ** argv, char ** env)
 
     int width = 1000;
     int height = 600;
-    SDL_Window * pwindow = SDL_CreateWindow("World Of Dungeons", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,width, height, SDL_WINDOW_SHOWN);
-    
+    SDL_Window * pwindow = SDL_CreateWindow("World Of Dungeons", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_SHOWN /*| SDL_WINDOW_FULLSCREEN_DESKTOP*/);
+    SDL_GetWindowSize(pwindow, &width_window, &height_window);
+
     SDL_Renderer * renderer = SDL_CreateRenderer(pwindow,-1,SDL_RENDERER_ACCELERATED);
 
     /* Initialisation des sprites */
     Init_Sprite(renderer);
 
     /* Création de l'entité */
-    t_entite * J = creer_entite_defaut(NULL,JOUEUR,250,height-100);
+    t_entite * J = creer_entite_defaut(NULL,JOUEUR,POS_ENT_SCREEN,height_window/2);
 
     fps_init();
     double coef_fps = 1;
@@ -39,8 +41,11 @@ int main (int argc, char ** argv, char ** env)
         SDL_touches( ks, ct);
 
         /* Check si on doit quitter le programme */
-        if (SDL_touche_appuyer( ks, QUITTER))
+        if (SDL_touche_appuyer( ks, QUITTER) || SDL_touche_appuyer( ks, ESCAPE))
+        {
             continuer = 0;
+            continue;
+        }
         
         Gestion_Entite(renderer,J,ks,coef_fps);
         SDL_RenderPresent(renderer);

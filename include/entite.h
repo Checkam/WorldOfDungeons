@@ -15,6 +15,7 @@
 #include <SDL2/SDL_ttf.h>
 #include <chemin.h>
 #include <erreur.h>
+#include <commun.h>
 
 
 /******** PARTIE SPRITE ********/
@@ -30,8 +31,6 @@
 
 #define W_PART_SPRITE W_SPRITE/NB_COLONNES_SPRITE
 #define H_PART_SPRITE H_SPRITE/NB_LIGNES_SPRITE
-
-#define POS_ENT_SCREEN 300
 
 /**
  * \enum t_action
@@ -65,6 +64,7 @@ typedef struct s_anim_action
 #define HAUTEUR_SAUT 9
 #define VITESSE_DEPLACEMENT 5
 #define ACCELERATION 1.5
+#define POS_ENT_SCREEN (width_window/2 - W_PART_SPRITE + width_block_sdl)
 
 /**
  * \enum t_entite_type
