@@ -178,12 +178,12 @@ t_erreur extract_json_obj (FILE * file, char ** obj)
     if (!obj) return PTR_NULL;
 
     int pas = 15, i = 0;
-    *obj = malloc(sizeof(char) * pas);
     while (crt_car != '{' && fscanf(file,"%c",&crt_car) != EOF);
+    *obj = malloc(sizeof(char) * pas);
     (*obj)[i++] = crt_car;
     for (;crt_car != '}' && fscanf(file,"%c",&crt_car) != EOF; i++)
     {
-        if (!(i%pas)) *obj = realloc(*obj, sizeof(char) * ((i/pas + 1) * pas));
+        if (!(i%pas)) *obj = realloc(*obj, sizeof(char) * ((i/pas + 1) * pas) + 1);
         (*obj)[i] = crt_car;
     }
     (*obj)[i] = '\0';
@@ -227,6 +227,14 @@ t_erreur read_json_obj (char * obj, char * key, void * value, char * value_type)
     /* On traite la valeur */
     /* ENTIER */
     if (!strcmp(value_type,"d")) *(int *)value = atoi(save_val);
+    /* ENTIER 8_T*/
+    if (!strcmp(value_type,"d16")) *(int8_t *)value = atoi(save_val);
+    /* ENTIER 16_T*/
+    if (!strcmp(value_type,"d16")) *(int16_t *)value = atoi(save_val);
+    /* ENTIER 32_T*/
+    if (!strcmp(value_type,"d16")) *(int32_t *)value = atoi(save_val);
+    /* ENTIER 64_T*/
+    if (!strcmp(value_type,"d16")) *(int64_t *)value = atoi(save_val);
     /* FLOAT */
     else if (!strcmp(value_type,"f")) *(float *)value = atof(save_val);
     /* STRING */
