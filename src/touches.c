@@ -2,9 +2,8 @@
 #include <stdio.h>
 
 #include <touches.h>
-static void SDL_touche_default ( configTouches_t **configuration );
+static void SDL_touche_default ( configTouches_t **configuration );	
 
-#include <chemin.h>
 #include <json.h>
 
 #include <SDL2/SDL.h>
@@ -12,20 +11,26 @@ static void SDL_touche_default ( configTouches_t **configuration );
 int SDL_init_touches( uint8_t **keyboardState, configTouches_t **configuration ) {
 	/* permet d'allouer les zone memoire necessaire au bon fonctionnement du module touches */
 
-	uint16_t i;
-	int16_t keyID = -1, value;
+	int i;
+	int16_t keyID = -1;
+	uint32_t value;
 	char descr[LONGUEUR_MAX_DESCRIPTIF];
 	uint8_t continuer = 1;
+
+	/* allocation de la memoire necessaire au fonctionnement du module */
 
 	*keyboardState = malloc( sizeof( short ) * NB_TOUCHES );
 	*configuration = malloc( sizeof( configTouches_t) * NB_TOUCHES);
 
 	for ( i = 0 ; i < NB_TOUCHES ; i++ ) {
 
+		((*configuration) + i)->descriptif = malloc( sizeof(char) * LONGUEUR_MAX_DESCRIPTIF);
 		* ( (*keyboardState) + i ) = RELEASED;
 	}
 
 	FILE *config = open_json("data/data/", "configuration_touches", "r");
+
+	/* si des touches ont deja ete configure sur cette ordianteur alors on les charges */
 
 	if ( config ) {
 
@@ -33,15 +38,17 @@ int SDL_init_touches( uint8_t **keyboardState, configTouches_t **configuration )
 
 		fstart(config);
 
-		extract_json_obj( config, &ligne);
-
 		for ( i = 0 ; i < NB_TOUCHES_REEL && continuer ; i++ ) {
 
-			read_json_obj( ligne, "keyID", &keyID, 'd');
-			read_json_obj( ligne, "value", &value, 'd');
-			read_json_obj( ligne, "descr", &descr, 's');
+			extract_json_obj( config, &ligne);
 
-			if ( keyID == -1 ) {
+			read_json_obj( ligne, "keyID", &keyID, "d");
+			read_json_obj( ligne, "value", &value, "u");	
+			read_json_obj( ligne, "descr", descr, "s");
+
+			free(ligne);
+
+			if ( keyID < 0 || keyID >= NB_TOUCHES_REEL ) { /* evitement d un debordement memoire */
 
 				printf("Erreur : fichier de sauvegarde des touches corrompu ... ");
 				continuer = 0;
@@ -53,7 +60,11 @@ int SDL_init_touches( uint8_t **keyboardState, configTouches_t **configuration )
 				keyID = -1;
 			}
 		}
+
+		fclose(config);
 	}
+
+	/* si les touches n ont pas ete configure sur ce pc ou qu il a ete modifier alors on charge les touches par default */
 
 	if ( !continuer || !config ) {
 
@@ -123,55 +134,93 @@ int SDL_touches( uint8_t *keyboardState, configTouches_t *configuration ) {
 
 uint8_t SDL_touche_appuyer ( uint8_t *keyboardState, uint16_t touche ) {
 	/* renvoie PRESSED si la touche ( short touche ) est appuyé, RELEASED sinon */
-
+	
 	if ( *( keyboardState + touche ) == PRESSED )
 		return PRESSED;
 	return RELEASED;
 }
 
 void SDL_coord_souris ( int32_t *x, int32_t *y ) {
+	/* met les coordonees de la souris dans x et y */
 
 	SDL_GetMouseState( x, y);
 }
 
 int SDL_exit_touches ( uint8_t **keyboardState, configTouches_t **configuration ) {
-/* fermeture propre du module touches pour SDL */
+	/* fermeture propre du module touches pour SDL */
+
+	/*	Sauvegarde des touches utilisateurs */
+
+	int i;
+
+	FILE *sauv = open_json("data/data/", "configuration_touches", "w");
+
+	if ( sauv ) {
+
+		int temp;
+
+		/* ecriture des touches dans un fichier json */
+
+		for ( i = 0 ; i < NB_TOUCHES_REEL ; i++ ) {
+
+			open_json_obj( sauv );
+
+			write_json( sauv, "keyID", &i, "d");
+
+			temp = ( (*configuration) + i )->keyCode;
+
+			write_json( sauv, "value", &temp, "d");
+			write_json( sauv, "descr", ( (*configuration) + i )->descriptif, "s");
+
+			close_json_obj( sauv );
+
+		}
+
+		fclose(sauv);
+
+	} else
+		printf("Erreur : impossible de créer un fichier de sauvegarde pour les touches\n");
+
+	/* liberation de la memoire */
+
+	for ( i = 0 ; i < NB_TOUCHES ; i++ )
+		free(( (*configuration) + i )->descriptif);
 
 	free( *keyboardState );
-	free(*configuration);
+	free( *configuration );
 
 	return 0;
 }
 
 static void SDL_touche_default ( configTouches_t **configuration ) {
 
-	(( (*configuration) + QUITTER )->descriptif) = "quitter";
+	strcpy(( (*configuration) + QUITTER )->descriptif, "quitter");
 	( (*configuration) + QUITTER )->keyCode = NULL_TOUCHE;
 
-	(( (*configuration) + AVANCER )->descriptif) = "avancer";
+	strcpy(( (*configuration) + AVANCER )->descriptif, "avancer");
 	( (*configuration) + AVANCER )->keyCode = SDLK_z;
 
-	(( (*configuration) + RECULER )->descriptif) = "reculer";
+	strcpy(( (*configuration) + RECULER )->descriptif, "reculer");
 	( (*configuration) + RECULER )->keyCode = SDLK_s;
 
-	(( (*configuration) + GAUCHE )->descriptif) = "gauche";
+	strcpy(( (*configuration) + GAUCHE )->descriptif, "gauche");
 	( (*configuration) + GAUCHE )->keyCode = SDLK_q;
 
-	(( (*configuration) + DROITE )->descriptif) = "droite";
+	strcpy(( (*configuration) + DROITE )->descriptif, "droite");
 	( (*configuration) + DROITE )->keyCode = SDLK_d;
 
-	(( (*configuration) + SPACE )->descriptif) = "sauter";
+	strcpy(( (*configuration) + SPACE )->descriptif, "sauter");
 	( (*configuration) + SPACE )->keyCode = SDLK_SPACE;
 
-	(( (*configuration) + SHIFT )->descriptif) = "shift";
+	strcpy(( (*configuration) + SHIFT )->descriptif, "shift");
 	( (*configuration) + SHIFT )->keyCode = SDLK_LSHIFT;
 
-	(( (*configuration) + ESCAPE )->descriptif) = "escape";
+	strcpy(( (*configuration) + ESCAPE )->descriptif, "escape");
 	( (*configuration) + ESCAPE )->keyCode = SDLK_ESCAPE;
 
-	(( (*configuration) + SOURIS_BTN_1 )->descriptif) = "souris_gauche";
+	strcpy(( (*configuration) + SOURIS_BTN_1 )->descriptif, "souris_gauche");
 	( (*configuration) + SOURIS_BTN_1 )->keyCode = SDL_BUTTON_LEFT;
 
-	(( (*configuration) + AVOID_OUTWRITE )->descriptif) = "NULL";
+	strcpy(( (*configuration) + AVOID_OUTWRITE )->descriptif, "NULL");
 	( (*configuration) + AVOID_OUTWRITE )->keyCode = NULL_TOUCHE;
 }

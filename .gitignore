@@ -3,6 +3,10 @@
 # Created by https://www.gitignore.io/api/executable,macos,visualstudio,visualstudiocode
 # Edit at https://www.gitignore.io/?templates=executable,macos,visualstudio,visualstudiocode
 
+# fichier json
+
+data/data/configuration_touches.json
+
 ##Objet 
 *.o
 test/ERREUR/*.o

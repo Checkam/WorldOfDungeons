@@ -41,14 +41,26 @@ typedef struct configTouches_s {
 	char *descriptif;
 } configTouches_t;
 
+/*	initialisation du module touche
+	doit etre apeler une unique fois dans le programme */
 int SDL_init_touches( uint8_t **keybordState, configTouches_t **configuration );
 
+
+/*	recupere l etat du clavier et de la souris
+	doit etre apeler dans une boucle avant les 2 fonctions suivantes*/
 int SDL_touches ( uint8_t *keybordState, configTouches_t *configuration);
+
+/* 	recupere l etat d une touche
+	voir les define ci dessus pour les touches disponible */
 uint8_t SDL_touche_appuyer ( uint8_t *keyboardState, uint16_t touche );
+
+/*	met les coordonees de la souris dans x et y */
 void SDL_coord_souris ( int32_t *x, int32_t *y );
 
+
+/*	doit etre apeler a la fin du programme pour une fermeture propre du module touche */
 int SDL_exit_touches ( uint8_t **keyboardState, configTouches_t **configuration );
 
-static void SDL_touche_default ( configTouches_t **configuration );
+/*static void SDL_touche_default ( configTouches_t **configuration );*/
 
 #endif

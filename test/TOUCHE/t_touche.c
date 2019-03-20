@@ -18,13 +18,9 @@ int main ( int argc, char ** argv ) {
 
     window = SDL_CreateWindow("Appli test", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, SDL_WINDOW_SHOWN);
 
-    printf("initialisation ... ->\n");
-
-    pwd_init(argv[0],getenv("PWD"));
+    pwd_init(argv[0],getenv("PWD")); /* doit etre exectuer AVANT SDL_init_touches */
 
     SDL_init_touches( &ks, &ct); /*doit etre appeler une seul fois pour initialiser le module*/
-
-    printf("boucle ... -->\n");
 
     while ( continuer ) {
 
@@ -66,5 +62,5 @@ int main ( int argc, char ** argv ) {
 
     SDL_DestroyWindow(window);
 
-    pwd_quit();
+    pwd_quit(); /* doit etre execute APRES SDL_exit_touches */
 }
