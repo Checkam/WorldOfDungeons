@@ -27,7 +27,7 @@ int main (int argc, char ** argv, char ** env)
     Init_Sprite(renderer);
 
     /* Création de l'entité */
-    t_entite * J = creer_entite_defaut(NULL,JOUEUR,POS_ENT_SCREEN,height_window/2);
+    t_entite * J = creer_entite_defaut(NULL,JOUEUR,POSX_ENT_SCREEN,height_window/2);
 
     fps_init();
     double coef_fps = 1;
@@ -54,6 +54,7 @@ int main (int argc, char ** argv, char ** env)
 
     SDL_exit_touches( &ks, &ct);
 
+    detruire_entite(J);
     Quit_Sprite();
 
     SDL_DestroyRenderer(renderer);
