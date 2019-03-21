@@ -15,21 +15,21 @@
 #include <affichage.h>
 #include <block.h>
 
-#define NB_SALLE 10
+#define NB_SALLE 20
 
-void init_tab(int tab[NB_SALLE * SIZE][NB_SALLE * MAX_SCREEN]){
+void init_tab(int tab[NB_SALLE * MAX_SCREEN][NB_SALLE * SIZE]){
     int i, j;
-    for(i = 0; i < NB_SALLE * SIZE; i++){
-        for(j = 0; j < NB_SALLE * MAX_SCREEN; j++){
+    for(i = 0; i < NB_SALLE * MAX_SCREEN; i++){
+        for(j = 0; j < NB_SALLE * SIZE; j++){
             tab[i][j] = 0;
         }
     }
 }
 
-void aff_tab(int tab[NB_SALLE * SIZE][NB_SALLE * MAX_SCREEN]){
+void aff_tab(int tab[NB_SALLE * MAX_SCREEN][NB_SALLE * SIZE]){
     int i, j;
-    for(j = 0; i < NB_SALLE * SIZE; i++){
-        for(j = NB_SALLE * MAX_SCREEN - 1; j >= 0; j--){
+    for(i = 0; i < NB_SALLE * MAX_SCREEN; i++){
+        for(j = 0; j < NB_SALLE * SIZE; j++){
             if(tab[i][j])
                 printf("#");
             else
@@ -49,7 +49,7 @@ int main(int argc, char **argv, char **env){
     SEED = atoi(argv[1]);
 
     t_liste *liste;
-    int tab[NB_SALLE * SIZE][NB_SALLE * MAX_SCREEN];
+    int tab[NB_SALLE * MAX_SCREEN][NB_SALLE * SIZE];
 
     donjon_creer(&liste, NB_SALLE);
 
@@ -63,11 +63,11 @@ int main(int argc, char **argv, char **env){
             valeur_elt(salle->structure, &salle_struct);
             int j;
             for(j = 0; j < MAX_SCREEN; j++){
-                tab[salle->y * MAX_SCREEN + salle_struct[j].y][salle->x * SIZE + salle_struct[j].x] = salle_struct[j].id;
+                tab[salle->y * MAX_SCREEN + j][salle->x * SIZE + salle_struct[j].x] = salle_struct[j].id;
             }
         }
     }
-
+    printf("Fait\n");
     aff_tab(tab);
 
     donjon_detruire(&liste);
