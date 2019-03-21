@@ -121,6 +121,9 @@ t_entite *creer_entite(char *name, int mana, int mana_max, int pv, int pv_max, S
   entite->act_pred = IMMOBILE;
   entite->temp_dep = SDL_GetTicks();
   entite->hitbox = hit;
+  entite->posEnt = entite->hitbox;
+  entite->posEnt.x = POSX_ENT_SCREEN;
+  entite->posEnt.y = POSY_ENT_SCREEN;
   entite->accX = VITESSE_DEPLACEMENT;
   entite->accY = 0.5;
   entite->velX = 0;
@@ -193,11 +196,9 @@ t_erreur Charger_Anima(SDL_Renderer *renderer, t_entite *entite, t_action action
     entite->col_act_prec = 0;
 
   /* On met à jour l'animation */
-  SDL_Rect posEnt = entite->hitbox; // Position de l'entité dans la fenêtre.
-  posEnt.x = POS_ENT_SCREEN;
   entite->texture_part.y = (entite->texture_action[i].ligne - 1) * H_PART_SPRITE + DECAL_H_SPRITE;
   entite->texture_part.x = (entite->col_act_prec) * W_PART_SPRITE + DECAL_W_SPRITE;
-  SDL_RenderCopy(renderer, entite->texture, &(entite->texture_part), &posEnt);
+  SDL_RenderCopy(renderer, entite->texture, &(entite->texture_part), &(entite->posEnt));
 
   /* On regarde si l'animation est finie avant de passer à la suivante */
   if (entite->act_pred == action && (SDL_GetTicks() - entite->temp_dep) >= entite->texture_action[i].temps_anim)
@@ -286,6 +287,7 @@ t_erreur Anim_Update (t_entite * entite, t_action action, int new_time)
 */
 t_erreur update_posY_entite(t_entite *entite, double coef_fps)
 {
+  fprintf(stderr,"Vel Y -> %.2f\n", entite->velY);
   if (!entite)
     return PTR_NULL;
 
@@ -293,12 +295,18 @@ t_erreur update_posY_entite(t_entite *entite, double coef_fps)
   for (i = 0; i < coef_fps; i++)
   {
     entite->velY += entite->accY;
-    entite->hitbox.y += entite->velY;
+    int grav = entite->velY;
+    entite->hitbox.y -= grav;
+    entite->posEnt.y += grav;
   }
-  if (/*est_au_sol(entite)*/ entite->hitbox.y + entite->hitbox.h > 560)
+  if (/*est_au_sol(entite)*/ entite->hitbox.y <= POSY_ENT_SCREEN)
   {
     entite->velY = 0;
-    entite->hitbox.y = 560 - entite->hitbox.h;
+    entite->hitbox.y = POSY_ENT_SCREEN;
+  }
+  if (/*!entite->velY && est_au_sol(entite) ||*/ entite->posEnt.y >= POSY_ENT_SCREEN)
+  {
+    entite->posEnt.y = POSY_ENT_SCREEN;
   }
 
   return OK;
@@ -380,6 +388,7 @@ t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, d
 
   /* Gravité */
   update_posY_entite(entite, coef_fps);
+  fprintf(stderr,"posEnt : X->%d, Y->%d / hitBox : X->%d, Y->%d\n", entite->posEnt.x, entite->posEnt.y, entite->hitbox.x, entite->hitbox.y);
 
   return OK;
 }

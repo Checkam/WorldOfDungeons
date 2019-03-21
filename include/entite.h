@@ -64,7 +64,8 @@ typedef struct s_anim_action
 #define HAUTEUR_SAUT 9
 #define VITESSE_DEPLACEMENT 5
 #define ACCELERATION 1.5
-#define POS_ENT_SCREEN (width_window/2 - W_PART_SPRITE + width_block_sdl)
+#define POSX_ENT_SCREEN (width_window/2 - W_PART_SPRITE + width_block_sdl)
+#define POSY_ENT_SCREEN (height_window/2 - H_PART_SPRITE)
 
 /**
  * \enum t_entite_type
@@ -88,6 +89,7 @@ typedef struct s_entite
     int mana, pv, faim; // Mana, PV et Faim courante
     int mana_max, pv_max, faim_max; // Mana, PV et Faim Max
     SDL_Rect hitbox; // Hitbox de l'entité
+    SDL_Rect posEnt; // Position de l'entité sur la fenêtre
     SDL_Texture * texture; // Texture contenant toutes les animations de l'entité
     t_anim_action * texture_action; // Tableau contenant pour chaque action une animation et sa durée
     SDL_Rect texture_part; // Partie de la texture à afficher
