@@ -60,7 +60,7 @@ typedef struct s_anim_action
 
 /******** PARTIE ENTITE ********/
 
-#define COEF_TAILLE_ENTITE 2.5
+#define COEF_TAILLE_ENTITE 1.5
 #define HAUTEUR_SAUT 9
 #define VITESSE_DEPLACEMENT 5
 #define ACCELERATION 1.5
