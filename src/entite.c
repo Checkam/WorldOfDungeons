@@ -287,7 +287,7 @@ t_erreur Anim_Update (t_entite * entite, t_action action, int new_time)
 */
 t_erreur update_posY_entite(t_entite *entite, double coef_fps, int (*collision) (SDL_Rect,t_collision_direction))
 {
-  fprintf(stderr,"Vel Y -> %.2f\n", entite->velY);
+  //fprintf(stderr,"Vel Y -> %.2f\n", entite->velY);
   if (!entite)
     return PTR_NULL;
   
@@ -311,7 +311,7 @@ t_erreur update_posY_entite(t_entite *entite, double coef_fps, int (*collision) 
   {
     entite->velY = 0;
     entite->hitbox.y += diff;
-  }printf("Diff : %d\n", diff);
+  }//printf("Diff : %d\n", diff);
   if ((!entite->velY && diff) || entite->posEnt.y >= POSY_ENT_SCREEN)
   {
     entite->posEnt.y = POSY_ENT_SCREEN;
@@ -394,7 +394,7 @@ t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, d
 
   /* Gravité */
   update_posY_entite(entite, coef_fps,collision);
-  fprintf(stderr,"posEnt : X->%d, Y->%d / hitBox : X->%d, Y->%d\n", entite->posEnt.x, entite->posEnt.y, entite->hitbox.x, entite->hitbox.y);
+  //fprintf(stderr,"posEnt : X->%d, Y->%d / hitBox : X->%d, Y->%d\n", entite->posEnt.x, entite->posEnt.y, entite->hitbox.x, entite->hitbox.y);
 
   return OK;
 }
