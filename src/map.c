@@ -195,18 +195,13 @@ t_erreur MAP_detruire_path(char **path_dir) {
   return OK;
 }
 
-t_block MAP_GetBlockFromList(t_map *map, int x, int y) {
-  t_block *tab;
-  t_block b = {-1, -1, -1};
-  t_erreur err = valeur_liste(map->list, x, (void **)&tab);
-  if (err == OK) {
-    b = tab[y];
-    return b;
-  } else {
-    return b;
+t_block *MAP_GetBlockFromList(t_map *map, int x, int y) {
+  if (y >= 0 && y < MAX) {
+    t_block *tab;
+    t_erreur err = valeur_liste(map->list, x, (void **)&tab);
+    if (err == OK) {
+      return &tab[y];
+    }
   }
+  return NULL;
 }
-
-
-
-

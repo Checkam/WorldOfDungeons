@@ -30,9 +30,9 @@ typedef struct {
    int largeur;
    char * path;
    int pourcent_spawn;
-   t_biome_type biome;
+   int condition;
 } t_struct_block;
 
-void STRUCT_generation(int x, t_block map[MAX], int y);
+void STRUCT_generation(int x, int y, int dir,t_block map[MAX] );
 
 #endif
