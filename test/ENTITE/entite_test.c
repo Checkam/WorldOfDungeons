@@ -8,6 +8,7 @@
 #include <touches.h>
 #include <fps.h>
 #include <commun.h>
+#include "entite_test.h"
 
 int main (int argc, char ** argv, char ** env)
 {
@@ -27,7 +28,20 @@ int main (int argc, char ** argv, char ** env)
     Init_Sprite(renderer);
 
     /* Création de l'entité */
-    t_entite * J = creer_entite_defaut(NULL,JOUEUR,POSX_ENT_SCREEN,height_window/2);
+    t_entite * J = creer_entite_defaut(NULL,JOUEUR,22000,POSY_ENT_SCREEN);
+
+    /******************************************************************************************/
+    SDL_Rect mur_droit = {width_window-200,POSY_ENT_SCREEN+H_PART_SPRITE,200,200};
+    SDL_Rect mur_gauche = {0,POSY_ENT_SCREEN+H_PART_SPRITE,200,200};
+    SDL_Rect mur_haut = {0,0,width_window,100};
+    SDL_Rect mur_bas = {0,POSY_ENT_SCREEN+H_PART_SPRITE*COEF_TAILLE_ENTITE,width_window,height_window - POSY_ENT_SCREEN - H_PART_SPRITE};
+
+    char * chemin;
+    creation_chemin("IMG/texture/pierre.png",&chemin);
+    SDL_Texture *texture;
+    Create_IMG_Texture(renderer, chemin, &texture);
+    free(chemin);
+    /******************************************************************************************/
 
     fps_init();
     double coef_fps = 1;
@@ -46,8 +60,15 @@ int main (int argc, char ** argv, char ** env)
             continuer = 0;
             continue;
         }
+
+        /**********************************************************************************/
+        SDL_RenderCopy(renderer,texture,NULL,&mur_droit);
+        SDL_RenderCopy(renderer,texture,NULL,&mur_haut);
+        SDL_RenderCopy(renderer,texture,NULL,&mur_bas);
+        SDL_RenderCopy(renderer,texture,NULL,&mur_gauche);
+        /**********************************************************************************/
         
-        Gestion_Entite(renderer,J,ks,coef_fps);
+        Gestion_Entite(renderer,J,ks,coef_fps,collision);
         SDL_RenderPresent(renderer);
         coef_fps = fps();
     }
@@ -63,5 +84,19 @@ int main (int argc, char ** argv, char ** env)
     SDL_Quit();
     pwd_quit();
 
+    return 0;
+}
+
+int collision (SDL_Rect hit, t_collision_direction direction)
+{
+    switch (direction)
+    {
+        case DIRECT_BAS_COLLI:
+            if (hit.y < POSY_ENT_SCREEN) return POSY_ENT_SCREEN - hit.y;
+            break;
+    
+        default:
+            break;
+    }
     return 0;
 }

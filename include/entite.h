@@ -130,10 +130,9 @@ t_erreur Anim_Update (t_entite * entite, t_action action, int new_time);
 
 
 /****** Primitives des fonctions qui gèrent les collisions des entités ainsi que la gravité ******/
-t_erreur update_posY_entite(t_entite * entite, double coef_fps);
-int est_au_sol(t_entite * entite, SDL_Rect sol);
+t_erreur update_posY_entite(t_entite * entite, double coef_fps, int (*collision) (SDL_Rect,t_collision_direction));
 
 /* Affiche les animations et modifie l'emplacement du joueur suivant les touches appuyées */
-t_erreur Gestion_Entite (SDL_Renderer * renderer, t_entite * entite, uint8_t * ks, double coef_fps);
+t_erreur Gestion_Entite (SDL_Renderer * renderer, t_entite * entite, uint8_t * ks, double coef_fps, int (*collision) (SDL_Rect,t_collision_direction));
 
 #endif
