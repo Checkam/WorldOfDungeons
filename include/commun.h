@@ -1,3 +1,6 @@
+#ifndef __COMMUN_H__
+#define __COMMUN_H__
+
 int height_window;
 int width_window;
 
@@ -10,3 +13,13 @@ int width_window;
 #define MAX_SCREEN (height_window / height_block_sdl)  /* Heigth of screen */
 
 int SEED;
+
+typedef enum
+{
+    DIRECT_DROITE_COLLI,
+    DIRECT_GAUCHE_COLLI,
+    DIRECT_HAUT_COLLI,
+    DIRECT_BAS_COLLI
+}t_collision_direction;
+
+#endif
