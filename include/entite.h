@@ -16,6 +16,7 @@
 #include <chemin.h>
 #include <erreur.h>
 #include <commun.h>
+#include <liste.h>
 
 
 /******** PARTIE SPRITE ********/
@@ -60,7 +61,6 @@ typedef struct s_anim_action
 
 /******** PARTIE ENTITE ********/
 
-#define COEF_TAILLE_ENTITE 1.5
 #define HAUTEUR_SAUT 9
 #define VITESSE_DEPLACEMENT 5
 #define ACCELERATION 1.5
@@ -104,9 +104,9 @@ typedef struct s_entite
 /****** Primitives des fonctions qui créent et suppriment les entités ******/
 
 /* Crée une entité avec des paramètres par défaut */
-t_entite * creer_entite_defaut (char * name, t_entite_type type, int x_dep, int y_dep);
+t_entite * creer_entite_defaut (char * name, t_entite_type type, int x_dep, int y_dep, int taille);
 /* Crée une entité */
-t_entite * creer_entite (char * name, int mana, int mana_max, int pv, int pv_max, SDL_Texture * texture, t_anim_action * t_a, int x_dep, int y_dep);
+t_entite * creer_entite (char * name, int mana, int mana_max, int pv, int pv_max, SDL_Texture * texture, t_anim_action * t_a, int x_dep, int y_dep, int taille);
 /* Détruit une entité */
 t_erreur detruire_entite (t_entite * entite);
 /* Initialise les textures d'une entité */
@@ -129,10 +129,10 @@ int Search_Action (t_anim_action * t_a, t_action action);
 t_erreur Anim_Update (t_entite * entite, t_action action, int new_time);
 
 
-/****** Primitives des fonctions qui gèrent les collisions des entités ainsi que la gravité ******/
-t_erreur update_posY_entite(t_entite * entite, double coef_fps, int (*collision) (SDL_Rect,t_collision_direction));
+/****** Fonction qui gère les collisions en Y ainsi que la gravité ******/
+t_erreur update_posY_entite(t_entite * entite, double coef_fps, int (*collision) (SDL_Rect,t_collision_direction,t_liste *), t_liste * p);
 
-/* Affiche les animations et modifie l'emplacement du joueur suivant les touches appuyées */
-t_erreur Gestion_Entite (SDL_Renderer * renderer, t_entite * entite, uint8_t * ks, double coef_fps, int (*collision) (SDL_Rect,t_collision_direction));
+/* Affiche les animations et modifie l'emplacement du joueur suivant les touches appuyées et gère les collisions en X */
+t_erreur Gestion_Entite (SDL_Renderer * renderer, t_entite * entite, uint8_t * ks, double coef_fps, int (*collision) (SDL_Rect,t_collision_direction,t_liste *), t_liste * p);
 
 #endif
