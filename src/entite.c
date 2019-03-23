@@ -280,10 +280,16 @@ t_erreur Anim_Update (t_entite * entite, t_action action, int new_time)
     return OK;
 }
 
-/****** FONCTION GESTION COLLISION ENTITE + GRAVITE ******/
+/****** FONCTION GESTION COLLISION ENTITE EN Y + GRAVITE ******/
 
 /**
- *
+ * \fn t_erreur update_posY_entite(t_entite *entite, double coef_fps, int (*collision) (SDL_Rect,t_collision_direction,t_liste *), t_liste * p)
+ * \brief Gère la gravité et les collisions en Y de l'entité.
+ * \param entite L'entité à gérer.
+ * \param coef_fps Coefficient permettant d'adapter l'affichage au nombre de fps.
+ * \param collision Fonction renvoyant la profondeur de la collision pour des coordonnées et une direction donnée.
+ * \param p Liste contenant les paramètres suplémentaires de la fonction collision si il y en a.
+ * \return Une erreur s'il y en a une.
 */
 t_erreur update_posY_entite(t_entite *entite, double coef_fps, int (*collision) (SDL_Rect,t_collision_direction,t_liste *), t_liste * p)
 {
@@ -320,15 +326,18 @@ t_erreur update_posY_entite(t_entite *entite, double coef_fps, int (*collision) 
   return OK;
 }
 
-/************** Focntion qui gère les déplacements et les animations de l'entité **************/
+/************** Focntion qui gère les déplacements et les animations de l'entité ainsi que les collisions en X **************/
 
 /**
- * \fn t_erreur Gestion_Entite (SDL_Renderer * renderer, t_entite * entite, uint8_t * ks)
- * \brief Gère une entité (collision, déplacement, animation).
+ * \fn t_erreur Gestion_Entite (SDL_Renderer * renderer, t_entite * entite, uint8_t * ks, double coef_fps, int (*collision) (SDL_Rect,t_collision_direction,t_liste *), t_liste * p)
+ * \brief Gère une entité (collision en X, déplacement, animation).
  * \brief Gère les animations ainsi que les modifications apportées à l'entité (gravité, collision, déplacement) correspondant aux différents appuis de touches.
  * \param renderer Renderer de la fenêtre.
  * \param entite L'entité à gérer.
  * \param ks Etat du clavier pour la gestion de l'appui des touches.
+ * \param coef_fps Coefficient permettant d'adapter l'affichage au nombre de fps.
+ * \param collision Fonction renvoyant la profondeur de la collision pour des coordonnées et une direction donnée.
+ * \param p Liste contenant les paramètres suplémentaires de la fonction collision si il y en a.
  * \return Une erreur s'il y en a une.
 */
 t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, double coef_fps, int (*collision) (SDL_Rect,t_collision_direction,t_liste *), t_liste * p)
