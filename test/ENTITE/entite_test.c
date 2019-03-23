@@ -41,6 +41,11 @@ int main (int argc, char ** argv, char ** env)
     SDL_Texture *texture;
     Create_IMG_Texture(renderer, chemin, &texture);
     free(chemin);
+
+    t_liste liste;
+    init_liste(&liste);
+    ajout_droit(&liste,&width);
+    ajout_droit(&liste,&height);
     /******************************************************************************************/
 
     fps_init();
@@ -68,7 +73,7 @@ int main (int argc, char ** argv, char ** env)
         SDL_RenderCopy(renderer,texture,NULL,&mur_gauche);
         /**********************************************************************************/
         
-        Gestion_Entite(renderer,J,ks,coef_fps,collision);
+        Gestion_Entite(renderer,J,ks,coef_fps,collision,liste);
         SDL_RenderPresent(renderer);
         coef_fps = fps();
     }
@@ -87,8 +92,15 @@ int main (int argc, char ** argv, char ** env)
     return 0;
 }
 
-int collision (SDL_Rect hit, t_collision_direction direction)
+int collision (SDL_Rect hit, t_collision_direction direction, t_liste * p)
 {
+    if (p)
+    {
+        int * param1, * param2;
+        valeur_liste(p,0,(void **)&param1);
+        valeur_liste(p,1,(void **)&param2);
+        printf("width : %d / height : %d\n",*param1,*param2);
+    }
     switch (direction)
     {
         case DIRECT_BAS_COLLI:

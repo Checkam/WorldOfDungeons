@@ -285,14 +285,14 @@ t_erreur Anim_Update (t_entite * entite, t_action action, int new_time)
 /**
  *
 */
-t_erreur update_posY_entite(t_entite *entite, double coef_fps, int (*collision) (SDL_Rect,t_collision_direction))
+t_erreur update_posY_entite(t_entite *entite, double coef_fps, int (*collision) (SDL_Rect,t_collision_direction,t_liste *), t_liste * p)
 {
   //fprintf(stderr,"Vel Y -> %.2f\n", entite->velY);
   if (!entite)
     return PTR_NULL;
   
   int diff; // Profondeur de la collision
-  diff = collision(entite->hitbox,DIRECT_HAUT_COLLI);
+  diff = collision(entite->hitbox,DIRECT_HAUT_COLLI,p);
   if (diff)
   {
     entite->hitbox.y -= diff;
@@ -307,7 +307,7 @@ t_erreur update_posY_entite(t_entite *entite, double coef_fps, int (*collision) 
     entite->hitbox.y -= grav;
     entite->posEnt.y += grav;
   }
-  if ((diff = collision (entite->hitbox, DIRECT_BAS_COLLI)))
+  if ((diff = collision (entite->hitbox, DIRECT_BAS_COLLI,p)))
   {
     entite->velY = 0;
     entite->hitbox.y += diff;
@@ -331,7 +331,7 @@ t_erreur update_posY_entite(t_entite *entite, double coef_fps, int (*collision) 
  * \param ks Etat du clavier pour la gestion de l'appui des touches.
  * \return Une erreur s'il y en a une.
 */
-t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, double coef_fps, int (*collision) (SDL_Rect,t_collision_direction))
+t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, double coef_fps, int (*collision) (SDL_Rect,t_collision_direction,t_liste *), t_liste * p)
 {
   if (!renderer || !entite || !ks)
     return PTR_NULL;
@@ -352,7 +352,7 @@ t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, d
   else if (SDL_touche_appuyer(ks, DROITE))
   {
     entite->hitbox.x += entite->accX * coef_fps;
-    diff = collision(entite->hitbox, DIRECT_DROITE_COLLI);
+    diff = collision(entite->hitbox, DIRECT_DROITE_COLLI,p);
     if (diff) entite->hitbox.x -= diff;
     Charger_Anima(renderer, entite, MARCHE_DROITE);
   }
@@ -360,7 +360,7 @@ t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, d
   else if (SDL_touche_appuyer(ks, GAUCHE))
   {
     entite->hitbox.x -= entite->accX * coef_fps;
-    diff = collision(entite->hitbox, DIRECT_GAUCHE_COLLI);
+    diff = collision(entite->hitbox, DIRECT_GAUCHE_COLLI,p);
     if (diff) entite->hitbox.x += diff;
     Charger_Anima(renderer, entite, MARCHE_GAUCHE);
   }
@@ -387,13 +387,13 @@ t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, d
   }
 
   /* Modif pour la touche SAUTER */
-  if (!(entite->velY) && !collision(entite->hitbox, DIRECT_BAS_COLLI) && SDL_touche_appuyer(ks, SAUTER))
+  if (!(entite->velY) && !collision(entite->hitbox, DIRECT_BAS_COLLI,p) && SDL_touche_appuyer(ks, SAUTER))
   {
     entite->velY -= HAUTEUR_SAUT;    
   }
 
   /* Gravité */
-  update_posY_entite(entite, coef_fps,collision);
+  update_posY_entite(entite, coef_fps,collision,p);
   //fprintf(stderr,"posEnt : X->%d, Y->%d / hitBox : X->%d, Y->%d\n", entite->posEnt.x, entite->posEnt.y, entite->hitbox.x, entite->hitbox.y);
 
   return OK;
