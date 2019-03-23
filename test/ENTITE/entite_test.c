@@ -28,13 +28,13 @@ int main (int argc, char ** argv, char ** env)
     Init_Sprite(renderer);
 
     /* Création de l'entité */
-    t_entite * J = creer_entite_defaut(NULL,JOUEUR,22000,POSY_ENT_SCREEN);
+    t_entite * J = creer_entite_defaut(NULL,JOUEUR,22000,POSY_ENT_SCREEN,30);
 
     /******************************************************************************************/
     SDL_Rect mur_droit = {width_window-200,POSY_ENT_SCREEN+H_PART_SPRITE,200,200};
     SDL_Rect mur_gauche = {0,POSY_ENT_SCREEN+H_PART_SPRITE,200,200};
     SDL_Rect mur_haut = {0,0,width_window,100};
-    SDL_Rect mur_bas = {0,POSY_ENT_SCREEN+H_PART_SPRITE*COEF_TAILLE_ENTITE,width_window,height_window - POSY_ENT_SCREEN - H_PART_SPRITE};
+    SDL_Rect mur_bas = {0,POSY_ENT_SCREEN+H_PART_SPRITE,width_window,height_window - POSY_ENT_SCREEN - H_PART_SPRITE};
 
     char * chemin;
     creation_chemin("IMG/texture/pierre.png",&chemin);
@@ -73,7 +73,7 @@ int main (int argc, char ** argv, char ** env)
         SDL_RenderCopy(renderer,texture,NULL,&mur_gauche);
         /**********************************************************************************/
         
-        Gestion_Entite(renderer,J,ks,coef_fps,collision,liste);
+        Gestion_Entite(renderer,J,ks,coef_fps,collision,&liste);
         SDL_RenderPresent(renderer);
         coef_fps = fps();
     }

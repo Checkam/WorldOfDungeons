@@ -59,18 +59,19 @@ t_anim_action t_a_boss[NB_LIGNES_SPRITE] = {{MARCHE_DROITE, 12, 9, 100},
  * \param type Le type de l'entité.
  * \param x_dep Coordonnée de départ de l'entité.
  * \param y_dep Coordonnée de départ de l'entité.
+ * \param taille Taille de l'entité en Y.
  * \return Un pointeur sur l'entité créée.
 */
-t_entite *creer_entite_defaut(char *name, t_entite_type type, int x_dep, int y_dep)
+t_entite *creer_entite_defaut(char *name, t_entite_type type, int x_dep, int y_dep, int taille)
 {
   switch (type)
   {
   case JOUEUR:
-    return creer_entite((name) ? name : "PLAYER", 20, 20, 10, 10, Textures_Joueur, t_a_joueur, x_dep, y_dep);
+    return creer_entite((name) ? name : "PLAYER", 20, 20, 10, 10, Textures_Joueur, t_a_joueur, x_dep, y_dep, taille);
   case ZOMBIE:
-    return creer_entite((name) ? name : "ZOMBIE", 0, 0, 10, 10, Textures_Zombie, t_a_zombie, x_dep, y_dep);
+    return creer_entite((name) ? name : "ZOMBIE", 0, 0, 10, 10, Textures_Zombie, t_a_zombie, x_dep, y_dep, taille);
   case BOSS:
-    return creer_entite((name) ? name : "BOSS", 50, 50, 30, 30, Textures_Boss, t_a_boss, x_dep, y_dep);
+    return creer_entite((name) ? name : "BOSS", 50, 50, 30, 30, Textures_Boss, t_a_boss, x_dep, y_dep, taille);
   }
   return NULL;
 }
@@ -87,9 +88,10 @@ t_entite *creer_entite_defaut(char *name, t_entite_type type, int x_dep, int y_d
  * \param t_a Emplacement des textures liées à une action.
  * \param x_dep Coordonnée de départ de l'entité.
  * \param y_dep Coordonnée de départ de l'entité.
+ * \param taille Taille de l'entité en Y.
  * \return Un pointeur sur l'entité créée.
 */
-t_entite *creer_entite(char *name, int mana, int mana_max, int pv, int pv_max, SDL_Texture *texture, t_anim_action *t_a, int x_dep, int y_dep)
+t_entite *creer_entite(char *name, int mana, int mana_max, int pv, int pv_max, SDL_Texture *texture, t_anim_action *t_a, int x_dep, int y_dep, int taille)
 {
   if (!texture || !name || !t_a)
     return NULL;
@@ -103,7 +105,7 @@ t_entite *creer_entite(char *name, int mana, int mana_max, int pv, int pv_max, S
   SDL_Rect sprite_part = {0 + DECAL_W_SPRITE, t_a[0].ligne * H_PART_SPRITE + DECAL_H_SPRITE, W_PART_SPRITE / 2, H_PART_SPRITE / 1.25};
 
   /* Initialisation de la taille de l'entité */
-  SDL_Rect hit = {x_dep - sprite_part.w * COEF_TAILLE_ENTITE, y_dep - sprite_part.h * COEF_TAILLE_ENTITE, sprite_part.w * COEF_TAILLE_ENTITE, sprite_part.h * COEF_TAILLE_ENTITE};
+  SDL_Rect hit = {x_dep, y_dep - taille, taille * sprite_part.w / sprite_part.h, taille};
 
   t_entite *entite = malloc(sizeof(t_entite));
   entite->id = sizeof(*name); // sizeof temporaire
@@ -398,7 +400,7 @@ t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, d
   /* Modif pour la touche SAUTER */
   if (!(entite->velY) && !collision(entite->hitbox, DIRECT_BAS_COLLI,p) && SDL_touche_appuyer(ks, SAUTER))
   {
-    entite->velY -= HAUTEUR_SAUT;    
+    entite->velY -= HAUTEUR_SAUT;
   }
 
   /* Gravité */

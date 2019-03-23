@@ -61,7 +61,6 @@ typedef struct s_anim_action
 
 /******** PARTIE ENTITE ********/
 
-#define COEF_TAILLE_ENTITE 2.5
 #define HAUTEUR_SAUT 9
 #define VITESSE_DEPLACEMENT 5
 #define ACCELERATION 1.5
@@ -105,9 +104,9 @@ typedef struct s_entite
 /****** Primitives des fonctions qui créent et suppriment les entités ******/
 
 /* Crée une entité avec des paramètres par défaut */
-t_entite * creer_entite_defaut (char * name, t_entite_type type, int x_dep, int y_dep);
+t_entite * creer_entite_defaut (char * name, t_entite_type type, int x_dep, int y_dep, int taille);
 /* Crée une entité */
-t_entite * creer_entite (char * name, int mana, int mana_max, int pv, int pv_max, SDL_Texture * texture, t_anim_action * t_a, int x_dep, int y_dep);
+t_entite * creer_entite (char * name, int mana, int mana_max, int pv, int pv_max, SDL_Texture * texture, t_anim_action * t_a, int x_dep, int y_dep, int taille);
 /* Détruit une entité */
 t_erreur detruire_entite (t_entite * entite);
 /* Initialise les textures d'une entité */
