@@ -3,13 +3,14 @@
  * \brief Module de création + de gestion d'un donjon
  * \author Jasmin GALBRUN
  * \version 1
- * \date 18/03/2019
+ * \date 24/03/2019
 */
 
 #include <stdio.h>
 #include <stdlib.h>
-//#include <chemin.h>
-//#include <SDL2/SDL.h>
+#include <chemin.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 #include <commun.h>
 #include <donjon.h>
 #include <affichage.h>
@@ -17,27 +18,6 @@
 
 #define NB_SALLE 20
 
-void init_tab(int tab[NB_SALLE * MAX_SCREEN][NB_SALLE * SIZE]){
-    int i, j;
-    for(i = 0; i < NB_SALLE * MAX_SCREEN; i++){
-        for(j = 0; j < NB_SALLE * SIZE; j++){
-            tab[i][j] = 0;
-        }
-    }
-}
-
-void aff_tab(int tab[NB_SALLE * MAX_SCREEN][NB_SALLE * SIZE]){
-    int i, j;
-    for(i = 0; i < NB_SALLE * MAX_SCREEN; i++){
-        for(j = 0; j < NB_SALLE * SIZE; j++){
-            if(tab[i][j])
-                printf("#");
-            else
-                printf(" ");
-        }
-        printf("\n");
-    }
-}
 
 int main(int argc, char **argv, char **env){
 
@@ -48,30 +28,60 @@ int main(int argc, char **argv, char **env){
 
     SEED = atoi(argv[1]);
 
-    t_liste *liste;
-    int tab[NB_SALLE * MAX_SCREEN][NB_SALLE * SIZE];
+    /* Initialisation */
+    pwd_init(argv[0], getenv("PWD"));
 
-    donjon_creer(&liste, NB_SALLE);
-
-    init_tab(tab);
-
-    t_salle_donjon * salle;
-    for(en_tete(liste); !hors_liste(liste); suivant(liste)){
-        valeur_elt(liste, (void **)&salle);
-        for(en_tete(salle->structure); !hors_liste(salle->structure); suivant(salle->structure)){
-            t_block * salle_struct = NULL;
-            valeur_elt(salle->structure, &salle_struct);
-            int j;
-            for(j = 0; j < MAX_SCREEN; j++){
-                tab[salle->y * MAX_SCREEN + j][salle->x * SIZE + salle_struct[j].x] = salle_struct[j].id;
-            }
-        }
+    if(SDL_Init(SDL_INIT_EVERYTHING) == -1){
+        printf("%s\n", SDL_GetError());
+        return EXIT_FAILURE;
     }
-    printf("Fait\n");
-    aff_tab(tab);
 
-    donjon_detruire(&liste);
+    if(IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG | IMG_INIT_TIF | IMG_INIT_WEBP) == -1){
+        printf("%s\n", IMG_GetError());
+        return EXIT_FAILURE;
+    }
+
+    SDL_Window *screen = SDL_CreateWindow("World Of Dungeons", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,width_window, height_window, SDL_WINDOW_SHOWN);
+    if(screen == NULL){
+        printf("%s\n", SDL_GetError());
+        return EXIT_FAILURE;
+    }
+
+    SDL_Renderer *renderer = SDL_CreateRenderer(screen, -1, SDL_RENDERER_ACCELERATED);
+    if(renderer == NULL){
+        printf("%s\n", SDL_GetError());
+        return EXIT_FAILURE;
+    }
+
+    /* Test de création, affichage + destruction du donjon */
+
+    /* Création Donjon */
+    t_liste *donjon = NULL;
+    donjon_creer(&donjon, NB_SALLE);
+
+    SDL_Rect pos_perso = {
+        9 * width_window,
+        10 * height_window + 7 * heightBrick,
+        12,
+        12
+    };
+   
+    /* Affichage Donjon */
+    SDL_RenderClear(renderer);
+
+    donjon_afficher_SDL(renderer, donjon, pos_perso);
+    donjon_afficher_Term(donjon, pos_perso);
     
+    SDL_RenderPresent(renderer);
+    SDL_Delay(2000);
+    
+    /* Destruction Donjon */
+    donjon_detruire(&donjon);
+    pwd_quit();
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(screen);
+    IMG_Quit();
+    SDL_Quit();
 
     return EXIT_SUCCESS;
 }
