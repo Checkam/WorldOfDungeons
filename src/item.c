@@ -33,6 +33,11 @@ uint8_t init_item() {
     return 0;
 }
 
+uint8_t block_to_item ( t_materiaux materiaux ) {
+
+    
+}
+
 void exit_item() {
 
     free( ( tabItemDrop + HERBE )->drop);
