@@ -17,16 +17,16 @@
  * \brief Contient les différents types de menus possibles
 */
 typedef enum e_type_menu {
-    PRINCIPAL,
-    SOLO,
-    MULTIJOUEUR,
-    OPTION,
-    PAUSE,
+    MENU_PRINCIPAL,
+    MENU_SOLO,
+    MENU_MULTIJOUEUR,
+    MENU_OPTION,
+    MENU_PAUSE,
     NOUVEAU_MENU,
     MENU_NULL,
-    NOUVELLE_PARTIE,
-    CHARGER_PARTIE,
-    QUITTER
+    MENU_NOUVELLE_PARTIE,
+    MENU_CHARGER_PARTIE,
+    MENU_QUITTER
 } t_type_menu;
 
 /**
