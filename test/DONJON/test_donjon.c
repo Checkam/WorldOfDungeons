@@ -61,7 +61,7 @@ int main(int argc, char **argv, char **env){
 
     SDL_Rect pos_perso = {
         9 * width_window,
-        10 * height_window + 7 * heightBrick,
+        10 * height_window + 7 * height_block_sdl,
         12,
         12
     };

@@ -344,13 +344,13 @@ static t_erreur tab_fenetre(t_liste * donjon, SDL_Rect pos_perso, t_materiaux ta
     }
     
     /* Calcule coord extreme fenetre/donjon */
-    int x_salle_min = (pos_perso.x / widthBrick) - (SIZE / 2);
+    int x_salle_min = (pos_perso.x / width_block_sdl) - (SIZE / 2);
     int x_donjon_min = x_salle_min / SIZE;
-    int x_salle_max = (pos_perso.x / widthBrick) + (SIZE / 2);
+    int x_salle_max = (pos_perso.x / width_block_sdl) + (SIZE / 2);
     int x_donjon_max = x_salle_max / SIZE;
-    int y_salle_min = (pos_perso.y / heightBrick) - (MAX_SCREEN / 2);
+    int y_salle_min = (pos_perso.y / height_block_sdl) - (MAX_SCREEN / 2);
     int y_donjon_min = y_salle_min / MAX_SCREEN;
-    int y_salle_max = (pos_perso.y / heightBrick) + (MAX_SCREEN / 2);
+    int y_salle_max = (pos_perso.y / height_block_sdl) + (MAX_SCREEN / 2);
     int y_donjon_max = y_salle_max / MAX_SCREEN;
     
     /* On ajoute les blocks à la map */
@@ -445,10 +445,10 @@ t_erreur donjon_afficher_SDL(SDL_Renderer * renderer, t_liste * donjon, SDL_Rect
                 Create_IMG_Texture(renderer, chemin_img, &texture_img);
                 
                 SDL_Rect r = {
-                    j * widthBrick,
-                    i * heightBrick,
-                    widthBrick,
-                    heightBrick
+                    j * width_block_sdl,
+                    i * height_block_sdl,
+                    width_block_sdl,
+                    height_block_sdl
                 };
 
                 SDL_RenderCopy(renderer, texture_img, NULL, &r);

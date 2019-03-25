@@ -34,8 +34,8 @@ typedef struct s_type_titre{
 
 #define NB_TITRE 2
 t_type_titre tab_menu_titre[NB_TITRE] = {
-    {PRINCIPAL, "World Of Dungeons"},
-    {SOLO, "Solo"}
+    {MENU_PRINCIPAL, "World Of Dungeons"},
+    {MENU_SOLO, "Solo"}
 };
 
 /**
@@ -167,21 +167,21 @@ t_erreur menu_creer(t_type_menu type, int width, int height, t_menu ** menu){
     if(type == MENU_PRINCIPAL){
         (*menu)->tab_bouton = malloc(sizeof(t_bouton_menu));
 
-        menu_ajout_bouton(*menu, btn, "Solo", SOLO);
+        menu_ajout_bouton(*menu, btn, "Solo", MENU_SOLO);
         btn.y += btn.h + 20;
-        menu_ajout_bouton(*menu, btn, "Multijoueur", PRINCIPAL);
+        menu_ajout_bouton(*menu, btn, "Multijoueur", MENU_PRINCIPAL);
         btn.y += btn.h + 20;
-        menu_ajout_bouton(*menu, btn, "Option", PRINCIPAL);
+        menu_ajout_bouton(*menu, btn, "Option", MENU_PRINCIPAL);
         btn.y += btn.h + 20;
-        menu_ajout_bouton(*menu, btn, "Quitter", QUITTER);
+        menu_ajout_bouton(*menu, btn, "Quitter", MENU_QUITTER);
     }else if(type == MENU_SOLO){
         (*menu)->tab_bouton = malloc(sizeof(t_bouton_menu));
 
-        menu_ajout_bouton(*menu, btn, "Nouvelle partie", NOUVELLE_PARTIE);
+        menu_ajout_bouton(*menu, btn, "Nouvelle partie", MENU_NOUVELLE_PARTIE);
         btn.y += btn.h + 20;
-        menu_ajout_bouton(*menu, btn, "charger une partie", CHARGER_PARTIE);
+        menu_ajout_bouton(*menu, btn, "charger une partie", MENU_CHARGER_PARTIE);
         btn.y += btn.h + 20;
-        menu_ajout_bouton(*menu, btn, "Retour", PRINCIPAL);
+        menu_ajout_bouton(*menu, btn, "Retour", MENU_PRINCIPAL);
     }else if(type == NOUVEAU_MENU){
         (*menu)->tab_bouton = NULL;
     }else{
