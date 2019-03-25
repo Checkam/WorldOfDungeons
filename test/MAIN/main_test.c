@@ -31,27 +31,6 @@
 #include <touches.h>
 #include <world_of_dungeons.h>
 
-int collision(SDL_Rect hit, t_collision_direction direction, t_liste *p) {
-  if (p) {
-    int *a, *b;
-    t_liste *l;
-    valeur_liste(p, 0, (void **)&a);
-    valeur_liste(p, 1, (void **)&l);
-    valeur_liste(l, 0, (void **)&b);
-    printf("a = %d : b = %d\n", *a, *b);
-  }
-  switch (direction) {
-  case DIRECT_BAS_COLLI:
-    if (hit.y < POSY_ENT_SCREEN)
-      return POSY_ENT_SCREEN - hit.y;
-    break;
-
-  default:
-    break;
-  }
-  return 0;
-}
-
 void GAME_init(SDL_Renderer *renderer, uint8_t **ks, configTouches_t **ct) {}
 
 int main(int argc, char *argv[], char **env) {
@@ -64,14 +43,6 @@ int main(int argc, char *argv[], char **env) {
   t_map *map = NULL;
   uint8_t *ks;
   configTouches_t *ct;
-
-  t_liste l1, l2;
-  init_liste(&l1);
-  init_liste(&l2);
-  int a = 5, b = 6;
-  ajout_droit(&l1, &a);
-  ajout_droit(&l1, &l2);
-  ajout_droit(&l2, &b);
 
   MAP_creer(&map, "World", 12281783);
 
@@ -115,7 +86,6 @@ int main(int argc, char *argv[], char **env) {
     i++;
     gen_col(map->list, i, DROITE);
   }
-  taille = AFF_GetMidHeight(map->list) - 10;
 
   //----------------------------------------------------------------------------------------------------------------
   // Menu Début de jeux
@@ -124,7 +94,8 @@ int main(int argc, char *argv[], char **env) {
   menu_creer(MENU_PRINCIPAL, width_window, height_window, &menu);
   t_type_menu type_bouton;
 
-  t_entite *J = creer_entite_defaut(NULL, JOUEUR, (i * width_block_sdl), POSY_ENT_SCREEN, 60);
+  //taille = AFF_GetMidHeight(map->list) - 10;
+  t_entite *J = creer_entite_defaut(NULL, JOUEUR, (i * width_block_sdl), 60 * height_block_sdl, 60);
 
   while (menu) {
     SDL_RenderClear(renderer);
@@ -148,13 +119,12 @@ int main(int argc, char *argv[], char **env) {
 
     // printf("x: %d hitbox.x: %d %d %d \n", i, (J->hitbox.x / width_block_sdl), (J->hitbox.x / width_block_sdl) + (SIZE / 2),
     //        (J->hitbox.x / width_block_sdl) - (SIZE / 2));
-
-    taille = AFF_GetMidHeight(map->list);
-
+    //fprintf(stderr,"X : %d / Y : %d\n", J->hitbox.x / width_block_sdl, J->hitbox.y / height_block_sdl);
+    taille = AFF_GetMidHeight(map->list) - 10;
     SDL_RenderCopy(renderer, fond, NULL, &fondRect);
 
-    AFF_map_sdl(map->list, renderer, taille - (height_window / height_block_sdl / 2));
-    Gestion_Entite(renderer, J, ks, coef_fps, collision, &l1);
+    AFF_map_sdl(map->list, renderer, J->hitbox.y / height_block_sdl / 2);
+    Gestion_Entite(renderer, J, ks, coef_fps, map->list);
     SDL_RenderPresent(renderer);
 
     SDL_touches(ks, ct);

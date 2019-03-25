@@ -10,7 +10,7 @@
 
 #include <erreur.h>
 #include <liste.h>
-#endif
+#include <block.h>
 
 #define PATH_MAP_DIR "data/map/"
 
@@ -37,3 +37,5 @@ char * MAP_creer_path(char * nom_map);
 t_erreur MAP_detruire_path(char ** path_dir);
 
 t_block *MAP_GetBlockFromList(t_map *map, int x, int y);
+
+#endif

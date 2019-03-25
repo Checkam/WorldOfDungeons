@@ -75,7 +75,7 @@ int main(int argc, char **argv, char **env) {
     SDL_RenderCopy(renderer, texture, NULL, &mur_gauche);
     /**********************************************************************************/
 
-    Gestion_Entite(renderer, J, ks, coef_fps, collision, &l1);
+    Gestion_Entite(renderer, J, ks, coef_fps, &l1);
     SDL_RenderPresent(renderer);
     coef_fps = fps();
   }
@@ -91,26 +91,5 @@ int main(int argc, char **argv, char **env) {
   SDL_Quit();
   pwd_quit();
 
-  return 0;
-}
-
-int collision(SDL_Rect hit, t_collision_direction direction, t_liste *p) {
-  if (p) {
-    int *a, *b;
-    t_liste *l;
-    valeur_liste(p, 0, (void **)&a);
-    valeur_liste(p, 1, (void **)&l);
-    valeur_liste(l, 0, (void **)&b);
-    printf("a = %d : b = %d\n", *a, *b);
-  }
-  switch (direction) {
-  case DIRECT_BAS_COLLI:
-    if (hit.y < POSY_ENT_SCREEN)
-      return POSY_ENT_SCREEN - hit.y;
-    break;
-
-  default:
-    break;
-  }
   return 0;
 }
