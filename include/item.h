@@ -2,7 +2,6 @@
 #define __ITEM_H__
 
 #include <block.h>
-#include <liste.h>
 #include <stdint.h>
 
 typedef enum {
