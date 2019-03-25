@@ -31,53 +31,82 @@
 #include <touches.h>
 #include <world_of_dungeons.h>
 
-int collision(SDL_Rect hit, t_collision_direction direction) {
+int collision(SDL_Rect hit, t_collision_direction direction, t_liste *p) {
+  if (p) {
+    int *a, *b;
+    t_liste *l;
+    valeur_liste(p, 0, (void **)&a);
+    valeur_liste(p, 1, (void **)&l);
+    valeur_liste(l, 0, (void **)&b);
+    printf("a = %d : b = %d\n", *a, *b);
+  }
   switch (direction) {
   case DIRECT_BAS_COLLI:
-    if (hit.y < 0)
-      return 0 - hit.y;
+    if (hit.y < POSY_ENT_SCREEN)
+      return POSY_ENT_SCREEN - hit.y;
     break;
 
   default:
     break;
   }
-  return 1;
+  return 0;
 }
 
+void GAME_init(SDL_Renderer *renderer, uint8_t **ks, configTouches_t **ct) {}
+
 int main(int argc, char *argv[], char **env) {
+  pwd_init(argv[0], getenv("PWD"));
   srand(time(NULL));
   SEED = rand() % 256;
   int i = rand() % 256;
   int taille = 30;
   t_menu *menu = NULL;
+  t_map *map = NULL;
+  uint8_t *ks;
+  configTouches_t *ct;
 
-  SDL_Init(SDL_INIT_EVERYTHING);
-  IMG_Init(IMG_INIT_PNG);
+  t_liste l1, l2;
+  init_liste(&l1);
+  init_liste(&l2);
+  int a = 5, b = 6;
+  ajout_droit(&l1, &a);
+  ajout_droit(&l1, &l2);
+  ajout_droit(&l2, &b);
+
+  MAP_creer(&map, "World", 12281783);
+
+  if (SDL_Init(SDL_INIT_EVERYTHING) == -1) {
+    printf("%s\n", SDL_GetError());
+    return EXIT_FAILURE;
+  }
+
+  if (TTF_Init() == -1) {
+    printf("%s\n", TTF_GetError());
+    return EXIT_FAILURE;
+  }
+
+  if (IMG_Init(IMG_INIT_PNG) == -1) {
+    printf("%s\n", TTF_GetError());
+    return EXIT_FAILURE;
+  }
+
   SDL_Window *screen = SDL_CreateWindow("World Of Dungeons", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width_window, height_window,
                                         SDL_WINDOW_SHOWN | SDL_WINDOW_FULLSCREEN_DESKTOP);
   SDL_GetWindowSize(screen, &width_window, &height_window);
   SDL_Rect fondRect = {0, 0, width_window, height_window};
   SDL_Renderer *renderer = SDL_CreateRenderer(screen, -1, SDL_RENDERER_ACCELERATED);
+
   SDL_Texture *fond;
   Create_IMG_Texture(renderer, "./IMG/texture/fond.bmp", &fond);
-  BLOCK_CreateTexture_sdl(renderer);
-
-  uint8_t *ks;
-  configTouches_t *ct;
-
-  pwd_init(argv[0], getenv("PWD"));
-  SDL_init_touches(&ks, &ct);
-  menu_init(renderer);
-  TTF_Init();
-
   BIOME_init();
-
   Init_Sprite(renderer);
+  BLOCK_CreateTexture_sdl(renderer);
+  menu_init(renderer);
   fps_init();
-  double coef_fps = 1;
+  SDL_init_touches(&ks, &ct);
+  // GAME_init(renderer, &ks, &ct);
 
-  t_map *map = NULL;
-  MAP_creer(&map, "World", 12281783);
+  double coef_fps = 1;
 
   int boucle = 1;
   int x_mouse = 0, y_mouse = 0;
@@ -92,17 +121,19 @@ int main(int argc, char *argv[], char **env) {
   // Menu Début de jeux
   //----------------------------------------------------------------------------------------------------------------
 
-  menu_creer(PRINCIPAL, width_window, height_window, &menu);
+  menu_creer(MENU_PRINCIPAL, width_window, height_window, &menu);
   t_type_menu type_bouton;
-  SDL_Event event;
 
-  t_entite *J = creer_entite_defaut(NULL, JOUEUR, (i * width_block_sdl), POSY_ENT_SCREEN);
+  t_entite *J = creer_entite_defaut(NULL, JOUEUR, (i * width_block_sdl), POSY_ENT_SCREEN, 60);
 
   while (menu) {
     SDL_RenderClear(renderer);
-    SDL_PollEvent(&event);
-    menu_gestion_SDL(menu, event.button.state, &type_bouton);
-    if (type_bouton != MENU_NULL) {
+    SDL_touches(ks, ct);
+    menu_gestion_SDL(menu, SDL_touche_appuyer(ks, SOURIS_GAUCHE), &type_bouton);
+    if (type_bouton == MENU_QUITTER) {
+      boucle = 0;
+      menu_suivant(&menu, type_bouton);
+    } else if (type_bouton != MENU_NULL) {
       menu_suivant(&menu, type_bouton);
     }
     menu_afficher_SDL(menu, renderer);
@@ -123,12 +154,26 @@ int main(int argc, char *argv[], char **env) {
     SDL_RenderCopy(renderer, fond, NULL, &fondRect);
 
     AFF_map_sdl(map->list, renderer, taille - (height_window / height_block_sdl / 2));
-    Gestion_Entite(renderer, J, ks, coef_fps, collision);
+    Gestion_Entite(renderer, J, ks, coef_fps, collision, &l1);
     SDL_RenderPresent(renderer);
 
     SDL_touches(ks, ct);
+
     if (SDL_touche_appuyer(ks, QUITTER) || SDL_touche_appuyer(ks, ESCAPE)) {
-      boucle = 0;
+      menu_creer(MENU_PRINCIPAL, width_window, height_window, &menu);
+      while (menu) {
+
+        SDL_RenderClear(renderer);
+        menu_gestion_SDL(menu, SDL_touche_appuyer(ks, SOURIS_GAUCHE), &type_bouton);
+        if (type_bouton == MENU_QUITTER) {
+          boucle = 0;
+          menu_suivant(&menu, type_bouton);
+        } else if (type_bouton != MENU_NULL) {
+          menu_suivant(&menu, type_bouton);
+        }
+        menu_afficher_SDL(menu, renderer);
+        SDL_RenderPresent(renderer);
+      }
     }
 
     if (i + 1 == (J->hitbox.x / width_block_sdl)) {

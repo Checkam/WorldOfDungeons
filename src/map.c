@@ -11,6 +11,7 @@
 #include <erreur.h>
 #include <liste.h>
 
+#include <json.h>
 #include <map.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -38,9 +39,7 @@ t_erreur MAP_creer(t_map **map, char *nom_map, int SEED) {
   (*map)->SEED = SEED;
 
   MAP_creer_dir(*map);
-
   MAP_sauvegarder(*map);
-
   (*map)->list = malloc(sizeof(t_liste));
   init_liste((*map)->list);
 
@@ -56,33 +55,50 @@ t_erreur MAP_creer(t_map **map, char *nom_map, int SEED) {
 t_erreur MAP_charger(t_map **map, char *nom_map) {
   char *path_dir = MAP_creer_path(nom_map);
   int size = 500;
+
   char *dir_curr = malloc(sizeof(char) * size + 1);
   getcwd(dir_curr, size);
+
   if (chdir(path_dir))
     return FILE_ERROR; // DIR_NO_FOUND
+
   chdir(dir_curr);
   free(dir_curr);
-  MAP_detruire_path(&path_dir); // Gestion des erreurs a faire
 
   (*map) = malloc(sizeof(t_map));
   (*map)->nom = malloc(sizeof(char) * strlen(nom_map) + 1);
   strcpy((*map)->nom, nom_map);
 
   // Charger le seed avec fct json
-  (*map)->SEED = 1111111;
+  FILE *data = open_json(path_dir, "data", "r");
+  char *objet;
+
+  fstart(data);
+  extract_json_obj(data, &objet);
+  read_json_obj(objet, "SEED", &(*map)->SEED, "d");
+
+  fclose(data);
+  free(objet);
+
   //Charger map a partir d'un fichier
   (*map)->list = malloc(sizeof(t_liste));
   init_liste((*map)->list);
+
+  MAP_detruire_path(&path_dir); // Gestion des erreurs a faire
   return OK;
 }
 
 /**
-    \fn t_erreur MAP_sauvegarder(t_map * map)
-    \brief Sauvegarde la map dans l'état actuel
+    \fn t_erreur MAP_lister()
+    \brief Liste toute les map
     \param map Pointeur sur la map qui doit etre sauvegarder
     \return Renvoie un code erreur en cas de problème sinon OK
 **/
-t_erreur MAP_lister() { return OK; }
+t_erreur MAP_lister() {
+  ;
+  ;
+  return OK;
+}
 
 /**
     \fn t_erreur MAP_sauvegarder(t_map * map)
@@ -96,8 +112,12 @@ t_erreur MAP_sauvegarder(t_map *map) {
 
   char *path_dir = MAP_creer_path(map->nom);
 
-  // A finir avec le systeme de JSON est de path pas encore disponible
-  // Sauvegarde de ou est le joueurs pour preload la map a afficher
+  FILE *data = open_json(path_dir, "data", "w");
+  open_json_obj(data);
+
+  erreur_afficher(write_json(data, "SEED", (void *)&(map->SEED), "d"), "write");
+  close_json_obj(data);
+  fclose(data);
 
   MAP_detruire_path(&path_dir); // Gestion des erreurs a faire
 
@@ -177,6 +197,7 @@ char *MAP_creer_path(char *nom_map) {
   char *path_dir = malloc(sizeof(char) * strlen(nom_map) + sizeof(char) * 500); //Utilise PWD pour éviter de malloc 500 sizeof char
   strcpy(path_dir, PATH_MAP_DIR);
   strcat(path_dir, nom_map);
+  strcat(path_dir, "/");
   return path_dir;
 }
 

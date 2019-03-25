@@ -37,7 +37,7 @@ char *STRUCT_GetPath(t_struct_block *struct_block, t_struct_block_type type) {
   return 0;
 }
 
-int STRUCT_CanSpawn(int x, int i) {}
+int STRUCT_CanSpawn(int x, int i) { return 0; }
 
 /**
  * \fn void STRUCT_generation(int x, t_block map[MAX], int y)
