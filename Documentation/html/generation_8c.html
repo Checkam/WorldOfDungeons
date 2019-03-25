@@ -64,8 +64,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Fonctions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Fonctions</a>  </div>
   <div class="headertitle">
 <div class="title">Référence du fichier generation.c</div>  </div>
 </div><!--header-->
@@ -73,21 +72,21 @@ $(function() {
 
 <p>Fonction de génération procédural grace a Perlin Noise.  
 <a href="#details">Plus de détails...</a></p>
-<div class="textblock"><code>#include &lt;<a class="el" href="block_8h_source.html">block.h</a>&gt;</code><br />
+<div class="textblock"><code>#include &lt;<a class="el" href="biome_8h_source.html">biome.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="block_8h_source.html">block.h</a>&gt;</code><br />
 <code>#include &lt;commun.h&gt;</code><br />
 <code>#include &lt;couleurs.h&gt;</code><br />
 <code>#include &lt;<a class="el" href="generation_8h_source.html">generation.h</a>&gt;</code><br />
 <code>#include &lt;math.h&gt;</code><br />
-<code>#include &lt;perlin.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="perlin_8h_source.html">perlin.h</a>&gt;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="structure__block_8h_source.html">structure_block.h</a>&gt;</code><br />
+<code>#include &lt;touches.h&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:aed703b29f59fd7c998f13c1874729d18"><td class="memItemLeft" align="right" valign="top"><a id="aed703b29f59fd7c998f13c1874729d18"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>changeBiome</b> (int x, int y)</td></tr>
-<tr class="separator:aed703b29f59fd7c998f13c1874729d18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad2416efebb977a75ac71f7e90e41601"><td class="memItemLeft" align="right" valign="top"><a id="aad2416efebb977a75ac71f7e90e41601"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="generation_8c.html#aad2416efebb977a75ac71f7e90e41601">init_map</a> (<a class="el" href="structblock__s.html">t_block</a> *map)</td></tr>
 <tr class="memdesc:aad2416efebb977a75ac71f7e90e41601"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise un tableau de block. <br /></td></tr>
@@ -98,19 +97,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>initTab</b> (int tab[
 <tr class="memitem:aec31c8debb40e6f6010c92b9339e07eb"><td class="memItemLeft" align="right" valign="top"><a id="aec31c8debb40e6f6010c92b9339e07eb"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>PreviewHeight</b> (int x, int P_Height[], int nb)</td></tr>
 <tr class="separator:aec31c8debb40e6f6010c92b9339e07eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54c9cd55a94b14a9263247587b7ca221"><td class="memItemLeft" align="right" valign="top"><a id="a54c9cd55a94b14a9263247587b7ca221"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>createTree</b> (int x, int map[MAX], int y)</td></tr>
-<tr class="separator:a54c9cd55a94b14a9263247587b7ca221"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b453ad188ec7c0ed8977c968084dac7"><td class="memItemLeft" align="right" valign="top"><a id="a1b453ad188ec7c0ed8977c968084dac7"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="generation_8c.html#a1b453ad188ec7c0ed8977c968084dac7">gen_col</a> (<a class="el" href="structblock__s.html">t_block</a> **tab, int x)</td></tr>
-<tr class="memdesc:a1b453ad188ec7c0ed8977c968084dac7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Génere une colone de block. <br /></td></tr>
-<tr class="separator:a1b453ad188ec7c0ed8977c968084dac7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a10d80a59134610b641f4cac8c8ff32e8"><td class="memItemLeft" align="right" valign="top"><a id="a10d80a59134610b641f4cac8c8ff32e8"></a>
-biome_t&#160;</td><td class="memItemRight" valign="bottom"><b>biome</b></td></tr>
-<tr class="separator:a10d80a59134610b641f4cac8c8ff32e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb0c35e623fdf89aae50eb2c9dc3032a"><td class="memItemLeft" align="right" valign="top"><a id="adb0c35e623fdf89aae50eb2c9dc3032a"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>gen_col</b> (<a class="el" href="structt__liste.html">t_liste</a> *list, int x, int dir)</td></tr>
+<tr class="separator:adb0c35e623fdf89aae50eb2c9dc3032a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Fonction de génération procédural grace a Perlin Noise. </p>

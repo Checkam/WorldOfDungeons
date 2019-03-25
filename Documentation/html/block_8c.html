@@ -73,7 +73,10 @@ $(function() {
 
 <p>Fonction sur les blocks.  
 <a href="#details">Plus de détails...</a></p>
-<div class="textblock"><code>#include &lt;<a class="el" href="block_8h_source.html">block.h</a>&gt;</code><br />
+<div class="textblock"><code>#include &lt;SDL2/SDL.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="block_8h_source.html">block.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="erreur_8h_source.html">erreur.h</a>&gt;</code><br />
+<code>#include &lt;outils_SDL.h&gt;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 </div><table class="memberdecls">
@@ -82,9 +85,15 @@ Fonctions</h2></td></tr>
 <tr class="memitem:aee81cee5a3a132e9769b9520c3e2f415"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="block_8c.html#aee81cee5a3a132e9769b9520c3e2f415">BLOCK_GetTexture_term</a> (int id)</td></tr>
 <tr class="memdesc:aee81cee5a3a132e9769b9520c3e2f415"><td class="mdescLeft">&#160;</td><td class="mdescRight">Chercher la texture d'un block par rapport a son id et renvoie la texture terminal de ce block.  <a href="#aee81cee5a3a132e9769b9520c3e2f415">Plus de détails...</a><br /></td></tr>
 <tr class="separator:aee81cee5a3a132e9769b9520c3e2f415"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeff28c7cf29db22f5dd1fd9112258b91"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="block_8c.html#aeff28c7cf29db22f5dd1fd9112258b91">BLOCK_GetTexture_sdl</a> (int id)</td></tr>
-<tr class="memdesc:aeff28c7cf29db22f5dd1fd9112258b91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Chercher la texture d'un block par rapport a son id et renvoie la texture terminal de ce block.  <a href="#aeff28c7cf29db22f5dd1fd9112258b91">Plus de détails...</a><br /></td></tr>
-<tr class="separator:aeff28c7cf29db22f5dd1fd9112258b91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfc4c7532ca8f494ffa3e70e5aa3bb3e"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="block_8c.html#abfc4c7532ca8f494ffa3e70e5aa3bb3e">BLOCK_GetTexture_sdl</a> (int id)</td></tr>
+<tr class="memdesc:abfc4c7532ca8f494ffa3e70e5aa3bb3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Chercher la texture d'un block par rapport a son id et renvoie la texture terminal de ce block.  <a href="#abfc4c7532ca8f494ffa3e70e5aa3bb3e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:abfc4c7532ca8f494ffa3e70e5aa3bb3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c5ac45fcd31e6d01cffd148111d54e9"><td class="memItemLeft" align="right" valign="top"><a id="a3c5ac45fcd31e6d01cffd148111d54e9"></a>
+t_erreur&#160;</td><td class="memItemRight" valign="bottom"><b>BLOCK_CreateTexture_sdl</b> (SDL_Renderer *renderer)</td></tr>
+<tr class="separator:a3c5ac45fcd31e6d01cffd148111d54e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c8b13797355fd4296b6ef7cb71d0862"><td class="memItemLeft" align="right" valign="top"><a id="a0c8b13797355fd4296b6ef7cb71d0862"></a>
+t_erreur&#160;</td><td class="memItemRight" valign="bottom"><b>BLOCK_DestroyTexture_sdl</b> (SDL_Renderer *renderer)</td></tr>
+<tr class="separator:a0c8b13797355fd4296b6ef7cb71d0862"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -98,14 +107,14 @@ Variables</h2></td></tr>
 <dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>10 mars 2019 </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
-<a id="aeff28c7cf29db22f5dd1fd9112258b91"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeff28c7cf29db22f5dd1fd9112258b91">&#9670;&nbsp;</a></span>BLOCK_GetTexture_sdl()</h2>
+<a id="abfc4c7532ca8f494ffa3e70e5aa3bb3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfc4c7532ca8f494ffa3e70e5aa3bb3e">&#9670;&nbsp;</a></span>BLOCK_GetTexture_sdl()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char * BLOCK_GetTexture_sdl </td>
+          <td class="memname">SDL_Texture * BLOCK_GetTexture_sdl </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>id</em></td><td>)</td>
@@ -121,7 +130,7 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Renvoie</dt><dd>la texture (une char * pour le terminal) </dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Renvoie la texture SDL2 </dd></dl>
 
 </div>
 </div>
@@ -164,7 +173,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Valeur initiale :</b><div class="fragment"><div class="line">= {{AIR, <span class="stringliteral">&quot;air&quot;</span>, 0, NULL, NOIR},</div><div class="line">                                 {HERBE, <span class="stringliteral">&quot;herbe&quot;</span>, 5, <span class="stringliteral">&quot;./IMG/texture/herbe.bmp&quot;</span>, VERT},</div><div class="line">                                 {TERRE, <span class="stringliteral">&quot;terre&quot;</span>, 10, <span class="stringliteral">&quot;./IMG/texture/terre.bmp&quot;</span>, MARRON},</div><div class="line">                                 {EAU, <span class="stringliteral">&quot;eau&quot;</span>, 0, <span class="stringliteral">&quot;./IMG/texture/eau.bmp&quot;</span>, BLEU},</div><div class="line">                                 {SABLE, <span class="stringliteral">&quot;sable&quot;</span>, 5, <span class="stringliteral">&quot;./IMG/texture/terre.bmp&quot;</span>, JAUNE},</div><div class="line">                                 {FEUILLE, <span class="stringliteral">&quot;feuille&quot;</span>, 3, <span class="stringliteral">&quot;./IMG/texture/feuille.bmp&quot;</span>, VERT},</div><div class="line">                                 {BOIS, <span class="stringliteral">&quot;bois&quot;</span>, 15, <span class="stringliteral">&quot;./IMG/texture/tronc.bmp&quot;</span>, MARRON},</div><div class="line">                                 {ROCHE, <span class="stringliteral">&quot;roche&quot;</span>, 50, <span class="stringliteral">&quot;./IMG/texture/pierre.bmp&quot;</span>, GRIS},</div><div class="line">                                 {NEIGE, <span class="stringliteral">&quot;neige&quot;</span>, 3, <span class="stringliteral">&quot;./IMG/texture/neige.bmp&quot;</span>, BLANC},</div><div class="line">                                 {GLACE, <span class="stringliteral">&quot;glace&quot;</span>, 10, <span class="stringliteral">&quot;./IMG/texture/neige.bmp&quot;</span>, CYAN}}</div></div><!-- fragment -->
+<b>Valeur initiale :</b><div class="fragment"><div class="line">= {{AIR, <span class="stringliteral">&quot;air&quot;</span>, 0, NULL, NOIR, NULL},</div><div class="line">                                 {HERBE, <span class="stringliteral">&quot;herbe&quot;</span>, 5, <span class="stringliteral">&quot;./IMG/texture/herbe.png&quot;</span>, VERT, NULL},</div><div class="line">                                 {TERRE, <span class="stringliteral">&quot;terre&quot;</span>, 10, <span class="stringliteral">&quot;./IMG/texture/terre.png&quot;</span>, MARRON, NULL},</div><div class="line">                                 {EAU, <span class="stringliteral">&quot;eau&quot;</span>, 0, <span class="stringliteral">&quot;./IMG/texture/eau.png&quot;</span>, BLEU, NULL},</div><div class="line">                                 {SABLE, <span class="stringliteral">&quot;sable&quot;</span>, 5, <span class="stringliteral">&quot;./IMG/texture/sable.png&quot;</span>, JAUNE, NULL},</div><div class="line">                                 {FEUILLE, <span class="stringliteral">&quot;feuille&quot;</span>, 3, <span class="stringliteral">&quot;./IMG/texture/feuille.png&quot;</span>, VERT, NULL},</div><div class="line">                                 {BOIS, <span class="stringliteral">&quot;bois&quot;</span>, 15, <span class="stringliteral">&quot;./IMG/texture/tronc.png&quot;</span>, MARRON, NULL},</div><div class="line">                                 {ROCHE, <span class="stringliteral">&quot;roche&quot;</span>, 50, <span class="stringliteral">&quot;./IMG/texture/pierre.png&quot;</span>, GRIS, NULL},</div><div class="line">                                 {NEIGE, <span class="stringliteral">&quot;neige&quot;</span>, 3, <span class="stringliteral">&quot;./IMG/texture/neige.png&quot;</span>, BLANC, NULL},</div><div class="line">                                 {GLACE, <span class="stringliteral">&quot;glace&quot;</span>, 10, <span class="stringliteral">&quot;./IMG/texture/glace.png&quot;</span>, CYAN, NULL},</div><div class="line">                                 {GRAVIER, <span class="stringliteral">&quot;gravier&quot;</span>, 20, <span class="stringliteral">&quot;./IMG/texture/gravier.png&quot;</span>, GRIS, NULL}}</div></div><!-- fragment -->
 <p>tableau de tous les blocks </p>
 
 </div>

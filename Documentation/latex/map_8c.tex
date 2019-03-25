@@ -5,6 +5,8 @@
 Module permettant de géré une map (Création,Suppression)  
 
 
+{\ttfamily \#include $<$block.\+h$>$}\newline
+{\ttfamily \#include $<$commun.\+h$>$}\newline
 {\ttfamily \#include $<$erreur.\+h$>$}\newline
 {\ttfamily \#include $<$liste.\+h$>$}\newline
 {\ttfamily \#include $<$map.\+h$>$}\newline
@@ -38,7 +40,10 @@ t\+\_\+erreur {\bfseries M\+A\+P\+\_\+detruction} (\hyperlink{structt__map}{t\+\
 char $\ast$ {\bfseries M\+A\+P\+\_\+creer\+\_\+path} (char $\ast$nom\+\_\+map)
 \item 
 t\+\_\+erreur \hyperlink{map_8c_a68ce824f54aa0ce572d085d56f533a98}{M\+A\+P\+\_\+detruire\+\_\+path} (char $\ast$$\ast$path\+\_\+dir)
-\begin{DoxyCompactList}\small\item\em Libère la mémoire dynamique alloué pour le path. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Libère la mémoire dynamique alloué pour le path. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{map_8c_a2c2ed98ad423d0862946f907e8750443}\label{map_8c_a2c2ed98ad423d0862946f907e8750443}} 
+\hyperlink{structblock__s}{t\+\_\+block} $\ast$ {\bfseries M\+A\+P\+\_\+\+Get\+Block\+From\+List} (\hyperlink{structt__map}{t\+\_\+map} $\ast$map, int x, int y)
+\end{DoxyCompactItemize}
 
 
 \subsection{Description détaillée}

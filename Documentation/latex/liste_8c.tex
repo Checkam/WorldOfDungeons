@@ -26,9 +26,8 @@ void \hyperlink{liste_8c_ac95aadbae271f7e76ca486b6187dd8dd}{suivant} (\hyperlink
 \begin{DoxyCompactList}\small\item\em Passe à l\textquotesingle{}élèment suivant s\textquotesingle{}il existe. \end{DoxyCompactList}\item 
 void \hyperlink{liste_8c_a580b4a7d8c45590284303c3d1103a3e3}{precedent} (\hyperlink{structt__liste}{t\+\_\+liste} $\ast$p)
 \begin{DoxyCompactList}\small\item\em Passe à l\textquotesingle{}élèment précédent s\textquotesingle{}il existe. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{liste_8c_a4eaf58887e3dd578a2699aefc5963fe4}\label{liste_8c_a4eaf58887e3dd578a2699aefc5963fe4}} 
-t\+\_\+erreur {\bfseries valeur\+\_\+elt} (\hyperlink{structt__liste}{t\+\_\+liste} $\ast$p, void $\ast$$\ast$v)
-\item 
+t\+\_\+erreur \hyperlink{liste_8c_a4eaf58887e3dd578a2699aefc5963fe4}{valeur\+\_\+elt} (\hyperlink{structt__liste}{t\+\_\+liste} $\ast$p, void $\ast$$\ast$v)
+\begin{DoxyCompactList}\small\item\em Récupère la valeur de l\textquotesingle{}élèment courant. \end{DoxyCompactList}\item 
 t\+\_\+erreur \hyperlink{liste_8c_a88c83322ecd7db55a1df405689f5d70f}{modif\+\_\+elt} (\hyperlink{structt__liste}{t\+\_\+liste} $\ast$p, void $\ast$v)
 \begin{DoxyCompactList}\small\item\em Modifie la valeur de l\textquotesingle{}élèment courant. \end{DoxyCompactList}\item 
 t\+\_\+erreur \hyperlink{liste_8c_ad613f3378b165515b6f7a4cbe45265a0}{oter\+\_\+elt} (\hyperlink{structt__liste}{t\+\_\+liste} $\ast$p, void($\ast$effacer)(void $\ast$))
@@ -39,6 +38,10 @@ t\+\_\+erreur \hyperlink{liste_8c_a627993b6dd4c2f5e3f7b5a5a4172d557}{ajout\+\_\+
 \begin{DoxyCompactList}\small\item\em Ajoute à gauche de l\textquotesingle{}élèment courant la nouvelle valeur. \end{DoxyCompactList}\item 
 int \hyperlink{liste_8c_a591fc3936d195adcc3fb62f521dcd2ed}{taille\+\_\+liste} (\hyperlink{structt__liste}{t\+\_\+liste} $\ast$p)
 \begin{DoxyCompactList}\small\item\em Calcule la taille de la liste. \end{DoxyCompactList}\item 
+t\+\_\+erreur \hyperlink{liste_8c_aa916cb05c931c653d8b3710101bc8a43}{valeur\+\_\+liste} (\hyperlink{structt__liste}{t\+\_\+liste} $\ast$p, int ind, void $\ast$$\ast$v)
+\begin{DoxyCompactList}\small\item\em Récupère la valeur de l\textquotesingle{}élèment à l\textquotesingle{}indice donné. \end{DoxyCompactList}\item 
+int \hyperlink{liste_8c_a9e669fc1f28bcd95680489fda37859bd}{recherche\+\_\+liste} (\hyperlink{structt__liste}{t\+\_\+liste} $\ast$p, void $\ast$v, int($\ast$comparer)(void $\ast$, void $\ast$))
+\begin{DoxyCompactList}\small\item\em Recherche si une valeur est présente dans la liste. \end{DoxyCompactList}\item 
 void \hyperlink{liste_8c_a4be7faf10eecc64ca729578b1b8cdbb4}{detruire\+\_\+liste} (\hyperlink{structt__liste}{t\+\_\+liste} $\ast$p, void($\ast$effacer)(void $\ast$))
 \begin{DoxyCompactList}\small\item\em Détruit la liste. \end{DoxyCompactList}\item 
 char $\ast$ \hyperlink{liste_8c_af83977b343e1ab3ea0da557d6c4cbc5e}{copie} (char $\ast$cible, char $\ast$source, int n)
@@ -284,6 +287,28 @@ Passe à l\textquotesingle{}élèment précédent s\textquotesingle{}il existe.
 {\em p} & La liste où se trouve l\textquotesingle{}élèment courant à modifier. \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{liste_8c_a9e669fc1f28bcd95680489fda37859bd}\label{liste_8c_a9e669fc1f28bcd95680489fda37859bd}} 
+\index{liste.\+c@{liste.\+c}!recherche\+\_\+liste@{recherche\+\_\+liste}}
+\index{recherche\+\_\+liste@{recherche\+\_\+liste}!liste.\+c@{liste.\+c}}
+\subsubsection{\texorpdfstring{recherche\+\_\+liste()}{recherche\_liste()}}
+{\footnotesize\ttfamily int recherche\+\_\+liste (\begin{DoxyParamCaption}\item[{\hyperlink{structt__liste}{t\+\_\+liste} $\ast$}]{p,  }\item[{void $\ast$}]{v,  }\item[{int($\ast$)(void $\ast$, void $\ast$)}]{comparer }\end{DoxyParamCaption})}
+
+
+
+Recherche si une valeur est présente dans la liste. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em p} & La liste où chercher la valeur. \\
+\hline
+{\em v} & La valeur à rechercher. \\
+\hline
+{\em comparer} & Fonction de comparaison de deux valeurs. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+V\+R\+AI si valeur trouvée, F\+A\+UX sinon. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{liste_8c_ac95aadbae271f7e76ca486b6187dd8dd}\label{liste_8c_ac95aadbae271f7e76ca486b6187dd8dd}} 
 \index{liste.\+c@{liste.\+c}!suivant@{suivant}}
 \index{suivant@{suivant}!liste.\+c@{liste.\+c}}
@@ -316,4 +341,46 @@ Calcule la taille de la liste.
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
 La taille de la liste. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{liste_8c_a4eaf58887e3dd578a2699aefc5963fe4}\label{liste_8c_a4eaf58887e3dd578a2699aefc5963fe4}} 
+\index{liste.\+c@{liste.\+c}!valeur\+\_\+elt@{valeur\+\_\+elt}}
+\index{valeur\+\_\+elt@{valeur\+\_\+elt}!liste.\+c@{liste.\+c}}
+\subsubsection{\texorpdfstring{valeur\+\_\+elt()}{valeur\_elt()}}
+{\footnotesize\ttfamily t\+\_\+erreur valeur\+\_\+elt (\begin{DoxyParamCaption}\item[{\hyperlink{structt__liste}{t\+\_\+liste} $\ast$}]{p,  }\item[{void $\ast$$\ast$}]{v }\end{DoxyParamCaption})}
+
+
+
+Récupère la valeur de l\textquotesingle{}élèment courant. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em p} & La liste où se trouve l\textquotesingle{}élèment courant. \\
+\hline
+{\em v} & L\textquotesingle{}endroit ou sauvegarder la valeur de l\textquotesingle{}élèment courant. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Une erreur s\textquotesingle{}il y en a une. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{liste_8c_aa916cb05c931c653d8b3710101bc8a43}\label{liste_8c_aa916cb05c931c653d8b3710101bc8a43}} 
+\index{liste.\+c@{liste.\+c}!valeur\+\_\+liste@{valeur\+\_\+liste}}
+\index{valeur\+\_\+liste@{valeur\+\_\+liste}!liste.\+c@{liste.\+c}}
+\subsubsection{\texorpdfstring{valeur\+\_\+liste()}{valeur\_liste()}}
+{\footnotesize\ttfamily t\+\_\+erreur valeur\+\_\+liste (\begin{DoxyParamCaption}\item[{\hyperlink{structt__liste}{t\+\_\+liste} $\ast$}]{p,  }\item[{int}]{ind,  }\item[{void $\ast$$\ast$}]{v }\end{DoxyParamCaption})}
+
+
+
+Récupère la valeur de l\textquotesingle{}élèment à l\textquotesingle{}indice donné. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em p} & La liste où se trouve l\textquotesingle{}élèment courant. \\
+\hline
+{\em ind} & L\textquotesingle{}indice de la valeur à récupérer. \\
+\hline
+{\em v} & L\textquotesingle{}endroit ou sauvegarder la valeur de l\textquotesingle{}élèment. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Une erreur s\textquotesingle{}il y en a une. 
 \end{DoxyReturn}

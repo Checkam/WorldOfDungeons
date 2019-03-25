@@ -9,18 +9,6 @@ Module de generation de la map.
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{generation_8h_a1dafe13753403714f3e91ede9b49f57c}\label{generation_8h_a1dafe13753403714f3e91ede9b49f57c}} 
-\#define {\bfseries W\+\_\+\+B\+I\+O\+ME}~200
-\item 
-\mbox{\Hypertarget{generation_8h_acc6672ace24bb39a3093661ea72b75a4}\label{generation_8h_acc6672ace24bb39a3093661ea72b75a4}} 
-\#define {\bfseries N\+B\+\_\+\+B\+I\+O\+ME}~5
-\item 
-\mbox{\Hypertarget{generation_8h_a1b04ec1cde4d3032f558ed8ad05930a4}\label{generation_8h_a1b04ec1cde4d3032f558ed8ad05930a4}} 
-\#define {\bfseries F\+R\+EQ}~0.\+01   /$\ast$ third parameter of perlin2d function $\ast$/
-\item 
-\mbox{\Hypertarget{generation_8h_a50267d552ca6f788254032e40046b770}\label{generation_8h_a50267d552ca6f788254032e40046b770}} 
-\#define {\bfseries D\+E\+P\+TH}~5     /$\ast$ fourth parameter of perlin2d function $\ast$/
-\item 
 \mbox{\Hypertarget{generation_8h_ae82f8498c679a1cb688813d52397eed9}\label{generation_8h_ae82f8498c679a1cb688813d52397eed9}} 
 \#define {\bfseries H\+A\+U\+T\+E\+U\+R\+\_\+\+S\+U\+R\+F\+A\+CE}~4
 \item 
@@ -35,41 +23,13 @@ Module de generation de la map.
 \item 
 \mbox{\Hypertarget{generation_8h_a84ef257dd5f4f0c4fccea513783d609d}\label{generation_8h_a84ef257dd5f4f0c4fccea513783d609d}} 
 \#define {\bfseries H\+A\+U\+T\+E\+U\+R\+\_\+\+E\+AU}~M\+AX / 2.\+5
-\item 
-\mbox{\Hypertarget{generation_8h_a7f5e9d11d8cfbb8d59be39028d12999c}\label{generation_8h_a7f5e9d11d8cfbb8d59be39028d12999c}} 
-\#define {\bfseries H\+A\+U\+T\+E\+U\+R\+\_\+\+A\+R\+B\+RE}~5
-\item 
-\mbox{\Hypertarget{generation_8h_ad2367bc1a4c3db39723ed16b57737459}\label{generation_8h_ad2367bc1a4c3db39723ed16b57737459}} 
-\#define {\bfseries F\+R\+E\+Q\+\_\+\+A\+R\+B\+RE}~H\+A\+U\+T\+E\+U\+R\+\_\+\+A\+R\+B\+RE -\/ 3
-\item 
-\mbox{\Hypertarget{generation_8h_a2848413ecf02e70d061c135c2a0c86a9}\label{generation_8h_a2848413ecf02e70d061c135c2a0c86a9}} 
-\#define {\bfseries H\+\_\+\+M\+I\+N\+\_\+\+G\+E\+N\+\_\+\+A\+R\+B\+RE}~H\+A\+U\+T\+E\+U\+R\+\_\+\+E\+AU + 10
-\item 
-\mbox{\Hypertarget{generation_8h_ab778c167835ff0396216273bd741b038}\label{generation_8h_ab778c167835ff0396216273bd741b038}} 
-\#define {\bfseries H\+\_\+\+M\+A\+X\+\_\+\+G\+E\+N\+\_\+\+A\+R\+B\+RE}~100
-\item 
-\mbox{\Hypertarget{generation_8h_a2243664481a860b30e959c778cc7d7e0}\label{generation_8h_a2243664481a860b30e959c778cc7d7e0}} 
-\#define {\bfseries D\+I\+S\+T\+\_\+\+M\+A\+X\+\_\+\+T\+R\+EE}~10
-\end{DoxyCompactItemize}
-\subsection*{Énumérations}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{generation_8h_a77b4c00a966c8e93f7e089661bc26122}\label{generation_8h_a77b4c00a966c8e93f7e089661bc26122}} 
-enum {\bfseries biome\+\_\+t} \{ \newline
-{\bfseries F\+O\+R\+ET}, 
-{\bfseries P\+R\+A\+I\+R\+I\+ES}, 
-{\bfseries T\+A\+I\+GA}, 
-{\bfseries T\+O\+U\+N\+D\+RA}, 
-\newline
-{\bfseries D\+E\+S\+E\+R\+TS}
- \}
 \end{DoxyCompactItemize}
 \subsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{generation_8h_a1b453ad188ec7c0ed8977c968084dac7}\label{generation_8h_a1b453ad188ec7c0ed8977c968084dac7}} 
-int \hyperlink{generation_8h_a1b453ad188ec7c0ed8977c968084dac7}{gen\+\_\+col} (\hyperlink{structblock__s}{t\+\_\+block} $\ast$$\ast$tab, int x)
-\begin{DoxyCompactList}\small\item\em Génere une colone de block. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{generation_8h_adb0c35e623fdf89aae50eb2c9dc3032a}\label{generation_8h_adb0c35e623fdf89aae50eb2c9dc3032a}} 
+int {\bfseries gen\+\_\+col} (\hyperlink{structt__liste}{t\+\_\+liste} $\ast$list, int x, int dir)
+\item 
 \mbox{\Hypertarget{generation_8h_aad2416efebb977a75ac71f7e90e41601}\label{generation_8h_aad2416efebb977a75ac71f7e90e41601}} 
 void \hyperlink{generation_8h_aad2416efebb977a75ac71f7e90e41601}{init\+\_\+map} (\hyperlink{structblock__s}{t\+\_\+block} $\ast$map)
 \begin{DoxyCompactList}\small\item\em Initialise un tableau de block. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -85,5 +45,5 @@ Module de generation de la map.
 0.\+1 
 \end{DoxyVersion}
 \begin{DoxyDate}{Date}
-10 mars 2019 
+13 mars 2019 
 \end{DoxyDate}

@@ -11,16 +11,15 @@ Module qui lit et écrit des fichiers au format J\+S\+ON.
 {\ttfamily \#include $<$json.\+h$>$}\newline
 {\ttfamily \#include $<$chemin.\+h$>$}\newline
 {\ttfamily \#include $<$erreur.\+h$>$}\newline
+{\ttfamily \#include $<$fichier.\+h$>$}\newline
 \subsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-F\+I\+LE $\ast$ \hyperlink{json_8c_a40c3b1f69326ece3f30bd4b5b8e082a7}{new\+\_\+json} (char $\ast$dossier, char $\ast$name)
-\begin{DoxyCompactList}\small\item\em Créer, s\textquotesingle{}il ne l\textquotesingle{}est pas, le fichier J\+S\+ON et l\textquotesingle{}ouvre en écriture. \end{DoxyCompactList}\item 
+F\+I\+LE $\ast$ \hyperlink{json_8c_a89182dce713943cf48b018049b64b588}{open\+\_\+json} (char $\ast$dossier, char $\ast$name, char $\ast$mode)
+\begin{DoxyCompactList}\small\item\em Créer, s\textquotesingle{}il ne l\textquotesingle{}est pas, le fichier J\+S\+ON et l\textquotesingle{}ouvre. \end{DoxyCompactList}\item 
 t\+\_\+erreur \hyperlink{json_8c_a36e795007d4be2cde59b1fe53e1e3fa4}{del\+\_\+json} (char $\ast$dossier, char $\ast$name)
 \begin{DoxyCompactList}\small\item\em Supprime un fichier J\+S\+ON. \end{DoxyCompactList}\item 
-F\+I\+LE $\ast$ \hyperlink{json_8c_a0f2a72e866d5dce8557f7b1994144a9b}{open\+\_\+json} (char $\ast$dossier, char $\ast$name)
-\begin{DoxyCompactList}\small\item\em Ouvre un fichier J\+S\+ON en lecture. \end{DoxyCompactList}\item 
-t\+\_\+erreur \hyperlink{json_8c_a533d4ada20fe08757315558048ee69e7}{write\+\_\+json} (F\+I\+LE $\ast$file, char $\ast$key, void $\ast$value, char value\+\_\+type)
+t\+\_\+erreur \hyperlink{json_8c_aef1b0866438f726985d55d84571526c8}{write\+\_\+json} (F\+I\+LE $\ast$file, char $\ast$key, void $\ast$value, char $\ast$value\+\_\+type)
 \begin{DoxyCompactList}\small\item\em Ecrit une clé/valeur au format J\+S\+ON dans un fichier. \end{DoxyCompactList}\item 
 t\+\_\+erreur \hyperlink{json_8c_a6dd5ea7284f649e178e13e99c43600b3}{open\+\_\+json\+\_\+obj} (F\+I\+LE $\ast$file)
 \begin{DoxyCompactList}\small\item\em Démarre un nouvelle objet au format J\+S\+ON dans un fichier. \end{DoxyCompactList}\item 
@@ -28,11 +27,11 @@ t\+\_\+erreur \hyperlink{json_8c_a8d716a14bfd29aec5bef23e246be5275}{close\+\_\+j
 \begin{DoxyCompactList}\small\item\em Ferme l\textquotesingle{}objet J\+S\+ON. \end{DoxyCompactList}\item 
 t\+\_\+erreur \hyperlink{json_8c_a10b95a250726186ac4ddfdda6adad3e3}{extract\+\_\+json\+\_\+obj} (F\+I\+LE $\ast$file, char $\ast$$\ast$obj)
 \begin{DoxyCompactList}\small\item\em Récupère un objet J\+S\+ON dans un fichier. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{json_8c_a70d649f9978eebff5c543e6dd2dcc1eb}\label{json_8c_a70d649f9978eebff5c543e6dd2dcc1eb}} 
-t\+\_\+erreur {\bfseries read\+\_\+json\+\_\+obj} (char $\ast$obj, char $\ast$key, void $\ast$value, char value\+\_\+type)
+\mbox{\Hypertarget{json_8c_a44c9b298308109129b3ecac1ad911db8}\label{json_8c_a44c9b298308109129b3ecac1ad911db8}} 
+t\+\_\+erreur {\bfseries read\+\_\+json\+\_\+obj} (char $\ast$obj, char $\ast$key, void $\ast$value, char $\ast$value\+\_\+type)
 \item 
-char $\ast$ \hyperlink{json_8c_a1b98d1e3347bd24ff0393a24c7454ad1}{concat\+\_\+str} (char $\ast$str1, char $\ast$str2)
-\begin{DoxyCompactList}\small\item\em Concatène 2 chaine de caractère. \end{DoxyCompactList}\end{DoxyCompactItemize}
+t\+\_\+erreur \hyperlink{json_8c_acd75e719d37a9c3f57167eeadfede913}{fstart} (F\+I\+LE $\ast$file)
+\begin{DoxyCompactList}\small\item\em Remet le pointeur file au début du fichier. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -72,26 +71,6 @@ L\textquotesingle{}écriture s\textquotesingle{}effectue dans le fichier \textqu
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
 Une erreur s\textquotesingle{}il y en a une. 
-\end{DoxyReturn}
-\mbox{\Hypertarget{json_8c_a1b98d1e3347bd24ff0393a24c7454ad1}\label{json_8c_a1b98d1e3347bd24ff0393a24c7454ad1}} 
-\index{json.\+c@{json.\+c}!concat\+\_\+str@{concat\+\_\+str}}
-\index{concat\+\_\+str@{concat\+\_\+str}!json.\+c@{json.\+c}}
-\subsubsection{\texorpdfstring{concat\+\_\+str()}{concat\_str()}}
-{\footnotesize\ttfamily char $\ast$ concat\+\_\+str (\begin{DoxyParamCaption}\item[{char $\ast$}]{str1,  }\item[{char $\ast$}]{str2 }\end{DoxyParamCaption})}
-
-
-
-Concatène 2 chaine de caractère. 
-
-
-\begin{DoxyParams}{Paramètres}
-{\em str1} & Chaine de caractère de gauche. \\
-\hline
-{\em str2} & Chaine de caractère de droite. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Renvoie}
-Une chaine de caractère résultat de la concatènation. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{json_8c_a36e795007d4be2cde59b1fe53e1e3fa4}\label{json_8c_a36e795007d4be2cde59b1fe53e1e3fa4}} 
 \index{json.\+c@{json.\+c}!del\+\_\+json@{del\+\_\+json}}
@@ -133,15 +112,33 @@ La lecture s\textquotesingle{}effectue dans le fichier \textquotesingle{}file\te
 \begin{DoxyReturn}{Renvoie}
 Une erreur s\textquotesingle{}il y en a une. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{json_8c_a40c3b1f69326ece3f30bd4b5b8e082a7}\label{json_8c_a40c3b1f69326ece3f30bd4b5b8e082a7}} 
-\index{json.\+c@{json.\+c}!new\+\_\+json@{new\+\_\+json}}
-\index{new\+\_\+json@{new\+\_\+json}!json.\+c@{json.\+c}}
-\subsubsection{\texorpdfstring{new\+\_\+json()}{new\_json()}}
-{\footnotesize\ttfamily F\+I\+LE $\ast$ new\+\_\+json (\begin{DoxyParamCaption}\item[{char $\ast$}]{dossier,  }\item[{char $\ast$}]{name }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{json_8c_acd75e719d37a9c3f57167eeadfede913}\label{json_8c_acd75e719d37a9c3f57167eeadfede913}} 
+\index{json.\+c@{json.\+c}!fstart@{fstart}}
+\index{fstart@{fstart}!json.\+c@{json.\+c}}
+\subsubsection{\texorpdfstring{fstart()}{fstart()}}
+{\footnotesize\ttfamily t\+\_\+erreur fstart (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})}
 
 
 
-Créer, s\textquotesingle{}il ne l\textquotesingle{}est pas, le fichier J\+S\+ON et l\textquotesingle{}ouvre en écriture. 
+Remet le pointeur file au début du fichier. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em str1} & Chaine de caractère de gauche. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Une erreur s\textquotesingle{}il y en a une. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{json_8c_a89182dce713943cf48b018049b64b588}\label{json_8c_a89182dce713943cf48b018049b64b588}} 
+\index{json.\+c@{json.\+c}!open\+\_\+json@{open\+\_\+json}}
+\index{open\+\_\+json@{open\+\_\+json}!json.\+c@{json.\+c}}
+\subsubsection{\texorpdfstring{open\+\_\+json()}{open\_json()}}
+{\footnotesize\ttfamily F\+I\+LE $\ast$ open\+\_\+json (\begin{DoxyParamCaption}\item[{char $\ast$}]{dossier,  }\item[{char $\ast$}]{name,  }\item[{char $\ast$}]{mode }\end{DoxyParamCaption})}
+
+
+
+Créer, s\textquotesingle{}il ne l\textquotesingle{}est pas, le fichier J\+S\+ON et l\textquotesingle{}ouvre. 
 
 
 \begin{DoxyParams}{Paramètres}
@@ -149,25 +146,7 @@ Créer, s\textquotesingle{}il ne l\textquotesingle{}est pas, le fichier J\+S\+ON
 \hline
 {\em name} & Chaine de caractère représenant le nom du fichier sans le \textquotesingle{}.json\textquotesingle{}. \\
 \hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Renvoie}
-Un pointeur sur le fichier ouvert. 
-\end{DoxyReturn}
-\mbox{\Hypertarget{json_8c_a0f2a72e866d5dce8557f7b1994144a9b}\label{json_8c_a0f2a72e866d5dce8557f7b1994144a9b}} 
-\index{json.\+c@{json.\+c}!open\+\_\+json@{open\+\_\+json}}
-\index{open\+\_\+json@{open\+\_\+json}!json.\+c@{json.\+c}}
-\subsubsection{\texorpdfstring{open\+\_\+json()}{open\_json()}}
-{\footnotesize\ttfamily F\+I\+LE $\ast$ open\+\_\+json (\begin{DoxyParamCaption}\item[{char $\ast$}]{dossier,  }\item[{char $\ast$}]{name }\end{DoxyParamCaption})}
-
-
-
-Ouvre un fichier J\+S\+ON en lecture. 
-
-
-\begin{DoxyParams}{Paramètres}
-{\em dossier} & Chaine de caractère représentant le dossier ou se trouve le json. \\
-\hline
-{\em name} & Chaine de caractère représenant le nom du fichier sans le \textquotesingle{}.json\textquotesingle{} à lire. \\
+{\em mode} & Mode d\textquotesingle{}ouverture du fichier. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
@@ -191,11 +170,11 @@ L\textquotesingle{}écriture s\textquotesingle{}effectue dans le fichier \textqu
 \begin{DoxyReturn}{Renvoie}
 Une erreur s\textquotesingle{}il y en a une. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{json_8c_a533d4ada20fe08757315558048ee69e7}\label{json_8c_a533d4ada20fe08757315558048ee69e7}} 
+\mbox{\Hypertarget{json_8c_aef1b0866438f726985d55d84571526c8}\label{json_8c_aef1b0866438f726985d55d84571526c8}} 
 \index{json.\+c@{json.\+c}!write\+\_\+json@{write\+\_\+json}}
 \index{write\+\_\+json@{write\+\_\+json}!json.\+c@{json.\+c}}
 \subsubsection{\texorpdfstring{write\+\_\+json()}{write\_json()}}
-{\footnotesize\ttfamily t\+\_\+erreur write\+\_\+json (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file,  }\item[{char $\ast$}]{key,  }\item[{void $\ast$}]{value,  }\item[{char}]{value\+\_\+type }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily t\+\_\+erreur write\+\_\+json (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file,  }\item[{char $\ast$}]{key,  }\item[{void $\ast$}]{value,  }\item[{char $\ast$}]{value\+\_\+type }\end{DoxyParamCaption})}
 
 
 

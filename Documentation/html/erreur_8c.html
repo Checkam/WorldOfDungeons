@@ -77,7 +77,11 @@ $(function() {
 <a href="#details">Plus de détails...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;time.h&gt;</code><br />
+<code>#include &lt;sys/stat.h&gt;</code><br />
+<code>#include &lt;sys/types.h&gt;</code><br />
 <code>#include &lt;<a class="el" href="erreur_8h_source.html">erreur.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="chemin_8h_source.html">chemin.h</a>&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -92,8 +96,11 @@ typedef struct <a class="el" href="structs__erreur.html">s_erreur</a>&#160;</td>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:ae7d18f55e6cb1d688610bf39a35f22eb"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="erreur_8c.html#ae7d18f55e6cb1d688610bf39a35f22eb">aff_erreur</a> (t_erreur code_erreur)</td></tr>
-<tr class="separator:ae7d18f55e6cb1d688610bf39a35f22eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86eae7e8299b116054bf5168b60fa3fb"><td class="memItemLeft" align="right" valign="top"><a id="a86eae7e8299b116054bf5168b60fa3fb"></a>
+t_erreur&#160;</td><td class="memItemRight" valign="bottom"><b>erreur_save</b> (t_erreur code_erreur, char *msg_detail)</td></tr>
+<tr class="separator:a86eae7e8299b116054bf5168b60fa3fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea956e8dad695907bca24fd0b608587e"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="erreur_8c.html#aea956e8dad695907bca24fd0b608587e">erreur_afficher</a> (t_erreur code_erreur, char *msg_detail)</td></tr>
+<tr class="separator:aea956e8dad695907bca24fd0b608587e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -106,28 +113,37 @@ Variables</h2></td></tr>
 <dl class="section version"><dt>Version</dt><dd>2 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>05/03/2019 </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
-<a id="ae7d18f55e6cb1d688610bf39a35f22eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae7d18f55e6cb1d688610bf39a35f22eb">&#9670;&nbsp;</a></span>aff_erreur()</h2>
+<a id="aea956e8dad695907bca24fd0b608587e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea956e8dad695907bca24fd0b608587e">&#9670;&nbsp;</a></span>erreur_afficher()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">t_erreur aff_erreur </td>
+          <td class="memname">t_erreur erreur_afficher </td>
           <td>(</td>
           <td class="paramtype">t_erreur&#160;</td>
-          <td class="paramname"><em>code_erreur</em></td><td>)</td>
+          <td class="paramname"><em>code_erreur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>msg_detail</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">code_erreur</td><td>Code erreur que le programme doit afficher </td></tr>
+    <tr><td class="paramname"></td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Renvoie</dt><dd>Retourne une erreur, OK si tout c'est bien passé </dd></dl>
 
 </div>
 </div>
@@ -143,7 +159,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Valeur initiale :</b><div class="fragment"><div class="line">= {</div><div class="line">    {FILE_ERROR, <span class="stringliteral">&quot;Erreur de fichier&quot;</span>},</div><div class="line">    {OPEN_FILE_ERROR, <span class="stringliteral">&quot;Erreur d ouverture du fichier&quot;</span>},</div><div class="line">    {CLOSE_FILE_ERROR, <span class="stringliteral">&quot;Erreur de fermeture du fichier&quot;</span>},</div><div class="line">    {VALUE_ERROR, <span class="stringliteral">&quot;Erreur de valeur&quot;</span>},</div><div class="line">    {ERROR_NOT_EXIST, <span class="stringliteral">&quot;Cette erreur n existe pas&quot;</span>},</div><div class="line">    {REMOVE_FILE_ERROR, <span class="stringliteral">&quot;La Suppression du fichier a echoue&quot;</span>},</div><div class="line">    {PTR_NULL, <span class="stringliteral">&quot;Le pointeur est NULL&quot;</span>},</div><div class="line">    {PTR_VALUE_ERROR, <span class="stringliteral">&quot;La valeur de Pointeur est Incorrect&quot;</span>},</div><div class="line">    {TYPE_ERROR, <span class="stringliteral">&quot;Le Type est Incorrect&quot;</span>},</div><div class="line">    {UNDEFINED_MENU, <span class="stringliteral">&quot;Le pointeur sur le menu est NULL&quot;</span>},</div><div class="line">    {INCORRECT_MENU_TYPE, <span class="stringliteral">&quot;Type de menu incorrect&quot;</span>},</div><div class="line">    {KEY_NOT_FOUND, <span class="stringliteral">&quot;La Cle n&#39;a pas ete trouve&quot;</span>},</div><div class="line">    {OK, <span class="stringliteral">&quot;Tout c est bien passer&quot;</span>}  </div><div class="line">}</div></div><!-- fragment -->
+<b>Valeur initiale :</b><div class="fragment"><div class="line">= {</div><div class="line">    {FILE_ERROR, <span class="stringliteral">&quot;FILE ERROR&quot;</span>},</div><div class="line">    {OPEN_FILE_ERROR, <span class="stringliteral">&quot;OPEN FILE ERROR&quot;</span>},</div><div class="line">    {CLOSE_FILE_ERROR, <span class="stringliteral">&quot;CLOSE FILE ERROR&quot;</span>},</div><div class="line">    {VALUE_ERROR, <span class="stringliteral">&quot;VALUE ERROR&quot;</span>},</div><div class="line">    {ERROR_NOT_EXIST, <span class="stringliteral">&quot;ERROR NOT EXIST&quot;</span>},</div><div class="line">    {REMOVE_FILE_ERROR, <span class="stringliteral">&quot;REMOVE FILE ERROR&quot;</span>},</div><div class="line">    {PTR_NULL, <span class="stringliteral">&quot;POINTEUR NULL&quot;</span>},</div><div class="line">    {PTR_VALUE_ERROR, <span class="stringliteral">&quot;POINTEUR VALUE ERROR&quot;</span>},</div><div class="line">    {TYPE_ERROR, <span class="stringliteral">&quot;TYPE ERROR&quot;</span>},</div><div class="line">    {UNDEFINED_MENU, <span class="stringliteral">&quot;UNDEFINED MENU&quot;</span>},</div><div class="line">    {INCORRECT_MENU_TYPE, <span class="stringliteral">&quot;INCORRECT MENU TYPE&quot;</span>},</div><div class="line">    {KEY_NOT_FOUND, <span class="stringliteral">&quot;KEY NOT FOUND&quot;</span>},</div><div class="line">    {OK, <span class="stringliteral">&quot;OK&quot;</span>}  </div><div class="line">}</div></div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->

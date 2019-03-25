@@ -64,7 +64,6 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Fonctions</a>  </div>
   <div class="headertitle">
 <div class="title">Référence du fichier map.c</div>  </div>
@@ -73,7 +72,9 @@ $(function() {
 
 <p>Module permettant de géré une map (Création,Suppression)  
 <a href="#details">Plus de détails...</a></p>
-<div class="textblock"><code>#include &lt;<a class="el" href="erreur_8h_source.html">erreur.h</a>&gt;</code><br />
+<div class="textblock"><code>#include &lt;<a class="el" href="block_8h_source.html">block.h</a>&gt;</code><br />
+<code>#include &lt;commun.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="erreur_8h_source.html">erreur.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="liste_8h_source.html">liste.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="map_8h_source.html">map.h</a>&gt;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
@@ -112,6 +113,9 @@ char *&#160;</td><td class="memItemRight" valign="bottom"><b>MAP_creer_path</b> 
 <tr class="memitem:a68ce824f54aa0ce572d085d56f533a98"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8c.html#a68ce824f54aa0ce572d085d56f533a98">MAP_detruire_path</a> (char **path_dir)</td></tr>
 <tr class="memdesc:a68ce824f54aa0ce572d085d56f533a98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère la mémoire dynamique alloué pour le path.  <a href="#a68ce824f54aa0ce572d085d56f533a98">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a68ce824f54aa0ce572d085d56f533a98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c2ed98ad423d0862946f907e8750443"><td class="memItemLeft" align="right" valign="top"><a id="a2c2ed98ad423d0862946f907e8750443"></a>
+<a class="el" href="structblock__s.html">t_block</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>MAP_GetBlockFromList</b> (<a class="el" href="structt__map.html">t_map</a> *map, int x, int y)</td></tr>
+<tr class="separator:a2c2ed98ad423d0862946f907e8750443"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Module permettant de géré une map (Création,Suppression) </p>

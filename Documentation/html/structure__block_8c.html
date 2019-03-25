@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Génération Procedural et Stockage de donnée: Référence du fichier src/structure_block.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Génération Procedural et Stockage de donnée
+   </div>
+   <div id="projectbrief">Le but de ce projet de d&#39;apprendre a utilisé Perlin noise en commmencant a réfléchir au structure que nous aurons besoin</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier structure_block.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Module de gestion des structure_block.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;<a class="el" href="biome_8h_source.html">biome.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="block_8h_source.html">block.h</a>&gt;</code><br />
+<code>#include &lt;commun.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="generation_8h_source.html">generation.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="perlin_8h_source.html">perlin.h</a>&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="structure__block_8h_source.html">structure_block.h</a>&gt;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a26e9f11667a1d6426b42e37383880457"><td class="memItemLeft" align="right" valign="top"><a id="a26e9f11667a1d6426b42e37383880457"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>STRUCT_GetWidth</b> (<a class="el" href="structt__struct__block.html">t_struct_block</a> *struct_block, t_struct_block_type type)</td></tr>
+<tr class="separator:a26e9f11667a1d6426b42e37383880457"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b7c53336e2449c2a04a134b365211c1"><td class="memItemLeft" align="right" valign="top"><a id="a2b7c53336e2449c2a04a134b365211c1"></a>
+char *&#160;</td><td class="memItemRight" valign="bottom"><b>STRUCT_GetPath</b> (<a class="el" href="structt__struct__block.html">t_struct_block</a> *struct_block, t_struct_block_type type)</td></tr>
+<tr class="separator:a2b7c53336e2449c2a04a134b365211c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae2b563d93d982fa2f50c8497ef7abc3"><td class="memItemLeft" align="right" valign="top"><a id="aae2b563d93d982fa2f50c8497ef7abc3"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>STRUCT_CanSpawn</b> (int x, int i)</td></tr>
+<tr class="separator:aae2b563d93d982fa2f50c8497ef7abc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9510e7b192d204235e27cfd896b91ee"><td class="memItemLeft" align="right" valign="top"><a id="ac9510e7b192d204235e27cfd896b91ee"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>STRUCT_generation</b> (int x, int y, int dir, <a class="el" href="structblock__s.html">t_block</a> map[MAX])</td></tr>
+<tr class="separator:ac9510e7b192d204235e27cfd896b91ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ae7d734d808a48c03431e893d3afb3cca"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structt__struct__block.html">t_struct_block</a>&#160;</td><td class="memItemRight" valign="bottom"><b>struct_block</b> [NB_STRUCT_BLOCK]</td></tr>
+<tr class="separator:ae7d734d808a48c03431e893d3afb3cca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Module de gestion des structure_block. </p>
+<dl class="section author"><dt>Auteur</dt><dd>{Maxence.D} </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>13 mars 2019 </dd></dl>
+</div><h2 class="groupheader">Documentation des variables</h2>
+<a id="ae7d734d808a48c03431e893d3afb3cca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7d734d808a48c03431e893d3afb3cca">&#9670;&nbsp;</a></span>struct_block</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structt__struct__block.html">t_struct_block</a> struct_block[NB_STRUCT_BLOCK]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur initiale :</b><div class="fragment"><div class="line">= {{ARBRE_TAIGA, 7, <span class="stringliteral">&quot;structure/arbre_taiga&quot;</span>, 30, TAIGA},</div><div class="line">                                                {ARBRE_FORET, 7, <span class="stringliteral">&quot;structure/arbre_foret&quot;</span>, 80, FORET},</div><div class="line">                                                {GRAND_ARBRE_FORET, 7, <span class="stringliteral">&quot;structure/arbre_foret2&quot;</span>, 10, FORET},</div><div class="line">                                                {BUISSON, 5, <span class="stringliteral">&quot;structure/buisson&quot;</span>, 60, FORET},</div><div class="line">                                                {CACTUS, 3, <span class="stringliteral">&quot;structure/cactus&quot;</span>, 30, DESERTS}}</div></div><!-- fragment -->
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

@@ -1,0 +1,319 @@
+\hypertarget{entite_8c}{}\section{Référence du fichier src/entite.c}
+\label{entite_8c}\index{src/entite.\+c@{src/entite.\+c}}
+
+
+Module servant à gérer les entités.  
+
+
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L.\+h$>$}\newline
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L\+\_\+ttf.\+h$>$}\newline
+{\ttfamily \#include $<$chemin.\+h$>$}\newline
+{\ttfamily \#include $<$entite.\+h$>$}\newline
+{\ttfamily \#include $<$erreur.\+h$>$}\newline
+{\ttfamily \#include $<$outils\+\_\+\+S\+D\+L.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$touches.\+h$>$}\newline
+{\ttfamily \#include $<$fps.\+h$>$}\newline
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{entite_8c_ae67e9421db57e8164cdbd6acbd7d9975}\label{entite_8c_ae67e9421db57e8164cdbd6acbd7d9975}} 
+\hyperlink{structt__entite}{t\+\_\+entite} $\ast$ {\bfseries creer\+\_\+entite\+\_\+defaut} (char $\ast$name, \hyperlink{entite_8h_a4182d28438d783fe0ef6b4c58c2d743b}{t\+\_\+entite\+\_\+type} type, int x\+\_\+dep, int y\+\_\+dep, int taille)
+\item 
+\mbox{\Hypertarget{entite_8c_ad59afa76cdb06ceaa346a59300d95957}\label{entite_8c_ad59afa76cdb06ceaa346a59300d95957}} 
+\hyperlink{structt__entite}{t\+\_\+entite} $\ast$ {\bfseries creer\+\_\+entite} (char $\ast$name, int mana, int mana\+\_\+max, int pv, int pv\+\_\+max, S\+D\+L\+\_\+\+Texture $\ast$texture, \hyperlink{structt__anim__action}{t\+\_\+anim\+\_\+action} $\ast$t\+\_\+a, int x\+\_\+dep, int y\+\_\+dep, int taille)
+\item 
+t\+\_\+erreur \hyperlink{entite_8c_aff126a9685fdd63884131ba74499aa17}{detruire\+\_\+entite} (\hyperlink{structt__entite}{t\+\_\+entite} $\ast$entite)
+\begin{DoxyCompactList}\small\item\em Détruit une entité. \end{DoxyCompactList}\item 
+S\+D\+L\+\_\+\+Texture $\ast$ \hyperlink{entite_8c_a6b93939375ae3f4118ac6d099703fbaf}{Create\+\_\+\+Sprite} (char $\ast$lieu, S\+D\+L\+\_\+\+Renderer $\ast$renderer)
+\begin{DoxyCompactList}\small\item\em Crée la texture d\textquotesingle{}un sprite. \end{DoxyCompactList}\item 
+t\+\_\+erreur \hyperlink{entite_8c_a87d473ea77b31005633d03ee5a0f3db5}{Charger\+\_\+\+Anima} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, \hyperlink{structt__entite}{t\+\_\+entite} $\ast$entite, \hyperlink{entite_8h_abf8170fe3a93ebd8f3701bbf092ece99}{t\+\_\+action} action)
+\begin{DoxyCompactList}\small\item\em Charge dans le renderer, suivant une action et une entité, l\textquotesingle{}image suivante (pour animation) où une nouvelle image si l\textquotesingle{}action à changer. \end{DoxyCompactList}\item 
+int \hyperlink{entite_8c_a4377e72c0a8a6b09796f1e684bd17cad}{Search\+\_\+\+Action} (\hyperlink{structt__anim__action}{t\+\_\+anim\+\_\+action} $\ast$t\+\_\+a, \hyperlink{entite_8h_abf8170fe3a93ebd8f3701bbf092ece99}{t\+\_\+action} action)
+\begin{DoxyCompactList}\small\item\em Cherche dans un tableau d\textquotesingle{}action/description l\textquotesingle{}indice correspondant à l\textquotesingle{}action qu\textquotesingle{}on cherche. \end{DoxyCompactList}\item 
+t\+\_\+erreur \hyperlink{entite_8c_a40444b4966bf5776de11ce07f2b29be9}{Init\+\_\+\+Sprite} (S\+D\+L\+\_\+\+Renderer $\ast$renderer)
+\begin{DoxyCompactList}\small\item\em Initialise la texture associée au sprite de chaque entité par défaut. \end{DoxyCompactList}\item 
+t\+\_\+erreur \hyperlink{entite_8c_ad45c5dedc31c638b7f9d2d57f7586b33}{Quit\+\_\+\+Sprite} (void)
+\begin{DoxyCompactList}\small\item\em Détruit toutes les textures précédement initialisées. \end{DoxyCompactList}\item 
+t\+\_\+erreur \hyperlink{entite_8c_a3d029f34e956b9197a208db146cd7104}{Anim\+\_\+\+Update} (\hyperlink{structt__entite}{t\+\_\+entite} $\ast$entite, \hyperlink{entite_8h_abf8170fe3a93ebd8f3701bbf092ece99}{t\+\_\+action} action, int new\+\_\+time)
+\begin{DoxyCompactList}\small\item\em Modifie pour une entité le temps d\textquotesingle{}une animation correspondant à une action. \end{DoxyCompactList}\item 
+t\+\_\+erreur \hyperlink{entite_8c_a74f55097e55d8b56807e92f7c928f453}{update\+\_\+pos\+Y\+\_\+entite} (\hyperlink{structt__entite}{t\+\_\+entite} $\ast$entite, double coef\+\_\+fps, int($\ast$collision)(S\+D\+L\+\_\+\+Rect, t\+\_\+collision\+\_\+direction, \hyperlink{structt__liste}{t\+\_\+liste} $\ast$), \hyperlink{structt__liste}{t\+\_\+liste} $\ast$p)
+\begin{DoxyCompactList}\small\item\em Gère la position de l\textquotesingle{}entité sur Y via la gravité et les collisions. \end{DoxyCompactList}\item 
+t\+\_\+erreur \hyperlink{entite_8c_a1c683373088a09100bdbafbdb5318310}{Gestion\+\_\+\+Entite} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, \hyperlink{structt__entite}{t\+\_\+entite} $\ast$entite, uint8\+\_\+t $\ast$ks, double coef\+\_\+fps, int($\ast$collision)(S\+D\+L\+\_\+\+Rect, t\+\_\+collision\+\_\+direction, \hyperlink{structt__liste}{t\+\_\+liste} $\ast$), \hyperlink{structt__liste}{t\+\_\+liste} $\ast$p)
+\begin{DoxyCompactList}\small\item\em Gère une entité (collision, déplacement, animation). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{entite_8c_aff0fca04edb4e1830a6c6cec29e3ea2a}\label{entite_8c_aff0fca04edb4e1830a6c6cec29e3ea2a}} 
+S\+D\+L\+\_\+\+Texture $\ast$ {\bfseries Textures\+\_\+\+Joueur}
+\item 
+\hyperlink{structt__anim__action}{t\+\_\+anim\+\_\+action} {\bfseries t\+\_\+a\+\_\+joueur} \mbox{[}N\+B\+\_\+\+L\+I\+G\+N\+E\+S\+\_\+\+S\+P\+R\+I\+TE\mbox{]}
+\item 
+\mbox{\Hypertarget{entite_8c_a0ba6e3bb955104d3278945b4fba38aba}\label{entite_8c_a0ba6e3bb955104d3278945b4fba38aba}} 
+S\+D\+L\+\_\+\+Texture $\ast$ {\bfseries Textures\+\_\+\+Zombie}
+\item 
+\hyperlink{structt__anim__action}{t\+\_\+anim\+\_\+action} {\bfseries t\+\_\+a\+\_\+zombie} \mbox{[}N\+B\+\_\+\+L\+I\+G\+N\+E\+S\+\_\+\+S\+P\+R\+I\+TE\mbox{]}
+\item 
+\mbox{\Hypertarget{entite_8c_a6a95f3635013fe25a97d01e04cc1765b}\label{entite_8c_a6a95f3635013fe25a97d01e04cc1765b}} 
+S\+D\+L\+\_\+\+Texture $\ast$ {\bfseries Textures\+\_\+\+Boss}
+\item 
+\hyperlink{structt__anim__action}{t\+\_\+anim\+\_\+action} {\bfseries t\+\_\+a\+\_\+boss} \mbox{[}N\+B\+\_\+\+L\+I\+G\+N\+E\+S\+\_\+\+S\+P\+R\+I\+TE\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Module servant à gérer les entités. 
+
+\begin{DoxyAuthor}{Auteur}
+G\+A\+L\+B\+R\+UN Tibane 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+13/03/2019 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+0.\+2 
+\end{DoxyVersion}
+
+
+\subsection{Documentation des fonctions}
+\mbox{\Hypertarget{entite_8c_a3d029f34e956b9197a208db146cd7104}\label{entite_8c_a3d029f34e956b9197a208db146cd7104}} 
+\index{entite.\+c@{entite.\+c}!Anim\+\_\+\+Update@{Anim\+\_\+\+Update}}
+\index{Anim\+\_\+\+Update@{Anim\+\_\+\+Update}!entite.\+c@{entite.\+c}}
+\subsubsection{\texorpdfstring{Anim\+\_\+\+Update()}{Anim\_Update()}}
+{\footnotesize\ttfamily t\+\_\+erreur Anim\+\_\+\+Update (\begin{DoxyParamCaption}\item[{\hyperlink{structt__entite}{t\+\_\+entite} $\ast$}]{entite,  }\item[{\hyperlink{entite_8h_abf8170fe3a93ebd8f3701bbf092ece99}{t\+\_\+action}}]{action,  }\item[{int}]{new\+\_\+time }\end{DoxyParamCaption})}
+
+
+
+Modifie pour une entité le temps d\textquotesingle{}une animation correspondant à une action. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em entite} & L\textquotesingle{}entité où il faut changer le temps d\textquotesingle{}animation. \\
+\hline
+{\em action} & L\textquotesingle{}action où l\textquotesingle{}on modifie le temps d\textquotesingle{}animation. \\
+\hline
+{\em new\+\_\+time} & Le nouveau temps d\textquotesingle{}animation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Une erreur s\textquotesingle{}il y en a une. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{entite_8c_a87d473ea77b31005633d03ee5a0f3db5}\label{entite_8c_a87d473ea77b31005633d03ee5a0f3db5}} 
+\index{entite.\+c@{entite.\+c}!Charger\+\_\+\+Anima@{Charger\+\_\+\+Anima}}
+\index{Charger\+\_\+\+Anima@{Charger\+\_\+\+Anima}!entite.\+c@{entite.\+c}}
+\subsubsection{\texorpdfstring{Charger\+\_\+\+Anima()}{Charger\_Anima()}}
+{\footnotesize\ttfamily t\+\_\+erreur Charger\+\_\+\+Anima (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{\hyperlink{structt__entite}{t\+\_\+entite} $\ast$}]{entite,  }\item[{\hyperlink{entite_8h_abf8170fe3a93ebd8f3701bbf092ece99}{t\+\_\+action}}]{action }\end{DoxyParamCaption})}
+
+
+
+Charge dans le renderer, suivant une action et une entité, l\textquotesingle{}image suivante (pour animation) où une nouvelle image si l\textquotesingle{}action à changer. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & Renderer de la fenêtre. \\
+\hline
+{\em entite} & L\textquotesingle{}entité à afficher. \\
+\hline
+{\em action} & L\textquotesingle{}action à afficher. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Une erreur s\textquotesingle{}il y en a une. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{entite_8c_a6b93939375ae3f4118ac6d099703fbaf}\label{entite_8c_a6b93939375ae3f4118ac6d099703fbaf}} 
+\index{entite.\+c@{entite.\+c}!Create\+\_\+\+Sprite@{Create\+\_\+\+Sprite}}
+\index{Create\+\_\+\+Sprite@{Create\+\_\+\+Sprite}!entite.\+c@{entite.\+c}}
+\subsubsection{\texorpdfstring{Create\+\_\+\+Sprite()}{Create\_Sprite()}}
+{\footnotesize\ttfamily S\+D\+L\+\_\+\+Texture $\ast$ Create\+\_\+\+Sprite (\begin{DoxyParamCaption}\item[{char $\ast$}]{lieu,  }\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
+
+
+
+Crée la texture d\textquotesingle{}un sprite. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em lieu} & L\textquotesingle{}endroit où se situe le sprite à charger. \\
+\hline
+{\em renderer} & Renderer de la fenêtre. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Un pointeur sur une structure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{entite_8c_aff126a9685fdd63884131ba74499aa17}\label{entite_8c_aff126a9685fdd63884131ba74499aa17}} 
+\index{entite.\+c@{entite.\+c}!detruire\+\_\+entite@{detruire\+\_\+entite}}
+\index{detruire\+\_\+entite@{detruire\+\_\+entite}!entite.\+c@{entite.\+c}}
+\subsubsection{\texorpdfstring{detruire\+\_\+entite()}{detruire\_entite()}}
+{\footnotesize\ttfamily t\+\_\+erreur detruire\+\_\+entite (\begin{DoxyParamCaption}\item[{\hyperlink{structt__entite}{t\+\_\+entite} $\ast$}]{entite }\end{DoxyParamCaption})}
+
+
+
+Détruit une entité. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em entite} & L\textquotesingle{}entité à détruire. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Une erreur s\textquotesingle{}il y en a une. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{entite_8c_a1c683373088a09100bdbafbdb5318310}\label{entite_8c_a1c683373088a09100bdbafbdb5318310}} 
+\index{entite.\+c@{entite.\+c}!Gestion\+\_\+\+Entite@{Gestion\+\_\+\+Entite}}
+\index{Gestion\+\_\+\+Entite@{Gestion\+\_\+\+Entite}!entite.\+c@{entite.\+c}}
+\subsubsection{\texorpdfstring{Gestion\+\_\+\+Entite()}{Gestion\_Entite()}}
+{\footnotesize\ttfamily t\+\_\+erreur Gestion\+\_\+\+Entite (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{\hyperlink{structt__entite}{t\+\_\+entite} $\ast$}]{entite,  }\item[{uint8\+\_\+t $\ast$}]{ks,  }\item[{double}]{coef\+\_\+fps,  }\item[{int($\ast$)(S\+D\+L\+\_\+\+Rect, t\+\_\+collision\+\_\+direction, \hyperlink{structt__liste}{t\+\_\+liste} $\ast$)}]{collision,  }\item[{\hyperlink{structt__liste}{t\+\_\+liste} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Gère une entité (collision, déplacement, animation). 
+
+Gère les animations ainsi que les modifications apportées à l\textquotesingle{}entité (gravité, collision, déplacement) correspondant aux différents appuis de touches. 
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & Renderer de la fenêtre. \\
+\hline
+{\em entite} & L\textquotesingle{}entité à gérer. \\
+\hline
+{\em ks} & Etat du clavier pour la gestion de l\textquotesingle{}appui des touches. \\
+\hline
+{\em coef\+\_\+fps} & Permet d\textquotesingle{}adapter les déplacements en fonction du nombre de fps. \\
+\hline
+{\em collision} & Renvoie la profondeur d\textquotesingle{}une collision pour une direction donnée. \\
+\hline
+{\em p} & Liste contenant les paramètres supplémentaires de la fonction collision si il y en a besoin. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Une erreur s\textquotesingle{}il y en a une. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{entite_8c_a40444b4966bf5776de11ce07f2b29be9}\label{entite_8c_a40444b4966bf5776de11ce07f2b29be9}} 
+\index{entite.\+c@{entite.\+c}!Init\+\_\+\+Sprite@{Init\+\_\+\+Sprite}}
+\index{Init\+\_\+\+Sprite@{Init\+\_\+\+Sprite}!entite.\+c@{entite.\+c}}
+\subsubsection{\texorpdfstring{Init\+\_\+\+Sprite()}{Init\_Sprite()}}
+{\footnotesize\ttfamily t\+\_\+erreur Init\+\_\+\+Sprite (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
+
+
+
+Initialise la texture associée au sprite de chaque entité par défaut. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & Renderer de la fenêtre. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Une erreur s\textquotesingle{}il y en a une. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{entite_8c_ad45c5dedc31c638b7f9d2d57f7586b33}\label{entite_8c_ad45c5dedc31c638b7f9d2d57f7586b33}} 
+\index{entite.\+c@{entite.\+c}!Quit\+\_\+\+Sprite@{Quit\+\_\+\+Sprite}}
+\index{Quit\+\_\+\+Sprite@{Quit\+\_\+\+Sprite}!entite.\+c@{entite.\+c}}
+\subsubsection{\texorpdfstring{Quit\+\_\+\+Sprite()}{Quit\_Sprite()}}
+{\footnotesize\ttfamily t\+\_\+erreur Quit\+\_\+\+Sprite (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Détruit toutes les textures précédement initialisées. 
+
+\begin{DoxyReturn}{Renvoie}
+Une erreur s\textquotesingle{}il y en a une. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{entite_8c_a4377e72c0a8a6b09796f1e684bd17cad}\label{entite_8c_a4377e72c0a8a6b09796f1e684bd17cad}} 
+\index{entite.\+c@{entite.\+c}!Search\+\_\+\+Action@{Search\+\_\+\+Action}}
+\index{Search\+\_\+\+Action@{Search\+\_\+\+Action}!entite.\+c@{entite.\+c}}
+\subsubsection{\texorpdfstring{Search\+\_\+\+Action()}{Search\_Action()}}
+{\footnotesize\ttfamily int Search\+\_\+\+Action (\begin{DoxyParamCaption}\item[{\hyperlink{structt__anim__action}{t\+\_\+anim\+\_\+action} $\ast$}]{t\+\_\+a,  }\item[{\hyperlink{entite_8h_abf8170fe3a93ebd8f3701bbf092ece99}{t\+\_\+action}}]{action }\end{DoxyParamCaption})}
+
+
+
+Cherche dans un tableau d\textquotesingle{}action/description l\textquotesingle{}indice correspondant à l\textquotesingle{}action qu\textquotesingle{}on cherche. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em t\+\_\+a} & Le tableau de recherche. \\
+\hline
+{\em action} & L\textquotesingle{}action que l\textquotesingle{}on cherche. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+L\textquotesingle{}indice de l\textquotesingle{}action recherchée. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{entite_8c_a74f55097e55d8b56807e92f7c928f453}\label{entite_8c_a74f55097e55d8b56807e92f7c928f453}} 
+\index{entite.\+c@{entite.\+c}!update\+\_\+pos\+Y\+\_\+entite@{update\+\_\+pos\+Y\+\_\+entite}}
+\index{update\+\_\+pos\+Y\+\_\+entite@{update\+\_\+pos\+Y\+\_\+entite}!entite.\+c@{entite.\+c}}
+\subsubsection{\texorpdfstring{update\+\_\+pos\+Y\+\_\+entite()}{update\_posY\_entite()}}
+{\footnotesize\ttfamily t\+\_\+erreur update\+\_\+pos\+Y\+\_\+entite (\begin{DoxyParamCaption}\item[{\hyperlink{structt__entite}{t\+\_\+entite} $\ast$}]{entite,  }\item[{double}]{coef\+\_\+fps,  }\item[{int($\ast$)(S\+D\+L\+\_\+\+Rect, t\+\_\+collision\+\_\+direction, \hyperlink{structt__liste}{t\+\_\+liste} $\ast$)}]{collision,  }\item[{\hyperlink{structt__liste}{t\+\_\+liste} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Gère la position de l\textquotesingle{}entité sur Y via la gravité et les collisions. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em entite} & L\textquotesingle{}entité à gérer. \\
+\hline
+{\em coef\+\_\+fps} & Permet d\textquotesingle{}adapter les déplacements en fonction du nombre de fps. \\
+\hline
+{\em collision} & Renvoie la profondeur d\textquotesingle{}une collision pour une direction donnée. \\
+\hline
+{\em p} & Liste contenant les paramètres supplémentaires de la fonction collision si il y en a besoin. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Une erreur s\textquotesingle{}il y en a une. 
+\end{DoxyReturn}
+
+
+\subsection{Documentation des variables}
+\mbox{\Hypertarget{entite_8c_a9f44e6c22243a13a6897230625ce80b4}\label{entite_8c_a9f44e6c22243a13a6897230625ce80b4}} 
+\index{entite.\+c@{entite.\+c}!t\+\_\+a\+\_\+boss@{t\+\_\+a\+\_\+boss}}
+\index{t\+\_\+a\+\_\+boss@{t\+\_\+a\+\_\+boss}!entite.\+c@{entite.\+c}}
+\subsubsection{\texorpdfstring{t\+\_\+a\+\_\+boss}{t\_a\_boss}}
+{\footnotesize\ttfamily \hyperlink{structt__anim__action}{t\+\_\+anim\+\_\+action} t\+\_\+a\+\_\+boss\mbox{[}N\+B\+\_\+\+L\+I\+G\+N\+E\+S\+\_\+\+S\+P\+R\+I\+TE\mbox{]}}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}
+= \{\{MARCHE\_DROITE, 12, 9, 100\},
+  \{MARCHE\_GAUCHE, 10, 9, 100\},
+  \{MARCHE\_DERRIERE, 11, 9, 100\},
+  \{MARCHE\_DEVANT, 9, 9, 100\},
+  \{ATTAQUE\_GAUCHE, 14, 6, 100\},
+  \{ATTAQUE\_DROITE, 16, 6, 100\},
+  \{IMMOBILE, 3, 1, 50\}
+\}
+\end{DoxyCode}
+\mbox{\Hypertarget{entite_8c_a1d2d2adbda3d169b06c9b0d1b8f170d7}\label{entite_8c_a1d2d2adbda3d169b06c9b0d1b8f170d7}} 
+\index{entite.\+c@{entite.\+c}!t\+\_\+a\+\_\+joueur@{t\+\_\+a\+\_\+joueur}}
+\index{t\+\_\+a\+\_\+joueur@{t\+\_\+a\+\_\+joueur}!entite.\+c@{entite.\+c}}
+\subsubsection{\texorpdfstring{t\+\_\+a\+\_\+joueur}{t\_a\_joueur}}
+{\footnotesize\ttfamily \hyperlink{structt__anim__action}{t\+\_\+anim\+\_\+action} t\+\_\+a\+\_\+joueur\mbox{[}N\+B\+\_\+\+L\+I\+G\+N\+E\+S\+\_\+\+S\+P\+R\+I\+TE\mbox{]}}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}
+= \{
+  \{MARCHE\_DROITE, 12, 9, 100\},
+  \{MARCHE\_GAUCHE, 10, 9, 100\},
+  \{MARCHE\_DERRIERE, 11, 9, 100\},
+  \{MARCHE\_DEVANT, 9, 9, 100\},
+  \{IMMOBILE, 3, 1, 50\}
+\}
+\end{DoxyCode}
+\mbox{\Hypertarget{entite_8c_ac133f674263fbbbc79b955535bb3794f}\label{entite_8c_ac133f674263fbbbc79b955535bb3794f}} 
+\index{entite.\+c@{entite.\+c}!t\+\_\+a\+\_\+zombie@{t\+\_\+a\+\_\+zombie}}
+\index{t\+\_\+a\+\_\+zombie@{t\+\_\+a\+\_\+zombie}!entite.\+c@{entite.\+c}}
+\subsubsection{\texorpdfstring{t\+\_\+a\+\_\+zombie}{t\_a\_zombie}}
+{\footnotesize\ttfamily \hyperlink{structt__anim__action}{t\+\_\+anim\+\_\+action} t\+\_\+a\+\_\+zombie\mbox{[}N\+B\+\_\+\+L\+I\+G\+N\+E\+S\+\_\+\+S\+P\+R\+I\+TE\mbox{]}}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}
+= \{
+  \{MARCHE\_DROITE, 12, 9, 100\},
+  \{MARCHE\_GAUCHE, 10, 9, 100\},
+  \{MARCHE\_DERRIERE, 11, 9, 100\},
+  \{MARCHE\_DEVANT, 9, 9, 100\},
+  \{ATTAQUE\_GAUCHE, 14, 6, 100\},
+  \{ATTAQUE\_DROITE, 16, 6, 100\},
+  \{IMMOBILE, 3, 1, 50\}
+\}
+\end{DoxyCode}

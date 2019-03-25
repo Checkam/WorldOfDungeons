@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Génération Procedural et Stockage de donnée:  Fichier source de include/fichier.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Génération Procedural et Stockage de donnée
+   </div>
+   <div id="projectbrief">Le but de ce projet de d&#39;apprendre a utilisé Perlin noise en commmencant a réfléchir au structure que nous aurons besoin</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">fichier.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="fichier_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef __FICHIER_H__</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define __FICHIER_H__</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="erreur_8h.html">erreur.h</a>&gt;</span></div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;FILE * <a class="code" href="fichier_8h.html#af2f3c3b5e9d1e2617582abb3e041432b">open_file</a> (<span class="keywordtype">char</span> * dossier, <span class="keywordtype">char</span> * name, <span class="keywordtype">char</span> * ext, <span class="keywordtype">char</span> * mode);</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;t_erreur <a class="code" href="fichier_8h.html#a5c4db6cca6f318ceb70fc36c332326cb">del_file</a> (<span class="keywordtype">char</span> * dossier, <span class="keywordtype">char</span> * name, <span class="keywordtype">char</span> * ext);</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keywordtype">char</span> * <a class="code" href="fichier_8h.html#a649e98dee4921e6444661519ad00d25b">concat_str</a> (<span class="keywordtype">char</span> * str1, <span class="keywordtype">char</span> * str2);</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="fichier_8h_html_a5c4db6cca6f318ceb70fc36c332326cb"><div class="ttname"><a href="fichier_8h.html#a5c4db6cca6f318ceb70fc36c332326cb">del_file</a></div><div class="ttdeci">t_erreur del_file(char *dossier, char *name, char *ext)</div><div class="ttdoc">Supprime un fichier. </div><div class="ttdef"><b>Definition:</b> fichier.c:51</div></div>
+<div class="ttc" id="fichier_8h_html_af2f3c3b5e9d1e2617582abb3e041432b"><div class="ttname"><a href="fichier_8h.html#af2f3c3b5e9d1e2617582abb3e041432b">open_file</a></div><div class="ttdeci">FILE * open_file(char *dossier, char *name, char *ext, char *mode)</div><div class="ttdoc">Créer, s&amp;#39;il ne l&amp;#39;est pas, le fichier et l&amp;#39;ouvre. </div><div class="ttdef"><b>Definition:</b> fichier.c:26</div></div>
+<div class="ttc" id="fichier_8h_html_a649e98dee4921e6444661519ad00d25b"><div class="ttname"><a href="fichier_8h.html#a649e98dee4921e6444661519ad00d25b">concat_str</a></div><div class="ttdeci">char * concat_str(char *str1, char *str2)</div><div class="ttdoc">Concatène 2 chaine de caractère. </div><div class="ttdef"><b>Definition:</b> fichier.c:81</div></div>
+<div class="ttc" id="erreur_8h_html"><div class="ttname"><a href="erreur_8h.html">erreur.h</a></div><div class="ttdoc">Module de gestion des erreurs. </div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

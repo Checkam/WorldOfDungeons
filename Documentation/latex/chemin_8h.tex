@@ -18,11 +18,13 @@ Module des primitives servant à la récupération du chemin absolu.
 \item 
 t\+\_\+erreur \hyperlink{chemin_8h_a3d19e4065f963d93d23f046811107d80}{decomposer\+\_\+\+P\+WD} (\hyperlink{structt__liste}{t\+\_\+liste} $\ast$p, char $\ast$pwd)
 \begin{DoxyCompactList}\small\item\em Décompose dans une liste le P\+WD. \end{DoxyCompactList}\item 
-t\+\_\+erreur \hyperlink{chemin_8h_a23d897ae6db5736a272d0fd6b3e4a920}{getpwd} (char $\ast$argv, char $\ast$env)
-\begin{DoxyCompactList}\small\item\em Récupère le chemin absolu de la racine de W\+OD. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{chemin_8h_af02bc563f4c0e7190df6b3d397501beb}\label{chemin_8h_af02bc563f4c0e7190df6b3d397501beb}} 
-t\+\_\+erreur {\bfseries fusion\+\_\+\+P\+WD} (\hyperlink{structt__liste}{t\+\_\+liste} $\ast$env, \hyperlink{structt__liste}{t\+\_\+liste} $\ast$argv)
+\mbox{\Hypertarget{chemin_8h_aa831b692df5b4400fd07338357be61d3}\label{chemin_8h_aa831b692df5b4400fd07338357be61d3}} 
+t\+\_\+erreur {\bfseries pwd\+\_\+init} (char $\ast$argv, char $\ast$env)
 \item 
+t\+\_\+erreur \hyperlink{chemin_8h_af02bc563f4c0e7190df6b3d397501beb}{fusion\+\_\+\+P\+WD} (\hyperlink{structt__liste}{t\+\_\+liste} $\ast$env, \hyperlink{structt__liste}{t\+\_\+liste} $\ast$argv)
+\begin{DoxyCompactList}\small\item\em Récupère le chemin absolu de la racine de W\+OD. \end{DoxyCompactList}\item 
+t\+\_\+erreur \hyperlink{chemin_8h_a5aca441244932fa32192a79ef980d2eb}{pwd\+\_\+quit} (void)
+\begin{DoxyCompactList}\small\item\em Unset la variable globale W\+O\+D\+\_\+\+P\+WD. \end{DoxyCompactList}\item 
 t\+\_\+erreur \hyperlink{chemin_8h_a426a590237f668eca1627c0cc3985cd2}{creation\+\_\+chemin} (char $\ast$ajout, char $\ast$$\ast$res)
 \begin{DoxyCompactList}\small\item\em Concatène 2 chaine de caractère. \end{DoxyCompactList}\item 
 t\+\_\+erreur \hyperlink{chemin_8h_a1fe1520dbe25f041e413193a6ab5225f}{tolower\+\_\+str} (char $\ast$str, char $\ast$$\ast$res)
@@ -90,23 +92,36 @@ Décompose dans une liste le P\+WD.
 \begin{DoxyReturn}{Renvoie}
 Une erreur s\textquotesingle{}il y en a une. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{chemin_8h_a23d897ae6db5736a272d0fd6b3e4a920}\label{chemin_8h_a23d897ae6db5736a272d0fd6b3e4a920}} 
-\index{chemin.\+h@{chemin.\+h}!getpwd@{getpwd}}
-\index{getpwd@{getpwd}!chemin.\+h@{chemin.\+h}}
-\subsubsection{\texorpdfstring{getpwd()}{getpwd()}}
-{\footnotesize\ttfamily t\+\_\+erreur getpwd (\begin{DoxyParamCaption}\item[{char $\ast$}]{argv,  }\item[{char $\ast$}]{env }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{chemin_8h_af02bc563f4c0e7190df6b3d397501beb}\label{chemin_8h_af02bc563f4c0e7190df6b3d397501beb}} 
+\index{chemin.\+h@{chemin.\+h}!fusion\+\_\+\+P\+WD@{fusion\+\_\+\+P\+WD}}
+\index{fusion\+\_\+\+P\+WD@{fusion\+\_\+\+P\+WD}!chemin.\+h@{chemin.\+h}}
+\subsubsection{\texorpdfstring{fusion\+\_\+\+P\+W\+D()}{fusion\_PWD()}}
+{\footnotesize\ttfamily t\+\_\+erreur fusion\+\_\+\+P\+WD (\begin{DoxyParamCaption}\item[{\hyperlink{structt__liste}{t\+\_\+liste} $\ast$}]{env,  }\item[{\hyperlink{structt__liste}{t\+\_\+liste} $\ast$}]{argv }\end{DoxyParamCaption})}
 
 
 
 Récupère le chemin absolu de la racine de W\+OD. 
 
-
+Met à jour la valeur de W\+O\+D\+\_\+\+P\+WD, qui sera accessible de tout le programme. 
 \begin{DoxyParams}{Paramètres}
-{\em argv} & Le P\+WD utiliser pour connaitre le W\+O\+D\+\_\+\+P\+WD. \\
-\hline
 {\em env} & Le P\+WD utiliser pour connaitre le W\+O\+D\+\_\+\+P\+WD. \\
 \hline
+{\em argv} & Le P\+WD utiliser pour connaitre le W\+O\+D\+\_\+\+P\+WD. \\
+\hline
 \end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Une erreur s\textquotesingle{}il y en a une. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{chemin_8h_a5aca441244932fa32192a79ef980d2eb}\label{chemin_8h_a5aca441244932fa32192a79ef980d2eb}} 
+\index{chemin.\+h@{chemin.\+h}!pwd\+\_\+quit@{pwd\+\_\+quit}}
+\index{pwd\+\_\+quit@{pwd\+\_\+quit}!chemin.\+h@{chemin.\+h}}
+\subsubsection{\texorpdfstring{pwd\+\_\+quit()}{pwd\_quit()}}
+{\footnotesize\ttfamily t\+\_\+erreur pwd\+\_\+quit (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Unset la variable globale W\+O\+D\+\_\+\+P\+WD. 
+
 \begin{DoxyReturn}{Renvoie}
 Une erreur s\textquotesingle{}il y en a une. 
 \end{DoxyReturn}

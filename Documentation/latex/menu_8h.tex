@@ -5,8 +5,8 @@
 Gestion du menu (solo, multijoueur, ...)  
 
 
-{\ttfamily \#include $<$ctype.\+h$>$}\newline
 {\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
 {\ttfamily \#include $<$erreur.\+h$>$}\newline
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
@@ -38,23 +38,35 @@ enum {\bfseries e\+\_\+type\+\_\+menu} \{ \newline
 {\bfseries O\+P\+T\+I\+ON}, 
 \newline
 {\bfseries P\+A\+U\+SE}, 
-{\bfseries N\+O\+U\+V\+E\+A\+U\+\_\+\+M\+E\+NU}
+{\bfseries N\+O\+U\+V\+E\+A\+U\+\_\+\+M\+E\+NU}, 
+{\bfseries M\+E\+N\+U\+\_\+\+N\+U\+LL}, 
+{\bfseries N\+O\+U\+V\+E\+L\+L\+E\+\_\+\+P\+A\+R\+T\+IE}, 
+\newline
+{\bfseries C\+H\+A\+R\+G\+E\+R\+\_\+\+P\+A\+R\+T\+IE}, 
+{\bfseries Q\+U\+I\+T\+T\+ER}
  \}
 \end{DoxyCompactItemize}
 \subsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-t\+\_\+erreur \hyperlink{menu_8h_aa0357b96cd5e47de1b40527051e6748f}{ajout\+\_\+bouton\+\_\+menu} (\hyperlink{structt__menu}{t\+\_\+menu} $\ast$menu, int x, int y, int width, int height, char $\ast$titre, S\+D\+L\+\_\+\+Texture $\ast$texture)
-\item 
-t\+\_\+erreur \hyperlink{menu_8h_a1ddc849d5ab6828a80e9fade67d085c6}{creer\+\_\+menu} (t\+\_\+type\+\_\+menu type, int width, int height, S\+D\+L\+\_\+\+Texture $\ast$texture, \hyperlink{structt__menu}{t\+\_\+menu} $\ast$$\ast$menu)
-\item 
-t\+\_\+erreur \hyperlink{menu_8h_ab38e64eae37ab172748fef3164e7a7a6}{S\+D\+L\+\_\+afficher\+\_\+menu} (\hyperlink{structt__menu}{t\+\_\+menu} $\ast$menu, S\+D\+L\+\_\+\+Renderer $\ast$renderer)
-\item 
-t\+\_\+erreur \hyperlink{menu_8h_ac2bb8edbf82cabcc1f60096f4c68c847}{detruire\+\_\+bouton\+\_\+menu} (\hyperlink{structt__bouton__menu}{t\+\_\+bouton\+\_\+menu} $\ast$$\ast$btn)
-\item 
-\mbox{\Hypertarget{menu_8h_a10952447e14d3dc124888eec0e403a84}\label{menu_8h_a10952447e14d3dc124888eec0e403a84}} 
-t\+\_\+erreur {\bfseries detruire\+\_\+menu} (\hyperlink{structt__menu}{t\+\_\+menu} $\ast$$\ast$menu)
-\end{DoxyCompactItemize}
+t\+\_\+erreur \hyperlink{menu_8h_aa771a9769760a4f490719761ac5d052c}{menu\+\_\+init} (S\+D\+L\+\_\+\+Renderer $\ast$renderer)
+\begin{DoxyCompactList}\small\item\em Initialise Menu. \end{DoxyCompactList}\item 
+t\+\_\+erreur \hyperlink{menu_8h_a400dad194316a2c134c016ebf10a2f31}{menu\+\_\+quit} (void)
+\begin{DoxyCompactList}\small\item\em Quitte Menu. \end{DoxyCompactList}\item 
+t\+\_\+erreur \hyperlink{menu_8h_af1461abc4dc85b02e4d1d3e8c135eaad}{menu\+\_\+ajout\+\_\+bouton} (\hyperlink{structt__menu}{t\+\_\+menu} $\ast$menu, S\+D\+L\+\_\+\+Rect rect, char $\ast$titre, t\+\_\+type\+\_\+menu type)
+\begin{DoxyCompactList}\small\item\em Ajoute un bouton au menu. \end{DoxyCompactList}\item 
+t\+\_\+erreur \hyperlink{menu_8h_a5e4bbd12d3e5748c418095f36fd603fc}{menu\+\_\+creer} (t\+\_\+type\+\_\+menu type, int width, int height, \hyperlink{structt__menu}{t\+\_\+menu} $\ast$$\ast$menu)
+\begin{DoxyCompactList}\small\item\em Créer un Menu. \end{DoxyCompactList}\item 
+t\+\_\+erreur \hyperlink{menu_8h_ac891d8c3b720e8c042eb00768981a389}{menu\+\_\+afficher\+\_\+\+S\+DL} (\hyperlink{structt__menu}{t\+\_\+menu} $\ast$menu, S\+D\+L\+\_\+\+Renderer $\ast$renderer)
+\begin{DoxyCompactList}\small\item\em Affiche le menu. \end{DoxyCompactList}\item 
+t\+\_\+erreur \hyperlink{menu_8h_a261f1344f6059bdf0834f0f3b878bea8}{menu\+\_\+detruire\+\_\+bouton} (\hyperlink{structt__bouton__menu}{t\+\_\+bouton\+\_\+menu} $\ast$$\ast$btn)
+\begin{DoxyCompactList}\small\item\em Detruire un bouton. \end{DoxyCompactList}\item 
+t\+\_\+erreur \hyperlink{menu_8h_a4f02e01d48394849997786c138baf862}{menu\+\_\+detruire} (\hyperlink{structt__menu}{t\+\_\+menu} $\ast$$\ast$menu)
+\begin{DoxyCompactList}\small\item\em Detruire un Menu. \end{DoxyCompactList}\item 
+t\+\_\+erreur \hyperlink{menu_8h_a28006b7b9d53bcc0b3828ec01906c7cd}{menu\+\_\+gestion\+\_\+\+S\+DL} (\hyperlink{structt__menu}{t\+\_\+menu} $\ast$menu, int mouse\+State, t\+\_\+type\+\_\+menu $\ast$type\+\_\+menu\+\_\+suivant)
+\begin{DoxyCompactList}\small\item\em Met à jour le menu. \end{DoxyCompactList}\item 
+t\+\_\+erreur \hyperlink{menu_8h_a65c9e5cd5164e3b622fae7d2dc09ef23}{menu\+\_\+suivant} (\hyperlink{structt__menu}{t\+\_\+menu} $\ast$$\ast$menu, t\+\_\+type\+\_\+menu type\+\_\+menu\+\_\+suivant)
+\begin{DoxyCompactList}\small\item\em Passe au Menu suivant. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Description détaillée}
@@ -64,41 +76,65 @@ Gestion du menu (solo, multijoueur, ...)
 Jasmin G\+A\+L\+B\+R\+UN 
 \end{DoxyAuthor}
 \begin{DoxyVersion}{Version}
-1 
+3 
 \end{DoxyVersion}
 \begin{DoxyDate}{Date}
-07/03/2019 
+15/03/2019 
 \end{DoxyDate}
 
 
 \subsection{Documentation des fonctions}
-\mbox{\Hypertarget{menu_8h_aa0357b96cd5e47de1b40527051e6748f}\label{menu_8h_aa0357b96cd5e47de1b40527051e6748f}} 
-\index{menu.\+h@{menu.\+h}!ajout\+\_\+bouton\+\_\+menu@{ajout\+\_\+bouton\+\_\+menu}}
-\index{ajout\+\_\+bouton\+\_\+menu@{ajout\+\_\+bouton\+\_\+menu}!menu.\+h@{menu.\+h}}
-\subsubsection{\texorpdfstring{ajout\+\_\+bouton\+\_\+menu()}{ajout\_bouton\_menu()}}
-{\footnotesize\ttfamily t\+\_\+erreur ajout\+\_\+bouton\+\_\+menu (\begin{DoxyParamCaption}\item[{\hyperlink{structt__menu}{t\+\_\+menu} $\ast$}]{menu,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{char $\ast$}]{titre,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{menu_8h_ac891d8c3b720e8c042eb00768981a389}\label{menu_8h_ac891d8c3b720e8c042eb00768981a389}} 
+\index{menu.\+h@{menu.\+h}!menu\+\_\+afficher\+\_\+\+S\+DL@{menu\+\_\+afficher\+\_\+\+S\+DL}}
+\index{menu\+\_\+afficher\+\_\+\+S\+DL@{menu\+\_\+afficher\+\_\+\+S\+DL}!menu.\+h@{menu.\+h}}
+\subsubsection{\texorpdfstring{menu\+\_\+afficher\+\_\+\+S\+D\+L()}{menu\_afficher\_SDL()}}
+{\footnotesize\ttfamily t\+\_\+erreur menu\+\_\+afficher\+\_\+\+S\+DL (\begin{DoxyParamCaption}\item[{\hyperlink{structt__menu}{t\+\_\+menu} $\ast$}]{menu,  }\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
+
+
+
+Affiche le menu. 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em menu} & Pointeur sur un \hyperlink{structt__menu}{t\+\_\+menu} \\
+{\em menu} & Pointeur sur le menu que l\textquotesingle{}on veut afficher \\
 \hline
-{\em x} & Position en x du bouton \\
+{\em renderer} & Renderer sur le lequel on veut afficher le menu \\
 \hline
-{\em y} & Position en y du bouton \\
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Code erreur 
+\end{DoxyReturn}
+\mbox{\Hypertarget{menu_8h_af1461abc4dc85b02e4d1d3e8c135eaad}\label{menu_8h_af1461abc4dc85b02e4d1d3e8c135eaad}} 
+\index{menu.\+h@{menu.\+h}!menu\+\_\+ajout\+\_\+bouton@{menu\+\_\+ajout\+\_\+bouton}}
+\index{menu\+\_\+ajout\+\_\+bouton@{menu\+\_\+ajout\+\_\+bouton}!menu.\+h@{menu.\+h}}
+\subsubsection{\texorpdfstring{menu\+\_\+ajout\+\_\+bouton()}{menu\_ajout\_bouton()}}
+{\footnotesize\ttfamily t\+\_\+erreur menu\+\_\+ajout\+\_\+bouton (\begin{DoxyParamCaption}\item[{\hyperlink{structt__menu}{t\+\_\+menu} $\ast$}]{menu,  }\item[{S\+D\+L\+\_\+\+Rect}]{rect,  }\item[{char $\ast$}]{titre,  }\item[{t\+\_\+type\+\_\+menu}]{type }\end{DoxyParamCaption})}
+
+
+
+Ajoute un bouton au menu. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em rect} & Informations de position et de taille du bouton \\
 \hline
-{\em width} & Largeur du bouton \\
+{\em titre} & Titre du bouton \\
 \hline
-{\em height} & Hauteur du bouton \\
+{\em type} & Type du menu suivant \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
 Retourne un code erreur 
 \end{DoxyReturn}
-\mbox{\Hypertarget{menu_8h_a1ddc849d5ab6828a80e9fade67d085c6}\label{menu_8h_a1ddc849d5ab6828a80e9fade67d085c6}} 
-\index{menu.\+h@{menu.\+h}!creer\+\_\+menu@{creer\+\_\+menu}}
-\index{creer\+\_\+menu@{creer\+\_\+menu}!menu.\+h@{menu.\+h}}
-\subsubsection{\texorpdfstring{creer\+\_\+menu()}{creer\_menu()}}
-{\footnotesize\ttfamily t\+\_\+erreur creer\+\_\+menu (\begin{DoxyParamCaption}\item[{t\+\_\+type\+\_\+menu}]{type,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture,  }\item[{\hyperlink{structt__menu}{t\+\_\+menu} $\ast$$\ast$}]{menu }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{menu_8h_a5e4bbd12d3e5748c418095f36fd603fc}\label{menu_8h_a5e4bbd12d3e5748c418095f36fd603fc}} 
+\index{menu.\+h@{menu.\+h}!menu\+\_\+creer@{menu\+\_\+creer}}
+\index{menu\+\_\+creer@{menu\+\_\+creer}!menu.\+h@{menu.\+h}}
+\subsubsection{\texorpdfstring{menu\+\_\+creer()}{menu\_creer()}}
+{\footnotesize\ttfamily t\+\_\+erreur menu\+\_\+creer (\begin{DoxyParamCaption}\item[{t\+\_\+type\+\_\+menu}]{type,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{\hyperlink{structt__menu}{t\+\_\+menu} $\ast$$\ast$}]{menu }\end{DoxyParamCaption})}
+
+
+
+Créer un Menu. 
 
 
 \begin{DoxyParams}{Paramètres}
@@ -112,27 +148,114 @@ Retourne un code erreur
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-Retourne un code erreur 
+Code erreur 
 \end{DoxyReturn}
-\mbox{\Hypertarget{menu_8h_ac2bb8edbf82cabcc1f60096f4c68c847}\label{menu_8h_ac2bb8edbf82cabcc1f60096f4c68c847}} 
-\index{menu.\+h@{menu.\+h}!detruire\+\_\+bouton\+\_\+menu@{detruire\+\_\+bouton\+\_\+menu}}
-\index{detruire\+\_\+bouton\+\_\+menu@{detruire\+\_\+bouton\+\_\+menu}!menu.\+h@{menu.\+h}}
-\subsubsection{\texorpdfstring{detruire\+\_\+bouton\+\_\+menu()}{detruire\_bouton\_menu()}}
-{\footnotesize\ttfamily t\+\_\+erreur detruire\+\_\+bouton\+\_\+menu (\begin{DoxyParamCaption}\item[{\hyperlink{structt__bouton__menu}{t\+\_\+bouton\+\_\+menu} $\ast$$\ast$}]{btn }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{menu_8h_a4f02e01d48394849997786c138baf862}\label{menu_8h_a4f02e01d48394849997786c138baf862}} 
+\index{menu.\+h@{menu.\+h}!menu\+\_\+detruire@{menu\+\_\+detruire}}
+\index{menu\+\_\+detruire@{menu\+\_\+detruire}!menu.\+h@{menu.\+h}}
+\subsubsection{\texorpdfstring{menu\+\_\+detruire()}{menu\_detruire()}}
+{\footnotesize\ttfamily t\+\_\+erreur menu\+\_\+detruire (\begin{DoxyParamCaption}\item[{\hyperlink{structt__menu}{t\+\_\+menu} $\ast$$\ast$}]{menu }\end{DoxyParamCaption})}
+
+
+
+Detruire un Menu. 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em } & \\
+{\em menu} & Menu que l\textquotesingle{}on veut détruire \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{menu_8h_ab38e64eae37ab172748fef3164e7a7a6}\label{menu_8h_ab38e64eae37ab172748fef3164e7a7a6}} 
-\index{menu.\+h@{menu.\+h}!S\+D\+L\+\_\+afficher\+\_\+menu@{S\+D\+L\+\_\+afficher\+\_\+menu}}
-\index{S\+D\+L\+\_\+afficher\+\_\+menu@{S\+D\+L\+\_\+afficher\+\_\+menu}!menu.\+h@{menu.\+h}}
-\subsubsection{\texorpdfstring{S\+D\+L\+\_\+afficher\+\_\+menu()}{SDL\_afficher\_menu()}}
-{\footnotesize\ttfamily t\+\_\+erreur S\+D\+L\+\_\+afficher\+\_\+menu (\begin{DoxyParamCaption}\item[{\hyperlink{structt__menu}{t\+\_\+menu} $\ast$}]{menu,  }\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
+\begin{DoxyReturn}{Renvoie}
+Code erreur 
+\end{DoxyReturn}
+\mbox{\Hypertarget{menu_8h_a261f1344f6059bdf0834f0f3b878bea8}\label{menu_8h_a261f1344f6059bdf0834f0f3b878bea8}} 
+\index{menu.\+h@{menu.\+h}!menu\+\_\+detruire\+\_\+bouton@{menu\+\_\+detruire\+\_\+bouton}}
+\index{menu\+\_\+detruire\+\_\+bouton@{menu\+\_\+detruire\+\_\+bouton}!menu.\+h@{menu.\+h}}
+\subsubsection{\texorpdfstring{menu\+\_\+detruire\+\_\+bouton()}{menu\_detruire\_bouton()}}
+{\footnotesize\ttfamily t\+\_\+erreur menu\+\_\+detruire\+\_\+bouton (\begin{DoxyParamCaption}\item[{\hyperlink{structt__bouton__menu}{t\+\_\+bouton\+\_\+menu} $\ast$$\ast$}]{btn }\end{DoxyParamCaption})}
+
+
+
+Detruire un bouton. 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em } & \\
+{\em btn} & Bouton que l\textquotesingle{}on veut détruire \\
 \hline
 \end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Code erreur 
+\end{DoxyReturn}
+\mbox{\Hypertarget{menu_8h_a28006b7b9d53bcc0b3828ec01906c7cd}\label{menu_8h_a28006b7b9d53bcc0b3828ec01906c7cd}} 
+\index{menu.\+h@{menu.\+h}!menu\+\_\+gestion\+\_\+\+S\+DL@{menu\+\_\+gestion\+\_\+\+S\+DL}}
+\index{menu\+\_\+gestion\+\_\+\+S\+DL@{menu\+\_\+gestion\+\_\+\+S\+DL}!menu.\+h@{menu.\+h}}
+\subsubsection{\texorpdfstring{menu\+\_\+gestion\+\_\+\+S\+D\+L()}{menu\_gestion\_SDL()}}
+{\footnotesize\ttfamily t\+\_\+erreur menu\+\_\+gestion\+\_\+\+S\+DL (\begin{DoxyParamCaption}\item[{\hyperlink{structt__menu}{t\+\_\+menu} $\ast$}]{menu,  }\item[{int}]{mouse\+State,  }\item[{t\+\_\+type\+\_\+menu $\ast$}]{type\+\_\+menu\+\_\+suivant }\end{DoxyParamCaption})}
+
+
+
+Met à jour le menu. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em menu} & Menu que l\textquotesingle{}on veut gérer \\
+\hline
+{\em mouse} & Info de la souris \\
+\hline
+{\em type\+\_\+menu\+\_\+suivant} & Pointeur sur le menu suivant, M\+E\+N\+U\+\_\+\+N\+U\+LL sinon \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Code erreur 
+\end{DoxyReturn}
+\mbox{\Hypertarget{menu_8h_aa771a9769760a4f490719761ac5d052c}\label{menu_8h_aa771a9769760a4f490719761ac5d052c}} 
+\index{menu.\+h@{menu.\+h}!menu\+\_\+init@{menu\+\_\+init}}
+\index{menu\+\_\+init@{menu\+\_\+init}!menu.\+h@{menu.\+h}}
+\subsubsection{\texorpdfstring{menu\+\_\+init()}{menu\_init()}}
+{\footnotesize\ttfamily t\+\_\+erreur menu\+\_\+init (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
+
+
+
+Initialise Menu. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & Renderer de la fenetre \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+t\+\_\+erreur Code erreur 
+\end{DoxyReturn}
+\mbox{\Hypertarget{menu_8h_a400dad194316a2c134c016ebf10a2f31}\label{menu_8h_a400dad194316a2c134c016ebf10a2f31}} 
+\index{menu.\+h@{menu.\+h}!menu\+\_\+quit@{menu\+\_\+quit}}
+\index{menu\+\_\+quit@{menu\+\_\+quit}!menu.\+h@{menu.\+h}}
+\subsubsection{\texorpdfstring{menu\+\_\+quit()}{menu\_quit()}}
+{\footnotesize\ttfamily t\+\_\+erreur menu\+\_\+quit (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Quitte Menu. 
+
+\begin{DoxyReturn}{Renvoie}
+Code erreur 
+\end{DoxyReturn}
+\mbox{\Hypertarget{menu_8h_a65c9e5cd5164e3b622fae7d2dc09ef23}\label{menu_8h_a65c9e5cd5164e3b622fae7d2dc09ef23}} 
+\index{menu.\+h@{menu.\+h}!menu\+\_\+suivant@{menu\+\_\+suivant}}
+\index{menu\+\_\+suivant@{menu\+\_\+suivant}!menu.\+h@{menu.\+h}}
+\subsubsection{\texorpdfstring{menu\+\_\+suivant()}{menu\_suivant()}}
+{\footnotesize\ttfamily t\+\_\+erreur menu\+\_\+suivant (\begin{DoxyParamCaption}\item[{\hyperlink{structt__menu}{t\+\_\+menu} $\ast$$\ast$}]{menu,  }\item[{t\+\_\+type\+\_\+menu}]{type\+\_\+menu\+\_\+suivant }\end{DoxyParamCaption})}
+
+
+
+Passe au Menu suivant. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em menu} & Double pointeur sur le menu \\
+\hline
+{\em type\+\_\+menu\+\_\+suivant} & Type du menu suivant \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Code erreur 
+\end{DoxyReturn}
