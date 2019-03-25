@@ -15,6 +15,7 @@
 #include <donjon.h>
 #include <affichage.h>
 #include <block.h>
+#include <entite.h>
 
 #define NB_SALLE 20
 
@@ -56,24 +57,27 @@ int main(int argc, char **argv, char **env){
     }
 
     /* Test de création, affichage + destruction du donjon */
-    BLOCK_CreateTexture_sdl(renderer);
+    if(BLOCK_CreateTexture_sdl(renderer) != OK){
+        erreur_save(VALUE_ERROR, NULL);
+        return VALUE_ERROR;
+    }
+
+    Init_Sprite(renderer);
+    t_entite * joueur = creer_entite_defaut("Joueur", JOUEUR, 9 * width_window + 5 * width_block_sdl, 10 * height_window + 7 * height_block_sdl, 2);
+    
 
     /* Création Donjon */
-    t_liste *donjon = NULL;
-    donjon_creer(&donjon, NB_SALLE);
+    t_donjon *donjon = NULL;
+    donjon_creer(&donjon, NB_SALLE, joueur);
 
-    SDL_Rect pos_perso = {
-        9 * width_window,
-        10 * height_window + 7 * height_block_sdl,
-        12,
-        12
-    };
+    
    
     /* Affichage Donjon */
     SDL_RenderClear(renderer);
     
-    donjon_afficher_SDL(renderer, donjon, pos_perso);
-    donjon_afficher_Term(donjon, pos_perso);
+    donjon_afficher_SDL(renderer, donjon, joueur->hitbox);
+    Charger_Anima(renderer, joueur, IMMOBILE);
+    donjon_afficher_Term(donjon, joueur->hitbox);
     
     SDL_RenderPresent(renderer);
     SDL_Delay(2000);
@@ -81,6 +85,8 @@ int main(int argc, char **argv, char **env){
     /* Destruction Donjon */
     donjon_detruire(&donjon);
     BLOCK_DestroyTexture_sdl(renderer);
+    Quit_Sprite();
+    detruire_entite(joueur);
     pwd_quit();
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(screen);
