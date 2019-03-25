@@ -3,7 +3,7 @@
  * \brief Module de création + de gestion d'un donjon
  * \author Jasmin GALBRUN
  * \version 1
- * \date 24/03/2019
+ * \date 25/03/2019
 */
 
 #include <stdio.h>
@@ -41,6 +41,8 @@ int main(int argc, char **argv, char **env){
         return EXIT_FAILURE;
     }
 
+    height_window = 600;
+    width_window = 1000;
     SDL_Window *screen = SDL_CreateWindow("World Of Dungeons", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,width_window, height_window, SDL_WINDOW_SHOWN);
     if(screen == NULL){
         printf("%s\n", SDL_GetError());
@@ -54,6 +56,7 @@ int main(int argc, char **argv, char **env){
     }
 
     /* Test de création, affichage + destruction du donjon */
+    BLOCK_CreateTexture_sdl(renderer);
 
     /* Création Donjon */
     t_liste *donjon = NULL;
@@ -68,7 +71,7 @@ int main(int argc, char **argv, char **env){
    
     /* Affichage Donjon */
     SDL_RenderClear(renderer);
-
+    
     donjon_afficher_SDL(renderer, donjon, pos_perso);
     donjon_afficher_Term(donjon, pos_perso);
     
@@ -77,6 +80,7 @@ int main(int argc, char **argv, char **env){
     
     /* Destruction Donjon */
     donjon_detruire(&donjon);
+    BLOCK_DestroyTexture_sdl(renderer);
     pwd_quit();
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(screen);
