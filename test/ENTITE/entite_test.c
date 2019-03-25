@@ -8,6 +8,7 @@
 #include <touches.h>
 #include <fps.h>
 #include <commun.h>
+#include <liste.h>
 #include "entite_test.h"
 
 int main (int argc, char ** argv, char ** env)
@@ -28,19 +29,27 @@ int main (int argc, char ** argv, char ** env)
     Init_Sprite(renderer);
 
     /* Création de l'entité */
-    t_entite * J = creer_entite_defaut(NULL,JOUEUR,22000,POSY_ENT_SCREEN);
+    t_entite * J = creer_entite_defaut(NULL,JOUEUR,22000,POSY_ENT_SCREEN,40);
 
     /******************************************************************************************/
     SDL_Rect mur_droit = {width_window-200,POSY_ENT_SCREEN+H_PART_SPRITE,200,200};
     SDL_Rect mur_gauche = {0,POSY_ENT_SCREEN+H_PART_SPRITE,200,200};
     SDL_Rect mur_haut = {0,0,width_window,100};
-    SDL_Rect mur_bas = {0,POSY_ENT_SCREEN+H_PART_SPRITE*COEF_TAILLE_ENTITE,width_window,height_window - POSY_ENT_SCREEN - H_PART_SPRITE};
+    SDL_Rect mur_bas = {0,POSY_ENT_SCREEN+H_PART_SPRITE,width_window,height_window - POSY_ENT_SCREEN - H_PART_SPRITE};
 
     char * chemin;
     creation_chemin("IMG/texture/pierre.png",&chemin);
     SDL_Texture *texture;
     Create_IMG_Texture(renderer, chemin, &texture);
     free(chemin);
+
+    t_liste l1,l2;
+    init_liste(&l1);
+    init_liste(&l2);
+    int a = 5, b = 6;
+    ajout_droit(&l1,&a);
+    ajout_droit(&l1,&l2);
+    ajout_droit(&l2,&b);
     /******************************************************************************************/
 
     fps_init();
@@ -68,7 +77,7 @@ int main (int argc, char ** argv, char ** env)
         SDL_RenderCopy(renderer,texture,NULL,&mur_gauche);
         /**********************************************************************************/
         
-        Gestion_Entite(renderer,J,ks,coef_fps,collision);
+        Gestion_Entite(renderer,J,ks,coef_fps,collision,&l1);
         SDL_RenderPresent(renderer);
         coef_fps = fps();
     }
@@ -87,8 +96,17 @@ int main (int argc, char ** argv, char ** env)
     return 0;
 }
 
-int collision (SDL_Rect hit, t_collision_direction direction)
+int collision (SDL_Rect hit, t_collision_direction direction, t_liste * p)
 {
+    if (p)
+    {
+        int * a, * b;
+        t_liste * l;
+        valeur_liste(p,0,(void **)&a);
+        valeur_liste(p,1,(void **)&l);
+        valeur_liste(l,0,(void **)&b);
+        printf("a = %d : b = %d\n",*a,*b);
+    }
     switch (direction)
     {
         case DIRECT_BAS_COLLI:

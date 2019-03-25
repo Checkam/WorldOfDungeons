@@ -53,30 +53,31 @@ t_anim_action t_a_boss[NB_LIGNES_SPRITE] = {{MARCHE_DROITE, 12, 9, 100},
 /****** FONCTIONS CREATION ET SUPPRESSION ENTITE ******/
 
 /**
- * \fn t_entite * creer_entite_defaut (char * name, t_entite_type type)
+ * \fn t_entite * creer_entite_defaut (char * name, t_entite_type type, int taille)
  * \brief Créer une entité avec des paramètres par défaut.
  * \param name Le nom de l'entité.
  * \param type Le type de l'entité.
  * \param x_dep Coordonnée de départ de l'entité.
  * \param y_dep Coordonnée de départ de l'entité.
+ * \param taille Taille de l'entité en Y.
  * \return Un pointeur sur l'entité créée.
 */
-t_entite *creer_entite_defaut(char *name, t_entite_type type, int x_dep, int y_dep)
+t_entite *creer_entite_defaut(char *name, t_entite_type type, int x_dep, int y_dep, int taille)
 {
   switch (type)
   {
   case JOUEUR:
-    return creer_entite((name) ? name : "PLAYER", 20, 20, 10, 10, Textures_Joueur, t_a_joueur, x_dep, y_dep);
+    return creer_entite((name) ? name : "PLAYER", 20, 20, 10, 10, Textures_Joueur, t_a_joueur, x_dep, y_dep,taille);
   case ZOMBIE:
-    return creer_entite((name) ? name : "ZOMBIE", 0, 0, 10, 10, Textures_Zombie, t_a_zombie, x_dep, y_dep);
+    return creer_entite((name) ? name : "ZOMBIE", 0, 0, 10, 10, Textures_Zombie, t_a_zombie, x_dep, y_dep,taille);
   case BOSS:
-    return creer_entite((name) ? name : "BOSS", 50, 50, 30, 30, Textures_Boss, t_a_boss, x_dep, y_dep);
+    return creer_entite((name) ? name : "BOSS", 50, 50, 30, 30, Textures_Boss, t_a_boss, x_dep, y_dep,taille);
   }
   return NULL;
 }
 
 /**
- * \fn t_entite * creer_entite (char * name, int mana, int mana_max, int pv, int pv_max, SDL_Texture * texture, t_anim_action * t_a)
+ * \fn t_entite * creer_entite (char * name, int mana, int mana_max, int pv, int pv_max, SDL_Texture * texture, t_anim_action * t_a,int taille)
  * \brief Créer une entité.
  * \param name Le nom de l'entité.
  * \param mana Le mana de départ de l'entité.
@@ -87,9 +88,10 @@ t_entite *creer_entite_defaut(char *name, t_entite_type type, int x_dep, int y_d
  * \param t_a Emplacement des textures liées à une action.
  * \param x_dep Coordonnée de départ de l'entité.
  * \param y_dep Coordonnée de départ de l'entité.
+ * \param taille Taille de l'entité en Y.
  * \return Un pointeur sur l'entité créée.
 */
-t_entite *creer_entite(char *name, int mana, int mana_max, int pv, int pv_max, SDL_Texture *texture, t_anim_action *t_a, int x_dep, int y_dep)
+t_entite *creer_entite(char *name, int mana, int mana_max, int pv, int pv_max, SDL_Texture *texture, t_anim_action *t_a, int x_dep, int y_dep, int taille)
 {
   if (!texture || !name || !t_a)
     return NULL;
@@ -103,7 +105,7 @@ t_entite *creer_entite(char *name, int mana, int mana_max, int pv, int pv_max, S
   SDL_Rect sprite_part = {0 + DECAL_W_SPRITE, t_a[0].ligne * H_PART_SPRITE + DECAL_H_SPRITE, W_PART_SPRITE / 2, H_PART_SPRITE / 1.25};
 
   /* Initialisation de la taille de l'entité */
-  SDL_Rect hit = {x_dep - sprite_part.w * COEF_TAILLE_ENTITE, y_dep - sprite_part.h * COEF_TAILLE_ENTITE, sprite_part.w * COEF_TAILLE_ENTITE, sprite_part.h * COEF_TAILLE_ENTITE};
+  SDL_Rect hit = {x_dep, y_dep - taille, taille * sprite_part.w / sprite_part.h, taille};
 
   t_entite *entite = malloc(sizeof(t_entite));
   entite->id = sizeof(*name); // sizeof temporaire
@@ -283,16 +285,22 @@ t_erreur Anim_Update (t_entite * entite, t_action action, int new_time)
 /****** FONCTION GESTION COLLISION ENTITE + GRAVITE ******/
 
 /**
- *
+ * \fn t_erreur update_posY_entite(t_entite * entite, double coef_fps, int (*collision) (SDL_Rect,t_collision_direction,t_liste *), t_liste * p)
+ * \brief Gère la position de l'entité sur Y via la gravité et les collisions.
+ * \param entite L'entité à gérer.
+ * \param coef_fps Permet d'adapter les déplacements en fonction du nombre de fps.
+ * \param collision Renvoie la profondeur d'une collision pour une direction donnée.
+ * \param p Liste contenant les paramètres supplémentaires de la fonction collision si il y en a besoin.
+ * \return Une erreur s'il y en a une.
 */
-t_erreur update_posY_entite(t_entite *entite, double coef_fps, int (*collision) (SDL_Rect,t_collision_direction))
+t_erreur update_posY_entite(t_entite * entite, double coef_fps, int (*collision) (SDL_Rect,t_collision_direction,t_liste *), t_liste * p)
 {
   //fprintf(stderr,"Vel Y -> %.2f\n", entite->velY);
   if (!entite)
     return PTR_NULL;
   
   int diff; // Profondeur de la collision
-  diff = collision(entite->hitbox,DIRECT_HAUT_COLLI);
+  diff = collision(entite->hitbox,DIRECT_HAUT_COLLI,p);
   if (diff)
   {
     entite->hitbox.y -= diff;
@@ -307,7 +315,7 @@ t_erreur update_posY_entite(t_entite *entite, double coef_fps, int (*collision) 
     entite->hitbox.y -= grav;
     entite->posEnt.y += grav;
   }
-  if ((diff = collision (entite->hitbox, DIRECT_BAS_COLLI)))
+  if ((diff = collision (entite->hitbox, DIRECT_BAS_COLLI,p)))
   {
     entite->velY = 0;
     entite->hitbox.y += diff;
@@ -323,15 +331,18 @@ t_erreur update_posY_entite(t_entite *entite, double coef_fps, int (*collision) 
 /************** Focntion qui gère les déplacements et les animations de l'entité **************/
 
 /**
- * \fn t_erreur Gestion_Entite (SDL_Renderer * renderer, t_entite * entite, uint8_t * ks)
+ * \fn t_erreur Gestion_Entite (SDL_Renderer * renderer, t_entite * entite, uint8_t * ks, double coef_fps, int (*collision) (SDL_Rect,t_collision_direction,t_liste *), t_liste * p)
  * \brief Gère une entité (collision, déplacement, animation).
  * \brief Gère les animations ainsi que les modifications apportées à l'entité (gravité, collision, déplacement) correspondant aux différents appuis de touches.
  * \param renderer Renderer de la fenêtre.
  * \param entite L'entité à gérer.
  * \param ks Etat du clavier pour la gestion de l'appui des touches.
+ * \param coef_fps Permet d'adapter les déplacements en fonction du nombre de fps.
+ * \param collision Renvoie la profondeur d'une collision pour une direction donnée.
+ * \param p Liste contenant les paramètres supplémentaires de la fonction collision si il y en a besoin.
  * \return Une erreur s'il y en a une.
 */
-t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, double coef_fps, int (*collision) (SDL_Rect,t_collision_direction))
+t_erreur Gestion_Entite (SDL_Renderer * renderer, t_entite * entite, uint8_t * ks, double coef_fps, int (*collision) (SDL_Rect,t_collision_direction,t_liste *), t_liste * p)
 {
   if (!renderer || !entite || !ks)
     return PTR_NULL;
@@ -352,7 +363,7 @@ t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, d
   else if (SDL_touche_appuyer(ks, DROITE))
   {
     entite->hitbox.x += entite->accX * coef_fps;
-    diff = collision(entite->hitbox, DIRECT_DROITE_COLLI);
+    diff = collision(entite->hitbox, DIRECT_DROITE_COLLI,p);
     if (diff) entite->hitbox.x -= diff;
     Charger_Anima(renderer, entite, MARCHE_DROITE);
   }
@@ -360,7 +371,7 @@ t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, d
   else if (SDL_touche_appuyer(ks, GAUCHE))
   {
     entite->hitbox.x -= entite->accX * coef_fps;
-    diff = collision(entite->hitbox, DIRECT_GAUCHE_COLLI);
+    diff = collision(entite->hitbox, DIRECT_GAUCHE_COLLI,p);
     if (diff) entite->hitbox.x += diff;
     Charger_Anima(renderer, entite, MARCHE_GAUCHE);
   }
@@ -387,13 +398,13 @@ t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, d
   }
 
   /* Modif pour la touche SAUTER */
-  if (!(entite->velY) && !collision(entite->hitbox, DIRECT_BAS_COLLI) && SDL_touche_appuyer(ks, SAUTER))
+  if (!(entite->velY) && !collision(entite->hitbox, DIRECT_BAS_COLLI, p) && SDL_touche_appuyer(ks, SAUTER))
   {
-    entite->velY -= HAUTEUR_SAUT;    
+    entite->velY -= HAUTEUR_SAUT;
   }
 
   /* Gravité */
-  update_posY_entite(entite, coef_fps,collision);
+  update_posY_entite(entite, coef_fps,collision,p);
   //fprintf(stderr,"posEnt : X->%d, Y->%d / hitBox : X->%d, Y->%d\n", entite->posEnt.x, entite->posEnt.y, entite->hitbox.x, entite->hitbox.y);
 
   return OK;
