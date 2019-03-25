@@ -15,14 +15,14 @@
 #include <fichier.h>
 
 /**
- * \fn FILE * open_bin (char * dossier, char * name, char * mode)
+ * \fn t_binaire open_bin (char * dossier, char * name, char * mode)
  * \brief Créer, s'il ne l'est pas, le fichier Binaire et l'ouvre.
  * \param dossier Chaine de caractère représentant le dossier ou se trouve le fichier binaire.
  * \param name Chaine de caractère représenant le nom du fichier.
  * \param mode Mode d'ouverture du fichier.
  * \return Un pointeur sur le fichier ouvert.
 */
-FILE * open_bin (char * dossier, char * name, char * mode)
+t_binaire open_bin (char * dossier, char * name, char * mode)
 {
     return open_file(dossier,name,".dat",mode);
 }
@@ -37,4 +37,17 @@ FILE * open_bin (char * dossier, char * name, char * mode)
 t_erreur del_bin (char * dossier, char * name)
 {
     return del_file(dossier,name,".dat");
+}
+
+/**
+ * \fn t_erreur close_bin (t_binaire bin)
+ * \brief Ferme un fichier Binaire.
+ * \param bin Le fichier à fermer.
+ * \return Une erreur s'il y en a une.
+*/
+t_erreur close_bin (t_binaire bin)
+{
+    if (!bin) return PTR_NULL;
+    fclose(bin);
+    return OK;
 }

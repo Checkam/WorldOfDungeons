@@ -13,7 +13,15 @@
 #include <stdlib.h>
 #include <erreur.h>
 
-FILE * open_bin (char * dossier, char * name, char * mode);
+typedef FILE * t_binaire;
+
+/* Création, Ouverture et Fermeture de fichier Binaire */
+
+/* Ouvre un fichier binaire et le crée s'il n'existe pas. */
+t_binaire open_bin (char * dossier, char * name, char * mode);
+/* Supprime un fichier binaire. */
 t_erreur del_bin (char * dossier, char * name);
+/* Ferme un fichier binaire. */
+t_erreur close_bin (t_binaire bin);
 
 #endif
