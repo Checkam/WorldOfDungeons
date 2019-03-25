@@ -1,13 +1,20 @@
 #include <item.h> /* #include <block.h> */
 #include <liste.h>
 
-static void init_echange_block_item ( t_materiau materiau ) {
+t_block_drop *tabItemDrop;
 
-    init_liste( dropItem );
+void init_liste() {
 
-}
+    uint16_t nbItem, i;
 
-static void default_item () {
+    for ( nbItem = 0 ; nbItem != I_END ; nbItem++ );
 
+    nbItem++;
 
+    tabItemDrop = malloc( sizeof( t_block_drop ) * nbItem );
+
+    for ( i = 0 ; i < nbItem ; i++ ) {
+
+        ( tabItemDrop + i )->drop = malloc( sizeof( t_liste_drop ) );
+    }
 }
