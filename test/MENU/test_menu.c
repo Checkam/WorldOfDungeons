@@ -49,7 +49,7 @@ int main(int argc, char **argv, char **env)
 
     /* Test création menu */
     printf("Test création Menu avec texture:\n");
-    assert(menu_creer(PRINCIPAL, width_window, height_window, &menu) == OK);
+    assert(menu_creer(MENU_PRINCIPAL, width_window, height_window, &menu) == OK);
     printf("\t-- OK\n");
 
     /* Test affichage menu */
@@ -97,7 +97,7 @@ int main(int argc, char **argv, char **env)
     printf("\t-- OK\n");
 
     /* Test gestion menu */
-    menu_creer(PRINCIPAL, width_window, height_window, &menu);
+    menu_creer(MENU_PRINCIPAL, width_window, height_window, &menu);
     t_type_menu type_bouton;
     SDL_Event event;
     

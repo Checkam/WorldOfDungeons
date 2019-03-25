@@ -164,7 +164,7 @@ t_erreur menu_creer(t_type_menu type, int width, int height, t_menu ** menu){
         hauteur_btn
     };
 
-    if(type == PRINCIPAL){
+    if(type == MENU_PRINCIPAL){
         (*menu)->tab_bouton = malloc(sizeof(t_bouton_menu));
 
         menu_ajout_bouton(*menu, btn, "Solo", SOLO);
@@ -174,7 +174,7 @@ t_erreur menu_creer(t_type_menu type, int width, int height, t_menu ** menu){
         menu_ajout_bouton(*menu, btn, "Option", PRINCIPAL);
         btn.y += btn.h + 20;
         menu_ajout_bouton(*menu, btn, "Quitter", QUITTER);
-    }else if(type == SOLO){
+    }else if(type == MENU_SOLO){
         (*menu)->tab_bouton = malloc(sizeof(t_bouton_menu));
 
         menu_ajout_bouton(*menu, btn, "Nouvelle partie", NOUVELLE_PARTIE);
