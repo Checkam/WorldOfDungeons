@@ -29,6 +29,8 @@ typedef struct block_type_s {
   const char *nom;
   const int resistance;
 
+  t_liste *drop; /* mathieu */
+
   char *texture_path_sdl;
   char *texture_term;
 
