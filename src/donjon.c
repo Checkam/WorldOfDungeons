@@ -3,7 +3,7 @@
  * \brief Module de création + de gestion d'un donjon
  * \author Jasmin GALBRUN
  * \version 1
- * \date 24/03/2019
+ * \date 25/03/2019
 */
 
 #include <stdlib.h>
@@ -18,7 +18,6 @@
 #include <block.h>
 #include <outils_SDL.h>
 
-#define FREQ 0.01
 #define DEPTH 5
 
 /* Prototypes fonctions non accessible pour l'utilisateur */
@@ -427,23 +426,19 @@ t_erreur donjon_afficher_SDL(SDL_Renderer * renderer, t_liste * donjon, SDL_Rect
 
     /* Initialisation tableau fenetre */
     t_materiaux tab[MAX_SCREEN][SIZE];
-
+    
     tab_fenetre(donjon, pos_perso, tab);
 
     /* Affichage du donjon */
-    char * img = NULL;
-    char * chemin_img = NULL;
     SDL_Texture * texture_img = NULL;
 
     int i, j;
     for(i = 0; i < MAX_SCREEN; i++){
         for(j = 0; j < SIZE; j++){
-            img = BLOCK_GetTexture_sdl(tab[i][j]);
-            
-            if(img != NULL){
-                creation_chemin(img, &chemin_img);
-                Create_IMG_Texture(renderer, chemin_img, &texture_img);
-                
+            texture_img = BLOCK_GetTexture_sdl(tab[i][j]);
+            //fprintf(stderr, "%p\n", texture_img);
+            if(texture_img != NULL){
+
                 SDL_Rect r = {
                     j * width_block_sdl,
                     i * height_block_sdl,
@@ -452,10 +447,6 @@ t_erreur donjon_afficher_SDL(SDL_Renderer * renderer, t_liste * donjon, SDL_Rect
                 };
 
                 SDL_RenderCopy(renderer, texture_img, NULL, &r);
-
-                SDL_DestroyTexture(texture_img);
-                free(chemin_img);
-                chemin_img = NULL;
             }
         }
     }
