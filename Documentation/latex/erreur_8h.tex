@@ -42,7 +42,10 @@ enum {\bfseries e\+\_\+erreur} \{ \newline
 \subsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-t\+\_\+erreur \hyperlink{erreur_8h_ae7d18f55e6cb1d688610bf39a35f22eb}{aff\+\_\+erreur} (t\+\_\+erreur code\+\_\+erreur)
+t\+\_\+erreur \hyperlink{erreur_8h_aea956e8dad695907bca24fd0b608587e}{erreur\+\_\+afficher} (t\+\_\+erreur code\+\_\+erreur, char $\ast$msg\+\_\+detail)
+\item 
+\mbox{\Hypertarget{erreur_8h_a86eae7e8299b116054bf5168b60fa3fb}\label{erreur_8h_a86eae7e8299b116054bf5168b60fa3fb}} 
+t\+\_\+erreur {\bfseries erreur\+\_\+save} (t\+\_\+erreur code\+\_\+erreur, char $\ast$msg\+\_\+detail)
 \end{DoxyCompactItemize}
 
 
@@ -74,17 +77,14 @@ Contient le nombre d\textquotesingle{}erreur.
 A modifier à chaque rajout d\textquotesingle{}une erreur. 
 
 \subsection{Documentation des fonctions}
-\mbox{\Hypertarget{erreur_8h_ae7d18f55e6cb1d688610bf39a35f22eb}\label{erreur_8h_ae7d18f55e6cb1d688610bf39a35f22eb}} 
-\index{erreur.\+h@{erreur.\+h}!aff\+\_\+erreur@{aff\+\_\+erreur}}
-\index{aff\+\_\+erreur@{aff\+\_\+erreur}!erreur.\+h@{erreur.\+h}}
-\subsubsection{\texorpdfstring{aff\+\_\+erreur()}{aff\_erreur()}}
-{\footnotesize\ttfamily t\+\_\+erreur aff\+\_\+erreur (\begin{DoxyParamCaption}\item[{t\+\_\+erreur}]{code\+\_\+erreur }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{erreur_8h_aea956e8dad695907bca24fd0b608587e}\label{erreur_8h_aea956e8dad695907bca24fd0b608587e}} 
+\index{erreur.\+h@{erreur.\+h}!erreur\+\_\+afficher@{erreur\+\_\+afficher}}
+\index{erreur\+\_\+afficher@{erreur\+\_\+afficher}!erreur.\+h@{erreur.\+h}}
+\subsubsection{\texorpdfstring{erreur\+\_\+afficher()}{erreur\_afficher()}}
+{\footnotesize\ttfamily t\+\_\+erreur erreur\+\_\+afficher (\begin{DoxyParamCaption}\item[{t\+\_\+erreur}]{code\+\_\+erreur,  }\item[{char $\ast$}]{msg\+\_\+detail }\end{DoxyParamCaption})}
 
 
 \begin{DoxyParams}{Paramètres}
-{\em code\+\_\+erreur} & Code erreur que le programme doit afficher \\
+{\em } & \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Renvoie}
-Retourne une erreur, OK si tout c\textquotesingle{}est bien passé 
-\end{DoxyReturn}

@@ -1,0 +1,558 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Génération Procedural et Stockage de donnée: Référence du fichier src/entite.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Génération Procedural et Stockage de donnée
+   </div>
+   <div id="projectbrief">Le but de ce projet de d&#39;apprendre a utilisé Perlin noise en commmencant a réfléchir au structure que nous aurons besoin</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier entite.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Module servant à gérer les entités.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;SDL2/SDL.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_image.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_ttf.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="chemin_8h_source.html">chemin.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="entite_8h_source.html">entite.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="erreur_8h_source.html">erreur.h</a>&gt;</code><br />
+<code>#include &lt;outils_SDL.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;touches.h&gt;</code><br />
+<code>#include &lt;fps.h&gt;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:ae67e9421db57e8164cdbd6acbd7d9975"><td class="memItemLeft" align="right" valign="top"><a id="ae67e9421db57e8164cdbd6acbd7d9975"></a>
+<a class="el" href="structt__entite.html">t_entite</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>creer_entite_defaut</b> (char *name, <a class="el" href="entite_8h.html#a4182d28438d783fe0ef6b4c58c2d743b">t_entite_type</a> type, int x_dep, int y_dep, int taille)</td></tr>
+<tr class="separator:ae67e9421db57e8164cdbd6acbd7d9975"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad59afa76cdb06ceaa346a59300d95957"><td class="memItemLeft" align="right" valign="top"><a id="ad59afa76cdb06ceaa346a59300d95957"></a>
+<a class="el" href="structt__entite.html">t_entite</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>creer_entite</b> (char *name, int mana, int mana_max, int pv, int pv_max, SDL_Texture *texture, <a class="el" href="structt__anim__action.html">t_anim_action</a> *t_a, int x_dep, int y_dep, int taille)</td></tr>
+<tr class="separator:ad59afa76cdb06ceaa346a59300d95957"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff126a9685fdd63884131ba74499aa17"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="entite_8c.html#aff126a9685fdd63884131ba74499aa17">detruire_entite</a> (<a class="el" href="structt__entite.html">t_entite</a> *entite)</td></tr>
+<tr class="memdesc:aff126a9685fdd63884131ba74499aa17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit une entité.  <a href="#aff126a9685fdd63884131ba74499aa17">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aff126a9685fdd63884131ba74499aa17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b93939375ae3f4118ac6d099703fbaf"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="entite_8c.html#a6b93939375ae3f4118ac6d099703fbaf">Create_Sprite</a> (char *lieu, SDL_Renderer *renderer)</td></tr>
+<tr class="memdesc:a6b93939375ae3f4118ac6d099703fbaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée la texture d'un sprite.  <a href="#a6b93939375ae3f4118ac6d099703fbaf">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a6b93939375ae3f4118ac6d099703fbaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87d473ea77b31005633d03ee5a0f3db5"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="entite_8c.html#a87d473ea77b31005633d03ee5a0f3db5">Charger_Anima</a> (SDL_Renderer *renderer, <a class="el" href="structt__entite.html">t_entite</a> *entite, <a class="el" href="entite_8h.html#abf8170fe3a93ebd8f3701bbf092ece99">t_action</a> action)</td></tr>
+<tr class="memdesc:a87d473ea77b31005633d03ee5a0f3db5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge dans le renderer, suivant une action et une entité, l'image suivante (pour animation) où une nouvelle image si l'action à changer.  <a href="#a87d473ea77b31005633d03ee5a0f3db5">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a87d473ea77b31005633d03ee5a0f3db5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4377e72c0a8a6b09796f1e684bd17cad"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="entite_8c.html#a4377e72c0a8a6b09796f1e684bd17cad">Search_Action</a> (<a class="el" href="structt__anim__action.html">t_anim_action</a> *t_a, <a class="el" href="entite_8h.html#abf8170fe3a93ebd8f3701bbf092ece99">t_action</a> action)</td></tr>
+<tr class="memdesc:a4377e72c0a8a6b09796f1e684bd17cad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cherche dans un tableau d'action/description l'indice correspondant à l'action qu'on cherche.  <a href="#a4377e72c0a8a6b09796f1e684bd17cad">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a4377e72c0a8a6b09796f1e684bd17cad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40444b4966bf5776de11ce07f2b29be9"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="entite_8c.html#a40444b4966bf5776de11ce07f2b29be9">Init_Sprite</a> (SDL_Renderer *renderer)</td></tr>
+<tr class="memdesc:a40444b4966bf5776de11ce07f2b29be9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise la texture associée au sprite de chaque entité par défaut.  <a href="#a40444b4966bf5776de11ce07f2b29be9">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a40444b4966bf5776de11ce07f2b29be9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad45c5dedc31c638b7f9d2d57f7586b33"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="entite_8c.html#ad45c5dedc31c638b7f9d2d57f7586b33">Quit_Sprite</a> (void)</td></tr>
+<tr class="memdesc:ad45c5dedc31c638b7f9d2d57f7586b33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit toutes les textures précédement initialisées.  <a href="#ad45c5dedc31c638b7f9d2d57f7586b33">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad45c5dedc31c638b7f9d2d57f7586b33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d029f34e956b9197a208db146cd7104"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="entite_8c.html#a3d029f34e956b9197a208db146cd7104">Anim_Update</a> (<a class="el" href="structt__entite.html">t_entite</a> *entite, <a class="el" href="entite_8h.html#abf8170fe3a93ebd8f3701bbf092ece99">t_action</a> action, int new_time)</td></tr>
+<tr class="memdesc:a3d029f34e956b9197a208db146cd7104"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifie pour une entité le temps d'une animation correspondant à une action.  <a href="#a3d029f34e956b9197a208db146cd7104">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a3d029f34e956b9197a208db146cd7104"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74f55097e55d8b56807e92f7c928f453"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="entite_8c.html#a74f55097e55d8b56807e92f7c928f453">update_posY_entite</a> (<a class="el" href="structt__entite.html">t_entite</a> *entite, double coef_fps, int(*collision)(SDL_Rect, t_collision_direction, <a class="el" href="structt__liste.html">t_liste</a> *), <a class="el" href="structt__liste.html">t_liste</a> *p)</td></tr>
+<tr class="memdesc:a74f55097e55d8b56807e92f7c928f453"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gère la position de l'entité sur Y via la gravité et les collisions.  <a href="#a74f55097e55d8b56807e92f7c928f453">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a74f55097e55d8b56807e92f7c928f453"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c683373088a09100bdbafbdb5318310"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="entite_8c.html#a1c683373088a09100bdbafbdb5318310">Gestion_Entite</a> (SDL_Renderer *renderer, <a class="el" href="structt__entite.html">t_entite</a> *entite, uint8_t *ks, double coef_fps, int(*collision)(SDL_Rect, t_collision_direction, <a class="el" href="structt__liste.html">t_liste</a> *), <a class="el" href="structt__liste.html">t_liste</a> *p)</td></tr>
+<tr class="memdesc:a1c683373088a09100bdbafbdb5318310"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gère une entité (collision, déplacement, animation).  <a href="#a1c683373088a09100bdbafbdb5318310">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a1c683373088a09100bdbafbdb5318310"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:aff0fca04edb4e1830a6c6cec29e3ea2a"><td class="memItemLeft" align="right" valign="top"><a id="aff0fca04edb4e1830a6c6cec29e3ea2a"></a>
+SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><b>Textures_Joueur</b></td></tr>
+<tr class="separator:aff0fca04edb4e1830a6c6cec29e3ea2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d2d2adbda3d169b06c9b0d1b8f170d7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structt__anim__action.html">t_anim_action</a>&#160;</td><td class="memItemRight" valign="bottom"><b>t_a_joueur</b> [NB_LIGNES_SPRITE]</td></tr>
+<tr class="separator:a1d2d2adbda3d169b06c9b0d1b8f170d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ba6e3bb955104d3278945b4fba38aba"><td class="memItemLeft" align="right" valign="top"><a id="a0ba6e3bb955104d3278945b4fba38aba"></a>
+SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><b>Textures_Zombie</b></td></tr>
+<tr class="separator:a0ba6e3bb955104d3278945b4fba38aba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac133f674263fbbbc79b955535bb3794f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structt__anim__action.html">t_anim_action</a>&#160;</td><td class="memItemRight" valign="bottom"><b>t_a_zombie</b> [NB_LIGNES_SPRITE]</td></tr>
+<tr class="separator:ac133f674263fbbbc79b955535bb3794f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a95f3635013fe25a97d01e04cc1765b"><td class="memItemLeft" align="right" valign="top"><a id="a6a95f3635013fe25a97d01e04cc1765b"></a>
+SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><b>Textures_Boss</b></td></tr>
+<tr class="separator:a6a95f3635013fe25a97d01e04cc1765b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f44e6c22243a13a6897230625ce80b4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structt__anim__action.html">t_anim_action</a>&#160;</td><td class="memItemRight" valign="bottom"><b>t_a_boss</b> [NB_LIGNES_SPRITE]</td></tr>
+<tr class="separator:a9f44e6c22243a13a6897230625ce80b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Module servant à gérer les entités. </p>
+<dl class="section author"><dt>Auteur</dt><dd>GALBRUN Tibane </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>13/03/2019 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.2 </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a3d029f34e956b9197a208db146cd7104"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d029f34e956b9197a208db146cd7104">&#9670;&nbsp;</a></span>Anim_Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">t_erreur Anim_Update </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__entite.html">t_entite</a> *&#160;</td>
+          <td class="paramname"><em>entite</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="entite_8h.html#abf8170fe3a93ebd8f3701bbf092ece99">t_action</a>&#160;</td>
+          <td class="paramname"><em>action</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>new_time</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Modifie pour une entité le temps d'une animation correspondant à une action. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entite</td><td>L'entité où il faut changer le temps d'animation. </td></tr>
+    <tr><td class="paramname">action</td><td>L'action où l'on modifie le temps d'animation. </td></tr>
+    <tr><td class="paramname">new_time</td><td>Le nouveau temps d'animation. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Une erreur s'il y en a une. </dd></dl>
+
+</div>
+</div>
+<a id="a87d473ea77b31005633d03ee5a0f3db5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87d473ea77b31005633d03ee5a0f3db5">&#9670;&nbsp;</a></span>Charger_Anima()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">t_erreur Charger_Anima </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__entite.html">t_entite</a> *&#160;</td>
+          <td class="paramname"><em>entite</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="entite_8h.html#abf8170fe3a93ebd8f3701bbf092ece99">t_action</a>&#160;</td>
+          <td class="paramname"><em>action</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Charge dans le renderer, suivant une action et une entité, l'image suivante (pour animation) où une nouvelle image si l'action à changer. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">renderer</td><td>Renderer de la fenêtre. </td></tr>
+    <tr><td class="paramname">entite</td><td>L'entité à afficher. </td></tr>
+    <tr><td class="paramname">action</td><td>L'action à afficher. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Une erreur s'il y en a une. </dd></dl>
+
+</div>
+</div>
+<a id="a6b93939375ae3f4118ac6d099703fbaf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b93939375ae3f4118ac6d099703fbaf">&#9670;&nbsp;</a></span>Create_Sprite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Texture * Create_Sprite </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>lieu</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Crée la texture d'un sprite. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lieu</td><td>L'endroit où se situe le sprite à charger. </td></tr>
+    <tr><td class="paramname">renderer</td><td>Renderer de la fenêtre. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Un pointeur sur une structure. </dd></dl>
+
+</div>
+</div>
+<a id="aff126a9685fdd63884131ba74499aa17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff126a9685fdd63884131ba74499aa17">&#9670;&nbsp;</a></span>detruire_entite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">t_erreur detruire_entite </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__entite.html">t_entite</a> *&#160;</td>
+          <td class="paramname"><em>entite</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Détruit une entité. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entite</td><td>L'entité à détruire. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Une erreur s'il y en a une. </dd></dl>
+
+</div>
+</div>
+<a id="a1c683373088a09100bdbafbdb5318310"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c683373088a09100bdbafbdb5318310">&#9670;&nbsp;</a></span>Gestion_Entite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">t_erreur Gestion_Entite </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__entite.html">t_entite</a> *&#160;</td>
+          <td class="paramname"><em>entite</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>ks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>coef_fps</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int(*)(SDL_Rect, t_collision_direction, <a class="el" href="structt__liste.html">t_liste</a> *)&#160;</td>
+          <td class="paramname"><em>collision</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__liste.html">t_liste</a> *&#160;</td>
+          <td class="paramname"><em>p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gère une entité (collision, déplacement, animation). </p>
+<p>Gère les animations ainsi que les modifications apportées à l'entité (gravité, collision, déplacement) correspondant aux différents appuis de touches. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">renderer</td><td>Renderer de la fenêtre. </td></tr>
+    <tr><td class="paramname">entite</td><td>L'entité à gérer. </td></tr>
+    <tr><td class="paramname">ks</td><td>Etat du clavier pour la gestion de l'appui des touches. </td></tr>
+    <tr><td class="paramname">coef_fps</td><td>Permet d'adapter les déplacements en fonction du nombre de fps. </td></tr>
+    <tr><td class="paramname">collision</td><td>Renvoie la profondeur d'une collision pour une direction donnée. </td></tr>
+    <tr><td class="paramname">p</td><td>Liste contenant les paramètres supplémentaires de la fonction collision si il y en a besoin. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Une erreur s'il y en a une. </dd></dl>
+
+</div>
+</div>
+<a id="a40444b4966bf5776de11ce07f2b29be9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40444b4966bf5776de11ce07f2b29be9">&#9670;&nbsp;</a></span>Init_Sprite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">t_erreur Init_Sprite </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialise la texture associée au sprite de chaque entité par défaut. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">renderer</td><td>Renderer de la fenêtre. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Une erreur s'il y en a une. </dd></dl>
+
+</div>
+</div>
+<a id="ad45c5dedc31c638b7f9d2d57f7586b33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad45c5dedc31c638b7f9d2d57f7586b33">&#9670;&nbsp;</a></span>Quit_Sprite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">t_erreur Quit_Sprite </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Détruit toutes les textures précédement initialisées. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Une erreur s'il y en a une. </dd></dl>
+
+</div>
+</div>
+<a id="a4377e72c0a8a6b09796f1e684bd17cad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4377e72c0a8a6b09796f1e684bd17cad">&#9670;&nbsp;</a></span>Search_Action()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Search_Action </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__anim__action.html">t_anim_action</a> *&#160;</td>
+          <td class="paramname"><em>t_a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="entite_8h.html#abf8170fe3a93ebd8f3701bbf092ece99">t_action</a>&#160;</td>
+          <td class="paramname"><em>action</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cherche dans un tableau d'action/description l'indice correspondant à l'action qu'on cherche. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t_a</td><td>Le tableau de recherche. </td></tr>
+    <tr><td class="paramname">action</td><td>L'action que l'on cherche. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>L'indice de l'action recherchée. </dd></dl>
+
+</div>
+</div>
+<a id="a74f55097e55d8b56807e92f7c928f453"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74f55097e55d8b56807e92f7c928f453">&#9670;&nbsp;</a></span>update_posY_entite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">t_erreur update_posY_entite </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__entite.html">t_entite</a> *&#160;</td>
+          <td class="paramname"><em>entite</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>coef_fps</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int(*)(SDL_Rect, t_collision_direction, <a class="el" href="structt__liste.html">t_liste</a> *)&#160;</td>
+          <td class="paramname"><em>collision</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__liste.html">t_liste</a> *&#160;</td>
+          <td class="paramname"><em>p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gère la position de l'entité sur Y via la gravité et les collisions. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entite</td><td>L'entité à gérer. </td></tr>
+    <tr><td class="paramname">coef_fps</td><td>Permet d'adapter les déplacements en fonction du nombre de fps. </td></tr>
+    <tr><td class="paramname">collision</td><td>Renvoie la profondeur d'une collision pour une direction donnée. </td></tr>
+    <tr><td class="paramname">p</td><td>Liste contenant les paramètres supplémentaires de la fonction collision si il y en a besoin. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Une erreur s'il y en a une. </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des variables</h2>
+<a id="a9f44e6c22243a13a6897230625ce80b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f44e6c22243a13a6897230625ce80b4">&#9670;&nbsp;</a></span>t_a_boss</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structt__anim__action.html">t_anim_action</a> t_a_boss[NB_LIGNES_SPRITE]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur initiale :</b><div class="fragment"><div class="line">= {{MARCHE_DROITE, 12, 9, 100},</div><div class="line">  {MARCHE_GAUCHE, 10, 9, 100},</div><div class="line">  {MARCHE_DERRIERE, 11, 9, 100},</div><div class="line">  {MARCHE_DEVANT, 9, 9, 100},</div><div class="line">  {ATTAQUE_GAUCHE, 14, 6, 100},</div><div class="line">  {ATTAQUE_DROITE, 16, 6, 100},</div><div class="line">  {IMMOBILE, 3, 1, 50}</div><div class="line">}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="a1d2d2adbda3d169b06c9b0d1b8f170d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d2d2adbda3d169b06c9b0d1b8f170d7">&#9670;&nbsp;</a></span>t_a_joueur</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structt__anim__action.html">t_anim_action</a> t_a_joueur[NB_LIGNES_SPRITE]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur initiale :</b><div class="fragment"><div class="line">= {</div><div class="line">  {MARCHE_DROITE, 12, 9, 100},</div><div class="line">  {MARCHE_GAUCHE, 10, 9, 100},</div><div class="line">  {MARCHE_DERRIERE, 11, 9, 100},</div><div class="line">  {MARCHE_DEVANT, 9, 9, 100},</div><div class="line">  {IMMOBILE, 3, 1, 50}</div><div class="line">}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="ac133f674263fbbbc79b955535bb3794f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac133f674263fbbbc79b955535bb3794f">&#9670;&nbsp;</a></span>t_a_zombie</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structt__anim__action.html">t_anim_action</a> t_a_zombie[NB_LIGNES_SPRITE]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur initiale :</b><div class="fragment"><div class="line">= {</div><div class="line">  {MARCHE_DROITE, 12, 9, 100},</div><div class="line">  {MARCHE_GAUCHE, 10, 9, 100},</div><div class="line">  {MARCHE_DERRIERE, 11, 9, 100},</div><div class="line">  {MARCHE_DEVANT, 9, 9, 100},</div><div class="line">  {ATTAQUE_GAUCHE, 14, 6, 100},</div><div class="line">  {ATTAQUE_DROITE, 16, 6, 100},</div><div class="line">  {IMMOBILE, 3, 1, 50}</div><div class="line">}</div></div><!-- fragment -->
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

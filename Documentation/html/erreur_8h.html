@@ -115,8 +115,11 @@ typedef enum e_erreur&#160;</td><td class="memItemRight" valign="bottom"><b>t_er
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:ae7d18f55e6cb1d688610bf39a35f22eb"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="erreur_8h.html#ae7d18f55e6cb1d688610bf39a35f22eb">aff_erreur</a> (t_erreur code_erreur)</td></tr>
-<tr class="separator:ae7d18f55e6cb1d688610bf39a35f22eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea956e8dad695907bca24fd0b608587e"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="erreur_8h.html#aea956e8dad695907bca24fd0b608587e">erreur_afficher</a> (t_erreur code_erreur, char *msg_detail)</td></tr>
+<tr class="separator:aea956e8dad695907bca24fd0b608587e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86eae7e8299b116054bf5168b60fa3fb"><td class="memItemLeft" align="right" valign="top"><a id="a86eae7e8299b116054bf5168b60fa3fb"></a>
+t_erreur&#160;</td><td class="memItemRight" valign="bottom"><b>erreur_save</b> (t_erreur code_erreur, char *msg_detail)</td></tr>
+<tr class="separator:a86eae7e8299b116054bf5168b60fa3fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Module de gestion des erreurs. </p>
@@ -142,28 +145,37 @@ Fonctions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Documentation des fonctions</h2>
-<a id="ae7d18f55e6cb1d688610bf39a35f22eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae7d18f55e6cb1d688610bf39a35f22eb">&#9670;&nbsp;</a></span>aff_erreur()</h2>
+<a id="aea956e8dad695907bca24fd0b608587e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea956e8dad695907bca24fd0b608587e">&#9670;&nbsp;</a></span>erreur_afficher()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">t_erreur aff_erreur </td>
+          <td class="memname">t_erreur erreur_afficher </td>
           <td>(</td>
           <td class="paramtype">t_erreur&#160;</td>
-          <td class="paramname"><em>code_erreur</em></td><td>)</td>
+          <td class="paramname"><em>code_erreur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>msg_detail</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">code_erreur</td><td>Code erreur que le programme doit afficher </td></tr>
+    <tr><td class="paramname"></td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Renvoie</dt><dd>Retourne une erreur, OK si tout c'est bien passé </dd></dl>
 
 </div>
 </div>

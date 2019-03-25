@@ -117,8 +117,8 @@ Fonctions</h2></td></tr>
 <tr class="memitem:ac95aadbae271f7e76ca486b6187dd8dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="liste_8h.html#ac95aadbae271f7e76ca486b6187dd8dd">suivant</a> (<a class="el" href="structt__liste.html">t_liste</a> *p)</td></tr>
 <tr class="memdesc:ac95aadbae271f7e76ca486b6187dd8dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Passe à l'élèment suivant s'il existe.  <a href="#ac95aadbae271f7e76ca486b6187dd8dd">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ac95aadbae271f7e76ca486b6187dd8dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4eaf58887e3dd578a2699aefc5963fe4"><td class="memItemLeft" align="right" valign="top"><a id="a4eaf58887e3dd578a2699aefc5963fe4"></a>
-t_erreur&#160;</td><td class="memItemRight" valign="bottom"><b>valeur_elt</b> (<a class="el" href="structt__liste.html">t_liste</a> *p, void **v)</td></tr>
+<tr class="memitem:a4eaf58887e3dd578a2699aefc5963fe4"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="liste_8h.html#a4eaf58887e3dd578a2699aefc5963fe4">valeur_elt</a> (<a class="el" href="structt__liste.html">t_liste</a> *p, void **v)</td></tr>
+<tr class="memdesc:a4eaf58887e3dd578a2699aefc5963fe4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère la valeur de l'élèment courant.  <a href="#a4eaf58887e3dd578a2699aefc5963fe4">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a4eaf58887e3dd578a2699aefc5963fe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88c83322ecd7db55a1df405689f5d70f"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="liste_8h.html#a88c83322ecd7db55a1df405689f5d70f">modif_elt</a> (<a class="el" href="structt__liste.html">t_liste</a> *p, void *v)</td></tr>
 <tr class="memdesc:a88c83322ecd7db55a1df405689f5d70f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifie la valeur de l'élèment courant.  <a href="#a88c83322ecd7db55a1df405689f5d70f">Plus de détails...</a><br /></td></tr>
@@ -138,6 +138,12 @@ t_erreur&#160;</td><td class="memItemRight" valign="bottom"><b>valeur_elt</b> (<
 <tr class="memitem:a4be7faf10eecc64ca729578b1b8cdbb4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="liste_8h.html#a4be7faf10eecc64ca729578b1b8cdbb4">detruire_liste</a> (<a class="el" href="structt__liste.html">t_liste</a> *p, void(*effacer)(void *))</td></tr>
 <tr class="memdesc:a4be7faf10eecc64ca729578b1b8cdbb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit la liste.  <a href="#a4be7faf10eecc64ca729578b1b8cdbb4">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a4be7faf10eecc64ca729578b1b8cdbb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa916cb05c931c653d8b3710101bc8a43"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="liste_8h.html#aa916cb05c931c653d8b3710101bc8a43">valeur_liste</a> (<a class="el" href="structt__liste.html">t_liste</a> *p, int ind, void **v)</td></tr>
+<tr class="memdesc:aa916cb05c931c653d8b3710101bc8a43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère la valeur de l'élèment à l'indice donné.  <a href="#aa916cb05c931c653d8b3710101bc8a43">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aa916cb05c931c653d8b3710101bc8a43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e669fc1f28bcd95680489fda37859bd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="liste_8h.html#a9e669fc1f28bcd95680489fda37859bd">recherche_liste</a> (<a class="el" href="structt__liste.html">t_liste</a> *p, void *v, int(*comparer)(void *, void *))</td></tr>
+<tr class="memdesc:a9e669fc1f28bcd95680489fda37859bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recherche si une valeur est présente dans la liste.  <a href="#a9e669fc1f28bcd95680489fda37859bd">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a9e669fc1f28bcd95680489fda37859bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa51cd66282df7f9a35ad4ecf5ad9b235"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="liste_8h.html#aa51cd66282df7f9a35ad4ecf5ad9b235">copie</a> (char *cible, char *source, int n)</td></tr>
 <tr class="memdesc:aa51cd66282df7f9a35ad4ecf5ad9b235"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copie n octet de la source dans la cible.  <a href="#aa51cd66282df7f9a35ad4ecf5ad9b235">Plus de détails...</a><br /></td></tr>
 <tr class="separator:aa51cd66282df7f9a35ad4ecf5ad9b235"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -543,6 +549,51 @@ char *&#160;</td><td class="memItemRight" valign="bottom"><b>copie_cb</b> (void 
 
 </div>
 </div>
+<a id="a9e669fc1f28bcd95680489fda37859bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e669fc1f28bcd95680489fda37859bd">&#9670;&nbsp;</a></span>recherche_liste()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int recherche_liste </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__liste.html">t_liste</a> *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int(*)(void *, void *)&#160;</td>
+          <td class="paramname"><em>comparer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Recherche si une valeur est présente dans la liste. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>La liste où chercher la valeur. </td></tr>
+    <tr><td class="paramname">v</td><td>La valeur à rechercher. </td></tr>
+    <tr><td class="paramname">comparer</td><td>Fonction de comparaison de deux valeurs. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>VRAI si valeur trouvée, FAUX sinon. </dd></dl>
+
+</div>
+</div>
 <a id="ac95aadbae271f7e76ca486b6187dd8dd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac95aadbae271f7e76ca486b6187dd8dd">&#9670;&nbsp;</a></span>suivant()</h2>
 
@@ -593,6 +644,89 @@ char *&#160;</td><td class="memItemRight" valign="bottom"><b>copie_cb</b> (void 
   </dd>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd>La taille de la liste. </dd></dl>
+
+</div>
+</div>
+<a id="a4eaf58887e3dd578a2699aefc5963fe4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4eaf58887e3dd578a2699aefc5963fe4">&#9670;&nbsp;</a></span>valeur_elt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">t_erreur valeur_elt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__liste.html">t_liste</a> *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void **&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Récupère la valeur de l'élèment courant. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>La liste où se trouve l'élèment courant. </td></tr>
+    <tr><td class="paramname">v</td><td>L'endroit ou sauvegarder la valeur de l'élèment courant. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Une erreur s'il y en a une. </dd></dl>
+
+</div>
+</div>
+<a id="aa916cb05c931c653d8b3710101bc8a43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa916cb05c931c653d8b3710101bc8a43">&#9670;&nbsp;</a></span>valeur_liste()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">t_erreur valeur_liste </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__liste.html">t_liste</a> *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ind</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void **&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Récupère la valeur de l'élèment à l'indice donné. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>La liste où se trouve l'élèment courant. </td></tr>
+    <tr><td class="paramname">ind</td><td>L'indice de la valeur à récupérer. </td></tr>
+    <tr><td class="paramname">v</td><td>L'endroit ou sauvegarder la valeur de l'élèment. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Une erreur s'il y en a une. </dd></dl>
 
 </div>
 </div>

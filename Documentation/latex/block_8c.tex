@@ -5,7 +5,10 @@
 Fonction sur les blocks.  
 
 
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L.\+h$>$}\newline
 {\ttfamily \#include $<$block.\+h$>$}\newline
+{\ttfamily \#include $<$erreur.\+h$>$}\newline
+{\ttfamily \#include $<$outils\+\_\+\+S\+D\+L.\+h$>$}\newline
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 \subsection*{Fonctions}
@@ -13,8 +16,14 @@ Fonction sur les blocks.
 \item 
 char $\ast$ \hyperlink{block_8c_aee81cee5a3a132e9769b9520c3e2f415}{B\+L\+O\+C\+K\+\_\+\+Get\+Texture\+\_\+term} (int id)
 \begin{DoxyCompactList}\small\item\em Chercher la texture d\textquotesingle{}un block par rapport a son id et renvoie la texture terminal de ce block. \end{DoxyCompactList}\item 
-char $\ast$ \hyperlink{block_8c_aeff28c7cf29db22f5dd1fd9112258b91}{B\+L\+O\+C\+K\+\_\+\+Get\+Texture\+\_\+sdl} (int id)
-\begin{DoxyCompactList}\small\item\em Chercher la texture d\textquotesingle{}un block par rapport a son id et renvoie la texture terminal de ce block. \end{DoxyCompactList}\end{DoxyCompactItemize}
+S\+D\+L\+\_\+\+Texture $\ast$ \hyperlink{block_8c_abfc4c7532ca8f494ffa3e70e5aa3bb3e}{B\+L\+O\+C\+K\+\_\+\+Get\+Texture\+\_\+sdl} (int id)
+\begin{DoxyCompactList}\small\item\em Chercher la texture d\textquotesingle{}un block par rapport a son id et renvoie la texture terminal de ce block. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{block_8c_a3c5ac45fcd31e6d01cffd148111d54e9}\label{block_8c_a3c5ac45fcd31e6d01cffd148111d54e9}} 
+t\+\_\+erreur {\bfseries B\+L\+O\+C\+K\+\_\+\+Create\+Texture\+\_\+sdl} (S\+D\+L\+\_\+\+Renderer $\ast$renderer)
+\item 
+\mbox{\Hypertarget{block_8c_a0c8b13797355fd4296b6ef7cb71d0862}\label{block_8c_a0c8b13797355fd4296b6ef7cb71d0862}} 
+t\+\_\+erreur {\bfseries B\+L\+O\+C\+K\+\_\+\+Destroy\+Texture\+\_\+sdl} (S\+D\+L\+\_\+\+Renderer $\ast$renderer)
+\end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -37,11 +46,11 @@ Fonction sur les blocks.
 
 
 \subsection{Documentation des fonctions}
-\mbox{\Hypertarget{block_8c_aeff28c7cf29db22f5dd1fd9112258b91}\label{block_8c_aeff28c7cf29db22f5dd1fd9112258b91}} 
+\mbox{\Hypertarget{block_8c_abfc4c7532ca8f494ffa3e70e5aa3bb3e}\label{block_8c_abfc4c7532ca8f494ffa3e70e5aa3bb3e}} 
 \index{block.\+c@{block.\+c}!B\+L\+O\+C\+K\+\_\+\+Get\+Texture\+\_\+sdl@{B\+L\+O\+C\+K\+\_\+\+Get\+Texture\+\_\+sdl}}
 \index{B\+L\+O\+C\+K\+\_\+\+Get\+Texture\+\_\+sdl@{B\+L\+O\+C\+K\+\_\+\+Get\+Texture\+\_\+sdl}!block.\+c@{block.\+c}}
 \subsubsection{\texorpdfstring{B\+L\+O\+C\+K\+\_\+\+Get\+Texture\+\_\+sdl()}{BLOCK\_GetTexture\_sdl()}}
-{\footnotesize\ttfamily char $\ast$ B\+L\+O\+C\+K\+\_\+\+Get\+Texture\+\_\+sdl (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily S\+D\+L\+\_\+\+Texture $\ast$ B\+L\+O\+C\+K\+\_\+\+Get\+Texture\+\_\+sdl (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
 
 
 
@@ -53,7 +62,7 @@ Chercher la texture d\textquotesingle{}un block par rapport a son id et renvoie 
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-la texture (une char $\ast$ pour le terminal) 
+Renvoie la texture S\+D\+L2 
 \end{DoxyReturn}
 \mbox{\Hypertarget{block_8c_aee81cee5a3a132e9769b9520c3e2f415}\label{block_8c_aee81cee5a3a132e9769b9520c3e2f415}} 
 \index{block.\+c@{block.\+c}!B\+L\+O\+C\+K\+\_\+\+Get\+Texture\+\_\+term@{B\+L\+O\+C\+K\+\_\+\+Get\+Texture\+\_\+term}}
@@ -84,16 +93,17 @@ la texture (une char $\ast$ pour le terminal)
 
 {\bfseries Valeur initiale \+:}
 \begin{DoxyCode}
-= \{\{AIR, \textcolor{stringliteral}{"air"}, 0, NULL, NOIR\},
-                                 \{HERBE, \textcolor{stringliteral}{"herbe"}, 5, \textcolor{stringliteral}{"./IMG/texture/herbe.bmp"}, VERT\},
-                                 \{TERRE, \textcolor{stringliteral}{"terre"}, 10, \textcolor{stringliteral}{"./IMG/texture/terre.bmp"}, MARRON\},
-                                 \{EAU, \textcolor{stringliteral}{"eau"}, 0, \textcolor{stringliteral}{"./IMG/texture/eau.bmp"}, BLEU\},
-                                 \{SABLE, \textcolor{stringliteral}{"sable"}, 5, \textcolor{stringliteral}{"./IMG/texture/terre.bmp"}, JAUNE\},
-                                 \{FEUILLE, \textcolor{stringliteral}{"feuille"}, 3, \textcolor{stringliteral}{"./IMG/texture/feuille.bmp"}, VERT\},
-                                 \{BOIS, \textcolor{stringliteral}{"bois"}, 15, \textcolor{stringliteral}{"./IMG/texture/tronc.bmp"}, MARRON\},
-                                 \{ROCHE, \textcolor{stringliteral}{"roche"}, 50, \textcolor{stringliteral}{"./IMG/texture/pierre.bmp"}, GRIS\},
-                                 \{NEIGE, \textcolor{stringliteral}{"neige"}, 3, \textcolor{stringliteral}{"./IMG/texture/neige.bmp"}, BLANC\},
-                                 \{GLACE, \textcolor{stringliteral}{"glace"}, 10, \textcolor{stringliteral}{"./IMG/texture/neige.bmp"}, CYAN\}\}
+= \{\{AIR, \textcolor{stringliteral}{"air"}, 0, NULL, NOIR, NULL\},
+                                 \{HERBE, \textcolor{stringliteral}{"herbe"}, 5, \textcolor{stringliteral}{"./IMG/texture/herbe.png"}, VERT, NULL\},
+                                 \{TERRE, \textcolor{stringliteral}{"terre"}, 10, \textcolor{stringliteral}{"./IMG/texture/terre.png"}, MARRON, NULL\},
+                                 \{EAU, \textcolor{stringliteral}{"eau"}, 0, \textcolor{stringliteral}{"./IMG/texture/eau.png"}, BLEU, NULL\},
+                                 \{SABLE, \textcolor{stringliteral}{"sable"}, 5, \textcolor{stringliteral}{"./IMG/texture/sable.png"}, JAUNE, NULL\},
+                                 \{FEUILLE, \textcolor{stringliteral}{"feuille"}, 3, \textcolor{stringliteral}{"./IMG/texture/feuille.png"}, VERT, NULL\},
+                                 \{BOIS, \textcolor{stringliteral}{"bois"}, 15, \textcolor{stringliteral}{"./IMG/texture/tronc.png"}, MARRON, NULL\},
+                                 \{ROCHE, \textcolor{stringliteral}{"roche"}, 50, \textcolor{stringliteral}{"./IMG/texture/pierre.png"}, GRIS, NULL\},
+                                 \{NEIGE, \textcolor{stringliteral}{"neige"}, 3, \textcolor{stringliteral}{"./IMG/texture/neige.png"}, BLANC, NULL\},
+                                 \{GLACE, \textcolor{stringliteral}{"glace"}, 10, \textcolor{stringliteral}{"./IMG/texture/glace.png"}, CYAN, NULL\},
+                                 \{GRAVIER, \textcolor{stringliteral}{"gravier"}, 20, \textcolor{stringliteral}{"./IMG/texture/gravier.png"}, GRIS, NULL\}\}
 \end{DoxyCode}
 
 

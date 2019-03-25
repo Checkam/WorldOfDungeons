@@ -7,7 +7,11 @@ Module de gestion des erreurs.
 
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$sys/stat.\+h$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
 {\ttfamily \#include $<$erreur.\+h$>$}\newline
+{\ttfamily \#include $<$chemin.\+h$>$}\newline
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -22,7 +26,10 @@ typedef struct \hyperlink{structs__erreur}{s\+\_\+erreur} {\bfseries t\+\_\+erre
 \subsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-t\+\_\+erreur \hyperlink{erreur_8c_ae7d18f55e6cb1d688610bf39a35f22eb}{aff\+\_\+erreur} (t\+\_\+erreur code\+\_\+erreur)
+\mbox{\Hypertarget{erreur_8c_a86eae7e8299b116054bf5168b60fa3fb}\label{erreur_8c_a86eae7e8299b116054bf5168b60fa3fb}} 
+t\+\_\+erreur {\bfseries erreur\+\_\+save} (t\+\_\+erreur code\+\_\+erreur, char $\ast$msg\+\_\+detail)
+\item 
+t\+\_\+erreur \hyperlink{erreur_8c_aea956e8dad695907bca24fd0b608587e}{erreur\+\_\+afficher} (t\+\_\+erreur code\+\_\+erreur, char $\ast$msg\+\_\+detail)
 \end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
@@ -46,20 +53,17 @@ Jasmin G\+A\+L\+B\+R\+UN
 
 
 \subsection{Documentation des fonctions}
-\mbox{\Hypertarget{erreur_8c_ae7d18f55e6cb1d688610bf39a35f22eb}\label{erreur_8c_ae7d18f55e6cb1d688610bf39a35f22eb}} 
-\index{erreur.\+c@{erreur.\+c}!aff\+\_\+erreur@{aff\+\_\+erreur}}
-\index{aff\+\_\+erreur@{aff\+\_\+erreur}!erreur.\+c@{erreur.\+c}}
-\subsubsection{\texorpdfstring{aff\+\_\+erreur()}{aff\_erreur()}}
-{\footnotesize\ttfamily t\+\_\+erreur aff\+\_\+erreur (\begin{DoxyParamCaption}\item[{t\+\_\+erreur}]{code\+\_\+erreur }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{erreur_8c_aea956e8dad695907bca24fd0b608587e}\label{erreur_8c_aea956e8dad695907bca24fd0b608587e}} 
+\index{erreur.\+c@{erreur.\+c}!erreur\+\_\+afficher@{erreur\+\_\+afficher}}
+\index{erreur\+\_\+afficher@{erreur\+\_\+afficher}!erreur.\+c@{erreur.\+c}}
+\subsubsection{\texorpdfstring{erreur\+\_\+afficher()}{erreur\_afficher()}}
+{\footnotesize\ttfamily t\+\_\+erreur erreur\+\_\+afficher (\begin{DoxyParamCaption}\item[{t\+\_\+erreur}]{code\+\_\+erreur,  }\item[{char $\ast$}]{msg\+\_\+detail }\end{DoxyParamCaption})}
 
 
 \begin{DoxyParams}{Paramètres}
-{\em code\+\_\+erreur} & Code erreur que le programme doit afficher \\
+{\em } & \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Renvoie}
-Retourne une erreur, OK si tout c\textquotesingle{}est bien passé 
-\end{DoxyReturn}
 
 
 \subsection{Documentation des variables}
@@ -72,18 +76,18 @@ Retourne une erreur, OK si tout c\textquotesingle{}est bien passé
 {\bfseries Valeur initiale \+:}
 \begin{DoxyCode}
 = \{
-    \{FILE\_ERROR, \textcolor{stringliteral}{"Erreur de fichier"}\},
-    \{OPEN\_FILE\_ERROR, \textcolor{stringliteral}{"Erreur d ouverture du fichier"}\},
-    \{CLOSE\_FILE\_ERROR, \textcolor{stringliteral}{"Erreur de fermeture du fichier"}\},
-    \{VALUE\_ERROR, \textcolor{stringliteral}{"Erreur de valeur"}\},
-    \{ERROR\_NOT\_EXIST, \textcolor{stringliteral}{"Cette erreur n existe pas"}\},
-    \{REMOVE\_FILE\_ERROR, \textcolor{stringliteral}{"La Suppression du fichier a echoue"}\},
-    \{PTR\_NULL, \textcolor{stringliteral}{"Le pointeur est NULL"}\},
-    \{PTR\_VALUE\_ERROR, \textcolor{stringliteral}{"La valeur de Pointeur est Incorrect"}\},
-    \{TYPE\_ERROR, \textcolor{stringliteral}{"Le Type est Incorrect"}\},
-    \{UNDEFINED\_MENU, \textcolor{stringliteral}{"Le pointeur sur le menu est NULL"}\},
-    \{INCORRECT\_MENU\_TYPE, \textcolor{stringliteral}{"Type de menu incorrect"}\},
-    \{KEY\_NOT\_FOUND, \textcolor{stringliteral}{"La Cle n'a pas ete trouve"}\},
-    \{OK, \textcolor{stringliteral}{"Tout c est bien passer"}\}  
+    \{FILE\_ERROR, \textcolor{stringliteral}{"FILE ERROR"}\},
+    \{OPEN\_FILE\_ERROR, \textcolor{stringliteral}{"OPEN FILE ERROR"}\},
+    \{CLOSE\_FILE\_ERROR, \textcolor{stringliteral}{"CLOSE FILE ERROR"}\},
+    \{VALUE\_ERROR, \textcolor{stringliteral}{"VALUE ERROR"}\},
+    \{ERROR\_NOT\_EXIST, \textcolor{stringliteral}{"ERROR NOT EXIST"}\},
+    \{REMOVE\_FILE\_ERROR, \textcolor{stringliteral}{"REMOVE FILE ERROR"}\},
+    \{PTR\_NULL, \textcolor{stringliteral}{"POINTEUR NULL"}\},
+    \{PTR\_VALUE\_ERROR, \textcolor{stringliteral}{"POINTEUR VALUE ERROR"}\},
+    \{TYPE\_ERROR, \textcolor{stringliteral}{"TYPE ERROR"}\},
+    \{UNDEFINED\_MENU, \textcolor{stringliteral}{"UNDEFINED MENU"}\},
+    \{INCORRECT\_MENU\_TYPE, \textcolor{stringliteral}{"INCORRECT MENU TYPE"}\},
+    \{KEY\_NOT\_FOUND, \textcolor{stringliteral}{"KEY NOT FOUND"}\},
+    \{OK, \textcolor{stringliteral}{"OK"}\}  
 \}
 \end{DoxyCode}

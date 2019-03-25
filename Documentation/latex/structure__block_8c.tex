@@ -1,0 +1,68 @@
+\hypertarget{structure__block_8c}{}\section{Référence du fichier src/structure\+\_\+block.c}
+\label{structure__block_8c}\index{src/structure\+\_\+block.\+c@{src/structure\+\_\+block.\+c}}
+
+
+Module de gestion des structure\+\_\+block.  
+
+
+{\ttfamily \#include $<$biome.\+h$>$}\newline
+{\ttfamily \#include $<$block.\+h$>$}\newline
+{\ttfamily \#include $<$commun.\+h$>$}\newline
+{\ttfamily \#include $<$generation.\+h$>$}\newline
+{\ttfamily \#include $<$perlin.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$structure\+\_\+block.\+h$>$}\newline
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structure__block_8c_a26e9f11667a1d6426b42e37383880457}\label{structure__block_8c_a26e9f11667a1d6426b42e37383880457}} 
+int {\bfseries S\+T\+R\+U\+C\+T\+\_\+\+Get\+Width} (\hyperlink{structt__struct__block}{t\+\_\+struct\+\_\+block} $\ast$struct\+\_\+block, t\+\_\+struct\+\_\+block\+\_\+type type)
+\item 
+\mbox{\Hypertarget{structure__block_8c_a2b7c53336e2449c2a04a134b365211c1}\label{structure__block_8c_a2b7c53336e2449c2a04a134b365211c1}} 
+char $\ast$ {\bfseries S\+T\+R\+U\+C\+T\+\_\+\+Get\+Path} (\hyperlink{structt__struct__block}{t\+\_\+struct\+\_\+block} $\ast$struct\+\_\+block, t\+\_\+struct\+\_\+block\+\_\+type type)
+\item 
+\mbox{\Hypertarget{structure__block_8c_aae2b563d93d982fa2f50c8497ef7abc3}\label{structure__block_8c_aae2b563d93d982fa2f50c8497ef7abc3}} 
+int {\bfseries S\+T\+R\+U\+C\+T\+\_\+\+Can\+Spawn} (int x, int i)
+\item 
+\mbox{\Hypertarget{structure__block_8c_ac9510e7b192d204235e27cfd896b91ee}\label{structure__block_8c_ac9510e7b192d204235e27cfd896b91ee}} 
+void {\bfseries S\+T\+R\+U\+C\+T\+\_\+generation} (int x, int y, int dir, \hyperlink{structblock__s}{t\+\_\+block} map\mbox{[}M\+AX\mbox{]})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structt__struct__block}{t\+\_\+struct\+\_\+block} {\bfseries struct\+\_\+block} \mbox{[}N\+B\+\_\+\+S\+T\+R\+U\+C\+T\+\_\+\+B\+L\+O\+CK\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Module de gestion des structure\+\_\+block. 
+
+\begin{DoxyAuthor}{Auteur}
+\{Maxence.\+D\} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+13 mars 2019 
+\end{DoxyDate}
+
+
+\subsection{Documentation des variables}
+\mbox{\Hypertarget{structure__block_8c_ae7d734d808a48c03431e893d3afb3cca}\label{structure__block_8c_ae7d734d808a48c03431e893d3afb3cca}} 
+\index{structure\+\_\+block.\+c@{structure\+\_\+block.\+c}!struct\+\_\+block@{struct\+\_\+block}}
+\index{struct\+\_\+block@{struct\+\_\+block}!structure\+\_\+block.\+c@{structure\+\_\+block.\+c}}
+\subsubsection{\texorpdfstring{struct\+\_\+block}{struct\_block}}
+{\footnotesize\ttfamily \hyperlink{structt__struct__block}{t\+\_\+struct\+\_\+block} struct\+\_\+block\mbox{[}N\+B\+\_\+\+S\+T\+R\+U\+C\+T\+\_\+\+B\+L\+O\+CK\mbox{]}}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}
+= \{\{ARBRE\_TAIGA, 7, \textcolor{stringliteral}{"structure/arbre\_taiga"}, 30, TAIGA\},
+                                                \{ARBRE\_FORET, 7, \textcolor{stringliteral}{"structure/arbre\_foret"}, 80, FORET\},
+                                                \{GRAND\_ARBRE\_FORET, 7, \textcolor{stringliteral}{"structure/arbre\_foret2"}, 10, FORET\}
+      ,
+                                                \{BUISSON, 5, \textcolor{stringliteral}{"structure/buisson"}, 60, FORET\},
+                                                \{CACTUS, 3, \textcolor{stringliteral}{"structure/cactus"}, 30, DESERTS\}\}
+\end{DoxyCode}

@@ -80,18 +80,15 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:aa6ee0ed961ca53a4bb6dbac946863204"><td class="memItemLeft" align="right" valign="top">FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#aa6ee0ed961ca53a4bb6dbac946863204">new_json</a> (char *dossier, char *name)</td></tr>
-<tr class="memdesc:aa6ee0ed961ca53a4bb6dbac946863204"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer, s'il ne l'est pas, le fichier JSON et l'ouvre en écriture.  <a href="#aa6ee0ed961ca53a4bb6dbac946863204">Plus de détails...</a><br /></td></tr>
-<tr class="separator:aa6ee0ed961ca53a4bb6dbac946863204"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9d2248ecb6761100f56d4979a0ffd5c"><td class="memItemLeft" align="right" valign="top">FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#ad9d2248ecb6761100f56d4979a0ffd5c">open_json</a> (char *dossier, char *name, char *mode)</td></tr>
+<tr class="memdesc:ad9d2248ecb6761100f56d4979a0ffd5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer, s'il ne l'est pas, le fichier JSON et l'ouvre.  <a href="#ad9d2248ecb6761100f56d4979a0ffd5c">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad9d2248ecb6761100f56d4979a0ffd5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a8741c615a1e8641a153f9c63ffaa10"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#a5a8741c615a1e8641a153f9c63ffaa10">del_json</a> (char *dossier, char *name)</td></tr>
 <tr class="memdesc:a5a8741c615a1e8641a153f9c63ffaa10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supprime un fichier JSON.  <a href="#a5a8741c615a1e8641a153f9c63ffaa10">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a5a8741c615a1e8641a153f9c63ffaa10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aadc89568073266b0b097d615205cc20d"><td class="memItemLeft" align="right" valign="top">FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#aadc89568073266b0b097d615205cc20d">open_json</a> (char *dossier, char *name)</td></tr>
-<tr class="memdesc:aadc89568073266b0b097d615205cc20d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ouvre un fichier JSON en lecture.  <a href="#aadc89568073266b0b097d615205cc20d">Plus de détails...</a><br /></td></tr>
-<tr class="separator:aadc89568073266b0b097d615205cc20d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a533d4ada20fe08757315558048ee69e7"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#a533d4ada20fe08757315558048ee69e7">write_json</a> (FILE *file, char *key, void *value, char value_type)</td></tr>
-<tr class="memdesc:a533d4ada20fe08757315558048ee69e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ecrit une clé/valeur au format JSON dans un fichier.  <a href="#a533d4ada20fe08757315558048ee69e7">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a533d4ada20fe08757315558048ee69e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef1b0866438f726985d55d84571526c8"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#aef1b0866438f726985d55d84571526c8">write_json</a> (FILE *file, char *key, void *value, char *value_type)</td></tr>
+<tr class="memdesc:aef1b0866438f726985d55d84571526c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ecrit une clé/valeur au format JSON dans un fichier.  <a href="#aef1b0866438f726985d55d84571526c8">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aef1b0866438f726985d55d84571526c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6dd5ea7284f649e178e13e99c43600b3"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#a6dd5ea7284f649e178e13e99c43600b3">open_json_obj</a> (FILE *file)</td></tr>
 <tr class="memdesc:a6dd5ea7284f649e178e13e99c43600b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Démarre un nouvelle objet au format JSON dans un fichier.  <a href="#a6dd5ea7284f649e178e13e99c43600b3">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a6dd5ea7284f649e178e13e99c43600b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -101,12 +98,12 @@ Fonctions</h2></td></tr>
 <tr class="memitem:a10b95a250726186ac4ddfdda6adad3e3"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#a10b95a250726186ac4ddfdda6adad3e3">extract_json_obj</a> (FILE *file, char **obj)</td></tr>
 <tr class="memdesc:a10b95a250726186ac4ddfdda6adad3e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère un objet JSON dans un fichier.  <a href="#a10b95a250726186ac4ddfdda6adad3e3">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a10b95a250726186ac4ddfdda6adad3e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70d649f9978eebff5c543e6dd2dcc1eb"><td class="memItemLeft" align="right" valign="top"><a id="a70d649f9978eebff5c543e6dd2dcc1eb"></a>
-t_erreur&#160;</td><td class="memItemRight" valign="bottom"><b>read_json_obj</b> (char *obj, char *key, void *value, char value_type)</td></tr>
-<tr class="separator:a70d649f9978eebff5c543e6dd2dcc1eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a649e98dee4921e6444661519ad00d25b"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#a649e98dee4921e6444661519ad00d25b">concat_str</a> (char *str1, char *str2)</td></tr>
-<tr class="memdesc:a649e98dee4921e6444661519ad00d25b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concatène 2 chaine de caractère.  <a href="#a649e98dee4921e6444661519ad00d25b">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a649e98dee4921e6444661519ad00d25b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44c9b298308109129b3ecac1ad911db8"><td class="memItemLeft" align="right" valign="top"><a id="a44c9b298308109129b3ecac1ad911db8"></a>
+t_erreur&#160;</td><td class="memItemRight" valign="bottom"><b>read_json_obj</b> (char *obj, char *key, void *value, char *value_type)</td></tr>
+<tr class="separator:a44c9b298308109129b3ecac1ad911db8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd75e719d37a9c3f57167eeadfede913"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#acd75e719d37a9c3f57167eeadfede913">fstart</a> (FILE *file)</td></tr>
+<tr class="memdesc:acd75e719d37a9c3f57167eeadfede913"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remet le pointeur file au début du fichier.  <a href="#acd75e719d37a9c3f57167eeadfede913">Plus de détails...</a><br /></td></tr>
+<tr class="separator:acd75e719d37a9c3f57167eeadfede913"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Module contenant les primitives et les structures permettant l'écriture et la lecture de fichier JSON. </p>
@@ -138,44 +135,6 @@ t_erreur&#160;</td><td class="memItemRight" valign="bottom"><b>read_json_obj</b>
   </dd>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd>Une erreur s'il y en a une. </dd></dl>
-
-</div>
-</div>
-<a id="a649e98dee4921e6444661519ad00d25b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a649e98dee4921e6444661519ad00d25b">&#9670;&nbsp;</a></span>concat_str()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">char* concat_str </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>str1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>str2</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Concatène 2 chaine de caractère. </p>
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">str1</td><td>Chaine de caractère de gauche. </td></tr>
-    <tr><td class="paramname">str2</td><td>Chaine de caractère de droite. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Renvoie</dt><dd>Une chaine de caractère résultat de la concatènation. </dd></dl>
 
 </div>
 </div>
@@ -255,46 +214,35 @@ t_erreur&#160;</td><td class="memItemRight" valign="bottom"><b>read_json_obj</b>
 
 </div>
 </div>
-<a id="aa6ee0ed961ca53a4bb6dbac946863204"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa6ee0ed961ca53a4bb6dbac946863204">&#9670;&nbsp;</a></span>new_json()</h2>
+<a id="acd75e719d37a9c3f57167eeadfede913"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd75e719d37a9c3f57167eeadfede913">&#9670;&nbsp;</a></span>fstart()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">FILE* new_json </td>
+          <td class="memname">t_erreur fstart </td>
           <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>dossier</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>name</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Créer, s'il ne l'est pas, le fichier JSON et l'ouvre en écriture. </p>
+<p>Remet le pointeur file au début du fichier. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">dossier</td><td>Chaine de caractère représentant le dossier ou se trouve le json. </td></tr>
-    <tr><td class="paramname">name</td><td>Chaine de caractère représenant le nom du fichier sans le '.json'. </td></tr>
+    <tr><td class="paramname">str1</td><td>Chaine de caractère de gauche. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Renvoie</dt><dd>Un pointeur sur le fichier ouvert. </dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Une erreur s'il y en a une. </dd></dl>
 
 </div>
 </div>
-<a id="aadc89568073266b0b097d615205cc20d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aadc89568073266b0b097d615205cc20d">&#9670;&nbsp;</a></span>open_json()</h2>
+<a id="ad9d2248ecb6761100f56d4979a0ffd5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9d2248ecb6761100f56d4979a0ffd5c">&#9670;&nbsp;</a></span>open_json()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -309,7 +257,13 @@ t_erreur&#160;</td><td class="memItemRight" valign="bottom"><b>read_json_obj</b>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>name</em>&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>mode</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -319,11 +273,12 @@ t_erreur&#160;</td><td class="memItemRight" valign="bottom"><b>read_json_obj</b>
       </table>
 </div><div class="memdoc">
 
-<p>Ouvre un fichier JSON en lecture. </p>
+<p>Créer, s'il ne l'est pas, le fichier JSON et l'ouvre. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">dossier</td><td>Chaine de caractère représentant le dossier ou se trouve le json. </td></tr>
-    <tr><td class="paramname">name</td><td>Chaine de caractère représenant le nom du fichier sans le '.json' à lire. </td></tr>
+    <tr><td class="paramname">name</td><td>Chaine de caractère représenant le nom du fichier sans le '.json'. </td></tr>
+    <tr><td class="paramname">mode</td><td>Mode d'ouverture du fichier. </td></tr>
   </table>
   </dd>
 </dl>
@@ -358,8 +313,8 @@ t_erreur&#160;</td><td class="memItemRight" valign="bottom"><b>read_json_obj</b>
 
 </div>
 </div>
-<a id="a533d4ada20fe08757315558048ee69e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a533d4ada20fe08757315558048ee69e7">&#9670;&nbsp;</a></span>write_json()</h2>
+<a id="aef1b0866438f726985d55d84571526c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef1b0866438f726985d55d84571526c8">&#9670;&nbsp;</a></span>write_json()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -385,7 +340,7 @@ t_erreur&#160;</td><td class="memItemRight" valign="bottom"><b>read_json_obj</b>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char&#160;</td>
+          <td class="paramtype">char *&#160;</td>
           <td class="paramname"><em>value_type</em>&#160;</td>
         </tr>
         <tr>

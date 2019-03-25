@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['element',['element',['../structelement.html',1,'']]]
+  ['configtouches_5fs',['configTouches_s',['../structconfigTouches__s.html',1,'']]]
 ];
