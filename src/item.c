@@ -1,4 +1,8 @@
 #include <item.h> /* #include <block.h> */
+#include <time.h>
+
+static void default_item_drop ();
+static void default_item_type ();
 
 /* rand : 0 - 32767 */
 
@@ -22,9 +26,9 @@ uint8_t init_item() {
 
     default_item_drop();
 
-    for ( i = 0 ; i != I_END ; i++ ); /* comptage du nombre d'item */
+    tabItem = malloc( sizeof( t_item_type ) * NB_ITEMS );
 
-    tabItem = malloc( sizeof( t_item_type ) * i );
+    default_item_type();
 
 <<<<<<< HEAD
     /* air */
@@ -33,9 +37,53 @@ uint8_t init_item() {
     return 0;
 }
 
-uint8_t block_to_item ( t_materiaux materiaux ) {
+uint8_t block_to_item ( t_materiaux materiaux, t_liste_item *item, uint8_t *nbItem ) {
 
-    
+    if ( ( tabItemDrop + materiaux )->drop == NULL ) {
+
+        nbItem = 0;
+        item = NULL;
+        return 0;
+    }
+
+    uint8_t i = 0;
+    uint16_t aleatoire;
+
+    while ( (( tabItemDrop + materiaux )->drop + i)->item != I_END )
+        i++;
+
+    i++;
+
+    item = malloc( sizeof(t_item_type*) * i );
+
+    i = 0, *nbItem = 0;
+
+    srand(time(NULL));
+
+    while ( (( tabItemDrop + materiaux )->drop + i)->item != I_END ) {
+
+        aleatoire = rand();
+        while  ( aleatoire >= 32000 )
+            aleatoire = rand();
+        aleatoire %= 1000;
+
+        if ( aleatoire < (( tabItemDrop + materiaux )->drop + i)->pourMille ) {
+
+            ( item + (*nbItem) )->nbDrop = (( tabItemDrop + materiaux )->drop + i)->nombre;
+            ( item + (*nbItem) )->item = ( tabItem + (( tabItemDrop + materiaux )->drop + i)->item );
+        }
+
+        switch ( (( tabItemDrop + materiaux )->drop + i)->besoin ) {
+            case PAS_DROP_APRES_N:
+                if ( aleatoire < (( tabItemDrop + materiaux )->drop + i)->pourMille )
+                    i += (( tabItemDrop + materiaux )->drop + i)->info;
+                break;
+        }
+
+        i++;
+    }
+
+    ( item + (*nbItem) )->item = (tabItem + I_END);
 }
 
 void exit_item() {
@@ -51,6 +99,7 @@ void exit_item() {
     free( ( tabItemDrop + GRAVIER )->drop);
 
     free(tabItemDrop);
+    free(tabItem);
     tabItemDrop = NULL;
 }
 
@@ -62,7 +111,7 @@ static void default_item_drop () {
 
 
     /* HERBE */
-    ( tabItemDrop + HERBE )->drop = malloc( sizeof(t_liste_drop) * 1 );
+    ( tabItemDrop + HERBE )->drop = malloc( sizeof(t_liste_drop) * 2 );
     /*---------------------------------------------------------------
     *             | le bloc |                                    |qte |
     *             |qui doit |                                    |de  |
@@ -74,22 +123,26 @@ static void default_item_drop () {
     ( tabItemDrop + HERBE )->drop->info = 0;
     ( tabItemDrop + HERBE )->drop->pourMille = 1000;
 
+    (( tabItemDrop + HERBE )->drop + 1 )->item = I_END;
+
 
     /* TERRE */
-    ( tabItemDrop + TERRE )->drop = malloc( sizeof(t_liste_drop) * 1 );
+    ( tabItemDrop + TERRE )->drop = malloc( sizeof(t_liste_drop) * 2 );
 
-    ( tabItemDrop + HERBE )->drop->item = I_TERRE;
-    ( tabItemDrop + HERBE )->drop->nombre = 1;
-    ( tabItemDrop + HERBE )->drop->besoin = AUCUN_BESOIN;
-    ( tabItemDrop + HERBE )->drop->info = 0;
-    ( tabItemDrop + HERBE )->drop->pourMille = 1000;
+    ( tabItemDrop + TERRE )->drop->item = I_TERRE;
+    ( tabItemDrop + TERRE )->drop->nombre = 1;
+    ( tabItemDrop + TERRE )->drop->besoin = AUCUN_BESOIN;
+    ( tabItemDrop + TERRE )->drop->info = 0;
+    ( tabItemDrop + TERRE )->drop->pourMille = 1000;
+
+    (( tabItemDrop + TERRE )->drop + 1 )->item = I_END;
 
 
     /* EAU */
 
 
     /* SABLE */
-    ( tabItemDrop + SABLE )->drop = malloc( sizeof(t_liste_drop) * 1 );
+    ( tabItemDrop + SABLE )->drop = malloc( sizeof(t_liste_drop) * 2 );
 
     ( tabItemDrop + SABLE )->drop->item = I_SABLE;
     ( tabItemDrop + SABLE )->drop->nombre = 1;
@@ -97,9 +150,11 @@ static void default_item_drop () {
     ( tabItemDrop + SABLE )->drop->info = 0;
     ( tabItemDrop + SABLE )->drop->pourMille = 1000;
 
+    (( tabItemDrop + SABLE )->drop + 1)->item = I_END;
+
 
     /* FEUILLE */
-    ( tabItemDrop + FEUILLE )->drop = malloc( sizeof(t_liste_drop) * 2 );
+    ( tabItemDrop + FEUILLE )->drop = malloc( sizeof(t_liste_drop) * 3 );
 
     ( tabItemDrop + FEUILLE )->drop->item = I_POUSSE_ARBRE;
     ( tabItemDrop + FEUILLE )->drop->nombre = 1;
@@ -107,15 +162,17 @@ static void default_item_drop () {
     ( tabItemDrop + FEUILLE )->drop->info = 0;
     ( tabItemDrop + FEUILLE )->drop->pourMille = 150; /* 15% de chance de drop */
 
-    ( tabItemDrop + FEUILLE )->drop->item = I_POMME;
-    ( tabItemDrop + FEUILLE )->drop->nombre = 1;
-    ( tabItemDrop + FEUILLE )->drop->besoin = AUCUN_BESOIN;
-    ( tabItemDrop + FEUILLE )->drop->info = 0;
-    ( tabItemDrop + FEUILLE )->drop->pourMille = 50; /* 5% de chance de drop */
+    (( tabItemDrop + FEUILLE )->drop + 1 )->item = I_POMME;
+    (( tabItemDrop + FEUILLE )->drop + 1 )->nombre = 1;
+    (( tabItemDrop + FEUILLE )->drop + 1 )->besoin = AUCUN_BESOIN;
+    (( tabItemDrop + FEUILLE )->drop + 1 )->info = 0;
+    (( tabItemDrop + FEUILLE )->drop + 1 )->pourMille = 50; /* 5% de chance de drop */
+
+    (( tabItemDrop + FEUILLE )->drop + 2 )->item = I_END;
 
 
     /* BOIS */
-    ( tabItemDrop + BOIS )->drop = malloc( sizeof(t_liste_drop) * 1 );
+    ( tabItemDrop + BOIS )->drop = malloc( sizeof(t_liste_drop) * 2 );
 
     ( tabItemDrop + BOIS )->drop->item = I_BOIS;
     ( tabItemDrop + BOIS )->drop->nombre = 1;
@@ -123,9 +180,11 @@ static void default_item_drop () {
     ( tabItemDrop + BOIS )->drop->info = 0;
     ( tabItemDrop + BOIS )->drop->pourMille = 1000;
 
+    (( tabItemDrop + BOIS )->drop + 1 )->item = I_END;
+
 
     /* ROCHE */
-    ( tabItemDrop + ROCHE )->drop = malloc( sizeof(t_liste_drop) * 1 );
+    ( tabItemDrop + ROCHE )->drop = malloc( sizeof(t_liste_drop) * 2 );
 
     ( tabItemDrop + ROCHE )->drop->item = I_PIERRE;
     ( tabItemDrop + ROCHE )->drop->nombre = 1;
@@ -133,9 +192,11 @@ static void default_item_drop () {
     ( tabItemDrop + ROCHE )->drop->info = 0;
     ( tabItemDrop + ROCHE )->drop->pourMille = 1000;
 
+    (( tabItemDrop + ROCHE )->drop + 1 )->item = I_END;
+
 
     /* NEIGE */
-    ( tabItemDrop + NEIGE )->drop = malloc( sizeof(t_liste_drop) * 2 );
+    ( tabItemDrop + NEIGE )->drop = malloc( sizeof(t_liste_drop) * 4 );
 
     ( tabItemDrop + NEIGE )->drop->item = I_BOULE_NEIGE;
     ( tabItemDrop + NEIGE )->drop->nombre = 1;
@@ -143,18 +204,26 @@ static void default_item_drop () {
     ( tabItemDrop + NEIGE )->drop->info = 0;
     ( tabItemDrop + NEIGE )->drop->pourMille = 1000; /* 1 boule de neige sur */
 
-    ( tabItemDrop + NEIGE )->drop->item = I_BOULE_NEIGE;
-    ( tabItemDrop + NEIGE )->drop->nombre = 2;
-    ( tabItemDrop + NEIGE )->drop->besoin = AUCUN_BESOIN;
-    ( tabItemDrop + NEIGE )->drop->info = 0;
-    ( tabItemDrop + NEIGE )->drop->pourMille = 200; /* 2 boule de neige a 20% chacune --> ~ 1.4 boule de neige par neige casse */
+    (( tabItemDrop + NEIGE )->drop + 1 )->item = I_BOULE_NEIGE;
+    (( tabItemDrop + NEIGE )->drop + 1 )->nombre = 1;
+    (( tabItemDrop + NEIGE )->drop + 1 )->besoin = AUCUN_BESOIN;
+    (( tabItemDrop + NEIGE )->drop + 1 )->info = 0;
+    (( tabItemDrop + NEIGE )->drop + 1 )->pourMille = 200;
+
+    (( tabItemDrop + NEIGE )->drop + 2 )->item = I_BOULE_NEIGE;
+    (( tabItemDrop + NEIGE )->drop + 2 )->nombre = 1;
+    (( tabItemDrop + NEIGE )->drop + 2 )->besoin = AUCUN_BESOIN;
+    (( tabItemDrop + NEIGE )->drop + 2 )->info = 0;
+    (( tabItemDrop + NEIGE )->drop + 2 )->pourMille = 200;
+
+    (( tabItemDrop + NEIGE )->drop + 3 )->item = I_END;
 
 
     /* GLACE */
 
 
     /* DIAMAND */
-    ( tabItemDrop + DIAMAND )->drop = malloc( sizeof(t_liste_drop) * 1 );
+    ( tabItemDrop + DIAMAND )->drop = malloc( sizeof(t_liste_drop) * 2 );
 
     ( tabItemDrop + DIAMAND )->drop->item = I_DIAMAND;
     ( tabItemDrop + DIAMAND )->drop->nombre = 1;
@@ -162,9 +231,12 @@ static void default_item_drop () {
     ( tabItemDrop + DIAMAND )->drop->info = 0;
     ( tabItemDrop + DIAMAND )->drop->pourMille = 1000;
 
+    (( tabItemDrop + DIAMAND )->drop + 1 )->item = I_END;
+
+
     /* GRAVIER */
 
-    ( tabItemDrop + GRAVIER )->drop = malloc( sizeof(t_liste_drop) * 2 );
+    ( tabItemDrop + GRAVIER )->drop = malloc( sizeof(t_liste_drop) * 3 );
 
     ( tabItemDrop + GRAVIER )->drop->item = I_SILEX;
     ( tabItemDrop + GRAVIER )->drop->nombre = 1;
@@ -172,11 +244,13 @@ static void default_item_drop () {
     ( tabItemDrop + GRAVIER )->drop->info = 1;
     ( tabItemDrop + GRAVIER )->drop->pourMille = 50;
 
-    ( tabItemDrop + GRAVIER )->drop->item = I_GRAVIER;
-    ( tabItemDrop + GRAVIER )->drop->nombre = 1;
-    ( tabItemDrop + GRAVIER )->drop->besoin = AUCUN_BESOIN;
-    ( tabItemDrop + GRAVIER )->drop->info = 0;
-    ( tabItemDrop + GRAVIER )->drop->pourMille = 1000;
+    (( tabItemDrop + GRAVIER )->drop + 1 )->item = I_GRAVIER;
+    (( tabItemDrop + GRAVIER )->drop + 1 )->nombre = 1;
+    (( tabItemDrop + GRAVIER )->drop + 1 )->besoin = AUCUN_BESOIN;
+    (( tabItemDrop + GRAVIER )->drop + 1 )->info = 0;
+    (( tabItemDrop + GRAVIER )->drop + 1 )->pourMille = 1000;
+
+    (( tabItemDrop + GRAVIER )->drop + 2 )->item = I_END;
 }
 >>>>>>> 5e5d356... suite du module item.h
 
@@ -232,7 +306,7 @@ static void default_item_type () {
     ( tabItem + I_SILEX )->posable = NULL;
     ( tabItem + I_SILEX )->texture = NULL;
 
-    ( tabItem + I_DIAMAND )->nomItem = "diamand";
+    ( tabItem + I_DIAMAND )->nomItem = "diamant";
     ( tabItem + I_DIAMAND )->stack = 25;
     ( tabItem + I_DIAMAND )->posable = NULL;
     ( tabItem + I_DIAMAND )->texture = NULL;
