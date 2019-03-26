@@ -31,28 +31,26 @@
 #include <touches.h>
 #include <world_of_dungeons.h>
 
-int collision(SDL_Rect hit, t_collision_direction direction, t_liste *p) {
-  if (p) {
-    int *a, *b;
-    t_liste *l;
-    valeur_liste(p, 0, (void **)&a);
-    valeur_liste(p, 1, (void **)&l);
-    valeur_liste(l, 0, (void **)&b);
-    printf("a = %d : b = %d\n", *a, *b);
-  }
-  switch (direction) {
-  case DIRECT_BAS_COLLI:
-    if (hit.y < POSY_ENT_SCREEN)
-      return POSY_ENT_SCREEN - hit.y;
-    break;
-
-  default:
-    break;
-  }
-  return 0;
-}
-
-void GAME_init(SDL_Renderer *renderer, uint8_t **ks, configTouches_t **ct) {}
+// int collision(SDL_Rect hit, t_collision_direction direction, t_liste *p) {
+//   t_block *b;
+//   t_map map;
+//   map.list = p;
+//
+//   switch (direction) {
+//   case DIRECT_BAS_COLLI:
+//     b = MAP_GetBlock(&map, hit.x / width_block_sdl, hit.y / height_block_sdl);
+//     //printf("%d %d\n", hit.x / width_block_sdl, hit.y / height_block_sdl);
+//     if (b) {
+//       // printf("b.x : %d b.y : %d hit.x %d hit.y %d\n", b->x, b->y, hit.x / width_block_sdl, hit.y / height_block_sdl);
+//       return 25;
+//     } else {
+//       return 0;
+//     }
+//     break;
+//   }
+//
+//   return 1;
+// }
 
 int main(int argc, char *argv[], char **env) {
   pwd_init(argv[0], getenv("PWD"));
@@ -64,14 +62,6 @@ int main(int argc, char *argv[], char **env) {
   t_map *map = NULL;
   uint8_t *ks;
   configTouches_t *ct;
-
-  t_liste l1, l2;
-  init_liste(&l1);
-  init_liste(&l2);
-  int a = 5, b = 6;
-  ajout_droit(&l1, &a);
-  ajout_droit(&l1, &l2);
-  ajout_droit(&l2, &b);
 
   MAP_creer(&map, "World", 12281783);
 
@@ -115,7 +105,7 @@ int main(int argc, char *argv[], char **env) {
     i++;
     gen_col(map->list, i, DROITE);
   }
-  taille = AFF_GetMidHeight(map->list) - 10;
+  taille = AFF_GetMidHeight(map->list);
 
   //----------------------------------------------------------------------------------------------------------------
   // Menu Début de jeux
@@ -123,22 +113,22 @@ int main(int argc, char *argv[], char **env) {
 
   menu_creer(MENU_PRINCIPAL, width_window, height_window, &menu);
   t_type_menu type_bouton;
+  t_block *b = MAP_GetBlockFromList(map, SIZE / 2, AFF_GetMidHeight(map->list));
+  t_entite *J = creer_entite_defaut(NULL, JOUEUR, b->x * width_block_sdl, b->y * height_block_sdl, 100);
 
-  t_entite *J = creer_entite_defaut(NULL, JOUEUR, (i * width_block_sdl), POSY_ENT_SCREEN, 60);
-
-  while (menu) {
-    SDL_RenderClear(renderer);
-    SDL_touches(ks, ct);
-    menu_gestion_SDL(menu, SDL_touche_appuyer(ks, SOURIS_GAUCHE), &type_bouton);
-    if (type_bouton == MENU_QUITTER) {
-      boucle = 0;
-      menu_suivant(&menu, type_bouton);
-    } else if (type_bouton != MENU_NULL) {
-      menu_suivant(&menu, type_bouton);
-    }
-    menu_afficher_SDL(menu, renderer);
-    SDL_RenderPresent(renderer);
-  }
+  // while (menu) {
+  //   SDL_RenderClear(renderer);
+  //   SDL_touches(ks, ct);
+  //   menu_gestion_SDL(menu, SDL_touche_appuyer(ks, SOURIS_GAUCHE), &type_bouton);
+  //   if (type_bouton == MENU_QUITTER) {
+  //     boucle = 0;
+  //     menu_suivant(&menu, type_bouton);
+  //   } else if (type_bouton != MENU_NULL) {
+  //     menu_suivant(&menu, type_bouton);
+  //   }
+  //   menu_afficher_SDL(menu, renderer);
+  //   SDL_RenderPresent(renderer);
+  // }
 
   //----------------------------------------------------------------------------------------------------------------
   // Boucle de jeux
@@ -150,46 +140,50 @@ int main(int argc, char *argv[], char **env) {
     //        (J->hitbox.x / width_block_sdl) - (SIZE / 2));
 
     taille = AFF_GetMidHeight(map->list);
-
     SDL_RenderCopy(renderer, fond, NULL, &fondRect);
 
-    AFF_map_sdl(map->list, renderer, taille - (height_window / height_block_sdl / 2));
-    Gestion_Entite(renderer, J, ks, coef_fps, collision, &l1);
+    AFF_map_sdl(map->list, renderer, (J->hitbox.y / height_block_sdl) - MAX_SCREEN / 2);
+    // printf("%d %d\n", J->hitbox.y, J->hitbox.y / height_block_sdl);
+
+    Gestion_Entite(renderer, J, ks, coef_fps, collision, map->list);
     SDL_RenderPresent(renderer);
 
     SDL_touches(ks, ct);
 
+    //QUITTER LE JEU
     if (SDL_touche_appuyer(ks, QUITTER) || SDL_touche_appuyer(ks, ESCAPE)) {
-      menu_creer(MENU_PRINCIPAL, width_window, height_window, &menu);
-      while (menu) {
-
-        SDL_RenderClear(renderer);
-        menu_gestion_SDL(menu, SDL_touche_appuyer(ks, SOURIS_GAUCHE), &type_bouton);
-        if (type_bouton == MENU_QUITTER) {
-          boucle = 0;
-          menu_suivant(&menu, type_bouton);
-        } else if (type_bouton != MENU_NULL) {
-          menu_suivant(&menu, type_bouton);
-        }
-        menu_afficher_SDL(menu, renderer);
-        SDL_RenderPresent(renderer);
-      }
+      boucle = 0;
     }
 
-    if (i + 1 == (J->hitbox.x / width_block_sdl)) {
-      gen_col(map->list, (J->hitbox.x / width_block_sdl), DROITE);
-      i++;
+    t_block *b1 = NULL;
+    //GENERATION DROITE GAUCHE
+    if (i + 1 == (J->hitbox.x / width_block_sdl) + SIZE / 2) {
+      gen_col(map->list, i, DROITE);
+      i = (J->hitbox.x / width_block_sdl) + SIZE / 2;
+      b1 = MAP_GetBlock(map, i, J->hitbox.y / height_block_sdl);
     }
 
-    if (i - 1 == (J->hitbox.x / width_block_sdl)) {
-      gen_col(map->list, (J->hitbox.x / width_block_sdl) - SIZE, GAUCHE);
-      i--;
+    if (i - SIZE - 1 == (J->hitbox.x / width_block_sdl) - SIZE / 2) {
+      gen_col(map->list, i - SIZE, GAUCHE);
+      i = (J->hitbox.x / width_block_sdl) + SIZE / 2;
+      b1 = MAP_GetBlock(map, i, J->hitbox.y / height_block_sdl);
     }
 
+    printf("i : %d, i - SIZE : %d SIZE/2 : %d J.x : %d \n", i, i - SIZE, SIZE / 2, J->hitbox.x / width_block_sdl);
+
+    // if (b1) {
+    //   b1->id = 5;
+    //   printf("id:%d x:%d y:%d\n", b1->id, b1->x, b1->y, taille);
+    // } else {
+    //   printf("Block NULL\n");
+    // }
+
+    //TEST SOURIS
     if (SDL_touche_appuyer(ks, SOURIS_GAUCHE)) {
       SDL_coord_souris(&x_mouse, &y_mouse);
       // Récuperation d'un block dans la liste
-      t_block *b = MAP_GetBlockFromList(map, (x_mouse / width_block_sdl), MAX_SCREEN - (y_mouse / height_block_sdl) + taille + 1);
+      t_block *b =
+          MAP_GetBlockFromList(map, (x_mouse / width_block_sdl), MAX_SCREEN - (y_mouse / height_block_sdl) + (J->hitbox.y / height_block_sdl) + 1);
 
       if (b) {
         // printf("Block id: %d x:%d, y:%d x_mouse:%d y_mouse:%d\n", b->id, b->x, b->y, (x_mouse / width_block_sdl),
