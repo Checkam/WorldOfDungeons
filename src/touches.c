@@ -236,6 +236,12 @@ static void SDL_touche_default ( configTouches_t **configuration ) {
 	strcpy(( (*configuration) + SPACE )->descriptif, "sauter");
 	( (*configuration) + SPACE )->keyCode = SDLK_SPACE;
 
+	strcpy(( (*configuration) + G )->descriptif, "g");
+	( (*configuration) + G )->keyCode = SDLK_g;
+
+	strcpy(( (*configuration) + X )->descriptif, "x");
+	( (*configuration) + X )->keyCode = SDLK_x;
+
 	strcpy(( (*configuration) + SHIFT )->descriptif, "shift");
 	( (*configuration) + SHIFT )->keyCode = SDLK_LSHIFT;
 

@@ -44,6 +44,12 @@ int main ( int argc, char ** argv ) {
         if ( SDL_touche_appuyer( ks, SPACE) )
                 printf("Space !\n");
 
+        if ( SDL_touche_appuyer( ks, G) )
+                printf("G !\n");
+
+        if ( SDL_touche_appuyer( ks, X) )
+                printf("X !\n");
+
         if ( SDL_touche_appuyer( ks, SHIFT) )
                 printf("Shift !\n");
 

@@ -3,8 +3,8 @@
 
 #include <stdint.h>
 
-#define NB_TOUCHES 13
-#define NB_TOUCHES_REEL 12
+#define NB_TOUCHES 15
+#define NB_TOUCHES_REEL 14
 #define LONGUEUR_MAX_DESCRIPTIF 20 /* longueur max en caractere du descriptif de la touche */
 #define NULL_TOUCHE 4199999
 
@@ -29,21 +29,24 @@
 #define SPACE 5
 #define SAUTER 5
 
-#define SHIFT 6
+#define G 6 /* la touche G */
+#define X 7 /* la touche X */
 
-#define ESCAPE 7	/* la touche escape en haut a gauche */
+#define SHIFT 8
 
-#define SOURIS_BTN_1 8 /* click gauche */
-#define SOURIS_GAUCHE 8
+#define ESCAPE 9	/* la touche escape en haut a gauche */
 
-#define SOURIS_BTN_2 9
-#define SOURIS_DROIT 9
+#define SOURIS_BTN_1 10 /* click gauche */
+#define SOURIS_GAUCHE 10
 
-#define SOURIS_ROUE_HAUT 10
+#define SOURIS_BTN_2 11
+#define SOURIS_DROIT 11
 
-#define SOURIS_ROUE_BAS 11
+#define SOURIS_ROUE_HAUT 12
 
-#define AVOID_OUTWRITE 12 /* DOIT etre le dernier et ne doit pas etre touché */
+#define SOURIS_ROUE_BAS 13
+
+#define AVOID_OUTWRITE 14 /* DOIT etre le dernier et ne doit pas etre touché */
 
 typedef struct configTouches_s {
 
