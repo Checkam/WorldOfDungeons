@@ -3,7 +3,7 @@
  * \brief Module de création + de gestion d'un donjon
  * \author Jasmin GALBRUN
  * \version 1
- * \date 25/03/2019
+ * \date 26/03/2019
 */
 #ifndef __DONJON_H__
 #define __DONJON_H__
@@ -15,16 +15,28 @@
 
 typedef enum e_type_salle_donjon{
     DONJON_DEPART,
-    DONJON_INTER,
+    DONJON_INTERMEDIAIRE,
     DONJON_FIN
 } t_type_salle_donjon;
+
+typedef enum e_salle_difficulte{
+    AUCUNE,
+    FACILE,
+    MOYEN,
+    DIFFICILE,
+    FINAL
+} t_salle_difficulte;
 
 typedef struct s_salle_donjon{
     int x, y;
     t_liste * structure;
     int voisin[4]; //LEFT-TOP-RIGHT-BOTTOM
+
     t_type_salle_donjon type;
-    
+    t_salle_difficulte difficulte;
+
+    int salle_completed;
+    t_liste * mob;
 }t_salle_donjon;
 
 typedef struct s_donjon{
@@ -36,8 +48,8 @@ typedef struct s_donjon{
 t_erreur donjon_creer(t_donjon ** donjon, int nb_salle, t_entite * joueur);
 
 /* Primitive d'affichage d'un donjon */
-t_erreur donjon_afficher_Term(t_donjon * donjon, SDL_Rect pos_perso);
-t_erreur donjon_afficher_SDL(SDL_Renderer * renderer, t_donjon * donjon, SDL_Rect pos_perso);
+t_erreur donjon_afficher_Term(t_donjon * donjon, t_entite * joueur);
+t_erreur donjon_afficher_SDL(SDL_Renderer * renderer, t_donjon * donjon, t_entite * joueur);
 
 /* Primitive de gestion d'un donjon */
 
