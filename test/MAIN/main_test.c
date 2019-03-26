@@ -31,26 +31,7 @@
 #include <touches.h>
 #include <world_of_dungeons.h>
 
-// int collision(SDL_Rect hit, t_collision_direction direction, t_liste *p) {
-//   t_block *b;
-//   t_map map;
-//   map.list = p;
-//
-//   switch (direction) {
-//   case DIRECT_BAS_COLLI:
-//     b = MAP_GetBlock(&map, hit.x / width_block_sdl, hit.y / height_block_sdl);
-//     //printf("%d %d\n", hit.x / width_block_sdl, hit.y / height_block_sdl);
-//     if (b) {
-//       // printf("b.x : %d b.y : %d hit.x %d hit.y %d\n", b->x, b->y, hit.x / width_block_sdl, hit.y / height_block_sdl);
-//       return 25;
-//     } else {
-//       return 0;
-//     }
-//     break;
-//   }
-//
-//   return 1;
-// }
+void GAME_init(SDL_Renderer *renderer, uint8_t **ks, configTouches_t **ct) {}
 
 int main(int argc, char *argv[], char **env) {
   pwd_init(argv[0], getenv("PWD"));

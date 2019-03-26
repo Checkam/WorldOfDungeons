@@ -17,6 +17,8 @@
 #include <stdlib.h>
 #include <touches.h>
 #include <fps.h>
+#include <map.h>
+#include <block.h>
 
 /****** SPRITE TEXTURE ACTION ******/
 
@@ -105,7 +107,7 @@ t_entite *creer_entite(char *name, int mana, int mana_max, int pv, int pv_max, S
   SDL_Rect sprite_part = {0 + DECAL_W_SPRITE, t_a[0].ligne * H_PART_SPRITE + DECAL_H_SPRITE, W_PART_SPRITE / 2, H_PART_SPRITE / 1.25};
 
   /* Initialisation de la taille de l'entité */
-  SDL_Rect hit = {x_dep, y_dep - taille, taille * sprite_part.w / sprite_part.h, taille};
+  SDL_Rect hit = {x_dep * width_block_sdl, y_dep * height_block_sdl - taille, taille * sprite_part.w / sprite_part.h, taille};
 
   t_entite *entite = malloc(sizeof(t_entite));
   entite->id = sizeof(*name); // sizeof temporaire
@@ -285,28 +287,28 @@ t_erreur Anim_Update (t_entite * entite, t_action action, int new_time)
 /****** FONCTION GESTION COLLISION ENTITE + GRAVITE ******/
 
 /**
- * \fn t_erreur update_posY_entite(t_entite * entite, double coef_fps, int (*collision) (SDL_Rect,t_collision_direction,t_liste *), t_liste * p)
+ * \fn t_erreur update_posY_entite(t_entite * entite, double coef_fps, t_liste * p)
  * \brief Gère la position de l'entité sur Y via la gravité et les collisions.
  * \param entite L'entité à gérer.
  * \param coef_fps Permet d'adapter les déplacements en fonction du nombre de fps.
- * \param collision Renvoie la profondeur d'une collision pour une direction donnée.
  * \param p Liste contenant les paramètres supplémentaires de la fonction collision si il y en a besoin.
  * \return Une erreur s'il y en a une.
 */
-t_erreur update_posY_entite(t_entite * entite, double coef_fps, int (*collision) (SDL_Rect,t_collision_direction,t_liste *), t_liste * p)
+t_erreur update_posY_entite(t_entite * entite, double coef_fps, t_liste * p)
 {
   //fprintf(stderr,"Vel Y -> %.2f\n", entite->velY);
   if (!entite)
     return PTR_NULL;
   
   int diff; // Profondeur de la collision
-  diff = collision(entite->hitbox,DIRECT_HAUT_COLLI,p);
-  if (diff)
+  diff = collision(entite,DIRECT_HAUT_COLLI,p);
+  if (diff > 0)
   {
     entite->hitbox.y -= diff;
     entite->posEnt.y += diff;
   }
 
+  if (coef_fps > 5) coef_fps = 5;
   int i;
   for (i = 0; i < coef_fps; i++)
   {
@@ -315,12 +317,12 @@ t_erreur update_posY_entite(t_entite * entite, double coef_fps, int (*collision)
     entite->hitbox.y -= grav;
     entite->posEnt.y += grav;
   }
-  if ((diff = collision (entite->hitbox, DIRECT_BAS_COLLI,p)))
+  if ((diff = collision (entite, DIRECT_BAS_COLLI,p)) > 0)
   {
     entite->velY = 0;
     entite->hitbox.y += diff;
   }//printf("Diff : %d\n", diff);
-  if ((!entite->velY && diff) || entite->posEnt.y >= POSY_ENT_SCREEN)
+  if ((!entite->velY && diff > 0) || entite->posEnt.y >= POSY_ENT_SCREEN)
   {
     entite->posEnt.y = POSY_ENT_SCREEN;
   }
@@ -328,21 +330,112 @@ t_erreur update_posY_entite(t_entite * entite, double coef_fps, int (*collision)
   return OK;
 }
 
+int collision (t_entite * entite, t_collision_direction direction, t_liste * p)
+{
+  if (!entite || !p) return PTR_NULL;
+
+  int collision = 0;
+
+  /* Conversion des coordonnées SDL en coordonnées pour la MAP */
+  int x = entite->hitbox.x / width_block_sdl, y = entite->hitbox.y / height_block_sdl;
+  /* Recréation de la MAP */
+  t_map map;
+  map.list = p;
+
+  /* Récupération des Blocks si il y en a, en fonction des coordonnées du Joueur */
+  t_block * blockHG, * blockHD, * blockBG, * blockBD;
+  blockHG = MAP_GetBlock(&map,x,y);
+  blockHD = MAP_GetBlock(&map,x+1,y);
+  blockBG = MAP_GetBlock(&map,x,y-1);
+  blockBD = MAP_GetBlock(&map,x+1,y-1);
+  if (blockBG) fprintf(stderr, "Collision Basse Gauche : %d,%d\n", blockBG->x, blockBG->y);
+  if (blockBD) fprintf(stderr, "Collision Basse Droite : %d,%d\n", blockBD->x, blockBD->y);
+  if (blockHG) fprintf(stderr, "Collision Haute Gauche : %d,%d\n", blockHG->x, blockHG->y);
+  if (blockHD) fprintf(stderr, "Collision Haute Droite : %d,%d\n", blockHD->x, blockHD->y);
+
+  /* Traitement des collisions */
+  switch (direction) {
+    /* Collision en BAS */
+    case DIRECT_BAS_COLLI:
+      if (blockBG)
+      {
+        SDL_Rect B = {width_block_sdl * blockBG->x,height_block_sdl * blockBG->y,width_block_sdl,height_block_sdl}, res;
+        SDL_IntersectRect(&(entite->hitbox),&B,&res);
+        collision = res.h;
+      }else if (blockBD)
+      {
+        SDL_Rect B = {width_block_sdl * blockBD->x,height_block_sdl * blockBD->y,width_block_sdl,height_block_sdl}, res;
+        SDL_IntersectRect(&(entite->hitbox),&B,&res);
+        collision = res.h;
+      }
+      break;
+
+    /* Collision en HAUT */
+    case DIRECT_HAUT_COLLI:
+      if (blockHD)
+      {
+        SDL_Rect B = {width_block_sdl * blockHD->x,height_block_sdl * blockHD->y,width_block_sdl,height_block_sdl}, res;
+        SDL_IntersectRect(&(entite->hitbox),&B,&res);
+        collision = res.h;
+      }else if (blockHG)
+      {
+        SDL_Rect B = {width_block_sdl * blockHG->x,height_block_sdl * blockHG->y,width_block_sdl,height_block_sdl}, res;
+        SDL_IntersectRect(&(entite->hitbox),&B,&res);
+        collision = res.h;
+      }
+      break;
+    
+    /* Collision à DROITE */
+    case DIRECT_DROITE_COLLI:
+      if (blockHD)
+      {
+        SDL_Rect B = {width_block_sdl * blockHD->x,height_block_sdl * blockHD->y,width_block_sdl,height_block_sdl}, res;
+        SDL_IntersectRect(&(entite->hitbox),&B,&res);
+        collision = res.w;
+      }else if (blockBD)
+      {
+        SDL_Rect B = {width_block_sdl * blockBD->x,height_block_sdl * blockBD->y,width_block_sdl,height_block_sdl}, res;
+        SDL_IntersectRect(&(entite->hitbox),&B,&res);
+        collision = res.w;
+      }
+      break;
+    
+    /* Collision à GAUCHE */
+    case DIRECT_GAUCHE_COLLI:
+      if (blockHG)
+      {
+        SDL_Rect B = {width_block_sdl * blockHG->x,height_block_sdl * blockHG->y,width_block_sdl,height_block_sdl}, res;
+        SDL_IntersectRect(&(entite->hitbox),&B,&res);
+        collision = res.w;
+      }else if (blockBG)
+      {
+        SDL_Rect B = {width_block_sdl * blockBG->x,height_block_sdl * blockBG->y,width_block_sdl,height_block_sdl}, res;
+        SDL_IntersectRect(&(entite->hitbox),&B,&res);
+        collision = res.w;
+      }
+      break;
+
+    default:
+      break;
+  }
+  collision *= -1;
+  return collision;
+}
+
 /************** Focntion qui gère les déplacements et les animations de l'entité **************/
 
 /**
- * \fn t_erreur Gestion_Entite (SDL_Renderer * renderer, t_entite * entite, uint8_t * ks, double coef_fps, int (*collision) (SDL_Rect,t_collision_direction,t_liste *), t_liste * p)
+ * \fn t_erreur Gestion_Entite (SDL_Renderer * renderer, t_entite * entite, uint8_t * ks, double coef_fps, t_liste * p)
  * \brief Gère une entité (collision, déplacement, animation).
  * \brief Gère les animations ainsi que les modifications apportées à l'entité (gravité, collision, déplacement) correspondant aux différents appuis de touches.
  * \param renderer Renderer de la fenêtre.
  * \param entite L'entité à gérer.
  * \param ks Etat du clavier pour la gestion de l'appui des touches.
  * \param coef_fps Permet d'adapter les déplacements en fonction du nombre de fps.
- * \param collision Renvoie la profondeur d'une collision pour une direction donnée.
  * \param p Liste contenant les paramètres supplémentaires de la fonction collision si il y en a besoin.
  * \return Une erreur s'il y en a une.
 */
-t_erreur Gestion_Entite (SDL_Renderer * renderer, t_entite * entite, uint8_t * ks, double coef_fps, int (*collision) (SDL_Rect,t_collision_direction,t_liste *), t_liste * p)
+t_erreur Gestion_Entite (SDL_Renderer * renderer, t_entite * entite, uint8_t * ks, double coef_fps, t_liste * p)
 {
   if (!renderer || !entite || !ks)
     return PTR_NULL;
@@ -363,16 +456,16 @@ t_erreur Gestion_Entite (SDL_Renderer * renderer, t_entite * entite, uint8_t * k
   else if (SDL_touche_appuyer(ks, DROITE))
   {
     entite->hitbox.x += entite->accX * coef_fps;
-    diff = collision(entite->hitbox, DIRECT_DROITE_COLLI,p);
-    if (diff) entite->hitbox.x -= diff;
+    diff = collision(entite, DIRECT_DROITE_COLLI,p);
+    if (diff > 0) entite->hitbox.x -= diff;
     Charger_Anima(renderer, entite, MARCHE_DROITE);
   }
   /* Modif pour la touche GAUCHE */
   else if (SDL_touche_appuyer(ks, GAUCHE))
   {
     entite->hitbox.x -= entite->accX * coef_fps;
-    diff = collision(entite->hitbox, DIRECT_GAUCHE_COLLI,p);
-    if (diff) entite->hitbox.x += diff;
+    diff = collision(entite, DIRECT_GAUCHE_COLLI,p);
+    if (diff > 0) entite->hitbox.x += diff;
     Charger_Anima(renderer, entite, MARCHE_GAUCHE);
   }
   /* Modif quand on appui sur AUCUNE touche */
@@ -398,13 +491,13 @@ t_erreur Gestion_Entite (SDL_Renderer * renderer, t_entite * entite, uint8_t * k
   }
 
   /* Modif pour la touche SAUTER */
-  if (!(entite->velY) && !collision(entite->hitbox, DIRECT_BAS_COLLI, p) && SDL_touche_appuyer(ks, SAUTER))
+  if (!(entite->velY) && collision(entite, DIRECT_BAS_COLLI, p) <= 0 && SDL_touche_appuyer(ks, SAUTER))
   {
     entite->velY -= HAUTEUR_SAUT;
   }
 
   /* Gravité */
-  update_posY_entite(entite, coef_fps,collision,p);
+  update_posY_entite(entite, coef_fps, p);
   //fprintf(stderr,"posEnt : X->%d, Y->%d / hitBox : X->%d, Y->%d\n", entite->posEnt.x, entite->posEnt.y, entite->hitbox.x, entite->hitbox.y);
 
   return OK;
