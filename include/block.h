@@ -25,9 +25,9 @@ typedef enum { AIR, HERBE, TERRE, EAU, SABLE, FEUILLE, BOIS, ROCHE, NEIGE, GLACE
  \brief Structure d'une type de block
 **/
 typedef struct block_type_s {
-  t_materiaux materiau;
-  char *nom;
-  int resistance;
+  const t_materiaux materiau;
+  const char *nom;
+  const int resistance;
 
   char *texture_path_sdl;
   char *texture_term;
