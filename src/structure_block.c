@@ -48,12 +48,11 @@ int STRUCT_CanSpawn(int x, int i) { return 0; }
 **/
 void STRUCT_generation(int x, int y, int dir, t_block map[MAX]) {
   y++;
-  srand(x);
-  static int struct_spawn;
-  static int new_struct;
+  static int struct_spawn = 0;
+  static int new_struct = 0;
   static t_struct_block_type type_spawn;
+  static t_struct_block_type type_can_spawn[NB_STRUCT_BLOCK];
   static int last_dir;
-  int struct_random = 0;
 
   if (last_dir != dir) {
     struct_spawn = 0;
@@ -61,21 +60,17 @@ void STRUCT_generation(int x, int y, int dir, t_block map[MAX]) {
     last_dir = dir;
   }
 
-  if (struct_spawn <= 0 && x % 50 == 0) {
-    struct_random = rand() % NB_STRUCT_BLOCK;
-    type_spawn = struct_block[struct_random].type;
-    struct_spawn = struct_block[struct_random].largeur;
-    printf("x: %d\n", x);
-  }
+  int nb_can_spawn = 0;
+  int pourcent = 0;
+  int struct_random = 0;
 
   if (struct_spawn) { // Permet de prendre la ligne du block a test
-
     char line[50];
     FILE *file = NULL;
     file = fopen(STRUCT_GetPath(struct_block, type_spawn), "r");
 
     if (file != NULL) {
-      for (int j = 0; j < (struct_spawn / 2) + 1; j++) {
+      for (int j = 0; j < struct_spawn; j++) {
         for (int l = 0; l < 50; l++)
           line[l] = 0;
         fgets(line, 50, file);
@@ -87,6 +82,21 @@ void STRUCT_generation(int x, int y, int dir, t_block map[MAX]) {
       fclose(file);
     }
     struct_spawn--;
-    printf("struct_spawn : %d type_spawn : %d struct_random: %d\n", struct_spawn, type_spawn, struct_random);
+  } else if (!struct_spawn && new_struct > 0) { //Attente avant une nouvelle ligne
+    new_struct--;
+  }
+
+  for (int i = 0; i < NB_STRUCT_BLOCK; i++) {
+    if (nb_can_spawn < NB_STRUCT_BLOCK && !new_struct && struct_block[i].biome == biome) {
+      type_can_spawn[nb_can_spawn] = struct_block[i].type;
+      nb_can_spawn++;
+    }
+  }
+
+  if (!struct_spawn && !new_struct && nb_can_spawn > 0) {
+    new_struct = (int)((double)x * perlin2d(x, MAX, FREQ, DEPTH) * (double)W_BIOME + 1) % DIST_MAX_STRUCT;
+    struct_random = (int)((double)x * perlin2d(x, MAX, FREQ, DEPTH) * (double)W_BIOME + 1) % nb_can_spawn;
+    type_spawn = type_can_spawn[struct_random];
+    struct_spawn = STRUCT_GetWidth(struct_block, type_spawn);
   }
 }
