@@ -3,7 +3,7 @@
  * \brief Module de création + de gestion d'un donjon
  * \author Jasmin GALBRUN
  * \version 1
- * \date 25/03/2019
+ * \date 26/03/2019
 */
 
 #include <stdio.h>
@@ -63,7 +63,7 @@ int main(int argc, char **argv, char **env){
     }
 
     Init_Sprite(renderer);
-    t_entite * joueur = creer_entite_defaut("Joueur", JOUEUR, 9 * width_window + 5 * width_block_sdl, 10 * height_window + 7 * height_block_sdl, 2);
+    t_entite * joueur = creer_entite_defaut("Joueur", JOUEUR, 9 * width_window + 5 * width_block_sdl, 10 * height_window + 7 * height_block_sdl, 3 * height_block_sdl);
     
 
     /* Création Donjon */
@@ -75,9 +75,9 @@ int main(int argc, char **argv, char **env){
     /* Affichage Donjon */
     SDL_RenderClear(renderer);
     
-    donjon_afficher_SDL(renderer, donjon, joueur->hitbox);
+    donjon_afficher_SDL(renderer, donjon, joueur);
     Charger_Anima(renderer, joueur, IMMOBILE);
-    donjon_afficher_Term(donjon, joueur->hitbox);
+    donjon_afficher_Term(donjon, joueur);
     
     SDL_RenderPresent(renderer);
     SDL_Delay(2000);

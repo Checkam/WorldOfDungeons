@@ -3,7 +3,7 @@
  * \brief Module de création + de gestion d'un donjon
  * \author Jasmin GALBRUN
  * \version 1
- * \date 25/03/2019
+ * \date 26/03/2019
 */
 
 #include <stdlib.h>
@@ -17,19 +17,22 @@
 #include <perlin.h>
 #include <block.h>
 #include <outils_SDL.h>
+#include <stdbool.h>
 
 #define DEPTH 5
 
 /* Prototypes fonctions non accessible pour l'utilisateur */
-static t_erreur donjon_creer_salle(t_salle_donjon ** salle, int x, int y);
+static t_erreur donjon_creer_salle(t_salle_donjon ** salle, int x, int y, t_type_salle_donjon type);
 static t_erreur donjon_ajout_salle(t_liste * donjon, int taille_donjon);
 static int nb_voisin_salle(t_salle_donjon * salle);
 static t_erreur selection_voisin(t_salle_donjon * salle, int * choix);
 static int chercher_salle(t_liste *donjon);
 static t_erreur update_voisin(t_liste * donjon, int taille_donjon);
 static t_erreur donjon_creer_structure_salle(t_salle_donjon * salle);
-static t_erreur tab_fenetre(t_liste * donjon, SDL_Rect pos_perso, t_materiaux tab[MAX_SCREEN][SIZE]);
+static t_erreur tab_fenetre(t_liste * donjon, SDL_Rect pos_perso, t_block tab[MAX_SCREEN][SIZE]);
 static void donjon_detruire_salle(t_salle_donjon *salle);
+static t_erreur donjon_coord_depart(t_liste * donjon, t_salle_donjon ** salle_dep);
+static t_erreur placer_salle_boss(t_liste * donjon);
 
 /**
  * \fn t_erreur donjon_creer(t_donjon ** donjon, int nb_salle, t_entite * joueur)
@@ -44,8 +47,8 @@ t_erreur donjon_creer(t_donjon ** donjon, int nb_salle, t_entite * joueur){
         erreur_save(PTR_NULL, "donjon_creer() : Double poiteur sur la liste NULL");
         return PTR_NULL;
     }
-    if(nb_salle <= 0){
-        erreur_save(VALUE_ERROR, "donjon_creer() : Nombre de salle inferieur ou égal à 0");
+    if(nb_salle <= 1){
+        erreur_save(VALUE_ERROR, "donjon_creer() : Nombre de salle inferieur ou égal à 1");
         return VALUE_ERROR;
     }
 
@@ -55,6 +58,7 @@ t_erreur donjon_creer(t_donjon ** donjon, int nb_salle, t_entite * joueur){
     (*donjon)->donjon = malloc(sizeof(t_liste));
     init_liste((*donjon)->donjon);
 
+    /* On sauvegarde les coordonnées du joueur avant d'entrer dans le donjon */
     (*donjon)->x_map_joueur = joueur->hitbox.x;
     (*donjon)->y_map_joueur = joueur->hitbox.y;
 
@@ -66,13 +70,23 @@ t_erreur donjon_creer(t_donjon ** donjon, int nb_salle, t_entite * joueur){
         donjon_ajout_salle((*donjon)->donjon, taille_donjon);
     }
 
+    /* Placement de la salle du boss */
+    placer_salle_boss((*donjon)->donjon);
+
     /* Création structure salle */
-    t_salle_donjon * salle;
+    t_salle_donjon * salle = NULL;
     for(en_tete((*donjon)->donjon); !hors_liste((*donjon)->donjon); suivant((*donjon)->donjon)){
         valeur_elt((*donjon)->donjon, (void **)&salle);
         donjon_creer_structure_salle(salle);
     }
 
+    /* Placement du joueur au début du donjon */
+    salle = NULL;
+    donjon_coord_depart((*donjon)->donjon, &salle);
+    joueur->hitbox.x = (salle->x * SIZE + (SIZE / 2)) * width_block_sdl;
+    joueur->hitbox.y = (salle->y * MAX_SCREEN + (MAX_SCREEN - 2)) * height_block_sdl;
+
+    
     return OK;
 }
 
@@ -91,7 +105,7 @@ static t_erreur donjon_ajout_salle(t_liste * donjon, int taille_donjon){
     t_salle_donjon * salle = NULL;
 
     if(liste_vide(donjon)){
-        donjon_creer_salle(&salle, taille_donjon / 2, taille_donjon / 2);
+        donjon_creer_salle(&salle, taille_donjon / 2, taille_donjon / 2, DONJON_DEPART);
         ajout_droit(donjon, salle);
         return OK;
     }
@@ -118,7 +132,7 @@ static t_erreur donjon_ajout_salle(t_liste * donjon, int taille_donjon){
     }
     
     /* On crée la salle puis on l'ajoute à la liste */
-    donjon_creer_salle(&salle, x, y);
+    donjon_creer_salle(&salle, x, y, DONJON_INTERMEDIAIRE);
     en_queue(donjon);
     ajout_droit(donjon, salle);
     update_voisin(donjon, taille_donjon);
@@ -130,7 +144,7 @@ static t_erreur donjon_ajout_salle(t_liste * donjon, int taille_donjon){
  * \fn
  * \param
 */
-static t_erreur donjon_creer_salle(t_salle_donjon ** salle, int x, int y){
+static t_erreur donjon_creer_salle(t_salle_donjon ** salle, int x, int y, t_type_salle_donjon type){
     /* Vérification */
     if(salle == NULL){
         erreur_save(PTR_NULL, "donjon_creer_salle() : Doule pointeur sur la salle NULL");
@@ -144,6 +158,26 @@ static t_erreur donjon_creer_salle(t_salle_donjon ** salle, int x, int y){
     int i;
     for(i = 0; i < 4; i++){
         (*salle)->voisin[i] = 0;
+    }
+
+    (*salle)->type = type;
+
+    /* On sélectionne une difficulté */
+    if(type == DONJON_DEPART){
+        (*salle)->difficulte = AUCUNE;
+    }else if(type == DONJON_FIN){
+        (*salle)->difficulte = FINAL;
+    }else{
+        
+        srand(SEED * x * y);
+        int alea = rand() % 3;
+        
+        if(alea == 0)
+            (*salle)->difficulte = FACILE;
+        else if(alea == 1)
+            (*salle)->difficulte = MOYEN;
+        else
+            (*salle)->difficulte = DIFFICILE;
     }
 
     return OK;
@@ -326,9 +360,64 @@ static t_erreur donjon_creer_structure_salle(t_salle_donjon * salle){
 }
 
 /**
+ * 
+*/
+static t_erreur donjon_coord_depart(t_liste * donjon, t_salle_donjon ** salle_dep){
+    /* Vérification */
+    if(donjon == NULL){
+        return PTR_NULL;
+    }
+    if(salle_dep == NULL){
+        return PTR_NULL;
+    }
+
+    /* On cherche le départ */
+    t_salle_donjon * salle = NULL;
+    for(en_tete(donjon); !hors_liste(donjon) && (salle == NULL || salle->type != DONJON_DEPART); suivant(donjon)){
+        valeur_elt(donjon, (void**)&salle);
+    }
+
+    /* On met à jour les coordonnées */
+    *salle_dep = salle;
+    
+    return OK;
+}
+
+/**
+ * 
+*/
+static t_erreur placer_salle_boss(t_liste * donjon){
+    /* Vérification */
+    if(donjon == NULL){
+        return PTR_NULL;
+    }
+
+    /* On sélectionne la salle la plus loin de la salle de départ */
+    t_salle_donjon * salle_dep = NULL;
+    donjon_coord_depart(donjon, &salle_dep);
+
+    t_salle_donjon * salle_max = salle_dep;
+    t_salle_donjon * salle = NULL;
+    for(en_tete(donjon); !hors_liste(donjon); suivant(donjon)){
+        valeur_elt(donjon, (void**)&salle);
+        int norme = (salle->x - salle_dep->x) * (salle->y - salle_dep->y);
+        int norme2 = (salle_max->x - salle_dep->x) * (salle_max->y - salle_dep->y);
+        //fprintf(stderr, "salle: x=%d, y=%d | max: x=%d, y=%d | dep: x=%d, y=%d\n", salle->x, salle->y, salle_max->x, salle_max->y, salle_dep->x, salle_dep->y);
+        if(norme > norme2){
+            salle_max = salle;
+        }
+    }
+
+    salle_max->type = DONJON_FIN;
+    salle_max->difficulte = FINAL;
+
+    return OK;
+}
+
+/**
  * \brief Retourne dans tab la partie du donjon à afficher
 */
-static t_erreur tab_fenetre(t_liste * donjon, SDL_Rect pos_perso, t_materiaux tab[MAX_SCREEN][SIZE]){
+static t_erreur tab_fenetre(t_liste * donjon, SDL_Rect pos_perso, t_block tab[MAX_SCREEN][SIZE]){
     /* Vérification */
     if(donjon == NULL){
         erreur_save(PTR_NULL, "tab_fenetre() : Pointeur sur donjon NULL");
@@ -343,7 +432,9 @@ static t_erreur tab_fenetre(t_liste * donjon, SDL_Rect pos_perso, t_materiaux ta
     int i, j;
     for(i = 0; i < MAX_SCREEN; i++){
         for(j = 0; j < SIZE; j++){
-            tab[i][j] = AIR;
+            tab[i][j].id = AIR;
+            tab[i][j].x = j;
+            tab[i][j].y = i;
         }
     }
     
@@ -374,7 +465,9 @@ static t_erreur tab_fenetre(t_liste * donjon, SDL_Rect pos_perso, t_materiaux ta
                         
                         if(x_donjon >= x_salle_min && x_donjon < x_salle_max){
                             if(y_donjon >= y_salle_min && y_donjon < y_salle_max){
-                                tab[y_donjon - y_salle_min][x_donjon - x_salle_min] = colonne[i].id;
+                                tab[y_donjon - y_salle_min][x_donjon - x_salle_min].id = colonne[i].id;
+                                tab[y_donjon - y_salle_min][x_donjon - x_salle_min].x = x_donjon;
+                                tab[y_donjon - y_salle_min][x_donjon - x_salle_min].y = y_donjon;
                             }
                         }
                     }
@@ -389,7 +482,7 @@ static t_erreur tab_fenetre(t_liste * donjon, SDL_Rect pos_perso, t_materiaux ta
 /**
  * 
 */
-t_erreur donjon_afficher_Term(t_donjon * donjon, SDL_Rect pos_perso){
+t_erreur donjon_afficher_Term(t_donjon * donjon, t_entite * joueur){
     /* Vérification */
     if(donjon == NULL){
         erreur_save(PTR_NULL, "donjon_afficher_Term() : Pointeur sur donjon NULL");
@@ -397,14 +490,14 @@ t_erreur donjon_afficher_Term(t_donjon * donjon, SDL_Rect pos_perso){
     }
 
     /**/
-    t_materiaux tab[MAX_SCREEN][SIZE];
+    t_block tab[MAX_SCREEN][SIZE];
 
-    tab_fenetre(donjon->donjon, pos_perso, tab);
+    tab_fenetre(donjon->donjon, joueur->hitbox, tab);
 
     int i, j;
     for(i = 0; i < MAX_SCREEN; i++){
         for(j = 0; j < SIZE; j++){
-            if(tab[i][j] == ROCHE)
+            if(tab[i][j].id == ROCHE)
                 printf("#");
             else
                 printf(" ");            
@@ -418,7 +511,7 @@ t_erreur donjon_afficher_Term(t_donjon * donjon, SDL_Rect pos_perso){
 /**
  * 
 */
-t_erreur donjon_afficher_SDL(SDL_Renderer * renderer, t_donjon * donjon, SDL_Rect pos_perso){
+t_erreur donjon_afficher_SDL(SDL_Renderer * renderer, t_donjon * donjon, t_entite * joueur){
     /* Vérification */
     if(donjon == NULL){
         erreur_save(PTR_NULL, "donjon_afficher_SDL() : Pointeur sur donjon NULL");
@@ -430,9 +523,9 @@ t_erreur donjon_afficher_SDL(SDL_Renderer * renderer, t_donjon * donjon, SDL_Rec
     }
 
     /* Initialisation tableau fenetre */
-    t_materiaux tab[MAX_SCREEN][SIZE];
+    t_block tab[MAX_SCREEN][SIZE];
     
-    tab_fenetre(donjon->donjon, pos_perso, tab);
+    tab_fenetre(donjon->donjon, joueur->hitbox, tab);
 
     /* Affichage du donjon */
     SDL_Texture * texture_img = NULL;
@@ -440,7 +533,7 @@ t_erreur donjon_afficher_SDL(SDL_Renderer * renderer, t_donjon * donjon, SDL_Rec
     int i, j;
     for(i = 0; i < MAX_SCREEN; i++){
         for(j = 0; j < SIZE; j++){
-            texture_img = BLOCK_GetTexture_sdl(tab[i][j]);
+            texture_img = BLOCK_GetTexture_sdl(tab[i][j].id);
             //fprintf(stderr, "%p\n", texture_img);
             if(texture_img != NULL){
 
@@ -455,6 +548,16 @@ t_erreur donjon_afficher_SDL(SDL_Renderer * renderer, t_donjon * donjon, SDL_Rec
             }
         }
     }
+
+    return OK;
+}
+
+/**
+ * 
+*/
+t_erreur donjon_gestion(t_donjon * donjon, t_entite * joueur){
+    /* Vérification */
+
 
     return OK;
 }
