@@ -57,6 +57,13 @@ SDL_Texture *BLOCK_GetTexture_sdl(int id) {
   return NULL;
 }
 
+void BLOCK_afficher_type(t_block_type b) {
+  printf("materiau : %d nom : %s resistance : %d, path texture sdl : %s texture dans le terminal : %s\n", b.materiau, b.nom, b.resistance,
+         b.texture_path_sdl, b.texture_term);
+}
+
+void BLOCK_afficher_coord(t_block b) { printf("id : %d , x : %d , y : %d\n", b.id, b.x, b.y); }
+
 t_erreur BLOCK_CreateTexture_sdl(SDL_Renderer *renderer) {
   for (int i = 0; i < NB_BLOCK; i++) {
     if (blocks[i].texture_path_sdl != NULL) {
