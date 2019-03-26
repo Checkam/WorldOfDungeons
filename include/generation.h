@@ -20,4 +20,4 @@
 #endif
 /* Generation d'un colone grace a la coordonné en abcisse */
 int gen_col(t_liste *list, int x, int dir);
-void init_map(t_block *map);
+void init_map(t_block *map, int x);

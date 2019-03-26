@@ -26,10 +26,12 @@
 #include <structure_block.h>
 #include <touches.h>
 
-void init_map(t_block *map) {
+void init_map(t_block *map, int x) {
   int i;
   for (i = 0; i < MAX; i++) {
     map[i].id = AIR;
+    map[i].x = x;
+    map[i].y = i;
   }
 }
 
@@ -54,7 +56,7 @@ int gen_col(t_liste *list, int x, int dir) {
   int taille_max = perlin2d(x, MAX, FREQ, DEPTH) * MAX;
   printf("Gen i : %d\n", x);
   t_block *tab = malloc(sizeof(t_block) * MAX);
-  init_map(tab);
+  init_map(tab, x);
   biome = BIOME_change_type(x, taille_max);
 
   STRUCT_generation(x, taille_max, dir, tab); //Génération a revoir
@@ -103,7 +105,7 @@ int gen_col(t_liste *list, int x, int dir) {
       oter_elt(list, free);
     }
     en_tete(list);
-    ajout_droit(list, tab);
+    ajout_gauche(list, tab);
   }
 
   return taille_max;
