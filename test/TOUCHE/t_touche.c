@@ -50,12 +50,20 @@ int main ( int argc, char ** argv ) {
         if ( SDL_touche_appuyer( ks, SOURIS_BTN_1) )
                 printf("Souris btn 1 !\n");
 
+        if ( SDL_touche_appuyer( ks, SOURIS_BTN_2) )
+                printf("Souris btn 2 !\n");
+
         if ( SDL_touche_appuyer( ks, ESCAPE) )
                 printf("Escape !\n");
 
+        if ( SDL_wheel_state(ks) > 0 )
+                printf("l'utilisateur a tourné sa molette vers le haut %d fois !\n", SDL_wheel_state(ks));
+        else if ( SDL_wheel_state(ks) < 0 )
+                printf("l'utilisateur a tourné sa molette vers le bas %d fois !\n", -SDL_wheel_state(ks)); /* remarque : le - permet d'afficher une valeur positive */
+        
+        SDL_reset_wheel_state(ks);
 
-
-        SDL_Delay(50);
+        SDL_Delay(100);
     }
 
     SDL_exit_touches( &ks, &ct); /* doit etre appeler pour correctement fermer le module*/

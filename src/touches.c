@@ -28,6 +28,9 @@ int SDL_init_touches( uint8_t **keyboardState, configTouches_t **configuration )
 		* ( (*keyboardState) + i ) = RELEASED;
 	}
 
+	* (( *keyboardState) + SOURIS_ROUE_BAS ) = 0;
+	* (( *keyboardState) + SOURIS_ROUE_HAUT ) = 0;
+
 	FILE *config = open_json("data/data/", "configuration_touches", "r");
 
 	/* si des touches ont deja ete configure sur cette ordianteur alors on les charges */
@@ -126,6 +129,14 @@ int SDL_touches( uint8_t *keyboardState, configTouches_t *configuration ) {
 
 				*( keyboardState + i ) = RELEASED;
 				break;
+
+			case SDL_MOUSEWHEEL:
+
+				if ( event.wheel.y == 1)
+					(*( keyboardState + SOURIS_ROUE_HAUT )) ++;
+				else
+					(*( keyboardState + SOURIS_ROUE_BAS )) ++;
+				break;
 		}
 	}
 
@@ -138,6 +149,19 @@ uint8_t SDL_touche_appuyer ( uint8_t *keyboardState, uint16_t touche ) {
 	if ( *( keyboardState + touche ) == PRESSED )
 		return PRESSED;
 	return RELEASED;
+}
+
+void SDL_reset_wheel_state( uint8_t *keyboardState ) {
+	/* doit etre apeller a chaque tour de la boucle pour remettre la roue a 0 */
+
+	(*( keyboardState + SOURIS_ROUE_HAUT )) = 0;
+	(*( keyboardState + SOURIS_ROUE_BAS )) = 0;
+}
+
+int8_t SDL_wheel_state( uint8_t *keyboardState ) {
+	/* renvoie le TOTAL ( peut etre entre -127 et +128 ) du nombre de tour effectuer par l'utilasateur depuis le dernier apelle de SDL_reset_wheel_state */
+
+	return (*( keyboardState + SOURIS_ROUE_HAUT )) - (*( keyboardState + SOURIS_ROUE_BAS ));
 }
 
 void SDL_coord_souris ( int32_t *x, int32_t *y ) {
@@ -220,6 +244,15 @@ static void SDL_touche_default ( configTouches_t **configuration ) {
 
 	strcpy(( (*configuration) + SOURIS_BTN_1 )->descriptif, "souris_gauche");
 	( (*configuration) + SOURIS_BTN_1 )->keyCode = SDL_BUTTON_LEFT;
+
+	strcpy(( (*configuration) + SOURIS_BTN_2 )->descriptif, "souris_droit");
+	( (*configuration) + SOURIS_BTN_2 )->keyCode = SDL_BUTTON_RIGHT;
+
+	strcpy(( (*configuration) + SOURIS_ROUE_HAUT )->descriptif, "souris_roue_haut");
+	( (*configuration) + SOURIS_ROUE_HAUT )->keyCode = NULL_TOUCHE;
+
+	strcpy(( (*configuration) + SOURIS_ROUE_BAS )->descriptif, "souris_roue_bas");
+	( (*configuration) + SOURIS_ROUE_BAS )->keyCode = NULL_TOUCHE;
 
 	strcpy(( (*configuration) + AVOID_OUTWRITE )->descriptif, "NULL");
 	( (*configuration) + AVOID_OUTWRITE )->keyCode = NULL_TOUCHE;
