@@ -9,48 +9,32 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
+#include <block.h>
 #include <chemin.h>
 #include <entite.h>
 #include <erreur.h>
+#include <fps.h>
+#include <map.h>
 #include <outils_SDL.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <touches.h>
-#include <fps.h>
-#include <map.h>
-#include <block.h>
 
 /****** SPRITE TEXTURE ACTION ******/
 
 SDL_Texture *Textures_Joueur;
 t_anim_action t_a_joueur[NB_LIGNES_SPRITE] = {
-  {MARCHE_DROITE, 12, 9, 100},
-  {MARCHE_GAUCHE, 10, 9, 100},
-  {MARCHE_DERRIERE, 11, 9, 100},
-  {MARCHE_DEVANT, 9, 9, 100},
-  {IMMOBILE, 3, 1, 50}
-};
+    {MARCHE_DROITE, 12, 9, 100}, {MARCHE_GAUCHE, 10, 9, 100}, {MARCHE_DERRIERE, 11, 9, 100}, {MARCHE_DEVANT, 9, 9, 100}, {IMMOBILE, 3, 1, 50}};
 
 SDL_Texture *Textures_Zombie;
-t_anim_action t_a_zombie[NB_LIGNES_SPRITE] = {
-  {MARCHE_DROITE, 12, 9, 100},
-  {MARCHE_GAUCHE, 10, 9, 100},
-  {MARCHE_DERRIERE, 11, 9, 100},
-  {MARCHE_DEVANT, 9, 9, 100},
-  {ATTAQUE_GAUCHE, 14, 6, 100},
-  {ATTAQUE_DROITE, 16, 6, 100},
-  {IMMOBILE, 3, 1, 50}
-};
+t_anim_action t_a_zombie[NB_LIGNES_SPRITE] = {{MARCHE_DROITE, 12, 9, 100}, {MARCHE_GAUCHE, 10, 9, 100},  {MARCHE_DERRIERE, 11, 9, 100},
+                                              {MARCHE_DEVANT, 9, 9, 100},  {ATTAQUE_GAUCHE, 14, 6, 100}, {ATTAQUE_DROITE, 16, 6, 100},
+                                              {IMMOBILE, 3, 1, 50}};
 
 SDL_Texture *Textures_Boss;
-t_anim_action t_a_boss[NB_LIGNES_SPRITE] = {{MARCHE_DROITE, 12, 9, 100},
-  {MARCHE_GAUCHE, 10, 9, 100},
-  {MARCHE_DERRIERE, 11, 9, 100},
-  {MARCHE_DEVANT, 9, 9, 100},
-  {ATTAQUE_GAUCHE, 14, 6, 100},
-  {ATTAQUE_DROITE, 16, 6, 100},
-  {IMMOBILE, 3, 1, 50}
-};
+t_anim_action t_a_boss[NB_LIGNES_SPRITE] = {{MARCHE_DROITE, 12, 9, 100}, {MARCHE_GAUCHE, 10, 9, 100},  {MARCHE_DERRIERE, 11, 9, 100},
+                                            {MARCHE_DEVANT, 9, 9, 100},  {ATTAQUE_GAUCHE, 14, 6, 100}, {ATTAQUE_DROITE, 16, 6, 100},
+                                            {IMMOBILE, 3, 1, 50}};
 
 /****** FONCTIONS CREATION ET SUPPRESSION ENTITE ******/
 
@@ -64,16 +48,14 @@ t_anim_action t_a_boss[NB_LIGNES_SPRITE] = {{MARCHE_DROITE, 12, 9, 100},
  * \param taille Taille de l'entité en Y.
  * \return Un pointeur sur l'entité créée.
 */
-t_entite *creer_entite_defaut(char *name, t_entite_type type, int x_dep, int y_dep, int taille)
-{
-  switch (type)
-  {
+t_entite *creer_entite_defaut(char *name, t_entite_type type, int x_dep, int y_dep, int taille) {
+  switch (type) {
   case JOUEUR:
-    return creer_entite((name) ? name : "PLAYER", 20, 20, 10, 10, Textures_Joueur, t_a_joueur, x_dep, y_dep,taille);
+    return creer_entite((name) ? name : "PLAYER", 20, 20, 10, 10, Textures_Joueur, t_a_joueur, x_dep, y_dep, taille);
   case ZOMBIE:
-    return creer_entite((name) ? name : "ZOMBIE", 0, 0, 10, 10, Textures_Zombie, t_a_zombie, x_dep, y_dep,taille);
+    return creer_entite((name) ? name : "ZOMBIE", 0, 0, 10, 10, Textures_Zombie, t_a_zombie, x_dep, y_dep, taille);
   case BOSS:
-    return creer_entite((name) ? name : "BOSS", 50, 50, 30, 30, Textures_Boss, t_a_boss, x_dep, y_dep,taille);
+    return creer_entite((name) ? name : "BOSS", 50, 50, 30, 30, Textures_Boss, t_a_boss, x_dep, y_dep, taille);
   }
   return NULL;
 }
@@ -93,12 +75,11 @@ t_entite *creer_entite_defaut(char *name, t_entite_type type, int x_dep, int y_d
  * \param taille Taille de l'entité en Y.
  * \return Un pointeur sur l'entité créée.
 */
-t_entite *creer_entite(char *name, int mana, int mana_max, int pv, int pv_max, SDL_Texture *texture, t_anim_action *t_a, int x_dep, int y_dep, int taille)
-{
+t_entite *creer_entite(char *name, int mana, int mana_max, int pv, int pv_max, SDL_Texture *texture, t_anim_action *t_a, int x_dep, int y_dep,
+                       int taille) {
   if (!texture || !name || !t_a)
     return NULL;
-  if (mana > mana_max || pv > pv_max)
-  {
+  if (mana > mana_max || pv > pv_max) {
     mana = mana_max;
     pv = pv_max;
   };
@@ -142,8 +123,7 @@ t_entite *creer_entite(char *name, int mana, int mana_max, int pv, int pv_max, S
  * \param entite L'entité à détruire.
  * \return Une erreur s'il y en a une.
 */
-t_erreur detruire_entite(t_entite *entite)
-{
+t_erreur detruire_entite(t_entite *entite) {
   if (!entite)
     return PTR_NULL;
   free(entite);
@@ -159,8 +139,7 @@ t_erreur detruire_entite(t_entite *entite)
  * \param renderer Renderer de la fenêtre.
  * \return Un pointeur sur une structure.
 */
-SDL_Texture *Create_Sprite(char *lieu, SDL_Renderer *renderer)
-{
+SDL_Texture *Create_Sprite(char *lieu, SDL_Renderer *renderer) {
   if (!renderer || !lieu)
     return NULL;
 
@@ -182,8 +161,7 @@ SDL_Texture *Create_Sprite(char *lieu, SDL_Renderer *renderer)
  * \param action L'action à afficher.
  * \return Une erreur s'il y en a une.
 */
-t_erreur Charger_Anima(SDL_Renderer *renderer, t_entite *entite, t_action action)
-{
+t_erreur Charger_Anima(SDL_Renderer *renderer, t_entite *entite, t_action action) {
   if (!renderer || !entite)
     return PTR_NULL;
 
@@ -205,8 +183,7 @@ t_erreur Charger_Anima(SDL_Renderer *renderer, t_entite *entite, t_action action
   SDL_RenderCopy(renderer, entite->texture, &(entite->texture_part), &(entite->posEnt));
 
   /* On regarde si l'animation est finie avant de passer à la suivante */
-  if (entite->act_pred == action && (SDL_GetTicks() - entite->temp_dep) >= entite->texture_action[i].temps_anim)
-  {
+  if (entite->act_pred == action && (SDL_GetTicks() - entite->temp_dep) >= entite->texture_action[i].temps_anim) {
     (entite->col_act_prec)++;
     entite->temp_dep = SDL_GetTicks();
   }
@@ -222,13 +199,13 @@ t_erreur Charger_Anima(SDL_Renderer *renderer, t_entite *entite, t_action action
  * \param action L'action que l'on cherche.
  * \return L'indice de l'action recherchée.
 */
-int Search_Action(t_anim_action *t_a, t_action action)
-{
+int Search_Action(t_anim_action *t_a, t_action action) {
   if (!t_a)
     return -1;
 
   int i;
-  for (i = 0; t_a[i].action != action && t_a[i].action != IMMOBILE; i++);
+  for (i = 0; t_a[i].action != action && t_a[i].action != IMMOBILE; i++)
+    ;
 
   return i;
 }
@@ -239,8 +216,7 @@ int Search_Action(t_anim_action *t_a, t_action action)
  * \param renderer Renderer de la fenêtre.
  * \return Une erreur s'il y en a une.
 */
-t_erreur Init_Sprite(SDL_Renderer *renderer)
-{
+t_erreur Init_Sprite(SDL_Renderer *renderer) {
   if (!renderer)
     return PTR_NULL;
   /* Création de la texture pour chaque SPRITE */
@@ -256,8 +232,7 @@ t_erreur Init_Sprite(SDL_Renderer *renderer)
  * \brief Détruit toutes les textures précédement initialisées.
  * \return Une erreur s'il y en a une.
 */
-t_erreur Quit_Sprite(void)
-{
+t_erreur Quit_Sprite(void) {
   /* Destruction des textures */
   SDL_DestroyTexture(Textures_Joueur);
   SDL_DestroyTexture(Textures_Zombie);
@@ -273,15 +248,16 @@ t_erreur Quit_Sprite(void)
  * \param new_time Le nouveau temps d'animation.
  * \return Une erreur s'il y en a une.
 */
-t_erreur Anim_Update (t_entite * entite, t_action action, int new_time)
-{
-    if (!entite) return PTR_NULL;
-    if (new_time < 0) return VALUE_ERROR;
+t_erreur Anim_Update(t_entite *entite, t_action action, int new_time) {
+  if (!entite)
+    return PTR_NULL;
+  if (new_time < 0)
+    return VALUE_ERROR;
 
-    int i = Search_Action(entite->texture_action, action);
-    entite->texture_action[i].temps_anim = new_time;
+  int i = Search_Action(entite->texture_action, action);
+  entite->texture_action[i].temps_anim = new_time;
 
-    return OK;
+  return OK;
 }
 
 /****** FONCTION GESTION COLLISION ENTITE + GRAVITE ******/
@@ -294,47 +270,44 @@ t_erreur Anim_Update (t_entite * entite, t_action action, int new_time)
  * \param p Liste contenant les paramètres supplémentaires de la fonction collision si il y en a besoin.
  * \return Une erreur s'il y en a une.
 */
-t_erreur update_posY_entite(t_entite * entite, double coef_fps, t_liste * p)
-{
+t_erreur update_posY_entite(t_entite *entite, double coef_fps, t_liste *p) {
   //fprintf(stderr,"Vel Y -> %.2f\n", entite->velY);
   if (!entite)
     return PTR_NULL;
-  
+
   int diff; // Profondeur de la collision
-  diff = collision(entite,DIRECT_HAUT_COLLI,p);
-  if (diff > 0)
-  {
+  diff = collision(entite, DIRECT_HAUT_COLLI, p);
+  if (diff > 0) {
     entite->hitbox.y -= diff;
     entite->posEnt.y += diff;
   }
 
-  if (coef_fps > 5) coef_fps = 5;
+  if (coef_fps > 5)
+    coef_fps = 5;
   int i;
-  for (i = 0; i < coef_fps; i++)
-  {
+  for (i = 0; i < coef_fps; i++) {
     entite->velY += entite->accY;
     int grav = entite->velY;
     entite->hitbox.y -= grav;
     entite->posEnt.y += grav;
   }
-  if ((diff = collision (entite, DIRECT_BAS_COLLI,p)) > 0)
-  {
+  if ((diff = collision(entite, DIRECT_BAS_COLLI, p)) > 0) {
     entite->velY = 0;
     entite->hitbox.y += diff;
-  }//printf("Diff : %d\n", diff);
-  if ((!entite->velY && diff > 0) || entite->posEnt.y >= POSY_ENT_SCREEN)
-  {
+  } //printf("Diff : %d\n", diff);
+  if ((!entite->velY && diff > 0) || entite->posEnt.y >= POSY_ENT_SCREEN) {
     entite->posEnt.y = POSY_ENT_SCREEN;
   }
 
   return OK;
 }
 
-int collision (t_entite * entite, t_collision_direction direction, t_liste * p)
-{
-  if (!entite || !p) return PTR_NULL;
+int collision(t_entite *entite, t_collision_direction direction, t_liste *p) {
+  if (!entite || !p)
+    return PTR_NULL;
 
   int collision = 0;
+  SDL_Rect res;
 
   /* Conversion des coordonnées SDL en coordonnées pour la MAP */
   int x = entite->hitbox.x / width_block_sdl, y = entite->hitbox.y / height_block_sdl;
@@ -343,81 +316,83 @@ int collision (t_entite * entite, t_collision_direction direction, t_liste * p)
   map.list = p;
 
   /* Récupération des Blocks si il y en a, en fonction des coordonnées du Joueur */
-  t_block * blockHG, * blockHD, * blockBG, * blockBD;
-  blockHG = MAP_GetBlock(&map,x,y);
-  blockHD = MAP_GetBlock(&map,x+1,y);
-  blockBG = MAP_GetBlock(&map,x,y-1);
-  blockBD = MAP_GetBlock(&map,x+1,y-1);
-  if (blockBG) fprintf(stderr, "Collision Basse Gauche : %d,%d\n", blockBG->x, blockBG->y);
-  if (blockBD) fprintf(stderr, "Collision Basse Droite : %d,%d\n", blockBD->x, blockBD->y);
-  if (blockHG) fprintf(stderr, "Collision Haute Gauche : %d,%d\n", blockHG->x, blockHG->y);
-  if (blockHD) fprintf(stderr, "Collision Haute Droite : %d,%d\n", blockHD->x, blockHD->y);
+  t_block *blockHG, *blockHD, *blockBG, *blockBD;
+  blockHG = MAP_GetBlock(&map, x, y);
+  blockHD = MAP_GetBlock(&map, x + 1, y);
+  blockBG = MAP_GetBlock(&map, x, y - 1);
+  blockBD = MAP_GetBlock(&map, x + 1, y - 1);
+  if (blockBG)
+    fprintf(stderr, "Collision Basse Gauche : %d,%d\n", blockBG->x, blockBG->y);
+  if (blockBD)
+    fprintf(stderr, "Collision Basse Droite : %d,%d\n", blockBD->x, blockBD->y);
+  if (blockHG)
+    fprintf(stderr, "Collision Haute Gauche : %d,%d\n", blockHG->x, blockHG->y);
+  if (blockHD)
+    fprintf(stderr, "Collision Haute Droite : %d,%d\n", blockHD->x, blockHD->y);
 
   /* Traitement des collisions */
   switch (direction) {
-    /* Collision en BAS */
-    case DIRECT_BAS_COLLI:
-      if (blockBG)
-      {
-        SDL_Rect B = {width_block_sdl * blockBG->x,height_block_sdl * blockBG->y,width_block_sdl,height_block_sdl}, res;
-        SDL_IntersectRect(&(entite->hitbox),&B,&res);
-        collision = res.h;
-      }else if (blockBD)
-      {
-        SDL_Rect B = {width_block_sdl * blockBD->x,height_block_sdl * blockBD->y,width_block_sdl,height_block_sdl}, res;
-        SDL_IntersectRect(&(entite->hitbox),&B,&res);
+  /* Collision en BAS */
+  case DIRECT_BAS_COLLI:
+    if (blockBG) {
+      if (blockBG->id != 0) {
+        SDL_Rect B = {width_block_sdl * blockBG->x, height_block_sdl * blockBG->y, width_block_sdl, height_block_sdl};
+        SDL_IntersectRect(&(entite->hitbox), &B, &res);
         collision = res.h;
       }
-      break;
+    } else if (blockBD) {
+      if (blockBD->id != 0) {
+        SDL_Rect B = {width_block_sdl * blockBD->x, height_block_sdl * blockBD->y, width_block_sdl, height_block_sdl};
+        SDL_IntersectRect(&(entite->hitbox), &B, &res);
+        collision = res.h;
+      }
+    }
+    break;
 
-    /* Collision en HAUT */
-    case DIRECT_HAUT_COLLI:
-      if (blockHD)
-      {
-        SDL_Rect B = {width_block_sdl * blockHD->x,height_block_sdl * blockHD->y,width_block_sdl,height_block_sdl}, res;
-        SDL_IntersectRect(&(entite->hitbox),&B,&res);
-        collision = res.h;
-      }else if (blockHG)
-      {
-        SDL_Rect B = {width_block_sdl * blockHG->x,height_block_sdl * blockHG->y,width_block_sdl,height_block_sdl}, res;
-        SDL_IntersectRect(&(entite->hitbox),&B,&res);
-        collision = res.h;
-      }
-      break;
-    
-    /* Collision à DROITE */
-    case DIRECT_DROITE_COLLI:
-      if (blockHD)
-      {
-        SDL_Rect B = {width_block_sdl * blockHD->x,height_block_sdl * blockHD->y,width_block_sdl,height_block_sdl}, res;
-        SDL_IntersectRect(&(entite->hitbox),&B,&res);
-        collision = res.w;
-      }else if (blockBD)
-      {
-        SDL_Rect B = {width_block_sdl * blockBD->x,height_block_sdl * blockBD->y,width_block_sdl,height_block_sdl}, res;
-        SDL_IntersectRect(&(entite->hitbox),&B,&res);
-        collision = res.w;
-      }
-      break;
-    
-    /* Collision à GAUCHE */
-    case DIRECT_GAUCHE_COLLI:
-      if (blockHG)
-      {
-        SDL_Rect B = {width_block_sdl * blockHG->x,height_block_sdl * blockHG->y,width_block_sdl,height_block_sdl}, res;
-        SDL_IntersectRect(&(entite->hitbox),&B,&res);
-        collision = res.w;
-      }else if (blockBG)
-      {
-        SDL_Rect B = {width_block_sdl * blockBG->x,height_block_sdl * blockBG->y,width_block_sdl,height_block_sdl}, res;
-        SDL_IntersectRect(&(entite->hitbox),&B,&res);
-        collision = res.w;
-      }
-      break;
+  /* Collision en HAUT */
+  case DIRECT_HAUT_COLLI:
+    if (blockHD) {
+      SDL_Rect B = {width_block_sdl * blockHD->x, height_block_sdl * blockHD->y, width_block_sdl, height_block_sdl};
+      SDL_IntersectRect(&(entite->hitbox), &B, &res);
+      collision = res.h;
+    } else if (blockHG) {
+      SDL_Rect B = {width_block_sdl * blockHG->x, height_block_sdl * blockHG->y, width_block_sdl, height_block_sdl};
+      SDL_IntersectRect(&(entite->hitbox), &B, &res);
+      collision = res.h;
+    }
+    break;
 
-    default:
-      break;
+  /* Collision à DROITE */
+  case DIRECT_DROITE_COLLI:
+    if (blockHD) {
+      SDL_Rect B = {width_block_sdl * blockHD->x, height_block_sdl * blockHD->y, width_block_sdl, height_block_sdl};
+      SDL_IntersectRect(&(entite->hitbox), &B, &res);
+      collision = res.w;
+    } else if (blockBD) {
+      SDL_Rect B = {width_block_sdl * blockBD->x, height_block_sdl * blockBD->y, width_block_sdl, height_block_sdl};
+      SDL_IntersectRect(&(entite->hitbox), &B, &res);
+      collision = res.w;
+    }
+    break;
+
+  /* Collision à GAUCHE */
+  case DIRECT_GAUCHE_COLLI:
+    if (blockHG) {
+      SDL_Rect B = {width_block_sdl * blockHG->x, height_block_sdl * blockHG->y, width_block_sdl, height_block_sdl};
+      SDL_IntersectRect(&(entite->hitbox), &B, &res);
+      collision = res.w;
+    } else if (blockBG) {
+      SDL_Rect B = {width_block_sdl * blockBG->x, height_block_sdl * blockBG->y, width_block_sdl, height_block_sdl};
+      SDL_IntersectRect(&(entite->hitbox), &B, &res);
+      collision = res.w;
+    }
+    break;
+
+  default:
+    break;
   }
+  if (blockBD || blockBG || blockHG || blockHD)
+    printf("RESSSS : %d %d %d %d\n", res.x, res.y, res.w, res.h);
   collision *= -1;
   return collision;
 }
@@ -435,37 +410,34 @@ int collision (t_entite * entite, t_collision_direction direction, t_liste * p)
  * \param p Liste contenant les paramètres supplémentaires de la fonction collision si il y en a besoin.
  * \return Une erreur s'il y en a une.
 */
-t_erreur Gestion_Entite (SDL_Renderer * renderer, t_entite * entite, uint8_t * ks, double coef_fps, t_liste * p)
-{
+t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, double coef_fps, t_liste *p) {
   if (!renderer || !entite || !ks)
     return PTR_NULL;
 
   int diff; // Profondeur de la collision
 
   /* Modif pour la touche AVANCER */
-  if (SDL_touche_appuyer(ks, AVANCER))
-  {
+  if (SDL_touche_appuyer(ks, AVANCER)) {
     Charger_Anima(renderer, entite, MARCHE_DEVANT);
   }
   /* Modif pour la touche RECULER */
-  else if (SDL_touche_appuyer(ks, RECULER))
-  {
+  else if (SDL_touche_appuyer(ks, RECULER)) {
     Charger_Anima(renderer, entite, MARCHE_DERRIERE);
   }
   /* Modif pour la touche DROITE */
-  else if (SDL_touche_appuyer(ks, DROITE))
-  {
+  else if (SDL_touche_appuyer(ks, DROITE)) {
     entite->hitbox.x += entite->accX * coef_fps;
-    diff = collision(entite, DIRECT_DROITE_COLLI,p);
-    if (diff > 0) entite->hitbox.x -= diff;
+    diff = collision(entite, DIRECT_DROITE_COLLI, p);
+    if (diff > 0)
+      entite->hitbox.x -= diff;
     Charger_Anima(renderer, entite, MARCHE_DROITE);
   }
   /* Modif pour la touche GAUCHE */
-  else if (SDL_touche_appuyer(ks, GAUCHE))
-  {
+  else if (SDL_touche_appuyer(ks, GAUCHE)) {
     entite->hitbox.x -= entite->accX * coef_fps;
-    diff = collision(entite, DIRECT_GAUCHE_COLLI,p);
-    if (diff > 0) entite->hitbox.x += diff;
+    diff = collision(entite, DIRECT_GAUCHE_COLLI, p);
+    if (diff > 0)
+      entite->hitbox.x += diff;
     Charger_Anima(renderer, entite, MARCHE_GAUCHE);
   }
   /* Modif quand on appui sur AUCUNE touche */
@@ -473,26 +445,22 @@ t_erreur Gestion_Entite (SDL_Renderer * renderer, t_entite * entite, uint8_t * k
     Charger_Anima(renderer, entite, IMMOBILE);
 
   /* Modif pour la touche SHIFT (Accélérer) */
-  if (SDL_touche_appuyer(ks, SHIFT))
-  {
+  if (SDL_touche_appuyer(ks, SHIFT)) {
     entite->accX = VITESSE_DEPLACEMENT * ACCELERATION;
-    Anim_Update(entite,MARCHE_DROITE,25);
-    Anim_Update(entite,MARCHE_GAUCHE,25);
-    Anim_Update(entite,MARCHE_DEVANT,25);
-    Anim_Update(entite,MARCHE_DERRIERE,25);
-  }
-  else
-  {
+    Anim_Update(entite, MARCHE_DROITE, 25);
+    Anim_Update(entite, MARCHE_GAUCHE, 25);
+    Anim_Update(entite, MARCHE_DEVANT, 25);
+    Anim_Update(entite, MARCHE_DERRIERE, 25);
+  } else {
     entite->accX = VITESSE_DEPLACEMENT;
-    Anim_Update(entite,MARCHE_DROITE,100);
-    Anim_Update(entite,MARCHE_GAUCHE,100);
-    Anim_Update(entite,MARCHE_DEVANT,100);
-    Anim_Update(entite,MARCHE_DERRIERE,100);
+    Anim_Update(entite, MARCHE_DROITE, 100);
+    Anim_Update(entite, MARCHE_GAUCHE, 100);
+    Anim_Update(entite, MARCHE_DEVANT, 100);
+    Anim_Update(entite, MARCHE_DERRIERE, 100);
   }
 
   /* Modif pour la touche SAUTER */
-  if (!(entite->velY) && collision(entite, DIRECT_BAS_COLLI, p) <= 0 && SDL_touche_appuyer(ks, SAUTER))
-  {
+  if (!(entite->velY) && collision(entite, DIRECT_BAS_COLLI, p) <= 0 && SDL_touche_appuyer(ks, SAUTER)) {
     entite->velY -= HAUTEUR_SAUT;
   }
 
