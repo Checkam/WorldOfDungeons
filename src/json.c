@@ -224,12 +224,12 @@ t_erreur read_json_obj (char * obj, char * key, void * value, char * value_type)
 /**
  * \fn t_erreur fstart (FILE * file)
  * \brief Remet le pointeur file au début du fichier.
- * \param str1 Chaine de caractère de gauche.
+ * \param file Le fichier où repartir du début.
  * \return Une erreur s'il y en a une.
 */
 t_erreur fstart (FILE * file)
 {
-    if (!file) return PTR_NULL;
+    if (!file) return FILE_ERROR;
     fseek(file, 0, SEEK_SET);
     return OK;
 }
