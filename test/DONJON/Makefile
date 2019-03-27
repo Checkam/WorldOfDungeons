@@ -9,7 +9,7 @@ PROG = DONJON_test
 #Nom du fichier .c et .h du test
 NOM_TEST=test_donjon
 
-CFLAGS = -Wall -g
+CFLAGS = -Wall -g -lm
 RACINE=../../
 
 CC = gcc

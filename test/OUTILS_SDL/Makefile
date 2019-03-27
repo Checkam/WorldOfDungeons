@@ -5,7 +5,7 @@ PROG = OUTILS_SDL_test
 #Nom du fichier .c et .h du test
 NOM_TEST=test_outils_sdl
 
-CFLAGS = -Wall -g
+CFLAGS = -Wall -g -lm
 RACINE=../../
 
 CC = gcc

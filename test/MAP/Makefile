@@ -5,7 +5,7 @@ PROG = MAP_test
 #Nom du fichier .c et .h du test
 NOM_TEST=test_map
 
-CFLAGS = -Wall -g
+CFLAGS = -Wall -g -lm
 RACINE=../../
 
 CC = gcc

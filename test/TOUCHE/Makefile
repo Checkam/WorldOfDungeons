@@ -9,7 +9,7 @@ PROG = touche_test
 #Nom du fichier .c et .h du test
 NOM_TEST=t_touche
 
-CFLAGS = -Wall
+CFLAGS = -Wall -g -lm
 RACINE=../../
 
 CC = gcc

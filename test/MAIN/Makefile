@@ -9,7 +9,7 @@ PROG = MAIN_test
 #Nom du fichier .c et .h du test
 NOM_TEST=main_test
 
-CFLAGS = -Wall -g
+CFLAGS = -Wall -g -lm
 RACINE=../../
 
 CC = gcc

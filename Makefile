@@ -5,7 +5,7 @@
 # foreach un for utilisable comme ceci $(foreach i,$(liste),commande $(i);)
 
 CC = gcc
-CFLAGS = -Wall -g
+CFLAGS = -Wall -lm
 PROG = world_of_dungeons
 MAKE=/usr/bin/make
 

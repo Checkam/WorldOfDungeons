@@ -5,7 +5,7 @@ PROG = MENU_test
 #Nom du fichier .c et .h du test
 NOM_TEST=test_menu
 
-CFLAGS = -Wall -g
+CFLAGS = -Wall -g -lm
 RACINE=../../
 
 CC = gcc
@@ -40,7 +40,7 @@ OBJ := $(subst src,obj,$(OBJ))
 
 DIRS = $(OBJ_DIR) $(BIN_DIR)
 
-.PHONY: debut 
+.PHONY: debut
 debut:
 	@echo -e '\033[42m Debut Compilation : $(NOM_TEST) \033[0m'
 

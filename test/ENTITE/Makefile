@@ -5,7 +5,7 @@ PROG = ENTITE_test
 #Nom du fichier .c et .h du test
 NOM_TEST=entite_test
 
-CFLAGS = -Wall -g
+CFLAGS = -Wall -g -lm
 RACINE=../../
 
 CC = gcc

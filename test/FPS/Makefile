@@ -5,7 +5,7 @@ PROG = FPS_test
 #Nom du fichier .c et .h du test
 NOM_TEST=fps
 
-CFLAGS = -Wall -g
+CFLAGS = -Wall -g -lm
 RACINE=../../
 
 CC = gcc
