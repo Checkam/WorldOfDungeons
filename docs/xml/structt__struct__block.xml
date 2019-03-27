@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="structt__struct__block" kind="struct" language="C++" prot="public">
+    <compoundname>t_struct_block</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structt__struct__block_1a826dad197fbed343e772a46c4473d06c" prot="public" static="no" mutable="no">
+        <type>t_struct_block_type</type>
+        <definition>t_struct_block_type t_struct_block::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/structure_block.h" line="29" column="1" bodyfile="include/structure_block.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structt__struct__block_1ae91ae09eaa8d10183e7d34fadd16ae97" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int t_struct_block::largeur</definition>
+        <argsstring></argsstring>
+        <name>largeur</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/structure_block.h" line="30" column="1" bodyfile="include/structure_block.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structt__struct__block_1a3461e2a471be44cb9bbaf89ae65f9608" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* t_struct_block::path</definition>
+        <argsstring></argsstring>
+        <name>path</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/structure_block.h" line="31" column="1" bodyfile="include/structure_block.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structt__struct__block_1ad9d4c680e1bbfb62bd37908a76fec04b" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int t_struct_block::pourcent_spawn</definition>
+        <argsstring></argsstring>
+        <name>pourcent_spawn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/structure_block.h" line="32" column="1" bodyfile="include/structure_block.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structt__struct__block_1a85311d5710047cf16fe4064d983072d3" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int t_struct_block::biome</definition>
+        <argsstring></argsstring>
+        <name>biome</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/structure_block.h" line="33" column="1" bodyfile="include/structure_block.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/structure_block.h" line="28" column="1" bodyfile="include/structure_block.h" bodystart="28" bodyend="34"/>
+    <listofallmembers>
+      <member refid="structt__struct__block_1a85311d5710047cf16fe4064d983072d3" prot="public" virt="non-virtual"><scope>t_struct_block</scope><name>biome</name></member>
+      <member refid="structt__struct__block_1ae91ae09eaa8d10183e7d34fadd16ae97" prot="public" virt="non-virtual"><scope>t_struct_block</scope><name>largeur</name></member>
+      <member refid="structt__struct__block_1a3461e2a471be44cb9bbaf89ae65f9608" prot="public" virt="non-virtual"><scope>t_struct_block</scope><name>path</name></member>
+      <member refid="structt__struct__block_1ad9d4c680e1bbfb62bd37908a76fec04b" prot="public" virt="non-virtual"><scope>t_struct_block</scope><name>pourcent_spawn</name></member>
+      <member refid="structt__struct__block_1a826dad197fbed343e772a46c4473d06c" prot="public" virt="non-virtual"><scope>t_struct_block</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

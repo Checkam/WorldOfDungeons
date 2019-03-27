@@ -1,0 +1,858 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="liste_8h" kind="file" language="C++">
+    <compoundname>liste.h</compoundname>
+    <includes refid="erreur_8h" local="no">erreur.h</includes>
+    <includedby refid="affichage_8c" local="no">src/affichage.c</includedby>
+    <includedby refid="biome_8c" local="no">src/biome.c</includedby>
+    <includedby refid="chemin_8c" local="no">src/chemin.c</includedby>
+    <includedby refid="donjon_8c" local="no">src/donjon.c</includedby>
+    <includedby refid="liste_8c" local="no">src/liste.c</includedby>
+    <includedby refid="map_8c" local="no">src/map.c</includedby>
+    <includedby refid="world__of__dungeons_8c" local="no">src/world_of_dungeons.c</includedby>
+    <includedby refid="affichage_8h" local="no">include/affichage.h</includedby>
+    <includedby refid="biome_8h" local="no">include/biome.h</includedby>
+    <includedby refid="chemin_8h" local="no">include/chemin.h</includedby>
+    <includedby refid="donjon_8h" local="no">include/donjon.h</includedby>
+    <includedby refid="entite_8h" local="no">include/entite.h</includedby>
+    <includedby refid="map_8h" local="no">include/map.h</includedby>
+    <incdepgraph>
+      <node id="161">
+        <label>include/liste.h</label>
+        <link refid="liste_8h"/>
+        <childnode refid="162" relation="include">
+        </childnode>
+      </node>
+      <node id="162">
+        <label>erreur.h</label>
+        <link refid="erreur_8h"/>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="178">
+        <label>src/erreur.c</label>
+        <link refid="erreur_8c"/>
+      </node>
+      <node id="184">
+        <label>include/map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="177" relation="include">
+        </childnode>
+        <childnode refid="168" relation="include">
+        </childnode>
+      </node>
+      <node id="166">
+        <label>src/donjon.c</label>
+        <link refid="donjon_8c"/>
+      </node>
+      <node id="174">
+        <label>include/structure_block.h</label>
+        <link refid="structure__block_8h"/>
+        <childnode refid="172" relation="include">
+        </childnode>
+        <childnode refid="173" relation="include">
+        </childnode>
+      </node>
+      <node id="181">
+        <label>src/menu.c</label>
+        <link refid="menu_8c"/>
+      </node>
+      <node id="173">
+        <label>src/structure_block.c</label>
+        <link refid="structure__block_8c"/>
+      </node>
+      <node id="165">
+        <label>src/chemin.c</label>
+        <link refid="chemin_8c"/>
+      </node>
+      <node id="176">
+        <label>src/binaire.c</label>
+        <link refid="binaire_8c"/>
+      </node>
+      <node id="172">
+        <label>src/generation.c</label>
+        <link refid="generation_8c"/>
+      </node>
+      <node id="183">
+        <label>include/donjon.h</label>
+        <link refid="donjon_8h"/>
+        <childnode refid="166" relation="include">
+        </childnode>
+      </node>
+      <node id="171">
+        <label>include/biome.h</label>
+        <link refid="biome_8h"/>
+        <childnode refid="172" relation="include">
+        </childnode>
+        <childnode refid="173" relation="include">
+        </childnode>
+        <childnode refid="174" relation="include">
+        </childnode>
+      </node>
+      <node id="163">
+        <label>include/liste.h</label>
+        <link refid="liste_8h"/>
+        <childnode refid="164" relation="include">
+        </childnode>
+        <childnode refid="165" relation="include">
+        </childnode>
+        <childnode refid="166" relation="include">
+        </childnode>
+        <childnode refid="167" relation="include">
+        </childnode>
+        <childnode refid="168" relation="include">
+        </childnode>
+        <childnode refid="169" relation="include">
+        </childnode>
+        <childnode refid="170" relation="include">
+        </childnode>
+        <childnode refid="171" relation="include">
+        </childnode>
+        <childnode refid="175" relation="include">
+        </childnode>
+        <childnode refid="183" relation="include">
+        </childnode>
+        <childnode refid="182" relation="include">
+        </childnode>
+        <childnode refid="184" relation="include">
+        </childnode>
+      </node>
+      <node id="175">
+        <label>include/chemin.h</label>
+        <link refid="chemin_8h"/>
+        <childnode refid="176" relation="include">
+        </childnode>
+        <childnode refid="165" relation="include">
+        </childnode>
+        <childnode refid="166" relation="include">
+        </childnode>
+        <childnode refid="177" relation="include">
+        </childnode>
+        <childnode refid="178" relation="include">
+        </childnode>
+        <childnode refid="179" relation="include">
+        </childnode>
+        <childnode refid="180" relation="include">
+        </childnode>
+        <childnode refid="181" relation="include">
+        </childnode>
+        <childnode refid="182" relation="include">
+        </childnode>
+      </node>
+      <node id="179">
+        <label>src/fichier.c</label>
+        <link refid="fichier_8c"/>
+      </node>
+      <node id="169">
+        <label>src/world_of_dungeons.c</label>
+        <link refid="world__of__dungeons_8c"/>
+      </node>
+      <node id="170">
+        <label>include/affichage.h</label>
+        <link refid="affichage_8h"/>
+        <childnode refid="168" relation="include">
+        </childnode>
+        <childnode refid="169" relation="include">
+        </childnode>
+      </node>
+      <node id="164">
+        <label>src/affichage.c</label>
+        <link refid="affichage_8c"/>
+      </node>
+      <node id="177">
+        <label>src/entite.c</label>
+        <link refid="entite_8c"/>
+      </node>
+      <node id="168">
+        <label>src/map.c</label>
+        <link refid="map_8c"/>
+      </node>
+      <node id="182">
+        <label>include/entite.h</label>
+        <link refid="entite_8h"/>
+        <childnode refid="177" relation="include">
+        </childnode>
+      </node>
+      <node id="180">
+        <label>src/json.c</label>
+        <link refid="json_8c"/>
+      </node>
+      <node id="167">
+        <label>src/liste.c</label>
+        <link refid="liste_8c"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structelement" prot="public">element</innerclass>
+    <innerclass refid="structs__liste" prot="public">s_liste</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="liste_8h_1a8968705d25c62eaf27310fae6cc2603f" prot="public" static="no">
+        <type>struct <ref refid="structelement" kindref="compound">element</ref></type>
+        <definition>typedef struct element  t_element</definition>
+        <argsstring></argsstring>
+        <name>t_element</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/liste.h" line="21" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="liste_8h_1a4e606e9c680c840688f46054994527e9" prot="public" static="no">
+        <type>struct <ref refid="structs__liste" kindref="compound">s_liste</ref></type>
+        <definition>typedef struct s_liste t_liste</definition>
+        <argsstring></argsstring>
+        <name>t_liste</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/liste.h" line="30" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="liste_8h_1ae54cf55c0d15211e5433ce9b5abf099d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void init_liste</definition>
+        <argsstring>(t_liste *p)</argsstring>
+        <name>init_liste</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+<para>Initialise une nouvelle liste. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste à initialiser. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/liste.h" line="32" column="1" bodyfile="src/liste.c" bodystart="19" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="liste_8h_1ae25051845f03a0ee659aed8e855dad5b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int liste_vide</definition>
+        <argsstring>(t_liste *p)</argsstring>
+        <name>liste_vide</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+<para>Regarde si la liste est vide ou non. </para>        </briefdescription>
+        <detaileddescription>
+<para>Renvoie vrai si la liste est vide, faux sinon. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste à vérifier. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Un entier qui vaut vrai si la liste est vide. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/liste.h" line="33" column="1" bodyfile="src/liste.c" bodystart="33" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="liste_8h_1aa42eefd0ac04de255ffb11f5e9fdabd6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int hors_liste</definition>
+        <argsstring>(t_liste *p)</argsstring>
+        <name>hors_liste</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+<para>Regarde si on est en dehors de la liste ou non. </para>        </briefdescription>
+        <detaileddescription>
+<para>Renvoie vrai si on est en dehors de la liste, faux sinon. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste à vérifier. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Un entier qui vaut vrai si on est hors-liste. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/liste.h" line="34" column="1" bodyfile="src/liste.c" bodystart="44" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="liste_8h_1a9a2af94927570339b5708b99c4831cf3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void en_tete</definition>
+        <argsstring>(t_liste *p)</argsstring>
+        <name>en_tete</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+<para>Place l&apos;élèment courant sur la tete de liste. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste où se trouve l&apos;élèment courant à modifier. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/liste.h" line="35" column="1" bodyfile="src/liste.c" bodystart="53" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="liste_8h_1a182d1a7bdc30807ebdd00d566994548d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void en_queue</definition>
+        <argsstring>(t_liste *p)</argsstring>
+        <name>en_queue</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+<para>Place l&apos;élèment courant sur la queue de liste. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste où se trouve l&apos;élèment courant à modifier. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/liste.h" line="36" column="1" bodyfile="src/liste.c" bodystart="63" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="liste_8h_1a580b4a7d8c45590284303c3d1103a3e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void precedent</definition>
+        <argsstring>(t_liste *p)</argsstring>
+        <name>precedent</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+<para>Passe à l&apos;élèment précédent s&apos;il existe. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste où se trouve l&apos;élèment courant à modifier. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/liste.h" line="37" column="1" bodyfile="src/liste.c" bodystart="83" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="liste_8h_1ac95aadbae271f7e76ca486b6187dd8dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void suivant</definition>
+        <argsstring>(t_liste *p)</argsstring>
+        <name>suivant</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+<para>Passe à l&apos;élèment suivant s&apos;il existe. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste où se trouve l&apos;élèment courant à modifier. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/liste.h" line="38" column="1" bodyfile="src/liste.c" bodystart="73" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="liste_8h_1a4eaf58887e3dd578a2699aefc5963fe4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur valeur_elt</definition>
+        <argsstring>(t_liste *p, void **v)</argsstring>
+        <name>valeur_elt</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>void **</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>Récupère la valeur de l&apos;élèment courant. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste où se trouve l&apos;élèment courant. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>L&apos;endroit ou sauvegarder la valeur de l&apos;élèment courant. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/liste.h" line="39" column="1" bodyfile="src/liste.c" bodystart="95" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="liste_8h_1a88c83322ecd7db55a1df405689f5d70f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur modif_elt</definition>
+        <argsstring>(t_liste *p, void *v)</argsstring>
+        <name>modif_elt</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>Modifie la valeur de l&apos;élèment courant. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste où se trouve l&apos;élèment courant. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La nouvelle valeur à enregistrer. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/liste.h" line="40" column="1" bodyfile="src/liste.c" bodystart="111" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="liste_8h_1ad613f3378b165515b6f7a4cbe45265a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur oter_elt</definition>
+        <argsstring>(t_liste *p, void(*effacer)(void *))</argsstring>
+        <name>oter_elt</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>void(*)(void *)</type>
+          <declname>effacer</declname>
+        </param>
+        <briefdescription>
+<para>Supprime l&apos;élèment courant. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste où se trouve l&apos;élèment courant. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>effacer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La fonction d&apos;effacement de l&apos;élèment courant. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/liste.h" line="41" column="1" bodyfile="src/liste.c" bodystart="128" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="liste_8h_1a8d7b14b429cf2009912b48ad88e4af3a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur ajout_droit</definition>
+        <argsstring>(t_liste *p, void *v)</argsstring>
+        <name>ajout_droit</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>Ajoute à droite de l&apos;élèment courant la nouvelle valeur. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste où se trouve l&apos;élèment courant. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La valeur à ajouter. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/liste.h" line="42" column="1" bodyfile="src/liste.c" bodystart="150" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="liste_8h_1a627993b6dd4c2f5e3f7b5a5a4172d557" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur ajout_gauche</definition>
+        <argsstring>(t_liste *p, void *v)</argsstring>
+        <name>ajout_gauche</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>Ajoute à gauche de l&apos;élèment courant la nouvelle valeur. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste où se trouve l&apos;élèment courant. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La valeur à ajouter. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/liste.h" line="43" column="1" bodyfile="src/liste.c" bodystart="170" bodyend="181"/>
+      </memberdef>
+      <memberdef kind="function" id="liste_8h_1a591fc3936d195adcc3fb62f521dcd2ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int taille_liste</definition>
+        <argsstring>(t_liste *p)</argsstring>
+        <name>taille_liste</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+<para>Calcule la taille de la liste. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste à mesurer. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>La taille de la liste. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/liste.h" line="44" column="1" bodyfile="src/liste.c" bodystart="189" bodyend="195"/>
+      </memberdef>
+      <memberdef kind="function" id="liste_8h_1a4be7faf10eecc64ca729578b1b8cdbb4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void detruire_liste</definition>
+        <argsstring>(t_liste *p, void(*effacer)(void *))</argsstring>
+        <name>detruire_liste</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>void(*)(void *)</type>
+          <declname>effacer</declname>
+        </param>
+        <briefdescription>
+<para>Détruit la liste. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste à détruire. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>effacer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La fonction d&apos;effacement de l&apos;élèment courant. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/liste.h" line="45" column="1" bodyfile="src/liste.c" bodystart="246" bodyend="251"/>
+      </memberdef>
+      <memberdef kind="function" id="liste_8h_1aa916cb05c931c653d8b3710101bc8a43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur valeur_liste</definition>
+        <argsstring>(t_liste *p, int ind, void **v)</argsstring>
+        <name>valeur_liste</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>ind</declname>
+        </param>
+        <param>
+          <type>void **</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>Récupère la valeur de l&apos;élèment à l&apos;indice donné. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste où se trouve l&apos;élèment courant. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ind</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>L&apos;indice de la valeur à récupérer. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>L&apos;endroit ou sauvegarder la valeur de l&apos;élèment. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/liste.h" line="46" column="1" bodyfile="src/liste.c" bodystart="205" bodyend="216"/>
+      </memberdef>
+      <memberdef kind="function" id="liste_8h_1a9e669fc1f28bcd95680489fda37859bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int recherche_liste</definition>
+        <argsstring>(t_liste *p, void *v, int(*comparer)(void *, void *))</argsstring>
+        <name>recherche_liste</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>int(*)(void *, void *)</type>
+          <declname>comparer</declname>
+        </param>
+        <briefdescription>
+<para>Recherche si une valeur est présente dans la liste. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste où chercher la valeur. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La valeur à rechercher. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>comparer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Fonction de comparaison de deux valeurs. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>VRAI si valeur trouvée, FAUX sinon. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/liste.h" line="47" column="1" bodyfile="src/liste.c" bodystart="226" bodyend="238"/>
+      </memberdef>
+      <memberdef kind="function" id="liste_8h_1aa51cd66282df7f9a35ad4ecf5ad9b235" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* copie</definition>
+        <argsstring>(char *cible, char *source, int n)</argsstring>
+        <name>copie</name>
+        <param>
+          <type>char *</type>
+          <declname>cible</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+<para>Copie n octet de la source dans la cible. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cible</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>L&apos;endroit où copier. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>source</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La source de la copie. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le nombre d&apos;octet à copier. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>L&apos;adresse de la source. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/liste.h" line="49" column="1" bodyfile="src/liste.c" bodystart="261" bodyend="266"/>
+      </memberdef>
+      <memberdef kind="function" id="liste_8h_1a24f2e06b9af19c1f07ae98d4093e27dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* copie_cb</definition>
+        <argsstring>(void *cible, void *source, int n)</argsstring>
+        <name>copie_cb</name>
+        <param>
+          <type>void *</type>
+          <declname>cible</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/liste.h" line="50" column="1" bodyfile="src/liste.c" bodystart="276" bodyend="279"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Module des primitives de gestion de listes. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>GALBRUN Tibane </para></simplesect>
+<simplesect kind="date"><para>07/03/2019 </para></simplesect>
+<simplesect kind="version"><para>0.2 </para></simplesect>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>__LISTE_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__LISTE_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="preprocessor">#include<sp/>&lt;<ref refid="erreur_8h" kindref="compound">erreur.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="structelement" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structelement" kindref="compound">element</ref>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>elem;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structelement" kindref="compound">element</ref><sp/>*<sp/>pred;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structelement" kindref="compound">element</ref><sp/>*<sp/>succ;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">}<sp/><ref refid="structt__element" kindref="compound">t_element</ref>;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="structs__liste" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structs__liste" kindref="compound">s_liste</ref>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structt__element" kindref="compound">t_element</ref><sp/>*<sp/>drapeau;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structt__element" kindref="compound">t_element</ref><sp/>*<sp/>ec;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">}<ref refid="structt__liste" kindref="compound">t_liste</ref>;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="liste_8h_1ae54cf55c0d15211e5433ce9b5abf099d" kindref="member">init_liste</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="liste_8h_1ae25051845f03a0ee659aed8e855dad5b" kindref="member">liste_vide</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="liste_8h_1aa42eefd0ac04de255ffb11f5e9fdabd6" kindref="member">hors_liste</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="liste_8h_1a9a2af94927570339b5708b99c4831cf3" kindref="member">en_tete</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="liste_8h_1a182d1a7bdc30807ebdd00d566994548d" kindref="member">en_queue</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="liste_8h_1a580b4a7d8c45590284303c3d1103a3e3" kindref="member">precedent</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="liste_8h_1ac95aadbae271f7e76ca486b6187dd8dd" kindref="member">suivant</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">t_erreur<sp/><ref refid="liste_8h_1a4eaf58887e3dd578a2699aefc5963fe4" kindref="member">valeur_elt</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>**<sp/>v);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal">t_erreur<sp/><ref refid="liste_8h_1a88c83322ecd7db55a1df405689f5d70f" kindref="member">modif_elt</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>v);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">t_erreur<sp/><ref refid="liste_8h_1ad613f3378b165515b6f7a4cbe45265a0" kindref="member">oter_elt</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>(*<sp/>effacer)<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*));</highlight></codeline>
+<codeline lineno="42"><highlight class="normal">t_erreur<sp/><ref refid="liste_8h_1a8d7b14b429cf2009912b48ad88e4af3a" kindref="member">ajout_droit</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>v);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">t_erreur<sp/><ref refid="liste_8h_1a627993b6dd4c2f5e3f7b5a5a4172d557" kindref="member">ajout_gauche</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>v);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="liste_8h_1a591fc3936d195adcc3fb62f521dcd2ed" kindref="member">taille_liste</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="liste_8h_1a4be7faf10eecc64ca729578b1b8cdbb4" kindref="member">detruire_liste</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>(*<sp/>effacer)<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*));</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">t_erreur<sp/><ref refid="liste_8h_1aa916cb05c931c653d8b3710101bc8a43" kindref="member">valeur_liste</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ind,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>**<sp/>v);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="liste_8h_1a9e669fc1f28bcd95680489fda37859bd" kindref="member">recherche_liste</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>v,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>(*comparer)<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*));</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><sp/>*<sp/><ref refid="liste_8h_1aa51cd66282df7f9a35ad4ecf5ad9b235" kindref="member">copie</ref>(<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>cible<sp/>,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>source<sp/>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>copie_cb(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>cible,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>source,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="include/liste.h"/>
+  </compounddef>
+</doxygen>

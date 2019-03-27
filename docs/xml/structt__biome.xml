@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="structt__biome" kind="struct" language="C++" prot="public">
+    <compoundname>t_biome</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structt__biome_1a5f98728ce6d136f82967e973d0716563" prot="public" static="no" mutable="no">
+        <type><ref refid="biome_8h_1a88cfbc9884749042980d5910ea44e231" kindref="member">t_biome_type</ref></type>
+        <definition>t_biome_type t_biome::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/biome.h" line="39" column="1" bodyfile="include/biome.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structt__biome_1af439da3993b08a875702712cee8ba462" prot="public" static="no" mutable="no">
+        <type><ref refid="structt__layer" kindref="compound">t_layer</ref> *</type>
+        <definition>t_layer* t_biome::layers</definition>
+        <argsstring></argsstring>
+        <name>layers</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/biome.h" line="40" column="1" bodyfile="include/biome.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structt__biome_1a24c16429cdefda2014c96a0470716953" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int t_biome::nb_layers</definition>
+        <argsstring></argsstring>
+        <name>nb_layers</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/biome.h" line="41" column="1" bodyfile="include/biome.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="35">
+        <label>t_layer</label>
+        <link refid="structt__layer"/>
+      </node>
+      <node id="34">
+        <label>t_biome</label>
+        <link refid="structt__biome"/>
+        <childnode refid="35" relation="usage">
+          <edgelabel>layers</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/biome.h" line="38" column="1" bodyfile="include/biome.h" bodystart="38" bodyend="42"/>
+    <listofallmembers>
+      <member refid="structt__biome_1af439da3993b08a875702712cee8ba462" prot="public" virt="non-virtual"><scope>t_biome</scope><name>layers</name></member>
+      <member refid="structt__biome_1a24c16429cdefda2014c96a0470716953" prot="public" virt="non-virtual"><scope>t_biome</scope><name>nb_layers</name></member>
+      <member refid="structt__biome_1a5f98728ce6d136f82967e973d0716563" prot="public" virt="non-virtual"><scope>t_biome</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

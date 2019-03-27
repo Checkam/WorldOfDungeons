@@ -1,0 +1,322 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="structs__entite" kind="struct" language="C++" prot="public">
+    <compoundname>s_entite</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structs__entite_1af923fde952cf1489094c25cc01e2265e" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int s_entite::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="86" column="1" bodyfile="include/entite.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__entite_1a4411274c9b2162c48a5deecf9555f3b9" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* s_entite::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="87" column="1" bodyfile="include/entite.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__entite_1ae6cb5d83e6ca7283d74db7ff17d911f0" prot="public" static="no" mutable="no">
+        <type>long int</type>
+        <definition>long int s_entite::xp</definition>
+        <argsstring></argsstring>
+        <name>xp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="88" column="1" bodyfile="include/entite.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__entite_1ad315e4304c73b41fbdd2460f8d60a3c1" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int s_entite::mana</definition>
+        <argsstring></argsstring>
+        <name>mana</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="89" column="1" bodyfile="include/entite.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__entite_1afb1c28cff622019e4c84241432a1f18c" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int s_entite::pv</definition>
+        <argsstring></argsstring>
+        <name>pv</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="89" column="1" bodyfile="include/entite.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__entite_1ab2988c2bdcedb380dc431e120605634d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int s_entite::faim</definition>
+        <argsstring></argsstring>
+        <name>faim</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="89" column="1" bodyfile="include/entite.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__entite_1a4be29a77ac79e7aee1f2c4e596820b9c" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int s_entite::mana_max</definition>
+        <argsstring></argsstring>
+        <name>mana_max</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="90" column="1" bodyfile="include/entite.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__entite_1a5bd2fe6d75e6aadbbf1ac0e234a2ca84" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int s_entite::pv_max</definition>
+        <argsstring></argsstring>
+        <name>pv_max</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="90" column="1" bodyfile="include/entite.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__entite_1a6d1a10ef05c8826c34b78d3e7c4ad549" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int s_entite::faim_max</definition>
+        <argsstring></argsstring>
+        <name>faim_max</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="90" column="1" bodyfile="include/entite.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__entite_1a3838ef605d756f3b912ec56aa1509949" prot="public" static="no" mutable="no">
+        <type>SDL_Rect</type>
+        <definition>SDL_Rect s_entite::hitbox</definition>
+        <argsstring></argsstring>
+        <name>hitbox</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="91" column="1" bodyfile="include/entite.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__entite_1a38d21de8b1a821ee6d1b8639e0e81651" prot="public" static="no" mutable="no">
+        <type>SDL_Rect</type>
+        <definition>SDL_Rect s_entite::posEnt</definition>
+        <argsstring></argsstring>
+        <name>posEnt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="92" column="1" bodyfile="include/entite.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__entite_1a827af70c6a30ecc5eecc6317f6c2b855" prot="public" static="no" mutable="no">
+        <type>SDL_Texture *</type>
+        <definition>SDL_Texture* s_entite::texture</definition>
+        <argsstring></argsstring>
+        <name>texture</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="93" column="1" bodyfile="include/entite.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__entite_1a0927bc2b0fa101461caa9b21177de940" prot="public" static="no" mutable="no">
+        <type><ref refid="structt__anim__action" kindref="compound">t_anim_action</ref> *</type>
+        <definition>t_anim_action* s_entite::texture_action</definition>
+        <argsstring></argsstring>
+        <name>texture_action</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="94" column="1" bodyfile="include/entite.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__entite_1a80927970b79d3df3158f306243d9d481" prot="public" static="no" mutable="no">
+        <type>SDL_Rect</type>
+        <definition>SDL_Rect s_entite::texture_part</definition>
+        <argsstring></argsstring>
+        <name>texture_part</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="95" column="1" bodyfile="include/entite.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__entite_1a98af5c5c77a14634c18f1b484798def2" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int s_entite::col_act_prec</definition>
+        <argsstring></argsstring>
+        <name>col_act_prec</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="96" column="1" bodyfile="include/entite.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__entite_1a069012cbf542056bc833ce90a0d53eb6" prot="public" static="no" mutable="no">
+        <type><ref refid="entite_8h_1abf8170fe3a93ebd8f3701bbf092ece99" kindref="member">t_action</ref></type>
+        <definition>t_action s_entite::act_pred</definition>
+        <argsstring></argsstring>
+        <name>act_pred</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="97" column="1" bodyfile="include/entite.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__entite_1a48a8316944ef8b57b2b09c81573c3d30" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int s_entite::temp_dep</definition>
+        <argsstring></argsstring>
+        <name>temp_dep</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="98" column="1" bodyfile="include/entite.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__entite_1aa99b15602879121a005f7766de54b0c3" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float s_entite::velX</definition>
+        <argsstring></argsstring>
+        <name>velX</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="99" column="1" bodyfile="include/entite.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__entite_1a40af39b99b6c4420d16de9c88d2cbab6" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float s_entite::velY</definition>
+        <argsstring></argsstring>
+        <name>velY</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="99" column="1" bodyfile="include/entite.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__entite_1a280f04f96caa27f11ca1c5d1a397b6ff" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float s_entite::accX</definition>
+        <argsstring></argsstring>
+        <name>accX</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="99" column="1" bodyfile="include/entite.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__entite_1a4d968eef8d7a52ae9cf2072dfc1d634e" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float s_entite::accY</definition>
+        <argsstring></argsstring>
+        <name>accY</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="99" column="1" bodyfile="include/entite.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="13">
+        <label>s_entite</label>
+        <link refid="structs__entite"/>
+        <childnode refid="14" relation="usage">
+          <edgelabel>texture_action</edgelabel>
+        </childnode>
+      </node>
+      <node id="14">
+        <label>t_anim_action</label>
+        <link refid="structt__anim__action"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/entite.h" line="85" column="1" bodyfile="include/entite.h" bodystart="84" bodyend="101"/>
+    <listofallmembers>
+      <member refid="structs__entite_1a280f04f96caa27f11ca1c5d1a397b6ff" prot="public" virt="non-virtual"><scope>s_entite</scope><name>accX</name></member>
+      <member refid="structs__entite_1a4d968eef8d7a52ae9cf2072dfc1d634e" prot="public" virt="non-virtual"><scope>s_entite</scope><name>accY</name></member>
+      <member refid="structs__entite_1a069012cbf542056bc833ce90a0d53eb6" prot="public" virt="non-virtual"><scope>s_entite</scope><name>act_pred</name></member>
+      <member refid="structs__entite_1a98af5c5c77a14634c18f1b484798def2" prot="public" virt="non-virtual"><scope>s_entite</scope><name>col_act_prec</name></member>
+      <member refid="structs__entite_1ab2988c2bdcedb380dc431e120605634d" prot="public" virt="non-virtual"><scope>s_entite</scope><name>faim</name></member>
+      <member refid="structs__entite_1a6d1a10ef05c8826c34b78d3e7c4ad549" prot="public" virt="non-virtual"><scope>s_entite</scope><name>faim_max</name></member>
+      <member refid="structs__entite_1a3838ef605d756f3b912ec56aa1509949" prot="public" virt="non-virtual"><scope>s_entite</scope><name>hitbox</name></member>
+      <member refid="structs__entite_1af923fde952cf1489094c25cc01e2265e" prot="public" virt="non-virtual"><scope>s_entite</scope><name>id</name></member>
+      <member refid="structs__entite_1ad315e4304c73b41fbdd2460f8d60a3c1" prot="public" virt="non-virtual"><scope>s_entite</scope><name>mana</name></member>
+      <member refid="structs__entite_1a4be29a77ac79e7aee1f2c4e596820b9c" prot="public" virt="non-virtual"><scope>s_entite</scope><name>mana_max</name></member>
+      <member refid="structs__entite_1a4411274c9b2162c48a5deecf9555f3b9" prot="public" virt="non-virtual"><scope>s_entite</scope><name>name</name></member>
+      <member refid="structs__entite_1a38d21de8b1a821ee6d1b8639e0e81651" prot="public" virt="non-virtual"><scope>s_entite</scope><name>posEnt</name></member>
+      <member refid="structs__entite_1afb1c28cff622019e4c84241432a1f18c" prot="public" virt="non-virtual"><scope>s_entite</scope><name>pv</name></member>
+      <member refid="structs__entite_1a5bd2fe6d75e6aadbbf1ac0e234a2ca84" prot="public" virt="non-virtual"><scope>s_entite</scope><name>pv_max</name></member>
+      <member refid="structs__entite_1a48a8316944ef8b57b2b09c81573c3d30" prot="public" virt="non-virtual"><scope>s_entite</scope><name>temp_dep</name></member>
+      <member refid="structs__entite_1a827af70c6a30ecc5eecc6317f6c2b855" prot="public" virt="non-virtual"><scope>s_entite</scope><name>texture</name></member>
+      <member refid="structs__entite_1a0927bc2b0fa101461caa9b21177de940" prot="public" virt="non-virtual"><scope>s_entite</scope><name>texture_action</name></member>
+      <member refid="structs__entite_1a80927970b79d3df3158f306243d9d481" prot="public" virt="non-virtual"><scope>s_entite</scope><name>texture_part</name></member>
+      <member refid="structs__entite_1aa99b15602879121a005f7766de54b0c3" prot="public" virt="non-virtual"><scope>s_entite</scope><name>velX</name></member>
+      <member refid="structs__entite_1a40af39b99b6c4420d16de9c88d2cbab6" prot="public" virt="non-virtual"><scope>s_entite</scope><name>velY</name></member>
+      <member refid="structs__entite_1ae6cb5d83e6ca7283d74db7ff17d911f0" prot="public" virt="non-virtual"><scope>s_entite</scope><name>xp</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

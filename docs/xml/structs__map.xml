@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="structs__map" kind="struct" language="C++" prot="public">
+    <compoundname>s_map</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structs__map_1a6e477491ca38a20e97858e4bfc15bb76" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* s_map::nom</definition>
+        <argsstring></argsstring>
+        <name>nom</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/map.h" line="22" column="1" bodyfile="include/map.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__map_1ac4f52200210d1e78a779bd17505aa821" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int s_map::SEED</definition>
+        <argsstring></argsstring>
+        <name>SEED</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/map.h" line="23" column="1" bodyfile="include/map.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__map_1a0014bbd4846d6ef5babe9e3980a5cda4" prot="public" static="no" mutable="no">
+        <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+        <definition>t_liste* s_map::list</definition>
+        <argsstring></argsstring>
+        <name>list</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/map.h" line="24" column="1" bodyfile="include/map.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="21">
+        <label>s_map</label>
+        <link refid="structs__map"/>
+        <childnode refid="22" relation="usage">
+          <edgelabel>list</edgelabel>
+        </childnode>
+      </node>
+      <node id="22">
+        <label>t_liste</label>
+        <link refid="structt__liste"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/map.h" line="21" column="1" bodyfile="include/map.h" bodystart="21" bodyend="25"/>
+    <listofallmembers>
+      <member refid="structs__map_1a0014bbd4846d6ef5babe9e3980a5cda4" prot="public" virt="non-virtual"><scope>s_map</scope><name>list</name></member>
+      <member refid="structs__map_1a6e477491ca38a20e97858e4bfc15bb76" prot="public" virt="non-virtual"><scope>s_map</scope><name>nom</name></member>
+      <member refid="structs__map_1ac4f52200210d1e78a779bd17505aa821" prot="public" virt="non-virtual"><scope>s_map</scope><name>SEED</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

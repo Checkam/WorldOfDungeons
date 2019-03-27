@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="structelement" kind="struct" language="C++" prot="public">
+    <compoundname>element</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structelement_1af09e666501f69cf1d16423f6cc986e0a" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* element::elem</definition>
+        <argsstring></argsstring>
+        <name>elem</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/liste.h" line="18" column="1" bodyfile="include/liste.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structelement_1a9f9ebee1fa1dce6d05bc325a66478635" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="structelement" kindref="compound">element</ref> *</type>
+        <definition>struct element* element::pred</definition>
+        <argsstring></argsstring>
+        <name>pred</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/liste.h" line="19" column="1" bodyfile="include/liste.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structelement_1abe10f441a14a96bd130a004585b475ad" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="structelement" kindref="compound">element</ref> *</type>
+        <definition>struct element* element::succ</definition>
+        <argsstring></argsstring>
+        <name>succ</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/liste.h" line="20" column="1" bodyfile="include/liste.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="7">
+        <label>element</label>
+        <link refid="structelement"/>
+        <childnode refid="7" relation="usage">
+          <edgelabel>pred</edgelabel>
+          <edgelabel>succ</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/liste.h" line="17" column="1" bodyfile="include/liste.h" bodystart="17" bodyend="21"/>
+    <listofallmembers>
+      <member refid="structelement_1af09e666501f69cf1d16423f6cc986e0a" prot="public" virt="non-virtual"><scope>element</scope><name>elem</name></member>
+      <member refid="structelement_1a9f9ebee1fa1dce6d05bc325a66478635" prot="public" virt="non-virtual"><scope>element</scope><name>pred</name></member>
+      <member refid="structelement_1abe10f441a14a96bd130a004585b475ad" prot="public" virt="non-virtual"><scope>element</scope><name>succ</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="structs__menu" kind="struct" language="C++" prot="public">
+    <compoundname>s_menu</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structs__menu_1a2db9c68c4c3320c6072e23b4b0468c61" prot="public" static="no" mutable="no">
+        <type><ref refid="structt__bouton__menu" kindref="compound">t_bouton_menu</ref> **</type>
+        <definition>t_bouton_menu** s_menu::tab_bouton</definition>
+        <argsstring></argsstring>
+        <name>tab_bouton</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/menu.h" line="48" column="1" bodyfile="include/menu.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__menu_1a7f7706a4a3c786c0d6f9bcf2da68b075" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int s_menu::nb_bouton</definition>
+        <argsstring></argsstring>
+        <name>nb_bouton</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/menu.h" line="49" column="1" bodyfile="include/menu.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__menu_1a69e96e7d4b40c64d1d0fad072a6cbd0d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int s_menu::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/menu.h" line="50" column="1" bodyfile="include/menu.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__menu_1a7ebf378ecae3391c2d3a5913f1d14a50" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int s_menu::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/menu.h" line="50" column="1" bodyfile="include/menu.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__menu_1a74d7b2ea1acba513bb4ec39a0ee161f5" prot="public" static="no" mutable="no">
+        <type>t_type_menu</type>
+        <definition>t_type_menu s_menu::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/menu.h" line="51" column="1" bodyfile="include/menu.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="25">
+        <label>t_bouton_menu</label>
+        <link refid="structt__bouton__menu"/>
+      </node>
+      <node id="24">
+        <label>s_menu</label>
+        <link refid="structs__menu"/>
+        <childnode refid="25" relation="usage">
+          <edgelabel>tab_bouton</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/menu.h" line="47" column="1" bodyfile="include/menu.h" bodystart="47" bodyend="52"/>
+    <listofallmembers>
+      <member refid="structs__menu_1a7ebf378ecae3391c2d3a5913f1d14a50" prot="public" virt="non-virtual"><scope>s_menu</scope><name>height</name></member>
+      <member refid="structs__menu_1a7f7706a4a3c786c0d6f9bcf2da68b075" prot="public" virt="non-virtual"><scope>s_menu</scope><name>nb_bouton</name></member>
+      <member refid="structs__menu_1a2db9c68c4c3320c6072e23b4b0468c61" prot="public" virt="non-virtual"><scope>s_menu</scope><name>tab_bouton</name></member>
+      <member refid="structs__menu_1a74d7b2ea1acba513bb4ec39a0ee161f5" prot="public" virt="non-virtual"><scope>s_menu</scope><name>type</name></member>
+      <member refid="structs__menu_1a69e96e7d4b40c64d1d0fad072a6cbd0d" prot="public" virt="non-virtual"><scope>s_menu</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

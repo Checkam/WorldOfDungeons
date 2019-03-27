@@ -1,0 +1,227 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="fichier_8h" kind="file" language="C++">
+    <compoundname>fichier.h</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes refid="erreur_8h" local="no">erreur.h</includes>
+    <includedby refid="binaire_8c" local="no">src/binaire.c</includedby>
+    <includedby refid="fichier_8c" local="no">src/fichier.c</includedby>
+    <includedby refid="json_8c" local="no">src/json.c</includedby>
+    <incdepgraph>
+      <node id="134">
+        <label>stdlib.h</label>
+      </node>
+      <node id="132">
+        <label>include/fichier.h</label>
+        <link refid="fichier_8h"/>
+        <childnode refid="133" relation="include">
+        </childnode>
+        <childnode refid="134" relation="include">
+        </childnode>
+        <childnode refid="135" relation="include">
+        </childnode>
+      </node>
+      <node id="135">
+        <label>erreur.h</label>
+        <link refid="erreur_8h"/>
+      </node>
+      <node id="133">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="137">
+        <label>src/binaire.c</label>
+        <link refid="binaire_8c"/>
+      </node>
+      <node id="136">
+        <label>include/fichier.h</label>
+        <link refid="fichier_8h"/>
+        <childnode refid="137" relation="include">
+        </childnode>
+        <childnode refid="138" relation="include">
+        </childnode>
+        <childnode refid="139" relation="include">
+        </childnode>
+      </node>
+      <node id="138">
+        <label>src/fichier.c</label>
+        <link refid="fichier_8c"/>
+      </node>
+      <node id="139">
+        <label>src/json.c</label>
+        <link refid="json_8c"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="fichier_8h_1af2f3c3b5e9d1e2617582abb3e041432b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>FILE *</type>
+        <definition>FILE* open_file</definition>
+        <argsstring>(char *dossier, char *name, char *ext, char *mode)</argsstring>
+        <name>open_file</name>
+        <param>
+          <type>char *</type>
+          <declname>dossier</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>ext</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>mode</declname>
+        </param>
+        <briefdescription>
+<para>Créer, s&apos;il ne l&apos;est pas, le fichier et l&apos;ouvre. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dossier</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Chaine de caractère représentant le dossier ou se trouve le fichier. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Chaine de caractère représenant le nom du fichier. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ext</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Extension du fichier. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mode d&apos;ouverture du fichier. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Un pointeur sur le fichier ouvert. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/fichier.h" line="16" column="1" bodyfile="src/fichier.c" bodystart="26" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="fichier_8h_1a5c4db6cca6f318ceb70fc36c332326cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur del_file</definition>
+        <argsstring>(char *dossier, char *name, char *ext)</argsstring>
+        <name>del_file</name>
+        <param>
+          <type>char *</type>
+          <declname>dossier</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>ext</declname>
+        </param>
+        <briefdescription>
+<para>Supprime un fichier. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dossier</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Chaine de caractère représentant le dossier ou se trouve le fichier. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Chaine de caractère représenant le nom du fichier à supprimer. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ext</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Extension du fichier. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/fichier.h" line="17" column="1" bodyfile="src/fichier.c" bodystart="51" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="fichier_8h_1a649e98dee4921e6444661519ad00d25b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* concat_str</definition>
+        <argsstring>(char *str1, char *str2)</argsstring>
+        <name>concat_str</name>
+        <param>
+          <type>char *</type>
+          <declname>str1</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>str2</declname>
+        </param>
+        <briefdescription>
+<para>Concatène 2 chaine de caractère. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>str1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Chaine de caractère de gauche. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>str2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Chaine de caractère de droite. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une chaine de caractère résultat de la concatènation. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/fichier.h" line="19" column="1" bodyfile="src/fichier.c" bodystart="81" bodyend="87"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Module contenant les primitives de gestion de fichier. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>GALBRUN Tibane </para></simplesect>
+<simplesect kind="date"><para>12 Mars 2019 </para></simplesect>
+<simplesect kind="version"><para>0.1 </para></simplesect>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>__FICHIER_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__FICHIER_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="erreur_8h" kindref="compound">erreur.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal">FILE<sp/>*<sp/><ref refid="fichier_8h_1af2f3c3b5e9d1e2617582abb3e041432b" kindref="member">open_file</ref><sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>dossier,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>name,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>ext,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>mode);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">t_erreur<sp/><ref refid="fichier_8h_1a5c4db6cca6f318ceb70fc36c332326cb" kindref="member">del_file</ref><sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>dossier,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>name,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>ext);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/><ref refid="fichier_8h_1a649e98dee4921e6444661519ad00d25b" kindref="member">concat_str</ref><sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>str1,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>str2);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="include/fichier.h"/>
+  </compounddef>
+</doxygen>

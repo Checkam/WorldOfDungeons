@@ -1,0 +1,262 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="perlin_8c" kind="file" language="C++">
+    <compoundname>perlin.c</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes refid="commun_8h" local="no">commun.h</includes>
+    <incdepgraph>
+      <node id="428">
+        <label>commun.h</label>
+        <link refid="commun_8h_source"/>
+      </node>
+      <node id="427">
+        <label>stdlib.h</label>
+      </node>
+      <node id="425">
+        <label>src/perlin.c</label>
+        <link refid="perlin_8c"/>
+        <childnode refid="426" relation="include">
+        </childnode>
+        <childnode refid="427" relation="include">
+        </childnode>
+        <childnode refid="428" relation="include">
+        </childnode>
+      </node>
+      <node id="426">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="perlin_8c_1a4cc0888c32935d0c45fedac25e25d4ee" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int hash[]</definition>
+        <argsstring>[]</argsstring>
+        <name>hash</name>
+        <initializer>= {208, 34, 231, 213, 32, 248, 233, 56, 161, 78, 24, 140, 71, 48, 140, 254, 245, 255, 247, 247, 40,
+                     185, 248, 251, 245, 28, 124, 204, 204, 76, 36, 1, 107, 28, 234, 163, 202, 224, 245, 128, 167, 204,
+                     9, 92, 217, 54, 239, 174, 173, 102, 193, 189, 190, 121, 100, 108, 167, 44, 43, 77, 180, 204, 8, 81,
+                     70, 223, 11, 38, 24, 254, 210, 210, 177, 32, 81, 195, 243, 125, 8, 169, 112, 32, 97, 53, 195, 13,
+                     203, 9, 47, 104, 125, 117, 114, 124, 165, 203, 181, 235, 193, 206, 70, 180, 174, 0, 167, 181, 41,
+                     164, 30, 116, 127, 198, 245, 146, 87, 224, 149, 206, 57, 4, 192, 210, 65, 210, 129, 240, 178, 105,
+                     228, 108, 245, 148, 140, 40, 35, 195, 38, 58, 65, 207, 215, 253, 65, 85, 208, 76, 62, 3, 237, 55, 89,
+                     232, 50, 217, 64, 244, 157, 199, 121, 252, 90, 17, 212, 203, 149, 152, 140, 187, 234, 177, 73, 174,
+                     193, 100, 192, 143, 97, 53, 145, 135, 19, 103, 13, 90, 135, 151, 199, 91, 239, 247, 33, 39, 145,
+                     101, 120, 99, 3, 186, 86, 99, 41, 237, 203, 111, 79, 220, 135, 158, 42, 30, 154, 120, 67, 87, 167,
+                     135, 176, 183, 191, 253, 115, 184, 21, 233, 58, 129, 233, 142, 39, 128, 211, 118, 137, 139, 255,
+                     114, 20, 218, 113, 154, 27, 127, 246, 250, 1, 8, 198, 250, 209, 92, 222, 173, 21, 88, 102, 219}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/perlin.c" line="31" column="1" bodyfile="src/perlin.c" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="perlin_8c_1a0217acdda1d699354774af02e79d3f29" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int noise2</definition>
+        <argsstring>(int x, int y)</argsstring>
+        <name>noise2</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+<para>Renvoie une valeur d&apos;un tableau dont l&apos;indice est calculer a partir d&apos;un SEED. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/perlin.c" line="45" column="1" bodyfile="src/perlin.c" bodystart="45" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="perlin_8c_1abb5fc4a0d8a975da6f8bc1f72599195e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float lin_inter</definition>
+        <argsstring>(float x, float y, float s)</argsstring>
+        <name>lin_inter</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+<para>A définir. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/perlin.c" line="50" column="1" bodyfile="src/perlin.c" bodystart="50" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="perlin_8c_1af89ba8e2b0578dd6413d35e07a46ff6b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float smooth_inter</definition>
+        <argsstring>(float x, float y, float s)</argsstring>
+        <name>smooth_inter</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+<para>A définir. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/perlin.c" line="54" column="1" bodyfile="src/perlin.c" bodystart="54" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="perlin_8c_1aedcfadb36e2749eb7dafcd56c051c755" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float noise2d</definition>
+        <argsstring>(float x, float y)</argsstring>
+        <name>noise2d</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+<para>A définir. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/perlin.c" line="58" column="1" bodyfile="src/perlin.c" bodystart="58" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="perlin_8c_1a2af0d3d29624c62a028497de1bdadcbe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float perlin2d</definition>
+        <argsstring>(float x, float y, float freq, int depth)</argsstring>
+        <name>perlin2d</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>freq</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>depth</declname>
+        </param>
+        <briefdescription>
+<para>A définir. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/perlin.c" line="72" column="1" bodyfile="src/perlin.c" bodystart="72" bodyend="90"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="26"><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;commun.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>hash[]<sp/>=<sp/>{208,<sp/>34,<sp/>231,<sp/>213,<sp/>32,<sp/>248,<sp/>233,<sp/>56,<sp/>161,<sp/>78,<sp/>24,<sp/>140,<sp/>71,<sp/>48,<sp/>140,<sp/>254,<sp/>245,<sp/>255,<sp/>247,<sp/>247,<sp/>40,</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>185,<sp/>248,<sp/>251,<sp/>245,<sp/>28,<sp/>124,<sp/>204,<sp/>204,<sp/>76,<sp/>36,<sp/>1,<sp/>107,<sp/>28,<sp/>234,<sp/>163,<sp/>202,<sp/>224,<sp/>245,<sp/>128,<sp/>167,<sp/>204,</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>9,<sp/>92,<sp/>217,<sp/>54,<sp/>239,<sp/>174,<sp/>173,<sp/>102,<sp/>193,<sp/>189,<sp/>190,<sp/>121,<sp/>100,<sp/>108,<sp/>167,<sp/>44,<sp/>43,<sp/>77,<sp/>180,<sp/>204,<sp/>8,<sp/>81,</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>70,<sp/>223,<sp/>11,<sp/>38,<sp/>24,<sp/>254,<sp/>210,<sp/>210,<sp/>177,<sp/>32,<sp/>81,<sp/>195,<sp/>243,<sp/>125,<sp/>8,<sp/>169,<sp/>112,<sp/>32,<sp/>97,<sp/>53,<sp/>195,<sp/>13,</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>203,<sp/>9,<sp/>47,<sp/>104,<sp/>125,<sp/>117,<sp/>114,<sp/>124,<sp/>165,<sp/>203,<sp/>181,<sp/>235,<sp/>193,<sp/>206,<sp/>70,<sp/>180,<sp/>174,<sp/>0,<sp/>167,<sp/>181,<sp/>41,</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>164,<sp/>30,<sp/>116,<sp/>127,<sp/>198,<sp/>245,<sp/>146,<sp/>87,<sp/>224,<sp/>149,<sp/>206,<sp/>57,<sp/>4,<sp/>192,<sp/>210,<sp/>65,<sp/>210,<sp/>129,<sp/>240,<sp/>178,<sp/>105,</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>228,<sp/>108,<sp/>245,<sp/>148,<sp/>140,<sp/>40,<sp/>35,<sp/>195,<sp/>38,<sp/>58,<sp/>65,<sp/>207,<sp/>215,<sp/>253,<sp/>65,<sp/>85,<sp/>208,<sp/>76,<sp/>62,<sp/>3,<sp/>237,<sp/>55,<sp/>89,</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>232,<sp/>50,<sp/>217,<sp/>64,<sp/>244,<sp/>157,<sp/>199,<sp/>121,<sp/>252,<sp/>90,<sp/>17,<sp/>212,<sp/>203,<sp/>149,<sp/>152,<sp/>140,<sp/>187,<sp/>234,<sp/>177,<sp/>73,<sp/>174,</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>193,<sp/>100,<sp/>192,<sp/>143,<sp/>97,<sp/>53,<sp/>145,<sp/>135,<sp/>19,<sp/>103,<sp/>13,<sp/>90,<sp/>135,<sp/>151,<sp/>199,<sp/>91,<sp/>239,<sp/>247,<sp/>33,<sp/>39,<sp/>145,</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>101,<sp/>120,<sp/>99,<sp/>3,<sp/>186,<sp/>86,<sp/>99,<sp/>41,<sp/>237,<sp/>203,<sp/>111,<sp/>79,<sp/>220,<sp/>135,<sp/>158,<sp/>42,<sp/>30,<sp/>154,<sp/>120,<sp/>67,<sp/>87,<sp/>167,</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>135,<sp/>176,<sp/>183,<sp/>191,<sp/>253,<sp/>115,<sp/>184,<sp/>21,<sp/>233,<sp/>58,<sp/>129,<sp/>233,<sp/>142,<sp/>39,<sp/>128,<sp/>211,<sp/>118,<sp/>137,<sp/>139,<sp/>255,</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>114,<sp/>20,<sp/>218,<sp/>113,<sp/>154,<sp/>27,<sp/>127,<sp/>246,<sp/>250,<sp/>1,<sp/>8,<sp/>198,<sp/>250,<sp/>209,<sp/>92,<sp/>222,<sp/>173,<sp/>21,<sp/>88,<sp/>102,<sp/>219};</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="perlin_8h_1a0217acdda1d699354774af02e79d3f29" kindref="member">noise2</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y){</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>tmp<sp/>=<sp/>hash[(y<sp/>+<sp/>SEED)<sp/>%<sp/>256];</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>hash[(tmp<sp/>+<sp/>x)<sp/>%<sp/>256];</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="perlin_8h_1abb5fc4a0d8a975da6f8bc1f72599195e" kindref="member">lin_inter</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>y,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>s){</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>x<sp/>+<sp/>s<sp/>*<sp/>(y<sp/>-<sp/>x);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="perlin_8h_1af89ba8e2b0578dd6413d35e07a46ff6b" kindref="member">smooth_inter</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>y,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>s){</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="perlin_8h_1abb5fc4a0d8a975da6f8bc1f72599195e" kindref="member">lin_inter</ref>(x,<sp/>y,<sp/>s<sp/>*<sp/>s<sp/>*<sp/>(3<sp/>-<sp/>2<sp/>*<sp/>s));</highlight></codeline>
+<codeline lineno="56"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="perlin_8h_1aedcfadb36e2749eb7dafcd56c051c755" kindref="member">noise2d</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>y){</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x_int<sp/>=<sp/>x;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y_int<sp/>=<sp/>y;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>x_frac<sp/>=<sp/>x<sp/>-<sp/>x_int;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>y_frac<sp/>=<sp/>y<sp/>-<sp/>y_int;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>s<sp/>=<sp/><ref refid="perlin_8h_1a0217acdda1d699354774af02e79d3f29" kindref="member">noise2</ref>(x_int,<sp/>y_int);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>t<sp/>=<sp/><ref refid="perlin_8h_1a0217acdda1d699354774af02e79d3f29" kindref="member">noise2</ref>(x_int<sp/>+<sp/>1,<sp/>y_int);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>u<sp/>=<sp/><ref refid="perlin_8h_1a0217acdda1d699354774af02e79d3f29" kindref="member">noise2</ref>(x_int,<sp/>y_int<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>v<sp/>=<sp/><ref refid="perlin_8h_1a0217acdda1d699354774af02e79d3f29" kindref="member">noise2</ref>(x_int<sp/>+<sp/>1,<sp/>y_int<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>low<sp/>=<sp/><ref refid="perlin_8h_1af89ba8e2b0578dd6413d35e07a46ff6b" kindref="member">smooth_inter</ref>(s,<sp/>t,<sp/>x_frac);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>high<sp/>=<sp/><ref refid="perlin_8h_1af89ba8e2b0578dd6413d35e07a46ff6b" kindref="member">smooth_inter</ref>(u,<sp/>v,<sp/>x_frac);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="perlin_8h_1af89ba8e2b0578dd6413d35e07a46ff6b" kindref="member">smooth_inter</ref>(low,<sp/>high,<sp/>y_frac);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="perlin_8h_1a2af0d3d29624c62a028497de1bdadcbe" kindref="member">perlin2d</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>y,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>freq,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>depth){</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>xa<sp/>=<sp/>x<sp/>*<sp/>freq;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>ya<sp/>=<sp/>y<sp/>*<sp/>freq;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>amp<sp/>=<sp/>1.0;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>fin<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>div<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>depth;<sp/>i++)</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>div<sp/>+=<sp/>256<sp/>*<sp/>amp;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fin<sp/>+=<sp/><ref refid="perlin_8h_1aedcfadb36e2749eb7dafcd56c051c755" kindref="member">noise2d</ref>(xa,<sp/>ya)<sp/>*<sp/>amp;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>amp<sp/>/=<sp/>2;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xa<sp/>*=<sp/>2;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ya<sp/>*=<sp/>2;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>fin<sp/>/<sp/>div;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/perlin.c"/>
+  </compounddef>
+</doxygen>

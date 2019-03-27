@@ -1,0 +1,237 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="couleurs_8h" kind="file" language="C++">
+    <compoundname>couleurs.h</compoundname>
+    <includedby refid="affichage_8c" local="no">src/affichage.c</includedby>
+    <includedby refid="generation_8c" local="no">src/generation.c</includedby>
+    <includedby refid="world__of__dungeons_8c" local="no">src/world_of_dungeons.c</includedby>
+    <includedby refid="block_8h" local="no">include/block.h</includedby>
+    <invincdepgraph>
+      <node id="81">
+        <label>include/map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="76" relation="include">
+        </childnode>
+      </node>
+      <node id="74">
+        <label>src/donjon.c</label>
+        <link refid="donjon_8c"/>
+      </node>
+      <node id="79">
+        <label>include/structure_block.h</label>
+        <link refid="structure__block_8h"/>
+        <childnode refid="70" relation="include">
+        </childnode>
+        <childnode refid="77" relation="include">
+        </childnode>
+      </node>
+      <node id="80">
+        <label>include/generation.h</label>
+        <link refid="generation_8h"/>
+        <childnode refid="70" relation="include">
+        </childnode>
+        <childnode refid="77" relation="include">
+        </childnode>
+        <childnode refid="71" relation="include">
+        </childnode>
+      </node>
+      <node id="77">
+        <label>src/structure_block.c</label>
+        <link refid="structure__block_8c"/>
+      </node>
+      <node id="70">
+        <label>src/generation.c</label>
+        <link refid="generation_8c"/>
+      </node>
+      <node id="73">
+        <label>src/block.c</label>
+        <link refid="block_8c"/>
+      </node>
+      <node id="78">
+        <label>include/biome.h</label>
+        <link refid="biome_8h"/>
+        <childnode refid="70" relation="include">
+        </childnode>
+        <childnode refid="77" relation="include">
+        </childnode>
+        <childnode refid="79" relation="include">
+        </childnode>
+      </node>
+      <node id="68">
+        <label>include/couleurs.h</label>
+        <link refid="couleurs_8h"/>
+        <childnode refid="69" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+        <childnode refid="71" relation="include">
+        </childnode>
+        <childnode refid="72" relation="include">
+        </childnode>
+      </node>
+      <node id="71">
+        <label>src/world_of_dungeons.c</label>
+        <link refid="world__of__dungeons_8c"/>
+      </node>
+      <node id="69">
+        <label>src/affichage.c</label>
+        <link refid="affichage_8c"/>
+      </node>
+      <node id="75">
+        <label>src/entite.c</label>
+        <link refid="entite_8c"/>
+      </node>
+      <node id="76">
+        <label>src/map.c</label>
+        <link refid="map_8c"/>
+      </node>
+      <node id="72">
+        <label>include/block.h</label>
+        <link refid="block_8h"/>
+        <childnode refid="69" relation="include">
+        </childnode>
+        <childnode refid="73" relation="include">
+        </childnode>
+        <childnode refid="74" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+        <childnode refid="76" relation="include">
+        </childnode>
+        <childnode refid="77" relation="include">
+        </childnode>
+        <childnode refid="71" relation="include">
+        </childnode>
+        <childnode refid="78" relation="include">
+        </childnode>
+        <childnode refid="80" relation="include">
+        </childnode>
+        <childnode refid="81" relation="include">
+        </childnode>
+        <childnode refid="79" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="couleurs_8h_1a22c2b7cb14b1ffb516a9ed4a164b5cda" prot="public" static="no">
+        <name>VERT</name>
+        <initializer>&quot;\33[30;48;5;28m\033[38;5;28m&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/couleurs.h" line="1" column="9" bodyfile="include/couleurs.h" bodystart="1" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="couleurs_8h_1acc0a7665e1c69d82e36d6cd89d9ea1d4" prot="public" static="no">
+        <name>MARRON</name>
+        <initializer>&quot;\33[30;48;5;94m\033[38;5;94m&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/couleurs.h" line="2" column="9" bodyfile="include/couleurs.h" bodystart="2" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="couleurs_8h_1ae22837728df88da892b4bb16bb98296d" prot="public" static="no">
+        <name>BLEU</name>
+        <initializer>&quot;\33[30;48;5;26m\033[38;5;26m&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/couleurs.h" line="3" column="9" bodyfile="include/couleurs.h" bodystart="3" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="couleurs_8h_1a34c109ff6a0293c4706defe141ef7e0c" prot="public" static="no">
+        <name>JAUNE</name>
+        <initializer>&quot;\33[30;48;5;220m\033[38;5;220m&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/couleurs.h" line="4" column="9" bodyfile="include/couleurs.h" bodystart="4" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="couleurs_8h_1a4371941fa5aa27c04b3e2b973c39f4b0" prot="public" static="no">
+        <name>BLANC</name>
+        <initializer>&quot;\33[30;48;5;231m\033[38;5;231m&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/couleurs.h" line="5" column="9" bodyfile="include/couleurs.h" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="couleurs_8h_1a53a157dfb1d9f76fd0a9e0205d067143" prot="public" static="no">
+        <name>GRIS</name>
+        <initializer>&quot;\33[30;48;5;238m\033[38;5;238m&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/couleurs.h" line="6" column="9" bodyfile="include/couleurs.h" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="couleurs_8h_1a8a711bd77f878f23e61dfd98fc505a1c" prot="public" static="no">
+        <name>NOIR</name>
+        <initializer>&quot;\33[30;48;5;0m&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/couleurs.h" line="7" column="9" bodyfile="include/couleurs.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="couleurs_8h_1a358a59dd21062085dd34d5c228c5f136" prot="public" static="no">
+        <name>ROUGE</name>
+        <initializer>&quot;\33[30;48;5;0m\033[31m&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/couleurs.h" line="8" column="9" bodyfile="include/couleurs.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="couleurs_8h_1ad243f93c16bc4c1d3e0a13b84421d760" prot="public" static="no">
+        <name>CYAN</name>
+        <initializer>&quot;\33[30;48;5;81m\033[38;5;81m&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/couleurs.h" line="9" column="9" bodyfile="include/couleurs.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#define<sp/>VERT<sp/>&quot;\33[30;48;5;28m\033[38;5;28m&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MARRON<sp/>&quot;\33[30;48;5;94m\033[38;5;94m&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BLEU<sp/>&quot;\33[30;48;5;26m\033[38;5;26m&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>JAUNE<sp/>&quot;\33[30;48;5;220m\033[38;5;220m&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BLANC<sp/>&quot;\33[30;48;5;231m\033[38;5;231m&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GRIS<sp/>&quot;\33[30;48;5;238m\033[38;5;238m&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NOIR<sp/>&quot;\33[30;48;5;0m&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ROUGE<sp/>&quot;\33[30;48;5;0m\033[31m&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CYAN<sp/>&quot;\33[30;48;5;81m\033[38;5;81m&quot;</highlight></codeline>
+    </programlisting>
+    <location file="include/couleurs.h"/>
+  </compounddef>
+</doxygen>

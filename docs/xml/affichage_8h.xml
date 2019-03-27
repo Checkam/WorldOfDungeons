@@ -1,0 +1,229 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="affichage_8h" kind="file" language="C++">
+    <compoundname>affichage.h</compoundname>
+    <includes refid="liste_8h" local="no">liste.h</includes>
+    <includes local="no">SDL2/SDL.h</includes>
+    <includedby refid="map_8c" local="no">src/map.c</includedby>
+    <includedby refid="world__of__dungeons_8c" local="no">src/world_of_dungeons.c</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>liste.h</label>
+        <link refid="liste_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>SDL2/SDL.h</label>
+      </node>
+      <node id="2">
+        <label>erreur.h</label>
+        <link refid="erreur_8h"/>
+      </node>
+      <node id="0">
+        <label>include/affichage.h</label>
+        <link refid="affichage_8h"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="6">
+        <label>src/world_of_dungeons.c</label>
+        <link refid="world__of__dungeons_8c"/>
+      </node>
+      <node id="4">
+        <label>include/affichage.h</label>
+        <link refid="affichage_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>src/map.c</label>
+        <link refid="map_8c"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="affichage_8h_1a173bacc7dd7d14058ce8712b63b3ec40" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int AFF_RectInWindow</definition>
+        <argsstring>(SDL_Rect r)</argsstring>
+        <name>AFF_RectInWindow</name>
+        <param>
+          <type>SDL_Rect</type>
+          <declname>r</declname>
+        </param>
+        <briefdescription>
+<para>Vérifie si les coordonées d&apos;un carré (SDL_rect) est dans la fenetre. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>r</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>un carré SDL </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>un int 1 si dans la fenetre sinon 0 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/affichage.h" line="16" column="1" bodyfile="src/affichage.c" bodystart="25" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="affichage_8h_1a1bc8c979188d7c9dce4ececfc56a551c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int AFF_GetMidHeight</definition>
+        <argsstring>(t_liste *list)</argsstring>
+        <name>AFF_GetMidHeight</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <briefdescription>
+<para>Récupère la hauteur du milieu de la liste. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste des tableaux de block </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>return la hauteur du milieu d&apos;affichage </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/affichage.h" line="17" column="1" bodyfile="src/affichage.c" bodystart="34" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="affichage_8h_1a8317142dd0b92ca5481d2263c4475ca2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AFF_map_sdl</definition>
+        <argsstring>(t_liste *list, SDL_Renderer *renderer, int min)</argsstring>
+        <name>AFF_map_sdl</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <param>
+          <type>SDL_Renderer *</type>
+          <declname>renderer</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>min</declname>
+        </param>
+        <briefdescription>
+<para>Affiche une liste de tableau de block en SDL. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste de tableau de blocks a afficher </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>renderer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le rendu SDL </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>min</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>le minimun de l&apos;affichage (exemple: ) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Retourne rien </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/affichage.h" line="19" column="1" bodyfile="src/affichage.c" bodystart="60" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="affichage_8h_1ab1833fe0bc53d1fbb83d155b40724f56" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AFF_map_term</definition>
+        <argsstring>(t_liste *list, int min, int max)</argsstring>
+        <name>AFF_map_term</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>min</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>max</declname>
+        </param>
+        <briefdescription>
+<para>Affiche une liste de tableau de block sur le terminal. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste de tableau de blocks a afficher </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>min</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>le minimun de l&apos;affichage </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>max</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>le max de l&apos;affichage </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Retourne rien </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/affichage.h" line="22" column="1" bodyfile="src/affichage.c" bodystart="93" bodyend="104"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Module d&apos;affichage d&apos;une liste de block. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>{Maxence.D} </para></simplesect>
+<simplesect kind="version"><para>0.1 </para></simplesect>
+<simplesect kind="date"><para>10 mars 2019 </para></simplesect>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="8"><highlight class="preprocessor">#ifndef<sp/>__AFFICHAGE_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__AFFICHAGE_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="liste_8h" kindref="compound">liste.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;SDL2/SDL.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Fenetre<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="affichage_8h_1a173bacc7dd7d14058ce8712b63b3ec40" kindref="member">AFF_RectInWindow</ref>(SDL_Rect<sp/>r);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="affichage_8h_1a1bc8c979188d7c9dce4ececfc56a551c" kindref="member">AFF_GetMidHeight</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*list);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="affichage_8h_1a8317142dd0b92ca5481d2263c4475ca2" kindref="member">AFF_map_sdl</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*list,SDL_Renderer<sp/>*renderer,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>min);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Terminale<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="affichage_8h_1ab1833fe0bc53d1fbb83d155b40724f56" kindref="member">AFF_map_term</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*list,</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>min,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>max);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="include/affichage.h"/>
+  </compounddef>
+</doxygen>

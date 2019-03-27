@@ -1,0 +1,394 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="json_8h" kind="file" language="C++">
+    <compoundname>json.h</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes refid="erreur_8h" local="no">erreur.h</includes>
+    <includedby refid="json_8c" local="no">src/json.c</includedby>
+    <includedby refid="map_8c" local="no">src/map.c</includedby>
+    <includedby refid="touches_8c" local="no">src/touches.c</includedby>
+    <incdepgraph>
+      <node id="154">
+        <label>include/json.h</label>
+        <link refid="json_8h"/>
+        <childnode refid="155" relation="include">
+        </childnode>
+        <childnode refid="156" relation="include">
+        </childnode>
+        <childnode refid="157" relation="include">
+        </childnode>
+      </node>
+      <node id="156">
+        <label>stdlib.h</label>
+      </node>
+      <node id="157">
+        <label>erreur.h</label>
+        <link refid="erreur_8h"/>
+      </node>
+      <node id="155">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="158">
+        <label>include/json.h</label>
+        <link refid="json_8h"/>
+        <childnode refid="159" relation="include">
+        </childnode>
+        <childnode refid="160" relation="include">
+        </childnode>
+      </node>
+      <node id="160">
+        <label>src/map.c</label>
+        <link refid="map_8c"/>
+      </node>
+      <node id="159">
+        <label>src/json.c</label>
+        <link refid="json_8c"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="json_8h_1ad9d2248ecb6761100f56d4979a0ffd5c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>FILE *</type>
+        <definition>FILE* open_json</definition>
+        <argsstring>(char *dossier, char *name, char *mode)</argsstring>
+        <name>open_json</name>
+        <param>
+          <type>char *</type>
+          <declname>dossier</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>mode</declname>
+        </param>
+        <briefdescription>
+<para>Créer, s&apos;il ne l&apos;est pas, le fichier JSON et l&apos;ouvre. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dossier</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Chaine de caractère représentant le dossier ou se trouve le json. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Chaine de caractère représenant le nom du fichier sans le &apos;.json&apos;. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mode d&apos;ouverture du fichier. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Un pointeur sur le fichier ouvert. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/json.h" line="19" column="1" bodyfile="src/json.c" bodystart="38" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="json_8h_1a5a8741c615a1e8641a153f9c63ffaa10" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur del_json</definition>
+        <argsstring>(char *dossier, char *name)</argsstring>
+        <name>del_json</name>
+        <param>
+          <type>char *</type>
+          <declname>dossier</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Supprime un fichier JSON. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dossier</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Chaine de caractère représentant le dossier ou se trouve le json. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Chaine de caractère représenant le nom du fichier sans le &apos;.json&apos; à supprimer. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/json.h" line="22" column="1" bodyfile="src/json.c" bodystart="51" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="json_8h_1aef1b0866438f726985d55d84571526c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur write_json</definition>
+        <argsstring>(FILE *file, char *key, void *value, char *value_type)</argsstring>
+        <name>write_json</name>
+        <param>
+          <type>FILE *</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>value_type</declname>
+        </param>
+        <briefdescription>
+<para>Ecrit une clé/valeur au format JSON dans un fichier. </para>        </briefdescription>
+        <detaileddescription>
+<para>L&apos;écriture s&apos;effectue dans le fichier &apos;file&apos; en ajout avec pour contenu le couple clé/valeur &apos;key:value&apos;. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le fichier ou écrire. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La clé correspondant à la valeur. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La valeur à écrire. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le type de la valeur à écrire. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/json.h" line="28" column="1" bodyfile="src/json.c" bodystart="71" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="json_8h_1a6dd5ea7284f649e178e13e99c43600b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur open_json_obj</definition>
+        <argsstring>(FILE *file)</argsstring>
+        <name>open_json_obj</name>
+        <param>
+          <type>FILE *</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+<para>Démarre un nouvelle objet au format JSON dans un fichier. </para>        </briefdescription>
+        <detaileddescription>
+<para>L&apos;écriture s&apos;effectue dans le fichier &apos;file&apos; en ajout avec pour contenu &apos;{&apos; et la variable crt_car est mis à jour. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le fichier ou écrire. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/json.h" line="31" column="1" bodyfile="src/json.c" bodystart="102" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="json_8h_1a9d89aa163032048c68e8e4c3736c0b9c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur close_json_obj</definition>
+        <argsstring>(FILE *file)</argsstring>
+        <name>close_json_obj</name>
+        <param>
+          <type>FILE *</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+<para>Ferme l&apos;objet JSON. </para>        </briefdescription>
+        <detaileddescription>
+<para>L&apos;écriture s&apos;effectue dans le fichier &apos;file&apos; en ajout avec pour contenu &apos;}&apos; et la variable crt_car est mis à jour. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le fichier ou écrire. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/json.h" line="34" column="1" bodyfile="src/json.c" bodystart="120" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="json_8h_1a10b95a250726186ac4ddfdda6adad3e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur extract_json_obj</definition>
+        <argsstring>(FILE *file, char **obj)</argsstring>
+        <name>extract_json_obj</name>
+        <param>
+          <type>FILE *</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type>char **</type>
+          <declname>obj</declname>
+        </param>
+        <briefdescription>
+<para>Récupère un objet JSON dans un fichier. </para>        </briefdescription>
+        <detaileddescription>
+<para>La lecture s&apos;effectue dans le fichier &apos;file&apos; et on récupère un objet. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le fichier à lire. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>obj</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>L&apos;endroit ou enregistrer l&apos;objet. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/json.h" line="40" column="1" bodyfile="src/json.c" bodystart="144" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="function" id="json_8h_1a44c9b298308109129b3ecac1ad911db8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur read_json_obj</definition>
+        <argsstring>(char *obj, char *key, void *value, char *value_type)</argsstring>
+        <name>read_json_obj</name>
+        <param>
+          <type>char *</type>
+          <declname>obj</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>value_type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/json.h" line="44" column="1" bodyfile="src/json.c" bodystart="177" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="function" id="json_8h_1acd75e719d37a9c3f57167eeadfede913" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur fstart</definition>
+        <argsstring>(FILE *file)</argsstring>
+        <name>fstart</name>
+        <param>
+          <type>FILE *</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+<para>Remet le pointeur file au début du fichier. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le fichier où repartir du début. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/json.h" line="47" column="1" bodyfile="src/json.c" bodystart="230" bodyend="235"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Module contenant les primitives et les structures permettant l&apos;écriture et la lecture de fichier JSON. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>GALBRUN Tibane </para></simplesect>
+<simplesect kind="version"><para>0.3 </para></simplesect>
+<simplesect kind="date"><para>5 Mars 2019 </para></simplesect>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>__JSON_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__JSON_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="erreur_8h" kindref="compound">erreur.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Primitives<sp/>de<sp/>création,<sp/>d&apos;ouverture,<sp/>de<sp/>fermeture<sp/>et<sp/>de<sp/>suppression<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Création<sp/>et/ou<sp/>Ouverture<sp/>d&apos;un<sp/>fichier<sp/>JSON<sp/>/</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">Utilisation<sp/>:<sp/>FILE<sp/>*<sp/>file<sp/>=<sp/>open_json(&quot;dossier/JSON&quot;,<sp/>&quot;name&quot;,<sp/>&quot;mode&quot;)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal">FILE<sp/>*<sp/><ref refid="json_8h_1ad9d2248ecb6761100f56d4979a0ffd5c" kindref="member">open_json</ref><sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>dossier,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>name,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>mode);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Suppression<sp/>d&apos;un<sp/>fichier<sp/>JSON<sp/>/</highlight></codeline>
+<codeline lineno="21"><highlight class="comment">Utilisation<sp/>:<sp/>del_json(&quot;dossier/JSON&quot;,<sp/>&quot;name&quot;)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal">t_erreur<sp/><ref refid="json_8h_1a5a8741c615a1e8641a153f9c63ffaa10" kindref="member">del_json</ref><sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>dossier,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>name);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Primitives<sp/>d&apos;écriture<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Ecriture<sp/>dans<sp/>un<sp/>fichier<sp/>JSON<sp/>d&apos;une<sp/>valeur<sp/>avec<sp/>sa<sp/>clé<sp/>/</highlight></codeline>
+<codeline lineno="27"><highlight class="comment">Utilisation<sp/>:<sp/>write_json(file,<sp/>cle,<sp/>valeur,<sp/>type_de_la_valeur)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal">t_erreur<sp/><ref refid="json_8h_1aef1b0866438f726985d55d84571526c8" kindref="member">write_json</ref><sp/>(FILE<sp/>*<sp/>file,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>key,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>value,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>value_type);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Ouverture<sp/>d&apos;un<sp/>nouvel<sp/>objet<sp/>dans<sp/>un<sp/>fichier<sp/>JSON<sp/>/</highlight></codeline>
+<codeline lineno="30"><highlight class="comment">Utilisation<sp/>:<sp/>open_json_obj(file)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal">t_erreur<sp/><ref refid="json_8h_1a6dd5ea7284f649e178e13e99c43600b3" kindref="member">open_json_obj</ref><sp/>(FILE<sp/>*<sp/>file);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Fermeture<sp/>d&apos;un<sp/>objet<sp/>dans<sp/>un<sp/>fichier<sp/>JSON<sp/>/</highlight></codeline>
+<codeline lineno="33"><highlight class="comment">Utilisation<sp/>:<sp/>close_json_obj(file)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal">t_erreur<sp/><ref refid="json_8h_1a9d89aa163032048c68e8e4c3736c0b9c" kindref="member">close_json_obj</ref><sp/>(FILE<sp/>*<sp/>file);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Primitives<sp/>de<sp/>lecture<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Extraction<sp/>d&apos;un<sp/>objet<sp/>dans<sp/>un<sp/>fichier<sp/>JSON<sp/>/</highlight></codeline>
+<codeline lineno="39"><highlight class="comment">Utilisation<sp/>:<sp/>extract_json_obj(file,<sp/>&amp;obj)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal">t_erreur<sp/><ref refid="json_8h_1a10b95a250726186ac4ddfdda6adad3e3" kindref="member">extract_json_obj</ref><sp/>(FILE<sp/>*<sp/>file,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**<sp/>obj);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Lit<sp/>le<sp/>contenu<sp/>d&apos;un<sp/>objet<sp/>/</highlight></codeline>
+<codeline lineno="42"><highlight class="comment">Utilisation<sp/>:<sp/>read_json_obj(obj,cle,valeur,type_de_la_valeur)</highlight></codeline>
+<codeline lineno="43"><highlight class="comment">type_de_la_valeur<sp/>=<sp/>[d,s,f]<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal">t_erreur<sp/>read_json_obj<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>obj,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>key,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>value,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>value_type);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Remet<sp/>au<sp/>début<sp/>du<sp/>fichier<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal">t_erreur<sp/><ref refid="json_8h_1acd75e719d37a9c3f57167eeadfede913" kindref="member">fstart</ref><sp/>(FILE<sp/>*<sp/>file);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="include/json.h"/>
+  </compounddef>
+</doxygen>

@@ -1,568 +1,466 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.14"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Génération Procedural et Stockage de donnée: Référence du fichier src/menu.c</title>
-<link href="tabs.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="jquery.js"></script>
-<script type="text/javascript" src="dynsections.js"></script>
-<link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
-<script type="text/javascript" src="search/search.js"></script>
-<link href="doxygen.css" rel="stylesheet" type="text/css" />
+  <meta charset="UTF-8" />
+  <title>src/menu.c file | World Of Dungeons Jeu de Survie</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
+  <link rel="stylesheet" href="m-dark+doxygen.compiled.css" />
+  <link rel="icon" href="favicon-dark.png" type="image/png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
 </head>
 <body>
-<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
-<div id="titlearea">
-<table cellspacing="0" cellpadding="0">
- <tbody>
- <tr style="height: 56px;">
-  <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Génération Procedural et Stockage de donnée
-   </div>
-   <div id="projectbrief">Le but de ce projet de d&#39;apprendre a utilisé Perlin noise en commmencant a réfléchir au structure que nous aurons besoin</div>
-  </td>
- </tr>
- </tbody>
-</table>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <a href="index.html" id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">World Of Dungeons <span class="m-thin">Jeu de Survie</span></a>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-dox-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path d="m6 0c-3.3144 0-6 2.6856-6 6 0 3.3144 2.6856 6 6 6 1.4858 0 2.8463-0.54083 3.8945-1.4355-0.0164 0.33797 0.14734 0.75854 0.5 1.1504l3.2227 3.7891c0.55185 0.6139 1.4517 0.66544 2.002 0.11524 0.55022-0.55022 0.49866-1.4501-0.11524-2.002l-3.7891-3.2246c-0.39184-0.35266-0.81242-0.51469-1.1504-0.5 0.89472-1.0482 1.4355-2.4088 1.4355-3.8945 0-3.3128-2.6856-5.998-6-5.998zm0 1.5625a4.4375 4.4375 0 0 1 4.4375 4.4375 4.4375 4.4375 0 0 1-4.4375 4.4375 4.4375 4.4375 0 0 1-4.4375-4.4375 4.4375 4.4375 0 0 1 4.4375-4.4375z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="1">
+            <li><a href="annotated.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-dox-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <path d="m6 0c-3.3144 0-6 2.6856-6 6 0 3.3144 2.6856 6 6 6 1.4858 0 2.8463-0.54083 3.8945-1.4355-0.0164 0.33797 0.14734 0.75854 0.5 1.1504l3.2227 3.7891c0.55185 0.6139 1.4517 0.66544 2.002 0.11524 0.55022-0.55022 0.49866-1.4501-0.11524-2.002l-3.7891-3.2246c-0.39184-0.35266-0.81242-0.51469-1.1504-0.5 0.89472-1.0482 1.4355-2.4088 1.4355-3.8945 0-3.3128-2.6856-5.998-6-5.998zm0 1.5625a4.4375 4.4375 0 0 1 4.4375 4.4375 4.4375 4.4375 0 0 1-4.4375 4.4375 4.4375 4.4375 0 0 1-4.4375-4.4375 4.4375 4.4375 0 0 1 4.4375-4.4375z"/>
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a>/</span>menu.c <span class="m-thin">file</span>
+        </h1>
+        <p>Gestion du menu (solo, multijoueur, ...)</p>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#func-members">Functions</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+<aside class="m-note m-default"><h4>Author</h4><p>Jasmin GALBRUN</p></aside><aside class="m-note m-default"><h4>Version</h4><p>3</p></aside><aside class="m-note m-default"><h4>Date</h4><p>15/03/2019</p></aside>
+        <section id="func-members">
+          <h2><a href="#func-members">Functions</a></h2>
+          <dl class="m-dox">
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#aa771a9769760a4f490719761ac5d052c" class="m-dox">menu_init</a>(</span><span class="m-dox-wrap">SDL_Renderer* renderer) -&gt; t_erreur</span>
+            </dt>
+            <dd>Initialise Menu.</dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#a400dad194316a2c134c016ebf10a2f31" class="m-dox">menu_quit</a>(</span><span class="m-dox-wrap">void) -&gt; t_erreur</span>
+            </dt>
+            <dd>Quitte Menu.</dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#af1461abc4dc85b02e4d1d3e8c135eaad" class="m-dox">menu_ajout_bouton</a>(</span><span class="m-dox-wrap"><a href="structt__menu.html" class="m-dox">t_<wbr />menu</a>* menu,
+              SDL_Rect rect,
+              char* titre,
+              t_type_menu type) -&gt; t_erreur</span>
+            </dt>
+            <dd>Ajoute un bouton au menu.</dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#a5e4bbd12d3e5748c418095f36fd603fc" class="m-dox">menu_creer</a>(</span><span class="m-dox-wrap">t_type_menu type,
+              int width,
+              int height,
+              <a href="structt__menu.html" class="m-dox">t_<wbr />menu</a>** menu) -&gt; t_erreur</span>
+            </dt>
+            <dd>Créer un Menu.</dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#ae03104e90efc8ecf693fb75dc0612fcf" class="m-dox">menu_afficher_titre_SDL</a>(</span><span class="m-dox-wrap">SDL_Renderer* renderer,
+              <a href="structt__menu.html" class="m-dox">t_<wbr />menu</a>* menu) -&gt; t_erreur</span>
+            </dt>
+            <dd>Affiche le titre du Menu.</dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#ac891d8c3b720e8c042eb00768981a389" class="m-dox">menu_afficher_SDL</a>(</span><span class="m-dox-wrap"><a href="structt__menu.html" class="m-dox">t_<wbr />menu</a>* menu,
+              SDL_Renderer* renderer) -&gt; t_erreur</span>
+            </dt>
+            <dd>Affiche le menu.</dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#a462d9a2c9b715a4a9dc2f9da968935e9" class="m-dox">menu_afficher_Term</a>(</span><span class="m-dox-wrap"><a href="structt__menu.html" class="m-dox">t_<wbr />menu</a>* menu) -&gt; t_erreur</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#a261f1344f6059bdf0834f0f3b878bea8" class="m-dox">menu_detruire_bouton</a>(</span><span class="m-dox-wrap"><a href="structt__bouton__menu.html" class="m-dox">t_<wbr />bouton_<wbr />menu</a>** btn) -&gt; t_erreur</span>
+            </dt>
+            <dd>Detruire un bouton.</dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#a4f02e01d48394849997786c138baf862" class="m-dox">menu_detruire</a>(</span><span class="m-dox-wrap"><a href="structt__menu.html" class="m-dox">t_<wbr />menu</a>** menu) -&gt; t_erreur</span>
+            </dt>
+            <dd>Detruire un Menu.</dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#a28006b7b9d53bcc0b3828ec01906c7cd" class="m-dox">menu_gestion_SDL</a>(</span><span class="m-dox-wrap"><a href="structt__menu.html" class="m-dox">t_<wbr />menu</a>* menu,
+              int mouseState,
+              t_type_menu* type_menu_suivant) -&gt; t_erreur</span>
+            </dt>
+            <dd>Met à jour le menu.</dd>
+            <dt>
+              <span class="m-dox-wrap-bumper">auto <a href="#a65c9e5cd5164e3b622fae7d2dc09ef23" class="m-dox">menu_suivant</a>(</span><span class="m-dox-wrap"><a href="structt__menu.html" class="m-dox">t_<wbr />menu</a>** menu,
+              t_type_menu type_menu_suivant) -&gt; t_erreur</span>
+            </dt>
+            <dd>Passe au Menu suivant.</dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-dox-details" id="aa771a9769760a4f490719761ac5d052c"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper">t_erreur </span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#aa771a9769760a4f490719761ac5d052c" class="m-dox-self">menu_init</a>(</span><span class="m-dox-wrap">SDL_Renderer* renderer)</span></span>
+            </h3>
+            <p>Initialise Menu.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">renderer</td>
+                  <td>Renderer de la fenetre</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>t_erreur Code erreur</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-dox-details" id="a400dad194316a2c134c016ebf10a2f31"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper">t_erreur </span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a400dad194316a2c134c016ebf10a2f31" class="m-dox-self">menu_quit</a>(</span><span class="m-dox-wrap">void)</span></span>
+            </h3>
+            <p>Quitte Menu.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>Code erreur</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-dox-details" id="af1461abc4dc85b02e4d1d3e8c135eaad"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper">t_erreur </span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#af1461abc4dc85b02e4d1d3e8c135eaad" class="m-dox-self">menu_ajout_bouton</a>(</span><span class="m-dox-wrap"><a href="structt__menu.html" class="m-dox">t_<wbr />menu</a>* menu,
+              SDL_Rect rect,
+              char* titre,
+              t_type_menu type)</span></span>
+            </h3>
+            <p>Ajoute un bouton au menu.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">menu</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>rect</td>
+                  <td>Informations de position et de taille du bouton</td>
+                </tr>
+                <tr>
+                  <td>titre</td>
+                  <td>Titre du bouton</td>
+                </tr>
+                <tr>
+                  <td>type</td>
+                  <td>Type du menu suivant</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Retourne un code erreur</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-dox-details" id="a5e4bbd12d3e5748c418095f36fd603fc"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper">t_erreur </span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a5e4bbd12d3e5748c418095f36fd603fc" class="m-dox-self">menu_creer</a>(</span><span class="m-dox-wrap">t_type_menu type,
+              int width,
+              int height,
+              <a href="structt__menu.html" class="m-dox">t_<wbr />menu</a>** menu)</span></span>
+            </h3>
+            <p>Créer un Menu.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">type</td>
+                  <td>Type de menu que l&#x27;on veut avoir (Solo,...)</td>
+                </tr>
+                <tr>
+                  <td>width</td>
+                  <td>Largeur de la fenêtre d&#x27;affichage</td>
+                </tr>
+                <tr>
+                  <td>height</td>
+                  <td>Hauteur de la fenêtre d&#x27;affichage</td>
+                </tr>
+                <tr>
+                  <td>menu</td>
+                  <td>Double pointeur sur le menu que l&#x27;on veut créer</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Code erreur</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-dox-details" id="ae03104e90efc8ecf693fb75dc0612fcf"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper">t_erreur </span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#ae03104e90efc8ecf693fb75dc0612fcf" class="m-dox-self">menu_afficher_titre_SDL</a>(</span><span class="m-dox-wrap">SDL_Renderer* renderer,
+              <a href="structt__menu.html" class="m-dox">t_<wbr />menu</a>* menu)</span></span>
+            </h3>
+            <p>Affiche le titre du Menu.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">renderer</td>
+                  <td>Renderer de la fenetre</td>
+                </tr>
+                <tr>
+                  <td>menu</td>
+                  <td>Pointeur sur le menu</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Code erreur</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-dox-details" id="ac891d8c3b720e8c042eb00768981a389"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper">t_erreur </span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#ac891d8c3b720e8c042eb00768981a389" class="m-dox-self">menu_afficher_SDL</a>(</span><span class="m-dox-wrap"><a href="structt__menu.html" class="m-dox">t_<wbr />menu</a>* menu,
+              SDL_Renderer* renderer)</span></span>
+            </h3>
+            <p>Affiche le menu.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">menu</td>
+                  <td>Pointeur sur le menu que l&#x27;on veut afficher</td>
+                </tr>
+                <tr>
+                  <td>renderer</td>
+                  <td>Renderer sur le lequel on veut afficher le menu</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Code erreur</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-dox-details" id="a462d9a2c9b715a4a9dc2f9da968935e9"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper">t_erreur </span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a462d9a2c9b715a4a9dc2f9da968935e9" class="m-dox-self">menu_afficher_Term</a>(</span><span class="m-dox-wrap"><a href="structt__menu.html" class="m-dox">t_<wbr />menu</a>* menu)</span></span>
+            </h3>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">menu</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-dox-details" id="a261f1344f6059bdf0834f0f3b878bea8"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper">t_erreur </span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a261f1344f6059bdf0834f0f3b878bea8" class="m-dox-self">menu_detruire_bouton</a>(</span><span class="m-dox-wrap"><a href="structt__bouton__menu.html" class="m-dox">t_<wbr />bouton_<wbr />menu</a>** btn)</span></span>
+            </h3>
+            <p>Detruire un bouton.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">btn</td>
+                  <td>Bouton que l&#x27;on veut détruire</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Code erreur</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-dox-details" id="a4f02e01d48394849997786c138baf862"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper">t_erreur </span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a4f02e01d48394849997786c138baf862" class="m-dox-self">menu_detruire</a>(</span><span class="m-dox-wrap"><a href="structt__menu.html" class="m-dox">t_<wbr />menu</a>** menu)</span></span>
+            </h3>
+            <p>Detruire un Menu.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">menu</td>
+                  <td>Menu que l&#x27;on veut détruire</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Code erreur</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-dox-details" id="a28006b7b9d53bcc0b3828ec01906c7cd"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper">t_erreur </span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a28006b7b9d53bcc0b3828ec01906c7cd" class="m-dox-self">menu_gestion_SDL</a>(</span><span class="m-dox-wrap"><a href="structt__menu.html" class="m-dox">t_<wbr />menu</a>* menu,
+              int mouseState,
+              t_type_menu* type_menu_suivant)</span></span>
+            </h3>
+            <p>Met à jour le menu.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">menu</td>
+                  <td>Menu que l&#x27;on veut gérer</td>
+                </tr>
+                <tr>
+                  <td>mouseState</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>type_menu_suivant</td>
+                  <td>Pointeur sur le menu suivant, MENU_NULL sinon</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Code erreur</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-dox-details" id="a65c9e5cd5164e3b622fae7d2dc09ef23"><div>
+            <h3>
+              <span class="m-dox-wrap-bumper">t_erreur </span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a65c9e5cd5164e3b622fae7d2dc09ef23" class="m-dox-self">menu_suivant</a>(</span><span class="m-dox-wrap"><a href="structt__menu.html" class="m-dox">t_<wbr />menu</a>** menu,
+              t_type_menu type_menu_suivant)</span></span>
+            </h3>
+            <p>Passe au Menu suivant.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">menu</td>
+                  <td>Double pointeur sur le menu</td>
+                </tr>
+                <tr>
+                  <td>type_menu_suivant</td>
+                  <td>Type du menu suivant</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Code erreur</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-dox-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-dox-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-dox-search-content">
+          <form>
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span>
+            / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<!-- end header part -->
-<!-- Généré par Doxygen 1.8.14 -->
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
-/* @license-end */
-</script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Recherche');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
-<!-- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
-
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
-        name="MSearchResults" id="MSearchResults">
-</iframe>
-</div>
-
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
-</div>
-</div><!-- top -->
-<div class="header">
-  <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#define-members">Macros</a> &#124;
-<a href="#typedef-members">Définitions de type</a> &#124;
-<a href="#func-members">Fonctions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
-  <div class="headertitle">
-<div class="title">Référence du fichier menu.c</div>  </div>
-</div><!--header-->
-<div class="contents">
-
-<p>Gestion du menu (solo, multijoueur, ...)  
-<a href="#details">Plus de détails...</a></p>
-<div class="textblock"><code>#include &lt;SDL2/SDL.h&gt;</code><br />
-<code>#include &lt;SDL2/SDL_ttf.h&gt;</code><br />
-<code>#include &lt;<a class="el" href="chemin_8h_source.html">chemin.h</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="menu_8h_source.html">menu.h</a>&gt;</code><br />
-<code>#include &lt;outils_SDL.h&gt;</code><br />
-<code>#include &lt;stdbool.h&gt;</code><br />
-<code>#include &lt;stdio.h&gt;</code><br />
-<code>#include &lt;stdlib.h&gt;</code><br />
-<code>#include &lt;string.h&gt;</code><br />
-<code>#include &lt;touches.h&gt;</code><br />
-</div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__type__titre.html">s_type_titre</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:ab8aeff661e1977144c99dfa4d97c7c1f"><td class="memItemLeft" align="right" valign="top"><a id="ab8aeff661e1977144c99dfa4d97c7c1f"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>POLICE_MENU</b>&#160;&#160;&#160;&quot;data/police/8-BIT_WONDER.ttf&quot;</td></tr>
-<tr class="separator:ab8aeff661e1977144c99dfa4d97c7c1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af613315a807e9b2d66be2eaafb783368"><td class="memItemLeft" align="right" valign="top"><a id="af613315a807e9b2d66be2eaafb783368"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>FOND_MENU</b>&#160;&#160;&#160;&quot;IMG/texture/menu/fond_menu.png&quot;</td></tr>
-<tr class="separator:af613315a807e9b2d66be2eaafb783368"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8983e644ba530896401c26d2ad29962b"><td class="memItemLeft" align="right" valign="top"><a id="a8983e644ba530896401c26d2ad29962b"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>BOUTON_MENU</b>&#160;&#160;&#160;&quot;IMG/texture/menu/bouton_menu.png&quot;</td></tr>
-<tr class="separator:a8983e644ba530896401c26d2ad29962b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ecb9a2cda9e4bb3d2e21279d83a85c3"><td class="memItemLeft" align="right" valign="top"><a id="a7ecb9a2cda9e4bb3d2e21279d83a85c3"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>WIDTH_TITRE</b>&#160;&#160;&#160;80</td></tr>
-<tr class="separator:a7ecb9a2cda9e4bb3d2e21279d83a85c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6382d0a7bbe285f769b4f8dfef2ffeeb"><td class="memItemLeft" align="right" valign="top"><a id="a6382d0a7bbe285f769b4f8dfef2ffeeb"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>NB_TITRE</b>&#160;&#160;&#160;2</td></tr>
-<tr class="separator:a6382d0a7bbe285f769b4f8dfef2ffeeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
-Définitions de type</h2></td></tr>
-<tr class="memitem:a70caeba95f6570f08b6e7615f4d34a41"><td class="memItemLeft" align="right" valign="top"><a id="a70caeba95f6570f08b6e7615f4d34a41"></a>
-typedef struct <a class="el" href="structs__type__titre.html">s_type_titre</a>&#160;</td><td class="memItemRight" valign="bottom"><b>t_type_titre</b></td></tr>
-<tr class="separator:a70caeba95f6570f08b6e7615f4d34a41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Fonctions</h2></td></tr>
-<tr class="memitem:aa771a9769760a4f490719761ac5d052c"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8c.html#aa771a9769760a4f490719761ac5d052c">menu_init</a> (SDL_Renderer *renderer)</td></tr>
-<tr class="memdesc:aa771a9769760a4f490719761ac5d052c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise Menu.  <a href="#aa771a9769760a4f490719761ac5d052c">Plus de détails...</a><br /></td></tr>
-<tr class="separator:aa771a9769760a4f490719761ac5d052c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a400dad194316a2c134c016ebf10a2f31"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8c.html#a400dad194316a2c134c016ebf10a2f31">menu_quit</a> (void)</td></tr>
-<tr class="memdesc:a400dad194316a2c134c016ebf10a2f31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quitte Menu.  <a href="#a400dad194316a2c134c016ebf10a2f31">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a400dad194316a2c134c016ebf10a2f31"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1461abc4dc85b02e4d1d3e8c135eaad"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8c.html#af1461abc4dc85b02e4d1d3e8c135eaad">menu_ajout_bouton</a> (<a class="el" href="structt__menu.html">t_menu</a> *menu, SDL_Rect rect, char *titre, t_type_menu type)</td></tr>
-<tr class="memdesc:af1461abc4dc85b02e4d1d3e8c135eaad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute un bouton au menu.  <a href="#af1461abc4dc85b02e4d1d3e8c135eaad">Plus de détails...</a><br /></td></tr>
-<tr class="separator:af1461abc4dc85b02e4d1d3e8c135eaad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e4bbd12d3e5748c418095f36fd603fc"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8c.html#a5e4bbd12d3e5748c418095f36fd603fc">menu_creer</a> (t_type_menu type, int width, int height, <a class="el" href="structt__menu.html">t_menu</a> **menu)</td></tr>
-<tr class="memdesc:a5e4bbd12d3e5748c418095f36fd603fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer un Menu.  <a href="#a5e4bbd12d3e5748c418095f36fd603fc">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a5e4bbd12d3e5748c418095f36fd603fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae03104e90efc8ecf693fb75dc0612fcf"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8c.html#ae03104e90efc8ecf693fb75dc0612fcf">menu_afficher_titre_SDL</a> (SDL_Renderer *renderer, <a class="el" href="structt__menu.html">t_menu</a> *menu)</td></tr>
-<tr class="memdesc:ae03104e90efc8ecf693fb75dc0612fcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche le titre du Menu.  <a href="#ae03104e90efc8ecf693fb75dc0612fcf">Plus de détails...</a><br /></td></tr>
-<tr class="separator:ae03104e90efc8ecf693fb75dc0612fcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac891d8c3b720e8c042eb00768981a389"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8c.html#ac891d8c3b720e8c042eb00768981a389">menu_afficher_SDL</a> (<a class="el" href="structt__menu.html">t_menu</a> *menu, SDL_Renderer *renderer)</td></tr>
-<tr class="memdesc:ac891d8c3b720e8c042eb00768981a389"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche le menu.  <a href="#ac891d8c3b720e8c042eb00768981a389">Plus de détails...</a><br /></td></tr>
-<tr class="separator:ac891d8c3b720e8c042eb00768981a389"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a462d9a2c9b715a4a9dc2f9da968935e9"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8c.html#a462d9a2c9b715a4a9dc2f9da968935e9">menu_afficher_Term</a> (<a class="el" href="structt__menu.html">t_menu</a> *menu)</td></tr>
-<tr class="separator:a462d9a2c9b715a4a9dc2f9da968935e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a261f1344f6059bdf0834f0f3b878bea8"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8c.html#a261f1344f6059bdf0834f0f3b878bea8">menu_detruire_bouton</a> (<a class="el" href="structt__bouton__menu.html">t_bouton_menu</a> **btn)</td></tr>
-<tr class="memdesc:a261f1344f6059bdf0834f0f3b878bea8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detruire un bouton.  <a href="#a261f1344f6059bdf0834f0f3b878bea8">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a261f1344f6059bdf0834f0f3b878bea8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f02e01d48394849997786c138baf862"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8c.html#a4f02e01d48394849997786c138baf862">menu_detruire</a> (<a class="el" href="structt__menu.html">t_menu</a> **menu)</td></tr>
-<tr class="memdesc:a4f02e01d48394849997786c138baf862"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detruire un Menu.  <a href="#a4f02e01d48394849997786c138baf862">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a4f02e01d48394849997786c138baf862"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28006b7b9d53bcc0b3828ec01906c7cd"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8c.html#a28006b7b9d53bcc0b3828ec01906c7cd">menu_gestion_SDL</a> (<a class="el" href="structt__menu.html">t_menu</a> *menu, int mouseState, t_type_menu *type_menu_suivant)</td></tr>
-<tr class="memdesc:a28006b7b9d53bcc0b3828ec01906c7cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour le menu.  <a href="#a28006b7b9d53bcc0b3828ec01906c7cd">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a28006b7b9d53bcc0b3828ec01906c7cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65c9e5cd5164e3b622fae7d2dc09ef23"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8c.html#a65c9e5cd5164e3b622fae7d2dc09ef23">menu_suivant</a> (<a class="el" href="structt__menu.html">t_menu</a> **menu, t_type_menu type_menu_suivant)</td></tr>
-<tr class="memdesc:a65c9e5cd5164e3b622fae7d2dc09ef23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Passe au Menu suivant.  <a href="#a65c9e5cd5164e3b622fae7d2dc09ef23">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a65c9e5cd5164e3b622fae7d2dc09ef23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a176cb703a2018bd7578baaa062a251e3"><td class="memItemLeft" align="right" valign="top"><a id="a176cb703a2018bd7578baaa062a251e3"></a>
-SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><b>menu_texture</b> [2]</td></tr>
-<tr class="separator:a176cb703a2018bd7578baaa062a251e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b9c3bb64106f548b69d010890407b44"><td class="memItemLeft" align="right" valign="top"><a id="a5b9c3bb64106f548b69d010890407b44"></a>
-<a class="el" href="structt__type__titre.html">t_type_titre</a>&#160;</td><td class="memItemRight" valign="bottom"><b>tab_menu_titre</b> [NB_TITRE] = {{MENU_PRINCIPAL, &quot;World Of Dungeons&quot;}, {MENU_SOLO, &quot;Solo&quot;}}</td></tr>
-<tr class="separator:a5b9c3bb64106f548b69d010890407b44"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><p>Gestion du menu (solo, multijoueur, ...) </p>
-<dl class="section author"><dt>Auteur</dt><dd>Jasmin GALBRUN </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>3 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>15/03/2019 </dd></dl>
-</div><h2 class="groupheader">Documentation des fonctions</h2>
-<a id="ac891d8c3b720e8c042eb00768981a389"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac891d8c3b720e8c042eb00768981a389">&#9670;&nbsp;</a></span>menu_afficher_SDL()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">t_erreur menu_afficher_SDL </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structt__menu.html">t_menu</a> *&#160;</td>
-          <td class="paramname"><em>menu</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">SDL_Renderer *&#160;</td>
-          <td class="paramname"><em>renderer</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Affiche le menu. </p>
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">menu</td><td>Pointeur sur le menu que l'on veut afficher </td></tr>
-    <tr><td class="paramname">renderer</td><td>Renderer sur le lequel on veut afficher le menu </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Renvoie</dt><dd>Code erreur </dd></dl>
-
-</div>
-</div>
-<a id="a462d9a2c9b715a4a9dc2f9da968935e9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a462d9a2c9b715a4a9dc2f9da968935e9">&#9670;&nbsp;</a></span>menu_afficher_Term()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">t_erreur menu_afficher_Term </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structt__menu.html">t_menu</a> *&#160;</td>
-          <td class="paramname"><em>menu</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">menu</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ae03104e90efc8ecf693fb75dc0612fcf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae03104e90efc8ecf693fb75dc0612fcf">&#9670;&nbsp;</a></span>menu_afficher_titre_SDL()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">t_erreur menu_afficher_titre_SDL </td>
-          <td>(</td>
-          <td class="paramtype">SDL_Renderer *&#160;</td>
-          <td class="paramname"><em>renderer</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structt__menu.html">t_menu</a> *&#160;</td>
-          <td class="paramname"><em>menu</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Affiche le titre du Menu. </p>
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">renderer</td><td>Renderer de la fenetre </td></tr>
-    <tr><td class="paramname">menu</td><td>Pointeur sur le menu </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Renvoie</dt><dd>Code erreur </dd></dl>
-
-</div>
-</div>
-<a id="af1461abc4dc85b02e4d1d3e8c135eaad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af1461abc4dc85b02e4d1d3e8c135eaad">&#9670;&nbsp;</a></span>menu_ajout_bouton()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">t_erreur menu_ajout_bouton </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structt__menu.html">t_menu</a> *&#160;</td>
-          <td class="paramname"><em>menu</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">SDL_Rect&#160;</td>
-          <td class="paramname"><em>rect</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>titre</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">t_type_menu&#160;</td>
-          <td class="paramname"><em>type</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Ajoute un bouton au menu. </p>
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">rect</td><td>Informations de position et de taille du bouton </td></tr>
-    <tr><td class="paramname">titre</td><td>Titre du bouton </td></tr>
-    <tr><td class="paramname">type</td><td>Type du menu suivant </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Renvoie</dt><dd>Retourne un code erreur </dd></dl>
-
-</div>
-</div>
-<a id="a5e4bbd12d3e5748c418095f36fd603fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5e4bbd12d3e5748c418095f36fd603fc">&#9670;&nbsp;</a></span>menu_creer()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">t_erreur menu_creer </td>
-          <td>(</td>
-          <td class="paramtype">t_type_menu&#160;</td>
-          <td class="paramname"><em>type</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>width</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>height</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structt__menu.html">t_menu</a> **&#160;</td>
-          <td class="paramname"><em>menu</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Créer un Menu. </p>
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">type</td><td>Type de menu que l'on veut avoir (Solo,...) </td></tr>
-    <tr><td class="paramname">width</td><td>Largeur de la fenêtre d'affichage </td></tr>
-    <tr><td class="paramname">height</td><td>Hauteur de la fenêtre d'affichage </td></tr>
-    <tr><td class="paramname">menu</td><td>Double pointeur sur le menu que l'on veut créer </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Renvoie</dt><dd>Code erreur </dd></dl>
-
-</div>
-</div>
-<a id="a4f02e01d48394849997786c138baf862"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f02e01d48394849997786c138baf862">&#9670;&nbsp;</a></span>menu_detruire()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">t_erreur menu_detruire </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structt__menu.html">t_menu</a> **&#160;</td>
-          <td class="paramname"><em>menu</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Detruire un Menu. </p>
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">menu</td><td>Menu que l'on veut détruire </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Renvoie</dt><dd>Code erreur </dd></dl>
-
-</div>
-</div>
-<a id="a261f1344f6059bdf0834f0f3b878bea8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a261f1344f6059bdf0834f0f3b878bea8">&#9670;&nbsp;</a></span>menu_detruire_bouton()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">t_erreur menu_detruire_bouton </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structt__bouton__menu.html">t_bouton_menu</a> **&#160;</td>
-          <td class="paramname"><em>btn</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Detruire un bouton. </p>
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">btn</td><td>Bouton que l'on veut détruire </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Renvoie</dt><dd>Code erreur </dd></dl>
-
-</div>
-</div>
-<a id="a28006b7b9d53bcc0b3828ec01906c7cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a28006b7b9d53bcc0b3828ec01906c7cd">&#9670;&nbsp;</a></span>menu_gestion_SDL()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">t_erreur menu_gestion_SDL </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structt__menu.html">t_menu</a> *&#160;</td>
-          <td class="paramname"><em>menu</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>mouseState</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">t_type_menu *&#160;</td>
-          <td class="paramname"><em>type_menu_suivant</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Met à jour le menu. </p>
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">menu</td><td>Menu que l'on veut gérer </td></tr>
-    <tr><td class="paramname">mouse</td><td>Info de la souris </td></tr>
-    <tr><td class="paramname">type_menu_suivant</td><td>Pointeur sur le menu suivant, MENU_NULL sinon </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Renvoie</dt><dd>Code erreur </dd></dl>
-
-</div>
-</div>
-<a id="aa771a9769760a4f490719761ac5d052c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa771a9769760a4f490719761ac5d052c">&#9670;&nbsp;</a></span>menu_init()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">t_erreur menu_init </td>
-          <td>(</td>
-          <td class="paramtype">SDL_Renderer *&#160;</td>
-          <td class="paramname"><em>renderer</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Initialise Menu. </p>
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">renderer</td><td>Renderer de la fenetre </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Renvoie</dt><dd>t_erreur Code erreur </dd></dl>
-
-</div>
-</div>
-<a id="a400dad194316a2c134c016ebf10a2f31"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a400dad194316a2c134c016ebf10a2f31">&#9670;&nbsp;</a></span>menu_quit()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">t_erreur menu_quit </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Quitte Menu. </p>
-<dl class="section return"><dt>Renvoie</dt><dd>Code erreur </dd></dl>
-
-</div>
-</div>
-<a id="a65c9e5cd5164e3b622fae7d2dc09ef23"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a65c9e5cd5164e3b622fae7d2dc09ef23">&#9670;&nbsp;</a></span>menu_suivant()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">t_erreur menu_suivant </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structt__menu.html">t_menu</a> **&#160;</td>
-          <td class="paramname"><em>menu</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">t_type_menu&#160;</td>
-          <td class="paramname"><em>type_menu_suivant</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Passe au Menu suivant. </p>
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">menu</td><td>Double pointeur sur le menu </td></tr>
-    <tr><td class="paramname">type_menu_suivant</td><td>Type du menu suivant </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Renvoie</dt><dd>Code erreur </dd></dl>
-
-</div>
-</div>
-</div><!-- contents -->
-<!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Généré par &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.14
-</small></address>
+<script src="search.js"></script>
+<script src="searchdata.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>World Of Dungeons Jeu de Survie. Created by <a href="https://doxygen.org/">Doxygen</a> 1.8.14 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
 </body>
 </html>

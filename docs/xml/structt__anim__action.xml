@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="structt__anim__action" kind="struct" language="C++" prot="public">
+    <compoundname>t_anim_action</compoundname>
+    <includes refid="entite_8h" local="no">entite.h</includes>
+    <briefdescription>
+<para>Contient l&apos;emplacement des textures associées à une action ainsi que la durée d&apos;une animation. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/entite.h" line="51" column="1"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

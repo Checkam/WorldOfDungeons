@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="init__biome_8h" kind="file" language="C++">
+    <compoundname>init_biome.h</compoundname>
+    <includedby refid="biome_8c" local="no">src/biome.c</includedby>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="init__biome_8h_1a21ad0bd836b90d08f4cf640b4c298e7c" prot="public" static="no" mutable="no">
+        <type><ref refid="structt__biome" kindref="compound">t_biome</ref> *</type>
+        <definition>b</definition>
+        <argsstring></argsstring>
+        <name>b</name>
+        <initializer>= BIOME_CreateBiome(FORET)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/init_biome.h" line="1" column="1" bodyfile="include/init_biome.h" bodystart="1" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="init__biome_8h_1a263b087faa2b176d222d7a4f00d38b1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BIOME_AddLayer</definition>
+        <argsstring>(b, HERBE, 1)</argsstring>
+        <name>BIOME_AddLayer</name>
+        <param>
+          <type>b</type>
+        </param>
+        <param>
+          <type>HERBE</type>
+        </param>
+        <param>
+          <type>1</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/init_biome.h" line="2" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="init__biome_8h_1a280a561ac34ddc4bed52eb31d85ff3bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BIOME_AddLayer</definition>
+        <argsstring>(b, TERRE, 4)</argsstring>
+        <name>BIOME_AddLayer</name>
+        <param>
+          <type>b</type>
+        </param>
+        <param>
+          <type>TERRE</type>
+        </param>
+        <param>
+          <type>4</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/init_biome.h" line="3" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="init__biome_8h_1a4e915361cb4324d8841b71448cf10d36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BIOME_AddLayer</definition>
+        <argsstring>(b, ROCHE, MAX)</argsstring>
+        <name>BIOME_AddLayer</name>
+        <param>
+          <type>b</type>
+        </param>
+        <param>
+          <type>ROCHE</type>
+        </param>
+        <param>
+          <type>MAX</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/init_biome.h" line="4" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="init__biome_8h_1a674ae1ecca83c218988e6000c3f75879" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BIOME_AddLayer</definition>
+        <argsstring>(b, NEIGE, 1)</argsstring>
+        <name>BIOME_AddLayer</name>
+        <param>
+          <type>b</type>
+        </param>
+        <param>
+          <type>NEIGE</type>
+        </param>
+        <param>
+          <type>1</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/init_biome.h" line="12" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="init__biome_8h_1a42e547a0d14342dd398db38e21adef33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BIOME_AddLayer</definition>
+        <argsstring>(b, SABLE, 1)</argsstring>
+        <name>BIOME_AddLayer</name>
+        <param>
+          <type>b</type>
+        </param>
+        <param>
+          <type>SABLE</type>
+        </param>
+        <param>
+          <type>1</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/init_biome.h" line="22" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"><ref refid="structt__biome" kindref="compound">t_biome</ref><sp/>*b<sp/>=<sp/>BIOME_CreateBiome(FORET);</highlight></codeline>
+<codeline lineno="2"><highlight class="normal">BIOME_AddLayer(b,<sp/>HERBE,<sp/>1);</highlight></codeline>
+<codeline lineno="3"><highlight class="normal">BIOME_AddLayer(b,<sp/>TERRE,<sp/>4);</highlight></codeline>
+<codeline lineno="4"><highlight class="normal">BIOME_AddLayer(b,<sp/>ROCHE,<sp/>MAX);</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal">b<sp/>=<sp/>BIOME_CreateBiome(PRAIRIES);</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">BIOME_AddLayer(b,<sp/>HERBE,<sp/>1);</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">BIOME_AddLayer(b,<sp/>TERRE,<sp/>4);</highlight></codeline>
+<codeline lineno="9"><highlight class="normal">BIOME_AddLayer(b,<sp/>ROCHE,<sp/>MAX);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal">b<sp/>=<sp/>BIOME_CreateBiome(TAIGA);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">BIOME_AddLayer(b,<sp/>NEIGE,<sp/>1);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">BIOME_AddLayer(b,<sp/>TERRE,<sp/>4);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">BIOME_AddLayer(b,<sp/>ROCHE,<sp/>MAX);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal">b<sp/>=<sp/>BIOME_CreateBiome(TOUNDRA);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">BIOME_AddLayer(b,<sp/>NEIGE,<sp/>1);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">BIOME_AddLayer(b,<sp/>TERRE,<sp/>4);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">BIOME_AddLayer(b,<sp/>ROCHE,<sp/>MAX);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal">b<sp/>=<sp/>BIOME_CreateBiome(DESERTS);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">BIOME_AddLayer(b,<sp/>SABLE,<sp/>1);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">BIOME_AddLayer(b,<sp/>TERRE,<sp/>4);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">BIOME_AddLayer(b,<sp/>ROCHE,<sp/>MAX);</highlight></codeline>
+    </programlisting>
+    <location file="include/init_biome.h"/>
+  </compounddef>
+</doxygen>

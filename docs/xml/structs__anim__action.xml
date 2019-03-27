@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="structs__anim__action" kind="struct" language="C++" prot="public">
+    <compoundname>s_anim_action</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structs__anim__action_1afec2d04fad0f9803e6715736067cd119" prot="public" static="no" mutable="no">
+        <type><ref refid="entite_8h_1abf8170fe3a93ebd8f3701bbf092ece99" kindref="member">t_action</ref></type>
+        <definition>t_action s_anim_action::action</definition>
+        <argsstring></argsstring>
+        <name>action</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="56" column="1" bodyfile="include/entite.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__anim__action_1a3175be238cac27f8bbf7429d24a502ea" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int s_anim_action::ligne</definition>
+        <argsstring></argsstring>
+        <name>ligne</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="57" column="1" bodyfile="include/entite.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__anim__action_1a9b2ad67a712c15bbcddaded6e830414e" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int s_anim_action::nb_col</definition>
+        <argsstring></argsstring>
+        <name>nb_col</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="57" column="1" bodyfile="include/entite.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__anim__action_1ab785bc45f04f183be33db4a73d7b02f1" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int s_anim_action::temps_anim</definition>
+        <argsstring></argsstring>
+        <name>temps_anim</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="58" column="1" bodyfile="include/entite.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/entite.h" line="55" column="1" bodyfile="include/entite.h" bodystart="54" bodyend="59"/>
+    <listofallmembers>
+      <member refid="structs__anim__action_1afec2d04fad0f9803e6715736067cd119" prot="public" virt="non-virtual"><scope>s_anim_action</scope><name>action</name></member>
+      <member refid="structs__anim__action_1a3175be238cac27f8bbf7429d24a502ea" prot="public" virt="non-virtual"><scope>s_anim_action</scope><name>ligne</name></member>
+      <member refid="structs__anim__action_1a9b2ad67a712c15bbcddaded6e830414e" prot="public" virt="non-virtual"><scope>s_anim_action</scope><name>nb_col</name></member>
+      <member refid="structs__anim__action_1ab785bc45f04f183be33db4a73d7b02f1" prot="public" virt="non-virtual"><scope>s_anim_action</scope><name>temps_anim</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

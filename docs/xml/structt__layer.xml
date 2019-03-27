@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="structt__layer" kind="struct" language="C++" prot="public">
+    <compoundname>t_layer</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structt__layer_1a07c0a76a334e2f15025928b382d480ba" prot="public" static="no" mutable="no">
+        <type><ref refid="block_8h_1a4030ebe0eea609635f372f2e86d4332a" kindref="member">t_materiaux</ref></type>
+        <definition>t_materiaux t_layer::block_type</definition>
+        <argsstring></argsstring>
+        <name>block_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/biome.h" line="34" column="1" bodyfile="include/biome.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structt__layer_1a18a0e4a590f56ec4e1e4b2ecd1b45f06" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int t_layer::nb_couche</definition>
+        <argsstring></argsstring>
+        <name>nb_couche</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/biome.h" line="35" column="1" bodyfile="include/biome.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/biome.h" line="33" column="1" bodyfile="include/biome.h" bodystart="33" bodyend="36"/>
+    <listofallmembers>
+      <member refid="structt__layer_1a07c0a76a334e2f15025928b382d480ba" prot="public" virt="non-virtual"><scope>t_layer</scope><name>block_type</name></member>
+      <member refid="structt__layer_1a18a0e4a590f56ec4e1e4b2ecd1b45f06" prot="public" virt="non-virtual"><scope>t_layer</scope><name>nb_couche</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="structconfigTouches__s" kind="struct" language="C++" prot="public">
+    <compoundname>configTouches_s</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structconfigTouches__s_1af4b9d9fa7199d941b852eb00e546da13" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t configTouches_s::keyCode</definition>
+        <argsstring></argsstring>
+        <name>keyCode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/touches.h" line="53" column="1" bodyfile="include/touches.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structconfigTouches__s_1ac3831fa6578fd9535c12483ab6c50280" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* configTouches_s::descriptif</definition>
+        <argsstring></argsstring>
+        <name>descriptif</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/touches.h" line="54" column="1" bodyfile="include/touches.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/touches.h" line="51" column="1" bodyfile="include/touches.h" bodystart="51" bodyend="55"/>
+    <listofallmembers>
+      <member refid="structconfigTouches__s_1ac3831fa6578fd9535c12483ab6c50280" prot="public" virt="non-virtual"><scope>configTouches_s</scope><name>descriptif</name></member>
+      <member refid="structconfigTouches__s_1af4b9d9fa7199d941b852eb00e546da13" prot="public" virt="non-virtual"><scope>configTouches_s</scope><name>keyCode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

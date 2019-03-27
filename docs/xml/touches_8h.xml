@@ -1,0 +1,577 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="touches_8h" kind="file" language="C++">
+    <compoundname>touches.h</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includedby refid="entite_8c" local="no">src/entite.c</includedby>
+    <includedby refid="generation_8c" local="no">src/generation.c</includedby>
+    <includedby refid="menu_8c" local="no">src/menu.c</includedby>
+    <includedby refid="touches_8c" local="no">src/touches.c</includedby>
+    <incdepgraph>
+      <node id="229">
+        <label>stdint.h</label>
+      </node>
+      <node id="228">
+        <label>include/touches.h</label>
+        <link refid="touches_8h"/>
+        <childnode refid="229" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="233">
+        <label>src/menu.c</label>
+        <link refid="menu_8c"/>
+      </node>
+      <node id="230">
+        <label>include/touches.h</label>
+        <link refid="touches_8h"/>
+        <childnode refid="231" relation="include">
+        </childnode>
+        <childnode refid="232" relation="include">
+        </childnode>
+        <childnode refid="233" relation="include">
+        </childnode>
+      </node>
+      <node id="232">
+        <label>src/generation.c</label>
+        <link refid="generation_8c"/>
+      </node>
+      <node id="231">
+        <label>src/entite.c</label>
+        <link refid="entite_8c"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structconfigTouches__s" prot="public">configTouches_s</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="touches_8h_1ab45c149d2f392b5ecf4cf169bd0f19a0" prot="public" static="no">
+        <name>NB_TOUCHES</name>
+        <initializer>15</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/touches.h" line="6" column="9" bodyfile="include/touches.h" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="touches_8h_1a3ea943d65d3b28e37210737bcacdf43f" prot="public" static="no">
+        <name>NB_TOUCHES_REEL</name>
+        <initializer>14</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/touches.h" line="7" column="9" bodyfile="include/touches.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="touches_8h_1a2f4182629d6a80847f93d7c70a817f5b" prot="public" static="no">
+        <name>LONGUEUR_MAX_DESCRIPTIF</name>
+        <initializer>20 /* longueur max en caractere du descriptif de la touche */</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/touches.h" line="8" column="9" bodyfile="include/touches.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="touches_8h_1a1119507ef62b73bebbbc54cabf34deaa" prot="public" static="no">
+        <name>NULL_TOUCHE</name>
+        <initializer>4199999</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/touches.h" line="9" column="9" bodyfile="include/touches.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="touches_8h_1a654adff3c664f27f0b29c24af818dd26" prot="public" static="no">
+        <name>PRESSED</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/touches.h" line="12" column="9" bodyfile="include/touches.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="touches_8h_1ad74b7f5218b46c8332cd531df7178d45" prot="public" static="no">
+        <name>RELEASED</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/touches.h" line="13" column="9" bodyfile="include/touches.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="touches_8h_1a4e5ef7569c6109539833dc3f3558d55e" prot="public" static="no">
+        <name>QUITTER</name>
+        <initializer>0	/* Quand on appuye sur la croix en haut a droite */</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/touches.h" line="19" column="9" bodyfile="include/touches.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="touches_8h_1af54a6d7aa82993b62caabaaf5b3f1459" prot="public" static="no">
+        <name>AVANCER</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/touches.h" line="21" column="9" bodyfile="include/touches.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="touches_8h_1a26da42c0f048eced1fff947bac0c2b3d" prot="public" static="no">
+        <name>RECULER</name>
+        <initializer>2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/touches.h" line="23" column="9" bodyfile="include/touches.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="touches_8h_1af07f8bf974fdf76afd17f2b97ac15a22" prot="public" static="no">
+        <name>GAUCHE</name>
+        <initializer>3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/touches.h" line="25" column="9" bodyfile="include/touches.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="touches_8h_1af625d3f3bc022848a558f2b18def5b15" prot="public" static="no">
+        <name>DROITE</name>
+        <initializer>4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/touches.h" line="27" column="9" bodyfile="include/touches.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="touches_8h_1a5ff6e798033f03e74730e99f01936f84" prot="public" static="no">
+        <name>SPACE</name>
+        <initializer>5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/touches.h" line="29" column="9" bodyfile="include/touches.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="touches_8h_1a6758a73ebd9c160434cbe869804721ee" prot="public" static="no">
+        <name>SAUTER</name>
+        <initializer>5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/touches.h" line="30" column="9" bodyfile="include/touches.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="touches_8h_1aed9ea78689ecce0b7264c02c7f8a9a54" prot="public" static="no">
+        <name>G</name>
+        <initializer>6 /* la touche G */</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/touches.h" line="32" column="9" bodyfile="include/touches.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="touches_8h_1a207fd5507206d307cd63f95374fcd00d" prot="public" static="no">
+        <name>X</name>
+        <initializer>7 /* la touche X */</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/touches.h" line="33" column="9" bodyfile="include/touches.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="touches_8h_1ac179eef68bcc694aa0ef8dd1eb09950b" prot="public" static="no">
+        <name>SHIFT</name>
+        <initializer>8</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/touches.h" line="35" column="9" bodyfile="include/touches.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="touches_8h_1afe4b0e625372cd38ec60150d6f5594b8" prot="public" static="no">
+        <name>ESCAPE</name>
+        <initializer>9	/* la touche escape en haut a gauche */</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/touches.h" line="37" column="9" bodyfile="include/touches.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="touches_8h_1a32f58a2fe9753d593a5e872a6cafc41e" prot="public" static="no">
+        <name>SOURIS_BTN_1</name>
+        <initializer>10 /* click gauche */</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/touches.h" line="39" column="9" bodyfile="include/touches.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="touches_8h_1a9c4ca6cfa624588c86fdf9225460ee51" prot="public" static="no">
+        <name>SOURIS_GAUCHE</name>
+        <initializer>10</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/touches.h" line="40" column="9" bodyfile="include/touches.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="touches_8h_1a96a041aac6b0284272f16825d2be2655" prot="public" static="no">
+        <name>SOURIS_BTN_2</name>
+        <initializer>11</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/touches.h" line="42" column="9" bodyfile="include/touches.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="touches_8h_1aefcec3a1690d1ea3ee5ad2c34ff0fc73" prot="public" static="no">
+        <name>SOURIS_DROIT</name>
+        <initializer>11</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/touches.h" line="43" column="9" bodyfile="include/touches.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="touches_8h_1a022ce0b8f352b7ba3ccbc26c6f54d683" prot="public" static="no">
+        <name>SOURIS_ROUE_HAUT</name>
+        <initializer>12</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/touches.h" line="45" column="9" bodyfile="include/touches.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="touches_8h_1a17271c5d4a2497f0b68ac578b9ba5c30" prot="public" static="no">
+        <name>SOURIS_ROUE_BAS</name>
+        <initializer>13</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/touches.h" line="47" column="9" bodyfile="include/touches.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="touches_8h_1afad5efc52c3abdbb4c373867c389be90" prot="public" static="no">
+        <name>AVOID_OUTWRITE</name>
+        <initializer>14 /* DOIT etre le dernier et ne doit pas etre touché */</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/touches.h" line="49" column="9" bodyfile="include/touches.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="touches_8h_1aa98d9ebf2370ce7e673f652ad29b6dbd" prot="public" static="no">
+        <type>struct <ref refid="structconfigTouches__s" kindref="compound">configTouches_s</ref></type>
+        <definition>typedef struct configTouches_s  configTouches_t</definition>
+        <argsstring></argsstring>
+        <name>configTouches_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/touches.h" line="55" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="touches_8h_1a875792176d3932ac83f20d745eb41ef2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SDL_init_touches</definition>
+        <argsstring>(uint8_t **keybordState, configTouches_t **configuration)</argsstring>
+        <name>SDL_init_touches</name>
+        <param>
+          <type>uint8_t **</type>
+          <declname>keybordState</declname>
+        </param>
+        <param>
+          <type><ref refid="structconfigTouches__s" kindref="compound">configTouches_t</ref> **</type>
+          <declname>configuration</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/touches.h" line="67" column="1" bodyfile="src/touches.c" bodystart="11" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="touches_8h_1a8a3b79e4296022741df7e28d3d8f2f7e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SDL_exit_touches</definition>
+        <argsstring>(uint8_t **keyboardState, configTouches_t **configuration)</argsstring>
+        <name>SDL_exit_touches</name>
+        <param>
+          <type>uint8_t **</type>
+          <declname>keyboardState</declname>
+        </param>
+        <param>
+          <type><ref refid="structconfigTouches__s" kindref="compound">configTouches_t</ref> **</type>
+          <declname>configuration</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/touches.h" line="70" column="1" bodyfile="src/touches.c" bodystart="173" bodyend="217"/>
+      </memberdef>
+      <memberdef kind="function" id="touches_8h_1a13daff8ccb676d803e4e8b1dd9639812" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SDL_touches</definition>
+        <argsstring>(uint8_t *keybordState, configTouches_t *configuration)</argsstring>
+        <name>SDL_touches</name>
+        <param>
+          <type>uint8_t *</type>
+          <declname>keybordState</declname>
+        </param>
+        <param>
+          <type><ref refid="structconfigTouches__s" kindref="compound">configTouches_t</ref> *</type>
+          <declname>configuration</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/touches.h" line="80" column="1" bodyfile="src/touches.c" bodystart="82" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="touches_8h_1a27fec4531d460d2747af6a7b4ee7523d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SDL_reset_wheel_state</definition>
+        <argsstring>(uint8_t *keyboardState)</argsstring>
+        <name>SDL_reset_wheel_state</name>
+        <param>
+          <type>uint8_t *</type>
+          <declname>keyboardState</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/touches.h" line="83" column="1" bodyfile="src/touches.c" bodystart="154" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="touches_8h_1a4b3272b33afa61d19b045757661d957a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t SDL_touche_appuyer</definition>
+        <argsstring>(uint8_t *keyboardState, uint16_t touche)</argsstring>
+        <name>SDL_touche_appuyer</name>
+        <param>
+          <type>uint8_t *</type>
+          <declname>keyboardState</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>touche</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/touches.h" line="93" column="1" bodyfile="src/touches.c" bodystart="146" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="touches_8h_1a371cc5dcf2408e5140ae4fdeb81e518e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int8_t</type>
+        <definition>int8_t SDL_wheel_state</definition>
+        <argsstring>(uint8_t *keyboardState)</argsstring>
+        <name>SDL_wheel_state</name>
+        <param>
+          <type>uint8_t *</type>
+          <declname>keyboardState</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/touches.h" line="96" column="1" bodyfile="src/touches.c" bodystart="161" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="function" id="touches_8h_1ab68ef8f7e4c3a832fa39a8c0a356f03b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SDL_coord_souris</definition>
+        <argsstring>(int32_t *x, int32_t *y)</argsstring>
+        <name>SDL_coord_souris</name>
+        <param>
+          <type>int32_t *</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int32_t *</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/touches.h" line="99" column="1" bodyfile="src/touches.c" bodystart="167" bodyend="171"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>__TOUCHES_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__TOUCHES_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NB_TOUCHES<sp/>15</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NB_TOUCHES_REEL<sp/>14</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LONGUEUR_MAX_DESCRIPTIF<sp/>20<sp/></highlight><highlight class="comment">/*<sp/>longueur<sp/>max<sp/>en<sp/>caractere<sp/>du<sp/>descriptif<sp/>de<sp/>la<sp/>touche<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NULL_TOUCHE<sp/>4199999</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PRESSED<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RELEASED<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment">/****************************************************************************************</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>LES<sp/>TOUCHES<sp/>QUI<sp/>PEUVENT<sp/>ETRE<sp/>UTILISER<sp/>SONT<sp/>TOUTES<sp/>CI<sp/>DESSOUS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>****************************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>QUITTER<sp/>0<sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Quand<sp/>on<sp/>appuye<sp/>sur<sp/>la<sp/>croix<sp/>en<sp/>haut<sp/>a<sp/>droite<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>AVANCER<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RECULER<sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GAUCHE<sp/>3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DROITE<sp/>4</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SPACE<sp/>5</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SAUTER<sp/>5</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>G<sp/>6<sp/></highlight><highlight class="comment">/*<sp/>la<sp/>touche<sp/>G<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>X<sp/>7<sp/></highlight><highlight class="comment">/*<sp/>la<sp/>touche<sp/>X<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SHIFT<sp/>8</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ESCAPE<sp/>9<sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>la<sp/>touche<sp/>escape<sp/>en<sp/>haut<sp/>a<sp/>gauche<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SOURIS_BTN_1<sp/>10<sp/></highlight><highlight class="comment">/*<sp/>click<sp/>gauche<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SOURIS_GAUCHE<sp/>10</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SOURIS_BTN_2<sp/>11</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SOURIS_DROIT<sp/>11</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SOURIS_ROUE_HAUT<sp/>12</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SOURIS_ROUE_BAS<sp/>13</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>AVOID_OUTWRITE<sp/>14<sp/></highlight><highlight class="comment">/*<sp/>DOIT<sp/>etre<sp/>le<sp/>dernier<sp/>et<sp/>ne<sp/>doit<sp/>pas<sp/>etre<sp/>touché<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51" refid="structconfigTouches__s" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structconfigTouches__s" kindref="compound">configTouches_s</ref><sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>keyCode;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*descriptif;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal">}<sp/><ref refid="structconfigTouches__s" kindref="compound">configTouches_t</ref>;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="comment">/************************************************************************************************************************************</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MODULE<sp/>TOUCHE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Il<sp/>vaut<sp/>mieux<sp/>aller<sp/>voir<sp/>le<sp/>test<sp/>du<sp/>module<sp/>touche<sp/>pour<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>comprendre<sp/>les<sp/>fonctions<sp/>si<sp/>dessous<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="61"><highlight class="comment"><sp/>************************************************************************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="comment">/*************************************************<sp/>FONCTION<sp/>A<sp/>APELLE<sp/>UNIQUE<sp/>*********************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/>initialisation<sp/>du<sp/>module<sp/>touche</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/><sp/><sp/><sp/>doit<sp/>etre<sp/>apeler<sp/>une<sp/>unique<sp/>fois<sp/>dans<sp/>le<sp/>programme<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>SDL_init_touches(<sp/>uint8_t<sp/>**keybordState,<sp/><ref refid="structconfigTouches__s" kindref="compound">configTouches_t</ref><sp/>**configuration<sp/>);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/>doit<sp/>etre<sp/>apeler<sp/>a<sp/>la<sp/>fin<sp/>du<sp/>programme<sp/>pour<sp/>une<sp/>fermeture<sp/>propre<sp/>du<sp/>module<sp/>touche<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>SDL_exit_touches<sp/>(<sp/>uint8_t<sp/>**keyboardState,<sp/><ref refid="structconfigTouches__s" kindref="compound">configTouches_t</ref><sp/>**configuration<sp/>);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="comment">/********************<sp/>FONCTION<sp/>A<sp/>APLLER<sp/>DANS<sp/>UNE<sp/>BOUCLE<sp/>NECESSAIRE<sp/>AU<sp/>BON<sp/>FONCTIONNEMENT<sp/>DU<sp/>MODULE<sp/>TOUCHE<sp/>***************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/>recupere<sp/>l<sp/>etat<sp/>du<sp/>clavier<sp/>et<sp/>de<sp/>la<sp/>souris</highlight></codeline>
+<codeline lineno="79"><highlight class="comment"><sp/><sp/><sp/><sp/>doit<sp/>etre<sp/>apeler<sp/>dans<sp/>une<sp/>boucle<sp/>avant<sp/>les<sp/>fonctions<sp/>suivantes*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>SDL_touches<sp/>(<sp/>uint8_t<sp/>*keybordState,<sp/><ref refid="structconfigTouches__s" kindref="compound">configTouches_t</ref><sp/>*configuration);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>doit<sp/>etre<sp/>apeller<sp/>a<sp/>chaque<sp/>tour<sp/>de<sp/>la<sp/>boucle<sp/>pour<sp/>remettre<sp/>la<sp/>roue<sp/>a<sp/>0<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>SDL_reset_wheel_state(<sp/>uint8_t<sp/>*keyboardState<sp/>);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="comment">/*************************************<sp/>FONCTION<sp/>INDIQUANT<sp/>L&apos;ETAT<sp/>DU<sp/>CLAVIER<sp/>ET<sp/>DE<sp/>LA<sp/>SOURIS<sp/>******************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/>recupere<sp/>l<sp/>etat<sp/>d<sp/>une<sp/>touche</highlight></codeline>
+<codeline lineno="92"><highlight class="comment"><sp/><sp/><sp/><sp/>voir<sp/>les<sp/>define<sp/>ci<sp/>dessus<sp/>pour<sp/>les<sp/>touches<sp/>disponible<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal">uint8_t<sp/>SDL_touche_appuyer<sp/>(<sp/>uint8_t<sp/>*keyboardState,<sp/>uint16_t<sp/>touche<sp/>);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>renvoie<sp/>le<sp/>TOTAL<sp/>(<sp/>peut<sp/>etre<sp/>entre<sp/>-127<sp/>et<sp/>+128<sp/>)<sp/>du<sp/>nombre<sp/>de<sp/>tour<sp/>effectuer<sp/>par<sp/>l&apos;utilasateur<sp/>depuis<sp/>le<sp/>dernier<sp/>apelle<sp/>de<sp/>SDL_reset_wheel_state.<sp/>si<sp/>negatif<sp/>la<sp/>roue<sp/>est<sp/>tournée<sp/>vers<sp/>le<sp/>bas<sp/>si<sp/>positif<sp/>la<sp/>roue<sp/>est<sp/>tournée<sp/>vers<sp/>le<sp/>haut<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal">int8_t<sp/>SDL_wheel_state(<sp/>uint8_t<sp/>*keyboardState<sp/>);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/>met<sp/>les<sp/>coordonees<sp/>de<sp/>la<sp/>souris<sp/>dans<sp/>x<sp/>et<sp/>y<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>SDL_coord_souris<sp/>(<sp/>int32_t<sp/>*x,<sp/>int32_t<sp/>*y<sp/>);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="include/touches.h"/>
+  </compounddef>
+</doxygen>

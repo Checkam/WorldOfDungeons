@@ -1,0 +1,556 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="json_8c" kind="file" language="C++">
+    <compoundname>json.c</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">string.h</includes>
+    <includes refid="json_8h" local="no">json.h</includes>
+    <includes refid="chemin_8h" local="no">chemin.h</includes>
+    <includes refid="erreur_8h" local="no">erreur.h</includes>
+    <includes refid="fichier_8h" local="no">fichier.h</includes>
+    <incdepgraph>
+      <node id="371">
+        <label>json.h</label>
+        <link refid="json_8h"/>
+        <childnode refid="368" relation="include">
+        </childnode>
+        <childnode refid="369" relation="include">
+        </childnode>
+        <childnode refid="372" relation="include">
+        </childnode>
+      </node>
+      <node id="369">
+        <label>stdlib.h</label>
+      </node>
+      <node id="374">
+        <label>liste.h</label>
+        <link refid="liste_8h"/>
+        <childnode refid="372" relation="include">
+        </childnode>
+      </node>
+      <node id="373">
+        <label>chemin.h</label>
+        <link refid="chemin_8h"/>
+        <childnode refid="374" relation="include">
+        </childnode>
+        <childnode refid="372" relation="include">
+        </childnode>
+      </node>
+      <node id="375">
+        <label>fichier.h</label>
+        <link refid="fichier_8h"/>
+        <childnode refid="368" relation="include">
+        </childnode>
+        <childnode refid="369" relation="include">
+        </childnode>
+        <childnode refid="372" relation="include">
+        </childnode>
+      </node>
+      <node id="370">
+        <label>string.h</label>
+      </node>
+      <node id="372">
+        <label>erreur.h</label>
+        <link refid="erreur_8h"/>
+      </node>
+      <node id="367">
+        <label>src/json.c</label>
+        <link refid="json_8c"/>
+        <childnode refid="368" relation="include">
+        </childnode>
+        <childnode refid="369" relation="include">
+        </childnode>
+        <childnode refid="370" relation="include">
+        </childnode>
+        <childnode refid="371" relation="include">
+        </childnode>
+        <childnode refid="373" relation="include">
+        </childnode>
+        <childnode refid="372" relation="include">
+        </childnode>
+        <childnode refid="375" relation="include">
+        </childnode>
+      </node>
+      <node id="368">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="json_8c_1a264dd58178e90f733d77122d11553ca8" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>crt_car</definition>
+        <argsstring></argsstring>
+        <name>crt_car</name>
+        <initializer>= &apos;#&apos;</initializer>
+        <briefdescription>
+<para>Variable globale contenant le dernier caractère ajouté au fichier JSON en cours. </para>        </briefdescription>
+        <detaileddescription>
+<para>La variable est égale à &apos;#&apos; par défaut quand on est ni dans un fichier ni dans un objet; </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/json.c" line="23" column="1" bodyfile="src/json.c" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="json_8c_1a89182dce713943cf48b018049b64b588" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>FILE *</type>
+        <definition>FILE * open_json</definition>
+        <argsstring>(char *dossier, char *name, char *mode)</argsstring>
+        <name>open_json</name>
+        <param>
+          <type>char *</type>
+          <declname>dossier</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>mode</declname>
+        </param>
+        <briefdescription>
+<para>Créer, s&apos;il ne l&apos;est pas, le fichier JSON et l&apos;ouvre. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dossier</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Chaine de caractère représentant le dossier ou se trouve le json. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Chaine de caractère représenant le nom du fichier sans le &apos;.json&apos;. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mode d&apos;ouverture du fichier. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Un pointeur sur le fichier ouvert. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/json.c" line="38" column="1" bodyfile="src/json.c" bodystart="38" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="json_8c_1a36e795007d4be2cde59b1fe53e1e3fa4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>int del_json</definition>
+        <argsstring>(char *dossier, char *name)</argsstring>
+        <name>del_json</name>
+        <param>
+          <type>char *</type>
+          <declname>dossier</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Supprime un fichier JSON. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dossier</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Chaine de caractère représentant le dossier ou se trouve le json. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Chaine de caractère représenant le nom du fichier sans le &apos;.json&apos; à supprimer. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/json.c" line="51" column="1" bodyfile="src/json.c" bodystart="51" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="json_8c_1aef1b0866438f726985d55d84571526c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur write_json</definition>
+        <argsstring>(FILE *file, char *key, void *value, char *value_type)</argsstring>
+        <name>write_json</name>
+        <param>
+          <type>FILE *</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>value_type</declname>
+        </param>
+        <briefdescription>
+<para>Ecrit une clé/valeur au format JSON dans un fichier. </para>        </briefdescription>
+        <detaileddescription>
+<para>L&apos;écriture s&apos;effectue dans le fichier &apos;file&apos; en ajout avec pour contenu le couple clé/valeur &apos;key:value&apos;. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le fichier ou écrire. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La clé correspondant à la valeur. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La valeur à écrire. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le type de la valeur à écrire. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/json.c" line="71" column="1" bodyfile="src/json.c" bodystart="71" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="json_8c_1a6dd5ea7284f649e178e13e99c43600b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur open_json_obj</definition>
+        <argsstring>(FILE *file)</argsstring>
+        <name>open_json_obj</name>
+        <param>
+          <type>FILE *</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+<para>Démarre un nouvelle objet au format JSON dans un fichier. </para>        </briefdescription>
+        <detaileddescription>
+<para>L&apos;écriture s&apos;effectue dans le fichier &apos;file&apos; en ajout avec pour contenu &apos;{&apos; et la variable crt_car est mis à jour. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le fichier ou écrire. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/json.c" line="102" column="1" bodyfile="src/json.c" bodystart="102" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="json_8c_1a8d716a14bfd29aec5bef23e246be5275" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>int close_json_obj</definition>
+        <argsstring>(FILE *file)</argsstring>
+        <name>close_json_obj</name>
+        <param>
+          <type>FILE *</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+<para>Ferme l&apos;objet JSON. </para>        </briefdescription>
+        <detaileddescription>
+<para>L&apos;écriture s&apos;effectue dans le fichier &apos;file&apos; en ajout avec pour contenu &apos;}&apos; et la variable crt_car est mis à jour. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le fichier ou écrire. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/json.c" line="120" column="1" bodyfile="src/json.c" bodystart="120" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="json_8c_1a10b95a250726186ac4ddfdda6adad3e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur extract_json_obj</definition>
+        <argsstring>(FILE *file, char **obj)</argsstring>
+        <name>extract_json_obj</name>
+        <param>
+          <type>FILE *</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type>char **</type>
+          <declname>obj</declname>
+        </param>
+        <briefdescription>
+<para>Récupère un objet JSON dans un fichier. </para>        </briefdescription>
+        <detaileddescription>
+<para>La lecture s&apos;effectue dans le fichier &apos;file&apos; et on récupère un objet. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le fichier à lire. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>obj</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>L&apos;endroit ou enregistrer l&apos;objet. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/json.c" line="144" column="1" bodyfile="src/json.c" bodystart="144" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="function" id="json_8c_1a44c9b298308109129b3ecac1ad911db8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur read_json_obj</definition>
+        <argsstring>(char *obj, char *key, void *value, char *value_type)</argsstring>
+        <name>read_json_obj</name>
+        <param>
+          <type>char *</type>
+          <declname>obj</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>value_type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/json.c" line="177" column="1" bodyfile="src/json.c" bodystart="177" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="function" id="json_8c_1acd75e719d37a9c3f57167eeadfede913" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur fstart</definition>
+        <argsstring>(FILE *file)</argsstring>
+        <name>fstart</name>
+        <param>
+          <type>FILE *</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+<para>Remet le pointeur file au début du fichier. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le fichier où repartir du début. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/json.c" line="230" column="1" bodyfile="src/json.c" bodystart="230" bodyend="235"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Module qui lit et écrit des fichiers au format JSON. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>GALBRUN Tibane </para></simplesect>
+<simplesect kind="version"><para>0.3 </para></simplesect>
+<simplesect kind="date"><para>5 Mars 2019 </para></simplesect>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="9"><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="json_8h" kindref="compound">json.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="chemin_8h" kindref="compound">chemin.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="erreur_8h" kindref="compound">erreur.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="fichier_8h" kindref="compound">fichier.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Variables<sp/>Globales<sp/>*/</highlight></codeline>
+<codeline lineno="23"><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="json_8c_1a264dd58178e90f733d77122d11553ca8" kindref="member">crt_car</ref><sp/>=<sp/></highlight><highlight class="charliteral">&apos;#&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="comment">/*################################################</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/><sp/>######<sp/>Création,<sp/>Ouverture,<sp/>Suppression,<sp/>#######</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/><sp/>##########<sp/>Fermeture<sp/>de<sp/>Fichier<sp/>JSON<sp/>###########</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/><sp/>################################################*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal">FILE<sp/>*<sp/><ref refid="json_8c_1a89182dce713943cf48b018049b64b588" kindref="member">open_json</ref><sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>dossier,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>name,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>mode)</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="json_8c_1a264dd58178e90f733d77122d11553ca8" kindref="member">crt_car</ref><sp/>=<sp/></highlight><highlight class="charliteral">&apos;#&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="fichier_8c_1aa3b58f32eb0387718e13f5a2fe4a43d7" kindref="member">open_file</ref>(dossier,name,</highlight><highlight class="stringliteral">&quot;.json&quot;</highlight><highlight class="normal">,mode);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal">t_erreur<sp/><ref refid="json_8c_1a36e795007d4be2cde59b1fe53e1e3fa4" kindref="member">del_json</ref><sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>dossier,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>name)</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="fichier_8c_1a83d54c1eb70b338d9d72357669d6e179" kindref="member">del_file</ref>(dossier,name,</highlight><highlight class="stringliteral">&quot;.json&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="comment">/*################################################</highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/><sp/>##############<sp/>Ecriture<sp/>de<sp/>Données<sp/>#############</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/><sp/>################<sp/>au<sp/>Format<sp/>JSON<sp/>################</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/><sp/>################################################*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal">t_erreur<sp/><ref refid="json_8c_1aef1b0866438f726985d55d84571526c8" kindref="member">write_json</ref><sp/>(FILE<sp/>*<sp/>file,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>key,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>value,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>value_type)</highlight></codeline>
+<codeline lineno="72"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>FILE_ERROR<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!file)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>FILE_ERROR;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>PTR_NULL<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!key<sp/>||<sp/>!value<sp/>||<sp/>!value_type)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_NULL;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="json_8c_1a264dd58178e90f733d77122d11553ca8" kindref="member">crt_car</ref><sp/>!=<sp/></highlight><highlight class="charliteral">&apos;{&apos;</highlight><highlight class="normal">)<sp/>fprintf(file,</highlight><highlight class="stringliteral">&quot;,&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>ENTIER<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!strcmp(value_type,</highlight><highlight class="stringliteral">&quot;d&quot;</highlight><highlight class="normal">))<sp/>fprintf(file,</highlight><highlight class="stringliteral">&quot;\&quot;%s\&quot;:%d&quot;</highlight><highlight class="normal">,key,*(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*)value);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>FLOAT<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!strcmp(value_type,</highlight><highlight class="stringliteral">&quot;f&quot;</highlight><highlight class="normal">))<sp/>fprintf(file,</highlight><highlight class="stringliteral">&quot;\&quot;%s\&quot;:%.2f&quot;</highlight><highlight class="normal">,key,*(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>*)value);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>STRING<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!strcmp(value_type,</highlight><highlight class="stringliteral">&quot;s&quot;</highlight><highlight class="normal">))<sp/>fprintf(file,</highlight><highlight class="stringliteral">&quot;\&quot;%s\&quot;:\&quot;%s\&quot;&quot;</highlight><highlight class="normal">,key,(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*)value);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>U_INT<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!strcmp(value_type,</highlight><highlight class="stringliteral">&quot;u&quot;</highlight><highlight class="normal">))<sp/>fprintf(file,</highlight><highlight class="stringliteral">&quot;\&quot;%s\&quot;:%u&quot;</highlight><highlight class="normal">,key,*(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*)value);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>TYPE_ERROR;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="json_8c_1a264dd58178e90f733d77122d11553ca8" kindref="member">crt_car</ref><sp/>=<sp/></highlight><highlight class="charliteral">&apos;#&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal">t_erreur<sp/><ref refid="json_8c_1a6dd5ea7284f649e178e13e99c43600b3" kindref="member">open_json_obj</ref><sp/>(FILE<sp/>*<sp/>file)</highlight></codeline>
+<codeline lineno="103"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>FILE_ERROR<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!file)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>FILE_ERROR;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>fprintf(file,</highlight><highlight class="stringliteral">&quot;{&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="json_8c_1a264dd58178e90f733d77122d11553ca8" kindref="member">crt_car</ref><sp/>=<sp/></highlight><highlight class="charliteral">&apos;{&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal">t_erreur<sp/><ref refid="json_8c_1a8d716a14bfd29aec5bef23e246be5275" kindref="member">close_json_obj</ref><sp/>(FILE<sp/>*<sp/>file)</highlight></codeline>
+<codeline lineno="121"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>FILE_ERROR<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!file)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>FILE_ERROR;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>fprintf(file,</highlight><highlight class="stringliteral">&quot;}\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="json_8c_1a264dd58178e90f733d77122d11553ca8" kindref="member">crt_car</ref><sp/>=<sp/></highlight><highlight class="charliteral">&apos;#&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight><highlight class="comment">/*################################################</highlight></codeline>
+<codeline lineno="132"><highlight class="comment"><sp/><sp/>##############<sp/>Lecture<sp/>de<sp/>Données<sp/>##############</highlight></codeline>
+<codeline lineno="133"><highlight class="comment"><sp/><sp/>################<sp/>au<sp/>Format<sp/>JSON<sp/>################</highlight></codeline>
+<codeline lineno="134"><highlight class="comment"><sp/><sp/>################################################*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal">t_erreur<sp/><ref refid="json_8c_1a10b95a250726186ac4ddfdda6adad3e3" kindref="member">extract_json_obj</ref><sp/>(FILE<sp/>*<sp/>file,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**<sp/>obj)</highlight></codeline>
+<codeline lineno="145"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>FILE_ERROR<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!file)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>FILE_ERROR;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>PTR_NULL<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!obj)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_NULL;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>pas<sp/>=<sp/>15,<sp/>i<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(<ref refid="json_8c_1a264dd58178e90f733d77122d11553ca8" kindref="member">crt_car</ref><sp/>!=<sp/></highlight><highlight class="charliteral">&apos;{&apos;</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>fscanf(file,</highlight><highlight class="stringliteral">&quot;%c&quot;</highlight><highlight class="normal">,&amp;<ref refid="json_8c_1a264dd58178e90f733d77122d11553ca8" kindref="member">crt_car</ref>)<sp/>!=<sp/>EOF);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>*obj<sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)<sp/>*<sp/>pas);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>(*obj)[i++]<sp/>=<sp/><ref refid="json_8c_1a264dd58178e90f733d77122d11553ca8" kindref="member">crt_car</ref>;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(;<ref refid="json_8c_1a264dd58178e90f733d77122d11553ca8" kindref="member">crt_car</ref><sp/>!=<sp/></highlight><highlight class="charliteral">&apos;}&apos;</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>fscanf(file,</highlight><highlight class="stringliteral">&quot;%c&quot;</highlight><highlight class="normal">,&amp;<ref refid="json_8c_1a264dd58178e90f733d77122d11553ca8" kindref="member">crt_car</ref>)<sp/>!=<sp/>EOF;<sp/>i++)</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!(i%pas))<sp/>*obj<sp/>=<sp/>realloc(*obj,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)<sp/>*<sp/>((i/pas<sp/>+<sp/>1)<sp/>*<sp/>pas)<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*obj)[i]<sp/>=<sp/><ref refid="json_8c_1a264dd58178e90f733d77122d11553ca8" kindref="member">crt_car</ref>;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>(*obj)[i]<sp/>=<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>*obj<sp/>=<sp/>realloc(*obj,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)<sp/>*<sp/>strlen(*obj)<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="json_8c_1a264dd58178e90f733d77122d11553ca8" kindref="member">crt_car</ref><sp/>=<sp/></highlight><highlight class="charliteral">&apos;#&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal">t_erreur<sp/>read_json_obj<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>obj,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>key,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>value,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>value_type)</highlight></codeline>
+<codeline lineno="178"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>PTR_NULL<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!key<sp/>||<sp/>!obj)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_NULL;</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>search;</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>On<sp/>cherche<sp/>si<sp/>la<sp/>clé<sp/>est<sp/>présent<sp/>dans<sp/>l&apos;objet<sp/>JSON<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/>search<sp/>=<sp/>strstr(obj,key);</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!search)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>KEY_NOT_FOUND;<sp/></highlight><highlight class="comment">/*<sp/>KEY_NOT_FOUND<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>On<sp/>récupère<sp/>la<sp/>valeur<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>save_val[strlen(obj)];</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/>j;</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>search<sp/>-<sp/>obj<sp/>+<sp/>strlen(key)<sp/>+<sp/>2,<sp/>j<sp/>=<sp/>0;<sp/>obj[i]<sp/>!=<sp/></highlight><highlight class="charliteral">&apos;,&apos;</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>obj[i]<sp/>!=<sp/></highlight><highlight class="charliteral">&apos;}&apos;</highlight><highlight class="normal">;<sp/>i++,<sp/>j++)</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>save_val[j]<sp/>=<sp/>obj[i];</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(obj[i]<sp/>==<sp/></highlight><highlight class="charliteral">&apos;&quot;&apos;</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>(obj[i+1]<sp/>==<sp/></highlight><highlight class="charliteral">&apos;,&apos;</highlight><highlight class="normal"><sp/>||<sp/>obj[i+1]<sp/>==<sp/></highlight><highlight class="charliteral">&apos;}&apos;</highlight><highlight class="normal">))<sp/>j--;</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/>save_val[j]<sp/>=<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>On<sp/>traite<sp/>la<sp/>valeur<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>ENTIER<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!strcmp(value_type,</highlight><highlight class="stringliteral">&quot;d&quot;</highlight><highlight class="normal">))<sp/>*(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*)value<sp/>=<sp/>atoi(save_val);</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>ENTIER<sp/>8_T*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!strcmp(value_type,</highlight><highlight class="stringliteral">&quot;d8&quot;</highlight><highlight class="normal">))<sp/>*(int8_t<sp/>*)value<sp/>=<sp/>atoi(save_val);</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>ENTIER<sp/>16_T*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!strcmp(value_type,</highlight><highlight class="stringliteral">&quot;d16&quot;</highlight><highlight class="normal">))<sp/>*(int16_t<sp/>*)value<sp/>=<sp/>atoi(save_val);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>ENTIER<sp/>32_T*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!strcmp(value_type,</highlight><highlight class="stringliteral">&quot;d32&quot;</highlight><highlight class="normal">))<sp/>*(int32_t<sp/>*)value<sp/>=<sp/>atoi(save_val);</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>ENTIER<sp/>64_T*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!strcmp(value_type,</highlight><highlight class="stringliteral">&quot;d64&quot;</highlight><highlight class="normal">))<sp/>*(int64_t<sp/>*)value<sp/>=<sp/>atoi(save_val);</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>FLOAT<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!strcmp(value_type,</highlight><highlight class="stringliteral">&quot;f&quot;</highlight><highlight class="normal">))<sp/>*(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>*)value<sp/>=<sp/>atof(save_val);</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>STRING<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!strcmp(value_type,</highlight><highlight class="stringliteral">&quot;s&quot;</highlight><highlight class="normal">))<sp/>strncpy((</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*)value,save_val+1,</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)<sp/>*<sp/>strlen(save_val));</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>U_INT<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!strcmp(value_type,</highlight><highlight class="stringliteral">&quot;u&quot;</highlight><highlight class="normal">))<sp/>*(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*)value<sp/>=<sp/>atoi(save_val);</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>TYPE_ERROR;</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="218"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight><highlight class="comment">/*################################################</highlight></codeline>
+<codeline lineno="221"><highlight class="comment"><sp/><sp/>###############<sp/>Fonctions<sp/>Autres<sp/>###############</highlight></codeline>
+<codeline lineno="222"><highlight class="comment"><sp/><sp/>################################################*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal">t_erreur<sp/><ref refid="json_8c_1acd75e719d37a9c3f57167eeadfede913" kindref="member">fstart</ref><sp/>(FILE<sp/>*<sp/>file)</highlight></codeline>
+<codeline lineno="231"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!file)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>FILE_ERROR;</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/>fseek(file,<sp/>0,<sp/>SEEK_SET);</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="235"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/json.c"/>
+  </compounddef>
+</doxygen>

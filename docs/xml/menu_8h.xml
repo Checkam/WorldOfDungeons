@@ -1,0 +1,565 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="menu_8h" kind="file" language="C++">
+    <compoundname>menu.h</compoundname>
+    <includes local="no">SDL2/SDL.h</includes>
+    <includes local="no">stdbool.h</includes>
+    <includes refid="erreur_8h" local="no">erreur.h</includes>
+    <includedby refid="menu_8c" local="no">src/menu.c</includedby>
+    <incdepgraph>
+      <node id="196">
+        <label>stdbool.h</label>
+      </node>
+      <node id="194">
+        <label>include/menu.h</label>
+        <link refid="menu_8h"/>
+        <childnode refid="195" relation="include">
+        </childnode>
+        <childnode refid="196" relation="include">
+        </childnode>
+        <childnode refid="197" relation="include">
+        </childnode>
+      </node>
+      <node id="195">
+        <label>SDL2/SDL.h</label>
+      </node>
+      <node id="197">
+        <label>erreur.h</label>
+        <link refid="erreur_8h"/>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="199">
+        <label>src/menu.c</label>
+        <link refid="menu_8c"/>
+      </node>
+      <node id="198">
+        <label>include/menu.h</label>
+        <link refid="menu_8h"/>
+        <childnode refid="199" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structs__bouton__menu" prot="public">s_bouton_menu</innerclass>
+    <innerclass refid="structs__menu" prot="public">s_menu</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="menu_8h_1ab393fa3859e79b41b1c21064e9106e1e" prot="public" static="no" strong="no">
+        <type></type>
+        <name>e_type_menu</name>
+        <enumvalue id="menu_8h_1ab393fa3859e79b41b1c21064e9106e1ead84154820fb7cc5480aa99b8e888ef2e" prot="public">
+          <name>MENU_PRINCIPAL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="menu_8h_1ab393fa3859e79b41b1c21064e9106e1eafcc97a418930e9938a40f095509d35dc" prot="public">
+          <name>MENU_SOLO</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="menu_8h_1ab393fa3859e79b41b1c21064e9106e1eaef03443158e97bfa51096012a6051399" prot="public">
+          <name>MENU_MULTIJOUEUR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="menu_8h_1ab393fa3859e79b41b1c21064e9106e1ea783f7c712e985c3c5259c89fc3f31558" prot="public">
+          <name>MENU_OPTION</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="menu_8h_1ab393fa3859e79b41b1c21064e9106e1ea667346582814c805375f595cebfa4778" prot="public">
+          <name>MENU_PAUSE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="menu_8h_1ab393fa3859e79b41b1c21064e9106e1ea30f9aa33d3d17593ff7e9d6068f714c4" prot="public">
+          <name>NOUVEAU_MENU</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="menu_8h_1ab393fa3859e79b41b1c21064e9106e1ea1703492b37d9e5d472aade8c913232bd" prot="public">
+          <name>MENU_NULL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="menu_8h_1ab393fa3859e79b41b1c21064e9106e1ea6fb2cce6876c14b2320b86d39ebf12b4" prot="public">
+          <name>MENU_NOUVELLE_PARTIE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="menu_8h_1ab393fa3859e79b41b1c21064e9106e1ea7475e0ebf4c9590fb12f10c537bc155a" prot="public">
+          <name>MENU_CHARGER_PARTIE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="menu_8h_1ab393fa3859e79b41b1c21064e9106e1eaeda6b268840b05d8bc39cbf6b0cfd117" prot="public">
+          <name>MENU_QUITTER</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/menu.h" line="19" column="1" bodyfile="include/menu.h" bodystart="19" bodyend="30"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="menu_8h_1a2ee7dee8fd1925b55fa84344659a748a" prot="public" static="no">
+        <type>enum e_type_menu</type>
+        <definition>typedef enum e_type_menu  t_type_menu</definition>
+        <argsstring></argsstring>
+        <name>t_type_menu</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/menu.h" line="30" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="menu_8h_1abc38417c9d5d39d48c7d4cf9b2bff728" prot="public" static="no">
+        <type>struct <ref refid="structs__bouton__menu" kindref="compound">s_bouton_menu</ref></type>
+        <definition>typedef struct s_bouton_menu  t_bouton_menu</definition>
+        <argsstring></argsstring>
+        <name>t_bouton_menu</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/menu.h" line="41" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="menu_8h_1a9ddd1799efd4c5543fcd677b649a948a" prot="public" static="no">
+        <type>struct <ref refid="structs__menu" kindref="compound">s_menu</ref></type>
+        <definition>typedef struct s_menu t_menu</definition>
+        <argsstring></argsstring>
+        <name>t_menu</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/menu.h" line="52" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="menu_8h_1aa771a9769760a4f490719761ac5d052c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur menu_init</definition>
+        <argsstring>(SDL_Renderer *renderer)</argsstring>
+        <name>menu_init</name>
+        <param>
+          <type>SDL_Renderer *</type>
+          <declname>renderer</declname>
+        </param>
+        <briefdescription>
+<para>Initialise Menu. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>renderer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Renderer de la fenetre </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>t_erreur Code erreur </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/menu.h" line="55" column="1" bodyfile="src/menu.c" bodystart="45" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="menu_8h_1a400dad194316a2c134c016ebf10a2f31" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur menu_quit</definition>
+        <argsstring>(void)</argsstring>
+        <name>menu_quit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Quitte Menu. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Code erreur </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/menu.h" line="56" column="1" bodyfile="src/menu.c" bodystart="69" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="menu_8h_1af1461abc4dc85b02e4d1d3e8c135eaad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur menu_ajout_bouton</definition>
+        <argsstring>(t_menu *menu, SDL_Rect rect, char *titre, t_type_menu type)</argsstring>
+        <name>menu_ajout_bouton</name>
+        <param>
+          <type><ref refid="structt__menu" kindref="compound">t_menu</ref> *</type>
+          <declname>menu</declname>
+        </param>
+        <param>
+          <type>SDL_Rect</type>
+          <declname>rect</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>titre</declname>
+        </param>
+        <param>
+          <type>t_type_menu</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+<para>Ajoute un bouton au menu. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rect</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Informations de position et de taille du bouton </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>titre</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Titre du bouton </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Type du menu suivant </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Retourne un code erreur </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/menu.h" line="59" column="1" bodyfile="src/menu.c" bodystart="84" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="menu_8h_1a5e4bbd12d3e5748c418095f36fd603fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur menu_creer</definition>
+        <argsstring>(t_type_menu type, int width, int height, t_menu **menu)</argsstring>
+        <name>menu_creer</name>
+        <param>
+          <type>t_type_menu</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type><ref refid="structt__menu" kindref="compound">t_menu</ref> **</type>
+          <declname>menu</declname>
+        </param>
+        <briefdescription>
+<para>Créer un Menu. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Type de menu que l&apos;on veut avoir (Solo,...) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>width</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Largeur de la fenêtre d&apos;affichage </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>height</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Hauteur de la fenêtre d&apos;affichage </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>menu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Double pointeur sur le menu que l&apos;on veut créer </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Code erreur </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/menu.h" line="60" column="1" bodyfile="src/menu.c" bodystart="133" bodyend="186"/>
+      </memberdef>
+      <memberdef kind="function" id="menu_8h_1ac891d8c3b720e8c042eb00768981a389" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur menu_afficher_SDL</definition>
+        <argsstring>(t_menu *menu, SDL_Renderer *renderer)</argsstring>
+        <name>menu_afficher_SDL</name>
+        <param>
+          <type><ref refid="structt__menu" kindref="compound">t_menu</ref> *</type>
+          <declname>menu</declname>
+        </param>
+        <param>
+          <type>SDL_Renderer *</type>
+          <declname>renderer</declname>
+        </param>
+        <briefdescription>
+<para>Affiche le menu. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>menu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointeur sur le menu que l&apos;on veut afficher </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>renderer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Renderer sur le lequel on veut afficher le menu </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Code erreur </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/menu.h" line="63" column="1" bodyfile="src/menu.c" bodystart="246" bodyend="308"/>
+      </memberdef>
+      <memberdef kind="function" id="menu_8h_1a261f1344f6059bdf0834f0f3b878bea8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur menu_detruire_bouton</definition>
+        <argsstring>(t_bouton_menu **btn)</argsstring>
+        <name>menu_detruire_bouton</name>
+        <param>
+          <type><ref refid="structt__bouton__menu" kindref="compound">t_bouton_menu</ref> **</type>
+          <declname>btn</declname>
+        </param>
+        <briefdescription>
+<para>Detruire un bouton. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>btn</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bouton que l&apos;on veut détruire </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Code erreur </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/menu.h" line="66" column="1" bodyfile="src/menu.c" bodystart="325" bodyend="335"/>
+      </memberdef>
+      <memberdef kind="function" id="menu_8h_1a4f02e01d48394849997786c138baf862" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur menu_detruire</definition>
+        <argsstring>(t_menu **menu)</argsstring>
+        <name>menu_detruire</name>
+        <param>
+          <type><ref refid="structt__menu" kindref="compound">t_menu</ref> **</type>
+          <declname>menu</declname>
+        </param>
+        <briefdescription>
+<para>Detruire un Menu. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>menu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Menu que l&apos;on veut détruire </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Code erreur </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/menu.h" line="67" column="1" bodyfile="src/menu.c" bodystart="343" bodyend="357"/>
+      </memberdef>
+      <memberdef kind="function" id="menu_8h_1a28006b7b9d53bcc0b3828ec01906c7cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur menu_gestion_SDL</definition>
+        <argsstring>(t_menu *menu, int mouseState, t_type_menu *type_menu_suivant)</argsstring>
+        <name>menu_gestion_SDL</name>
+        <param>
+          <type><ref refid="structt__menu" kindref="compound">t_menu</ref> *</type>
+          <declname>menu</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>mouseState</declname>
+        </param>
+        <param>
+          <type>t_type_menu *</type>
+          <declname>type_menu_suivant</declname>
+        </param>
+        <briefdescription>
+<para>Met à jour le menu. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>menu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Menu que l&apos;on veut gérer </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mouse</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Info de la souris </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>type_menu_suivant</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointeur sur le menu suivant, MENU_NULL sinon </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Code erreur </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/menu.h" line="70" column="1" bodyfile="src/menu.c" bodystart="367" bodyend="406"/>
+      </memberdef>
+      <memberdef kind="function" id="menu_8h_1a65c9e5cd5164e3b622fae7d2dc09ef23" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur menu_suivant</definition>
+        <argsstring>(t_menu **menu, t_type_menu type_menu_suivant)</argsstring>
+        <name>menu_suivant</name>
+        <param>
+          <type><ref refid="structt__menu" kindref="compound">t_menu</ref> **</type>
+          <declname>menu</declname>
+        </param>
+        <param>
+          <type>t_type_menu</type>
+          <declname>type_menu_suivant</declname>
+        </param>
+        <briefdescription>
+<para>Passe au Menu suivant. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>menu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Double pointeur sur le menu </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>type_menu_suivant</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Type du menu suivant </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Code erreur </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/menu.h" line="71" column="1" bodyfile="src/menu.c" bodystart="415" bodyend="433"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Gestion du menu (solo, multijoueur, ...) </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Jasmin GALBRUN </para></simplesect>
+<simplesect kind="version"><para>3 </para></simplesect>
+<simplesect kind="date"><para>15/03/2019 </para></simplesect>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="8"><highlight class="preprocessor">#ifndef<sp/>__MENU_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__MENU_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;SDL2/SDL.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdbool.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="erreur_8h" kindref="compound">erreur.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>e_type_menu<sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>MENU_PRINCIPAL,</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>MENU_SOLO,</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>MENU_MULTIJOUEUR,</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>MENU_OPTION,</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>MENU_PAUSE,</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>NOUVEAU_MENU,</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>MENU_NULL,</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>MENU_NOUVELLE_PARTIE,</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>MENU_CHARGER_PARTIE,</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>MENU_QUITTER</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">}<sp/>t_type_menu;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="structs__bouton__menu" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structs__bouton__menu" kindref="compound">s_bouton_menu</ref>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/>y,<sp/>width,<sp/>height;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>titre;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>state,<sp/>focus;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>t_type_menu<sp/>suivant;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">}<sp/><ref refid="structt__bouton__menu" kindref="compound">t_bouton_menu</ref>;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="structs__menu" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structs__menu" kindref="compound">s_menu</ref>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structt__bouton__menu" kindref="compound">t_bouton_menu</ref><sp/>*(*tab_bouton);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nb_bouton;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>width,<sp/>height;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>t_type_menu<sp/>type;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">}<ref refid="structt__menu" kindref="compound">t_menu</ref>;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Primitive<sp/>Initialisation<sp/>+<sp/>Finalisation<sp/>d&apos;un<sp/>menu<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal">t_erreur<sp/><ref refid="menu_8h_1aa771a9769760a4f490719761ac5d052c" kindref="member">menu_init</ref>(SDL_Renderer<sp/>*<sp/>renderer);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal">t_erreur<sp/><ref refid="menu_8h_1a400dad194316a2c134c016ebf10a2f31" kindref="member">menu_quit</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Primitive<sp/>de<sp/>création<sp/>d&apos;un<sp/>menu<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal">t_erreur<sp/><ref refid="menu_8h_1af1461abc4dc85b02e4d1d3e8c135eaad" kindref="member">menu_ajout_bouton</ref>(<ref refid="structt__menu" kindref="compound">t_menu</ref><sp/>*<sp/>menu,<sp/>SDL_Rect<sp/>rect,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>titre,<sp/>t_type_menu<sp/>type);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal">t_erreur<sp/><ref refid="menu_8h_1a5e4bbd12d3e5748c418095f36fd603fc" kindref="member">menu_creer</ref>(t_type_menu<sp/>type,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>width,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>height,<sp/><ref refid="structt__menu" kindref="compound">t_menu</ref><sp/>**<sp/>menu);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Primitive<sp/>d&apos;affichage<sp/>d&apos;un<sp/>menu<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal">t_erreur<sp/><ref refid="menu_8h_1ac891d8c3b720e8c042eb00768981a389" kindref="member">menu_afficher_SDL</ref>(<ref refid="structt__menu" kindref="compound">t_menu</ref><sp/>*<sp/>menu,<sp/>SDL_Renderer<sp/>*<sp/>renderer);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Primitive<sp/>de<sp/>destruction<sp/>d&apos;un<sp/>menu<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal">t_erreur<sp/><ref refid="menu_8h_1a261f1344f6059bdf0834f0f3b878bea8" kindref="member">menu_detruire_bouton</ref>(<ref refid="structt__bouton__menu" kindref="compound">t_bouton_menu</ref><sp/>**<sp/>btn);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal">t_erreur<sp/><ref refid="menu_8h_1a4f02e01d48394849997786c138baf862" kindref="member">menu_detruire</ref>(<ref refid="structt__menu" kindref="compound">t_menu</ref><sp/>**<sp/>menu);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Primitive<sp/>de<sp/>gestion<sp/>du<sp/>menu<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal">t_erreur<sp/><ref refid="menu_8h_1a28006b7b9d53bcc0b3828ec01906c7cd" kindref="member">menu_gestion_SDL</ref>(<ref refid="structt__menu" kindref="compound">t_menu</ref><sp/>*<sp/>menu,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mouseState,<sp/>t_type_menu<sp/>*<sp/>type_menu_suivant);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal">t_erreur<sp/><ref refid="menu_8h_1a65c9e5cd5164e3b622fae7d2dc09ef23" kindref="member">menu_suivant</ref>(<ref refid="structt__menu" kindref="compound">t_menu</ref><sp/>**<sp/>menu,<sp/>t_type_menu<sp/>type_menu_suivant);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="include/menu.h"/>
+  </compounddef>
+</doxygen>

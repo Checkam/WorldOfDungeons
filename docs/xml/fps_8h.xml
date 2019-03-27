@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="fps_8h" kind="file" language="C++">
+    <compoundname>fps.h</compoundname>
+    <includedby refid="entite_8c" local="no">src/entite.c</includedby>
+    <includedby refid="fps_8c" local="no">src/fps.c</includedby>
+    <invincdepgraph>
+      <node id="141">
+        <label>include/fps.h</label>
+        <link refid="fps_8h"/>
+        <childnode refid="142" relation="include">
+        </childnode>
+      </node>
+      <node id="142">
+        <label>src/entite.c</label>
+        <link refid="entite_8c"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="fps_8h_1ac92ca5ab87034a348decad7ee8d4bd1b" prot="public" static="no">
+        <name>FPS</name>
+        <initializer>50 /* fps affichée a l&apos;ecran */</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/fps.h" line="4" column="9" bodyfile="include/fps.h" bodystart="4" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="fps_8h_1a4a909ae8b818dfdcf2305133034edb72" prot="public" static="no">
+        <name>FPS_BASE</name>
+        <initializer>50 /* a ne pas changer, point de repere pour le module*/</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/fps.h" line="6" column="9" bodyfile="include/fps.h" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="fps_8h_1aee21f2cacf698390d1e403ea397ad318" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void fps_init</definition>
+        <argsstring>()</argsstring>
+        <name>fps_init</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/fps.h" line="8" column="1" bodyfile="src/fps.c" bodystart="8" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="fps_8h_1a65238eab377bf23f23b2e17201fd03c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double fps</definition>
+        <argsstring>()</argsstring>
+        <name>fps</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/fps.h" line="10" column="1" bodyfile="src/fps.c" bodystart="14" bodyend="41"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>__FPS_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__FPS_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FPS<sp/>50<sp/></highlight><highlight class="comment">/*<sp/>fps<sp/>affichée<sp/>a<sp/>l&apos;ecran<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FPS_BASE<sp/>50<sp/></highlight><highlight class="comment">/*<sp/>a<sp/>ne<sp/>pas<sp/>changer,<sp/>point<sp/>de<sp/>repere<sp/>pour<sp/>le<sp/>module*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>fps_init<sp/>();</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>fps<sp/>();</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="include/fps.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="structs__erreur" kind="struct" language="C++" prot="public">
+    <compoundname>s_erreur</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structs__erreur_1ab2f5167237e1daa0acdfdd89e2d23db8" prot="public" static="no" mutable="no">
+        <type>t_erreur</type>
+        <definition>t_erreur s_erreur::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/erreur.c" line="22" column="1" bodyfile="src/erreur.c" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__erreur_1af0d32190a9ffa4c6cd54f48e4982f80b" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* s_erreur::msg</definition>
+        <argsstring></argsstring>
+        <name>msg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/erreur.c" line="23" column="1" bodyfile="src/erreur.c" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/erreur.c" line="21" column="1" bodyfile="src/erreur.c" bodystart="20" bodyend="24"/>
+    <listofallmembers>
+      <member refid="structs__erreur_1ab2f5167237e1daa0acdfdd89e2d23db8" prot="public" virt="non-virtual"><scope>s_erreur</scope><name>id</name></member>
+      <member refid="structs__erreur_1af0d32190a9ffa4c6cd54f48e4982f80b" prot="public" virt="non-virtual"><scope>s_erreur</scope><name>msg</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

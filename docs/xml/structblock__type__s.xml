@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="structblock__type__s" kind="struct" language="C++" prot="public">
+    <compoundname>block_type_s</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structblock__type__s_1ab23b1a3e2c3a26ec847636a758888ae0" prot="public" static="no" mutable="no">
+        <type>const <ref refid="block_8h_1a4030ebe0eea609635f372f2e86d4332a" kindref="member">t_materiaux</ref></type>
+        <definition>const t_materiaux block_type_s::materiau</definition>
+        <argsstring></argsstring>
+        <name>materiau</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/block.h" line="28" column="1" bodyfile="include/block.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structblock__type__s_1ab0dd44baaeba77af372111aab407b32b" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* block_type_s::nom</definition>
+        <argsstring></argsstring>
+        <name>nom</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/block.h" line="29" column="1" bodyfile="include/block.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structblock__type__s_1aa46c6fcc0946c131911e020403c12020" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int block_type_s::resistance</definition>
+        <argsstring></argsstring>
+        <name>resistance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/block.h" line="30" column="1" bodyfile="include/block.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structblock__type__s_1aa6d3c4bdb3ac3bd5972f4495870e2986" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* block_type_s::texture_path_sdl</definition>
+        <argsstring></argsstring>
+        <name>texture_path_sdl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/block.h" line="32" column="1" bodyfile="include/block.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structblock__type__s_1a0018e7e74b665cfb61fea3546fcb0d1a" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* block_type_s::texture_term</definition>
+        <argsstring></argsstring>
+        <name>texture_term</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/block.h" line="33" column="1" bodyfile="include/block.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structblock__type__s_1a16aca64b354d48a0f675743097d36b75" prot="public" static="no" mutable="no">
+        <type>SDL_Texture *</type>
+        <definition>SDL_Texture* block_type_s::texture_sdl</definition>
+        <argsstring></argsstring>
+        <name>texture_sdl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/block.h" line="35" column="1" bodyfile="include/block.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/block.h" line="27" column="1" bodyfile="include/block.h" bodystart="27" bodyend="36"/>
+    <listofallmembers>
+      <member refid="structblock__type__s_1ab23b1a3e2c3a26ec847636a758888ae0" prot="public" virt="non-virtual"><scope>block_type_s</scope><name>materiau</name></member>
+      <member refid="structblock__type__s_1ab0dd44baaeba77af372111aab407b32b" prot="public" virt="non-virtual"><scope>block_type_s</scope><name>nom</name></member>
+      <member refid="structblock__type__s_1aa46c6fcc0946c131911e020403c12020" prot="public" virt="non-virtual"><scope>block_type_s</scope><name>resistance</name></member>
+      <member refid="structblock__type__s_1aa6d3c4bdb3ac3bd5972f4495870e2986" prot="public" virt="non-virtual"><scope>block_type_s</scope><name>texture_path_sdl</name></member>
+      <member refid="structblock__type__s_1a16aca64b354d48a0f675743097d36b75" prot="public" virt="non-virtual"><scope>block_type_s</scope><name>texture_sdl</name></member>
+      <member refid="structblock__type__s_1a0018e7e74b665cfb61fea3546fcb0d1a" prot="public" virt="non-virtual"><scope>block_type_s</scope><name>texture_term</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

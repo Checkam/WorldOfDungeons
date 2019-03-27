@@ -1,0 +1,667 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="map_8c" kind="file" language="C++">
+    <compoundname>map.c</compoundname>
+    <includes refid="block_8h" local="no">block.h</includes>
+    <includes refid="commun_8h" local="no">commun.h</includes>
+    <includes refid="erreur_8h" local="no">erreur.h</includes>
+    <includes refid="liste_8h" local="no">liste.h</includes>
+    <includes refid="affichage_8h" local="no">affichage.h</includes>
+    <includes refid="json_8h" local="no">json.h</includes>
+    <includes refid="map_8h" local="no">map.h</includes>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">string.h</includes>
+    <includes local="no">sys/stat.h</includes>
+    <includes local="no">sys/types.h</includes>
+    <includes local="no">unistd.h</includes>
+    <incdepgraph>
+      <node id="396">
+        <label>sys/stat.h</label>
+      </node>
+      <node id="391">
+        <label>json.h</label>
+        <link refid="json_8h"/>
+        <childnode refid="392" relation="include">
+        </childnode>
+        <childnode refid="393" relation="include">
+        </childnode>
+        <childnode refid="387" relation="include">
+        </childnode>
+      </node>
+      <node id="394">
+        <label>map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="387" relation="include">
+        </childnode>
+        <childnode refid="389" relation="include">
+        </childnode>
+        <childnode refid="384" relation="include">
+        </childnode>
+      </node>
+      <node id="388">
+        <label>commun.h</label>
+        <link refid="commun_8h_source"/>
+      </node>
+      <node id="393">
+        <label>stdlib.h</label>
+      </node>
+      <node id="389">
+        <label>liste.h</label>
+        <link refid="liste_8h"/>
+        <childnode refid="387" relation="include">
+        </childnode>
+      </node>
+      <node id="385">
+        <label>couleurs.h</label>
+        <link refid="couleurs_8h_source"/>
+      </node>
+      <node id="386">
+        <label>SDL2/SDL.h</label>
+      </node>
+      <node id="397">
+        <label>sys/types.h</label>
+      </node>
+      <node id="395">
+        <label>string.h</label>
+      </node>
+      <node id="398">
+        <label>unistd.h</label>
+      </node>
+      <node id="387">
+        <label>erreur.h</label>
+        <link refid="erreur_8h"/>
+      </node>
+      <node id="390">
+        <label>affichage.h</label>
+        <link refid="affichage_8h"/>
+        <childnode refid="389" relation="include">
+        </childnode>
+        <childnode refid="386" relation="include">
+        </childnode>
+      </node>
+      <node id="383">
+        <label>src/map.c</label>
+        <link refid="map_8c"/>
+        <childnode refid="384" relation="include">
+        </childnode>
+        <childnode refid="388" relation="include">
+        </childnode>
+        <childnode refid="387" relation="include">
+        </childnode>
+        <childnode refid="389" relation="include">
+        </childnode>
+        <childnode refid="390" relation="include">
+        </childnode>
+        <childnode refid="391" relation="include">
+        </childnode>
+        <childnode refid="394" relation="include">
+        </childnode>
+        <childnode refid="392" relation="include">
+        </childnode>
+        <childnode refid="393" relation="include">
+        </childnode>
+        <childnode refid="395" relation="include">
+        </childnode>
+        <childnode refid="396" relation="include">
+        </childnode>
+        <childnode refid="397" relation="include">
+        </childnode>
+        <childnode refid="398" relation="include">
+        </childnode>
+      </node>
+      <node id="392">
+        <label>stdio.h</label>
+      </node>
+      <node id="384">
+        <label>block.h</label>
+        <link refid="block_8h"/>
+        <childnode refid="385" relation="include">
+        </childnode>
+        <childnode refid="386" relation="include">
+        </childnode>
+        <childnode refid="387" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="map_8c_1aef056582e45db1e9b9f32ed94ce342a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur MAP_creer</definition>
+        <argsstring>(t_map **map, char *nom_map, int SEED)</argsstring>
+        <name>MAP_creer</name>
+        <param>
+          <type><ref refid="structt__map" kindref="compound">t_map</ref> **</type>
+          <declname>map</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>nom_map</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>SEED</declname>
+        </param>
+        <briefdescription>
+<para>Créer une map (le dossier de saugarde et le pointeur pour manipuler cette map) </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>map</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>le pointeur de la map qui va être créer </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nom_map</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le nom de la map </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>SEED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le SEED de génération de la map </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Renvoie un code erreur en cas de problème sinon OK </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/map.c" line="34" column="1" bodyfile="src/map.c" bodystart="34" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1a924b98cbf202b64bbf0d220799b85618" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur MAP_charger</definition>
+        <argsstring>(t_map **map, char *nom_map)</argsstring>
+        <name>MAP_charger</name>
+        <param>
+          <type><ref refid="structt__map" kindref="compound">t_map</ref> **</type>
+          <declname>map</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>nom_map</declname>
+        </param>
+        <briefdescription>
+<para>Charge la map a partir des fichier. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>map</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointeur sur la map qui doit etre sauvegarder </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Renvoie un code erreur en cas de problème sinon OK </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/map.c" line="56" column="1" bodyfile="src/map.c" bodystart="56" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1af37676b15409d8011fab9afb3dceaf48" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur MAP_lister</definition>
+        <argsstring>()</argsstring>
+        <name>MAP_lister</name>
+        <briefdescription>
+<para>Liste toute les map. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>map</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointeur sur la map qui doit etre sauvegarder </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Renvoie un code erreur en cas de problème sinon OK </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/map.c" line="98" column="1" bodyfile="src/map.c" bodystart="98" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1a9cbabb7d85f1c202fe4365129d1a4fd9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur MAP_sauvegarder</definition>
+        <argsstring>(t_map *map)</argsstring>
+        <name>MAP_sauvegarder</name>
+        <param>
+          <type><ref refid="structt__map" kindref="compound">t_map</ref> *</type>
+          <declname>map</declname>
+        </param>
+        <briefdescription>
+<para>Sauvegarde la map dans l&apos;état actuel. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>map</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointeur sur la map qui doit etre sauvegarder </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Renvoie un code erreur en cas de problème sinon OK </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/map.c" line="110" column="1" bodyfile="src/map.c" bodystart="110" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1a69443211920fe8027cdf8fc881ec8099" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur MAP_creer_dir</definition>
+        <argsstring>(t_map *map)</argsstring>
+        <name>MAP_creer_dir</name>
+        <param>
+          <type><ref refid="structt__map" kindref="compound">t_map</ref> *</type>
+          <declname>map</declname>
+        </param>
+        <briefdescription>
+<para>Créer le repertoire d&apos;une map. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>map</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointeur sur la map dont le repertoire doit être créer </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Renvoie un code erreur en cas de problème sinon OK </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/map.c" line="134" column="1" bodyfile="src/map.c" bodystart="134" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1a441906150a1c586a7ef225ac226bd143" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur MAP_supprimer</definition>
+        <argsstring>(t_map *map)</argsstring>
+        <name>MAP_supprimer</name>
+        <param>
+          <type><ref refid="structt__map" kindref="compound">t_map</ref> *</type>
+          <declname>map</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/map.c" line="156" column="1" bodyfile="src/map.c" bodystart="156" bodyend="167"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1ae1929f4af7bc80c58f069d9b6633b989" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur MAP_detruction</definition>
+        <argsstring>(t_map **map)</argsstring>
+        <name>MAP_detruction</name>
+        <param>
+          <type><ref refid="structt__map" kindref="compound">t_map</ref> **</type>
+          <declname>map</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/map.c" line="175" column="1" bodyfile="src/map.c" bodystart="175" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1aa19ca208d8692fc9f01278738f1752dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* MAP_creer_path</definition>
+        <argsstring>(char *nom_map)</argsstring>
+        <name>MAP_creer_path</name>
+        <param>
+          <type>char *</type>
+          <declname>nom_map</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/map.c" line="197" column="1" bodyfile="src/map.c" bodystart="197" bodyend="203"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1a68ce824f54aa0ce572d085d56f533a98" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur MAP_detruire_path</definition>
+        <argsstring>(char **path_dir)</argsstring>
+        <name>MAP_detruire_path</name>
+        <param>
+          <type>char **</type>
+          <declname>path_dir</declname>
+        </param>
+        <briefdescription>
+<para>Libère la mémoire dynamique alloué pour le path. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>map</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointeur de pointeur sur le path </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Renvoie un code erreur en cas de problème sinon OK </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/map.c" line="211" column="1" bodyfile="src/map.c" bodystart="211" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1a2c2ed98ad423d0862946f907e8750443" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structblock__s" kindref="compound">t_block</ref> *</type>
+        <definition>t_block* MAP_GetBlockFromList</definition>
+        <argsstring>(t_map *map, int x, int y)</argsstring>
+        <name>MAP_GetBlockFromList</name>
+        <param>
+          <type><ref refid="structt__map" kindref="compound">t_map</ref> *</type>
+          <declname>map</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/map.c" line="220" column="1" bodyfile="src/map.c" bodystart="220" bodyend="229"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1acbd7e9a49a231ad9f225132302ada4f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structblock__s" kindref="compound">t_block</ref> *</type>
+        <definition>t_block* MAP_GetBlock</definition>
+        <argsstring>(t_map *map, int x, int y)</argsstring>
+        <name>MAP_GetBlock</name>
+        <param>
+          <type><ref refid="structt__map" kindref="compound">t_map</ref> *</type>
+          <declname>map</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/map.c" line="231" column="1" bodyfile="src/map.c" bodystart="231" bodyend="244"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1a218ead4cdcfa4d31ac0c86a345fca1b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MAP_SetEcListe</definition>
+        <argsstring>(t_liste *list, int x)</argsstring>
+        <name>MAP_SetEcListe</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/map.c" line="246" column="1" bodyfile="src/map.c" bodystart="246" bodyend="250"/>
+      </memberdef>
+      <memberdef kind="function" id="map_8c_1abb6bbd9070773c4855c1dafe5c81bdc2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MAP_CopyListFromX</definition>
+        <argsstring>(t_map *map, t_liste *list, int x_from, int x_to)</argsstring>
+        <name>MAP_CopyListFromX</name>
+        <param>
+          <type><ref refid="structt__map" kindref="compound">t_map</ref> *</type>
+          <declname>map</declname>
+        </param>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>x_from</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>x_to</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/map.c" line="252" column="1" bodyfile="src/map.c" bodystart="252" bodyend="258"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Module permettant de géré une map (Création,Suppression) </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>{Maxence.D} </para></simplesect>
+<simplesect kind="version"><para>0.1 </para></simplesect>
+<simplesect kind="date"><para>07 mars 2019 </para></simplesect>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="9"><highlight class="preprocessor">#include<sp/>&lt;<ref refid="block_8h" kindref="compound">block.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;commun.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="erreur_8h" kindref="compound">erreur.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="liste_8h" kindref="compound">liste.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="affichage_8h" kindref="compound">affichage.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="json_8h" kindref="compound">json.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="map_8h" kindref="compound">map.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sys/stat.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sys/types.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;unistd.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal">t_erreur<sp/><ref refid="map_8c_1aef056582e45db1e9b9f32ed94ce342a3" kindref="member">MAP_creer</ref>(<ref refid="structt__map" kindref="compound">t_map</ref><sp/>**map,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*nom_map,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>SEED)<sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>(*map)<sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structt__map" kindref="compound">t_map</ref>));</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>(*map)-&gt;nom<sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)<sp/>*<sp/>strlen(nom_map)<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>strcpy((*map)-&gt;nom,<sp/>nom_map);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>(*map)-&gt;SEED<sp/>=<sp/>SEED;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><ref refid="map_8c_1a69443211920fe8027cdf8fc881ec8099" kindref="member">MAP_creer_dir</ref>(*map);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><ref refid="map_8c_1a9cbabb7d85f1c202fe4365129d1a4fd9" kindref="member">MAP_sauvegarder</ref>(*map);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>(*map)-&gt;list<sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structt__liste" kindref="compound">t_liste</ref>));</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><ref refid="liste_8c_1ae54cf55c0d15211e5433ce9b5abf099d" kindref="member">init_liste</ref>((*map)-&gt;list);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal">t_erreur<sp/><ref refid="map_8c_1a924b98cbf202b64bbf0d220799b85618" kindref="member">MAP_charger</ref>(<ref refid="structt__map" kindref="compound">t_map</ref><sp/>**map,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*nom_map)<sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*path_dir<sp/>=<sp/>MAP_creer_path(nom_map);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size<sp/>=<sp/>500;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*dir_curr<sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)<sp/>*<sp/>size<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/>getcwd(dir_curr,<sp/>size);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(chdir(path_dir))</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>FILE_ERROR;<sp/></highlight><highlight class="comment">//<sp/>DIR_NO_FOUND</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>chdir(dir_curr);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/>free(dir_curr);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>(*map)<sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structt__map" kindref="compound">t_map</ref>));</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>(*map)-&gt;nom<sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)<sp/>*<sp/>strlen(nom_map)<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>strcpy((*map)-&gt;nom,<sp/>nom_map);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Charger<sp/>le<sp/>seed<sp/>avec<sp/>fct<sp/>json</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/>FILE<sp/>*data<sp/>=<sp/><ref refid="json_8c_1a89182dce713943cf48b018049b64b588" kindref="member">open_json</ref>(path_dir,<sp/></highlight><highlight class="stringliteral">&quot;data&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;r&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*objet;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><ref refid="json_8c_1acd75e719d37a9c3f57167eeadfede913" kindref="member">fstart</ref>(data);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><ref refid="json_8c_1a10b95a250726186ac4ddfdda6adad3e3" kindref="member">extract_json_obj</ref>(data,<sp/>&amp;objet);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/>read_json_obj(objet,<sp/></highlight><highlight class="stringliteral">&quot;SEED&quot;</highlight><highlight class="normal">,<sp/>&amp;(*map)-&gt;SEED,<sp/></highlight><highlight class="stringliteral">&quot;d&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/>fclose(data);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/>free(objet);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//Charger<sp/>map<sp/>a<sp/>partir<sp/>d&apos;un<sp/>fichier</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/>(*map)-&gt;list<sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structt__liste" kindref="compound">t_liste</ref>));</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><ref refid="liste_8c_1ae54cf55c0d15211e5433ce9b5abf099d" kindref="member">init_liste</ref>((*map)-&gt;list);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><ref refid="map_8c_1a68ce824f54aa0ce572d085d56f533a98" kindref="member">MAP_detruire_path</ref>(&amp;path_dir);<sp/></highlight><highlight class="comment">//<sp/>Gestion<sp/>des<sp/>erreurs<sp/>a<sp/>faire</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal">t_erreur<sp/><ref refid="map_8c_1af37676b15409d8011fab9afb3dceaf48" kindref="member">MAP_lister</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/>;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/>;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal">t_erreur<sp/><ref refid="map_8c_1a9cbabb7d85f1c202fe4365129d1a4fd9" kindref="member">MAP_sauvegarder</ref>(<ref refid="structt__map" kindref="compound">t_map</ref><sp/>*map)<sp/>{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(map<sp/>==<sp/>NULL)</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_NULL;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*path_dir<sp/>=<sp/>MAP_creer_path(map-&gt;nom);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/>FILE<sp/>*data<sp/>=<sp/><ref refid="json_8c_1a89182dce713943cf48b018049b64b588" kindref="member">open_json</ref>(path_dir,<sp/></highlight><highlight class="stringliteral">&quot;data&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;w&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><ref refid="json_8c_1a6dd5ea7284f649e178e13e99c43600b3" kindref="member">open_json_obj</ref>(data);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><ref refid="erreur_8c_1aea956e8dad695907bca24fd0b608587e" kindref="member">erreur_afficher</ref>(<ref refid="json_8c_1aef1b0866438f726985d55d84571526c8" kindref="member">write_json</ref>(data,<sp/></highlight><highlight class="stringliteral">&quot;SEED&quot;</highlight><highlight class="normal">,<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*)&amp;(map-&gt;SEED),<sp/></highlight><highlight class="stringliteral">&quot;d&quot;</highlight><highlight class="normal">),<sp/></highlight><highlight class="stringliteral">&quot;write&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><ref refid="json_8c_1a8d716a14bfd29aec5bef23e246be5275" kindref="member">close_json_obj</ref>(data);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/>fclose(data);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><ref refid="map_8c_1a68ce824f54aa0ce572d085d56f533a98" kindref="member">MAP_detruire_path</ref>(&amp;path_dir);<sp/></highlight><highlight class="comment">//<sp/>Gestion<sp/>des<sp/>erreurs<sp/>a<sp/>faire</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal">t_erreur<sp/><ref refid="map_8c_1a69443211920fe8027cdf8fc881ec8099" kindref="member">MAP_creer_dir</ref>(<ref refid="structt__map" kindref="compound">t_map</ref><sp/>*map)<sp/>{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(map<sp/>==<sp/>NULL)</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_NULL;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/>t_erreur<sp/>erreur;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*path_dir<sp/>=<sp/>MAP_creer_path(map-&gt;nom);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(mkdir(path_dir,<sp/>S_IRWXU<sp/>|<sp/>S_IRWXG<sp/>|<sp/>S_IROTH))</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>FILE_ERROR;<sp/></highlight><highlight class="comment">//<sp/>MKDIR_ERROR</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/>erreur<sp/>=<sp/><ref refid="map_8c_1a68ce824f54aa0ce572d085d56f533a98" kindref="member">MAP_detruire_path</ref>(&amp;path_dir);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(erreur<sp/>!=<sp/>OK)</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>erreur;</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal">t_erreur<sp/>MAP_supprimer(<ref refid="structt__map" kindref="compound">t_map</ref><sp/>*map)<sp/>{</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(map<sp/>==<sp/>NULL)</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_NULL;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*path_dir<sp/>=<sp/>MAP_creer_path(map-&gt;nom);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/>rmdir(path_dir);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><ref refid="map_8c_1a68ce824f54aa0ce572d085d56f533a98" kindref="member">MAP_detruire_path</ref>(&amp;path_dir);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal">t_erreur<sp/>MAP_detruction(<ref refid="structt__map" kindref="compound">t_map</ref><sp/>**map)<sp/>{</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(map<sp/>==<sp/>NULL)</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_NULL;</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((*map)-&gt;nom<sp/>!=<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/>free((*map)-&gt;nom);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/>(*map)-&gt;nom<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><ref refid="liste_8c_1a4be7faf10eecc64ca729578b1b8cdbb4" kindref="member">detruire_liste</ref>((*map)-&gt;list,<sp/>free);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/>free((*map)-&gt;list);</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/>(*map)-&gt;list<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/>free(*map);</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/>map<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="189"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*MAP_creer_path(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*nom_map)<sp/>{</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*path_dir<sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)<sp/>*<sp/>strlen(nom_map)<sp/>+<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)<sp/>*<sp/>500);<sp/></highlight><highlight class="comment">//Utilise<sp/>PWD<sp/>pour<sp/>éviter<sp/>de<sp/>malloc<sp/>500<sp/>sizeof<sp/>char</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/>strcpy(path_dir,<sp/>PATH_MAP_DIR);</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/>strcat(path_dir,<sp/>nom_map);</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/>strcat(path_dir,<sp/></highlight><highlight class="stringliteral">&quot;/&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>path_dir;</highlight></codeline>
+<codeline lineno="203"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal">t_erreur<sp/><ref refid="map_8c_1a68ce824f54aa0ce572d085d56f533a98" kindref="member">MAP_detruire_path</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**path_dir)<sp/>{</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(*path_dir<sp/>==<sp/>NULL)</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_NULL;</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/>free(*path_dir);</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/>path_dir<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="218"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><ref refid="structblock__s" kindref="compound">t_block</ref><sp/>*MAP_GetBlockFromList(<ref refid="structt__map" kindref="compound">t_map</ref><sp/>*map,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y)<sp/>{</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(y<sp/>&gt;=<sp/>0<sp/>&amp;&amp;<sp/>y<sp/>&lt;<sp/>MAX)<sp/>{</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structblock__s" kindref="compound">t_block</ref><sp/>*tab;</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/>t_erreur<sp/>err<sp/>=<sp/><ref refid="liste_8c_1aa916cb05c931c653d8b3710101bc8a43" kindref="member">valeur_liste</ref>(map-&gt;list,<sp/>x,<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>**)&amp;tab);</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(err<sp/>==<sp/>OK)<sp/>{</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>&amp;tab[y];</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="229"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><ref refid="structblock__s" kindref="compound">t_block</ref><sp/>*MAP_GetBlock(<ref refid="structt__map" kindref="compound">t_map</ref><sp/>*map,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y)<sp/>{</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(y<sp/>&gt;=<sp/>0<sp/>&amp;&amp;<sp/>y<sp/>&lt;<sp/>MAX)<sp/>{</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structblock__s" kindref="compound">t_block</ref><sp/>*tab;</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="liste_8c_1a9a2af94927570339b5708b99c4831cf3" kindref="member">en_tete</ref>(map-&gt;list);<sp/>!<ref refid="liste_8c_1aa42eefd0ac04de255ffb11f5e9fdabd6" kindref="member">hors_liste</ref>(map-&gt;list);<sp/><ref refid="liste_8c_1ac95aadbae271f7e76ca486b6187dd8dd" kindref="member">suivant</ref>(map-&gt;list))<sp/>{</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="liste_8c_1a4eaf58887e3dd578a2699aefc5963fe4" kindref="member">valeur_elt</ref>(map-&gt;list,<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>**)&amp;tab);</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>MAX;<sp/>j++)<sp/>{</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(tab[j].x<sp/>==<sp/>x<sp/>&amp;&amp;<sp/>tab[j].y<sp/>==<sp/>y)<sp/>{</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>&amp;tab[y];</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="244"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>MAP_SetEcListe(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*list,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x)<sp/>{</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><ref refid="structblock__s" kindref="compound">t_block</ref><sp/>*b<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="liste_8c_1a9a2af94927570339b5708b99c4831cf3" kindref="member">en_tete</ref>(list);<sp/>(b<sp/>==<sp/>NULL)<sp/>||<sp/>(x<sp/>&gt;<sp/>b[0].x<sp/>&amp;&amp;<sp/>!<ref refid="liste_8c_1aa42eefd0ac04de255ffb11f5e9fdabd6" kindref="member">hors_liste</ref>(list));<sp/><ref refid="liste_8c_1ac95aadbae271f7e76ca486b6187dd8dd" kindref="member">suivant</ref>(list))</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="liste_8c_1a4eaf58887e3dd578a2699aefc5963fe4" kindref="member">valeur_elt</ref>(list,<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>**)&amp;b);</highlight></codeline>
+<codeline lineno="250"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>MAP_CopyListFromX(<ref refid="structt__map" kindref="compound">t_map</ref><sp/>*map,<sp/><ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*list,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x_from,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x_to)<sp/>{</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><ref refid="structblock__s" kindref="compound">t_block</ref><sp/>*b;</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(MAP_SetEcListe(map-&gt;list,<sp/>x_from);<sp/>(b<sp/>==<sp/>NULL)<sp/>||<sp/>(x_to<sp/>&gt;=<sp/>b[0].x<sp/>&amp;&amp;<sp/>!<ref refid="liste_8c_1aa42eefd0ac04de255ffb11f5e9fdabd6" kindref="member">hors_liste</ref>(map-&gt;list));<sp/><ref refid="liste_8c_1ac95aadbae271f7e76ca486b6187dd8dd" kindref="member">suivant</ref>(map-&gt;list))<sp/>{</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="liste_8c_1a4eaf58887e3dd578a2699aefc5963fe4" kindref="member">valeur_elt</ref>(map-&gt;list,<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>**)&amp;b);</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="liste_8c_1a8d7b14b429cf2009912b48ad88e4af3a" kindref="member">ajout_droit</ref>(list,<sp/>b);</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="258"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight></codeline>
+<codeline lineno="260"><highlight class="normal"></highlight><highlight class="comment">//<sp/>void<sp/>MAP_afficher_sdl(t_map<sp/>*map,<sp/>SDL_Renderer<sp/>*renderer,<sp/>int<sp/>h_aff)<sp/>{<sp/>AFF_map_sdl(map-&gt;list,<sp/>renderer,<sp/>h_aff);<sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight><highlight class="comment">//<sp/>void<sp/>MAP_afficher_term(t_map<sp/>*map,<sp/>SDL_Renderer<sp/>*renderer,<sp/>int<sp/>h_min_aff,<sp/>int<sp/>h_max_aff)<sp/>{<sp/>AFF_map_term(map-&gt;list,<sp/>h_min_aff,<sp/>h_max_aff);<sp/>}</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/map.c"/>
+  </compounddef>
+</doxygen>

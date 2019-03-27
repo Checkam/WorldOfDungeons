@@ -1,0 +1,411 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="binaire_8c" kind="file" language="C++">
+    <compoundname>binaire.c</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">string.h</includes>
+    <includes refid="binaire_8h" local="no">binaire.h</includes>
+    <includes refid="chemin_8h" local="no">chemin.h</includes>
+    <includes refid="erreur_8h" local="no">erreur.h</includes>
+    <includes refid="fichier_8h" local="no">fichier.h</includes>
+    <incdepgraph>
+      <node id="251">
+        <label>stdlib.h</label>
+      </node>
+      <node id="249">
+        <label>src/binaire.c</label>
+        <link refid="binaire_8c"/>
+        <childnode refid="250" relation="include">
+        </childnode>
+        <childnode refid="251" relation="include">
+        </childnode>
+        <childnode refid="252" relation="include">
+        </childnode>
+        <childnode refid="253" relation="include">
+        </childnode>
+        <childnode refid="255" relation="include">
+        </childnode>
+        <childnode refid="254" relation="include">
+        </childnode>
+        <childnode refid="257" relation="include">
+        </childnode>
+      </node>
+      <node id="256">
+        <label>liste.h</label>
+        <link refid="liste_8h"/>
+        <childnode refid="254" relation="include">
+        </childnode>
+      </node>
+      <node id="255">
+        <label>chemin.h</label>
+        <link refid="chemin_8h"/>
+        <childnode refid="256" relation="include">
+        </childnode>
+        <childnode refid="254" relation="include">
+        </childnode>
+      </node>
+      <node id="257">
+        <label>fichier.h</label>
+        <link refid="fichier_8h"/>
+        <childnode refid="250" relation="include">
+        </childnode>
+        <childnode refid="251" relation="include">
+        </childnode>
+        <childnode refid="254" relation="include">
+        </childnode>
+      </node>
+      <node id="252">
+        <label>string.h</label>
+      </node>
+      <node id="254">
+        <label>erreur.h</label>
+        <link refid="erreur_8h"/>
+      </node>
+      <node id="253">
+        <label>binaire.h</label>
+        <link refid="binaire_8h"/>
+        <childnode refid="250" relation="include">
+        </childnode>
+        <childnode refid="251" relation="include">
+        </childnode>
+        <childnode refid="254" relation="include">
+        </childnode>
+      </node>
+      <node id="250">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="binaire_8c_1a4aa2f1ea621bf958363948c2ccf1fa50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_binaire</type>
+        <definition>t_binaire Open_BIN</definition>
+        <argsstring>(char *dossier, char *name, char *mode)</argsstring>
+        <name>Open_BIN</name>
+        <param>
+          <type>char *</type>
+          <declname>dossier</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>mode</declname>
+        </param>
+        <briefdescription>
+<para>Créer, s&apos;il ne l&apos;est pas, le fichier Binaire et l&apos;ouvre. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dossier</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Chaine de caractère représentant le dossier ou se trouve le fichier binaire. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Chaine de caractère représenant le nom du fichier. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mode d&apos;ouverture du fichier. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Un pointeur sur le fichier ouvert. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/binaire.c" line="31" column="1" bodyfile="src/binaire.c" bodystart="31" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="binaire_8c_1a36f153273c49c8d6f30a2e1eb4420fca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>int Del_BIN</definition>
+        <argsstring>(char *dossier, char *name)</argsstring>
+        <name>Del_BIN</name>
+        <param>
+          <type>char *</type>
+          <declname>dossier</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Supprime un fichier Binaire. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dossier</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Chaine de caractère représentant le dossier ou se trouve le fichier binaire. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Chaine de caractère représenant le nom du fichier à supprimer. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/binaire.c" line="43" column="1" bodyfile="src/binaire.c" bodystart="43" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="binaire_8c_1a0e3d54884fe335285fcc6cea6916683b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur Close_BIN</definition>
+        <argsstring>(t_binaire bin)</argsstring>
+        <name>Close_BIN</name>
+        <param>
+          <type>t_binaire</type>
+          <declname>bin</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/binaire.c" line="54" column="1" bodyfile="src/binaire.c" bodystart="54" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="binaire_8c_1aad3d61cf23ad3145f03f915575236f1d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur Write_BIN</definition>
+        <argsstring>(void *src, int taille_elem, int nb_elem, t_binaire bin)</argsstring>
+        <name>Write_BIN</name>
+        <param>
+          <type>void *</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>taille_elem</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nb_elem</declname>
+        </param>
+        <param>
+          <type>t_binaire</type>
+          <declname>bin</declname>
+        </param>
+        <briefdescription>
+<para>Ecrit dans un fichier Binaire. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>L&apos;adresse du 1er élèment à écrire. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>taille_elem</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La taille d&apos;un élèment. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nb_elem</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le nombre d&apos;élèment à écrire. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le fichier où écrire. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/binaire.c" line="76" column="1" bodyfile="src/binaire.c" bodystart="76" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="binaire_8c_1a98bee257b43d1fb8d03e5e040c4ce9de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur Read_BIN</definition>
+        <argsstring>(void *dest, int taille_elem, int nb_elem, t_binaire bin)</argsstring>
+        <name>Read_BIN</name>
+        <param>
+          <type>void *</type>
+          <declname>dest</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>taille_elem</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nb_elem</declname>
+        </param>
+        <param>
+          <type>t_binaire</type>
+          <declname>bin</declname>
+        </param>
+        <briefdescription>
+<para>Lit le contenu d&apos;un fichier Binaire. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dest</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>L&apos;adresse de l&apos;endroit où sauvegarder ce qu&apos;on récupère. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>taille_elem</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La taille d&apos;un élèment. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nb_elem</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le nombre d&apos;élèment à lire. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le fichier où lire. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/binaire.c" line="99" column="1" bodyfile="src/binaire.c" bodystart="99" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="binaire_8c_1aa95a9d74cf33e626a1b1e99cbca4cbb3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur FStart_BIN</definition>
+        <argsstring>(t_binaire file)</argsstring>
+        <name>FStart_BIN</name>
+        <param>
+          <type>t_binaire</type>
+          <declname>file</declname>
+          <defname>bin</defname>
+        </param>
+        <briefdescription>
+<para>Remet le pointeur file au début du fichier. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le fichier où repartir du début. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/binaire.c" line="119" column="1" bodyfile="src/binaire.c" bodystart="119" bodyend="124"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Module qui lit et écrit des fichiers binaires. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>GALBRUN Tibane </para></simplesect>
+<simplesect kind="version"><para>0.1 </para></simplesect>
+<simplesect kind="date"><para>11 Mars 2019 </para></simplesect>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="9"><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="binaire_8h" kindref="compound">binaire.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="chemin_8h" kindref="compound">chemin.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="erreur_8h" kindref="compound">erreur.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="fichier_8h" kindref="compound">fichier.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>*******************************************************</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/><sp/><sp/>Création,<sp/>Ouverture<sp/>et<sp/>Fermeture<sp/>de<sp/>fichier<sp/>Binaire</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/>*******************************************************<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal">t_binaire<sp/><ref refid="binaire_8c_1a4aa2f1ea621bf958363948c2ccf1fa50" kindref="member">Open_BIN</ref><sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>dossier,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>name,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>mode)</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="fichier_8c_1aa3b58f32eb0387718e13f5a2fe4a43d7" kindref="member">open_file</ref>(dossier,name,</highlight><highlight class="stringliteral">&quot;.dat&quot;</highlight><highlight class="normal">,mode);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal">t_erreur<sp/><ref refid="binaire_8c_1a36f153273c49c8d6f30a2e1eb4420fca" kindref="member">Del_BIN</ref><sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>dossier,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>name)</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="fichier_8c_1a83d54c1eb70b338d9d72357669d6e179" kindref="member">del_file</ref>(dossier,name,</highlight><highlight class="stringliteral">&quot;.dat&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal">t_erreur<sp/>Close_BIN<sp/>(t_binaire<sp/>bin)</highlight></codeline>
+<codeline lineno="55"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!bin)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_NULL;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>fclose(bin);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>*******************************************************</highlight></codeline>
+<codeline lineno="62"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="63"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>Ecriture<sp/>et<sp/>Lecture<sp/>dans<sp/>un<sp/>fichier<sp/>Binaire</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/>*<sp/>*******************************************************<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal">t_erreur<sp/><ref refid="binaire_8c_1aad3d61cf23ad3145f03f915575236f1d" kindref="member">Write_BIN</ref><sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>src,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>taille_elem,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nb_elem,<sp/>t_binaire<sp/>bin)</highlight></codeline>
+<codeline lineno="77"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!src)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_NULL;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!bin)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>FILE_ERROR;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(taille_elem<sp/>&lt;=<sp/>0<sp/>||<sp/>nb_elem<sp/>&lt;=<sp/>0)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>VALUE_ERROR;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nb_write;<sp/></highlight><highlight class="comment">//<sp/>Nb<sp/>elem<sp/>écrit<sp/>dans<sp/>le<sp/>fichier</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>nb_write<sp/>=<sp/>fwrite(src,taille_elem,nb_elem,bin);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nb_write<sp/>!=<sp/>nb_elem)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>FILE_ERROR;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal">t_erreur<sp/><ref refid="binaire_8c_1a98bee257b43d1fb8d03e5e040c4ce9de" kindref="member">Read_BIN</ref><sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>dest,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>taille_elem,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nb_elem,<sp/>t_binaire<sp/>bin)</highlight></codeline>
+<codeline lineno="100"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!dest)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_NULL;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!bin)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>FILE_ERROR;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(taille_elem<sp/>&lt;=<sp/>0<sp/>||<sp/>nb_elem<sp/>&lt;=<sp/>0)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>VALUE_ERROR;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nb_lus;<sp/></highlight><highlight class="comment">//<sp/>Nb<sp/>elem<sp/>lus<sp/>dans<sp/>le<sp/>fichier</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>nb_lus<sp/>=<sp/>fread(dest,taille_elem,nb_elem,bin);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nb_lus<sp/>!=<sp/>nb_elem)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>FILE_ERROR;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal">t_erreur<sp/><ref refid="binaire_8c_1aa95a9d74cf33e626a1b1e99cbca4cbb3" kindref="member">FStart_BIN</ref><sp/>(t_binaire<sp/>file)</highlight></codeline>
+<codeline lineno="120"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!file)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>FILE_ERROR;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>fseek(file,<sp/>0,<sp/>SEEK_SET);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/binaire.c"/>
+  </compounddef>
+</doxygen>

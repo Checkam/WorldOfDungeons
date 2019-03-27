@@ -1,0 +1,534 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="erreur_8h" kind="file" language="C++">
+    <compoundname>erreur.h</compoundname>
+    <includedby refid="binaire_8c" local="no">src/binaire.c</includedby>
+    <includedby refid="block_8c" local="no">src/block.c</includedby>
+    <includedby refid="chemin_8c" local="no">src/chemin.c</includedby>
+    <includedby refid="donjon_8c" local="no">src/donjon.c</includedby>
+    <includedby refid="entite_8c" local="no">src/entite.c</includedby>
+    <includedby refid="erreur_8c" local="no">src/erreur.c</includedby>
+    <includedby refid="fichier_8c" local="no">src/fichier.c</includedby>
+    <includedby refid="json_8c" local="no">src/json.c</includedby>
+    <includedby refid="liste_8c" local="no">src/liste.c</includedby>
+    <includedby refid="map_8c" local="no">src/map.c</includedby>
+    <includedby refid="outils__SDL_8c" local="no">src/outils_SDL.c</includedby>
+    <includedby refid="binaire_8h" local="no">include/binaire.h</includedby>
+    <includedby refid="block_8h" local="no">include/block.h</includedby>
+    <includedby refid="chemin_8h" local="no">include/chemin.h</includedby>
+    <includedby refid="donjon_8h" local="no">include/donjon.h</includedby>
+    <includedby refid="entite_8h" local="no">include/entite.h</includedby>
+    <includedby refid="fichier_8h" local="no">include/fichier.h</includedby>
+    <includedby refid="json_8h" local="no">include/json.h</includedby>
+    <includedby refid="liste_8h" local="no">include/liste.h</includedby>
+    <includedby refid="map_8h" local="no">include/map.h</includedby>
+    <includedby refid="menu_8h" local="no">include/menu.h</includedby>
+    <includedby refid="outils__SDL_8h" local="no">include/outils_SDL.h</includedby>
+    <invincdepgraph>
+      <node id="107">
+        <label>src/erreur.c</label>
+        <link refid="erreur_8c"/>
+      </node>
+      <node id="127">
+        <label>include/json.h</label>
+        <link refid="json_8h"/>
+        <childnode refid="109" relation="include">
+        </childnode>
+        <childnode refid="111" relation="include">
+        </childnode>
+      </node>
+      <node id="121">
+        <label>include/map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="106" relation="include">
+        </childnode>
+        <childnode refid="111" relation="include">
+        </childnode>
+      </node>
+      <node id="105">
+        <label>src/donjon.c</label>
+        <link refid="donjon_8c"/>
+      </node>
+      <node id="119">
+        <label>include/structure_block.h</label>
+        <link refid="structure__block_8h"/>
+        <childnode refid="115" relation="include">
+        </childnode>
+        <childnode refid="116" relation="include">
+        </childnode>
+      </node>
+      <node id="120">
+        <label>include/generation.h</label>
+        <link refid="generation_8h"/>
+        <childnode refid="115" relation="include">
+        </childnode>
+        <childnode refid="116" relation="include">
+        </childnode>
+        <childnode refid="117" relation="include">
+        </childnode>
+      </node>
+      <node id="123">
+        <label>src/menu.c</label>
+        <link refid="menu_8c"/>
+      </node>
+      <node id="116">
+        <label>src/structure_block.c</label>
+        <link refid="structure__block_8c"/>
+      </node>
+      <node id="104">
+        <label>src/chemin.c</label>
+        <link refid="chemin_8c"/>
+      </node>
+      <node id="102">
+        <label>src/binaire.c</label>
+        <link refid="binaire_8c"/>
+      </node>
+      <node id="130">
+        <label>include/menu.h</label>
+        <link refid="menu_8h"/>
+        <childnode refid="123" relation="include">
+        </childnode>
+      </node>
+      <node id="115">
+        <label>src/generation.c</label>
+        <link refid="generation_8c"/>
+      </node>
+      <node id="125">
+        <label>include/donjon.h</label>
+        <link refid="donjon_8h"/>
+        <childnode refid="105" relation="include">
+        </childnode>
+      </node>
+      <node id="103">
+        <label>src/block.c</label>
+        <link refid="block_8c"/>
+      </node>
+      <node id="118">
+        <label>include/biome.h</label>
+        <link refid="biome_8h"/>
+        <childnode refid="115" relation="include">
+        </childnode>
+        <childnode refid="116" relation="include">
+        </childnode>
+        <childnode refid="119" relation="include">
+        </childnode>
+      </node>
+      <node id="128">
+        <label>include/liste.h</label>
+        <link refid="liste_8h"/>
+        <childnode refid="114" relation="include">
+        </childnode>
+        <childnode refid="104" relation="include">
+        </childnode>
+        <childnode refid="105" relation="include">
+        </childnode>
+        <childnode refid="110" relation="include">
+        </childnode>
+        <childnode refid="111" relation="include">
+        </childnode>
+        <childnode refid="117" relation="include">
+        </childnode>
+        <childnode refid="129" relation="include">
+        </childnode>
+        <childnode refid="118" relation="include">
+        </childnode>
+        <childnode refid="122" relation="include">
+        </childnode>
+        <childnode refid="125" relation="include">
+        </childnode>
+        <childnode refid="124" relation="include">
+        </childnode>
+        <childnode refid="121" relation="include">
+        </childnode>
+      </node>
+      <node id="122">
+        <label>include/chemin.h</label>
+        <link refid="chemin_8h"/>
+        <childnode refid="102" relation="include">
+        </childnode>
+        <childnode refid="104" relation="include">
+        </childnode>
+        <childnode refid="105" relation="include">
+        </childnode>
+        <childnode refid="106" relation="include">
+        </childnode>
+        <childnode refid="107" relation="include">
+        </childnode>
+        <childnode refid="108" relation="include">
+        </childnode>
+        <childnode refid="109" relation="include">
+        </childnode>
+        <childnode refid="123" relation="include">
+        </childnode>
+        <childnode refid="124" relation="include">
+        </childnode>
+      </node>
+      <node id="131">
+        <label>include/outils_SDL.h</label>
+        <link refid="outils__SDL_8h_source"/>
+        <childnode refid="114" relation="include">
+        </childnode>
+        <childnode refid="103" relation="include">
+        </childnode>
+        <childnode refid="105" relation="include">
+        </childnode>
+        <childnode refid="106" relation="include">
+        </childnode>
+        <childnode refid="123" relation="include">
+        </childnode>
+      </node>
+      <node id="126">
+        <label>include/fichier.h</label>
+        <link refid="fichier_8h"/>
+        <childnode refid="102" relation="include">
+        </childnode>
+        <childnode refid="108" relation="include">
+        </childnode>
+        <childnode refid="109" relation="include">
+        </childnode>
+      </node>
+      <node id="108">
+        <label>src/fichier.c</label>
+        <link refid="fichier_8c"/>
+      </node>
+      <node id="117">
+        <label>src/world_of_dungeons.c</label>
+        <link refid="world__of__dungeons_8c"/>
+      </node>
+      <node id="101">
+        <label>include/erreur.h</label>
+        <link refid="erreur_8h"/>
+        <childnode refid="102" relation="include">
+        </childnode>
+        <childnode refid="103" relation="include">
+        </childnode>
+        <childnode refid="104" relation="include">
+        </childnode>
+        <childnode refid="105" relation="include">
+        </childnode>
+        <childnode refid="106" relation="include">
+        </childnode>
+        <childnode refid="107" relation="include">
+        </childnode>
+        <childnode refid="108" relation="include">
+        </childnode>
+        <childnode refid="109" relation="include">
+        </childnode>
+        <childnode refid="110" relation="include">
+        </childnode>
+        <childnode refid="111" relation="include">
+        </childnode>
+        <childnode refid="112" relation="include">
+        </childnode>
+        <childnode refid="113" relation="include">
+        </childnode>
+        <childnode refid="122" relation="include">
+        </childnode>
+        <childnode refid="125" relation="include">
+        </childnode>
+        <childnode refid="124" relation="include">
+        </childnode>
+        <childnode refid="126" relation="include">
+        </childnode>
+        <childnode refid="127" relation="include">
+        </childnode>
+        <childnode refid="128" relation="include">
+        </childnode>
+        <childnode refid="121" relation="include">
+        </childnode>
+        <childnode refid="130" relation="include">
+        </childnode>
+        <childnode refid="131" relation="include">
+        </childnode>
+      </node>
+      <node id="129">
+        <label>include/affichage.h</label>
+        <link refid="affichage_8h"/>
+        <childnode refid="111" relation="include">
+        </childnode>
+        <childnode refid="117" relation="include">
+        </childnode>
+      </node>
+      <node id="114">
+        <label>src/affichage.c</label>
+        <link refid="affichage_8c"/>
+      </node>
+      <node id="106">
+        <label>src/entite.c</label>
+        <link refid="entite_8c"/>
+      </node>
+      <node id="112">
+        <label>include/binaire.h</label>
+        <link refid="binaire_8h"/>
+        <childnode refid="102" relation="include">
+        </childnode>
+        <childnode refid="108" relation="include">
+        </childnode>
+      </node>
+      <node id="111">
+        <label>src/map.c</label>
+        <link refid="map_8c"/>
+      </node>
+      <node id="124">
+        <label>include/entite.h</label>
+        <link refid="entite_8h"/>
+        <childnode refid="106" relation="include">
+        </childnode>
+      </node>
+      <node id="109">
+        <label>src/json.c</label>
+        <link refid="json_8c"/>
+      </node>
+      <node id="113">
+        <label>include/block.h</label>
+        <link refid="block_8h"/>
+        <childnode refid="114" relation="include">
+        </childnode>
+        <childnode refid="103" relation="include">
+        </childnode>
+        <childnode refid="105" relation="include">
+        </childnode>
+        <childnode refid="106" relation="include">
+        </childnode>
+        <childnode refid="115" relation="include">
+        </childnode>
+        <childnode refid="111" relation="include">
+        </childnode>
+        <childnode refid="116" relation="include">
+        </childnode>
+        <childnode refid="117" relation="include">
+        </childnode>
+        <childnode refid="118" relation="include">
+        </childnode>
+        <childnode refid="120" relation="include">
+        </childnode>
+        <childnode refid="121" relation="include">
+        </childnode>
+        <childnode refid="119" relation="include">
+        </childnode>
+      </node>
+      <node id="110">
+        <label>src/liste.c</label>
+        <link refid="liste_8c"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="erreur_8h_1ab12c362e97903df9a3e62d617dc22c37" prot="public" static="no">
+        <name>NB_ERREUR</name>
+        <initializer>13</initializer>
+        <briefdescription>
+<para>Contient le nombre d&apos;erreur. </para>        </briefdescription>
+        <detaileddescription>
+<para>A modifier à chaque rajout d&apos;une erreur. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/erreur.h" line="16" column="9" bodyfile="include/erreur.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="erreur_8h_1aa0354fd52e22aa00035b34f3c21bad9b" prot="public" static="no" strong="no">
+        <type></type>
+        <name>e_erreur</name>
+        <enumvalue id="erreur_8h_1aa0354fd52e22aa00035b34f3c21bad9ba2bc49ec37d6a5715dd23e85f1ff5bb59" prot="public">
+          <name>OK</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="erreur_8h_1aa0354fd52e22aa00035b34f3c21bad9ba452756e9e2581797c12ff67bab8e8bd4" prot="public">
+          <name>FILE_ERROR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="erreur_8h_1aa0354fd52e22aa00035b34f3c21bad9ba6ccf3c08f696be49d10d0283684e0179" prot="public">
+          <name>OPEN_FILE_ERROR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="erreur_8h_1aa0354fd52e22aa00035b34f3c21bad9ba5991d1235320e6273ec10a290e1072b3" prot="public">
+          <name>CLOSE_FILE_ERROR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="erreur_8h_1aa0354fd52e22aa00035b34f3c21bad9ba2b832712dabcc4b914c966f6102a1eac" prot="public">
+          <name>VALUE_ERROR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="erreur_8h_1aa0354fd52e22aa00035b34f3c21bad9ba0d0c12c016a5febfeb60a0891d762b71" prot="public">
+          <name>ERROR_NOT_EXIST</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="erreur_8h_1aa0354fd52e22aa00035b34f3c21bad9ba7be2f1e747ffb34c7c0e626a218c5f2c" prot="public">
+          <name>REMOVE_FILE_ERROR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="erreur_8h_1aa0354fd52e22aa00035b34f3c21bad9ba423a0a15a7e0b169da74be83acd5bd13" prot="public">
+          <name>PTR_NULL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="erreur_8h_1aa0354fd52e22aa00035b34f3c21bad9ba83d27f803f949cf31ffb69eae0d69fbc" prot="public">
+          <name>PTR_VALUE_ERROR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="erreur_8h_1aa0354fd52e22aa00035b34f3c21bad9ba0fcbfe955a9a4a5db228de5969bbb428" prot="public">
+          <name>TYPE_ERROR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="erreur_8h_1aa0354fd52e22aa00035b34f3c21bad9ba9e2e6ceb7c441924f3451ef7e4b858ac" prot="public">
+          <name>UNDEFINED_MENU</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="erreur_8h_1aa0354fd52e22aa00035b34f3c21bad9bad855d8ecb250c5e3ede1ac930bae37fc" prot="public">
+          <name>INCORRECT_MENU_TYPE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="erreur_8h_1aa0354fd52e22aa00035b34f3c21bad9ba9955d215de1c021927b7fb5ac43c97b4" prot="public">
+          <name>KEY_NOT_FOUND</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/erreur.h" line="22" column="1" bodyfile="include/erreur.h" bodystart="22" bodyend="36"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="erreur_8h_1a0c63ca30bfd752dda852a778c9f2dbf3" prot="public" static="no">
+        <type>enum e_erreur</type>
+        <definition>typedef enum e_erreur t_erreur</definition>
+        <argsstring></argsstring>
+        <name>t_erreur</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/erreur.h" line="36" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="erreur_8h_1aea956e8dad695907bca24fd0b608587e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur erreur_afficher</definition>
+        <argsstring>(t_erreur code_erreur, char *msg_detail)</argsstring>
+        <name>erreur_afficher</name>
+        <param>
+          <type>t_erreur</type>
+          <declname>code_erreur</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>msg_detail</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/erreur.h" line="38" column="1" bodyfile="src/erreur.c" bodystart="99" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="erreur_8h_1a86eae7e8299b116054bf5168b60fa3fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur erreur_save</definition>
+        <argsstring>(t_erreur code_erreur, char *msg_detail)</argsstring>
+        <name>erreur_save</name>
+        <param>
+          <type>t_erreur</type>
+          <declname>code_erreur</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>msg_detail</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/erreur.h" line="39" column="1" bodyfile="src/erreur.c" bodystart="48" bodyend="93"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Module de gestion des erreurs. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Jasmin GALBRUN </para></simplesect>
+<simplesect kind="version"><para>2 </para></simplesect>
+<simplesect kind="date"><para>05/03/2019 </para></simplesect>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>__ERREUR_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__ERREUR_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="erreur_8h_1ab12c362e97903df9a3e62d617dc22c37" refkind="member"><highlight class="preprocessor">#define<sp/>NB_ERREUR<sp/>13</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>e_erreur{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>OK,</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>FILE_ERROR,</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>OPEN_FILE_ERROR,</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>CLOSE_FILE_ERROR,</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>VALUE_ERROR,</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>ERROR_NOT_EXIST,</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>REMOVE_FILE_ERROR,</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>PTR_NULL,</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>PTR_VALUE_ERROR,</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>TYPE_ERROR,</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>UNDEFINED_MENU,</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>INCORRECT_MENU_TYPE,</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>KEY_NOT_FOUND</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">}t_erreur;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal">t_erreur<sp/><ref refid="erreur_8h_1aea956e8dad695907bca24fd0b608587e" kindref="member">erreur_afficher</ref>(t_erreur<sp/>code_erreur,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>msg_detail);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">t_erreur<sp/>erreur_save(t_erreur<sp/>code_erreur,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>msg_detail);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="include/erreur.h"/>
+  </compounddef>
+</doxygen>

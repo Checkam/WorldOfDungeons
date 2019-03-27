@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="structs__salle__donjon" kind="struct" language="C++" prot="public">
+    <compoundname>s_salle_donjon</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structs__salle__donjon_1a77e2dd7841d45e12649c8a3715800a5d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int s_salle_donjon::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/donjon.h" line="16" column="1" bodyfile="include/donjon.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__salle__donjon_1a2fe8d01eac3346b4d5bd14706a18bac5" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int s_salle_donjon::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/donjon.h" line="16" column="1" bodyfile="include/donjon.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__salle__donjon_1ae1bf291229a587b51c9bf6884d87aaa6" prot="public" static="no" mutable="no">
+        <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+        <definition>t_liste* s_salle_donjon::structure</definition>
+        <argsstring></argsstring>
+        <name>structure</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/donjon.h" line="17" column="1" bodyfile="include/donjon.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__salle__donjon_1a10c32aa69ef9513c44b7e18e4411fa32" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int s_salle_donjon::voisin[4]</definition>
+        <argsstring>[4]</argsstring>
+        <name>voisin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/donjon.h" line="18" column="1" bodyfile="include/donjon.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="28">
+        <label>t_liste</label>
+        <link refid="structt__liste"/>
+      </node>
+      <node id="27">
+        <label>s_salle_donjon</label>
+        <link refid="structs__salle__donjon"/>
+        <childnode refid="28" relation="usage">
+          <edgelabel>structure</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/donjon.h" line="15" column="1" bodyfile="include/donjon.h" bodystart="15" bodyend="19"/>
+    <listofallmembers>
+      <member refid="structs__salle__donjon_1ae1bf291229a587b51c9bf6884d87aaa6" prot="public" virt="non-virtual"><scope>s_salle_donjon</scope><name>structure</name></member>
+      <member refid="structs__salle__donjon_1a10c32aa69ef9513c44b7e18e4411fa32" prot="public" virt="non-virtual"><scope>s_salle_donjon</scope><name>voisin</name></member>
+      <member refid="structs__salle__donjon_1a77e2dd7841d45e12649c8a3715800a5d" prot="public" virt="non-virtual"><scope>s_salle_donjon</scope><name>x</name></member>
+      <member refid="structs__salle__donjon_1a2fe8d01eac3346b4d5bd14706a18bac5" prot="public" virt="non-virtual"><scope>s_salle_donjon</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

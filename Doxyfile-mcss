@@ -1,0 +1,8 @@
+@INCLUDE                = Doxyfile
+GENERATE_HTML           = NO
+GENERATE_XML            = YES
+XML_PROGRAMLISTING      = YES
+OUTPUT_DIRECTORY        = "docs"
+M_LINKS_NAVBAR1 = ""
+SHOW_INCLUDE_FILES = YES
+SHOW_NAMESPACES = NO

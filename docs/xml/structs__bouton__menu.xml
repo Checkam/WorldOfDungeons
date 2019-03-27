@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="structs__bouton__menu" kind="struct" language="C++" prot="public">
+    <compoundname>s_bouton_menu</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structs__bouton__menu_1a9c3f6f6be6b0158a9a8c4a1c20665db6" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int s_bouton_menu::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/menu.h" line="37" column="1" bodyfile="include/menu.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__bouton__menu_1ada7d8855acb0aed9f19b7391aec1d7f8" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int s_bouton_menu::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/menu.h" line="37" column="1" bodyfile="include/menu.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__bouton__menu_1a759777359e5e76e39505d2d49d405906" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int s_bouton_menu::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/menu.h" line="37" column="1" bodyfile="include/menu.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__bouton__menu_1a0cd163542f7a5bb70582dab50a787ae9" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int s_bouton_menu::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/menu.h" line="37" column="1" bodyfile="include/menu.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__bouton__menu_1a6c37187d85823c83a30508ddf1605619" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* s_bouton_menu::titre</definition>
+        <argsstring></argsstring>
+        <name>titre</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/menu.h" line="38" column="1" bodyfile="include/menu.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__bouton__menu_1a03995d4bf640696693dc738193ca0d92" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int s_bouton_menu::state</definition>
+        <argsstring></argsstring>
+        <name>state</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/menu.h" line="39" column="1" bodyfile="include/menu.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__bouton__menu_1a3d3e80d0cd08aecec3445afb87d42291" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int s_bouton_menu::focus</definition>
+        <argsstring></argsstring>
+        <name>focus</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/menu.h" line="39" column="1" bodyfile="include/menu.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__bouton__menu_1ac0c499287ef689b8035ab6a6616f3ec5" prot="public" static="no" mutable="no">
+        <type>t_type_menu</type>
+        <definition>t_type_menu s_bouton_menu::suivant</definition>
+        <argsstring></argsstring>
+        <name>suivant</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/menu.h" line="40" column="1" bodyfile="include/menu.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/menu.h" line="36" column="1" bodyfile="include/menu.h" bodystart="36" bodyend="41"/>
+    <listofallmembers>
+      <member refid="structs__bouton__menu_1a3d3e80d0cd08aecec3445afb87d42291" prot="public" virt="non-virtual"><scope>s_bouton_menu</scope><name>focus</name></member>
+      <member refid="structs__bouton__menu_1a0cd163542f7a5bb70582dab50a787ae9" prot="public" virt="non-virtual"><scope>s_bouton_menu</scope><name>height</name></member>
+      <member refid="structs__bouton__menu_1a03995d4bf640696693dc738193ca0d92" prot="public" virt="non-virtual"><scope>s_bouton_menu</scope><name>state</name></member>
+      <member refid="structs__bouton__menu_1ac0c499287ef689b8035ab6a6616f3ec5" prot="public" virt="non-virtual"><scope>s_bouton_menu</scope><name>suivant</name></member>
+      <member refid="structs__bouton__menu_1a6c37187d85823c83a30508ddf1605619" prot="public" virt="non-virtual"><scope>s_bouton_menu</scope><name>titre</name></member>
+      <member refid="structs__bouton__menu_1a759777359e5e76e39505d2d49d405906" prot="public" virt="non-virtual"><scope>s_bouton_menu</scope><name>width</name></member>
+      <member refid="structs__bouton__menu_1a9c3f6f6be6b0158a9a8c4a1c20665db6" prot="public" virt="non-virtual"><scope>s_bouton_menu</scope><name>x</name></member>
+      <member refid="structs__bouton__menu_1ada7d8855acb0aed9f19b7391aec1d7f8" prot="public" virt="non-virtual"><scope>s_bouton_menu</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,430 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="chemin_8c" kind="file" language="C++">
+    <compoundname>chemin.c</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes refid="chemin_8h" local="no">chemin.h</includes>
+    <includes refid="liste_8h" local="no">liste.h</includes>
+    <includes refid="erreur_8h" local="no">erreur.h</includes>
+    <includes local="no">string.h</includes>
+    <includes local="no">ctype.h</includes>
+    <incdepgraph>
+      <node id="283">
+        <label>stdlib.h</label>
+      </node>
+      <node id="281">
+        <label>src/chemin.c</label>
+        <link refid="chemin_8c"/>
+        <childnode refid="282" relation="include">
+        </childnode>
+        <childnode refid="283" relation="include">
+        </childnode>
+        <childnode refid="284" relation="include">
+        </childnode>
+        <childnode refid="285" relation="include">
+        </childnode>
+        <childnode refid="286" relation="include">
+        </childnode>
+        <childnode refid="287" relation="include">
+        </childnode>
+        <childnode refid="288" relation="include">
+        </childnode>
+      </node>
+      <node id="285">
+        <label>liste.h</label>
+        <link refid="liste_8h"/>
+        <childnode refid="286" relation="include">
+        </childnode>
+      </node>
+      <node id="284">
+        <label>chemin.h</label>
+        <link refid="chemin_8h"/>
+        <childnode refid="285" relation="include">
+        </childnode>
+        <childnode refid="286" relation="include">
+        </childnode>
+      </node>
+      <node id="287">
+        <label>string.h</label>
+      </node>
+      <node id="286">
+        <label>erreur.h</label>
+        <link refid="erreur_8h"/>
+      </node>
+      <node id="288">
+        <label>ctype.h</label>
+      </node>
+      <node id="282">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="chemin_8c_1a3d19e4065f963d93d23f046811107d80" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur decomposer_PWD</definition>
+        <argsstring>(t_liste *p, char *pwd)</argsstring>
+        <name>decomposer_PWD</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>pwd</declname>
+        </param>
+        <briefdescription>
+<para>Décompose dans une liste le PWD. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste où mettre ce qui a été décomposé. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pwd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le PWD à décomposer. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/chemin.c" line="24" column="1" bodyfile="src/chemin.c" bodystart="24" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="chemin_8c_1aa831b692df5b4400fd07338357be61d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur pwd_init</definition>
+        <argsstring>(char *argv, char *env)</argsstring>
+        <name>pwd_init</name>
+        <param>
+          <type>char *</type>
+          <declname>argv</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>env</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/chemin.c" line="55" column="1" bodyfile="src/chemin.c" bodystart="55" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="chemin_8c_1a5aca441244932fa32192a79ef980d2eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur pwd_quit</definition>
+        <argsstring>(void)</argsstring>
+        <name>pwd_quit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Unset la variable globale WOD_PWD. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/chemin.c" line="84" column="1" bodyfile="src/chemin.c" bodystart="84" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="chemin_8c_1af02bc563f4c0e7190df6b3d397501beb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur fusion_PWD</definition>
+        <argsstring>(t_liste *env, t_liste *argv)</argsstring>
+        <name>fusion_PWD</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>env</declname>
+        </param>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>argv</declname>
+        </param>
+        <briefdescription>
+<para>Récupère le chemin absolu de la racine de WOD. </para>        </briefdescription>
+        <detaileddescription>
+<para>Met à jour la valeur de WOD_PWD, qui sera accessible de tout le programme. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>env</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le PWD utiliser pour connaitre le WOD_PWD. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>argv</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le PWD utiliser pour connaitre le WOD_PWD. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/chemin.c" line="98" column="1" bodyfile="src/chemin.c" bodystart="98" bodyend="175"/>
+      </memberdef>
+      <memberdef kind="function" id="chemin_8c_1a426a590237f668eca1627c0cc3985cd2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur creation_chemin</definition>
+        <argsstring>(char *ajout, char **res)</argsstring>
+        <name>creation_chemin</name>
+        <param>
+          <type>char *</type>
+          <declname>ajout</declname>
+        </param>
+        <param>
+          <type>char **</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+<para>Concatène 2 chaine de caractère. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ajout</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Chaine de caractère à ajouter à gauche de WOD_PWD. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>res</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Chaine de caractère résultat. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/chemin.c" line="184" column="1" bodyfile="src/chemin.c" bodystart="184" bodyend="195"/>
+      </memberdef>
+      <memberdef kind="function" id="chemin_8c_1a1fe1520dbe25f041e413193a6ab5225f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur tolower_str</definition>
+        <argsstring>(char *str, char **res)</argsstring>
+        <name>tolower_str</name>
+        <param>
+          <type>char *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>char **</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+<para>Met en minuscule une chaine de caractère. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>str</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Chaine de caractère source. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>res</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Chaine de caractère résultat. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/chemin.c" line="204" column="1" bodyfile="src/chemin.c" bodystart="204" bodyend="217"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Module servant à récupérer le chemin absolu de la racine du projet. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>GALBRUN Tibane </para></simplesect>
+<simplesect kind="date"><para>09/03/2019 </para></simplesect>
+<simplesect kind="version"><para>0.1 </para></simplesect>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="9"><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="chemin_8h" kindref="compound">chemin.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="liste_8h" kindref="compound">liste.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="erreur_8h" kindref="compound">erreur.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ctype.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal">t_erreur<sp/><ref refid="chemin_8c_1a3d19e4065f963d93d23f046811107d80" kindref="member">decomposer_PWD</ref><sp/>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>pwd)</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Erreur<sp/>:<sp/>pointeur<sp/>NULL<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!p<sp/>||<sp/>!pwd)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_NULL;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/>taille,<sp/>taille_pwd;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>taille<sp/>=<sp/>0,<sp/>taille_pwd<sp/>=<sp/>strlen(pwd),<sp/><ref refid="liste_8c_1a9a2af94927570339b5708b99c4831cf3" kindref="member">en_tete</ref>(p);<sp/>i<sp/>&lt;=<sp/>taille_pwd;<sp/>i++)</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((pwd[i]<sp/>==<sp/></highlight><highlight class="charliteral">&apos;/&apos;</highlight><highlight class="normal"><sp/>||<sp/>!pwd[i])<sp/>&amp;&amp;<sp/>taille)</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>tamp<sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)<sp/>*<sp/>taille<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j,<sp/>deb;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(j<sp/>=<sp/>i<sp/>-<sp/>taille,<sp/>deb<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>i;<sp/>j++,<sp/>deb++)</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tamp[deb]<sp/>=<sp/>pwd[j];</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tamp[deb]<sp/>=<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="liste_8c_1a8d7b14b429cf2009912b48ad88e4af3a" kindref="member">ajout_droit</ref>(p,tamp);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>taille<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(pwd[i]<sp/>!=<sp/></highlight><highlight class="charliteral">&apos;/&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>taille<sp/>++;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal">t_erreur<sp/>pwd_init(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>argv,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>env)</highlight></codeline>
+<codeline lineno="56"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Erreur<sp/>:<sp/>pointeur<sp/>NULL<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!argv<sp/>||<sp/>!env)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_NULL;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Liste<sp/>contenant<sp/>la<sp/>décomposition<sp/>des<sp/>2<sp/>PWD<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>env_dec,<sp/>argv_dec;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="liste_8c_1ae54cf55c0d15211e5433ce9b5abf099d" kindref="member">init_liste</ref>(&amp;env_dec);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="liste_8c_1ae54cf55c0d15211e5433ce9b5abf099d" kindref="member">init_liste</ref>(&amp;argv_dec);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Récupération<sp/>des<sp/>décompositions<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="chemin_8c_1a3d19e4065f963d93d23f046811107d80" kindref="member">decomposer_PWD</ref>(&amp;argv_dec,<sp/>argv);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="chemin_8c_1a3d19e4065f963d93d23f046811107d80" kindref="member">decomposer_PWD</ref>(&amp;env_dec,<sp/>env);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Traitement<sp/>et<sp/>Création<sp/>de<sp/>WOD_PWD<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="chemin_8c_1af02bc563f4c0e7190df6b3d397501beb" kindref="member">fusion_PWD</ref>(&amp;env_dec,<sp/>&amp;argv_dec);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Destruction<sp/>des<sp/>Listes<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="liste_8c_1a4be7faf10eecc64ca729578b1b8cdbb4" kindref="member">detruire_liste</ref>(&amp;env_dec,<sp/>free);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="liste_8c_1a4be7faf10eecc64ca729578b1b8cdbb4" kindref="member">detruire_liste</ref>(&amp;argv_dec,<sp/>free);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal">t_erreur<sp/><ref refid="chemin_8c_1a5aca441244932fa32192a79ef980d2eb" kindref="member">pwd_quit</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="85"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>free(<ref refid="chemin_8h_1a6e3115fc9bfb27c4a03a99d1e113e7b1" kindref="member">WOD_PWD</ref>);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal">t_erreur<sp/><ref refid="chemin_8c_1af02bc563f4c0e7190df6b3d397501beb" kindref="member">fusion_PWD</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>env,<sp/><ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>argv)</highlight></codeline>
+<codeline lineno="99"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Erreur<sp/>:<sp/>pointeur<sp/>NULL<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!argv<sp/>||<sp/>!env)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_NULL;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Mise<sp/>en<sp/>minuscule<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>project_name_min;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>val_min;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="chemin_8c_1a1fe1520dbe25f041e413193a6ab5225f" kindref="member">tolower_str</ref>(PROJECT_NAME,&amp;project_name_min);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Construction<sp/>du<sp/>WOD_PWD<sp/>dans<sp/>la<sp/>liste<sp/>env<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>val;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>check<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>On<sp/>regarde<sp/>si<sp/>PROJECT_NAME<sp/>est<sp/>dans<sp/>env<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="liste_8c_1a9a2af94927570339b5708b99c4831cf3" kindref="member">en_tete</ref>(env);<sp/>!<ref refid="liste_8c_1aa42eefd0ac04de255ffb11f5e9fdabd6" kindref="member">hors_liste</ref>(env);<sp/><ref refid="liste_8c_1ac95aadbae271f7e76ca486b6187dd8dd" kindref="member">suivant</ref>(env))</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="liste_8c_1a4eaf58887e3dd578a2699aefc5963fe4" kindref="member">valeur_elt</ref>(env,(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>**)&amp;val);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="chemin_8c_1a1fe1520dbe25f041e413193a6ab5225f" kindref="member">tolower_str</ref>(val,&amp;val_min);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!strcmp(project_name_min,val_min))<sp/>check<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(check)<sp/><ref refid="liste_8c_1ad613f3378b165515b6f7a4cbe45265a0" kindref="member">oter_elt</ref>(env,free);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>free(val_min);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Sinon<sp/>on<sp/>va<sp/>voir<sp/>argv<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!check)</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="liste_8c_1a9a2af94927570339b5708b99c4831cf3" kindref="member">en_tete</ref>(argv);<sp/><ref refid="liste_8c_1a182d1a7bdc30807ebdd00d566994548d" kindref="member">en_queue</ref>(env);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="liste_8c_1a4eaf58887e3dd578a2699aefc5963fe4" kindref="member">valeur_elt</ref>(argv,(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>**)&amp;val);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="chemin_8c_1a1fe1520dbe25f041e413193a6ab5225f" kindref="member">tolower_str</ref>(val,&amp;val_min);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(strcmp(project_name_min,val_min)<sp/>&amp;&amp;<sp/>!<ref refid="liste_8c_1aa42eefd0ac04de255ffb11f5e9fdabd6" kindref="member">hors_liste</ref>(argv))</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(strcmp(</highlight><highlight class="stringliteral">&quot;.&quot;</highlight><highlight class="normal">,val))</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Si<sp/>&apos;..&apos;,<sp/>on<sp/>enleve<sp/>un<sp/>elem<sp/>à<sp/>env<sp/>sinon<sp/>on<sp/>ajoute<sp/>un<sp/>elem<sp/>à<sp/>env<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!strcmp(</highlight><highlight class="stringliteral">&quot;..&quot;</highlight><highlight class="normal">,val))</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="liste_8c_1ad613f3378b165515b6f7a4cbe45265a0" kindref="member">oter_elt</ref>(env,free);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="liste_8c_1a8d7b14b429cf2009912b48ad88e4af3a" kindref="member">ajout_droit</ref>(env,val);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="liste_8c_1ad613f3378b165515b6f7a4cbe45265a0" kindref="member">oter_elt</ref>(argv,NULL);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>free(val_min);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="liste_8c_1ac95aadbae271f7e76ca486b6187dd8dd" kindref="member">suivant</ref>(argv);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="liste_8c_1a4eaf58887e3dd578a2699aefc5963fe4" kindref="member">valeur_elt</ref>(argv,(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>**)&amp;val);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="chemin_8c_1a1fe1520dbe25f041e413193a6ab5225f" kindref="member">tolower_str</ref>(val,&amp;val_min);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="liste_8c_1a8d7b14b429cf2009912b48ad88e4af3a" kindref="member">ajout_droit</ref>(env,val);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="liste_8c_1ad613f3378b165515b6f7a4cbe45265a0" kindref="member">oter_elt</ref>(argv,NULL);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>free(val_min);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Fusion<sp/>des<sp/>élèments<sp/>de<sp/>env<sp/>pour<sp/>reconstruction<sp/>du<sp/>WOD_PWD<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>pwd;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Début<sp/>du<sp/>PWD<sp/>avec<sp/>&quot;/val/&quot;<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="liste_8c_1a9a2af94927570339b5708b99c4831cf3" kindref="member">en_tete</ref>(env);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="liste_8c_1a4eaf58887e3dd578a2699aefc5963fe4" kindref="member">valeur_elt</ref>(env,(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>**)&amp;val);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>pwd<sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)<sp/>*<sp/>strlen(val)<sp/>+<sp/>3);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>strcpy(pwd,</highlight><highlight class="stringliteral">&quot;/&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/>strcat(pwd,val);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>strcat(pwd,</highlight><highlight class="stringliteral">&quot;/&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="liste_8c_1ac95aadbae271f7e76ca486b6187dd8dd" kindref="member">suivant</ref>(env);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Suite<sp/>du<sp/>PWD<sp/>avec<sp/>ajout<sp/>de<sp/>&quot;val/&quot;<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(;!<ref refid="liste_8c_1aa42eefd0ac04de255ffb11f5e9fdabd6" kindref="member">hors_liste</ref>(env);<sp/><ref refid="liste_8c_1ac95aadbae271f7e76ca486b6187dd8dd" kindref="member">suivant</ref>(env))</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="liste_8c_1a4eaf58887e3dd578a2699aefc5963fe4" kindref="member">valeur_elt</ref>(env,(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>**)&amp;val);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pwd<sp/>=<sp/>realloc(pwd,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)<sp/>*<sp/>(strlen(pwd)<sp/>+<sp/>strlen(val))<sp/>+<sp/>2);</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>strcat(pwd,val);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>strcat(pwd,</highlight><highlight class="stringliteral">&quot;/&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Mis<sp/>à<sp/>jour<sp/>de<sp/>WOD_PWD<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="chemin_8h_1a6e3115fc9bfb27c4a03a99d1e113e7b1" kindref="member">WOD_PWD</ref><sp/>=<sp/>pwd;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/>free(project_name_min);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="175"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal">t_erreur<sp/><ref refid="chemin_8c_1a426a590237f668eca1627c0cc3985cd2" kindref="member">creation_chemin</ref><sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>ajout,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**<sp/>res)</highlight></codeline>
+<codeline lineno="185"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Erreur<sp/>:<sp/>pointeur<sp/>NULL<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!ajout<sp/>||<sp/>!res)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_NULL;</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Concaténation<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/>*res<sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)<sp/>*<sp/>(strlen(<ref refid="chemin_8h_1a6e3115fc9bfb27c4a03a99d1e113e7b1" kindref="member">WOD_PWD</ref>)<sp/>+<sp/>strlen(ajout)<sp/>+<sp/>1));</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/>strcpy(*res,<sp/><ref refid="chemin_8h_1a6e3115fc9bfb27c4a03a99d1e113e7b1" kindref="member">WOD_PWD</ref>);</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/>strcat(*res,<sp/>ajout);</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="195"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal">t_erreur<sp/><ref refid="chemin_8c_1a1fe1520dbe25f041e413193a6ab5225f" kindref="member">tolower_str</ref><sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>str,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**<sp/>res)</highlight></codeline>
+<codeline lineno="205"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Erreur<sp/>:<sp/>pointeur<sp/>NULL<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!str<sp/>||<sp/>!res)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_NULL;</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Mise<sp/>en<sp/>minuscule<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/>*res<sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)<sp/>*<sp/>(strlen(str)<sp/>+<sp/>1));</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>str[i];<sp/>i++)</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*res)[i]<sp/>=<sp/>tolower(str[i]);</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/>(*res)[i]<sp/>=<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="217"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/chemin.c"/>
+  </compounddef>
+</doxygen>

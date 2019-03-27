@@ -1,0 +1,316 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="affichage_8c" kind="file" language="C++">
+    <compoundname>affichage.c</compoundname>
+    <includes local="no">SDL2/SDL.h</includes>
+    <includes refid="block_8h" local="no">block.h</includes>
+    <includes refid="commun_8h" local="no">commun.h</includes>
+    <includes refid="couleurs_8h" local="no">couleurs.h</includes>
+    <includes refid="liste_8h" local="no">liste.h</includes>
+    <includes refid="outils__SDL_8h" local="no">outils_SDL.h</includes>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">string.h</includes>
+    <incdepgraph>
+      <node id="242">
+        <label>commun.h</label>
+        <link refid="commun_8h_source"/>
+      </node>
+      <node id="246">
+        <label>stdlib.h</label>
+      </node>
+      <node id="243">
+        <label>liste.h</label>
+        <link refid="liste_8h"/>
+        <childnode refid="241" relation="include">
+        </childnode>
+      </node>
+      <node id="244">
+        <label>outils_SDL.h</label>
+        <link refid="outils__SDL_8h_source"/>
+        <childnode refid="238" relation="include">
+        </childnode>
+        <childnode refid="241" relation="include">
+        </childnode>
+      </node>
+      <node id="240">
+        <label>couleurs.h</label>
+        <link refid="couleurs_8h_source"/>
+      </node>
+      <node id="238">
+        <label>SDL2/SDL.h</label>
+      </node>
+      <node id="247">
+        <label>string.h</label>
+      </node>
+      <node id="241">
+        <label>erreur.h</label>
+        <link refid="erreur_8h"/>
+      </node>
+      <node id="237">
+        <label>src/affichage.c</label>
+        <link refid="affichage_8c"/>
+        <childnode refid="238" relation="include">
+        </childnode>
+        <childnode refid="239" relation="include">
+        </childnode>
+        <childnode refid="242" relation="include">
+        </childnode>
+        <childnode refid="240" relation="include">
+        </childnode>
+        <childnode refid="243" relation="include">
+        </childnode>
+        <childnode refid="244" relation="include">
+        </childnode>
+        <childnode refid="245" relation="include">
+        </childnode>
+        <childnode refid="246" relation="include">
+        </childnode>
+        <childnode refid="247" relation="include">
+        </childnode>
+      </node>
+      <node id="245">
+        <label>stdio.h</label>
+      </node>
+      <node id="239">
+        <label>block.h</label>
+        <link refid="block_8h"/>
+        <childnode refid="240" relation="include">
+        </childnode>
+        <childnode refid="238" relation="include">
+        </childnode>
+        <childnode refid="241" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="affichage_8c_1a173bacc7dd7d14058ce8712b63b3ec40" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int AFF_RectInWindow</definition>
+        <argsstring>(SDL_Rect r)</argsstring>
+        <name>AFF_RectInWindow</name>
+        <param>
+          <type>SDL_Rect</type>
+          <declname>r</declname>
+        </param>
+        <briefdescription>
+<para>Vérifie si les coordonées d&apos;un carré (SDL_rect) est dans la fenetre. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>r</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>un carré SDL </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>un int 1 si dans la fenetre sinon 0 </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/affichage.c" line="25" column="1" bodyfile="src/affichage.c" bodystart="25" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="affichage_8c_1a1bc8c979188d7c9dce4ececfc56a551c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int AFF_GetMidHeight</definition>
+        <argsstring>(t_liste *list)</argsstring>
+        <name>AFF_GetMidHeight</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <briefdescription>
+<para>Récupère la hauteur du milieu de la liste. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste des tableaux de block </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>return la hauteur du milieu d&apos;affichage </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/affichage.c" line="34" column="1" bodyfile="src/affichage.c" bodystart="34" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="affichage_8c_1a8317142dd0b92ca5481d2263c4475ca2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AFF_map_sdl</definition>
+        <argsstring>(t_liste *list, SDL_Renderer *renderer, int min)</argsstring>
+        <name>AFF_map_sdl</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <param>
+          <type>SDL_Renderer *</type>
+          <declname>renderer</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>min</declname>
+        </param>
+        <briefdescription>
+<para>Affiche une liste de tableau de block en SDL. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste de tableau de blocks a afficher </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>renderer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le rendu SDL </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>min</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>le minimun de l&apos;affichage (exemple: ) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Retourne rien </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/affichage.c" line="60" column="1" bodyfile="src/affichage.c" bodystart="60" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="affichage_8c_1ab1833fe0bc53d1fbb83d155b40724f56" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AFF_map_term</definition>
+        <argsstring>(t_liste *list, int min, int max)</argsstring>
+        <name>AFF_map_term</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>min</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>max</declname>
+        </param>
+        <briefdescription>
+<para>Affiche une liste de tableau de block sur le terminal. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste de tableau de blocks a afficher </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>min</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>le minimun de l&apos;affichage </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>max</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>le max de l&apos;affichage </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Retourne rien </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/affichage.c" line="93" column="1" bodyfile="src/affichage.c" bodystart="93" bodyend="104"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Fonction d&apos;affichage de liste de block. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>{Maxence.D} </para></simplesect>
+<simplesect kind="version"><para>0.1 </para></simplesect>
+<simplesect kind="date"><para>10 mars 2019 </para></simplesect>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="9"><highlight class="preprocessor">#include<sp/>&lt;SDL2/SDL.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="block_8h" kindref="compound">block.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;commun.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;couleurs.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="liste_8h" kindref="compound">liste.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;outils_SDL.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="affichage_8c_1a173bacc7dd7d14058ce8712b63b3ec40" kindref="member">AFF_RectInWindow</ref>(SDL_Rect<sp/>r)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(r.x<sp/>&lt;<sp/>width_window<sp/>&amp;&amp;<sp/>r.x<sp/>&gt;<sp/>-width_block_sdl<sp/>&amp;&amp;<sp/>r.y<sp/>&gt;<sp/>-height_block_sdl<sp/>&amp;&amp;<sp/>r.y<sp/>&lt;<sp/>height_window);<sp/>}</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="comment">//FONCTION<sp/>PROVISOIR<sp/>POUR<sp/>L&apos;AFFICHAGE</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="affichage_8c_1a1bc8c979188d7c9dce4ececfc56a551c" kindref="member">AFF_GetMidHeight</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*list)<sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><ref refid="structblock__s" kindref="compound">t_block</ref><sp/>*tab;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>taille<sp/>=<sp/>MAX<sp/>-<sp/>1;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="liste_8c_1a591fc3936d195adcc3fb62f521dcd2ed" kindref="member">taille_liste</ref>(list)<sp/>&gt;<sp/>SIZE)<sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="liste_8c_1a9a2af94927570339b5708b99c4831cf3" kindref="member">en_tete</ref>(list);<sp/>!<ref refid="liste_8c_1aa42eefd0ac04de255ffb11f5e9fdabd6" kindref="member">hors_liste</ref>(list);<sp/><ref refid="liste_8c_1ac95aadbae271f7e76ca486b6187dd8dd" kindref="member">suivant</ref>(list),<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="liste_8c_1a4eaf58887e3dd578a2699aefc5963fe4" kindref="member">valeur_elt</ref>(list,<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>**)&amp;tab);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(i<sp/>==<sp/>(SIZE<sp/>/<sp/>2))<sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(tab[taille].</highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>!=<sp/>HERBE<sp/>&amp;&amp;<sp/>tab[taille].</highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>!=<sp/>NEIGE<sp/>&amp;&amp;<sp/>tab[taille].</highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>!=<sp/>EAU<sp/>&amp;&amp;<sp/>tab[taille].</highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>!=<sp/>SABLE<sp/>&amp;&amp;<sp/>tab[taille].</highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>!=<sp/>GLACE)<sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>taille--;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>taille;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="affichage_8c_1a8317142dd0b92ca5481d2263c4475ca2" kindref="member">AFF_map_sdl</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*list,<sp/>SDL_Renderer<sp/>*renderer,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>min)<sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/>j<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><ref refid="structblock__s" kindref="compound">t_block</ref><sp/>*map;<sp/></highlight><highlight class="comment">/*Tableau<sp/>de<sp/>recupèration<sp/>de<sp/>la<sp/>liste*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>SDL_Rect<sp/>r<sp/>=<sp/>{0,<sp/>0,<sp/>0,<sp/>0};</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(min)</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(j<sp/>=<sp/>0,<sp/><ref refid="liste_8c_1a9a2af94927570339b5708b99c4831cf3" kindref="member">en_tete</ref>(list);<sp/>!<ref refid="liste_8c_1aa42eefd0ac04de255ffb11f5e9fdabd6" kindref="member">hors_liste</ref>(list);<sp/><ref refid="liste_8c_1ac95aadbae271f7e76ca486b6187dd8dd" kindref="member">suivant</ref>(list))<sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="liste_8c_1a4eaf58887e3dd578a2699aefc5963fe4" kindref="member">valeur_elt</ref>(list,<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>**)&amp;map);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>MAX_SCREEN<sp/>+<sp/>1;<sp/>i<sp/>&gt;=<sp/>0;<sp/>i--)<sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>r.x<sp/>=<sp/>(j<sp/>*<sp/>width_block_sdl);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>r.y<sp/>=<sp/>(height_window<sp/>-<sp/>(i<sp/>*<sp/>height_block_sdl));</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>r.h<sp/>=<sp/>height_block_sdl;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>r.w<sp/>=<sp/>width_block_sdl;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(i<sp/>+<sp/>min<sp/>&lt;<sp/>MAX<sp/>&amp;&amp;<sp/>i<sp/>+<sp/>min<sp/>&gt;=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="affichage_8c_1a173bacc7dd7d14058ce8712b63b3ec40" kindref="member">AFF_RectInWindow</ref>(r))<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SDL_Texture<sp/>*texture_block<sp/>=<sp/><ref refid="block_8c_1abfc4c7532ca8f494ffa3e70e5aa3bb3e" kindref="member">BLOCK_GetTexture_sdl</ref>(map[i<sp/>+<sp/>min].</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SDL_RenderCopy(renderer,<sp/>texture_block,<sp/>NULL,<sp/>&amp;r);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SDL_RenderCopy(renderer,<sp/>NULL,<sp/>NULL,<sp/>&amp;r);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>j++;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="affichage_8c_1ab1833fe0bc53d1fbb83d155b40724f56" kindref="member">AFF_map_term</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*list,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>min,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>max)<sp/>{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><ref refid="structblock__s" kindref="compound">t_block</ref><sp/>*map;<sp/></highlight><highlight class="comment">//<sp/>Tableau<sp/>de<sp/>recupèration<sp/>de<sp/>la<sp/>liste</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>MAX_SCREEN<sp/>-<sp/>1;<sp/>i<sp/>&gt;=<sp/>0;<sp/>i--)<sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="liste_8c_1a9a2af94927570339b5708b99c4831cf3" kindref="member">en_tete</ref>(list);<sp/>!<ref refid="liste_8c_1aa42eefd0ac04de255ffb11f5e9fdabd6" kindref="member">hors_liste</ref>(list);<sp/><ref refid="liste_8c_1ac95aadbae271f7e76ca486b6187dd8dd" kindref="member">suivant</ref>(list))<sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="liste_8c_1a4eaf58887e3dd578a2699aefc5963fe4" kindref="member">valeur_elt</ref>(list,<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>**)&amp;map);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;%s<sp/>%s&quot;</highlight><highlight class="normal">,<sp/><ref refid="block_8c_1aee81cee5a3a132e9769b9520c3e2f415" kindref="member">BLOCK_GetTexture_term</ref>(map[i].</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">),<sp/>NOIR);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\e[0m&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/affichage.c"/>
+  </compounddef>
+</doxygen>

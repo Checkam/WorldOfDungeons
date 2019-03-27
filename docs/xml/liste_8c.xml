@@ -1,0 +1,815 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="liste_8c" kind="file" language="C++">
+    <compoundname>liste.c</compoundname>
+    <includes local="no">stdlib.h</includes>
+    <includes refid="liste_8h" local="no">liste.h</includes>
+    <includes refid="erreur_8h" local="no">erreur.h</includes>
+    <includes local="no">stdio.h</includes>
+    <incdepgraph>
+      <node id="378">
+        <label>stdlib.h</label>
+      </node>
+      <node id="379">
+        <label>liste.h</label>
+        <link refid="liste_8h"/>
+        <childnode refid="380" relation="include">
+        </childnode>
+      </node>
+      <node id="380">
+        <label>erreur.h</label>
+        <link refid="erreur_8h"/>
+      </node>
+      <node id="381">
+        <label>stdio.h</label>
+      </node>
+      <node id="377">
+        <label>src/liste.c</label>
+        <link refid="liste_8c"/>
+        <childnode refid="378" relation="include">
+        </childnode>
+        <childnode refid="379" relation="include">
+        </childnode>
+        <childnode refid="380" relation="include">
+        </childnode>
+        <childnode refid="381" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="liste_8c_1accfd29ff36ebccd13ea5597526562d9d" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* elem_pred</definition>
+        <argsstring></argsstring>
+        <name>elem_pred</name>
+        <initializer>= NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/liste.c" line="127" column="1" bodyfile="src/liste.c" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="liste_8c_1ae54cf55c0d15211e5433ce9b5abf099d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void init_liste</definition>
+        <argsstring>(t_liste *p)</argsstring>
+        <name>init_liste</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+<para>Initialise une nouvelle liste. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste à initialiser. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/liste.c" line="19" column="1" bodyfile="src/liste.c" bodystart="19" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="liste_8c_1ae25051845f03a0ee659aed8e855dad5b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int liste_vide</definition>
+        <argsstring>(t_liste *p)</argsstring>
+        <name>liste_vide</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+<para>Regarde si la liste est vide ou non. </para>        </briefdescription>
+        <detaileddescription>
+<para>Renvoie vrai si la liste est vide, faux sinon. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste à vérifier. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Un entier qui vaut vrai si la liste est vide. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/liste.c" line="33" column="1" bodyfile="src/liste.c" bodystart="33" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="liste_8c_1aa42eefd0ac04de255ffb11f5e9fdabd6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int hors_liste</definition>
+        <argsstring>(t_liste *p)</argsstring>
+        <name>hors_liste</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+<para>Regarde si on est en dehors de la liste ou non. </para>        </briefdescription>
+        <detaileddescription>
+<para>Renvoie vrai si on est en dehors de la liste, faux sinon. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste à vérifier. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Un entier qui vaut vrai si on est hors-liste. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/liste.c" line="44" column="1" bodyfile="src/liste.c" bodystart="44" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="liste_8c_1a9a2af94927570339b5708b99c4831cf3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void en_tete</definition>
+        <argsstring>(t_liste *p)</argsstring>
+        <name>en_tete</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+<para>Place l&apos;élèment courant sur la tete de liste. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste où se trouve l&apos;élèment courant à modifier. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/liste.c" line="53" column="1" bodyfile="src/liste.c" bodystart="53" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="liste_8c_1a182d1a7bdc30807ebdd00d566994548d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void en_queue</definition>
+        <argsstring>(t_liste *p)</argsstring>
+        <name>en_queue</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+<para>Place l&apos;élèment courant sur la queue de liste. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste où se trouve l&apos;élèment courant à modifier. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/liste.c" line="63" column="1" bodyfile="src/liste.c" bodystart="63" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="liste_8c_1ac95aadbae271f7e76ca486b6187dd8dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void suivant</definition>
+        <argsstring>(t_liste *p)</argsstring>
+        <name>suivant</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+<para>Passe à l&apos;élèment suivant s&apos;il existe. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste où se trouve l&apos;élèment courant à modifier. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/liste.c" line="73" column="1" bodyfile="src/liste.c" bodystart="73" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="liste_8c_1a580b4a7d8c45590284303c3d1103a3e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void precedent</definition>
+        <argsstring>(t_liste *p)</argsstring>
+        <name>precedent</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+<para>Passe à l&apos;élèment précédent s&apos;il existe. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste où se trouve l&apos;élèment courant à modifier. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/liste.c" line="83" column="1" bodyfile="src/liste.c" bodystart="83" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="liste_8c_1a4eaf58887e3dd578a2699aefc5963fe4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur valeur_elt</definition>
+        <argsstring>(t_liste *p, void **v)</argsstring>
+        <name>valeur_elt</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>void **</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>Récupère la valeur de l&apos;élèment courant. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste où se trouve l&apos;élèment courant. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>L&apos;endroit ou sauvegarder la valeur de l&apos;élèment courant. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/liste.c" line="95" column="1" bodyfile="src/liste.c" bodystart="95" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="liste_8c_1a88c83322ecd7db55a1df405689f5d70f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur modif_elt</definition>
+        <argsstring>(t_liste *p, void *v)</argsstring>
+        <name>modif_elt</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>Modifie la valeur de l&apos;élèment courant. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste où se trouve l&apos;élèment courant. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La nouvelle valeur à enregistrer. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/liste.c" line="111" column="1" bodyfile="src/liste.c" bodystart="111" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="liste_8c_1ad613f3378b165515b6f7a4cbe45265a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur oter_elt</definition>
+        <argsstring>(t_liste *p, void(*effacer)(void *))</argsstring>
+        <name>oter_elt</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>void(*)(void *)</type>
+          <declname>effacer</declname>
+        </param>
+        <briefdescription>
+<para>Supprime l&apos;élèment courant. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste où se trouve l&apos;élèment courant. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>effacer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La fonction d&apos;effacement de l&apos;élèment courant. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/liste.c" line="128" column="1" bodyfile="src/liste.c" bodystart="128" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="liste_8c_1a8d7b14b429cf2009912b48ad88e4af3a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur ajout_droit</definition>
+        <argsstring>(t_liste *p, void *v)</argsstring>
+        <name>ajout_droit</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>Ajoute à droite de l&apos;élèment courant la nouvelle valeur. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste où se trouve l&apos;élèment courant. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La valeur à ajouter. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/liste.c" line="150" column="1" bodyfile="src/liste.c" bodystart="150" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="liste_8c_1a627993b6dd4c2f5e3f7b5a5a4172d557" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur ajout_gauche</definition>
+        <argsstring>(t_liste *p, void *v)</argsstring>
+        <name>ajout_gauche</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>Ajoute à gauche de l&apos;élèment courant la nouvelle valeur. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste où se trouve l&apos;élèment courant. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La valeur à ajouter. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/liste.c" line="170" column="1" bodyfile="src/liste.c" bodystart="170" bodyend="181"/>
+      </memberdef>
+      <memberdef kind="function" id="liste_8c_1a591fc3936d195adcc3fb62f521dcd2ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int taille_liste</definition>
+        <argsstring>(t_liste *p)</argsstring>
+        <name>taille_liste</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+<para>Calcule la taille de la liste. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste à mesurer. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>La taille de la liste. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/liste.c" line="189" column="1" bodyfile="src/liste.c" bodystart="189" bodyend="195"/>
+      </memberdef>
+      <memberdef kind="function" id="liste_8c_1aa916cb05c931c653d8b3710101bc8a43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur valeur_liste</definition>
+        <argsstring>(t_liste *p, int ind, void **v)</argsstring>
+        <name>valeur_liste</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>ind</declname>
+        </param>
+        <param>
+          <type>void **</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>Récupère la valeur de l&apos;élèment à l&apos;indice donné. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste où se trouve l&apos;élèment courant. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ind</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>L&apos;indice de la valeur à récupérer. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>L&apos;endroit ou sauvegarder la valeur de l&apos;élèment. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/liste.c" line="205" column="1" bodyfile="src/liste.c" bodystart="205" bodyend="216"/>
+      </memberdef>
+      <memberdef kind="function" id="liste_8c_1a9e669fc1f28bcd95680489fda37859bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int recherche_liste</definition>
+        <argsstring>(t_liste *p, void *v, int(*comparer)(void *, void *))</argsstring>
+        <name>recherche_liste</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>int(*)(void *, void *)</type>
+          <declname>comparer</declname>
+        </param>
+        <briefdescription>
+<para>Recherche si une valeur est présente dans la liste. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste où chercher la valeur. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La valeur à rechercher. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>comparer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Fonction de comparaison de deux valeurs. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>VRAI si valeur trouvée, FAUX sinon. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/liste.c" line="226" column="1" bodyfile="src/liste.c" bodystart="226" bodyend="238"/>
+      </memberdef>
+      <memberdef kind="function" id="liste_8c_1a4be7faf10eecc64ca729578b1b8cdbb4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void detruire_liste</definition>
+        <argsstring>(t_liste *p, void(*effacer)(void *))</argsstring>
+        <name>detruire_liste</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>void(*)(void *)</type>
+          <declname>effacer</declname>
+        </param>
+        <briefdescription>
+<para>Détruit la liste. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste à détruire. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>effacer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La fonction d&apos;effacement de l&apos;élèment courant. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/liste.c" line="246" column="1" bodyfile="src/liste.c" bodystart="246" bodyend="251"/>
+      </memberdef>
+      <memberdef kind="function" id="liste_8c_1af83977b343e1ab3ea0da557d6c4cbc5e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char * copie</definition>
+        <argsstring>(char *cible, char *source, int n)</argsstring>
+        <name>copie</name>
+        <param>
+          <type>char *</type>
+          <declname>cible</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+<para>Copie n octet de la source dans la cible. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cible</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>L&apos;endroit où copier. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>source</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La source de la copie. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le nombre d&apos;octet à copier. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>L&apos;adresse de la source. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/liste.c" line="261" column="1" bodyfile="src/liste.c" bodystart="261" bodyend="266"/>
+      </memberdef>
+      <memberdef kind="function" id="liste_8c_1a24f2e06b9af19c1f07ae98d4093e27dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* copie_cb</definition>
+        <argsstring>(void *cible, void *source, int n)</argsstring>
+        <name>copie_cb</name>
+        <param>
+          <type>void *</type>
+          <declname>cible</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/liste.c" line="276" column="1" bodyfile="src/liste.c" bodystart="276" bodyend="279"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Module de gestion de listes. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>GALBRUN Tibane </para></simplesect>
+<simplesect kind="date"><para>07/03/2019 </para></simplesect>
+<simplesect kind="version"><para>0.2 </para></simplesect>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="9"><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="liste_8h" kindref="compound">liste.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="erreur_8h" kindref="compound">erreur.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="liste_8c_1ae54cf55c0d15211e5433ce9b5abf099d" kindref="member">init_liste</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p){</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>p-&gt;drapeau<sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structt__element" kindref="compound">t_element</ref>));</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>p-&gt;drapeau-&gt;pred<sp/>=<sp/>p-&gt;drapeau;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>p-&gt;drapeau-&gt;succ<sp/>=<sp/>p-&gt;drapeau;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>p-&gt;ec<sp/>=<sp/>p-&gt;drapeau;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="liste_8c_1ae25051845f03a0ee659aed8e855dad5b" kindref="member">liste_vide</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p){</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(p-&gt;drapeau-&gt;succ<sp/>==<sp/>p-&gt;drapeau);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="liste_8c_1aa42eefd0ac04de255ffb11f5e9fdabd6" kindref="member">hors_liste</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p){</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(p-&gt;ec<sp/>==<sp/>p-&gt;drapeau);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="liste_8c_1a9a2af94927570339b5708b99c4831cf3" kindref="member">en_tete</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p){</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!<ref refid="liste_8c_1ae25051845f03a0ee659aed8e855dad5b" kindref="member">liste_vide</ref>(p))</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p-&gt;ec<sp/>=<sp/>p-&gt;drapeau-&gt;succ;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="liste_8c_1a182d1a7bdc30807ebdd00d566994548d" kindref="member">en_queue</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p){</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!<ref refid="liste_8c_1ae25051845f03a0ee659aed8e855dad5b" kindref="member">liste_vide</ref>(p))</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p-&gt;ec<sp/>=<sp/>p-&gt;drapeau-&gt;pred;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="liste_8c_1ac95aadbae271f7e76ca486b6187dd8dd" kindref="member">suivant</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p){</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!<ref refid="liste_8c_1aa42eefd0ac04de255ffb11f5e9fdabd6" kindref="member">hors_liste</ref>(p))</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p-&gt;ec<sp/>=<sp/>p-&gt;ec-&gt;succ;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="liste_8c_1a580b4a7d8c45590284303c3d1103a3e3" kindref="member">precedent</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p){</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!<ref refid="liste_8c_1aa42eefd0ac04de255ffb11f5e9fdabd6" kindref="member">hors_liste</ref>(p))</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p-&gt;ec<sp/>=<sp/>p-&gt;ec-&gt;pred;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal">t_erreur<sp/><ref refid="liste_8c_1a4eaf58887e3dd578a2699aefc5963fe4" kindref="member">valeur_elt</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>**<sp/>v){</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!v)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_NULL;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!<ref refid="liste_8c_1aa42eefd0ac04de255ffb11f5e9fdabd6" kindref="member">hors_liste</ref>(p)){</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*v<sp/>=<sp/>p-&gt;ec-&gt;elem;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_VALUE_ERROR;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal">t_erreur<sp/><ref refid="liste_8c_1a88c83322ecd7db55a1df405689f5d70f" kindref="member">modif_elt</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>v){</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!v)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_NULL;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!<ref refid="liste_8c_1aa42eefd0ac04de255ffb11f5e9fdabd6" kindref="member">hors_liste</ref>(p)){</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p-&gt;ec-&gt;elem<sp/>=<sp/>v;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_VALUE_ERROR;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>elem_pred<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal">t_erreur<sp/><ref refid="liste_8c_1ad613f3378b165515b6f7a4cbe45265a0" kindref="member">oter_elt</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>(*<sp/>effacer)<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*)){</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!<ref refid="liste_8c_1aa42eefd0ac04de255ffb11f5e9fdabd6" kindref="member">hors_liste</ref>(p)){</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(p-&gt;ec-&gt;elem<sp/>&amp;&amp;<sp/>p-&gt;ec-&gt;elem<sp/>!=<sp/>elem_pred<sp/>&amp;&amp;<sp/>effacer)</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>effacer(p-&gt;ec-&gt;elem);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>elem_pred<sp/>=<sp/>p-&gt;ec-&gt;elem;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p-&gt;ec-&gt;succ-&gt;pred<sp/>=<sp/>p-&gt;ec-&gt;pred;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p-&gt;ec-&gt;pred-&gt;succ<sp/>=<sp/>p-&gt;ec-&gt;succ;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structt__element" kindref="compound">t_element</ref><sp/>*<sp/>tamp<sp/>=<sp/>p-&gt;ec;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p-&gt;ec<sp/>=<sp/>tamp-&gt;pred;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(tamp)</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>free(tamp);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_VALUE_ERROR;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal">t_erreur<sp/><ref refid="liste_8c_1a8d7b14b429cf2009912b48ad88e4af3a" kindref="member">ajout_droit</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>v){</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="liste_8c_1ae25051845f03a0ee659aed8e855dad5b" kindref="member">liste_vide</ref>(p)<sp/>||<sp/>!<ref refid="liste_8c_1aa42eefd0ac04de255ffb11f5e9fdabd6" kindref="member">hors_liste</ref>(p)){</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structt__element" kindref="compound">t_element</ref><sp/>*<sp/>nouv<sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structt__element" kindref="compound">t_element</ref>));</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nouv-&gt;elem<sp/>=<sp/>v;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nouv-&gt;pred<sp/>=<sp/>p-&gt;ec;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nouv-&gt;succ<sp/>=<sp/>p-&gt;ec-&gt;succ;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p-&gt;ec-&gt;succ-&gt;pred<sp/>=<sp/>nouv;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p-&gt;ec-&gt;succ<sp/>=<sp/>nouv;</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p-&gt;ec<sp/>=<sp/>nouv;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_VALUE_ERROR;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal">t_erreur<sp/><ref refid="liste_8c_1a627993b6dd4c2f5e3f7b5a5a4172d557" kindref="member">ajout_gauche</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>v){</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="liste_8c_1ae25051845f03a0ee659aed8e855dad5b" kindref="member">liste_vide</ref>(p)<sp/>||<sp/>!<ref refid="liste_8c_1aa42eefd0ac04de255ffb11f5e9fdabd6" kindref="member">hors_liste</ref>(p)){</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structt__element" kindref="compound">t_element</ref><sp/>*<sp/>nouv<sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structt__element" kindref="compound">t_element</ref>));</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nouv-&gt;elem<sp/>=<sp/>v;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nouv-&gt;succ<sp/>=<sp/>p-&gt;ec;</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nouv-&gt;pred<sp/>=<sp/>p-&gt;ec-&gt;pred;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p-&gt;ec-&gt;pred-&gt;succ<sp/>=<sp/>nouv;</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p-&gt;ec-&gt;pred<sp/>=<sp/>nouv;</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p-&gt;ec<sp/>=<sp/>nouv;</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_VALUE_ERROR;</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="181"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="liste_8c_1a591fc3936d195adcc3fb62f521dcd2ed" kindref="member">taille_liste</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p){</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nb<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(<ref refid="liste_8c_1a9a2af94927570339b5708b99c4831cf3" kindref="member">en_tete</ref>(p);<sp/>!<ref refid="liste_8c_1aa42eefd0ac04de255ffb11f5e9fdabd6" kindref="member">hors_liste</ref>(p);<sp/><ref refid="liste_8c_1ac95aadbae271f7e76ca486b6187dd8dd" kindref="member">suivant</ref>(p)){</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nb++;</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>nb;</highlight></codeline>
+<codeline lineno="195"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal">t_erreur<sp/><ref refid="liste_8c_1aa916cb05c931c653d8b3710101bc8a43" kindref="member">valeur_liste</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ind,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>**<sp/>v)</highlight></codeline>
+<codeline lineno="206"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!p<sp/>||<sp/>!v)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_NULL;</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ind<sp/>&lt;<sp/>0)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>VALUE_ERROR;</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="liste_8c_1a9a2af94927570339b5708b99c4831cf3" kindref="member">en_tete</ref>(p);<sp/>!<ref refid="liste_8c_1aa42eefd0ac04de255ffb11f5e9fdabd6" kindref="member">hors_liste</ref>(p)<sp/>&amp;&amp;<sp/>i<sp/>&lt;<sp/>ind;<sp/><ref refid="liste_8c_1ac95aadbae271f7e76ca486b6187dd8dd" kindref="member">suivant</ref>(p),<sp/>i++);</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="liste_8c_1aa42eefd0ac04de255ffb11f5e9fdabd6" kindref="member">hors_liste</ref>(p))<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>VALUE_ERROR;</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="liste_8c_1a4eaf58887e3dd578a2699aefc5963fe4" kindref="member">valeur_elt</ref>(p,v);</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="216"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="liste_8c_1a9e669fc1f28bcd95680489fda37859bd" kindref="member">recherche_liste</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>v,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>(*comparer)<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*))</highlight></codeline>
+<codeline lineno="227"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!p<sp/>||<sp/>!v<sp/>||<sp/>!comparer)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>val;</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(<ref refid="liste_8c_1a9a2af94927570339b5708b99c4831cf3" kindref="member">en_tete</ref>(p);<sp/>!<ref refid="liste_8c_1aa42eefd0ac04de255ffb11f5e9fdabd6" kindref="member">hors_liste</ref>(p);<sp/><ref refid="liste_8c_1ac95aadbae271f7e76ca486b6187dd8dd" kindref="member">suivant</ref>(p))</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="liste_8c_1a4eaf58887e3dd578a2699aefc5963fe4" kindref="member">valeur_elt</ref>(p,&amp;val);</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(comparer(val,v))<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="238"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="liste_8c_1a4be7faf10eecc64ca729578b1b8cdbb4" kindref="member">detruire_liste</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>(*<sp/>effacer)<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*)){</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(<ref refid="liste_8c_1a9a2af94927570339b5708b99c4831cf3" kindref="member">en_tete</ref>(p);<sp/>!<ref refid="liste_8c_1ae25051845f03a0ee659aed8e855dad5b" kindref="member">liste_vide</ref>(p);<sp/><ref refid="liste_8c_1ad613f3378b165515b6f7a4cbe45265a0" kindref="member">oter_elt</ref>(p,effacer),<sp/><ref refid="liste_8c_1a182d1a7bdc30807ebdd00d566994548d" kindref="member">en_queue</ref>(p));</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(p-&gt;drapeau)</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>free(p-&gt;drapeau);</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/>elem_pred<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="251"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/><ref refid="liste_8c_1af83977b343e1ab3ea0da557d6c4cbc5e" kindref="member">copie</ref>(<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>cible<sp/>,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>source<sp/>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n)<sp/></highlight></codeline>
+<codeline lineno="262"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>d<sp/>=<sp/>source<sp/>;</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(<sp/>n--<sp/>)<sp/>*cible++<sp/>=<sp/>*source++<sp/>;</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>d<sp/>;</highlight></codeline>
+<codeline lineno="266"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"></highlight></codeline>
+<codeline lineno="276"><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>copie_cb(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>cible,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>source,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n)</highlight></codeline>
+<codeline lineno="277"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(<ref refid="liste_8c_1af83977b343e1ab3ea0da557d6c4cbc5e" kindref="member">copie</ref>(cible,source,n));</highlight></codeline>
+<codeline lineno="279"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/liste.c"/>
+  </compounddef>
+</doxygen>

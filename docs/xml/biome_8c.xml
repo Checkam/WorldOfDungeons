@@ -1,0 +1,335 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="biome_8c" kind="file" language="C++">
+    <compoundname>biome.c</compoundname>
+    <includes refid="biome_8h" local="no">biome.h</includes>
+    <includes refid="block_8h" local="no">block.h</includes>
+    <includes refid="commun_8h" local="no">commun.h</includes>
+    <includes refid="liste_8h" local="no">liste.h</includes>
+    <includes refid="perlin_8h" local="no">perlin.h</includes>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes refid="init__biome_8h" local="no">init_biome.h</includes>
+    <incdepgraph>
+      <node id="261">
+        <label>commun.h</label>
+        <link refid="commun_8h_source"/>
+      </node>
+      <node id="270">
+        <label>init_biome.h</label>
+        <link refid="init__biome_8h_source"/>
+      </node>
+      <node id="269">
+        <label>stdlib.h</label>
+      </node>
+      <node id="260">
+        <label>biome.h</label>
+        <link refid="biome_8h"/>
+        <childnode refid="261" relation="include">
+        </childnode>
+        <childnode refid="262" relation="include">
+        </childnode>
+        <childnode refid="266" relation="include">
+        </childnode>
+      </node>
+      <node id="266">
+        <label>liste.h</label>
+        <link refid="liste_8h"/>
+        <childnode refid="265" relation="include">
+        </childnode>
+      </node>
+      <node id="263">
+        <label>couleurs.h</label>
+        <link refid="couleurs_8h_source"/>
+      </node>
+      <node id="264">
+        <label>SDL2/SDL.h</label>
+      </node>
+      <node id="265">
+        <label>erreur.h</label>
+        <link refid="erreur_8h"/>
+      </node>
+      <node id="259">
+        <label>src/biome.c</label>
+        <link refid="biome_8c"/>
+        <childnode refid="260" relation="include">
+        </childnode>
+        <childnode refid="262" relation="include">
+        </childnode>
+        <childnode refid="261" relation="include">
+        </childnode>
+        <childnode refid="266" relation="include">
+        </childnode>
+        <childnode refid="267" relation="include">
+        </childnode>
+        <childnode refid="268" relation="include">
+        </childnode>
+        <childnode refid="269" relation="include">
+        </childnode>
+        <childnode refid="270" relation="include">
+        </childnode>
+      </node>
+      <node id="268">
+        <label>stdio.h</label>
+      </node>
+      <node id="267">
+        <label>perlin.h</label>
+        <link refid="perlin_8h"/>
+      </node>
+      <node id="262">
+        <label>block.h</label>
+        <link refid="block_8h"/>
+        <childnode refid="263" relation="include">
+        </childnode>
+        <childnode refid="264" relation="include">
+        </childnode>
+        <childnode refid="265" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="biome_8c_1a754d220e6397f18594538520b5797b0e" prot="public" static="no" mutable="no">
+        <type><ref refid="structt__liste" kindref="compound">t_liste</ref></type>
+        <definition>t_liste biomes</definition>
+        <argsstring></argsstring>
+        <name>biomes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/biome.c" line="17" column="1" bodyfile="src/biome.c" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="biome_8c_1a9a586fd7268786cfafdd23bb6307add5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="biome_8h_1a88cfbc9884749042980d5910ea44e231" kindref="member">t_biome_type</ref></type>
+        <definition>t_biome_type BIOME_change_type</definition>
+        <argsstring>(int x, int y)</argsstring>
+        <name>BIOME_change_type</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/biome.c" line="19" column="1" bodyfile="src/biome.c" bodystart="19" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="biome_8c_1a10980462c9b4d9d18d35a1bd3fd4ed3d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BIOME_init</definition>
+        <argsstring>()</argsstring>
+        <name>BIOME_init</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/biome.c" line="21" column="1" bodyfile="src/biome.c" bodystart="21" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="biome_8c_1a9d2e089038502d5b48d80f2e69306141" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structt__biome" kindref="compound">t_biome</ref> *</type>
+        <definition>t_biome* BIOME_rechercheParType</definition>
+        <argsstring>(t_biome_type type)</argsstring>
+        <name>BIOME_rechercheParType</name>
+        <param>
+          <type><ref refid="biome_8h_1a88cfbc9884749042980d5910ea44e231" kindref="member">t_biome_type</ref></type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/biome.c" line="26" column="1" bodyfile="src/biome.c" bodystart="26" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="biome_8c_1a01632e11bb1d5b393dca2155a8eaacfd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BIOME_afficher_type</definition>
+        <argsstring>()</argsstring>
+        <name>BIOME_afficher_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/biome.c" line="36" column="1" bodyfile="src/biome.c" bodystart="36" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="biome_8c_1aa3e0899b18c9d12950c910e19b3c8eee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structt__biome" kindref="compound">t_biome</ref> *</type>
+        <definition>t_biome* BIOME_CreateBiome</definition>
+        <argsstring>(t_biome_type type)</argsstring>
+        <name>BIOME_CreateBiome</name>
+        <param>
+          <type><ref refid="biome_8h_1a88cfbc9884749042980d5910ea44e231" kindref="member">t_biome_type</ref></type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/biome.c" line="38" column="1" bodyfile="src/biome.c" bodystart="38" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="biome_8c_1add9b617b8f4cabc8da95506def551ce4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BIOME_AddLayer</definition>
+        <argsstring>(t_biome *b, t_materiaux block_type, int nb_couche)</argsstring>
+        <name>BIOME_AddLayer</name>
+        <param>
+          <type><ref refid="structt__biome" kindref="compound">t_biome</ref> *</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type><ref refid="block_8h_1a4030ebe0eea609635f372f2e86d4332a" kindref="member">t_materiaux</ref></type>
+          <declname>block_type</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nb_couche</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/biome.c" line="47" column="1" bodyfile="src/biome.c" bodystart="47" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="biome_8c_1a47f6ddc9ec6131b4fe3574f3665a030e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BIOME_Quit</definition>
+        <argsstring>()</argsstring>
+        <name>BIOME_Quit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/biome.c" line="54" column="1" bodyfile="src/biome.c" bodystart="54" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="biome_8c_1ad10a3894ab1378e0e490f3830fe371ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BIOME_DestroyLayer</definition>
+        <argsstring>(t_layer *layer)</argsstring>
+        <name>BIOME_DestroyLayer</name>
+        <param>
+          <type><ref refid="structt__layer" kindref="compound">t_layer</ref> *</type>
+          <declname>layer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/biome.c" line="64" column="1" bodyfile="src/biome.c" bodystart="64" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="biome_8c_1ae028f30c9eabad06f58aab012465299c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BIOME_Destoy</definition>
+        <argsstring>(t_biome *b)</argsstring>
+        <name>BIOME_Destoy</name>
+        <param>
+          <type><ref refid="structt__biome" kindref="compound">t_biome</ref> *</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/biome.c" line="69" column="1" bodyfile="src/biome.c" bodystart="69" bodyend="75"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;<ref refid="biome_8h" kindref="compound">biome.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="block_8h" kindref="compound">block.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;commun.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="liste_8h" kindref="compound">liste.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="perlin_8h" kindref="compound">perlin.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>biomes;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><ref refid="biome_8h_1a88cfbc9884749042980d5910ea44e231" kindref="member">t_biome_type</ref><sp/>BIOME_change_type(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(<ref refid="biome_8h_1a88cfbc9884749042980d5910ea44e231" kindref="member">t_biome_type</ref>)(x<sp/>/<sp/>W_BIOME)<sp/>%<sp/>NB_BIOME;<sp/>}</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>BIOME_init()<sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><ref refid="liste_8c_1ae54cf55c0d15211e5433ce9b5abf099d" kindref="member">init_liste</ref>(&amp;biomes);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;init_biome.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><ref refid="structt__biome" kindref="compound">t_biome</ref><sp/>*BIOME_rechercheParType(<ref refid="biome_8h_1a88cfbc9884749042980d5910ea44e231" kindref="member">t_biome_type</ref><sp/>type)<sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><ref refid="structt__biome" kindref="compound">t_biome</ref><sp/>*b;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="liste_8c_1a9a2af94927570339b5708b99c4831cf3" kindref="member">en_tete</ref>(&amp;biomes);<sp/>!<ref refid="liste_8c_1aa42eefd0ac04de255ffb11f5e9fdabd6" kindref="member">hors_liste</ref>(&amp;biomes);<sp/><ref refid="liste_8c_1ac95aadbae271f7e76ca486b6187dd8dd" kindref="member">suivant</ref>(&amp;biomes))<sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="liste_8c_1a4eaf58887e3dd578a2699aefc5963fe4" kindref="member">valeur_elt</ref>(&amp;biomes,<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>**)&amp;b);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(b-&gt;type<sp/>==<sp/>type)</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>b;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>BIOME_afficher_type()<sp/>{}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><ref refid="structt__biome" kindref="compound">t_biome</ref><sp/>*BIOME_CreateBiome(<ref refid="biome_8h_1a88cfbc9884749042980d5910ea44e231" kindref="member">t_biome_type</ref><sp/>type)<sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><ref refid="structt__biome" kindref="compound">t_biome</ref><sp/>*b<sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structt__biome" kindref="compound">t_biome</ref>));</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>b-&gt;type<sp/>=<sp/>type;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>b-&gt;layers<sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structt__layer" kindref="compound">t_layer</ref>)<sp/>*<sp/>MAX);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/>b-&gt;nb_layers<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><ref refid="liste_8c_1a8d7b14b429cf2009912b48ad88e4af3a" kindref="member">ajout_droit</ref>(&amp;biomes,<sp/>b);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>b;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>BIOME_AddLayer(<ref refid="structt__biome" kindref="compound">t_biome</ref><sp/>*b,<sp/><ref refid="block_8h_1a4030ebe0eea609635f372f2e86d4332a" kindref="member">t_materiaux</ref><sp/>block_type,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nb_couche)<sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>b-&gt;layers[b-&gt;nb_layers].nb_couche<sp/>=<sp/>nb_couche;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/>b-&gt;layers[b-&gt;nb_layers].block_type<sp/>=<sp/>block_type;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>b-&gt;nb_layers++;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><ref refid="liste_8c_1a88c83322ecd7db55a1df405689f5d70f" kindref="member">modif_elt</ref>(&amp;biomes,<sp/>b);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>BIOME_Quit()<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><ref refid="structt__biome" kindref="compound">t_biome</ref><sp/>*b;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="liste_8c_1a182d1a7bdc30807ebdd00d566994548d" kindref="member">en_queue</ref>(&amp;biomes);<sp/>!<ref refid="liste_8c_1aa42eefd0ac04de255ffb11f5e9fdabd6" kindref="member">hors_liste</ref>(&amp;biomes)<sp/>||<sp/>!<ref refid="liste_8c_1ae25051845f03a0ee659aed8e855dad5b" kindref="member">liste_vide</ref>(&amp;biomes);<sp/><ref refid="liste_8c_1a182d1a7bdc30807ebdd00d566994548d" kindref="member">en_queue</ref>(&amp;biomes))<sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="liste_8c_1a4eaf58887e3dd578a2699aefc5963fe4" kindref="member">valeur_elt</ref>(&amp;biomes,<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>**)&amp;b);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>BIOME_Destoy(b);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="liste_8c_1ad613f3378b165515b6f7a4cbe45265a0" kindref="member">oter_elt</ref>(&amp;biomes,<sp/>free);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><ref refid="liste_8c_1a4be7faf10eecc64ca729578b1b8cdbb4" kindref="member">detruire_liste</ref>(&amp;biomes,<sp/>free);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>BIOME_DestroyLayer(<ref refid="structt__layer" kindref="compound">t_layer</ref><sp/>*layer)<sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(layer<sp/>!=<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>free(layer);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>BIOME_Destoy(<ref refid="structt__biome" kindref="compound">t_biome</ref><sp/>*b)<sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(b<sp/>!=<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(b-&gt;layers<sp/>!=<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>free(b-&gt;layers);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/biome.c"/>
+  </compounddef>
+</doxygen>

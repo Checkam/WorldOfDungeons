@@ -1,0 +1,356 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="chemin_8h" kind="file" language="C++">
+    <compoundname>chemin.h</compoundname>
+    <includes refid="liste_8h" local="no">liste.h</includes>
+    <includes refid="erreur_8h" local="no">erreur.h</includes>
+    <includedby refid="binaire_8c" local="no">src/binaire.c</includedby>
+    <includedby refid="chemin_8c" local="no">src/chemin.c</includedby>
+    <includedby refid="donjon_8c" local="no">src/donjon.c</includedby>
+    <includedby refid="entite_8c" local="no">src/entite.c</includedby>
+    <includedby refid="erreur_8c" local="no">src/erreur.c</includedby>
+    <includedby refid="fichier_8c" local="no">src/fichier.c</includedby>
+    <includedby refid="json_8c" local="no">src/json.c</includedby>
+    <includedby refid="menu_8c" local="no">src/menu.c</includedby>
+    <includedby refid="entite_8h" local="no">include/entite.h</includedby>
+    <incdepgraph>
+      <node id="43">
+        <label>liste.h</label>
+        <link refid="liste_8h"/>
+        <childnode refid="44" relation="include">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>include/chemin.h</label>
+        <link refid="chemin_8h"/>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+      </node>
+      <node id="44">
+        <label>erreur.h</label>
+        <link refid="erreur_8h"/>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="50">
+        <label>src/erreur.c</label>
+        <link refid="erreur_8c"/>
+      </node>
+      <node id="48">
+        <label>src/donjon.c</label>
+        <link refid="donjon_8c"/>
+      </node>
+      <node id="53">
+        <label>src/menu.c</label>
+        <link refid="menu_8c"/>
+      </node>
+      <node id="47">
+        <label>src/chemin.c</label>
+        <link refid="chemin_8c"/>
+      </node>
+      <node id="46">
+        <label>src/binaire.c</label>
+        <link refid="binaire_8c"/>
+      </node>
+      <node id="45">
+        <label>include/chemin.h</label>
+        <link refid="chemin_8h"/>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+      </node>
+      <node id="51">
+        <label>src/fichier.c</label>
+        <link refid="fichier_8c"/>
+      </node>
+      <node id="49">
+        <label>src/entite.c</label>
+        <link refid="entite_8c"/>
+      </node>
+      <node id="54">
+        <label>include/entite.h</label>
+        <link refid="entite_8h"/>
+        <childnode refid="49" relation="include">
+        </childnode>
+      </node>
+      <node id="52">
+        <label>src/json.c</label>
+        <link refid="json_8c"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="chemin_8h_1ae73053051efbb45c3a39751f5ce9fb36" prot="public" static="no">
+        <name>PROJECT_NAME</name>
+        <initializer>&quot;WorldOfDungeons&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/chemin.h" line="13" column="9" bodyfile="include/chemin.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="chemin_8h_1a6e3115fc9bfb27c4a03a99d1e113e7b1" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>WOD_PWD</definition>
+        <argsstring></argsstring>
+        <name>WOD_PWD</name>
+        <briefdescription>
+<para>Variable Globale contenant le chemin absolu de la racine du projet. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/chemin.h" line="19" column="1" bodyfile="include/chemin.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="chemin_8h_1a3d19e4065f963d93d23f046811107d80" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur decomposer_PWD</definition>
+        <argsstring>(t_liste *p, char *pwd)</argsstring>
+        <name>decomposer_PWD</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>pwd</declname>
+        </param>
+        <briefdescription>
+<para>Décompose dans une liste le PWD. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste où mettre ce qui a été décomposé. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pwd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le PWD à décomposer. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/chemin.h" line="22" column="1" bodyfile="src/chemin.c" bodystart="24" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="chemin_8h_1aa831b692df5b4400fd07338357be61d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur pwd_init</definition>
+        <argsstring>(char *argv, char *env)</argsstring>
+        <name>pwd_init</name>
+        <param>
+          <type>char *</type>
+          <declname>argv</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>env</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/chemin.h" line="28" column="1" bodyfile="src/chemin.c" bodystart="55" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="chemin_8h_1af02bc563f4c0e7190df6b3d397501beb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur fusion_PWD</definition>
+        <argsstring>(t_liste *env, t_liste *argv)</argsstring>
+        <name>fusion_PWD</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>env</declname>
+        </param>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>argv</declname>
+        </param>
+        <briefdescription>
+<para>Récupère le chemin absolu de la racine de WOD. </para>        </briefdescription>
+        <detaileddescription>
+<para>Met à jour la valeur de WOD_PWD, qui sera accessible de tout le programme. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>env</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le PWD utiliser pour connaitre le WOD_PWD. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>argv</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le PWD utiliser pour connaitre le WOD_PWD. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/chemin.h" line="29" column="1" bodyfile="src/chemin.c" bodystart="98" bodyend="175"/>
+      </memberdef>
+      <memberdef kind="function" id="chemin_8h_1a5aca441244932fa32192a79ef980d2eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur pwd_quit</definition>
+        <argsstring>(void)</argsstring>
+        <name>pwd_quit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Unset la variable globale WOD_PWD. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/chemin.h" line="30" column="1" bodyfile="src/chemin.c" bodystart="84" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="chemin_8h_1a426a590237f668eca1627c0cc3985cd2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur creation_chemin</definition>
+        <argsstring>(char *ajout, char **res)</argsstring>
+        <name>creation_chemin</name>
+        <param>
+          <type>char *</type>
+          <declname>ajout</declname>
+        </param>
+        <param>
+          <type>char **</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+<para>Concatène 2 chaine de caractère. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ajout</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Chaine de caractère à ajouter à gauche de WOD_PWD. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>res</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Chaine de caractère résultat. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/chemin.h" line="34" column="1" bodyfile="src/chemin.c" bodystart="184" bodyend="195"/>
+      </memberdef>
+      <memberdef kind="function" id="chemin_8h_1a1fe1520dbe25f041e413193a6ab5225f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur tolower_str</definition>
+        <argsstring>(char *str, char **res)</argsstring>
+        <name>tolower_str</name>
+        <param>
+          <type>char *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>char **</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+<para>Met en minuscule une chaine de caractère. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>str</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Chaine de caractère source. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>res</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Chaine de caractère résultat. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/chemin.h" line="39" column="1" bodyfile="src/chemin.c" bodystart="204" bodyend="217"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Module des primitives servant à la récupération du chemin absolu. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>GALBRUN Tibane </para></simplesect>
+<simplesect kind="date"><para>09/03/2019 </para></simplesect>
+<simplesect kind="version"><para>0.2 </para></simplesect>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>__CHEMIN_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__CHEMIN_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="preprocessor">#include<sp/>&lt;<ref refid="liste_8h" kindref="compound">liste.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="erreur_8h" kindref="compound">erreur.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PROJECT_NAME<sp/>&quot;WorldOfDungeons&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="chemin_8h_1a6e3115fc9bfb27c4a03a99d1e113e7b1" refkind="member"><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/><ref refid="chemin_8h_1a6e3115fc9bfb27c4a03a99d1e113e7b1" kindref="member">WOD_PWD</ref>;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Décomposition<sp/>du<sp/>PWD<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal">t_erreur<sp/><ref refid="chemin_8h_1a3d19e4065f963d93d23f046811107d80" kindref="member">decomposer_PWD</ref><sp/>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>pwd);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Création<sp/>du<sp/>WOD_PWD</highlight></codeline>
+<codeline lineno="25"><highlight class="comment">Utilisation<sp/>:<sp/>getpwd(argv[0],getenv(&quot;PWD&quot;));</highlight></codeline>
+<codeline lineno="26"><highlight class="comment">Ne<sp/>pas<sp/>oublier<sp/>de<sp/>récupérer<sp/>les<sp/>arguments<sp/>du<sp/>main<sp/>:</highlight></codeline>
+<codeline lineno="27"><highlight class="comment">int<sp/>main<sp/>(int<sp/>argc,<sp/>char<sp/>**<sp/>argv,<sp/>char<sp/>**<sp/>env)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal">t_erreur<sp/>pwd_init(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>argv,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>env);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">t_erreur<sp/><ref refid="chemin_8h_1af02bc563f4c0e7190df6b3d397501beb" kindref="member">fusion_PWD</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>env,<sp/><ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>argv);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">t_erreur<sp/><ref refid="chemin_8h_1a5aca441244932fa32192a79ef980d2eb" kindref="member">pwd_quit</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Création<sp/>chemin<sp/>à<sp/>partir<sp/>de<sp/>WOD_PWD</highlight></codeline>
+<codeline lineno="33"><highlight class="comment">Utilisation<sp/>:<sp/>creation_chemin<sp/>(&quot;chemin_après_WOD_PWD&quot;,&amp;str_res);<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal">t_erreur<sp/><ref refid="chemin_8h_1a426a590237f668eca1627c0cc3985cd2" kindref="member">creation_chemin</ref><sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>ajout,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**<sp/>res);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Met<sp/>en<sp/>minuscule<sp/>une<sp/>chaine<sp/>de<sp/>caractère.</highlight></codeline>
+<codeline lineno="37"><highlight class="comment">str<sp/>:<sp/>chaine<sp/>source</highlight></codeline>
+<codeline lineno="38"><highlight class="comment">res<sp/>:<sp/>chaine<sp/>resultat<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal">t_erreur<sp/><ref refid="chemin_8h_1a1fe1520dbe25f041e413193a6ab5225f" kindref="member">tolower_str</ref><sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>str,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**<sp/>res);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="include/chemin.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,1111 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="entite_8c" kind="file" language="C++">
+    <compoundname>entite.c</compoundname>
+    <includes local="no">SDL2/SDL.h</includes>
+    <includes local="no">SDL2/SDL_image.h</includes>
+    <includes local="no">SDL2/SDL_ttf.h</includes>
+    <includes refid="block_8h" local="no">block.h</includes>
+    <includes refid="chemin_8h" local="no">chemin.h</includes>
+    <includes refid="entite_8h" local="no">entite.h</includes>
+    <includes refid="erreur_8h" local="no">erreur.h</includes>
+    <includes refid="fps_8h" local="no">fps.h</includes>
+    <includes refid="map_8h" local="no">map.h</includes>
+    <includes refid="outils__SDL_8h" local="no">outils_SDL.h</includes>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes refid="touches_8h" local="no">touches.h</includes>
+    <incdepgraph>
+      <node id="318">
+        <label>map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="310" relation="include">
+        </childnode>
+        <childnode refid="312" relation="include">
+        </childnode>
+        <childnode refid="308" relation="include">
+        </childnode>
+      </node>
+      <node id="317">
+        <label>fps.h</label>
+        <link refid="fps_8h_source"/>
+      </node>
+      <node id="316">
+        <label>commun.h</label>
+        <link refid="commun_8h_source"/>
+      </node>
+      <node id="321">
+        <label>stdint.h</label>
+      </node>
+      <node id="306">
+        <label>SDL2/SDL_image.h</label>
+      </node>
+      <node id="315">
+        <label>stdlib.h</label>
+      </node>
+      <node id="320">
+        <label>touches.h</label>
+        <link refid="touches_8h_source"/>
+        <childnode refid="321" relation="include">
+        </childnode>
+      </node>
+      <node id="312">
+        <label>liste.h</label>
+        <link refid="liste_8h"/>
+        <childnode refid="310" relation="include">
+        </childnode>
+      </node>
+      <node id="311">
+        <label>chemin.h</label>
+        <link refid="chemin_8h"/>
+        <childnode refid="312" relation="include">
+        </childnode>
+        <childnode refid="310" relation="include">
+        </childnode>
+      </node>
+      <node id="319">
+        <label>outils_SDL.h</label>
+        <link refid="outils__SDL_8h_source"/>
+        <childnode refid="305" relation="include">
+        </childnode>
+        <childnode refid="310" relation="include">
+        </childnode>
+      </node>
+      <node id="309">
+        <label>couleurs.h</label>
+        <link refid="couleurs_8h_source"/>
+      </node>
+      <node id="305">
+        <label>SDL2/SDL.h</label>
+      </node>
+      <node id="310">
+        <label>erreur.h</label>
+        <link refid="erreur_8h"/>
+      </node>
+      <node id="304">
+        <label>src/entite.c</label>
+        <link refid="entite_8c"/>
+        <childnode refid="305" relation="include">
+        </childnode>
+        <childnode refid="306" relation="include">
+        </childnode>
+        <childnode refid="307" relation="include">
+        </childnode>
+        <childnode refid="308" relation="include">
+        </childnode>
+        <childnode refid="311" relation="include">
+        </childnode>
+        <childnode refid="313" relation="include">
+        </childnode>
+        <childnode refid="310" relation="include">
+        </childnode>
+        <childnode refid="317" relation="include">
+        </childnode>
+        <childnode refid="318" relation="include">
+        </childnode>
+        <childnode refid="319" relation="include">
+        </childnode>
+        <childnode refid="314" relation="include">
+        </childnode>
+        <childnode refid="315" relation="include">
+        </childnode>
+        <childnode refid="320" relation="include">
+        </childnode>
+      </node>
+      <node id="313">
+        <label>entite.h</label>
+        <link refid="entite_8h"/>
+        <childnode refid="314" relation="include">
+        </childnode>
+        <childnode refid="315" relation="include">
+        </childnode>
+        <childnode refid="305" relation="include">
+        </childnode>
+        <childnode refid="306" relation="include">
+        </childnode>
+        <childnode refid="307" relation="include">
+        </childnode>
+        <childnode refid="311" relation="include">
+        </childnode>
+        <childnode refid="310" relation="include">
+        </childnode>
+        <childnode refid="316" relation="include">
+        </childnode>
+        <childnode refid="312" relation="include">
+        </childnode>
+      </node>
+      <node id="314">
+        <label>stdio.h</label>
+      </node>
+      <node id="307">
+        <label>SDL2/SDL_ttf.h</label>
+      </node>
+      <node id="308">
+        <label>block.h</label>
+        <link refid="block_8h"/>
+        <childnode refid="309" relation="include">
+        </childnode>
+        <childnode refid="305" relation="include">
+        </childnode>
+        <childnode refid="310" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="entite_8c_1aff0fca04edb4e1830a6c6cec29e3ea2a" prot="public" static="no" mutable="no">
+        <type>SDL_Texture *</type>
+        <definition>SDL_Texture* Textures_Joueur</definition>
+        <argsstring></argsstring>
+        <name>Textures_Joueur</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/entite.c" line="25" column="1" bodyfile="src/entite.c" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="entite_8c_1a1d2d2adbda3d169b06c9b0d1b8f170d7" prot="public" static="no" mutable="no">
+        <type><ref refid="structt__anim__action" kindref="compound">t_anim_action</ref></type>
+        <definition>t_anim_action t_a_joueur[NB_LIGNES_SPRITE]</definition>
+        <argsstring>[NB_LIGNES_SPRITE]</argsstring>
+        <name>t_a_joueur</name>
+        <initializer>= {
+    {MARCHE_DROITE, 12, 9, 100}, {MARCHE_GAUCHE, 10, 9, 100}, {MARCHE_DERRIERE, 11, 9, 100}, {MARCHE_DEVANT, 9, 9, 100}, {IMMOBILE, 3, 1, 50}}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/entite.c" line="26" column="1" bodyfile="src/entite.c" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="entite_8c_1a0ba6e3bb955104d3278945b4fba38aba" prot="public" static="no" mutable="no">
+        <type>SDL_Texture *</type>
+        <definition>SDL_Texture* Textures_Zombie</definition>
+        <argsstring></argsstring>
+        <name>Textures_Zombie</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/entite.c" line="29" column="1" bodyfile="src/entite.c" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="entite_8c_1ac133f674263fbbbc79b955535bb3794f" prot="public" static="no" mutable="no">
+        <type><ref refid="structt__anim__action" kindref="compound">t_anim_action</ref></type>
+        <definition>t_anim_action t_a_zombie[NB_LIGNES_SPRITE]</definition>
+        <argsstring>[NB_LIGNES_SPRITE]</argsstring>
+        <name>t_a_zombie</name>
+        <initializer>= {{MARCHE_DROITE, 12, 9, 100}, {MARCHE_GAUCHE, 10, 9, 100},  {MARCHE_DERRIERE, 11, 9, 100},
+                                              {MARCHE_DEVANT, 9, 9, 100},  {ATTAQUE_GAUCHE, 14, 6, 100}, {ATTAQUE_DROITE, 16, 6, 100},
+                                              {IMMOBILE, 3, 1, 50}}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/entite.c" line="30" column="1" bodyfile="src/entite.c" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="entite_8c_1a6a95f3635013fe25a97d01e04cc1765b" prot="public" static="no" mutable="no">
+        <type>SDL_Texture *</type>
+        <definition>SDL_Texture* Textures_Boss</definition>
+        <argsstring></argsstring>
+        <name>Textures_Boss</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/entite.c" line="34" column="1" bodyfile="src/entite.c" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="entite_8c_1a9f44e6c22243a13a6897230625ce80b4" prot="public" static="no" mutable="no">
+        <type><ref refid="structt__anim__action" kindref="compound">t_anim_action</ref></type>
+        <definition>t_anim_action t_a_boss[NB_LIGNES_SPRITE]</definition>
+        <argsstring>[NB_LIGNES_SPRITE]</argsstring>
+        <name>t_a_boss</name>
+        <initializer>= {{MARCHE_DROITE, 12, 9, 100}, {MARCHE_GAUCHE, 10, 9, 100},  {MARCHE_DERRIERE, 11, 9, 100},
+                                            {MARCHE_DEVANT, 9, 9, 100},  {ATTAQUE_GAUCHE, 14, 6, 100}, {ATTAQUE_DROITE, 16, 6, 100},
+                                            {IMMOBILE, 3, 1, 50}}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/entite.c" line="35" column="1" bodyfile="src/entite.c" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="entite_8c_1ae67e9421db57e8164cdbd6acbd7d9975" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structt__entite" kindref="compound">t_entite</ref> *</type>
+        <definition>t_entite* creer_entite_defaut</definition>
+        <argsstring>(char *name, t_entite_type type, int x_dep, int y_dep, int taille)</argsstring>
+        <name>creer_entite_defaut</name>
+        <param>
+          <type>char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="entite_8h_1a4182d28438d783fe0ef6b4c58c2d743b" kindref="member">t_entite_type</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>x_dep</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y_dep</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>taille</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/entite.c" line="51" column="1" bodyfile="src/entite.c" bodystart="51" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="entite_8c_1ad59afa76cdb06ceaa346a59300d95957" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structt__entite" kindref="compound">t_entite</ref> *</type>
+        <definition>t_entite* creer_entite</definition>
+        <argsstring>(char *name, int mana, int mana_max, int pv, int pv_max, SDL_Texture *texture, t_anim_action *t_a, int x_dep, int y_dep, int taille)</argsstring>
+        <name>creer_entite</name>
+        <param>
+          <type>char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>mana</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>mana_max</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>pv</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>pv_max</declname>
+        </param>
+        <param>
+          <type>SDL_Texture *</type>
+          <declname>texture</declname>
+        </param>
+        <param>
+          <type><ref refid="structt__anim__action" kindref="compound">t_anim_action</ref> *</type>
+          <declname>t_a</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>x_dep</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y_dep</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>taille</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/entite.c" line="78" column="1" bodyfile="src/entite.c" bodystart="78" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="entite_8c_1aff126a9685fdd63884131ba74499aa17" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur detruire_entite</definition>
+        <argsstring>(t_entite *entite)</argsstring>
+        <name>detruire_entite</name>
+        <param>
+          <type><ref refid="structt__entite" kindref="compound">t_entite</ref> *</type>
+          <declname>entite</declname>
+        </param>
+        <briefdescription>
+<para>Détruit une entité. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>entite</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>L&apos;entité à détruire. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/entite.c" line="126" column="1" bodyfile="src/entite.c" bodystart="126" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="entite_8c_1a6b93939375ae3f4118ac6d099703fbaf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SDL_Texture *</type>
+        <definition>SDL_Texture * Create_Sprite</definition>
+        <argsstring>(char *lieu, SDL_Renderer *renderer)</argsstring>
+        <name>Create_Sprite</name>
+        <param>
+          <type>char *</type>
+          <declname>lieu</declname>
+        </param>
+        <param>
+          <type>SDL_Renderer *</type>
+          <declname>renderer</declname>
+        </param>
+        <briefdescription>
+<para>Crée la texture d&apos;un sprite. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>lieu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>L&apos;endroit où se situe le sprite à charger. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>renderer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Renderer de la fenêtre. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Un pointeur sur une structure. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/entite.c" line="142" column="1" bodyfile="src/entite.c" bodystart="142" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="entite_8c_1a87d473ea77b31005633d03ee5a0f3db5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur Charger_Anima</definition>
+        <argsstring>(SDL_Renderer *renderer, t_entite *entite, t_action action)</argsstring>
+        <name>Charger_Anima</name>
+        <param>
+          <type>SDL_Renderer *</type>
+          <declname>renderer</declname>
+        </param>
+        <param>
+          <type><ref refid="structt__entite" kindref="compound">t_entite</ref> *</type>
+          <declname>entite</declname>
+        </param>
+        <param>
+          <type><ref refid="entite_8h_1abf8170fe3a93ebd8f3701bbf092ece99" kindref="member">t_action</ref></type>
+          <declname>action</declname>
+        </param>
+        <briefdescription>
+<para>Charge dans le renderer, suivant une action et une entité, l&apos;image suivante (pour animation) où une nouvelle image si l&apos;action à changer. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>renderer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Renderer de la fenêtre. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>entite</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>L&apos;entité à afficher. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>action</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>L&apos;action à afficher. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/entite.c" line="164" column="1" bodyfile="src/entite.c" bodystart="164" bodyend="193"/>
+      </memberdef>
+      <memberdef kind="function" id="entite_8c_1a4377e72c0a8a6b09796f1e684bd17cad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Search_Action</definition>
+        <argsstring>(t_anim_action *t_a, t_action action)</argsstring>
+        <name>Search_Action</name>
+        <param>
+          <type><ref refid="structt__anim__action" kindref="compound">t_anim_action</ref> *</type>
+          <declname>t_a</declname>
+        </param>
+        <param>
+          <type><ref refid="entite_8h_1abf8170fe3a93ebd8f3701bbf092ece99" kindref="member">t_action</ref></type>
+          <declname>action</declname>
+        </param>
+        <briefdescription>
+<para>Cherche dans un tableau d&apos;action/description l&apos;indice correspondant à l&apos;action qu&apos;on cherche. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t_a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le tableau de recherche. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>action</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>L&apos;action que l&apos;on cherche. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>L&apos;indice de l&apos;action recherchée. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/entite.c" line="202" column="1" bodyfile="src/entite.c" bodystart="202" bodyend="211"/>
+      </memberdef>
+      <memberdef kind="function" id="entite_8c_1a40444b4966bf5776de11ce07f2b29be9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur Init_Sprite</definition>
+        <argsstring>(SDL_Renderer *renderer)</argsstring>
+        <name>Init_Sprite</name>
+        <param>
+          <type>SDL_Renderer *</type>
+          <declname>renderer</declname>
+        </param>
+        <briefdescription>
+<para>Initialise la texture associée au sprite de chaque entité par défaut. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>renderer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Renderer de la fenêtre. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/entite.c" line="219" column="1" bodyfile="src/entite.c" bodystart="219" bodyend="228"/>
+      </memberdef>
+      <memberdef kind="function" id="entite_8c_1ad45c5dedc31c638b7f9d2d57f7586b33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur Quit_Sprite</definition>
+        <argsstring>(void)</argsstring>
+        <name>Quit_Sprite</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Détruit toutes les textures précédement initialisées. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/entite.c" line="235" column="1" bodyfile="src/entite.c" bodystart="235" bodyend="241"/>
+      </memberdef>
+      <memberdef kind="function" id="entite_8c_1a3d029f34e956b9197a208db146cd7104" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur Anim_Update</definition>
+        <argsstring>(t_entite *entite, t_action action, int new_time)</argsstring>
+        <name>Anim_Update</name>
+        <param>
+          <type><ref refid="structt__entite" kindref="compound">t_entite</ref> *</type>
+          <declname>entite</declname>
+        </param>
+        <param>
+          <type><ref refid="entite_8h_1abf8170fe3a93ebd8f3701bbf092ece99" kindref="member">t_action</ref></type>
+          <declname>action</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>new_time</declname>
+        </param>
+        <briefdescription>
+<para>Modifie pour une entité le temps d&apos;une animation correspondant à une action. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>entite</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>L&apos;entité où il faut changer le temps d&apos;animation. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>action</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>L&apos;action où l&apos;on modifie le temps d&apos;animation. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>new_time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le nouveau temps d&apos;animation. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/entite.c" line="251" column="1" bodyfile="src/entite.c" bodystart="251" bodyend="261"/>
+      </memberdef>
+      <memberdef kind="function" id="entite_8c_1a8fa69a137d3685b5dbdf2cbde07db446" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur update_posY_entite</definition>
+        <argsstring>(t_entite *entite, double coef_fps, t_liste *p)</argsstring>
+        <name>update_posY_entite</name>
+        <param>
+          <type><ref refid="structt__entite" kindref="compound">t_entite</ref> *</type>
+          <declname>entite</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>coef_fps</declname>
+        </param>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+<para>Gère la position de l&apos;entité sur Y via la gravité et les collisions. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>entite</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>L&apos;entité à gérer. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>coef_fps</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Permet d&apos;adapter les déplacements en fonction du nombre de fps. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Liste contenant les paramètres supplémentaires de la fonction collision si il y en a besoin. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/entite.c" line="273" column="1" bodyfile="src/entite.c" bodystart="273" bodyend="303"/>
+      </memberdef>
+      <memberdef kind="function" id="entite_8c_1a4e2ed565107f6811c167f97a2e3abc10" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int collision</definition>
+        <argsstring>(t_entite *entite, t_collision_direction direction, t_liste *p)</argsstring>
+        <name>collision</name>
+        <param>
+          <type><ref refid="structt__entite" kindref="compound">t_entite</ref> *</type>
+          <declname>entite</declname>
+        </param>
+        <param>
+          <type>t_collision_direction</type>
+          <declname>direction</declname>
+        </param>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/entite.c" line="305" column="1" bodyfile="src/entite.c" bodystart="305" bodyend="412"/>
+      </memberdef>
+      <memberdef kind="function" id="entite_8c_1a19f0ea10c79b38a44b0afaf33ddf7581" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur Gestion_Entite</definition>
+        <argsstring>(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, double coef_fps, t_liste *p)</argsstring>
+        <name>Gestion_Entite</name>
+        <param>
+          <type>SDL_Renderer *</type>
+          <declname>renderer</declname>
+        </param>
+        <param>
+          <type><ref refid="structt__entite" kindref="compound">t_entite</ref> *</type>
+          <declname>entite</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>ks</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>coef_fps</declname>
+        </param>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+<para>Gère une entité (collision, déplacement, animation). </para>        </briefdescription>
+        <detaileddescription>
+<para>Gère les animations ainsi que les modifications apportées à l&apos;entité (gravité, collision, déplacement) correspondant aux différents appuis de touches. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>renderer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Renderer de la fenêtre. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>entite</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>L&apos;entité à gérer. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ks</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Etat du clavier pour la gestion de l&apos;appui des touches. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>coef_fps</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Permet d&apos;adapter les déplacements en fonction du nombre de fps. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Liste contenant les paramètres supplémentaires de la fonction collision si il y en a besoin. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/entite.c" line="427" column="1" bodyfile="src/entite.c" bodystart="427" bodyend="486"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Module servant à gérer les entités. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>GALBRUN Tibane </para></simplesect>
+<simplesect kind="date"><para>13/03/2019 </para></simplesect>
+<simplesect kind="version"><para>0.2 </para></simplesect>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="9"><highlight class="preprocessor">#include<sp/>&lt;SDL2/SDL.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;SDL2/SDL_image.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;SDL2/SDL_ttf.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="block_8h" kindref="compound">block.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="chemin_8h" kindref="compound">chemin.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="entite_8h" kindref="compound">entite.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="erreur_8h" kindref="compound">erreur.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fps.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="map_8h" kindref="compound">map.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;outils_SDL.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;touches.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">/******<sp/>SPRITE<sp/>TEXTURE<sp/>ACTION<sp/>******/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal">SDL_Texture<sp/>*Textures_Joueur;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><ref refid="structt__anim__action" kindref="compound">t_anim_action</ref><sp/>t_a_joueur[NB_LIGNES_SPRITE]<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>{MARCHE_DROITE,<sp/>12,<sp/>9,<sp/>100},<sp/>{MARCHE_GAUCHE,<sp/>10,<sp/>9,<sp/>100},<sp/>{MARCHE_DERRIERE,<sp/>11,<sp/>9,<sp/>100},<sp/>{MARCHE_DEVANT,<sp/>9,<sp/>9,<sp/>100},<sp/>{IMMOBILE,<sp/>3,<sp/>1,<sp/>50}};</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal">SDL_Texture<sp/>*Textures_Zombie;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><ref refid="structt__anim__action" kindref="compound">t_anim_action</ref><sp/>t_a_zombie[NB_LIGNES_SPRITE]<sp/>=<sp/>{{MARCHE_DROITE,<sp/>12,<sp/>9,<sp/>100},<sp/>{MARCHE_GAUCHE,<sp/>10,<sp/>9,<sp/>100},<sp/><sp/>{MARCHE_DERRIERE,<sp/>11,<sp/>9,<sp/>100},</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{MARCHE_DEVANT,<sp/>9,<sp/>9,<sp/>100},<sp/><sp/>{ATTAQUE_GAUCHE,<sp/>14,<sp/>6,<sp/>100},<sp/>{ATTAQUE_DROITE,<sp/>16,<sp/>6,<sp/>100},</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{IMMOBILE,<sp/>3,<sp/>1,<sp/>50}};</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal">SDL_Texture<sp/>*Textures_Boss;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><ref refid="structt__anim__action" kindref="compound">t_anim_action</ref><sp/>t_a_boss[NB_LIGNES_SPRITE]<sp/>=<sp/>{{MARCHE_DROITE,<sp/>12,<sp/>9,<sp/>100},<sp/>{MARCHE_GAUCHE,<sp/>10,<sp/>9,<sp/>100},<sp/><sp/>{MARCHE_DERRIERE,<sp/>11,<sp/>9,<sp/>100},</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{MARCHE_DEVANT,<sp/>9,<sp/>9,<sp/>100},<sp/><sp/>{ATTAQUE_GAUCHE,<sp/>14,<sp/>6,<sp/>100},<sp/>{ATTAQUE_DROITE,<sp/>16,<sp/>6,<sp/>100},</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{IMMOBILE,<sp/>3,<sp/>1,<sp/>50}};</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="comment">/******<sp/>FONCTIONS<sp/>CREATION<sp/>ET<sp/>SUPPRESSION<sp/>ENTITE<sp/>******/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*creer_entite_defaut(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*name,<sp/><ref refid="entite_8h_1a4182d28438d783fe0ef6b4c58c2d743b" kindref="member">t_entite_type</ref><sp/>type,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x_dep,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y_dep,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>taille)<sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(type)<sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>JOUEUR:</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>creer_entite((name)<sp/>?<sp/>name<sp/>:<sp/></highlight><highlight class="stringliteral">&quot;PLAYER&quot;</highlight><highlight class="normal">,<sp/>20,<sp/>20,<sp/>10,<sp/>10,<sp/>Textures_Joueur,<sp/>t_a_joueur,<sp/>x_dep,<sp/>y_dep,<sp/>taille);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>ZOMBIE:</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>creer_entite((name)<sp/>?<sp/>name<sp/>:<sp/></highlight><highlight class="stringliteral">&quot;ZOMBIE&quot;</highlight><highlight class="normal">,<sp/>0,<sp/>0,<sp/>10,<sp/>10,<sp/>Textures_Zombie,<sp/>t_a_zombie,<sp/>x_dep,<sp/>y_dep,<sp/>taille);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>BOSS:</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>creer_entite((name)<sp/>?<sp/>name<sp/>:<sp/></highlight><highlight class="stringliteral">&quot;BOSS&quot;</highlight><highlight class="normal">,<sp/>50,<sp/>50,<sp/>30,<sp/>30,<sp/>Textures_Boss,<sp/>t_a_boss,<sp/>x_dep,<sp/>y_dep,<sp/>taille);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*creer_entite(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*name,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mana,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mana_max,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>pv,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>pv_max,<sp/>SDL_Texture<sp/>*texture,<sp/><ref refid="structt__anim__action" kindref="compound">t_anim_action</ref><sp/>*t_a,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x_dep,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y_dep,</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>taille)<sp/>{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!texture<sp/>||<sp/>!name<sp/>||<sp/>!t_a)</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(mana<sp/>&gt;<sp/>mana_max<sp/>||<sp/>pv<sp/>&gt;<sp/>pv_max)<sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>mana<sp/>=<sp/>mana_max;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>pv<sp/>=<sp/>pv_max;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Endroit<sp/>de<sp/>départ<sp/>dans<sp/>le<sp/>sprite<sp/>pour<sp/>animation<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/>SDL_Rect<sp/>sprite_part<sp/>=<sp/>{0<sp/>+<sp/>DECAL_W_SPRITE,<sp/>t_a[0].ligne<sp/>*<sp/>H_PART_SPRITE<sp/>+<sp/>DECAL_H_SPRITE,<sp/>W_PART_SPRITE<sp/>/<sp/>2,<sp/>H_PART_SPRITE<sp/>/<sp/>1.25};</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Initialisation<sp/>de<sp/>la<sp/>taille<sp/>de<sp/>l&apos;entité<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/>SDL_Rect<sp/>hit<sp/>=<sp/>{x_dep<sp/>*<sp/>width_block_sdl,<sp/>y_dep<sp/>*<sp/>height_block_sdl,<sp/>taille<sp/>*<sp/>sprite_part.w<sp/>/<sp/>sprite_part.h,<sp/>taille};</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*entite<sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structt__entite" kindref="compound">t_entite</ref>));</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/>entite-&gt;id<sp/>=<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(*name);<sp/></highlight><highlight class="comment">//<sp/>sizeof<sp/>temporaire</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/>entite-&gt;name<sp/>=<sp/>name;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/>entite-&gt;xp<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/>entite-&gt;faim<sp/>=<sp/>entite-&gt;faim_max<sp/>=<sp/>10;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/>entite-&gt;mana<sp/>=<sp/>mana;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/>entite-&gt;mana_max<sp/>=<sp/>mana_max;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/>entite-&gt;pv<sp/>=<sp/>pv;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/>entite-&gt;pv_max<sp/>=<sp/>pv_max;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/>entite-&gt;texture<sp/>=<sp/>texture;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/>entite-&gt;texture_part<sp/>=<sp/>sprite_part;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/>entite-&gt;texture_action<sp/>=<sp/>t_a;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/>entite-&gt;col_act_prec<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/>entite-&gt;act_pred<sp/>=<sp/>IMMOBILE;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/>entite-&gt;temp_dep<sp/>=<sp/>SDL_GetTicks();</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/>entite-&gt;hitbox<sp/>=<sp/>hit;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/>entite-&gt;posEnt<sp/>=<sp/>entite-&gt;hitbox;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/>entite-&gt;posEnt.x<sp/>=<sp/>POSX_ENT_SCREEN;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/>entite-&gt;posEnt.y<sp/>=<sp/>POSY_ENT_SCREEN;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/>entite-&gt;accX<sp/>=<sp/>VITESSE_DEPLACEMENT;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/>entite-&gt;accY<sp/>=<sp/>0.5;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/>entite-&gt;velX<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/>entite-&gt;velY<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>entite;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal">t_erreur<sp/><ref refid="entite_8c_1aff126a9685fdd63884131ba74499aa17" kindref="member">detruire_entite</ref>(<ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*entite)<sp/>{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!entite)</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_NULL;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/>free(entite);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight><highlight class="comment">/******<sp/>FONCTIONS<sp/>GESTION<sp/>SPRITE<sp/>******/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal">SDL_Texture<sp/>*<ref refid="entite_8c_1a6b93939375ae3f4118ac6d099703fbaf" kindref="member">Create_Sprite</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*lieu,<sp/>SDL_Renderer<sp/>*renderer)<sp/>{</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!renderer<sp/>||<sp/>!lieu)</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*chemin;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><ref refid="chemin_8c_1a426a590237f668eca1627c0cc3985cd2" kindref="member">creation_chemin</ref>(lieu,<sp/>&amp;chemin);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/>SDL_Texture<sp/>*texture;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/>Create_IMG_Texture(renderer,<sp/>chemin,<sp/>&amp;texture);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/>free(chemin);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>texture;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal">t_erreur<sp/><ref refid="entite_8c_1a87d473ea77b31005633d03ee5a0f3db5" kindref="member">Charger_Anima</ref>(SDL_Renderer<sp/>*renderer,<sp/><ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*entite,<sp/><ref refid="entite_8h_1abf8170fe3a93ebd8f3701bbf092ece99" kindref="member">t_action</ref><sp/>action)<sp/>{</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!renderer<sp/>||<sp/>!entite)</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_NULL;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>On<sp/>cherche<sp/>l&apos;action<sp/>associée<sp/>à<sp/>l&apos;entité<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/><ref refid="entite_8c_1a4377e72c0a8a6b09796f1e684bd17cad" kindref="member">Search_Action</ref>(entite-&gt;texture_action,<sp/>action);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(i<sp/>==<sp/>-1)</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>VALUE_ERROR;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>On<sp/>redémarre<sp/>l&apos;animation<sp/>à<sp/>zéro<sp/>si<sp/>on<sp/>est<sp/>arrivé<sp/>au<sp/>bout<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(entite-&gt;col_act_prec<sp/>==<sp/>entite-&gt;texture_action[i].nb_col)</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/>entite-&gt;col_act_prec<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>On<sp/>redémarre<sp/>l&apos;animation<sp/>à<sp/>0<sp/>si<sp/>l&apos;action<sp/>a<sp/>changé<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(entite-&gt;act_pred<sp/>!=<sp/>action)</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/>entite-&gt;col_act_prec<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>On<sp/>met<sp/>à<sp/>jour<sp/>l&apos;animation<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/>entite-&gt;texture_part.y<sp/>=<sp/>(entite-&gt;texture_action[i].ligne<sp/>-<sp/>1)<sp/>*<sp/>H_PART_SPRITE<sp/>+<sp/>DECAL_H_SPRITE;</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/>entite-&gt;texture_part.x<sp/>=<sp/>(entite-&gt;col_act_prec)<sp/>*<sp/>W_PART_SPRITE<sp/>+<sp/>DECAL_W_SPRITE;</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/>SDL_RenderCopy(renderer,<sp/>entite-&gt;texture,<sp/>&amp;(entite-&gt;texture_part),<sp/>&amp;(entite-&gt;posEnt));</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>On<sp/>regarde<sp/>si<sp/>l&apos;animation<sp/>est<sp/>finie<sp/>avant<sp/>de<sp/>passer<sp/>à<sp/>la<sp/>suivante<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(entite-&gt;act_pred<sp/>==<sp/>action<sp/>&amp;&amp;<sp/>(SDL_GetTicks()<sp/>-<sp/>entite-&gt;temp_dep)<sp/>&gt;=<sp/>entite-&gt;texture_action[i].temps_anim)<sp/>{</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/>(entite-&gt;col_act_prec)++;</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/>entite-&gt;temp_dep<sp/>=<sp/>SDL_GetTicks();</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/>entite-&gt;act_pred<sp/>=<sp/>action;</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="193"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="entite_8c_1a4377e72c0a8a6b09796f1e684bd17cad" kindref="member">Search_Action</ref>(<ref refid="structt__anim__action" kindref="compound">t_anim_action</ref><sp/>*t_a,<sp/><ref refid="entite_8h_1abf8170fe3a93ebd8f3701bbf092ece99" kindref="member">t_action</ref><sp/>action)<sp/>{</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!t_a)</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>t_a[i].action<sp/>!=<sp/>action<sp/>&amp;&amp;<sp/>t_a[i].action<sp/>!=<sp/>IMMOBILE;<sp/>i++)</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/>;</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="211"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal">t_erreur<sp/><ref refid="entite_8c_1a40444b4966bf5776de11ce07f2b29be9" kindref="member">Init_Sprite</ref>(SDL_Renderer<sp/>*renderer)<sp/>{</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!renderer)</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_NULL;</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Création<sp/>de<sp/>la<sp/>texture<sp/>pour<sp/>chaque<sp/>SPRITE<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/>Textures_Joueur<sp/>=<sp/><ref refid="entite_8c_1a6b93939375ae3f4118ac6d099703fbaf" kindref="member">Create_Sprite</ref>(</highlight><highlight class="stringliteral">&quot;IMG/texture/entite/joueur/sprite_apoil.png&quot;</highlight><highlight class="normal">,<sp/>renderer);</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/>Textures_Zombie<sp/>=<sp/><ref refid="entite_8c_1a6b93939375ae3f4118ac6d099703fbaf" kindref="member">Create_Sprite</ref>(</highlight><highlight class="stringliteral">&quot;IMG/texture/entite/zombie/sprite_apoil.png&quot;</highlight><highlight class="normal">,<sp/>renderer);</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/>Textures_Boss<sp/>=<sp/><ref refid="entite_8c_1a6b93939375ae3f4118ac6d099703fbaf" kindref="member">Create_Sprite</ref>(</highlight><highlight class="stringliteral">&quot;IMG/texture/entite/boss/sprite_boss1.png&quot;</highlight><highlight class="normal">,<sp/>renderer);</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"></highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="228"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight></codeline>
+<codeline lineno="235"><highlight class="normal">t_erreur<sp/><ref refid="entite_8c_1ad45c5dedc31c638b7f9d2d57f7586b33" kindref="member">Quit_Sprite</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Destruction<sp/>des<sp/>textures<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/>SDL_DestroyTexture(Textures_Joueur);</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/>SDL_DestroyTexture(Textures_Zombie);</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/>SDL_DestroyTexture(Textures_Boss);</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="241"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal">t_erreur<sp/><ref refid="entite_8c_1a3d029f34e956b9197a208db146cd7104" kindref="member">Anim_Update</ref>(<ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*entite,<sp/><ref refid="entite_8h_1abf8170fe3a93ebd8f3701bbf092ece99" kindref="member">t_action</ref><sp/>action,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>new_time)<sp/>{</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!entite)</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_NULL;</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(new_time<sp/>&lt;<sp/>0)</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>VALUE_ERROR;</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/><ref refid="entite_8c_1a4377e72c0a8a6b09796f1e684bd17cad" kindref="member">Search_Action</ref>(entite-&gt;texture_action,<sp/>action);</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/>entite-&gt;texture_action[i].temps_anim<sp/>=<sp/>new_time;</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="261"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"></highlight><highlight class="comment">/******<sp/>FONCTION<sp/>GESTION<sp/>COLLISION<sp/>ENTITE<sp/>+<sp/>GRAVITE<sp/>******/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="264"><highlight class="normal"></highlight></codeline>
+<codeline lineno="273"><highlight class="normal">t_erreur<sp/><ref refid="entite_8c_1a8fa69a137d3685b5dbdf2cbde07db446" kindref="member">update_posY_entite</ref>(<ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*entite,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>coef_fps,<sp/><ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*p)<sp/>{</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//fprintf(stderr,&quot;Vel<sp/>Y<sp/>-&gt;<sp/>%.2f\n&quot;,<sp/>entite-&gt;velY);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!entite)</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_NULL;</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"></highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>diff;<sp/></highlight><highlight class="comment">//<sp/>Profondeur<sp/>de<sp/>la<sp/>collision</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/>diff<sp/>=<sp/>collision(entite,<sp/>DIRECT_HAUT_COLLI,<sp/>p);</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(diff<sp/>&gt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/>entite-&gt;hitbox.y<sp/>-=<sp/>diff;</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/>entite-&gt;posEnt.y<sp/>+=<sp/>diff;</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"></highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(coef_fps<sp/>&gt;<sp/>5)</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/>coef_fps<sp/>=<sp/>5;</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>coef_fps;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/>entite-&gt;velY<sp/>+=<sp/>entite-&gt;accY;</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>grav<sp/>=<sp/>entite-&gt;velY;</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/>entite-&gt;hitbox.y<sp/>-=<sp/>grav;</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/>entite-&gt;posEnt.y<sp/>+=<sp/>grav;</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((diff<sp/>=<sp/>collision(entite,<sp/>DIRECT_BAS_COLLI,<sp/>p))<sp/>&gt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/>entite-&gt;velY<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/>entite-&gt;hitbox.y<sp/>+=<sp/>diff;</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="comment">//printf(&quot;Diff<sp/>:<sp/>%d\n&quot;,<sp/>diff);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((!entite-&gt;velY<sp/>&amp;&amp;<sp/>diff<sp/>&gt;<sp/>0)<sp/>||<sp/>entite-&gt;posEnt.y<sp/>&gt;=<sp/>POSY_ENT_SCREEN)<sp/>{</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/>entite-&gt;posEnt.y<sp/>=<sp/>POSY_ENT_SCREEN;</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"></highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="303"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"></highlight></codeline>
+<codeline lineno="305"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>collision(<ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*entite,<sp/>t_collision_direction<sp/>direction,<sp/><ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*p)<sp/>{</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!entite<sp/>||<sp/>!p)</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_NULL;</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"></highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>collision<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/>SDL_Rect<sp/>res;</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"></highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Conversion<sp/>des<sp/>coordonnées<sp/>SDL<sp/>en<sp/>coordonnées<sp/>pour<sp/>la<sp/>MAP<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x<sp/>=<sp/>entite-&gt;hitbox.x<sp/>/<sp/>width_block_sdl,<sp/>y<sp/>=<sp/>entite-&gt;hitbox.y<sp/>/<sp/>height_block_sdl;</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Recréation<sp/>de<sp/>la<sp/>MAP<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/><ref refid="structt__map" kindref="compound">t_map</ref><sp/>map;</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/>map.list<sp/>=<sp/>p;</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"></highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Récupération<sp/>des<sp/>Blocks<sp/>si<sp/>il<sp/>y<sp/>en<sp/>a,<sp/>en<sp/>fonction<sp/>des<sp/>coordonnées<sp/>du<sp/>Joueur<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><ref refid="structblock__s" kindref="compound">t_block</ref><sp/>*blockHG<sp/>=<sp/>NULL,<sp/>*blockHD<sp/>=<sp/>NULL,<sp/>*blockBG<sp/>=<sp/>NULL,<sp/>*blockBD<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/>blockHG<sp/>=<sp/>MAP_GetBlock(&amp;map,<sp/>x,<sp/>y);</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/>blockHD<sp/>=<sp/>MAP_GetBlock(&amp;map,<sp/>x<sp/>+<sp/>1,<sp/>y);</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"><sp/><sp/>blockBG<sp/>=<sp/>MAP_GetBlock(&amp;map,<sp/>x,<sp/>y<sp/>-<sp/>1);</highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//blockBD<sp/>=<sp/>MAP_GetBlock(&amp;map,<sp/>x<sp/>+<sp/>1,<sp/>y<sp/>-<sp/>1);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>if<sp/>(blockBG)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>//<sp/>fprintf(stderr,<sp/>&quot;Collision<sp/>Basse<sp/>Gauche<sp/>:<sp/>%d,%d\n&quot;,<sp/>blockBG-&gt;x,<sp/>blockBG-&gt;y);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="326"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>if<sp/>(blockBD)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="327"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>//<sp/>fprintf(stderr,<sp/>&quot;Collision<sp/>Basse<sp/>Droite<sp/>:<sp/>%d,%d\n&quot;,<sp/>blockBD-&gt;x,<sp/>blockBD-&gt;y);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>if<sp/>(blockHG)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>fprintf(stderr,<sp/>&quot;Collision<sp/>Haute<sp/>Gauche<sp/>:<sp/>%d,%d\n&quot;,<sp/>blockHG-&gt;x,<sp/>blockHG-&gt;y);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="330"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(blockHD)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="331"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>fprintf(stderr,<sp/>&quot;Collision<sp/>Haute<sp/>Droite<sp/>:<sp/>%d,%d\n&quot;,<sp/>blockHD-&gt;x,<sp/>blockHD-&gt;y);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="332"><highlight class="normal"></highlight></codeline>
+<codeline lineno="333"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Traitement<sp/>des<sp/>collisions<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(direction)<sp/>{</highlight></codeline>
+<codeline lineno="335"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Collision<sp/>en<sp/>BAS<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>DIRECT_BAS_COLLI:</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(blockBG)<sp/>{</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(blockBG-&gt;id<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SDL_Rect<sp/>B<sp/>=<sp/>{width_block_sdl<sp/>*<sp/>blockBG-&gt;x,<sp/>height_block_sdl<sp/>*<sp/>blockBG-&gt;y,<sp/>width_block_sdl,<sp/>height_block_sdl};</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SDL_IntersectRect(&amp;(entite-&gt;hitbox),<sp/>&amp;B,<sp/>&amp;res);</highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>collision<sp/>=<sp/>res.h;</highlight></codeline>
+<codeline lineno="342"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"></highlight></codeline>
+<codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(blockBD)<sp/>{</highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(blockBD-&gt;id<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SDL_Rect<sp/>B<sp/>=<sp/>{width_block_sdl<sp/>*<sp/>blockBD-&gt;x,<sp/>height_block_sdl<sp/>*<sp/>blockBD-&gt;y,<sp/>width_block_sdl,<sp/>height_block_sdl};</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SDL_IntersectRect(&amp;(entite-&gt;hitbox),<sp/>&amp;B,<sp/>&amp;res);</highlight></codeline>
+<codeline lineno="349"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>collision<sp/>=<sp/>res.h;</highlight></codeline>
+<codeline lineno="350"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="351"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="352"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="353"><highlight class="normal"></highlight></codeline>
+<codeline lineno="354"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Collision<sp/>en<sp/>HAUT<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="355"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>DIRECT_HAUT_COLLI:</highlight></codeline>
+<codeline lineno="356"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(blockHD)<sp/>{</highlight></codeline>
+<codeline lineno="357"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(blockHD-&gt;id<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="358"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SDL_Rect<sp/>B<sp/>=<sp/>{width_block_sdl<sp/>*<sp/>blockHD-&gt;x,<sp/>height_block_sdl<sp/>*<sp/>blockHD-&gt;y,<sp/>width_block_sdl,<sp/>height_block_sdl};</highlight></codeline>
+<codeline lineno="359"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SDL_IntersectRect(&amp;(entite-&gt;hitbox),<sp/>&amp;B,<sp/>&amp;res);</highlight></codeline>
+<codeline lineno="360"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>collision<sp/>=<sp/>res.h;</highlight></codeline>
+<codeline lineno="361"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="362"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(blockHG)<sp/>{</highlight></codeline>
+<codeline lineno="363"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(blockHG-&gt;id<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="364"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SDL_Rect<sp/>B<sp/>=<sp/>{width_block_sdl<sp/>*<sp/>blockHG-&gt;x,<sp/>height_block_sdl<sp/>*<sp/>blockHG-&gt;y,<sp/>width_block_sdl,<sp/>height_block_sdl};</highlight></codeline>
+<codeline lineno="365"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SDL_IntersectRect(&amp;(entite-&gt;hitbox),<sp/>&amp;B,<sp/>&amp;res);</highlight></codeline>
+<codeline lineno="366"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>collision<sp/>=<sp/>res.h;</highlight></codeline>
+<codeline lineno="367"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="368"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="369"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="370"><highlight class="normal"></highlight></codeline>
+<codeline lineno="371"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Collision<sp/>à<sp/>DROITE<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="372"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>DIRECT_DROITE_COLLI:</highlight></codeline>
+<codeline lineno="373"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(blockHD)<sp/>{</highlight></codeline>
+<codeline lineno="374"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(blockHD-&gt;id<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="375"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SDL_Rect<sp/>B<sp/>=<sp/>{width_block_sdl<sp/>*<sp/>blockHD-&gt;x,<sp/>height_block_sdl<sp/>*<sp/>blockHD-&gt;y,<sp/>width_block_sdl,<sp/>height_block_sdl};</highlight></codeline>
+<codeline lineno="376"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SDL_IntersectRect(&amp;(entite-&gt;hitbox),<sp/>&amp;B,<sp/>&amp;res);</highlight></codeline>
+<codeline lineno="377"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>collision<sp/>=<sp/>res.w;</highlight></codeline>
+<codeline lineno="378"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="379"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(blockBD)<sp/>{</highlight></codeline>
+<codeline lineno="380"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(blockBD-&gt;id<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="381"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SDL_Rect<sp/>B<sp/>=<sp/>{width_block_sdl<sp/>*<sp/>blockBD-&gt;x,<sp/>height_block_sdl<sp/>*<sp/>blockBD-&gt;y,<sp/>width_block_sdl,<sp/>height_block_sdl};</highlight></codeline>
+<codeline lineno="382"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SDL_IntersectRect(&amp;(entite-&gt;hitbox),<sp/>&amp;B,<sp/>&amp;res);</highlight></codeline>
+<codeline lineno="383"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>collision<sp/>=<sp/>res.w;</highlight></codeline>
+<codeline lineno="384"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="385"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="386"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="387"><highlight class="normal"></highlight></codeline>
+<codeline lineno="388"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Collision<sp/>à<sp/>GAUCHE<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="389"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>DIRECT_GAUCHE_COLLI:</highlight></codeline>
+<codeline lineno="390"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(blockHG)<sp/>{</highlight></codeline>
+<codeline lineno="391"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(blockHG-&gt;id<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="392"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SDL_Rect<sp/>B<sp/>=<sp/>{width_block_sdl<sp/>*<sp/>blockHG-&gt;x,<sp/>height_block_sdl<sp/>*<sp/>blockHG-&gt;y,<sp/>width_block_sdl,<sp/>height_block_sdl};</highlight></codeline>
+<codeline lineno="393"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SDL_IntersectRect(&amp;(entite-&gt;hitbox),<sp/>&amp;B,<sp/>&amp;res);</highlight></codeline>
+<codeline lineno="394"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>collision<sp/>=<sp/>res.w;</highlight></codeline>
+<codeline lineno="395"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="396"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(blockBG)<sp/>{</highlight></codeline>
+<codeline lineno="397"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(blockBG-&gt;id<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="398"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SDL_Rect<sp/>B<sp/>=<sp/>{width_block_sdl<sp/>*<sp/>blockBG-&gt;x,<sp/>height_block_sdl<sp/>*<sp/>blockBG-&gt;y,<sp/>width_block_sdl,<sp/>height_block_sdl};</highlight></codeline>
+<codeline lineno="399"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SDL_IntersectRect(&amp;(entite-&gt;hitbox),<sp/>&amp;B,<sp/>&amp;res);</highlight></codeline>
+<codeline lineno="400"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>collision<sp/>=<sp/>res.w;</highlight></codeline>
+<codeline lineno="401"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="402"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="403"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="404"><highlight class="normal"></highlight></codeline>
+<codeline lineno="405"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="406"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="407"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="408"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>if<sp/>(blockBD<sp/>||<sp/>blockBG<sp/>||<sp/>blockHG<sp/>||<sp/>blockHD)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="409"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>printf(&quot;RESSSS<sp/>:<sp/>%d<sp/>%d<sp/>%d<sp/>%d\n&quot;,<sp/>res.x,<sp/>res.y,<sp/>res.w,<sp/>res.h);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="410"><highlight class="normal"><sp/><sp/>collision<sp/>*=<sp/>-1;</highlight></codeline>
+<codeline lineno="411"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>collision;</highlight></codeline>
+<codeline lineno="412"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="413"><highlight class="normal"></highlight></codeline>
+<codeline lineno="414"><highlight class="normal"></highlight><highlight class="comment">/**************<sp/>Focntion<sp/>qui<sp/>gère<sp/>les<sp/>déplacements<sp/>et<sp/>les<sp/>animations<sp/>de<sp/>l&apos;entité<sp/>**************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="415"><highlight class="normal"></highlight></codeline>
+<codeline lineno="427"><highlight class="normal">t_erreur<sp/><ref refid="entite_8c_1a19f0ea10c79b38a44b0afaf33ddf7581" kindref="member">Gestion_Entite</ref>(SDL_Renderer<sp/>*renderer,<sp/><ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*entite,<sp/>uint8_t<sp/>*ks,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>coef_fps,<sp/><ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*p)<sp/>{</highlight></codeline>
+<codeline lineno="428"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!renderer<sp/>||<sp/>!entite<sp/>||<sp/>!ks)</highlight></codeline>
+<codeline lineno="429"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_NULL;</highlight></codeline>
+<codeline lineno="430"><highlight class="normal"></highlight></codeline>
+<codeline lineno="431"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>diff;<sp/></highlight><highlight class="comment">//<sp/>Profondeur<sp/>de<sp/>la<sp/>collision</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="432"><highlight class="normal"></highlight></codeline>
+<codeline lineno="433"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Modif<sp/>pour<sp/>la<sp/>touche<sp/>AVANCER<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="434"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(SDL_touche_appuyer(ks,<sp/>AVANCER))<sp/>{</highlight></codeline>
+<codeline lineno="435"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="entite_8c_1a87d473ea77b31005633d03ee5a0f3db5" kindref="member">Charger_Anima</ref>(renderer,<sp/>entite,<sp/>MARCHE_DEVANT);</highlight></codeline>
+<codeline lineno="436"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="437"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Modif<sp/>pour<sp/>la<sp/>touche<sp/>RECULER<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="438"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(SDL_touche_appuyer(ks,<sp/>RECULER))<sp/>{</highlight></codeline>
+<codeline lineno="439"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="entite_8c_1a87d473ea77b31005633d03ee5a0f3db5" kindref="member">Charger_Anima</ref>(renderer,<sp/>entite,<sp/>MARCHE_DERRIERE);</highlight></codeline>
+<codeline lineno="440"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="441"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Modif<sp/>pour<sp/>la<sp/>touche<sp/>DROITE<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="442"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(SDL_touche_appuyer(ks,<sp/>DROITE))<sp/>{</highlight></codeline>
+<codeline lineno="443"><highlight class="normal"><sp/><sp/><sp/><sp/>entite-&gt;hitbox.x<sp/>+=<sp/>entite-&gt;accX<sp/>*<sp/>coef_fps;</highlight></codeline>
+<codeline lineno="444"><highlight class="normal"><sp/><sp/><sp/><sp/>diff<sp/>=<sp/>collision(entite,<sp/>DIRECT_DROITE_COLLI,<sp/>p);</highlight></codeline>
+<codeline lineno="445"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(diff<sp/>&gt;<sp/>0)</highlight></codeline>
+<codeline lineno="446"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>entite-&gt;hitbox.x<sp/>-=<sp/>diff;</highlight></codeline>
+<codeline lineno="447"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="entite_8c_1a87d473ea77b31005633d03ee5a0f3db5" kindref="member">Charger_Anima</ref>(renderer,<sp/>entite,<sp/>MARCHE_DROITE);</highlight></codeline>
+<codeline lineno="448"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="449"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Modif<sp/>pour<sp/>la<sp/>touche<sp/>GAUCHE<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="450"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(SDL_touche_appuyer(ks,<sp/>GAUCHE))<sp/>{</highlight></codeline>
+<codeline lineno="451"><highlight class="normal"><sp/><sp/><sp/><sp/>entite-&gt;hitbox.x<sp/>-=<sp/>entite-&gt;accX<sp/>*<sp/>coef_fps;</highlight></codeline>
+<codeline lineno="452"><highlight class="normal"><sp/><sp/><sp/><sp/>diff<sp/>=<sp/>collision(entite,<sp/>DIRECT_GAUCHE_COLLI,<sp/>p);</highlight></codeline>
+<codeline lineno="453"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(diff<sp/>&gt;<sp/>0)</highlight></codeline>
+<codeline lineno="454"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>entite-&gt;hitbox.x<sp/>+=<sp/>diff;</highlight></codeline>
+<codeline lineno="455"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="entite_8c_1a87d473ea77b31005633d03ee5a0f3db5" kindref="member">Charger_Anima</ref>(renderer,<sp/>entite,<sp/>MARCHE_GAUCHE);</highlight></codeline>
+<codeline lineno="456"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="457"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Modif<sp/>quand<sp/>on<sp/>appui<sp/>sur<sp/>AUCUNE<sp/>touche<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="458"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="459"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="entite_8c_1a87d473ea77b31005633d03ee5a0f3db5" kindref="member">Charger_Anima</ref>(renderer,<sp/>entite,<sp/>IMMOBILE);</highlight></codeline>
+<codeline lineno="460"><highlight class="normal"></highlight></codeline>
+<codeline lineno="461"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Modif<sp/>pour<sp/>la<sp/>touche<sp/>SHIFT<sp/>(Accélérer)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="462"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(SDL_touche_appuyer(ks,<sp/>SHIFT))<sp/>{</highlight></codeline>
+<codeline lineno="463"><highlight class="normal"><sp/><sp/><sp/><sp/>entite-&gt;accX<sp/>=<sp/>VITESSE_DEPLACEMENT<sp/>*<sp/>ACCELERATION;</highlight></codeline>
+<codeline lineno="464"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="entite_8c_1a3d029f34e956b9197a208db146cd7104" kindref="member">Anim_Update</ref>(entite,<sp/>MARCHE_DROITE,<sp/>25);</highlight></codeline>
+<codeline lineno="465"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="entite_8c_1a3d029f34e956b9197a208db146cd7104" kindref="member">Anim_Update</ref>(entite,<sp/>MARCHE_GAUCHE,<sp/>25);</highlight></codeline>
+<codeline lineno="466"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="entite_8c_1a3d029f34e956b9197a208db146cd7104" kindref="member">Anim_Update</ref>(entite,<sp/>MARCHE_DEVANT,<sp/>25);</highlight></codeline>
+<codeline lineno="467"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="entite_8c_1a3d029f34e956b9197a208db146cd7104" kindref="member">Anim_Update</ref>(entite,<sp/>MARCHE_DERRIERE,<sp/>25);</highlight></codeline>
+<codeline lineno="468"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="469"><highlight class="normal"><sp/><sp/><sp/><sp/>entite-&gt;accX<sp/>=<sp/>VITESSE_DEPLACEMENT;</highlight></codeline>
+<codeline lineno="470"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="entite_8c_1a3d029f34e956b9197a208db146cd7104" kindref="member">Anim_Update</ref>(entite,<sp/>MARCHE_DROITE,<sp/>100);</highlight></codeline>
+<codeline lineno="471"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="entite_8c_1a3d029f34e956b9197a208db146cd7104" kindref="member">Anim_Update</ref>(entite,<sp/>MARCHE_GAUCHE,<sp/>100);</highlight></codeline>
+<codeline lineno="472"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="entite_8c_1a3d029f34e956b9197a208db146cd7104" kindref="member">Anim_Update</ref>(entite,<sp/>MARCHE_DEVANT,<sp/>100);</highlight></codeline>
+<codeline lineno="473"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="entite_8c_1a3d029f34e956b9197a208db146cd7104" kindref="member">Anim_Update</ref>(entite,<sp/>MARCHE_DERRIERE,<sp/>100);</highlight></codeline>
+<codeline lineno="474"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="475"><highlight class="normal"></highlight></codeline>
+<codeline lineno="476"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Modif<sp/>pour<sp/>la<sp/>touche<sp/>SAUTER<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="477"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!(entite-&gt;velY)<sp/>&amp;&amp;<sp/>collision(entite,<sp/>DIRECT_BAS_COLLI,<sp/>p)<sp/>&lt;=<sp/>0<sp/>&amp;&amp;<sp/>SDL_touche_appuyer(ks,<sp/>SAUTER))<sp/>{</highlight></codeline>
+<codeline lineno="478"><highlight class="normal"><sp/><sp/><sp/><sp/>entite-&gt;velY<sp/>-=<sp/>HAUTEUR_SAUT;</highlight></codeline>
+<codeline lineno="479"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="480"><highlight class="normal"></highlight></codeline>
+<codeline lineno="481"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Gravité<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="482"><highlight class="normal"><sp/><sp/><ref refid="entite_8c_1a8fa69a137d3685b5dbdf2cbde07db446" kindref="member">update_posY_entite</ref>(entite,<sp/>coef_fps,<sp/>p);</highlight></codeline>
+<codeline lineno="483"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//fprintf(stderr,&quot;posEnt<sp/>:<sp/>X-&gt;%d,<sp/>Y-&gt;%d<sp/>/<sp/>hitBox<sp/>:<sp/>X-&gt;%d,<sp/>Y-&gt;%d\n&quot;,<sp/>entite-&gt;posEnt.x,<sp/>entite-&gt;posEnt.y,<sp/>entite-&gt;hitbox.x,<sp/>entite-&gt;hitbox.y);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="484"><highlight class="normal"></highlight></codeline>
+<codeline lineno="485"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="486"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/entite.c"/>
+  </compounddef>
+</doxygen>

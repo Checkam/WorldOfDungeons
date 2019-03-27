@@ -1,0 +1,228 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="structure__block_8h" kind="file" language="C++">
+    <compoundname>structure_block.h</compoundname>
+    <includes refid="commun_8h" local="no">commun.h</includes>
+    <includes refid="block_8h" local="no">block.h</includes>
+    <includes refid="biome_8h" local="no">biome.h</includes>
+    <includedby refid="generation_8c" local="no">src/generation.c</includedby>
+    <includedby refid="structure__block_8c" local="no">src/structure_block.c</includedby>
+    <incdepgraph>
+      <node id="217">
+        <label>include/structure_block.h</label>
+        <link refid="structure__block_8h"/>
+        <childnode refid="218" relation="include">
+        </childnode>
+        <childnode refid="219" relation="include">
+        </childnode>
+        <childnode refid="223" relation="include">
+        </childnode>
+      </node>
+      <node id="218">
+        <label>commun.h</label>
+        <link refid="commun_8h_source"/>
+      </node>
+      <node id="223">
+        <label>biome.h</label>
+        <link refid="biome_8h"/>
+        <childnode refid="218" relation="include">
+        </childnode>
+        <childnode refid="219" relation="include">
+        </childnode>
+        <childnode refid="224" relation="include">
+        </childnode>
+      </node>
+      <node id="224">
+        <label>liste.h</label>
+        <link refid="liste_8h"/>
+        <childnode refid="222" relation="include">
+        </childnode>
+      </node>
+      <node id="220">
+        <label>couleurs.h</label>
+        <link refid="couleurs_8h_source"/>
+      </node>
+      <node id="221">
+        <label>SDL2/SDL.h</label>
+      </node>
+      <node id="222">
+        <label>erreur.h</label>
+        <link refid="erreur_8h"/>
+      </node>
+      <node id="219">
+        <label>block.h</label>
+        <link refid="block_8h"/>
+        <childnode refid="220" relation="include">
+        </childnode>
+        <childnode refid="221" relation="include">
+        </childnode>
+        <childnode refid="222" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="225">
+        <label>include/structure_block.h</label>
+        <link refid="structure__block_8h"/>
+        <childnode refid="226" relation="include">
+        </childnode>
+        <childnode refid="227" relation="include">
+        </childnode>
+      </node>
+      <node id="227">
+        <label>src/structure_block.c</label>
+        <link refid="structure__block_8c"/>
+      </node>
+      <node id="226">
+        <label>src/generation.c</label>
+        <link refid="generation_8c"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structt__struct__block" prot="public">t_struct_block</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="structure__block_8h_1a3a9f47f10c6235b034b0e6f1b66fe36c" prot="public" static="no">
+        <name>NB_STRUCT_BLOCK</name>
+        <initializer>5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/structure_block.h" line="16" column="9" bodyfile="include/structure_block.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="structure__block_8h_1acbddc546e9ec9234426151e8353022e5" prot="public" static="no">
+        <name>DIST_MAX_STRUCT</name>
+        <initializer>15</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/structure_block.h" line="18" column="9" bodyfile="include/structure_block.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="structure__block_8h_1abe755d9ff527669b4d9e44a3bcc4abb0" prot="public" static="no" strong="no">
+        <type></type>
+        <name>t_struct_block_type</name>
+        <enumvalue id="structure__block_8h_1abe755d9ff527669b4d9e44a3bcc4abb0a960657a0823523f7793f6779bd42b973" prot="public">
+          <name>ARBRE_TAIGA</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structure__block_8h_1abe755d9ff527669b4d9e44a3bcc4abb0a28c6b5baf79343a9a660dbe127879872" prot="public">
+          <name>ARBRE_FORET</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structure__block_8h_1abe755d9ff527669b4d9e44a3bcc4abb0a47ed990c87ae351aa96c0098db26455e" prot="public">
+          <name>CACTUS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structure__block_8h_1abe755d9ff527669b4d9e44a3bcc4abb0ae4e0699dbf19509bedf3a84915066b37" prot="public">
+          <name>BUISSON</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structure__block_8h_1abe755d9ff527669b4d9e44a3bcc4abb0ae7fb8d24d6f04c7c829cce3473db6451" prot="public">
+          <name>GRAND_ARBRE_FORET</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/structure_block.h" line="20" column="1" bodyfile="include/structure_block.h" bodystart="20" bodyend="26"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="structure__block_8h_1ac9510e7b192d204235e27cfd896b91ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void STRUCT_generation</definition>
+        <argsstring>(int x, int y, int dir, t_block map[MAX])</argsstring>
+        <name>STRUCT_generation</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dir</declname>
+        </param>
+        <param>
+          <type><ref refid="structblock__s" kindref="compound">t_block</ref></type>
+          <declname>map</declname>
+          <array>[MAX]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/structure_block.h" line="36" column="1" bodyfile="src/structure_block.c" bodystart="49" bodyend="101"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Module de gestion des structure_block. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>{Maxence.D} </para></simplesect>
+<simplesect kind="version"><para>0.1 </para></simplesect>
+<simplesect kind="date"><para>11 mars 2019 </para></simplesect>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="9"><highlight class="preprocessor">#ifndef<sp/>__STRUCTURE_BLOCK_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__STRUCTURE_BLOCK_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;commun.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="block_8h" kindref="compound">block.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="biome_8h" kindref="compound">biome.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NB_STRUCT_BLOCK<sp/>5</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DIST_MAX_STRUCT<sp/>15</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/>ARBRE_TAIGA,</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/>ARBRE_FORET,</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/>CACTUS,</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/>BUISSON,</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/>GRAND_ARBRE_FORET</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">}<sp/>t_struct_block_type;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="structt__struct__block" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/>t_struct_block_type<sp/>type;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>largeur;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>path;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>pourcent_spawn;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>biome;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">}<sp/><ref refid="structt__struct__block" kindref="compound">t_struct_block</ref>;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>STRUCT_generation(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dir,<ref refid="structblock__s" kindref="compound">t_block</ref><sp/>map[MAX]<sp/>);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="include/structure_block.h"/>
+  </compounddef>
+</doxygen>

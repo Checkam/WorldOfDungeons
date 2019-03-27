@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="structs__type__titre" kind="struct" language="C++" prot="public">
+    <compoundname>s_type_titre</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structs__type__titre_1a446bba760ca5fbff1f4be0a92c0e60f4" prot="public" static="no" mutable="no">
+        <type>t_type_menu</type>
+        <definition>t_type_menu s_type_titre::type_menu</definition>
+        <argsstring></argsstring>
+        <name>type_menu</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/menu.c" line="32" column="1" bodyfile="src/menu.c" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__type__titre_1aa574afa56ecbee3aedfd48d6bfe22ffd" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* s_type_titre::titre</definition>
+        <argsstring></argsstring>
+        <name>titre</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/menu.c" line="33" column="1" bodyfile="src/menu.c" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/menu.c" line="31" column="1" bodyfile="src/menu.c" bodystart="31" bodyend="34"/>
+    <listofallmembers>
+      <member refid="structs__type__titre_1aa574afa56ecbee3aedfd48d6bfe22ffd" prot="public" virt="non-virtual"><scope>s_type_titre</scope><name>titre</name></member>
+      <member refid="structs__type__titre_1a446bba760ca5fbff1f4be0a92c0e60f4" prot="public" virt="non-virtual"><scope>s_type_titre</scope><name>type_menu</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,489 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="touches_8c" kind="file" language="C++">
+    <compoundname>touches.c</compoundname>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">stdio.h</includes>
+    <includes refid="touches_8h" local="no">touches.h</includes>
+    <includes refid="json_8h" local="no">json.h</includes>
+    <includes local="no">SDL2/SDL.h</includes>
+    <incdepgraph>
+      <node id="454">
+        <label>json.h</label>
+        <link refid="json_8h"/>
+        <childnode refid="451" relation="include">
+        </childnode>
+        <childnode refid="450" relation="include">
+        </childnode>
+        <childnode refid="455" relation="include">
+        </childnode>
+      </node>
+      <node id="453">
+        <label>stdint.h</label>
+      </node>
+      <node id="450">
+        <label>stdlib.h</label>
+      </node>
+      <node id="452">
+        <label>touches.h</label>
+        <link refid="touches_8h_source"/>
+        <childnode refid="453" relation="include">
+        </childnode>
+      </node>
+      <node id="456">
+        <label>SDL2/SDL.h</label>
+      </node>
+      <node id="455">
+        <label>erreur.h</label>
+        <link refid="erreur_8h"/>
+      </node>
+      <node id="449">
+        <label>src/touches.c</label>
+        <link refid="touches_8c"/>
+        <childnode refid="450" relation="include">
+        </childnode>
+        <childnode refid="451" relation="include">
+        </childnode>
+        <childnode refid="452" relation="include">
+        </childnode>
+        <childnode refid="454" relation="include">
+        </childnode>
+        <childnode refid="456" relation="include">
+        </childnode>
+      </node>
+      <node id="451">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="touches_8c_1a9acf3c7c32178432e611570c125f085c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void SDL_touche_default</definition>
+        <argsstring>(configTouches_t **configuration)</argsstring>
+        <name>SDL_touche_default</name>
+        <param>
+          <type><ref refid="structconfigTouches__s" kindref="compound">configTouches_t</ref> **</type>
+          <declname>configuration</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/touches.c" line="5" column="1" bodyfile="src/touches.c" bodystart="219" bodyend="265"/>
+      </memberdef>
+      <memberdef kind="function" id="touches_8c_1a402e03f1fe0bf515045ae1897431ad12" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SDL_init_touches</definition>
+        <argsstring>(uint8_t **keyboardState, configTouches_t **configuration)</argsstring>
+        <name>SDL_init_touches</name>
+        <param>
+          <type>uint8_t **</type>
+          <declname>keyboardState</declname>
+        </param>
+        <param>
+          <type><ref refid="structconfigTouches__s" kindref="compound">configTouches_t</ref> **</type>
+          <declname>configuration</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/touches.c" line="11" column="1" bodyfile="src/touches.c" bodystart="11" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="touches_8c_1a2804238529907b4d2925aebe1cf384c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SDL_touches</definition>
+        <argsstring>(uint8_t *keyboardState, configTouches_t *configuration)</argsstring>
+        <name>SDL_touches</name>
+        <param>
+          <type>uint8_t *</type>
+          <declname>keyboardState</declname>
+        </param>
+        <param>
+          <type><ref refid="structconfigTouches__s" kindref="compound">configTouches_t</ref> *</type>
+          <declname>configuration</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/touches.c" line="82" column="1" bodyfile="src/touches.c" bodystart="82" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="touches_8c_1a4b3272b33afa61d19b045757661d957a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t SDL_touche_appuyer</definition>
+        <argsstring>(uint8_t *keyboardState, uint16_t touche)</argsstring>
+        <name>SDL_touche_appuyer</name>
+        <param>
+          <type>uint8_t *</type>
+          <declname>keyboardState</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>touche</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/touches.c" line="146" column="1" bodyfile="src/touches.c" bodystart="146" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="touches_8c_1a27fec4531d460d2747af6a7b4ee7523d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SDL_reset_wheel_state</definition>
+        <argsstring>(uint8_t *keyboardState)</argsstring>
+        <name>SDL_reset_wheel_state</name>
+        <param>
+          <type>uint8_t *</type>
+          <declname>keyboardState</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/touches.c" line="154" column="1" bodyfile="src/touches.c" bodystart="154" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="touches_8c_1a371cc5dcf2408e5140ae4fdeb81e518e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int8_t</type>
+        <definition>int8_t SDL_wheel_state</definition>
+        <argsstring>(uint8_t *keyboardState)</argsstring>
+        <name>SDL_wheel_state</name>
+        <param>
+          <type>uint8_t *</type>
+          <declname>keyboardState</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/touches.c" line="161" column="1" bodyfile="src/touches.c" bodystart="161" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="function" id="touches_8c_1ab68ef8f7e4c3a832fa39a8c0a356f03b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SDL_coord_souris</definition>
+        <argsstring>(int32_t *x, int32_t *y)</argsstring>
+        <name>SDL_coord_souris</name>
+        <param>
+          <type>int32_t *</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int32_t *</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/touches.c" line="167" column="1" bodyfile="src/touches.c" bodystart="167" bodyend="171"/>
+      </memberdef>
+      <memberdef kind="function" id="touches_8c_1a8a3b79e4296022741df7e28d3d8f2f7e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SDL_exit_touches</definition>
+        <argsstring>(uint8_t **keyboardState, configTouches_t **configuration)</argsstring>
+        <name>SDL_exit_touches</name>
+        <param>
+          <type>uint8_t **</type>
+          <declname>keyboardState</declname>
+        </param>
+        <param>
+          <type><ref refid="structconfigTouches__s" kindref="compound">configTouches_t</ref> **</type>
+          <declname>configuration</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/touches.c" line="173" column="1" bodyfile="src/touches.c" bodystart="173" bodyend="217"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;touches.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>SDL_touche_default<sp/>(<sp/><ref refid="structconfigTouches__s" kindref="compound">configTouches_t</ref><sp/>**configuration<sp/>);<sp/></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="json_8h" kindref="compound">json.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;SDL2/SDL.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>SDL_init_touches(<sp/>uint8_t<sp/>**keyboardState,<sp/><ref refid="structconfigTouches__s" kindref="compound">configTouches_t</ref><sp/>**configuration<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>permet<sp/>d&apos;allouer<sp/>les<sp/>zone<sp/>memoire<sp/>necessaire<sp/>au<sp/>bon<sp/>fonctionnement<sp/>du<sp/>module<sp/>touches<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/>keyID<sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>value;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>descr[LONGUEUR_MAX_DESCRIPTIF];</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>continuer<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>allocation<sp/>de<sp/>la<sp/>memoire<sp/>necessaire<sp/>au<sp/>fonctionnement<sp/>du<sp/>module<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>*keyboardState<sp/>=<sp/>malloc(<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<sp/></highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/>)<sp/>*<sp/>NB_TOUCHES<sp/>);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>*configuration<sp/>=<sp/>malloc(<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<sp/><ref refid="structconfigTouches__s" kindref="compound">configTouches_t</ref>)<sp/>*<sp/>NB_TOUCHES);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/>i<sp/>=<sp/>0<sp/>;<sp/>i<sp/>&lt;<sp/>NB_TOUCHES<sp/>;<sp/>i++<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((*configuration)<sp/>+<sp/>i)-&gt;descriptif<sp/>=<sp/>malloc(<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)<sp/>*<sp/>LONGUEUR_MAX_DESCRIPTIF);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>(<sp/>(*keyboardState)<sp/>+<sp/>i<sp/>)<sp/>=<sp/>RELEASED;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>((<sp/>*keyboardState)<sp/>+<sp/>SOURIS_ROUE_BAS<sp/>)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>((<sp/>*keyboardState)<sp/>+<sp/>SOURIS_ROUE_HAUT<sp/>)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>FILE<sp/>*config<sp/>=<sp/><ref refid="json_8c_1a89182dce713943cf48b018049b64b588" kindref="member">open_json</ref>(</highlight><highlight class="stringliteral">&quot;data/data/&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;configuration_touches&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;r&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>si<sp/>des<sp/>touches<sp/>ont<sp/>deja<sp/>ete<sp/>configure<sp/>sur<sp/>cette<sp/>ordianteur<sp/>alors<sp/>on<sp/>les<sp/>charges<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>config<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*ligne;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="json_8c_1acd75e719d37a9c3f57167eeadfede913" kindref="member">fstart</ref>(config);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/>i<sp/>=<sp/>0<sp/>;<sp/>i<sp/>&lt;<sp/>NB_TOUCHES_REEL<sp/>&amp;&amp;<sp/>continuer<sp/>;<sp/>i++<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="json_8c_1a10b95a250726186ac4ddfdda6adad3e3" kindref="member">extract_json_obj</ref>(<sp/>config,<sp/>&amp;ligne);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>read_json_obj(<sp/>ligne,<sp/></highlight><highlight class="stringliteral">&quot;keyID&quot;</highlight><highlight class="normal">,<sp/>&amp;keyID,<sp/></highlight><highlight class="stringliteral">&quot;d16&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>read_json_obj(<sp/>ligne,<sp/></highlight><highlight class="stringliteral">&quot;value&quot;</highlight><highlight class="normal">,<sp/>&amp;value,<sp/></highlight><highlight class="stringliteral">&quot;u&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>read_json_obj(<sp/>ligne,<sp/></highlight><highlight class="stringliteral">&quot;descr&quot;</highlight><highlight class="normal">,<sp/>descr,<sp/></highlight><highlight class="stringliteral">&quot;s&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>free(ligne);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>keyID<sp/>&lt;<sp/>0<sp/>||<sp/>keyID<sp/>&gt;=<sp/>NB_TOUCHES_REEL<sp/>)<sp/>{<sp/></highlight><highlight class="comment">/*<sp/>evitement<sp/>d<sp/>un<sp/>debordement<sp/>memoire<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Erreur<sp/>:<sp/>fichier<sp/>de<sp/>sauvegarde<sp/>des<sp/>touches<sp/>corrompu<sp/>...<sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>continuer<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>strcpy(<sp/>((<sp/>(*configuration)<sp/>+<sp/>keyID<sp/>)-&gt;descriptif),<sp/>descr);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(<sp/>(*configuration)<sp/>+<sp/>keyID<sp/>)-&gt;keyCode<sp/>=<sp/>value;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>keyID<sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fclose(config);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>si<sp/>les<sp/>touches<sp/>n<sp/>ont<sp/>pas<sp/>ete<sp/>configure<sp/>sur<sp/>ce<sp/>pc<sp/>ou<sp/>qu<sp/>il<sp/>a<sp/>ete<sp/>modifier<sp/>alors<sp/>on<sp/>charge<sp/>les<sp/>touches<sp/>par<sp/>default<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>!continuer<sp/>||<sp/>!config<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Restauration<sp/>des<sp/>touches<sp/>par<sp/>default<sp/>...\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SDL_touche_default(<sp/>configuration<sp/>);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>SDL_touches(<sp/>uint8_t<sp/>*keyboardState,<sp/><ref refid="structconfigTouches__s" kindref="compound">configTouches_t</ref><sp/>*configuration<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/><sp/>fonction<sp/>a<sp/>apeller<sp/>a<sp/>chaque<sp/>image<sp/>afin<sp/>de<sp/>recuperer<sp/>l&apos;etat<sp/>(<sp/>appuyer<sp/>ou<sp/>relacher<sp/>)<sp/>a<sp/>chaque<sp/>image</highlight></codeline>
+<codeline lineno="84"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>x<sp/>et<sp/>y<sp/>ne<sp/>servent<sp/>uniquement<sp/>a<sp/>recuperer<sp/>les<sp/>coordonees<sp/>de<sp/>la<sp/>souris<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>SDL_Event<sp/>event;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(<sp/>SDL_PollEvent(&amp;event)<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal">(<sp/>event.type<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>SDL_QUIT:</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>(<sp/>keyboardState<sp/>+<sp/>QUITTER<sp/>)<sp/>=<sp/>PRESSED;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>SDL_KEYDOWN:</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(<sp/>event.key.keysym.sym<sp/>!=<sp/>(<sp/>configuration<sp/>+<sp/>i)-&gt;keyCode<sp/>&amp;&amp;<sp/>i<sp/>&lt;<sp/>NB_TOUCHES_REEL<sp/>)</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i++;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*(<sp/>keyboardState<sp/>+<sp/>i<sp/>)<sp/>=<sp/>PRESSED;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>SDL_KEYUP:</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(<sp/>event.key.keysym.sym<sp/>!=<sp/>(<sp/>configuration<sp/>+<sp/>i)-&gt;keyCode<sp/>&amp;&amp;<sp/>i<sp/>&lt;<sp/>NB_TOUCHES_REEL<sp/>)</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i++;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*(<sp/>keyboardState<sp/>+<sp/>i<sp/>)<sp/>=<sp/>RELEASED;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>SDL_MOUSEBUTTONDOWN:</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(<sp/>event.button.button<sp/>!=<sp/>(<sp/>configuration<sp/>+<sp/>i)-&gt;keyCode<sp/>&amp;&amp;<sp/>i<sp/>&lt;<sp/>NB_TOUCHES_REEL<sp/>)</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i++;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*(<sp/>keyboardState<sp/>+<sp/>i<sp/>)<sp/>=<sp/>PRESSED;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>SDL_MOUSEBUTTONUP:</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(<sp/>event.button.button<sp/>!=<sp/>(<sp/>configuration<sp/>+<sp/>i)-&gt;keyCode<sp/>&amp;&amp;<sp/>i<sp/>&lt;<sp/>NB_TOUCHES_REEL<sp/>)</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i++;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*(<sp/>keyboardState<sp/>+<sp/>i<sp/>)<sp/>=<sp/>RELEASED;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>SDL_MOUSEWHEEL:</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>event.wheel.y<sp/>==<sp/>1)</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*(<sp/>keyboardState<sp/>+<sp/>SOURIS_ROUE_HAUT<sp/>))<sp/>++;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*(<sp/>keyboardState<sp/>+<sp/>SOURIS_ROUE_BAS<sp/>))<sp/>++;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal">uint8_t<sp/>SDL_touche_appuyer<sp/>(<sp/>uint8_t<sp/>*keyboardState,<sp/>uint16_t<sp/>touche<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>renvoie<sp/>PRESSED<sp/>si<sp/>la<sp/>touche<sp/>(<sp/>short<sp/>touche<sp/>)<sp/>est<sp/>appuyé,<sp/>RELEASED<sp/>sinon<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>*(<sp/>keyboardState<sp/>+<sp/>touche<sp/>)<sp/>==<sp/>PRESSED<sp/>)</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PRESSED;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>RELEASED;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>SDL_reset_wheel_state(<sp/>uint8_t<sp/>*keyboardState<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>doit<sp/>etre<sp/>apeller<sp/>a<sp/>chaque<sp/>tour<sp/>de<sp/>la<sp/>boucle<sp/>pour<sp/>remettre<sp/>la<sp/>roue<sp/>a<sp/>0<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/>(*(<sp/>keyboardState<sp/>+<sp/>SOURIS_ROUE_HAUT<sp/>))<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>(*(<sp/>keyboardState<sp/>+<sp/>SOURIS_ROUE_BAS<sp/>))<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal">int8_t<sp/>SDL_wheel_state(<sp/>uint8_t<sp/>*keyboardState<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>renvoie<sp/>le<sp/>TOTAL<sp/>(<sp/>peut<sp/>etre<sp/>entre<sp/>-127<sp/>et<sp/>+128<sp/>)<sp/>du<sp/>nombre<sp/>de<sp/>tour<sp/>effectuer<sp/>par<sp/>l&apos;utilasateur<sp/>depuis<sp/>le<sp/>dernier<sp/>apelle<sp/>de<sp/>SDL_reset_wheel_state<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(*(<sp/>keyboardState<sp/>+<sp/>SOURIS_ROUE_HAUT<sp/>))<sp/>-<sp/>(*(<sp/>keyboardState<sp/>+<sp/>SOURIS_ROUE_BAS<sp/>));</highlight></codeline>
+<codeline lineno="165"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>SDL_coord_souris<sp/>(<sp/>int32_t<sp/>*x,<sp/>int32_t<sp/>*y<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>met<sp/>les<sp/>coordonees<sp/>de<sp/>la<sp/>souris<sp/>dans<sp/>x<sp/>et<sp/>y<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>SDL_GetMouseState(<sp/>x,<sp/>y);</highlight></codeline>
+<codeline lineno="171"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>SDL_exit_touches<sp/>(<sp/>uint8_t<sp/>**keyboardState,<sp/><ref refid="structconfigTouches__s" kindref="compound">configTouches_t</ref><sp/>**configuration<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>fermeture<sp/>propre<sp/>du<sp/>module<sp/>touches<sp/>pour<sp/>SDL<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/><sp/>Sauvegarde<sp/>des<sp/>touches<sp/>utilisateurs<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/>FILE<sp/>*sauv<sp/>=<sp/><ref refid="json_8c_1a89182dce713943cf48b018049b64b588" kindref="member">open_json</ref>(</highlight><highlight class="stringliteral">&quot;data/data/&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;configuration_touches&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;w&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>sauv<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>temp;</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>ecriture<sp/>des<sp/>touches<sp/>dans<sp/>un<sp/>fichier<sp/>json<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/>i<sp/>=<sp/>0<sp/>;<sp/>i<sp/>&lt;<sp/>NB_TOUCHES_REEL<sp/>;<sp/>i++<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="json_8c_1a6dd5ea7284f649e178e13e99c43600b3" kindref="member">open_json_obj</ref>(<sp/>sauv<sp/>);</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="json_8c_1aef1b0866438f726985d55d84571526c8" kindref="member">write_json</ref>(<sp/>sauv,<sp/></highlight><highlight class="stringliteral">&quot;keyID&quot;</highlight><highlight class="normal">,<sp/>&amp;i,<sp/></highlight><highlight class="stringliteral">&quot;d&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>temp<sp/>=<sp/>(<sp/>(*configuration)<sp/>+<sp/>i<sp/>)-&gt;keyCode;</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="json_8c_1aef1b0866438f726985d55d84571526c8" kindref="member">write_json</ref>(<sp/>sauv,<sp/></highlight><highlight class="stringliteral">&quot;value&quot;</highlight><highlight class="normal">,<sp/>&amp;temp,<sp/></highlight><highlight class="stringliteral">&quot;d&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="json_8c_1aef1b0866438f726985d55d84571526c8" kindref="member">write_json</ref>(<sp/>sauv,<sp/></highlight><highlight class="stringliteral">&quot;descr&quot;</highlight><highlight class="normal">,<sp/>(<sp/>(*configuration)<sp/>+<sp/>i<sp/>)-&gt;descriptif,<sp/></highlight><highlight class="stringliteral">&quot;s&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="json_8c_1a8d716a14bfd29aec5bef23e246be5275" kindref="member">close_json_obj</ref>(<sp/>sauv<sp/>);</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fclose(sauv);</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Erreur<sp/>:<sp/>impossible<sp/>de<sp/>créer<sp/>un<sp/>fichier<sp/>de<sp/>sauvegarde<sp/>pour<sp/>les<sp/>touches\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>liberation<sp/>de<sp/>la<sp/>memoire<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/>i<sp/>=<sp/>0<sp/>;<sp/>i<sp/>&lt;<sp/>NB_TOUCHES<sp/>;<sp/>i++<sp/>)</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>free((<sp/>(*configuration)<sp/>+<sp/>i<sp/>)-&gt;descriptif);</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/>free(<sp/>*keyboardState<sp/>);</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/>free(<sp/>*configuration<sp/>);</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="217"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>SDL_touche_default<sp/>(<sp/><ref refid="structconfigTouches__s" kindref="compound">configTouches_t</ref><sp/>**configuration<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/>strcpy((<sp/>(*configuration)<sp/>+<sp/>QUITTER<sp/>)-&gt;descriptif,<sp/></highlight><highlight class="stringliteral">&quot;quitter&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/>(<sp/>(*configuration)<sp/>+<sp/>QUITTER<sp/>)-&gt;keyCode<sp/>=<sp/>NULL_TOUCHE;</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/>strcpy((<sp/>(*configuration)<sp/>+<sp/>AVANCER<sp/>)-&gt;descriptif,<sp/></highlight><highlight class="stringliteral">&quot;avancer&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/>(<sp/>(*configuration)<sp/>+<sp/>AVANCER<sp/>)-&gt;keyCode<sp/>=<sp/>SDLK_z;</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"></highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/>strcpy((<sp/>(*configuration)<sp/>+<sp/>RECULER<sp/>)-&gt;descriptif,<sp/></highlight><highlight class="stringliteral">&quot;reculer&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/>(<sp/>(*configuration)<sp/>+<sp/>RECULER<sp/>)-&gt;keyCode<sp/>=<sp/>SDLK_s;</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/>strcpy((<sp/>(*configuration)<sp/>+<sp/>GAUCHE<sp/>)-&gt;descriptif,<sp/></highlight><highlight class="stringliteral">&quot;gauche&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/>(<sp/>(*configuration)<sp/>+<sp/>GAUCHE<sp/>)-&gt;keyCode<sp/>=<sp/>SDLK_q;</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"></highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/>strcpy((<sp/>(*configuration)<sp/>+<sp/>DROITE<sp/>)-&gt;descriptif,<sp/></highlight><highlight class="stringliteral">&quot;droite&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/>(<sp/>(*configuration)<sp/>+<sp/>DROITE<sp/>)-&gt;keyCode<sp/>=<sp/>SDLK_d;</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/>strcpy((<sp/>(*configuration)<sp/>+<sp/>SPACE<sp/>)-&gt;descriptif,<sp/></highlight><highlight class="stringliteral">&quot;sauter&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/>(<sp/>(*configuration)<sp/>+<sp/>SPACE<sp/>)-&gt;keyCode<sp/>=<sp/>SDLK_SPACE;</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"></highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/>strcpy((<sp/>(*configuration)<sp/>+<sp/>G<sp/>)-&gt;descriptif,<sp/></highlight><highlight class="stringliteral">&quot;g&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/>(<sp/>(*configuration)<sp/>+<sp/>G<sp/>)-&gt;keyCode<sp/>=<sp/>SDLK_g;</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"></highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/>strcpy((<sp/>(*configuration)<sp/>+<sp/>X<sp/>)-&gt;descriptif,<sp/></highlight><highlight class="stringliteral">&quot;x&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/>(<sp/>(*configuration)<sp/>+<sp/>X<sp/>)-&gt;keyCode<sp/>=<sp/>SDLK_x;</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"></highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/>strcpy((<sp/>(*configuration)<sp/>+<sp/>SHIFT<sp/>)-&gt;descriptif,<sp/></highlight><highlight class="stringliteral">&quot;shift&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/>(<sp/>(*configuration)<sp/>+<sp/>SHIFT<sp/>)-&gt;keyCode<sp/>=<sp/>SDLK_LSHIFT;</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/>strcpy((<sp/>(*configuration)<sp/>+<sp/>ESCAPE<sp/>)-&gt;descriptif,<sp/></highlight><highlight class="stringliteral">&quot;escape&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/>(<sp/>(*configuration)<sp/>+<sp/>ESCAPE<sp/>)-&gt;keyCode<sp/>=<sp/>SDLK_ESCAPE;</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/>strcpy((<sp/>(*configuration)<sp/>+<sp/>SOURIS_BTN_1<sp/>)-&gt;descriptif,<sp/></highlight><highlight class="stringliteral">&quot;souris_gauche&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/>(<sp/>(*configuration)<sp/>+<sp/>SOURIS_BTN_1<sp/>)-&gt;keyCode<sp/>=<sp/>SDL_BUTTON_LEFT;</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/>strcpy((<sp/>(*configuration)<sp/>+<sp/>SOURIS_BTN_2<sp/>)-&gt;descriptif,<sp/></highlight><highlight class="stringliteral">&quot;souris_droit&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/>(<sp/>(*configuration)<sp/>+<sp/>SOURIS_BTN_2<sp/>)-&gt;keyCode<sp/>=<sp/>SDL_BUTTON_RIGHT;</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/>strcpy((<sp/>(*configuration)<sp/>+<sp/>SOURIS_ROUE_HAUT<sp/>)-&gt;descriptif,<sp/></highlight><highlight class="stringliteral">&quot;souris_roue_haut&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/>(<sp/>(*configuration)<sp/>+<sp/>SOURIS_ROUE_HAUT<sp/>)-&gt;keyCode<sp/>=<sp/>NULL_TOUCHE;</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/>strcpy((<sp/>(*configuration)<sp/>+<sp/>SOURIS_ROUE_BAS<sp/>)-&gt;descriptif,<sp/></highlight><highlight class="stringliteral">&quot;souris_roue_bas&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/>(<sp/>(*configuration)<sp/>+<sp/>SOURIS_ROUE_BAS<sp/>)-&gt;keyCode<sp/>=<sp/>NULL_TOUCHE;</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/>strcpy((<sp/>(*configuration)<sp/>+<sp/>AVOID_OUTWRITE<sp/>)-&gt;descriptif,<sp/></highlight><highlight class="stringliteral">&quot;NULL&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/>(<sp/>(*configuration)<sp/>+<sp/>AVOID_OUTWRITE<sp/>)-&gt;keyCode<sp/>=<sp/>NULL_TOUCHE;</highlight></codeline>
+<codeline lineno="265"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/touches.c"/>
+  </compounddef>
+</doxygen>
