@@ -1,7 +1,10 @@
 #ifndef __ITEM_H__
 #define __ITEM_H__
 
+#define DEBUG
+
 #include <block.h>
+#include <time.h>
 #include <stdint.h>
 
 #define AUCUN_BESOIN 0
@@ -50,12 +53,12 @@ typedef struct block_drop_s {
 typedef struct liste_item_s {
 
     uint8_t nbDrop;
-    t_item_type *item;
+    t_item item;
 
 } t_liste_item ;
 
 uint8_t init_item();
-uint8_t block_to_item ( t_materiaux materiaux, t_liste_item *item, uint8_t *nbItem );
-void exit_item();
+uint8_t block_to_item ( t_materiaux materiaux, t_liste_item **item );
+void exit_item( t_liste_item **item);
 
 #endif

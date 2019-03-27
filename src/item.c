@@ -1,13 +1,12 @@
-#include <item.h> /* #include <block.h> */
-#include <time.h>
+#include <item.h>
 
 static void default_item_drop ();
 static void default_item_type ();
 
-/* rand : 0 - 32767 */
-
 t_block_drop *tabItemDrop = NULL;
 t_item_type *tabItem = NULL;
+
+t_liste_item *item;
 
 uint8_t init_item() {
 
@@ -30,14 +29,19 @@ uint8_t init_item() {
 
     default_item_type();
 
-<<<<<<< HEAD
-    /* air */
-    tabItemDrop + AIR
-=======
+    srand(time(NULL));
+
     return 0;
 }
 
-uint8_t block_to_item ( t_materiaux materiaux, t_liste_item *item, uint8_t *nbItem ) {
+uint8_t block_to_item ( t_materiaux materiaux, t_liste_item **item ) {
+
+    uint8_t nbItem;
+
+    #ifdef DEBUG
+        if ( materiaux < 0 || materiaux > NB_BLOCK )
+            return 1;
+    #endif
 
     if ( ( tabItemDrop + materiaux )->drop == NULL ) {
 
@@ -54,11 +58,16 @@ uint8_t block_to_item ( t_materiaux materiaux, t_liste_item *item, uint8_t *nbIt
 
     i++;
 
-    item = malloc( sizeof(t_item_type*) * i );
+    if ( *item )
+        free(*item);
+    (*item) = malloc( sizeof(t_liste_item) * i );
 
-    i = 0, *nbItem = 0;
+    #ifdef DEBUG
+        if ( *item == NULL )
+            return 2;
+    #endif
 
-    srand(time(NULL));
+    i = 0, nbItem = 0;
 
     while ( (( tabItemDrop + materiaux )->drop + i)->item != I_END ) {
 
@@ -69,8 +78,9 @@ uint8_t block_to_item ( t_materiaux materiaux, t_liste_item *item, uint8_t *nbIt
 
         if ( aleatoire < (( tabItemDrop + materiaux )->drop + i)->pourMille ) {
 
-            ( item + (*nbItem) )->nbDrop = (( tabItemDrop + materiaux )->drop + i)->nombre;
-            ( item + (*nbItem) )->item = ( tabItem + (( tabItemDrop + materiaux )->drop + i)->item );
+            ( *item + nbItem )->nbDrop = (( tabItemDrop + materiaux )->drop + i)->nombre;
+            ( *item + nbItem )->item = (( tabItemDrop + materiaux )->drop + i)->item;
+            nbItem++;
         }
 
         switch ( (( tabItemDrop + materiaux )->drop + i)->besoin ) {
@@ -83,12 +93,14 @@ uint8_t block_to_item ( t_materiaux materiaux, t_liste_item *item, uint8_t *nbIt
         i++;
     }
 
-    ( item + (*nbItem) )->item = (tabItem + I_END);
+    ( *item + nbItem )->item = I_END;
+
+    return 0;
 }
 
-void exit_item() {
+void exit_item( t_liste_item **item ) {
 
-    free( ( tabItemDrop + HERBE )->drop);
+    /*free( ( tabItemDrop + HERBE )->drop);*/
     free( ( tabItemDrop + TERRE )->drop);
     free( ( tabItemDrop + SABLE )->drop);
     free( ( tabItemDrop + FEUILLE )->drop);
@@ -97,6 +109,9 @@ void exit_item() {
     free( ( tabItemDrop + NEIGE )->drop);
     free( ( tabItemDrop + DIAMAND )->drop);
     free( ( tabItemDrop + GRAVIER )->drop);
+
+    if ( *item != NULL )
+        free(*item);
 
     free(tabItemDrop);
     free(tabItem);
@@ -112,6 +127,7 @@ static void default_item_drop () {
 
     /* HERBE */
     ( tabItemDrop + HERBE )->drop = malloc( sizeof(t_liste_drop) * 2 );
+
     /*---------------------------------------------------------------
     *             | le bloc |                                    |qte |
     *             |qui doit |                                    |de  |
@@ -252,7 +268,6 @@ static void default_item_drop () {
 
     (( tabItemDrop + GRAVIER )->drop + 2 )->item = I_END;
 }
->>>>>>> 5e5d356... suite du module item.h
 
 static void default_item_type () {
 
