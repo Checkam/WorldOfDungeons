@@ -39,4 +39,9 @@ t_erreur MAP_detruire_path(char ** path_dir);
 t_block *MAP_GetBlockFromList(t_map *map, int x, int y);
 t_block *MAP_GetBlock(t_map *map, int x, int y) ;
 
+void MAP_CopyListFromX(t_map *map, t_liste *list, int x_from, int x_to);
+void MAP_SetEcListe(t_liste *list, int x);
+
+
+
 #endif

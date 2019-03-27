@@ -243,5 +243,19 @@ t_block *MAP_GetBlock(t_map *map, int x, int y) {
   return NULL;
 }
 
+void MAP_SetEcListe(t_liste *list, int x) {
+  t_block *b = NULL;
+  for (en_tete(list); (b == NULL) || (x > b[0].x && !hors_liste(list)); suivant(list))
+    valeur_elt(list, (void **)&b);
+}
+
+void MAP_CopyListFromX(t_map *map, t_liste *list, int x_from, int x_to) {
+  t_block *b;
+  for (MAP_SetEcListe(map->list, x_from); (b == NULL) || (x_to >= b[0].x && !hors_liste(map->list)); suivant(map->list)) {
+    valeur_elt(map->list, (void **)&b);
+    ajout_droit(list, b);
+  }
+}
+
 // void MAP_afficher_sdl(t_map *map, SDL_Renderer *renderer, int h_aff) { AFF_map_sdl(map->list, renderer, h_aff); }
 // void MAP_afficher_term(t_map *map, SDL_Renderer *renderer, int h_min_aff, int h_max_aff) { AFF_map_term(map->list, h_min_aff, h_max_aff); }
