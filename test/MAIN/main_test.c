@@ -31,27 +31,6 @@
 #include <touches.h>
 #include <world_of_dungeons.h>
 
-// int collision(SDL_Rect hit, t_collision_direction direction, t_liste *p) {
-//   t_block *b;
-//   t_map map;
-//   map.list = p;
-//
-//   switch (direction) {
-//   case DIRECT_BAS_COLLI:
-//     b = MAP_GetBlock(&map, hit.x / width_block_sdl, hit.y / height_block_sdl);
-//     //printf("%d %d\n", hit.x / width_block_sdl, hit.y / height_block_sdl);
-//     if (b) {
-//       // printf("b.x : %d b.y : %d hit.x %d hit.y %d\n", b->x, b->y, hit.x / width_block_sdl, hit.y / height_block_sdl);
-//       return 25;
-//     } else {
-//       return 0;
-//     }
-//     break;
-//   }
-//
-//   return 1;
-// }
-
 int main(int argc, char *argv[], char **env) {
   pwd_init(argv[0], getenv("PWD"));
   srand(time(NULL));
@@ -83,6 +62,9 @@ int main(int argc, char *argv[], char **env) {
   SDL_Window *screen = SDL_CreateWindow("World Of Dungeons", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width_window, height_window,
                                         SDL_WINDOW_SHOWN | SDL_WINDOW_FULLSCREEN_DESKTOP);
   SDL_GetWindowSize(screen, &width_window, &height_window);
+
+  width_block_sdl = 25;
+  height_block_sdl = 25;
   SDL_Rect fondRect = {0, 0, width_window, height_window};
   SDL_Renderer *renderer = SDL_CreateRenderer(screen, -1, SDL_RENDERER_ACCELERATED);
 
@@ -100,6 +82,8 @@ int main(int argc, char *argv[], char **env) {
 
   int boucle = 1;
   int x_mouse = 0, y_mouse = 0;
+  t_liste affichage;
+  init_liste(&affichage);
 
   while (taille_liste(map->list) <= SIZE) {
     i++;
@@ -114,7 +98,11 @@ int main(int argc, char *argv[], char **env) {
   menu_creer(MENU_PRINCIPAL, width_window, height_window, &menu);
   t_type_menu type_bouton;
   t_block *b = MAP_GetBlockFromList(map, SIZE / 2, AFF_GetMidHeight(map->list));
-  t_entite *J = creer_entite_defaut(NULL, JOUEUR, b->x, b->y, 100);
+  t_entite *J = creer_entite_defaut(NULL, JOUEUR, b->x, b->y, 50);
+
+#define calY_aff ((J->hitbox.y / height_block_sdl) - MAX_SCREEN / 2 - (J->hitbox.h / width_block_sdl)) - 1
+#define calX_Debut (J->hitbox.x / width_block_sdl) - (SIZE / 2)
+#define calX_Fin (J->hitbox.x / width_block_sdl) + (SIZE / 2)
 
   while (menu) {
     SDL_RenderClear(renderer);
@@ -136,13 +124,16 @@ int main(int argc, char *argv[], char **env) {
 
   while (boucle) {
 
-    // printf("x: %d hitbox.x: %d %d %d \n", i, (J->hitbox.x / width_block_sdl), (J->hitbox.x / width_block_sdl) + (SIZE / 2),
-    //        (J->hitbox.x / width_block_sdl) - (SIZE / 2));
-
     taille = AFF_GetMidHeight(map->list);
     SDL_RenderCopy(renderer, fond, NULL, &fondRect);
 
-    AFF_map_sdl(map->list, renderer, (J->hitbox.y / height_block_sdl) - MAX_SCREEN / 2);
+    //On efface toute les valeurs de la liste d'affichage
+    for (en_queue(&affichage); !hors_liste(&affichage); en_queue(&affichage))
+      oter_elt(&affichage, NULL);
+
+    MAP_CopyListFromX(map, &affichage, calX_Debut, calX_Fin);
+
+    AFF_map_sdl(&affichage, renderer, calY_aff);
     // printf("%d %d\n", J->hitbox.y, J->hitbox.y / height_block_sdl);
     Gestion_Entite(renderer, J, ks, coef_fps, map->list);
     SDL_RenderPresent(renderer);
@@ -154,61 +145,49 @@ int main(int argc, char *argv[], char **env) {
       boucle = 0;
     }
 
-    t_block *b1 = NULL;
     //GENERATION DROITE GAUCHE
+    t_block *premier = MAP_GetBlockFromList(map, 0, 0);
+    t_block *dernier = MAP_GetBlockFromList(map, taille_liste(map->list) - 1, 0);
     if (i + 1 == (J->hitbox.x / width_block_sdl) + SIZE / 2) {
-      gen_col(map->list, i, DROITE);
-      i = (J->hitbox.x / width_block_sdl) + SIZE / 2;
-      b1 = MAP_GetBlock(map, i, J->hitbox.y / height_block_sdl);
+      if (dernier && dernier->x < (i + 1)) {
+        gen_col(map->list, i, DROITE);
+      }
+      i++;
     }
-
     if (i - SIZE - 1 == (J->hitbox.x / width_block_sdl) - SIZE / 2) {
-      gen_col(map->list, i - SIZE, GAUCHE);
-      i = (J->hitbox.x / width_block_sdl) + SIZE / 2;
-      b1 = MAP_GetBlock(map, i, J->hitbox.y / height_block_sdl);
+      if (premier && premier->x > (i - SIZE - 1)) {
+        gen_col(map->list, i - SIZE, GAUCHE);
+      }
+      i--;
     }
-
-    // printf("J;y : %d\n", J->hitbox.y / height_block_sdl);
-
-    // t_block *tab_b;
-    // for (en_tete(map->list); !hors_liste(map->list); suivant(map->list)) {
-    //   valeur_elt(map->list, (void **)&tab_b);
-    //   for (int k = 0; k < MAX; k++) {
-    //     if (tab_b[k].id != 0) {
-    //       printf("%d", tab_b[k].id);
-    //     } else {
-    //       printf(" ");
-    //     }
-    //   }
-    //   printf("\n");
-    // }
-
-    // printf("i : %d, i - SIZE : %d SIZE/2 : %d J.x : %d \n", i, i - SIZE, SIZE / 2, J->hitbox.x / width_block_sdl);
-
-    // if (b1) {
-    //   b1->id = 5;
-    //   printf("id:%d x:%d y:%d\n", b1->id, b1->x, b1->y, taille);
-    // } else {
-    //   printf("Block NULL\n");
-    // }
 
     //TEST SOURIS
+    t_block *b;
     if (SDL_touche_appuyer(ks, SOURIS_GAUCHE)) {
       SDL_coord_souris(&x_mouse, &y_mouse);
       // Récuperation d'un block dans la liste
-      t_block *b = MAP_GetBlockFromList(map, (x_mouse / width_block_sdl),
-                                        MAX_SCREEN - (y_mouse / height_block_sdl) + (J->hitbox.y / height_block_sdl) - MAX_SCREEN / 2);
+      b = MAP_GetBlock(map, (x_mouse / width_block_sdl) + calX_Debut, MAX_SCREEN - (y_mouse / height_block_sdl) + calY_aff + 1);
 
       if (b) {
-        // printf("Block id: %d x:%d, y:%d x_mouse:%d y_mouse:%d\n", b->id, b->x, b->y, (x_mouse / width_block_sdl),
-        //        MAX_SCREEN - (y_mouse / height_block_sdl) + taille + 1);
-        b->id = 0;
+        b->id = AIR;
       } else {
         printf("Block NULL\n");
       }
     }
+
+    if (SDL_touche_appuyer(ks, SOURIS_DROIT)) {
+      SDL_coord_souris(&x_mouse, &y_mouse);
+      // Récuperation d'un block dans la liste
+      b = MAP_GetBlock(map, (x_mouse / width_block_sdl) + calX_Debut, MAX_SCREEN - (y_mouse / height_block_sdl) + calY_aff + 1);
+
+      if (b) {
+        b->id = ROCHE;
+      } else {
+        printf("Block NULL\n");
+      }
+    }
+
     coef_fps = fps();
-    //AFF_map_term(&list, 0, 400);
   }
 
   detruire_entite(J);
