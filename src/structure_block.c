@@ -48,21 +48,20 @@ int STRUCT_CanSpawn(int x, int i) { return 0; }
 **/
 void STRUCT_generation(int x, int y, int dir, t_block map[MAX]) {
   y++;
-  static int struct_spawn = 0;
-  static int new_struct = 0;
+  static int struct_spawn = 0, new_struct = 0, struct_spawn_dir1, struct_spawn_dir2, new_struct_dir1, new_struct_dir2;
   static t_struct_block_type type_spawn;
   static t_struct_block_type type_can_spawn[NB_STRUCT_BLOCK];
   static int last_dir;
 
+  int nb_can_spawn = 0;
+  int struct_random = 0;
+
   if (last_dir != dir) {
-    struct_spawn = 0;
-    new_struct = 0;
+    struct_spawn_dir1 ^= struct_spawn ^= struct_spawn_dir1 ^= struct_spawn;
+    new_struct_dir1 ^= new_struct ^= new_struct_dir1 ^= new_struct;
+
     last_dir = dir;
   }
-
-  int nb_can_spawn = 0;
-  int pourcent = 0;
-  int struct_random = 0;
 
   if (struct_spawn) { // Permet de prendre la ligne du block a test
     char line[50];
