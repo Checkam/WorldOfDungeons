@@ -1,11 +1,15 @@
 #ifndef __COMMUN_H__
 #define __COMMUN_H__
 
+#define NB_BLOCK_WIDTH 76
+#define NB_BLOCK_HEIGHT 51
+
+
 int height_window;
 int width_window;
 
-#define width_block_sdl 25
-#define height_block_sdl 25
+int width_block_sdl;
+int height_block_sdl;
 
 #define MAX 100 /* Height tab */
 
