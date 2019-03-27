@@ -93,17 +93,11 @@ int gen_col(t_liste *list, int x, int dir) {
     }
   }
   if (dir == DROITE) {
-    if (taille_liste(list) > SIZE) {
-      en_tete(list);
-      oter_elt(list, free);
-    }
     en_queue(list);
     ajout_droit(list, tab);
-  } else if (dir == GAUCHE) {
-    if (taille_liste(list) > SIZE) {
-      en_queue(list);
-      oter_elt(list, free);
-    }
+  }
+
+  if (dir == GAUCHE) {
     en_tete(list);
     ajout_gauche(list, tab);
   }
