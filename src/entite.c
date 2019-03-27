@@ -88,7 +88,7 @@ t_entite *creer_entite(char *name, int mana, int mana_max, int pv, int pv_max, S
   SDL_Rect sprite_part = {0 + DECAL_W_SPRITE, t_a[0].ligne * H_PART_SPRITE + DECAL_H_SPRITE, W_PART_SPRITE / 2, H_PART_SPRITE / 1.25};
 
   /* Initialisation de la taille de l'entité */
-  SDL_Rect hit = {x_dep * width_block_sdl, y_dep * height_block_sdl - taille, taille * sprite_part.w / sprite_part.h, taille};
+  SDL_Rect hit = {x_dep * width_block_sdl, y_dep * height_block_sdl, taille * sprite_part.w / sprite_part.h, taille};
 
   t_entite *entite = malloc(sizeof(t_entite));
   entite->id = sizeof(*name); // sizeof temporaire
@@ -316,19 +316,19 @@ int collision(t_entite *entite, t_collision_direction direction, t_liste *p) {
   map.list = p;
 
   /* Récupération des Blocks si il y en a, en fonction des coordonnées du Joueur */
-  t_block *blockHG, *blockHD, *blockBG, *blockBD;
+  t_block *blockHG = NULL, *blockHD = NULL, *blockBG = NULL, *blockBD = NULL;
   blockHG = MAP_GetBlock(&map, x, y);
   blockHD = MAP_GetBlock(&map, x + 1, y);
   blockBG = MAP_GetBlock(&map, x, y - 1);
-  blockBD = MAP_GetBlock(&map, x + 1, y - 1);
-  if (blockBG)
-    fprintf(stderr, "Collision Basse Gauche : %d,%d\n", blockBG->x, blockBG->y);
-  if (blockBD)
-    fprintf(stderr, "Collision Basse Droite : %d,%d\n", blockBD->x, blockBD->y);
-  if (blockHG)
-    fprintf(stderr, "Collision Haute Gauche : %d,%d\n", blockHG->x, blockHG->y);
-  if (blockHD)
-    fprintf(stderr, "Collision Haute Droite : %d,%d\n", blockHD->x, blockHD->y);
+  //blockBD = MAP_GetBlock(&map, x + 1, y - 1);
+  // if (blockBG)
+  //   // fprintf(stderr, "Collision Basse Gauche : %d,%d\n", blockBG->x, blockBG->y);
+  //   if (blockBD)
+  //     // fprintf(stderr, "Collision Basse Droite : %d,%d\n", blockBD->x, blockBD->y);
+  //     if (blockHG)
+  //       // fprintf(stderr, "Collision Haute Gauche : %d,%d\n", blockHG->x, blockHG->y);
+  //       if (blockHD)
+  //         // fprintf(stderr, "Collision Haute Droite : %d,%d\n", blockHD->x, blockHD->y);
 
   /* Traitement des collisions */
   switch (direction) {
@@ -340,7 +340,9 @@ int collision(t_entite *entite, t_collision_direction direction, t_liste *p) {
         SDL_IntersectRect(&(entite->hitbox), &B, &res);
         collision = res.h;
       }
-    } else if (blockBD) {
+    }
+
+    if (blockBD) {
       if (blockBD->id != 0) {
         SDL_Rect B = {width_block_sdl * blockBD->x, height_block_sdl * blockBD->y, width_block_sdl, height_block_sdl};
         SDL_IntersectRect(&(entite->hitbox), &B, &res);
@@ -352,47 +354,59 @@ int collision(t_entite *entite, t_collision_direction direction, t_liste *p) {
   /* Collision en HAUT */
   case DIRECT_HAUT_COLLI:
     if (blockHD) {
-      SDL_Rect B = {width_block_sdl * blockHD->x, height_block_sdl * blockHD->y, width_block_sdl, height_block_sdl};
-      SDL_IntersectRect(&(entite->hitbox), &B, &res);
-      collision = res.h;
+      if (blockHD->id != 0) {
+        SDL_Rect B = {width_block_sdl * blockHD->x, height_block_sdl * blockHD->y, width_block_sdl, height_block_sdl};
+        SDL_IntersectRect(&(entite->hitbox), &B, &res);
+        collision = res.h;
+      }
     } else if (blockHG) {
-      SDL_Rect B = {width_block_sdl * blockHG->x, height_block_sdl * blockHG->y, width_block_sdl, height_block_sdl};
-      SDL_IntersectRect(&(entite->hitbox), &B, &res);
-      collision = res.h;
+      if (blockHG->id != 0) {
+        SDL_Rect B = {width_block_sdl * blockHG->x, height_block_sdl * blockHG->y, width_block_sdl, height_block_sdl};
+        SDL_IntersectRect(&(entite->hitbox), &B, &res);
+        collision = res.h;
+      }
     }
     break;
 
   /* Collision à DROITE */
   case DIRECT_DROITE_COLLI:
     if (blockHD) {
-      SDL_Rect B = {width_block_sdl * blockHD->x, height_block_sdl * blockHD->y, width_block_sdl, height_block_sdl};
-      SDL_IntersectRect(&(entite->hitbox), &B, &res);
-      collision = res.w;
+      if (blockHD->id != 0) {
+        SDL_Rect B = {width_block_sdl * blockHD->x, height_block_sdl * blockHD->y, width_block_sdl, height_block_sdl};
+        SDL_IntersectRect(&(entite->hitbox), &B, &res);
+        collision = res.w;
+      }
     } else if (blockBD) {
-      SDL_Rect B = {width_block_sdl * blockBD->x, height_block_sdl * blockBD->y, width_block_sdl, height_block_sdl};
-      SDL_IntersectRect(&(entite->hitbox), &B, &res);
-      collision = res.w;
+      if (blockBD->id != 0) {
+        SDL_Rect B = {width_block_sdl * blockBD->x, height_block_sdl * blockBD->y, width_block_sdl, height_block_sdl};
+        SDL_IntersectRect(&(entite->hitbox), &B, &res);
+        collision = res.w;
+      }
     }
     break;
 
   /* Collision à GAUCHE */
   case DIRECT_GAUCHE_COLLI:
     if (blockHG) {
-      SDL_Rect B = {width_block_sdl * blockHG->x, height_block_sdl * blockHG->y, width_block_sdl, height_block_sdl};
-      SDL_IntersectRect(&(entite->hitbox), &B, &res);
-      collision = res.w;
+      if (blockHG->id != 0) {
+        SDL_Rect B = {width_block_sdl * blockHG->x, height_block_sdl * blockHG->y, width_block_sdl, height_block_sdl};
+        SDL_IntersectRect(&(entite->hitbox), &B, &res);
+        collision = res.w;
+      }
     } else if (blockBG) {
-      SDL_Rect B = {width_block_sdl * blockBG->x, height_block_sdl * blockBG->y, width_block_sdl, height_block_sdl};
-      SDL_IntersectRect(&(entite->hitbox), &B, &res);
-      collision = res.w;
+      if (blockBG->id != 0) {
+        SDL_Rect B = {width_block_sdl * blockBG->x, height_block_sdl * blockBG->y, width_block_sdl, height_block_sdl};
+        SDL_IntersectRect(&(entite->hitbox), &B, &res);
+        collision = res.w;
+      }
     }
     break;
 
   default:
     break;
   }
-  if (blockBD || blockBG || blockHG || blockHD)
-    printf("RESSSS : %d %d %d %d\n", res.x, res.y, res.w, res.h);
+  // if (blockBD || blockBG || blockHG || blockHD)
+  // printf("RESSSS : %d %d %d %d\n", res.x, res.y, res.w, res.h);
   collision *= -1;
   return collision;
 }
