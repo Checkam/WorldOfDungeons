@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Génération Procedural et Stockage de donnée: Référence du fichier src/erreur.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Génération Procedural et Stockage de donnée
+   </div>
+   <div id="projectbrief">Le but de ce projet de d&#39;apprendre a utilisé Perlin noise en commmencant a réfléchir au structure que nous aurons besoin</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Définitions de type</a> &#124;
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier erreur.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Module de gestion des erreurs.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;time.h&gt;</code><br />
+<code>#include &lt;sys/stat.h&gt;</code><br />
+<code>#include &lt;sys/types.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="erreur_8h_source.html">erreur.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="chemin_8h_source.html">chemin.h</a>&gt;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__erreur.html">s_erreur</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Définitions de type</h2></td></tr>
+<tr class="memitem:ae3921a851f4390e669fc5d1c2cb237f3"><td class="memItemLeft" align="right" valign="top"><a id="ae3921a851f4390e669fc5d1c2cb237f3"></a>
+typedef struct <a class="el" href="structs__erreur.html">s_erreur</a>&#160;</td><td class="memItemRight" valign="bottom"><b>t_erreur_s</b></td></tr>
+<tr class="separator:ae3921a851f4390e669fc5d1c2cb237f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a86eae7e8299b116054bf5168b60fa3fb"><td class="memItemLeft" align="right" valign="top"><a id="a86eae7e8299b116054bf5168b60fa3fb"></a>
+t_erreur&#160;</td><td class="memItemRight" valign="bottom"><b>erreur_save</b> (t_erreur code_erreur, char *msg_detail)</td></tr>
+<tr class="separator:a86eae7e8299b116054bf5168b60fa3fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea956e8dad695907bca24fd0b608587e"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="erreur_8c.html#aea956e8dad695907bca24fd0b608587e">erreur_afficher</a> (t_erreur code_erreur, char *msg_detail)</td></tr>
+<tr class="separator:aea956e8dad695907bca24fd0b608587e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a7f22cef488a4ae71437b9171ef02ba3d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structt__erreur__s.html">t_erreur_s</a>&#160;</td><td class="memItemRight" valign="bottom"><b>tab_err</b> [<a class="el" href="erreur_8h.html#ab12c362e97903df9a3e62d617dc22c37">NB_ERREUR</a>]</td></tr>
+<tr class="separator:a7f22cef488a4ae71437b9171ef02ba3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Module de gestion des erreurs. </p>
+<dl class="section author"><dt>Auteur</dt><dd>Jasmin GALBRUN </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>2 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>05/03/2019 </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="aea956e8dad695907bca24fd0b608587e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea956e8dad695907bca24fd0b608587e">&#9670;&nbsp;</a></span>erreur_afficher()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">t_erreur erreur_afficher </td>
+          <td>(</td>
+          <td class="paramtype">t_erreur&#160;</td>
+          <td class="paramname"><em>code_erreur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>msg_detail</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des variables</h2>
+<a id="a7f22cef488a4ae71437b9171ef02ba3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f22cef488a4ae71437b9171ef02ba3d">&#9670;&nbsp;</a></span>tab_err</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structt__erreur__s.html">t_erreur_s</a> tab_err[<a class="el" href="erreur_8h.html#ab12c362e97903df9a3e62d617dc22c37">NB_ERREUR</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur initiale :</b><div class="fragment"><div class="line">= {</div><div class="line">    {FILE_ERROR, <span class="stringliteral">&quot;FILE ERROR&quot;</span>},</div><div class="line">    {OPEN_FILE_ERROR, <span class="stringliteral">&quot;OPEN FILE ERROR&quot;</span>},</div><div class="line">    {CLOSE_FILE_ERROR, <span class="stringliteral">&quot;CLOSE FILE ERROR&quot;</span>},</div><div class="line">    {VALUE_ERROR, <span class="stringliteral">&quot;VALUE ERROR&quot;</span>},</div><div class="line">    {ERROR_NOT_EXIST, <span class="stringliteral">&quot;ERROR NOT EXIST&quot;</span>},</div><div class="line">    {REMOVE_FILE_ERROR, <span class="stringliteral">&quot;REMOVE FILE ERROR&quot;</span>},</div><div class="line">    {PTR_NULL, <span class="stringliteral">&quot;POINTEUR NULL&quot;</span>},</div><div class="line">    {PTR_VALUE_ERROR, <span class="stringliteral">&quot;POINTEUR VALUE ERROR&quot;</span>},</div><div class="line">    {TYPE_ERROR, <span class="stringliteral">&quot;TYPE ERROR&quot;</span>},</div><div class="line">    {UNDEFINED_MENU, <span class="stringliteral">&quot;UNDEFINED MENU&quot;</span>},</div><div class="line">    {INCORRECT_MENU_TYPE, <span class="stringliteral">&quot;INCORRECT MENU TYPE&quot;</span>},</div><div class="line">    {KEY_NOT_FOUND, <span class="stringliteral">&quot;KEY NOT FOUND&quot;</span>},</div><div class="line">    {OK, <span class="stringliteral">&quot;OK&quot;</span>}  </div><div class="line">}</div></div><!-- fragment -->
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

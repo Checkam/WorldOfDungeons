@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Génération Procedural et Stockage de donnée:  Fichier source de include/chemin.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Génération Procedural et Stockage de donnée
+   </div>
+   <div id="projectbrief">Le but de ce projet de d&#39;apprendre a utilisé Perlin noise en commmencant a réfléchir au structure que nous aurons besoin</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">chemin.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="chemin_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef __CHEMIN_H__</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define __CHEMIN_H__</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="liste_8h.html">liste.h</a>&gt;</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="erreur_8h.html">erreur.h</a>&gt;</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define PROJECT_NAME &quot;WorldOfDungeons&quot;</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div><div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="chemin_8h.html#a6e3115fc9bfb27c4a03a99d1e113e7b1">   19</a></span>&#160;<span class="keywordtype">char</span> * <a class="code" href="chemin_8h.html#a6e3115fc9bfb27c4a03a99d1e113e7b1">WOD_PWD</a>;</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">/* Décomposition du PWD */</span></div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;t_erreur <a class="code" href="chemin_8h.html#a3d19e4065f963d93d23f046811107d80">decomposer_PWD</a> (<a class="code" href="structt__liste.html">t_liste</a> * p, <span class="keywordtype">char</span> * pwd);</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">/* Création du WOD_PWD</span></div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">Utilisation : getpwd(argv[0],getenv(&quot;PWD&quot;));</span></div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">Ne pas oublier de récupérer les arguments du main :</span></div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">int main (int argc, char ** argv, char ** env) */</span></div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;t_erreur pwd_init(<span class="keywordtype">char</span> * argv, <span class="keywordtype">char</span> * env);</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;t_erreur <a class="code" href="chemin_8h.html#af02bc563f4c0e7190df6b3d397501beb">fusion_PWD</a>(<a class="code" href="structt__liste.html">t_liste</a> * env, <a class="code" href="structt__liste.html">t_liste</a> * argv);</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;t_erreur <a class="code" href="chemin_8h.html#a5aca441244932fa32192a79ef980d2eb">pwd_quit</a>(<span class="keywordtype">void</span>);</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">/* Création chemin à partir de WOD_PWD</span></div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">Utilisation : creation_chemin (&quot;chemin_après_WOD_PWD&quot;,&amp;str_res); */</span></div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;t_erreur <a class="code" href="chemin_8h.html#a426a590237f668eca1627c0cc3985cd2">creation_chemin</a> (<span class="keywordtype">char</span> * ajout, <span class="keywordtype">char</span> ** res);</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">/* Met en minuscule une chaine de caractère.</span></div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">str : chaine source</span></div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">res : chaine resultat */</span></div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;t_erreur <a class="code" href="chemin_8h.html#a1fe1520dbe25f041e413193a6ab5225f">tolower_str</a> (<span class="keywordtype">char</span> * str, <span class="keywordtype">char</span> ** res);</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="chemin_8h_html_a3d19e4065f963d93d23f046811107d80"><div class="ttname"><a href="chemin_8h.html#a3d19e4065f963d93d23f046811107d80">decomposer_PWD</a></div><div class="ttdeci">t_erreur decomposer_PWD(t_liste *p, char *pwd)</div><div class="ttdoc">Décompose dans une liste le PWD. </div><div class="ttdef"><b>Definition:</b> chemin.c:24</div></div>
+<div class="ttc" id="structt__liste_html"><div class="ttname"><a href="structt__liste.html">t_liste</a></div><div class="ttdoc">Liste contenant des t_element. </div></div>
+<div class="ttc" id="liste_8h_html"><div class="ttname"><a href="liste_8h.html">liste.h</a></div><div class="ttdoc">Module des primitives de gestion de listes. </div></div>
+<div class="ttc" id="chemin_8h_html_a6e3115fc9bfb27c4a03a99d1e113e7b1"><div class="ttname"><a href="chemin_8h.html#a6e3115fc9bfb27c4a03a99d1e113e7b1">WOD_PWD</a></div><div class="ttdeci">char * WOD_PWD</div><div class="ttdoc">Variable Globale contenant le chemin absolu de la racine du projet. </div><div class="ttdef"><b>Definition:</b> chemin.h:19</div></div>
+<div class="ttc" id="chemin_8h_html_a426a590237f668eca1627c0cc3985cd2"><div class="ttname"><a href="chemin_8h.html#a426a590237f668eca1627c0cc3985cd2">creation_chemin</a></div><div class="ttdeci">t_erreur creation_chemin(char *ajout, char **res)</div><div class="ttdoc">Concatène 2 chaine de caractère. </div><div class="ttdef"><b>Definition:</b> chemin.c:184</div></div>
+<div class="ttc" id="chemin_8h_html_a5aca441244932fa32192a79ef980d2eb"><div class="ttname"><a href="chemin_8h.html#a5aca441244932fa32192a79ef980d2eb">pwd_quit</a></div><div class="ttdeci">t_erreur pwd_quit(void)</div><div class="ttdoc">Unset la variable globale WOD_PWD. </div><div class="ttdef"><b>Definition:</b> chemin.c:84</div></div>
+<div class="ttc" id="chemin_8h_html_af02bc563f4c0e7190df6b3d397501beb"><div class="ttname"><a href="chemin_8h.html#af02bc563f4c0e7190df6b3d397501beb">fusion_PWD</a></div><div class="ttdeci">t_erreur fusion_PWD(t_liste *env, t_liste *argv)</div><div class="ttdoc">Récupère le chemin absolu de la racine de WOD. </div><div class="ttdef"><b>Definition:</b> chemin.c:98</div></div>
+<div class="ttc" id="chemin_8h_html_a1fe1520dbe25f041e413193a6ab5225f"><div class="ttname"><a href="chemin_8h.html#a1fe1520dbe25f041e413193a6ab5225f">tolower_str</a></div><div class="ttdeci">t_erreur tolower_str(char *str, char **res)</div><div class="ttdoc">Met en minuscule une chaine de caractère. </div><div class="ttdef"><b>Definition:</b> chemin.c:204</div></div>
+<div class="ttc" id="erreur_8h_html"><div class="ttname"><a href="erreur_8h.html">erreur.h</a></div><div class="ttdoc">Module de gestion des erreurs. </div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Génération Procedural et Stockage de donnée: Référence du fichier src/json.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Génération Procedural et Stockage de donnée
+   </div>
+   <div id="projectbrief">Le but de ce projet de d&#39;apprendre a utilisé Perlin noise en commmencant a réfléchir au structure que nous aurons besoin</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier json.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Module qui lit et écrit des fichiers au format JSON.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="json_8h_source.html">json.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="chemin_8h_source.html">chemin.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="erreur_8h_source.html">erreur.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="fichier_8h_source.html">fichier.h</a>&gt;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a89182dce713943cf48b018049b64b588"><td class="memItemLeft" align="right" valign="top">FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8c.html#a89182dce713943cf48b018049b64b588">open_json</a> (char *dossier, char *name, char *mode)</td></tr>
+<tr class="memdesc:a89182dce713943cf48b018049b64b588"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer, s'il ne l'est pas, le fichier JSON et l'ouvre.  <a href="#a89182dce713943cf48b018049b64b588">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a89182dce713943cf48b018049b64b588"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36e795007d4be2cde59b1fe53e1e3fa4"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8c.html#a36e795007d4be2cde59b1fe53e1e3fa4">del_json</a> (char *dossier, char *name)</td></tr>
+<tr class="memdesc:a36e795007d4be2cde59b1fe53e1e3fa4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supprime un fichier JSON.  <a href="#a36e795007d4be2cde59b1fe53e1e3fa4">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a36e795007d4be2cde59b1fe53e1e3fa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef1b0866438f726985d55d84571526c8"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8c.html#aef1b0866438f726985d55d84571526c8">write_json</a> (FILE *file, char *key, void *value, char *value_type)</td></tr>
+<tr class="memdesc:aef1b0866438f726985d55d84571526c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ecrit une clé/valeur au format JSON dans un fichier.  <a href="#aef1b0866438f726985d55d84571526c8">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aef1b0866438f726985d55d84571526c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dd5ea7284f649e178e13e99c43600b3"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8c.html#a6dd5ea7284f649e178e13e99c43600b3">open_json_obj</a> (FILE *file)</td></tr>
+<tr class="memdesc:a6dd5ea7284f649e178e13e99c43600b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Démarre un nouvelle objet au format JSON dans un fichier.  <a href="#a6dd5ea7284f649e178e13e99c43600b3">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a6dd5ea7284f649e178e13e99c43600b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d716a14bfd29aec5bef23e246be5275"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8c.html#a8d716a14bfd29aec5bef23e246be5275">close_json_obj</a> (FILE *file)</td></tr>
+<tr class="memdesc:a8d716a14bfd29aec5bef23e246be5275"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ferme l'objet JSON.  <a href="#a8d716a14bfd29aec5bef23e246be5275">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a8d716a14bfd29aec5bef23e246be5275"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10b95a250726186ac4ddfdda6adad3e3"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8c.html#a10b95a250726186ac4ddfdda6adad3e3">extract_json_obj</a> (FILE *file, char **obj)</td></tr>
+<tr class="memdesc:a10b95a250726186ac4ddfdda6adad3e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère un objet JSON dans un fichier.  <a href="#a10b95a250726186ac4ddfdda6adad3e3">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a10b95a250726186ac4ddfdda6adad3e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44c9b298308109129b3ecac1ad911db8"><td class="memItemLeft" align="right" valign="top"><a id="a44c9b298308109129b3ecac1ad911db8"></a>
+t_erreur&#160;</td><td class="memItemRight" valign="bottom"><b>read_json_obj</b> (char *obj, char *key, void *value, char *value_type)</td></tr>
+<tr class="separator:a44c9b298308109129b3ecac1ad911db8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd75e719d37a9c3f57167eeadfede913"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8c.html#acd75e719d37a9c3f57167eeadfede913">fstart</a> (FILE *file)</td></tr>
+<tr class="memdesc:acd75e719d37a9c3f57167eeadfede913"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remet le pointeur file au début du fichier.  <a href="#acd75e719d37a9c3f57167eeadfede913">Plus de détails...</a><br /></td></tr>
+<tr class="separator:acd75e719d37a9c3f57167eeadfede913"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a264dd58178e90f733d77122d11553ca8"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8c.html#a264dd58178e90f733d77122d11553ca8">crt_car</a> = '#'</td></tr>
+<tr class="memdesc:a264dd58178e90f733d77122d11553ca8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable globale contenant le dernier caractère ajouté au fichier JSON en cours.  <a href="#a264dd58178e90f733d77122d11553ca8">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a264dd58178e90f733d77122d11553ca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Module qui lit et écrit des fichiers au format JSON. </p>
+<dl class="section author"><dt>Auteur</dt><dd>GALBRUN Tibane </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.3 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>5 Mars 2019 </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a8d716a14bfd29aec5bef23e246be5275"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d716a14bfd29aec5bef23e246be5275">&#9670;&nbsp;</a></span>close_json_obj()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int close_json_obj </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ferme l'objet JSON. </p>
+<p>L'écriture s'effectue dans le fichier 'file' en ajout avec pour contenu '}' et la variable crt_car est mis à jour. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>Le fichier ou écrire. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Une erreur s'il y en a une. </dd></dl>
+
+</div>
+</div>
+<a id="a36e795007d4be2cde59b1fe53e1e3fa4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36e795007d4be2cde59b1fe53e1e3fa4">&#9670;&nbsp;</a></span>del_json()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int del_json </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>dossier</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Supprime un fichier JSON. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dossier</td><td>Chaine de caractère représentant le dossier ou se trouve le json. </td></tr>
+    <tr><td class="paramname">name</td><td>Chaine de caractère représenant le nom du fichier sans le '.json' à supprimer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Une erreur s'il y en a une. </dd></dl>
+
+</div>
+</div>
+<a id="a10b95a250726186ac4ddfdda6adad3e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10b95a250726186ac4ddfdda6adad3e3">&#9670;&nbsp;</a></span>extract_json_obj()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">t_erreur extract_json_obj </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>obj</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Récupère un objet JSON dans un fichier. </p>
+<p>La lecture s'effectue dans le fichier 'file' et on récupère un objet. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>Le fichier à lire. </td></tr>
+    <tr><td class="paramname">obj</td><td>L'endroit ou enregistrer l'objet. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Une erreur s'il y en a une. </dd></dl>
+
+</div>
+</div>
+<a id="acd75e719d37a9c3f57167eeadfede913"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd75e719d37a9c3f57167eeadfede913">&#9670;&nbsp;</a></span>fstart()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">t_erreur fstart </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remet le pointeur file au début du fichier. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>Le fichier où repartir du début. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Une erreur s'il y en a une. </dd></dl>
+
+</div>
+</div>
+<a id="a89182dce713943cf48b018049b64b588"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89182dce713943cf48b018049b64b588">&#9670;&nbsp;</a></span>open_json()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FILE * open_json </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>dossier</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>mode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Créer, s'il ne l'est pas, le fichier JSON et l'ouvre. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dossier</td><td>Chaine de caractère représentant le dossier ou se trouve le json. </td></tr>
+    <tr><td class="paramname">name</td><td>Chaine de caractère représenant le nom du fichier sans le '.json'. </td></tr>
+    <tr><td class="paramname">mode</td><td>Mode d'ouverture du fichier. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Un pointeur sur le fichier ouvert. </dd></dl>
+
+</div>
+</div>
+<a id="a6dd5ea7284f649e178e13e99c43600b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dd5ea7284f649e178e13e99c43600b3">&#9670;&nbsp;</a></span>open_json_obj()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">t_erreur open_json_obj </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Démarre un nouvelle objet au format JSON dans un fichier. </p>
+<p>L'écriture s'effectue dans le fichier 'file' en ajout avec pour contenu '{' et la variable crt_car est mis à jour. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>Le fichier ou écrire. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Une erreur s'il y en a une. </dd></dl>
+
+</div>
+</div>
+<a id="aef1b0866438f726985d55d84571526c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef1b0866438f726985d55d84571526c8">&#9670;&nbsp;</a></span>write_json()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">t_erreur write_json </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>value_type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ecrit une clé/valeur au format JSON dans un fichier. </p>
+<p>L'écriture s'effectue dans le fichier 'file' en ajout avec pour contenu le couple clé/valeur 'key:value'. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>Le fichier ou écrire. </td></tr>
+    <tr><td class="paramname">key</td><td>La clé correspondant à la valeur. </td></tr>
+    <tr><td class="paramname">value</td><td>La valeur à écrire. </td></tr>
+    <tr><td class="paramname">value_type</td><td>Le type de la valeur à écrire. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Une erreur s'il y en a une. </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des variables</h2>
+<a id="a264dd58178e90f733d77122d11553ca8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a264dd58178e90f733d77122d11553ca8">&#9670;&nbsp;</a></span>crt_car</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">crt_car = '#'</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Variable globale contenant le dernier caractère ajouté au fichier JSON en cours. </p>
+<p>La variable est égale à '#' par défaut quand on est ni dans un fichier ni dans un objet; </p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

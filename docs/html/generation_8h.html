@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Génération Procedural et Stockage de donnée: Référence du fichier include/generation.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Génération Procedural et Stockage de donnée
+   </div>
+   <div id="projectbrief">Le but de ce projet de d&#39;apprendre a utilisé Perlin noise en commmencant a réfléchir au structure que nous aurons besoin</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier generation.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Module de generation de la map.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;<a class="el" href="block_8h_source.html">block.h</a>&gt;</code><br />
+</div>
+<p><a href="generation_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ae82f8498c679a1cb688813d52397eed9"><td class="memItemLeft" align="right" valign="top"><a id="ae82f8498c679a1cb688813d52397eed9"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>HAUTEUR_SURFACE</b>&#160;&#160;&#160;4</td></tr>
+<tr class="separator:ae82f8498c679a1cb688813d52397eed9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a619867e5a9ebab1dd9ee2151b1d90586"><td class="memItemLeft" align="right" valign="top"><a id="a619867e5a9ebab1dd9ee2151b1d90586"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>PROFONDEUR_GROTTE</b>&#160;&#160;&#160;15</td></tr>
+<tr class="separator:a619867e5a9ebab1dd9ee2151b1d90586"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93d050707744a50de04189dbfe0024d4"><td class="memItemLeft" align="right" valign="top"><a id="a93d050707744a50de04189dbfe0024d4"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BEDROCK</b>&#160;&#160;&#160;3</td></tr>
+<tr class="separator:a93d050707744a50de04189dbfe0024d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75f69fa326bd0e66b1af94fcfb63683b"><td class="memItemLeft" align="right" valign="top"><a id="a75f69fa326bd0e66b1af94fcfb63683b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SIZE_GROTTE</b>&#160;&#160;&#160;3</td></tr>
+<tr class="separator:a75f69fa326bd0e66b1af94fcfb63683b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84ef257dd5f4f0c4fccea513783d609d"><td class="memItemLeft" align="right" valign="top"><a id="a84ef257dd5f4f0c4fccea513783d609d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>HAUTEUR_EAU</b>&#160;&#160;&#160;MAX / 2.5</td></tr>
+<tr class="separator:a84ef257dd5f4f0c4fccea513783d609d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:adb0c35e623fdf89aae50eb2c9dc3032a"><td class="memItemLeft" align="right" valign="top"><a id="adb0c35e623fdf89aae50eb2c9dc3032a"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>gen_col</b> (<a class="el" href="structt__liste.html">t_liste</a> *list, int x, int dir)</td></tr>
+<tr class="separator:adb0c35e623fdf89aae50eb2c9dc3032a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2677b3737807a60f53c04e19a843e383"><td class="memItemLeft" align="right" valign="top"><a id="a2677b3737807a60f53c04e19a843e383"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>init_map</b> (<a class="el" href="structblock__s.html">t_block</a> *map, int x)</td></tr>
+<tr class="separator:a2677b3737807a60f53c04e19a843e383"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Module de generation de la map. </p>
+<dl class="section author"><dt>Auteur</dt><dd>{Maxence.D} </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>13 mars 2019 </dd></dl>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

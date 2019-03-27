@@ -1,0 +1,335 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Génération Procedural et Stockage de donnée: Référence du fichier src/binaire.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Génération Procedural et Stockage de donnée
+   </div>
+   <div id="projectbrief">Le but de ce projet de d&#39;apprendre a utilisé Perlin noise en commmencant a réfléchir au structure que nous aurons besoin</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier binaire.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Module qui lit et écrit des fichiers binaires.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="binaire_8h_source.html">binaire.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="chemin_8h_source.html">chemin.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="erreur_8h_source.html">erreur.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="fichier_8h_source.html">fichier.h</a>&gt;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a4aa2f1ea621bf958363948c2ccf1fa50"><td class="memItemLeft" align="right" valign="top">t_binaire&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="binaire_8c.html#a4aa2f1ea621bf958363948c2ccf1fa50">Open_BIN</a> (char *dossier, char *name, char *mode)</td></tr>
+<tr class="memdesc:a4aa2f1ea621bf958363948c2ccf1fa50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer, s'il ne l'est pas, le fichier Binaire et l'ouvre.  <a href="#a4aa2f1ea621bf958363948c2ccf1fa50">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a4aa2f1ea621bf958363948c2ccf1fa50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36f153273c49c8d6f30a2e1eb4420fca"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="binaire_8c.html#a36f153273c49c8d6f30a2e1eb4420fca">Del_BIN</a> (char *dossier, char *name)</td></tr>
+<tr class="memdesc:a36f153273c49c8d6f30a2e1eb4420fca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supprime un fichier Binaire.  <a href="#a36f153273c49c8d6f30a2e1eb4420fca">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a36f153273c49c8d6f30a2e1eb4420fca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e3d54884fe335285fcc6cea6916683b"><td class="memItemLeft" align="right" valign="top"><a id="a0e3d54884fe335285fcc6cea6916683b"></a>
+t_erreur&#160;</td><td class="memItemRight" valign="bottom"><b>Close_BIN</b> (t_binaire bin)</td></tr>
+<tr class="separator:a0e3d54884fe335285fcc6cea6916683b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad3d61cf23ad3145f03f915575236f1d"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="binaire_8c.html#aad3d61cf23ad3145f03f915575236f1d">Write_BIN</a> (void *src, int taille_elem, int nb_elem, t_binaire bin)</td></tr>
+<tr class="memdesc:aad3d61cf23ad3145f03f915575236f1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ecrit dans un fichier Binaire.  <a href="#aad3d61cf23ad3145f03f915575236f1d">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aad3d61cf23ad3145f03f915575236f1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98bee257b43d1fb8d03e5e040c4ce9de"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="binaire_8c.html#a98bee257b43d1fb8d03e5e040c4ce9de">Read_BIN</a> (void *dest, int taille_elem, int nb_elem, t_binaire bin)</td></tr>
+<tr class="memdesc:a98bee257b43d1fb8d03e5e040c4ce9de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lit le contenu d'un fichier Binaire.  <a href="#a98bee257b43d1fb8d03e5e040c4ce9de">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a98bee257b43d1fb8d03e5e040c4ce9de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa95a9d74cf33e626a1b1e99cbca4cbb3"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="binaire_8c.html#aa95a9d74cf33e626a1b1e99cbca4cbb3">FStart_BIN</a> (t_binaire file)</td></tr>
+<tr class="memdesc:aa95a9d74cf33e626a1b1e99cbca4cbb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remet le pointeur file au début du fichier.  <a href="#aa95a9d74cf33e626a1b1e99cbca4cbb3">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aa95a9d74cf33e626a1b1e99cbca4cbb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Module qui lit et écrit des fichiers binaires. </p>
+<dl class="section author"><dt>Auteur</dt><dd>GALBRUN Tibane </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>11 Mars 2019 </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a36f153273c49c8d6f30a2e1eb4420fca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36f153273c49c8d6f30a2e1eb4420fca">&#9670;&nbsp;</a></span>Del_BIN()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Del_BIN </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>dossier</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Supprime un fichier Binaire. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dossier</td><td>Chaine de caractère représentant le dossier ou se trouve le fichier binaire. </td></tr>
+    <tr><td class="paramname">name</td><td>Chaine de caractère représenant le nom du fichier à supprimer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Une erreur s'il y en a une. </dd></dl>
+
+</div>
+</div>
+<a id="aa95a9d74cf33e626a1b1e99cbca4cbb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa95a9d74cf33e626a1b1e99cbca4cbb3">&#9670;&nbsp;</a></span>FStart_BIN()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">t_erreur FStart_BIN </td>
+          <td>(</td>
+          <td class="paramtype">t_binaire&#160;</td>
+          <td class="paramname"><em>bin</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remet le pointeur file au début du fichier. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bin</td><td>Le fichier où repartir du début. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Une erreur s'il y en a une. </dd></dl>
+
+</div>
+</div>
+<a id="a4aa2f1ea621bf958363948c2ccf1fa50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4aa2f1ea621bf958363948c2ccf1fa50">&#9670;&nbsp;</a></span>Open_BIN()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">t_binaire Open_BIN </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>dossier</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>mode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Créer, s'il ne l'est pas, le fichier Binaire et l'ouvre. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dossier</td><td>Chaine de caractère représentant le dossier ou se trouve le fichier binaire. </td></tr>
+    <tr><td class="paramname">name</td><td>Chaine de caractère représenant le nom du fichier. </td></tr>
+    <tr><td class="paramname">mode</td><td>Mode d'ouverture du fichier. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Un pointeur sur le fichier ouvert. </dd></dl>
+
+</div>
+</div>
+<a id="a98bee257b43d1fb8d03e5e040c4ce9de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98bee257b43d1fb8d03e5e040c4ce9de">&#9670;&nbsp;</a></span>Read_BIN()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">t_erreur Read_BIN </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>taille_elem</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nb_elem</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">t_binaire&#160;</td>
+          <td class="paramname"><em>bin</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lit le contenu d'un fichier Binaire. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dest</td><td>L'adresse de l'endroit où sauvegarder ce qu'on récupère. </td></tr>
+    <tr><td class="paramname">taille_elem</td><td>La taille d'un élèment. </td></tr>
+    <tr><td class="paramname">nb_elem</td><td>Le nombre d'élèment à lire. </td></tr>
+    <tr><td class="paramname">bin</td><td>Le fichier où lire. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Une erreur s'il y en a une. </dd></dl>
+
+</div>
+</div>
+<a id="aad3d61cf23ad3145f03f915575236f1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad3d61cf23ad3145f03f915575236f1d">&#9670;&nbsp;</a></span>Write_BIN()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">t_erreur Write_BIN </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>taille_elem</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nb_elem</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">t_binaire&#160;</td>
+          <td class="paramname"><em>bin</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ecrit dans un fichier Binaire. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">src</td><td>L'adresse du 1er élèment à écrire. </td></tr>
+    <tr><td class="paramname">taille_elem</td><td>La taille d'un élèment. </td></tr>
+    <tr><td class="paramname">nb_elem</td><td>Le nombre d'élèment à écrire. </td></tr>
+    <tr><td class="paramname">bin</td><td>Le fichier où écrire. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Une erreur s'il y en a une. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

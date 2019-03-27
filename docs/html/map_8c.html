@@ -1,0 +1,337 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Génération Procedural et Stockage de donnée: Référence du fichier src/map.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Génération Procedural et Stockage de donnée
+   </div>
+   <div id="projectbrief">Le but de ce projet de d&#39;apprendre a utilisé Perlin noise en commmencant a réfléchir au structure que nous aurons besoin</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier map.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Module permettant de géré une map (Création,Suppression)  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;<a class="el" href="block_8h_source.html">block.h</a>&gt;</code><br />
+<code>#include &lt;commun.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="erreur_8h_source.html">erreur.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="liste_8h_source.html">liste.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="affichage_8h_source.html">affichage.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="json_8h_source.html">json.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="map_8h_source.html">map.h</a>&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;sys/stat.h&gt;</code><br />
+<code>#include &lt;sys/types.h&gt;</code><br />
+<code>#include &lt;unistd.h&gt;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:aef056582e45db1e9b9f32ed94ce342a3"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8c.html#aef056582e45db1e9b9f32ed94ce342a3">MAP_creer</a> (<a class="el" href="structt__map.html">t_map</a> **map, char *nom_map, int SEED)</td></tr>
+<tr class="memdesc:aef056582e45db1e9b9f32ed94ce342a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer une map (le dossier de saugarde et le pointeur pour manipuler cette map)  <a href="#aef056582e45db1e9b9f32ed94ce342a3">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aef056582e45db1e9b9f32ed94ce342a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a924b98cbf202b64bbf0d220799b85618"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8c.html#a924b98cbf202b64bbf0d220799b85618">MAP_charger</a> (<a class="el" href="structt__map.html">t_map</a> **map, char *nom_map)</td></tr>
+<tr class="memdesc:a924b98cbf202b64bbf0d220799b85618"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge la map a partir des fichier.  <a href="#a924b98cbf202b64bbf0d220799b85618">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a924b98cbf202b64bbf0d220799b85618"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af37676b15409d8011fab9afb3dceaf48"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8c.html#af37676b15409d8011fab9afb3dceaf48">MAP_lister</a> ()</td></tr>
+<tr class="memdesc:af37676b15409d8011fab9afb3dceaf48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Liste toute les map.  <a href="#af37676b15409d8011fab9afb3dceaf48">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af37676b15409d8011fab9afb3dceaf48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cbabb7d85f1c202fe4365129d1a4fd9"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8c.html#a9cbabb7d85f1c202fe4365129d1a4fd9">MAP_sauvegarder</a> (<a class="el" href="structt__map.html">t_map</a> *map)</td></tr>
+<tr class="memdesc:a9cbabb7d85f1c202fe4365129d1a4fd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sauvegarde la map dans l'état actuel.  <a href="#a9cbabb7d85f1c202fe4365129d1a4fd9">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a9cbabb7d85f1c202fe4365129d1a4fd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69443211920fe8027cdf8fc881ec8099"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8c.html#a69443211920fe8027cdf8fc881ec8099">MAP_creer_dir</a> (<a class="el" href="structt__map.html">t_map</a> *map)</td></tr>
+<tr class="memdesc:a69443211920fe8027cdf8fc881ec8099"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer le repertoire d'une map.  <a href="#a69443211920fe8027cdf8fc881ec8099">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a69443211920fe8027cdf8fc881ec8099"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a441906150a1c586a7ef225ac226bd143"><td class="memItemLeft" align="right" valign="top"><a id="a441906150a1c586a7ef225ac226bd143"></a>
+t_erreur&#160;</td><td class="memItemRight" valign="bottom"><b>MAP_supprimer</b> (<a class="el" href="structt__map.html">t_map</a> *map)</td></tr>
+<tr class="separator:a441906150a1c586a7ef225ac226bd143"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1929f4af7bc80c58f069d9b6633b989"><td class="memItemLeft" align="right" valign="top"><a id="ae1929f4af7bc80c58f069d9b6633b989"></a>
+t_erreur&#160;</td><td class="memItemRight" valign="bottom"><b>MAP_detruction</b> (<a class="el" href="structt__map.html">t_map</a> **map)</td></tr>
+<tr class="separator:ae1929f4af7bc80c58f069d9b6633b989"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa19ca208d8692fc9f01278738f1752dc"><td class="memItemLeft" align="right" valign="top"><a id="aa19ca208d8692fc9f01278738f1752dc"></a>
+char *&#160;</td><td class="memItemRight" valign="bottom"><b>MAP_creer_path</b> (char *nom_map)</td></tr>
+<tr class="separator:aa19ca208d8692fc9f01278738f1752dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68ce824f54aa0ce572d085d56f533a98"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8c.html#a68ce824f54aa0ce572d085d56f533a98">MAP_detruire_path</a> (char **path_dir)</td></tr>
+<tr class="memdesc:a68ce824f54aa0ce572d085d56f533a98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère la mémoire dynamique alloué pour le path.  <a href="#a68ce824f54aa0ce572d085d56f533a98">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a68ce824f54aa0ce572d085d56f533a98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c2ed98ad423d0862946f907e8750443"><td class="memItemLeft" align="right" valign="top"><a id="a2c2ed98ad423d0862946f907e8750443"></a>
+<a class="el" href="structblock__s.html">t_block</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>MAP_GetBlockFromList</b> (<a class="el" href="structt__map.html">t_map</a> *map, int x, int y)</td></tr>
+<tr class="separator:a2c2ed98ad423d0862946f907e8750443"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbd7e9a49a231ad9f225132302ada4f5"><td class="memItemLeft" align="right" valign="top"><a id="acbd7e9a49a231ad9f225132302ada4f5"></a>
+<a class="el" href="structblock__s.html">t_block</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>MAP_GetBlock</b> (<a class="el" href="structt__map.html">t_map</a> *map, int x, int y)</td></tr>
+<tr class="separator:acbd7e9a49a231ad9f225132302ada4f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a218ead4cdcfa4d31ac0c86a345fca1b3"><td class="memItemLeft" align="right" valign="top"><a id="a218ead4cdcfa4d31ac0c86a345fca1b3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>MAP_SetEcListe</b> (<a class="el" href="structt__liste.html">t_liste</a> *list, int x)</td></tr>
+<tr class="separator:a218ead4cdcfa4d31ac0c86a345fca1b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb6bbd9070773c4855c1dafe5c81bdc2"><td class="memItemLeft" align="right" valign="top"><a id="abb6bbd9070773c4855c1dafe5c81bdc2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>MAP_CopyListFromX</b> (<a class="el" href="structt__map.html">t_map</a> *map, <a class="el" href="structt__liste.html">t_liste</a> *list, int x_from, int x_to)</td></tr>
+<tr class="separator:abb6bbd9070773c4855c1dafe5c81bdc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Module permettant de géré une map (Création,Suppression) </p>
+<dl class="section author"><dt>Auteur</dt><dd>{Maxence.D} </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>07 mars 2019 </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a924b98cbf202b64bbf0d220799b85618"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a924b98cbf202b64bbf0d220799b85618">&#9670;&nbsp;</a></span>MAP_charger()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">t_erreur MAP_charger </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__map.html">t_map</a> **&#160;</td>
+          <td class="paramname"><em>map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>nom_map</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Charge la map a partir des fichier. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td>Pointeur sur la map qui doit etre sauvegarder </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Renvoie un code erreur en cas de problème sinon OK </dd></dl>
+
+</div>
+</div>
+<a id="aef056582e45db1e9b9f32ed94ce342a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef056582e45db1e9b9f32ed94ce342a3">&#9670;&nbsp;</a></span>MAP_creer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">t_erreur MAP_creer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__map.html">t_map</a> **&#160;</td>
+          <td class="paramname"><em>map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>nom_map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>SEED</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Créer une map (le dossier de saugarde et le pointeur pour manipuler cette map) </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td>le pointeur de la map qui va être créer </td></tr>
+    <tr><td class="paramname">nom_map</td><td>Le nom de la map </td></tr>
+    <tr><td class="paramname">SEED</td><td>Le SEED de génération de la map </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Renvoie un code erreur en cas de problème sinon OK </dd></dl>
+
+</div>
+</div>
+<a id="a69443211920fe8027cdf8fc881ec8099"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69443211920fe8027cdf8fc881ec8099">&#9670;&nbsp;</a></span>MAP_creer_dir()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">t_erreur MAP_creer_dir </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__map.html">t_map</a> *&#160;</td>
+          <td class="paramname"><em>map</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Créer le repertoire d'une map. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td>Pointeur sur la map dont le repertoire doit être créer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Renvoie un code erreur en cas de problème sinon OK </dd></dl>
+
+</div>
+</div>
+<a id="a68ce824f54aa0ce572d085d56f533a98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68ce824f54aa0ce572d085d56f533a98">&#9670;&nbsp;</a></span>MAP_detruire_path()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">t_erreur MAP_detruire_path </td>
+          <td>(</td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>path_dir</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libère la mémoire dynamique alloué pour le path. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td>Pointeur de pointeur sur le path </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Renvoie un code erreur en cas de problème sinon OK </dd></dl>
+
+</div>
+</div>
+<a id="af37676b15409d8011fab9afb3dceaf48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af37676b15409d8011fab9afb3dceaf48">&#9670;&nbsp;</a></span>MAP_lister()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">t_erreur MAP_lister </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Liste toute les map. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td>Pointeur sur la map qui doit etre sauvegarder </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Renvoie un code erreur en cas de problème sinon OK </dd></dl>
+
+</div>
+</div>
+<a id="a9cbabb7d85f1c202fe4365129d1a4fd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cbabb7d85f1c202fe4365129d1a4fd9">&#9670;&nbsp;</a></span>MAP_sauvegarder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">t_erreur MAP_sauvegarder </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__map.html">t_map</a> *&#160;</td>
+          <td class="paramname"><em>map</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sauvegarde la map dans l'état actuel. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td>Pointeur sur la map qui doit etre sauvegarder </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Renvoie un code erreur en cas de problème sinon OK </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

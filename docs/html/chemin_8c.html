@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Génération Procedural et Stockage de donnée: Référence du fichier src/chemin.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Génération Procedural et Stockage de donnée
+   </div>
+   <div id="projectbrief">Le but de ce projet de d&#39;apprendre a utilisé Perlin noise en commmencant a réfléchir au structure que nous aurons besoin</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier chemin.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Module servant à récupérer le chemin absolu de la racine du projet.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="chemin_8h_source.html">chemin.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="liste_8h_source.html">liste.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="erreur_8h_source.html">erreur.h</a>&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;ctype.h&gt;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a3d19e4065f963d93d23f046811107d80"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="chemin_8c.html#a3d19e4065f963d93d23f046811107d80">decomposer_PWD</a> (<a class="el" href="structt__liste.html">t_liste</a> *p, char *pwd)</td></tr>
+<tr class="memdesc:a3d19e4065f963d93d23f046811107d80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Décompose dans une liste le PWD.  <a href="#a3d19e4065f963d93d23f046811107d80">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a3d19e4065f963d93d23f046811107d80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa831b692df5b4400fd07338357be61d3"><td class="memItemLeft" align="right" valign="top"><a id="aa831b692df5b4400fd07338357be61d3"></a>
+t_erreur&#160;</td><td class="memItemRight" valign="bottom"><b>pwd_init</b> (char *argv, char *env)</td></tr>
+<tr class="separator:aa831b692df5b4400fd07338357be61d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5aca441244932fa32192a79ef980d2eb"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="chemin_8c.html#a5aca441244932fa32192a79ef980d2eb">pwd_quit</a> (void)</td></tr>
+<tr class="memdesc:a5aca441244932fa32192a79ef980d2eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unset la variable globale WOD_PWD.  <a href="#a5aca441244932fa32192a79ef980d2eb">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a5aca441244932fa32192a79ef980d2eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af02bc563f4c0e7190df6b3d397501beb"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="chemin_8c.html#af02bc563f4c0e7190df6b3d397501beb">fusion_PWD</a> (<a class="el" href="structt__liste.html">t_liste</a> *env, <a class="el" href="structt__liste.html">t_liste</a> *argv)</td></tr>
+<tr class="memdesc:af02bc563f4c0e7190df6b3d397501beb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère le chemin absolu de la racine de WOD.  <a href="#af02bc563f4c0e7190df6b3d397501beb">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af02bc563f4c0e7190df6b3d397501beb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a426a590237f668eca1627c0cc3985cd2"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="chemin_8c.html#a426a590237f668eca1627c0cc3985cd2">creation_chemin</a> (char *ajout, char **res)</td></tr>
+<tr class="memdesc:a426a590237f668eca1627c0cc3985cd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concatène 2 chaine de caractère.  <a href="#a426a590237f668eca1627c0cc3985cd2">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a426a590237f668eca1627c0cc3985cd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fe1520dbe25f041e413193a6ab5225f"><td class="memItemLeft" align="right" valign="top">t_erreur&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="chemin_8c.html#a1fe1520dbe25f041e413193a6ab5225f">tolower_str</a> (char *str, char **res)</td></tr>
+<tr class="memdesc:a1fe1520dbe25f041e413193a6ab5225f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met en minuscule une chaine de caractère.  <a href="#a1fe1520dbe25f041e413193a6ab5225f">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a1fe1520dbe25f041e413193a6ab5225f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Module servant à récupérer le chemin absolu de la racine du projet. </p>
+<dl class="section author"><dt>Auteur</dt><dd>GALBRUN Tibane </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>09/03/2019 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a426a590237f668eca1627c0cc3985cd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a426a590237f668eca1627c0cc3985cd2">&#9670;&nbsp;</a></span>creation_chemin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">t_erreur creation_chemin </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>ajout</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>res</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Concatène 2 chaine de caractère. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ajout</td><td>Chaine de caractère à ajouter à gauche de WOD_PWD. </td></tr>
+    <tr><td class="paramname">res</td><td>Chaine de caractère résultat. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Une erreur s'il y en a une. </dd></dl>
+
+</div>
+</div>
+<a id="a3d19e4065f963d93d23f046811107d80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d19e4065f963d93d23f046811107d80">&#9670;&nbsp;</a></span>decomposer_PWD()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">t_erreur decomposer_PWD </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__liste.html">t_liste</a> *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>pwd</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Décompose dans une liste le PWD. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>La liste où mettre ce qui a été décomposé. </td></tr>
+    <tr><td class="paramname">pwd</td><td>Le PWD à décomposer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Une erreur s'il y en a une. </dd></dl>
+
+</div>
+</div>
+<a id="af02bc563f4c0e7190df6b3d397501beb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af02bc563f4c0e7190df6b3d397501beb">&#9670;&nbsp;</a></span>fusion_PWD()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">t_erreur fusion_PWD </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__liste.html">t_liste</a> *&#160;</td>
+          <td class="paramname"><em>env</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__liste.html">t_liste</a> *&#160;</td>
+          <td class="paramname"><em>argv</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Récupère le chemin absolu de la racine de WOD. </p>
+<p>Met à jour la valeur de WOD_PWD, qui sera accessible de tout le programme. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">env</td><td>Le PWD utiliser pour connaitre le WOD_PWD. </td></tr>
+    <tr><td class="paramname">argv</td><td>Le PWD utiliser pour connaitre le WOD_PWD. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Une erreur s'il y en a une. </dd></dl>
+
+</div>
+</div>
+<a id="a5aca441244932fa32192a79ef980d2eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5aca441244932fa32192a79ef980d2eb">&#9670;&nbsp;</a></span>pwd_quit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">t_erreur pwd_quit </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Unset la variable globale WOD_PWD. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Une erreur s'il y en a une. </dd></dl>
+
+</div>
+</div>
+<a id="a1fe1520dbe25f041e413193a6ab5225f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fe1520dbe25f041e413193a6ab5225f">&#9670;&nbsp;</a></span>tolower_str()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">t_erreur tolower_str </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>res</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Met en minuscule une chaine de caractère. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>Chaine de caractère source. </td></tr>
+    <tr><td class="paramname">res</td><td>Chaine de caractère résultat. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Une erreur s'il y en a une. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>
