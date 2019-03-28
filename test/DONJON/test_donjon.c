@@ -16,6 +16,7 @@
 #include <affichage.h>
 #include <block.h>
 #include <entite.h>
+#include <touches.h>
 
 #define NB_SALLE 20
 
@@ -62,6 +63,10 @@ int main(int argc, char **argv, char **env){
         return VALUE_ERROR;
     }
 
+    uint8_t *ks;
+    configTouches_t *ct;
+    SDL_init_touches( &ks, &ct);
+
     Init_Sprite(renderer);
     t_entite * joueur = creer_entite_defaut("Joueur", JOUEUR, 9 * width_window + 5 * width_block_sdl, 10 * height_window + 7 * height_block_sdl, 3 * height_block_sdl);
     
@@ -71,20 +76,36 @@ int main(int argc, char **argv, char **env){
     donjon_creer(&donjon, NB_SALLE, joueur);
 
     
+    int continuer = 1;
+    while(continuer){
    
     /* Affichage Donjon */
-    SDL_RenderClear(renderer);
-    
-    donjon_afficher_SDL(renderer, donjon, joueur);
-    Charger_Anima(renderer, joueur, IMMOBILE);
-    donjon_afficher_Term(donjon, joueur);
-    
-    SDL_RenderPresent(renderer);
-    SDL_Delay(2000);
+        SDL_touches( ks, ct);
+
+        if ( SDL_touche_appuyer( ks, QUITTER) ) 
+            continuer = 0;
+        if ( SDL_touche_appuyer( ks, AVANCER) ) 
+            joueur->hitbox.y -= 10;
+        if ( SDL_touche_appuyer( ks, DROITE) ) 
+            joueur->hitbox.x += 10;
+        if ( SDL_touche_appuyer( ks, RECULER) ) 
+            joueur->hitbox.y += 10;
+        if ( SDL_touche_appuyer( ks, GAUCHE) ) 
+            joueur->hitbox.x -= 10;
+
+        SDL_RenderClear(renderer);
+        
+        donjon_afficher_SDL(renderer, donjon, joueur);
+        Charger_Anima(renderer, joueur, IMMOBILE);
+        donjon_afficher_Term(donjon, joueur);
+        
+        SDL_RenderPresent(renderer);
+    }
     
     /* Destruction Donjon */
     donjon_detruire(&donjon);
     BLOCK_DestroyTexture_sdl(renderer);
+    SDL_exit_touches(&ks, &ct);
     Quit_Sprite();
     detruire_entite(joueur);
     pwd_quit();
