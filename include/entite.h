@@ -64,8 +64,11 @@ typedef struct s_anim_action
 #define HAUTEUR_SAUT 9
 #define VITESSE_DEPLACEMENT 5
 #define ACCELERATION 1.5
-#define POSX_ENT_SCREEN (width_window/2 - W_PART_SPRITE/2)
-#define POSY_ENT_SCREEN (height_window/2 - H_PART_SPRITE/2)
+#define POSX_ENT_SCREEN (width_window/2 - entite->hitbox.w/2)
+#define POSY_ENT_SCREEN (height_window/2 - entite->hitbox.h/2)
+#define DECALAGE_NOM_ENT 30
+#define LARGEUR_NOM_ENT 70
+#define HAUTEUR_NOM_ENT 20
 
 /**
  * \enum t_entite_type
@@ -164,6 +167,6 @@ t_erreur update_posY_entite(t_entite * entite, double coef_fps, t_liste * p);
 /* Affiche les animations et modifie l'emplacement du joueur suivant les touches appuyées et gère les collisions en X */
 t_erreur Gestion_Entite (SDL_Renderer * renderer, t_entite * entite, uint8_t * ks, double coef_fps, t_liste * p);
 /* Affiche les informations de l'entité sur la fenêtre */
-t_erreur Print_Inf_Entite (t_entite * entite);
+t_erreur Print_Info_Entite (t_entite * entite);
 
 #endif
