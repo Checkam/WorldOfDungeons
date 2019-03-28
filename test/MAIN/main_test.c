@@ -44,6 +44,10 @@ int main(int argc, char *argv[], char **env) {
 
   MAP_creer(&map, "World", 12281783);
 
+  //--------------------------------------------------------------------------------------------------------------
+  // Initialisation SDL
+  //--------------------------------------------------------------------------------------------------------------
+
   if (SDL_Init(SDL_INIT_EVERYTHING) == -1) {
     printf("%s\n", SDL_GetError());
     return EXIT_FAILURE;
@@ -63,8 +67,9 @@ int main(int argc, char *argv[], char **env) {
                                         SDL_WINDOW_SHOWN | SDL_WINDOW_FULLSCREEN_DESKTOP);
   SDL_GetWindowSize(screen, &width_window, &height_window);
 
-  width_block_sdl = 25;
-  height_block_sdl = 25;
+  width_block_sdl = width_window / NB_BLOCK_WIDTH;
+  height_block_sdl = height_window / NB_BLOCK_HEIGHT;
+
   SDL_Rect fondRect = {0, 0, width_window, height_window};
   SDL_Renderer *renderer = SDL_CreateRenderer(screen, -1, SDL_RENDERER_ACCELERATED);
 
@@ -98,9 +103,9 @@ int main(int argc, char *argv[], char **env) {
   menu_creer(MENU_PRINCIPAL, width_window, height_window, &menu);
   t_type_menu type_bouton;
   t_block *b = MAP_GetBlockFromList(map, SIZE / 2, AFF_GetMidHeight(map->list));
-  t_entite *J = creer_entite_defaut(NULL, JOUEUR, b->x, b->y, 50);
+  t_entite *J = creer_entite_defaut(NULL, JOUEUR, b->x, b->y, width_block_sdl * 2);
 
-#define calY_aff ((J->hitbox.y / height_block_sdl) - MAX_SCREEN / 2 - (J->hitbox.h / width_block_sdl)) - 1
+#define calY_aff ((J->hitbox.y / height_block_sdl) - MAX_SCREEN / 2 - (J->hitbox.h / width_block_sdl))
 #define calX_Debut (J->hitbox.x / width_block_sdl) - (SIZE / 2)
 #define calX_Fin (J->hitbox.x / width_block_sdl) + (SIZE / 2)
 
@@ -124,20 +129,6 @@ int main(int argc, char *argv[], char **env) {
 
   while (boucle) {
 
-    taille = AFF_GetMidHeight(map->list);
-    SDL_RenderCopy(renderer, fond, NULL, &fondRect);
-
-    //On efface toute les valeurs de la liste d'affichage
-    for (en_queue(&affichage); !hors_liste(&affichage); en_queue(&affichage))
-      oter_elt(&affichage, NULL);
-
-    MAP_CopyListFromX(map, &affichage, calX_Debut, calX_Fin);
-
-    AFF_map_sdl(&affichage, renderer, calY_aff);
-    // printf("%d %d\n", J->hitbox.y, J->hitbox.y / height_block_sdl);
-    Gestion_Entite(renderer, J, ks, coef_fps, map->list);
-    SDL_RenderPresent(renderer);
-
     SDL_touches(ks, ct);
 
     //QUITTER LE JEU
@@ -148,25 +139,23 @@ int main(int argc, char *argv[], char **env) {
     //GENERATION DROITE GAUCHE
     t_block *premier = MAP_GetBlockFromList(map, 0, 0);
     t_block *dernier = MAP_GetBlockFromList(map, taille_liste(map->list) - 1, 0);
-    if (i + 1 == (J->hitbox.x / width_block_sdl) + SIZE / 2) {
-      if (dernier && dernier->x < (i + 1)) {
-        gen_col(map->list, i, DROITE);
+
+    if (dernier)
+      if (dernier->x < (J->hitbox.x / width_block_sdl) + SIZE / 2) {
+        gen_col(map->list, (J->hitbox.x / width_block_sdl) + SIZE / 2, DROITE);
       }
-      i++;
-    }
-    if (i - SIZE - 1 == (J->hitbox.x / width_block_sdl) - SIZE / 2) {
-      if (premier && premier->x > (i - SIZE - 1)) {
-        gen_col(map->list, i - SIZE, GAUCHE);
+
+    if (premier)
+      if (premier->x > (J->hitbox.x / width_block_sdl) - SIZE / 2) {
+        gen_col(map->list, (J->hitbox.x / width_block_sdl) - SIZE / 2, GAUCHE);
       }
-      i--;
-    }
 
     //TEST SOURIS
     t_block *b;
     if (SDL_touche_appuyer(ks, SOURIS_GAUCHE)) {
       SDL_coord_souris(&x_mouse, &y_mouse);
       // Récuperation d'un block dans la liste
-      b = MAP_GetBlock(map, (x_mouse / width_block_sdl) + calX_Debut, MAX_SCREEN - (y_mouse / height_block_sdl) + calY_aff + 1);
+      b = MAP_GetBlock(map, (x_mouse / width_block_sdl) + calX_Debut, MAX_SCREEN - (y_mouse / height_block_sdl) + calY_aff);
 
       if (b) {
         b->id = AIR;
@@ -178,7 +167,7 @@ int main(int argc, char *argv[], char **env) {
     if (SDL_touche_appuyer(ks, SOURIS_DROIT)) {
       SDL_coord_souris(&x_mouse, &y_mouse);
       // Récuperation d'un block dans la liste
-      b = MAP_GetBlock(map, (x_mouse / width_block_sdl) + calX_Debut, MAX_SCREEN - (y_mouse / height_block_sdl) + calY_aff + 1);
+      b = MAP_GetBlock(map, (x_mouse / width_block_sdl) + calX_Debut, MAX_SCREEN - (y_mouse / height_block_sdl) + calY_aff);
 
       if (b) {
         b->id = ROCHE;
@@ -186,6 +175,21 @@ int main(int argc, char *argv[], char **env) {
         printf("Block NULL\n");
       }
     }
+
+    taille = AFF_GetMidHeight(map->list);
+    SDL_RenderCopy(renderer, fond, NULL, &fondRect);
+
+    //On efface toute les valeurs de la liste d'affichage
+    for (en_queue(&affichage); !hors_liste(&affichage); en_queue(&affichage))
+      oter_elt(&affichage, NULL);
+
+    MAP_CopyListFromX(map, &affichage, calX_Debut, calX_Fin);
+    AFF_map_sdl(&affichage, renderer, calY_aff);
+    printf("Affichage x_debut:%d x_fin:%d y:%d\n", calX_Debut, calX_Fin, calY_aff);
+
+    printf("hitbox: x:%d y:%d\n", J->hitbox.x / width_block_sdl, J->hitbox.y / height_block_sdl);
+    Gestion_Entite(renderer, J, ks, coef_fps, map->list);
+    SDL_RenderPresent(renderer);
 
     coef_fps = fps();
   }
