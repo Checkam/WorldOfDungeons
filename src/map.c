@@ -116,7 +116,7 @@ t_erreur MAP_sauvegarder(t_map *map) {
   FILE *data = open_json(path_dir, "data", "w");
   open_json_obj(data);
 
-  erreur_afficher(write_json(data, "SEED", (void *)&(map->SEED), "d"), "write");
+  write_json(data, "SEED", (void *)&(map->SEED), "d");
   close_json_obj(data);
   fclose(data);
 
@@ -245,13 +245,13 @@ t_block *MAP_GetBlock(t_map *map, int x, int y) {
 
 void MAP_SetEcListe(t_liste *list, int x) {
   t_block *b = NULL;
-  for (en_tete(list); (b == NULL) || (x > b[0].x && !hors_liste(list)); suivant(list))
+  for (en_tete(list); !hors_liste(list) && (b == NULL || x > b[0].x); suivant(list))
     valeur_elt(list, (void **)&b);
 }
 
 void MAP_CopyListFromX(t_map *map, t_liste *list, int x_from, int x_to) {
   t_block *b;
-  for (MAP_SetEcListe(map->list, x_from); (b == NULL) || (x_to >= b[0].x && !hors_liste(map->list)); suivant(map->list)) {
+  for (MAP_SetEcListe(map->list, x_from); (!hors_liste(map->list) && (b == NULL || x_to > b[0].x)); suivant(map->list)) {
     valeur_elt(map->list, (void **)&b);
     ajout_droit(list, b);
   }
