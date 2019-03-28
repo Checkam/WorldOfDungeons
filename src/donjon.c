@@ -643,8 +643,8 @@ static t_erreur creer_mob(t_salle_donjon * salle, t_entite * joueur){
     nb_mob = rand() % 1 + 3;   
     nb_mob *= coef;
 
-    int posX_mob = (salle->x * SIZE * width_block_sdl) - (SIZE / 2);
-    int posY_mob = (salle->y * MAX_SCREEN * height_block_sdl) - TAILLE_SOL;
+    int posX_mob = (salle->x * SIZE) - (SIZE / 2);
+    int posY_mob = (salle->y * MAX_SCREEN) - TAILLE_SOL;
     int taille_mob = 2 * height_block_sdl;
     int taille_boss = 3 * height_block_sdl;
 
