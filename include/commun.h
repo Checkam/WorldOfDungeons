@@ -1,8 +1,8 @@
 #ifndef __COMMUN_H__
 #define __COMMUN_H__
 
-#define NB_BLOCK_WIDTH 76
-#define NB_BLOCK_HEIGHT 51
+#define NB_BLOCK_WIDTH 80
+#define NB_BLOCK_HEIGHT 45
 
 
 int height_window;
@@ -13,7 +13,7 @@ int height_block_sdl;
 
 #define MAX 100 /* Height tab */
 
-#define SIZE (width_window / width_block_sdl)    /* Width of screen */
+#define SIZE ((width_window / width_block_sdl))   /* Width of screen */
 #define MAX_SCREEN (height_window / height_block_sdl)  /* Heigth of screen */
 
 int SEED;
