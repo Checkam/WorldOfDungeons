@@ -4,7 +4,7 @@
  * \file entite.h
  * \brief Module contenant les primitives de gestion des entités.
  * \author GALBRUN Tibane
- * \date 13/03/2019
+ * \date 13 Mars 2019
  * \version 0.2
 */
 
@@ -64,7 +64,7 @@ typedef struct s_anim_action
 #define HAUTEUR_SAUT 9
 #define VITESSE_DEPLACEMENT 5
 #define ACCELERATION 1.5
-#define POSX_ENT_SCREEN (width_window/2 - W_PART_SPRITE + width_block_sdl)
+#define POSX_ENT_SCREEN (width_window/2 - W_PART_SPRITE)
 #define POSY_ENT_SCREEN (height_window/2 - H_PART_SPRITE)
 
 /**

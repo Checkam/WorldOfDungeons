@@ -2,7 +2,7 @@
  * \file entite.c
  * \brief Module servant à gérer les entités.
  * \author GALBRUN Tibane
- * \date 13/03/2019
+ * \date 13 Mars 2019
  * \version 0.2
 */
 
@@ -131,8 +131,16 @@ t_erreur detruire_entite(t_entite *entite) {
   return OK;
 }
 
+
 /****** FONCTIONS MODIF PARAMETRE ENTITE ******/
 
+/**
+ * \fn t_erreur Change_Name_Entite (t_entite * entite, char * name)
+ * \brief Change le nom d'une entité.
+ * \param entite L'entité à modifier.
+ * \param name Le nouveau nom.
+ * \return Une erreur s'il y en a une.
+*/
 t_erreur Change_Name_Entite (t_entite * entite, char * name)
 {
   if (!entite || !name || !entite->name) return PTR_NULL;
@@ -143,6 +151,15 @@ t_erreur Change_Name_Entite (t_entite * entite, char * name)
   return OK;
 }
 
+/**
+ * \fn t_erreur Change_Faim_Entite (t_entite * entite, uint32_t faim, uint32_t faim_max)
+ * \brief Change la faim d'une entité.
+ * \brief La faim doit être inférieure à la faim maximale et supérieure à 0.
+ * \param entite L'entité à modifier.
+ * \param faim La nouvelle faim.
+ * \param faim_max La nouvelle faim maximale.
+ * \return Une erreur s'il y en a une.
+*/
 t_erreur Change_Faim_Entite (t_entite * entite, uint32_t faim, uint32_t faim_max)
 {
   if (!entite) return PTR_NULL;
@@ -155,6 +172,15 @@ t_erreur Change_Faim_Entite (t_entite * entite, uint32_t faim, uint32_t faim_max
   return OK;
 }
 
+/**
+ * \fn t_erreur Change_Mana_Entite (t_entite * entite, uint32_t mana, uint32_t mana_max)
+ * \brief Change la mana d'une entité.
+ * \brief La mana doit être inférieure à la mana maximale et supérieure à 0.
+ * \param entite L'entité à modifier.
+ * \param mana La nouvelle mana.
+ * \param mana_max La nouvelle mana maximale.
+ * \return Une erreur s'il y en a une.
+*/
 t_erreur Change_Mana_Entite (t_entite * entite, uint32_t mana, uint32_t mana_max)
 {
   if (!entite) return PTR_NULL;
@@ -167,6 +193,15 @@ t_erreur Change_Mana_Entite (t_entite * entite, uint32_t mana, uint32_t mana_max
   return OK;
 }
 
+/**
+ * \fn t_erreur Change_PV_Entite (t_entite * entite, uint32_t pv, uint32_t pv_max)
+ * \brief Change les pv d'une entité.
+ * \brief Les pv doivent être inférieur aux pv maximum et supérieur à 0.
+ * \param entite L'entité à modifier.
+ * \param pv Les nouveaux pv.
+ * \param pv_max Les nouveaux pv maximum.
+ * \return Une erreur s'il y en a une.
+*/
 t_erreur Change_PV_Entite (t_entite * entite, uint32_t pv, uint32_t pv_max)
 {
   if (!entite) return PTR_NULL;
@@ -179,6 +214,14 @@ t_erreur Change_PV_Entite (t_entite * entite, uint32_t pv, uint32_t pv_max)
   return OK;
 }
 
+/**
+ * \fn t_erreur Change_XP_Entite (t_entite * entite, uint64_t xp)
+ * \brief Change l'xp d'une entité.
+ * \brief L'xp doit être supérieur à 0.
+ * \param entite L'entité à modifier.
+ * \param pv La nouvelle xp.
+ * \return Une erreur s'il y en a une.
+*/
 t_erreur Change_XP_Entite (t_entite * entite, uint64_t xp)
 {
   if (!entite) return PTR_NULL;
@@ -189,6 +232,13 @@ t_erreur Change_XP_Entite (t_entite * entite, uint64_t xp)
   return OK;
 }
 
+/**
+ * \fn t_erreur Add_Faim_Entite (t_entite * entite, int32_t faim)
+ * \brief Ajoute ou Retire de la faim à l'entité.
+ * \param entite L'entité à modifier.
+ * \param faim La faim à ajouter ou retirer.
+ * \return Une erreur s'il y en a une.
+*/
 t_erreur Add_Faim_Entite (t_entite * entite, int32_t faim)
 {
   if (!entite) return PTR_NULL;
@@ -203,6 +253,13 @@ t_erreur Add_Faim_Entite (t_entite * entite, int32_t faim)
   return OK;
 }
 
+/**
+ * \fn t_erreur Add_Mana_Entite (t_entite * entite, int32_t mana)
+ * \brief Ajoute ou Retire de la mana à l'entité.
+ * \param entite L'entité à modifier.
+ * \param mana La mana à ajouter ou retirer.
+ * \return Une erreur s'il y en a une.
+*/
 t_erreur Add_Mana_Entite (t_entite * entite, int32_t mana)
 {
   if (!entite) return PTR_NULL;
@@ -217,6 +274,13 @@ t_erreur Add_Mana_Entite (t_entite * entite, int32_t mana)
   return OK;
 }
 
+/**
+ * \fn t_erreur Add_PV_Entite (t_entite * entite, int32_t pv)
+ * \brief Ajoute ou Retire des pv à l'entité.
+ * \param entite L'entité à modifier.
+ * \param pv Les pv à ajouter ou retirer.
+ * \return Une erreur s'il y en a une.
+*/
 t_erreur Add_PV_Entite (t_entite * entite, int32_t pv)
 {
   if (!entite) return PTR_NULL;
@@ -231,6 +295,13 @@ t_erreur Add_PV_Entite (t_entite * entite, int32_t pv)
   return OK;
 }
 
+/**
+ * \fn t_erreur Add_XP_Entite (t_entite * entite, int64_t xp)
+ * \brief Ajoute ou Retire de l'xp à l'entité.
+ * \param entite L'entité à modifier.
+ * \param xp L'xp à ajouter ou retirer.
+ * \return Une erreur s'il y en a une.
+*/
 t_erreur Add_XP_Entite (t_entite * entite, int64_t xp)
 {
   if (!entite) return PTR_NULL;
@@ -448,7 +519,7 @@ int collision(t_entite *entite, t_collision_direction direction, t_liste *p) {
   /* Collision en BAS */
   case DIRECT_BAS_COLLI:
     if (blockBG) {
-      if (blockBG->id != 0) {
+      if (blockBG->id != AIR) {
         SDL_Rect B = {width_block_sdl * blockBG->x, height_block_sdl * blockBG->y, width_block_sdl, height_block_sdl};
         SDL_IntersectRect(&(entite->hitbox), &B, &res);
         collision = res.h;
@@ -456,7 +527,7 @@ int collision(t_entite *entite, t_collision_direction direction, t_liste *p) {
     }
 
     if (blockBD) {
-      if (blockBD->id != 0) {
+      if (blockBD->id != AIR) {
         SDL_Rect B = {width_block_sdl * blockBD->x, height_block_sdl * blockBD->y, width_block_sdl, height_block_sdl};
         SDL_IntersectRect(&(entite->hitbox), &B, &res);
         collision = res.h;
@@ -467,13 +538,13 @@ int collision(t_entite *entite, t_collision_direction direction, t_liste *p) {
   /* Collision en HAUT */
   case DIRECT_HAUT_COLLI:
     if (blockHD) {
-      if (blockHD->id != 0) {
+      if (blockHD->id != AIR) {
         SDL_Rect B = {width_block_sdl * blockHD->x, height_block_sdl * blockHD->y, width_block_sdl, height_block_sdl};
         SDL_IntersectRect(&(entite->hitbox), &B, &res);
         collision = res.h;
       }
     } else if (blockHG) {
-      if (blockHG->id != 0) {
+      if (blockHG->id != AIR) {
         SDL_Rect B = {width_block_sdl * blockHG->x, height_block_sdl * blockHG->y, width_block_sdl, height_block_sdl};
         SDL_IntersectRect(&(entite->hitbox), &B, &res);
         collision = res.h;
@@ -484,13 +555,13 @@ int collision(t_entite *entite, t_collision_direction direction, t_liste *p) {
   /* Collision à DROITE */
   case DIRECT_DROITE_COLLI:
     if (blockHD) {
-      if (blockHD->id != 0) {
+      if (blockHD->id != AIR) {
         SDL_Rect B = {width_block_sdl * blockHD->x, height_block_sdl * blockHD->y, width_block_sdl, height_block_sdl};
         SDL_IntersectRect(&(entite->hitbox), &B, &res);
         collision = res.w;
       }
     } else if (blockBD) {
-      if (blockBD->id != 0) {
+      if (blockBD->id != AIR) {
         SDL_Rect B = {width_block_sdl * blockBD->x, height_block_sdl * blockBD->y, width_block_sdl, height_block_sdl};
         SDL_IntersectRect(&(entite->hitbox), &B, &res);
         collision = res.w;
@@ -501,13 +572,13 @@ int collision(t_entite *entite, t_collision_direction direction, t_liste *p) {
   /* Collision à GAUCHE */
   case DIRECT_GAUCHE_COLLI:
     if (blockHG) {
-      if (blockHG->id != 0) {
+      if (blockHG->id != AIR) {
         SDL_Rect B = {width_block_sdl * blockHG->x, height_block_sdl * blockHG->y, width_block_sdl, height_block_sdl};
         SDL_IntersectRect(&(entite->hitbox), &B, &res);
         collision = res.w;
       }
     } else if (blockBG) {
-      if (blockBG->id != 0) {
+      if (blockBG->id != AIR) {
         SDL_Rect B = {width_block_sdl * blockBG->x, height_block_sdl * blockBG->y, width_block_sdl, height_block_sdl};
         SDL_IntersectRect(&(entite->hitbox), &B, &res);
         collision = res.w;
@@ -587,7 +658,7 @@ t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, d
   }
 
   /* Modif pour la touche SAUTER */
-  if (!(entite->velY) && collision(entite, DIRECT_BAS_COLLI, p) <= 0 && SDL_touche_appuyer(ks, SAUTER)) {
+  if (!(entite->velY) && collision(entite, DIRECT_BAS_COLLI, p) && SDL_touche_appuyer(ks, SAUTER)) {
     entite->velY -= HAUTEUR_SAUT;
   }
 

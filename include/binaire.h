@@ -13,6 +13,10 @@
 #include <stdlib.h>
 #include <erreur.h>
 
+/**
+ * \def t_binaire
+ * \brief Pointeur sur un fichier de type binaire.
+*/
 typedef FILE * t_binaire;
 
 /* Création, Ouverture et Fermeture de fichier Binaire */
