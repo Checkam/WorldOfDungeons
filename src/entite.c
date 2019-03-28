@@ -61,7 +61,7 @@ t_entite *creer_entite_defaut(char *name, t_entite_type type, int x_dep, int y_d
 }
 
 /**
- * \fn t_entite * creer_entite (char * name, int mana, int mana_max, int pv, int pv_max, SDL_Texture * texture, t_anim_action * t_a,int taille)
+ * \fn t_entite * creer_entite (char * name, uint32_t mana, uint32_t mana_max, uint32_t pv, uint32_t pv_max, SDL_Texture * texture, t_anim_action * t_a,int taille)
  * \brief Créer une entité.
  * \param name Le nom de l'entité.
  * \param mana Le mana de départ de l'entité.
@@ -75,8 +75,7 @@ t_entite *creer_entite_defaut(char *name, t_entite_type type, int x_dep, int y_d
  * \param taille Taille de l'entité en Y.
  * \return Un pointeur sur l'entité créée.
 */
-t_entite *creer_entite(char *name, int mana, int mana_max, int pv, int pv_max, SDL_Texture *texture, t_anim_action *t_a, int x_dep, int y_dep,
-                       int taille) {
+t_entite *creer_entite(char *name, uint32_t mana, uint32_t mana_max, uint32_t pv, uint32_t pv_max, SDL_Texture *texture, t_anim_action *t_a, int x_dep, int y_dep, int taille) {
   if (!texture || !name || !t_a)
     return NULL;
   if (mana > mana_max || pv > pv_max) {
@@ -92,7 +91,8 @@ t_entite *creer_entite(char *name, int mana, int mana_max, int pv, int pv_max, S
 
   t_entite *entite = malloc(sizeof(t_entite));
   entite->id = sizeof(*name); // sizeof temporaire
-  entite->name = name;
+  entite->name = malloc(sizeof(char) * strlen(name) + 1);
+  strcpy(entite->name,name);
   entite->xp = 0;
   entite->faim = entite->faim_max = 10;
   entite->mana = mana;
@@ -126,7 +126,120 @@ t_entite *creer_entite(char *name, int mana, int mana_max, int pv, int pv_max, S
 t_erreur detruire_entite(t_entite *entite) {
   if (!entite)
     return PTR_NULL;
+  free(entite->name);
   free(entite);
+  return OK;
+}
+
+/****** FONCTIONS MODIF PARAMETRE ENTITE ******/
+
+t_erreur Change_Name_Entite (t_entite * entite, char * name)
+{
+  if (!entite || !name || !entite->name) return PTR_NULL;
+
+  entite->name = realloc(entite->name,sizeof(char) * strlen(name) + 1);
+  strcpy(entite->name,name);
+
+  return OK;
+}
+
+t_erreur Change_Faim_Entite (t_entite * entite, uint32_t faim, uint32_t faim_max)
+{
+  if (!entite) return PTR_NULL;
+  if (faim <= 0 || faim_max <= 0) return VALUE_ERROR;
+  if (faim > faim_max) faim = faim_max;
+
+  entite->faim = faim;
+  entite->faim_max = faim_max;
+
+  return OK;
+}
+
+t_erreur Change_Mana_Entite (t_entite * entite, uint32_t mana, uint32_t mana_max)
+{
+  if (!entite) return PTR_NULL;
+  if (mana <= 0 || mana_max <= 0) return VALUE_ERROR;
+  if (mana > mana_max) mana = mana_max;
+
+  entite->mana = mana;
+  entite->mana_max = mana_max;
+
+  return OK;
+}
+
+t_erreur Change_PV_Entite (t_entite * entite, uint32_t pv, uint32_t pv_max)
+{
+  if (!entite) return PTR_NULL;
+  if (pv <= 0 || pv_max <= 0) return VALUE_ERROR;
+  if (pv > pv_max) pv = pv_max;
+
+  entite->pv = pv;
+  entite->pv_max = pv_max;
+
+  return OK;
+}
+
+t_erreur Change_XP_Entite (t_entite * entite, uint64_t xp)
+{
+  if (!entite) return PTR_NULL;
+  if (xp < 0) return VALUE_ERROR;
+
+  entite->xp = xp;
+
+  return OK;
+}
+
+t_erreur Add_Faim_Entite (t_entite * entite, int32_t faim)
+{
+  if (!entite) return PTR_NULL;
+
+  if (entite->faim + faim < 0)
+    entite->faim = 0;
+  else if (entite->faim + faim > entite->faim_max)
+    entite->faim = entite->faim_max;
+  else
+    entite->faim += faim;
+
+  return OK;
+}
+
+t_erreur Add_Mana_Entite (t_entite * entite, int32_t mana)
+{
+  if (!entite) return PTR_NULL;
+
+  if (entite->mana + mana < 0)
+    entite->mana = 0;
+  else if (entite->mana + mana > entite->mana_max)
+    entite->mana = entite->mana_max;
+  else
+    entite->mana += mana;
+
+  return OK;
+}
+
+t_erreur Add_PV_Entite (t_entite * entite, int32_t pv)
+{
+  if (!entite) return PTR_NULL;
+
+  if (entite->pv + pv < 0)
+    entite->pv = 0;
+  else if (entite->pv + pv > entite->pv_max)
+    entite->pv = entite->pv_max;
+  else
+    entite->pv += pv;
+
+  return OK;
+}
+
+t_erreur Add_XP_Entite (t_entite * entite, int64_t xp)
+{
+  if (!entite) return PTR_NULL;
+
+  if (entite->xp + xp < 0)
+    entite->xp = 0;
+  else
+    entite->xp += xp;
+
   return OK;
 }
 
