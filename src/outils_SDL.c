@@ -80,6 +80,10 @@ t_erreur Create_Text_Texture(SDL_Renderer * renderer, char * texte, char * chemi
     SDL_Surface * texte_surface = NULL;
     if(type == BLENDED){
         texte_surface = TTF_RenderText_Blended(police, texte, couleur);
+    }else if (type == SOLID){
+        texte_surface = TTF_RenderText_Solid(police,texte,couleur);
+    }else if (type == SHADED){
+        texte_surface = TTF_RenderText_Shaded(police,texte,couleur,couleur);
     }else{
         return TYPE_ERROR;
     }
