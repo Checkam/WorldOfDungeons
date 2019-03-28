@@ -21,6 +21,7 @@
 #include <affichage.h>
 
 #define DEPTH 5
+#define TAILLE_SOL 6
 
 /* Prototypes fonctions non accessible pour l'utilisateur */
 static t_erreur donjon_creer_salle(t_salle_donjon ** salle, int x, int y, t_type_salle_donjon type);
@@ -34,6 +35,7 @@ static t_erreur tab_fenetre(t_liste * donjon, SDL_Rect pos_perso, t_liste ** tab
 static void donjon_detruire_salle(t_salle_donjon *salle);
 static t_erreur donjon_coord_depart(t_liste * donjon, t_salle_donjon ** salle_dep);
 static t_erreur placer_salle_boss(t_liste * donjon);
+static t_erreur creer_mob(t_salle_donjon * salle, t_entite * joueur);
 
 /**
  * \fn t_erreur donjon_creer(t_donjon ** donjon, int nb_salle, t_entite * joueur)
@@ -85,7 +87,7 @@ t_erreur donjon_creer(t_donjon ** donjon, int nb_salle, t_entite * joueur){
     salle = NULL;
     donjon_coord_depart((*donjon)->donjon, &salle);
     joueur->hitbox.x = (salle->x * SIZE + (SIZE / 2)) * width_block_sdl;
-    joueur->hitbox.y = (salle->y * MAX_SCREEN + (MAX_SCREEN - 2)) * height_block_sdl;
+    joueur->hitbox.y = (salle->y * MAX_SCREEN + (MAX_SCREEN - 1 - TAILLE_SOL)) * height_block_sdl;
 
     
     return OK;
@@ -162,9 +164,12 @@ static t_erreur donjon_creer_salle(t_salle_donjon ** salle, int x, int y, t_type
     }
 
     (*salle)->type = type;
+    (*salle)->completed = false;
+    (*salle)->mob = NULL;
 
     /* On sélectionne une difficulté */
     if(type == DONJON_DEPART){
+        (*salle)->completed = true;
         (*salle)->difficulte = AUCUNE;
     }else if(type == DONJON_FIN){
         (*salle)->difficulte = FINAL;
@@ -349,15 +354,19 @@ static t_erreur donjon_creer_structure_salle(t_salle_donjon * salle){
             tab[j].y = j;
 
             
-            if(j <= hauteur && i == SIZE / 2 && salle->voisin[1] == 1){
+            if(j <= hauteur && (i == SIZE / 2 || i == SIZE / 2 + 1) && salle->voisin[1] == 1){
+                /* Trou échelle Plafond */
                 tab[j].id = AIR;
-            }else if(j == MAX_SCREEN - 1 && i == SIZE / 2 && salle->voisin[3] == 1){
+            }else if(j >= MAX_SCREEN - TAILLE_SOL && (i == SIZE / 2 || i == SIZE / 2 + 1) && salle->voisin[3] == 1){
+                /* Trou échelle sol */
                 tab[j].id = AIR;
-            }else if(j > hauteur && j < MAX_SCREEN - 1 && i == 0 && salle->voisin[0] == 1){
+            }else if(j > MAX_SCREEN / 1.7 && j < MAX_SCREEN - TAILLE_SOL && i == 0 && salle->voisin[0] == 1){
+                /* Trou mur gauche */
                 tab[j].id = AIR;
-            }else if(j > hauteur && j < MAX_SCREEN - 1 && i == SIZE - 1 && salle->voisin[2] == 1){
+            }else if(j > MAX_SCREEN / 1.7 && j < MAX_SCREEN - TAILLE_SOL && i == SIZE - 1 && salle->voisin[2] == 1){
+                /* Trou mur droite */
                 tab[j].id = AIR;
-            }else if(j <= hauteur || j == MAX_SCREEN - 1 || i == 0 || i == SIZE - 1){
+            }else if(j <= hauteur || j >= MAX_SCREEN - TAILLE_SOL || i == 0 || i == SIZE - 1){
                 tab[j].id = ROCHE;
             }else{
                 tab[j].id = AIR;
@@ -555,7 +564,7 @@ t_erreur donjon_afficher_SDL(SDL_Renderer * renderer, t_donjon * donjon, t_entit
 /**
  * 
 */
-t_erreur donjon_gestion(t_donjon * donjon, t_entite * joueur){
+t_erreur donjon_gestion(SDL_Renderer * renderer, t_donjon * donjon, t_entite * joueur){
     /* Vérification */
     if(donjon == NULL){
         erreur_save(PTR_NULL, "donjon_gestion() : Pointeur sur donjon NULL");
@@ -573,11 +582,83 @@ t_erreur donjon_gestion(t_donjon * donjon, t_entite * joueur){
 
     /* On cherche la salle dans laquelle le joueur est */
     for(en_tete(donjon->donjon); !hors_liste(donjon->donjon) && (salle == NULL || salle->x != x_donjon_j || salle->y != y_donjon_j); suivant(donjon->donjon)){
-        valeur_elt(donjon->donjon, &salle);
+        valeur_elt(donjon->donjon, (void**)&salle);
     }
 
     /* Gestion mob */
+    if(salle->completed == false){
 
+        /* Création mob */
+        if(salle->mob == NULL){
+            salle->mob = malloc(sizeof(t_liste));
+            init_liste(salle->mob);
+
+            creer_mob(salle, joueur);
+            fprintf(stderr, "Mob Creer\n");
+        }
+
+        /* Affichage Mob */
+        t_entite * mob = NULL;
+        for(en_tete(salle->mob); !hors_liste(salle->mob); suivant(salle->mob)){
+            valeur_elt(salle->mob, (void**)&mob);
+            Charger_Anima(renderer, mob, IMMOBILE);
+        }
+    }
+
+
+    return OK;
+}
+
+/**
+ * 
+*/
+static t_erreur creer_mob(t_salle_donjon * salle, t_entite * joueur){
+    /* Vérification */
+    if(salle == NULL){
+        erreur_save(PTR_NULL, "creer_mob() : Pointeur sur salle NULL");
+        return PTR_NULL;
+    }
+    if(joueur == NULL){
+        erreur_save(PTR_NULL, "creer_mob() : Pointeur sur joueur NULL");
+        return PTR_NULL;
+    }
+
+    /* Initialisation */
+    int nb_mob = 0;
+    float coef;
+    t_entite * mob = NULL;
+    
+    if(salle->difficulte == AUCUNE){
+        coef = 0.0;
+    }else if(salle->difficulte == FACILE)
+        coef = 1.0;
+    else if(salle->difficulte == MOYEN)
+        coef = 1.5;
+    else if(salle->difficulte == DIFFICILE)
+        coef = 2.0;
+    else
+        coef = 2.5;
+
+    
+    nb_mob = rand() % 1 + 3;   
+    nb_mob *= coef;
+
+    int posX_mob = (salle->x * SIZE * width_block_sdl) - (SIZE / 2);
+    int posY_mob = (salle->y * MAX_SCREEN * height_block_sdl) - TAILLE_SOL;
+    int taille_mob = 2 * height_block_sdl;
+    int taille_boss = 3 * height_block_sdl;
+
+    while(nb_mob--){
+        mob = creer_entite_defaut("Mob", ZOMBIE, posX_mob, posY_mob, taille_mob);
+        en_queue(salle->mob);
+        ajout_droit(salle->mob, (void *)mob);
+    }
+
+    if(salle->type == DONJON_FIN){
+        mob = creer_entite_defaut("BOSS", BOSS, posX_mob, posY_mob, taille_boss);
+        en_queue(salle->mob);
+        ajout_droit(salle->mob, (void *)mob);
+    }
 
     return OK;
 }

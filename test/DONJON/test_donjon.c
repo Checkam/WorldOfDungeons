@@ -96,8 +96,9 @@ int main(int argc, char **argv, char **env){
         SDL_RenderClear(renderer);
         
         donjon_afficher_SDL(renderer, donjon, joueur);
+        donjon_gestion(renderer, donjon, joueur);
         Charger_Anima(renderer, joueur, IMMOBILE);
-        donjon_afficher_Term(donjon, joueur);
+        //donjon_afficher_Term(donjon, joueur);
         
         SDL_RenderPresent(renderer);
     }
