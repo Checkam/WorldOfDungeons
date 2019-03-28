@@ -61,25 +61,25 @@ void AFF_map_sdl(t_liste *list, SDL_Renderer *renderer, int min) {
   int i, j = 0;
   t_block *map; /*Tableau de recupèration de la liste*/
   SDL_Rect r = {0, 0, 0, 0};
-  if (min)
-    for (j = 0, en_tete(list); !hors_liste(list); suivant(list)) {
-      valeur_elt(list, (void **)&map);
-      for (i = MAX_SCREEN + 1; i >= 0; i--) {
-        r.x = (j * width_block_sdl);
-        r.y = (height_window - (i * height_block_sdl));
-        r.h = height_block_sdl;
-        r.w = width_block_sdl;
-        if (i + min < MAX && i + min >= 0) {
-          if (AFF_RectInWindow(r)) {
-            SDL_Texture *texture_block = BLOCK_GetTexture_sdl(map[i + min].id);
-            SDL_RenderCopy(renderer, texture_block, NULL, &r);
-          }
-        } else {
-          SDL_RenderCopy(renderer, NULL, NULL, &r);
+
+  for (j = 0, en_tete(list); !hors_liste(list); suivant(list)) {
+    valeur_elt(list, (void **)&map);
+    for (i = MAX_SCREEN + 1; i >= 0; i--) {
+      r.x = (j * width_block_sdl);
+      r.y = (height_window - (i * height_block_sdl));
+      r.h = height_block_sdl;
+      r.w = width_block_sdl;
+      if (i + min < MAX && i + min >= 0) {
+        if (AFF_RectInWindow(r)) {
+          SDL_Texture *texture_block = BLOCK_GetTexture_sdl(map[i + min].id);
+          SDL_RenderCopy(renderer, texture_block, NULL, &r);
         }
+      } else {
+        SDL_RenderCopy(renderer, NULL, NULL, &r);
       }
-      j++;
     }
+    j++;
+  }
 }
 
 /**
