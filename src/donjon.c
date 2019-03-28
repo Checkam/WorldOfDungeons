@@ -334,6 +334,7 @@ static t_erreur donjon_creer_structure_salle(t_salle_donjon * salle){
     t_block * tab = NULL;
     int i;
     for(i = 0; i < SIZE; i++){
+        /* Génération d'une colonne */
         tab = malloc(sizeof(t_block) * MAX_SCREEN);
         int hauteur;
 
@@ -346,12 +347,17 @@ static t_erreur donjon_creer_structure_salle(t_salle_donjon * salle){
         for(j = 0; j < MAX_SCREEN; j++){
             tab[j].x = i;
             tab[j].y = j;
-    
+
+            
             if(j <= hauteur && i == SIZE / 2 && salle->voisin[1] == 1){
                 tab[j].id = AIR;
             }else if(j == MAX_SCREEN - 1 && i == SIZE / 2 && salle->voisin[3] == 1){
                 tab[j].id = AIR;
-            }else if(j <= hauteur || j == MAX_SCREEN - 1){
+            }else if(j > hauteur && j < MAX_SCREEN - 1 && i == 0 && salle->voisin[0] == 1){
+                tab[j].id = AIR;
+            }else if(j > hauteur && j < MAX_SCREEN - 1 && i == SIZE - 1 && salle->voisin[2] == 1){
+                tab[j].id = AIR;
+            }else if(j <= hauteur || j == MAX_SCREEN - 1 || i == 0 || i == SIZE - 1){
                 tab[j].id = ROCHE;
             }else{
                 tab[j].id = AIR;
