@@ -29,7 +29,7 @@ int main(int argc, char **argv, char **env) {
   Init_Sprite(renderer);
 
   /* Création de l'entité */
-  t_entite *J = creer_entite_defaut(NULL, JOUEUR, 22000, POSY_ENT_SCREEN, 70);
+  t_entite *J = creer_entite_defaut(NULL, JOUEUR, 22000, 15, 60);
 
   fps_init();
   double coef_fps = 1;
