@@ -1,6 +1,7 @@
 #include "entite_test.h"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
 #include <chemin.h>
 #include <commun.h>
 #include <entite.h>
@@ -16,6 +17,7 @@ int main(int argc, char **argv, char **env) {
   SDL_Init(SDL_INIT_EVERYTHING);
 
   IMG_Init(IMG_INIT_PNG);
+  TTF_Init();
 
   int width = 1000;
   int height = 600;
@@ -30,6 +32,9 @@ int main(int argc, char **argv, char **env) {
 
   /* Création de l'entité */
   t_entite *J = creer_entite_defaut(NULL, JOUEUR, 22000, 15, 60);
+  Change_Mana_Entite(J,200,250);
+  Change_PV_Entite(J,2000,2000);
+  Change_Name_Entite(J,"ziharccos");
 
   fps_init();
   double coef_fps = 1;
@@ -50,6 +55,7 @@ int main(int argc, char **argv, char **env) {
     Gestion_Entite(renderer, J, ks, coef_fps, NULL);
     SDL_RenderPresent(renderer);
     coef_fps = fps();
+    Add_PV_Entite(J,-4);
   }
 
   SDL_exit_touches(&ks, &ct);
@@ -60,6 +66,7 @@ int main(int argc, char **argv, char **env) {
   SDL_DestroyRenderer(renderer);
   SDL_DestroyWindow(pwindow);
   IMG_Quit();
+  TTF_Quit();
   SDL_Quit();
   pwd_quit();
 

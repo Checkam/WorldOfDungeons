@@ -666,5 +666,92 @@ t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, d
   update_posY_entite(entite, coef_fps, p);
   //fprintf(stderr,"posEnt : X->%d, Y->%d / hitBox : X->%d, Y->%d\n", entite->posEnt.x, entite->posEnt.y, entite->hitbox.x, entite->hitbox.y);
 
+  Print_Info_Entite(renderer,entite);
+
+  return OK;
+}
+
+t_erreur Print_Info_Entite (SDL_Renderer * renderer, t_entite * entite)
+{
+  if (!entite) return PTR_NULL;
+
+  int x = entite->posEnt.x;
+  int y = entite->posEnt.y;
+  int w = entite->posEnt.w;
+  //int h = entite->posEnt.h;
+  char * nom = entite->name;
+  uint32_t pv = entite->pv;
+  uint32_t pv_max = entite->pv_max;
+  uint32_t mana = entite->mana;
+  uint32_t mana_max = entite->mana_max;
+
+  /******* PARTIE NOM ENTITE *******/
+
+  // Boite contenant le nom de l'entité
+  SDL_Rect posNom = {
+    x - ((x + LARGEUR_NOM_ENT/2) - (x + w/2)),
+    y - DECALAGE_NOM_ENT,
+    LARGEUR_NOM_ENT,
+    HAUTEUR_NOM_ENT
+  };
+
+  // Couleur du nom
+  SDL_Color couleur = {255,255,255};
+
+  // Police du nom
+  int taille_police = posNom.w / (strlen(nom));
+  char * police;
+  creation_chemin("data/police/8-BIT_WONDER.ttf",&police);
+
+  // Création du texte pour le nom
+  SDL_Texture * texture;
+  Create_Text_Texture(renderer,nom,police,taille_police,couleur,BLENDED,&texture);
+  
+  // DEBUG
+  // char * chemin;
+  // creation_chemin("IMG/texture/pierre.png",&chemin);
+  // SDL_Texture * boite;
+  // Create_IMG_Texture(renderer,chemin,&boite);
+
+  // Affichage
+  // SDL_RenderCopy(renderer,boite,NULL,&posNom);
+  SDL_RenderCopy(renderer,texture,NULL,&posNom);
+
+
+  /****** PARTIE JAUGE PV ET MANA ENTITE ******/
+
+  // Boite contenant la jauge de pv de l'entité
+  SDL_Rect posPV = posNom;
+  posPV.y += HAUTEUR_NOM_ENT + HAUTEUR_NOM_ENT/4;
+  posPV.h = HAUTEUR_NOM_ENT / 4;
+
+  SDL_Rect pvLong = posPV;
+  pvLong.w = pvLong.w * pv / pv_max;
+
+  // Boite contenant la jauge de mana de l'entité
+  SDL_Rect posMana = posPV;
+  posMana.y += posPV.h;
+
+  SDL_Rect manaLong = posMana;
+  manaLong.w = manaLong.w * mana / mana_max;
+
+  // Affichage des jauges
+  // PV
+  SDL_SetRenderDrawColor(renderer,91, 143, 91,80);
+  SDL_RenderFillRect(renderer,&posPV);
+  SDL_SetRenderDrawColor(renderer,255 - pv * 255 / pv_max, pv * 255 / pv_max,0,255);
+  SDL_RenderFillRect(renderer,&pvLong);
+  // MANA
+  SDL_SetRenderDrawColor(renderer,107,72,110,80);
+  SDL_RenderFillRect(renderer,&posMana);
+  SDL_SetRenderDrawColor(renderer,0,0,255,255);
+  SDL_RenderFillRect(renderer,&manaLong);
+
+  // Libération de la mémoire + autres
+  SDL_DestroyTexture(texture);
+  // SDL_DestroyTexture(boite);
+  // free(chemin);
+  free(police);
+  SDL_SetRenderDrawColor(renderer,0,0,0,0);
   return OK;
 }
