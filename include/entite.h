@@ -64,8 +64,8 @@ typedef struct s_anim_action
 #define HAUTEUR_SAUT 9
 #define VITESSE_DEPLACEMENT 5
 #define ACCELERATION 1.5
-#define POSX_ENT_SCREEN (width_window/2 - W_PART_SPRITE)
-#define POSY_ENT_SCREEN (height_window/2 - H_PART_SPRITE)
+#define POSX_ENT_SCREEN (width_window/2 - W_PART_SPRITE/2)
+#define POSY_ENT_SCREEN (height_window/2 - H_PART_SPRITE/2)
 
 /**
  * \enum t_entite_type
@@ -151,11 +151,19 @@ int Search_Action (t_anim_action * t_a, t_action action);
 t_erreur Anim_Update (t_entite * entite, t_action action, int new_time);
 
 
-/****** Fonctions qui gèrent les collisions en Y ainsi que la gravité ******/
+/****** Primitives des fonctions qui gèrent les collisions ainsi que la gravité ******/
+
+/* Calcul la profondeur d'une collision en fonction d'une direction */
 int collision (t_entite * entite, t_collision_direction direction, t_liste * p);
+/* Gère la position de l'entité en Y avec la gravité et les collisions */
 t_erreur update_posY_entite(t_entite * entite, double coef_fps, t_liste * p);
+
+
+/****** Primitives des fonctions qui gèrent l'affichage des entités en fonction des collisions ******/
 
 /* Affiche les animations et modifie l'emplacement du joueur suivant les touches appuyées et gère les collisions en X */
 t_erreur Gestion_Entite (SDL_Renderer * renderer, t_entite * entite, uint8_t * ks, double coef_fps, t_liste * p);
+/* Affiche les informations de l'entité sur la fenêtre */
+t_erreur Print_Inf_Entite (t_entite * entite);
 
 #endif
