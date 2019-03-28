@@ -68,7 +68,7 @@ int main(int argc, char **argv, char **env){
     SDL_init_touches( &ks, &ct);
 
     Init_Sprite(renderer);
-    t_entite * joueur = creer_entite_defaut("Joueur", JOUEUR, 9 * width_window + 5 * width_block_sdl, 10 * height_window + 7 * height_block_sdl, 3 * height_block_sdl);
+    t_entite * joueur = creer_entite_defaut("Joueur", JOUEUR, 9 * SIZE, 10 * MAX_SCREEN, 3 * height_block_sdl);
     
 
     /* Création Donjon */
