@@ -17,6 +17,7 @@
 #include <block.h>
 #include <entite.h>
 #include <touches.h>
+#include <time.h>
 
 #define NB_SALLE 20
 
@@ -29,7 +30,7 @@ int main(int argc, char **argv, char **env){
     }
 
     SEED = atoi(argv[1]);
-
+    srand(time(NULL));
     /* Initialisation */
     pwd_init(argv[0], getenv("PWD"));
 
@@ -45,6 +46,8 @@ int main(int argc, char **argv, char **env){
 
     height_window = 600;
     width_window = 1000;
+    width_block_sdl = width_window / NB_BLOCK_WIDTH;
+    height_block_sdl = height_window / NB_BLOCK_HEIGHT;
     SDL_Window *screen = SDL_CreateWindow("World Of Dungeons", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,width_window, height_window, SDL_WINDOW_SHOWN);
     if(screen == NULL){
         printf("%s\n", SDL_GetError());

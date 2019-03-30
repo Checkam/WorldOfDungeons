@@ -594,7 +594,10 @@ t_erreur donjon_gestion(SDL_Renderer * renderer, t_donjon * donjon, t_entite * j
             init_liste(salle->mob);
 
             creer_mob(salle, joueur);
-            fprintf(stderr, "Mob Creer\n");
+            if(salle->type == DONJON_FIN)
+                fprintf(stderr, "Salle %d,%d : %d Mobs + 1 Boss\n", salle->x, salle->y, taille_liste(salle->mob) - 1);
+            else
+                fprintf(stderr, "Salle %d,%d : %d Mobs\n", salle->x, salle->y, taille_liste(salle->mob));
         }
 
         /* Affichage Mob */
@@ -616,6 +619,10 @@ static t_erreur creer_mob(t_salle_donjon * salle, t_entite * joueur){
     /* Vérification */
     if(salle == NULL){
         erreur_save(PTR_NULL, "creer_mob() : Pointeur sur salle NULL");
+        return PTR_NULL;
+    }
+    if(salle->mob == NULL){
+        erreur_save(PTR_NULL, "creer_mob() : Pointeur sur salle->mob NULL");
         return PTR_NULL;
     }
     if(joueur == NULL){
@@ -645,8 +652,8 @@ static t_erreur creer_mob(t_salle_donjon * salle, t_entite * joueur){
 
     int posX_mob = (salle->x * SIZE) - (SIZE / 2);
     int posY_mob = (salle->y * MAX_SCREEN) - TAILLE_SOL;
-    int taille_mob = 2 * height_block_sdl;
-    int taille_boss = 3 * height_block_sdl;
+    int taille_mob = 4 * height_block_sdl;
+    int taille_boss = 6 * height_block_sdl;
 
     while(nb_mob--){
         mob = creer_entite_defaut("Mob", ZOMBIE, posX_mob, posY_mob, taille_mob);
@@ -692,6 +699,10 @@ static void donjon_detruire_salle(t_salle_donjon *salle){
         if(salle->structure != NULL){
             detruire_liste(salle->structure, free);
             salle->structure = NULL;
+        }
+        if(salle->mob != NULL){
+            detruire_liste(salle->mob, (void*)detruire_entite);
+            salle->mob = NULL;
         }
         free(salle);
     }
