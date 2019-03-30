@@ -71,6 +71,7 @@ typedef struct s_anim_action
 #define HAUTEUR_NOM_ENT 15
 #define CENTER_SCREEN 1
 #define NOT_CENTER_SCREEN 2
+#define INVERSION_AXE_Y 4
 
 /**
  * \enum t_entite_type

@@ -758,7 +758,11 @@ t_erreur Print_Entite_Screen (SDL_Renderer * renderer, t_entite * entite_ref, t_
     int y_diff = entite_ref->hitbox.y - entite_aff->hitbox.y;
 
     int newPosEntX = entite_ref->posEnt.x - x_diff;
-    int newPosEntY = entite_ref->posEnt.y + y_diff;
+    int newPosEntY;
+    if (pos & INVERSION_AXE_Y)
+      newPosEntY = entite_ref->posEnt.y - y_diff;
+    else
+      newPosEntY = entite_ref->posEnt.y + y_diff;
 
     /* Entité à afficher en dehors de l'écran */
     if (newPosEntX + entite_ref->posEnt.w < 0 || newPosEntX > width_window) return VALUE_ERROR;
