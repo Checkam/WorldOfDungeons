@@ -11,6 +11,7 @@
 #include <chemin.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
 #include <commun.h>
 #include <donjon.h>
 #include <affichage.h>
@@ -43,6 +44,12 @@ int main(int argc, char **argv, char **env){
         printf("%s\n", IMG_GetError());
         return EXIT_FAILURE;
     }
+
+    if(TTF_Init() == -1){
+        printf("%s\n", TTF_GetError());
+        return EXIT_FAILURE;
+    }
+
 
     height_window = 600;
     width_window = 1000;
@@ -101,6 +108,7 @@ int main(int argc, char **argv, char **env){
         donjon_afficher_SDL(renderer, donjon, joueur);
         donjon_gestion(renderer, donjon, joueur);
         Charger_Anima(renderer, joueur, IMMOBILE);
+        Print_Info_Entite(renderer, joueur);
         //donjon_afficher_Term(donjon, joueur);
         
         SDL_RenderPresent(renderer);
@@ -115,6 +123,7 @@ int main(int argc, char **argv, char **env){
     pwd_quit();
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(screen);
+    TTF_Quit();
     IMG_Quit();
     SDL_Quit();
 

@@ -19,6 +19,8 @@
 #include <outils_SDL.h>
 #include <stdbool.h>
 #include <affichage.h>
+#include <entite.h>
+#include <chemin.h>
 
 #define DEPTH 5
 #define TAILLE_SOL 6
@@ -604,7 +606,8 @@ t_erreur donjon_gestion(SDL_Renderer * renderer, t_donjon * donjon, t_entite * j
         t_entite * mob = NULL;
         for(en_tete(salle->mob); !hors_liste(salle->mob); suivant(salle->mob)){
             valeur_elt(salle->mob, (void**)&mob);
-            Charger_Anima(renderer, mob, IMMOBILE);
+            Print_Entite_Screen(renderer, joueur, mob, IMMOBILE, NOT_CENTER_SCREEN | INVERSION_AXE_Y);
+
         }
     }
 
@@ -650,11 +653,11 @@ static t_erreur creer_mob(t_salle_donjon * salle, t_entite * joueur){
     nb_mob = rand() % 1 + 3;   
     nb_mob *= coef;
 
-    int posX_mob = (salle->x * SIZE) - (SIZE / 2);
-    int posY_mob = (salle->y * MAX_SCREEN) - TAILLE_SOL;
+    int posX_mob = (salle->x * SIZE) + (SIZE / 2);
+    int posY_mob = (salle->y * MAX_SCREEN) + (MAX_SCREEN - 1 - TAILLE_SOL);
     int taille_mob = 4 * height_block_sdl;
     int taille_boss = 6 * height_block_sdl;
-
+    
     while(nb_mob--){
         mob = creer_entite_defaut("Mob", ZOMBIE, posX_mob, posY_mob, taille_mob);
         en_queue(salle->mob);
