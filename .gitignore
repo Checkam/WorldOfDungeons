@@ -7,7 +7,7 @@
 
 data/data/configuration_touches.json
 
-##Objet 
+##Objet
 *.o
 test/ERREUR/*.o
 test/JSON/*.o
@@ -17,6 +17,7 @@ test/MENU/*.o
 test/OUTILS_SDL/*.o
 test/PWD/*.o
 test/SDL/*.o
+data/map/
 
 ### Executable ###
 *.app
