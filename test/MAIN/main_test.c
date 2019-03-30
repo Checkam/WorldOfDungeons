@@ -42,8 +42,6 @@ int main(int argc, char *argv[], char **env) {
   uint8_t *ks;
   configTouches_t *ct;
 
-  MAP_creer(&map, "World", 12281783);
-
   //--------------------------------------------------------------------------------------------------------------
   // Initialisation SDL
   //--------------------------------------------------------------------------------------------------------------
@@ -89,12 +87,7 @@ int main(int argc, char *argv[], char **env) {
   int x_mouse = 0, y_mouse = 0;
   t_liste affichage;
   init_liste(&affichage);
-
-  while (taille_liste(map->list) <= SIZE) {
-    i++;
-    gen_col(map->list, i, DROITE);
-  }
-  taille = AFF_GetMidHeight(map->list);
+  MAP_creer(&map, "World", 12281783);
 
   //----------------------------------------------------------------------------------------------------------------
   // Menu Début de jeux
@@ -102,12 +95,10 @@ int main(int argc, char *argv[], char **env) {
 
   menu_creer(MENU_PRINCIPAL, width_window, height_window, &menu);
   t_type_menu type_bouton;
-  t_block *b = MAP_GetBlockFromList(map, SIZE / 2, AFF_GetMidHeight(map->list));
-  t_entite *J = creer_entite_defaut(NULL, JOUEUR, b->x, b->y, width_block_sdl * 2);
 
-#define calY_aff ((J->hitbox.y / height_block_sdl) - MAX_SCREEN / 2 - (J->hitbox.h / width_block_sdl))
-#define calX_Debut (J->hitbox.x / width_block_sdl) - (SIZE / 2)
-#define calX_Fin (J->hitbox.x / width_block_sdl) + (SIZE / 2)
+#define calY_aff ((map->joueur->hitbox.y / height_block_sdl) - (MAX_SCREEN / 2)) - ((map->joueur->hitbox.h) / height_block_sdl)
+#define calX_Debut ((map->joueur->hitbox.x - (map->joueur->hitbox.w / 2)) / width_block_sdl) - (SIZE / 2)
+#define calX_Fin ((map->joueur->hitbox.x + (map->joueur->hitbox.w / 2)) / width_block_sdl) + (SIZE / 2)
 
   while (menu) {
     SDL_RenderClear(renderer);
@@ -141,13 +132,13 @@ int main(int argc, char *argv[], char **env) {
     t_block *dernier = MAP_GetBlockFromList(map, taille_liste(map->list) - 1, 0);
 
     if (dernier)
-      if (dernier->x < (J->hitbox.x / width_block_sdl) + SIZE / 2) {
-        gen_col(map->list, (J->hitbox.x / width_block_sdl) + SIZE / 2, DROITE);
+      if (dernier->x < (map->joueur->hitbox.x / width_block_sdl) + SIZE / 2) {
+        gen_col(map->list, (map->joueur->hitbox.x / width_block_sdl) + SIZE / 2, DROITE);
       }
 
     if (premier)
-      if (premier->x > (J->hitbox.x / width_block_sdl) - SIZE / 2) {
-        gen_col(map->list, (J->hitbox.x / width_block_sdl) - SIZE / 2, GAUCHE);
+      if (premier->x > (map->joueur->hitbox.x / width_block_sdl) - SIZE / 2) {
+        gen_col(map->list, (map->joueur->hitbox.x / width_block_sdl) - SIZE / 2, GAUCHE);
       }
 
     //TEST SOURIS
@@ -155,7 +146,7 @@ int main(int argc, char *argv[], char **env) {
     if (SDL_touche_appuyer(ks, SOURIS_GAUCHE)) {
       SDL_coord_souris(&x_mouse, &y_mouse);
       // Récuperation d'un block dans la liste
-      b = MAP_GetBlock(map, (x_mouse / width_block_sdl) + calX_Debut, MAX_SCREEN - (y_mouse / height_block_sdl) + calY_aff);
+      b = MAP_GetBlock(map, (x_mouse / width_block_sdl) + calX_Debut + 1, MAX_SCREEN - (y_mouse / height_block_sdl) + calY_aff);
 
       if (b) {
         b->id = AIR;
@@ -167,7 +158,7 @@ int main(int argc, char *argv[], char **env) {
     if (SDL_touche_appuyer(ks, SOURIS_DROIT)) {
       SDL_coord_souris(&x_mouse, &y_mouse);
       // Récuperation d'un block dans la liste
-      b = MAP_GetBlock(map, (x_mouse / width_block_sdl) + calX_Debut, MAX_SCREEN - (y_mouse / height_block_sdl) + calY_aff);
+      b = MAP_GetBlock(map, (x_mouse / width_block_sdl) + calX_Debut + 1, MAX_SCREEN - (y_mouse / height_block_sdl) + calY_aff);
 
       if (b) {
         b->id = ROCHE;
@@ -187,14 +178,14 @@ int main(int argc, char *argv[], char **env) {
     AFF_map_sdl(&affichage, renderer, calY_aff);
     printf("Affichage x_debut:%d x_fin:%d y:%d\n", calX_Debut, calX_Fin, calY_aff);
 
-    printf("hitbox: x:%d y:%d\n", J->hitbox.x / width_block_sdl, J->hitbox.y / height_block_sdl);
-    Gestion_Entite(renderer, J, ks, coef_fps, map->list);
+    printf("hitbox: x:%d y:%d\n", map->joueur->hitbox.x / width_block_sdl, map->joueur->hitbox.y / height_block_sdl);
+    Gestion_Entite(renderer, map->joueur, ks, coef_fps, map->list);
     SDL_RenderPresent(renderer);
 
     coef_fps = fps();
   }
-
-  detruire_entite(J);
+  MAP_sauvegarder(map);
+  detruire_entite(map->joueur);
   Quit_Sprite();
   menu_quit();
   TTF_Quit();
