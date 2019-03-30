@@ -12,11 +12,14 @@
 #include <liste.h>
 
 #include <affichage.h>
+#include <binaire.h>
+#include <generation.h>
 #include <json.h>
 #include <map.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <touches.h>
 
 #include <sys/stat.h>
 #include <sys/types.h>
@@ -40,10 +43,19 @@ t_erreur MAP_creer(t_map **map, char *nom_map, int SEED) {
   (*map)->SEED = SEED;
 
   MAP_creer_dir(*map);
-  MAP_sauvegarder(*map);
+
   (*map)->list = malloc(sizeof(t_liste));
   init_liste((*map)->list);
 
+  int i = 20000;
+  while (taille_liste((*map)->list) <= SIZE) {
+    i++;
+    gen_col((*map)->list, i, DROITE);
+  }
+  t_block *b = MAP_GetBlockFromList((*map), SIZE / 2, AFF_GetMidHeight((*map)->list));
+  (*map)->joueur = creer_entite_defaut("Virgile", JOUEUR, b->x, b->y, width_block_sdl * 2);
+
+  MAP_sauvegarder(*map);
   return OK;
 }
 
@@ -74,16 +86,26 @@ t_erreur MAP_charger(t_map **map, char *nom_map) {
   FILE *data = open_json(path_dir, "data", "r");
   char *objet;
 
+  (*map)->joueur = creer_entite_defaut(NULL, JOUEUR, 10000, 100, width_block_sdl * 2);
+
   fstart(data);
   extract_json_obj(data, &objet);
   read_json_obj(objet, "SEED", &(*map)->SEED, "d");
-
+  read_json_obj(objet, "joueur.x", &(*map)->joueur->hitbox.x, "d");
+  read_json_obj(objet, "joueur.y", &(*map)->joueur->hitbox.y, "d");
   fclose(data);
   free(objet);
 
   //Charger map a partir d'un fichier
   (*map)->list = malloc(sizeof(t_liste));
   init_liste((*map)->list);
+
+  t_binaire bin_map = Open_BIN(path_dir, (*map)->nom, "r");
+  t_block *b;
+  while (Read_BIN(b, sizeof(t_block), MAX, bin_map) == OK) {
+    ajout_droit((*map)->list, b);
+  }
+  Close_BIN(bin_map);
 
   MAP_detruire_path(&path_dir); // Gestion des erreurs a faire
   return OK;
@@ -110,15 +132,26 @@ t_erreur MAP_lister() {
 t_erreur MAP_sauvegarder(t_map *map) {
   if (map == NULL)
     return PTR_NULL;
+  if (map->joueur == NULL)
+    return PTR_NULL;
 
   char *path_dir = MAP_creer_path(map->nom);
 
   FILE *data = open_json(path_dir, "data", "w");
   open_json_obj(data);
-
   write_json(data, "SEED", (void *)&(map->SEED), "d");
+  write_json(data, "joueur.x", (void *)&(map->joueur->hitbox.x), "d");
+  write_json(data, "joueur.y", (void *)&(map->joueur->hitbox.y), "d");
   close_json_obj(data);
   fclose(data);
+
+  t_binaire bin_map = Open_BIN(path_dir, map->nom, "w");
+  t_block *b;
+  for (en_tete(map->list); !hors_liste(map->list); suivant(map->list)) {
+    valeur_elt(map->list, (void **)&b);
+    Write_BIN(b, sizeof(t_block), MAX, bin_map);
+  }
+  Close_BIN(bin_map);
 
   MAP_detruire_path(&path_dir); // Gestion des erreurs a faire
 

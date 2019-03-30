@@ -11,6 +11,7 @@
 #include <erreur.h>
 #include <liste.h>
 #include <block.h>
+#include <entite.h>
 
 #define PATH_MAP_DIR "data/map/"
 
@@ -21,6 +22,7 @@
 typedef struct s_map {
     char * nom;
     int SEED;
+    t_entite *joueur;
     t_liste *list;
 } t_map;
 
