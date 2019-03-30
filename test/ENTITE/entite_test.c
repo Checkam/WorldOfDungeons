@@ -21,6 +21,8 @@ int main(int argc, char **argv, char **env) {
 
   int width = 1000;
   int height = 600;
+  width_block_sdl = width / NB_BLOCK_WIDTH;
+  height_block_sdl = height / NB_BLOCK_HEIGHT;
   SDL_Window *pwindow = SDL_CreateWindow("World Of Dungeons", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height,
                                          SDL_WINDOW_SHOWN /*| SDL_WINDOW_FULLSCREEN_DESKTOP*/);
   SDL_GetWindowSize(pwindow, &width_window, &height_window);
@@ -36,6 +38,8 @@ int main(int argc, char **argv, char **env) {
   Change_PV_Entite(J,2000,2000);
   Change_Name_Entite(J,"ziharccos");
 
+  /* Création entité 2 */
+  t_entite *Mob = creer_entite_defaut("Maxence",ZOMBIE,22005,16,70);
   fps_init();
   double coef_fps = 1;
   uint8_t *ks;
@@ -53,6 +57,8 @@ int main(int argc, char **argv, char **env) {
     }
 
     Gestion_Entite(renderer, J, ks, coef_fps, NULL);
+    update_posY_entite(Mob,coef_fps,NULL,NOT_CENTER_SCREEN);
+    Print_Entite_Screen(renderer,J,Mob,IMMOBILE,NOT_CENTER_SCREEN);
     SDL_RenderPresent(renderer);
     coef_fps = fps();
     Add_PV_Entite(J,-4);

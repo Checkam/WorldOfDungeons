@@ -37,7 +37,7 @@
  * \enum t_action
  * \brief Les différentes actions possible par l'entité.
 */
-typedef enum{
+typedef enum e_action{
     IMMOBILE,
     MARCHE_DROITE,
     MARCHE_GAUCHE,
@@ -64,17 +64,19 @@ typedef struct s_anim_action
 #define HAUTEUR_SAUT 9
 #define VITESSE_DEPLACEMENT 5
 #define ACCELERATION 1.5
-#define POSX_ENT_SCREEN (width_window/2 - entite->hitbox.w/2)
-#define POSY_ENT_SCREEN (height_window/2 - entite->hitbox.h/2)
+#define POSX_ENT_SCREEN(entite) (width_window/2 - entite->hitbox.w/2)
+#define POSY_ENT_SCREEN(entite) (height_window/2 - entite->hitbox.h/2)
 #define DECALAGE_NOM_ENT 30
 #define LARGEUR_NOM_ENT 65
 #define HAUTEUR_NOM_ENT 15
+#define CENTER_SCREEN 1
+#define NOT_CENTER_SCREEN 2
 
 /**
  * \enum t_entite_type
  * \brief Les différents types d'entités prédéfinis.
 */
-typedef enum{
+typedef enum e_entite_type{
     JOUEUR,
     ZOMBIE,
     BOSS
@@ -159,7 +161,7 @@ t_erreur Anim_Update (t_entite * entite, t_action action, int new_time);
 /* Calcul la profondeur d'une collision en fonction d'une direction */
 int collision (t_entite * entite, t_collision_direction direction, t_liste * p);
 /* Gère la position de l'entité en Y avec la gravité et les collisions */
-t_erreur update_posY_entite(t_entite * entite, double coef_fps, t_liste * p);
+t_erreur update_posY_entite(t_entite * entite, double coef_fps, t_liste * p, uint8_t pos);
 
 
 /****** Primitives des fonctions qui gèrent l'affichage des entités en fonction des collisions ******/
@@ -168,5 +170,9 @@ t_erreur update_posY_entite(t_entite * entite, double coef_fps, t_liste * p);
 t_erreur Gestion_Entite (SDL_Renderer * renderer, t_entite * entite, uint8_t * ks, double coef_fps, t_liste * p);
 /* Affiche les informations de l'entité sur la fenêtre */
 t_erreur Print_Info_Entite (SDL_Renderer * renderer, t_entite * entite);
+/* Affiche une entité sur l'écran en focntion de la position
+Utilisation : -> pos = CENTER_SCREEN -> affichage centre screen,
+-> pos = NOT_CENTER_SCREEN -> affichage en fonction d'une autre entité. */
+t_erreur Print_Entite_Screen (SDL_Renderer * renderer, t_entite * entite_ref, t_entite * entite_aff, t_action action, uint8_t pos);
 
 #endif
