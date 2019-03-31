@@ -19,6 +19,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <touches.h>
+#include <json.h>
 
 /****** SPRITE TEXTURE ACTION ******/
 
@@ -55,17 +56,17 @@ t_anim_action t_a_boss[NB_LIGNES_SPRITE] = {{MARCHE_DROITE, 12, 9, 100}, {MARCHE
 t_entite *creer_entite_defaut(char *name, t_entite_type type, int x_dep, int y_dep, int taille) {
   switch (type) {
   case JOUEUR:
-    return creer_entite((name) ? name : "PLAYER", 20, 20, 10, 10, Textures_Joueur, t_a_joueur, x_dep, y_dep, taille);
+    return creer_entite((name) ? name : "PLAYER", 20, 20, 10, 10, Textures_Joueur, t_a_joueur, x_dep, y_dep, taille,type);
   case ZOMBIE:
-    return creer_entite((name) ? name : "ZOMBIE", 0, 0, 10, 10, Textures_Zombie, t_a_zombie, x_dep, y_dep, taille);
+    return creer_entite((name) ? name : "ZOMBIE", 0, 0, 10, 10, Textures_Zombie, t_a_zombie, x_dep, y_dep, taille,type);
   case BOSS:
-    return creer_entite((name) ? name : "BOSS", 50, 50, 30, 30, Textures_Boss, t_a_boss, x_dep, y_dep, taille);
+    return creer_entite((name) ? name : "BOSS", 50, 50, 30, 30, Textures_Boss, t_a_boss, x_dep, y_dep, taille,type);
   }
   return NULL;
 }
 
 /**
- * \fn t_entite * creer_entite (char * name, uint32_t mana, uint32_t mana_max, uint32_t pv, uint32_t pv_max, SDL_Texture * texture, t_anim_action * t_a,int taille)
+ * \fn t_entite * creer_entite (char * name, uint32_t mana, uint32_t mana_max, uint32_t pv, uint32_t pv_max, SDL_Texture * texture, t_anim_action * t_a,int taille, t_entite_type type)
  * \brief Créer une entité.
  * \param name Le nom de l'entité.
  * \param mana Le mana de départ de l'entité.
@@ -77,9 +78,10 @@ t_entite *creer_entite_defaut(char *name, t_entite_type type, int x_dep, int y_d
  * \param x_dep Coordonnée de départ de l'entité.
  * \param y_dep Coordonnée de départ de l'entité.
  * \param taille Taille de l'entité en Y.
+ * \param Type de l'entité.
  * \return Un pointeur sur l'entité créée.
 */
-t_entite *creer_entite(char *name, uint32_t mana, uint32_t mana_max, uint32_t pv, uint32_t pv_max, SDL_Texture *texture, t_anim_action *t_a, int x_dep, int y_dep, int taille) {
+t_entite *creer_entite(char *name, uint32_t mana, uint32_t mana_max, uint32_t pv, uint32_t pv_max, SDL_Texture *texture, t_anim_action *t_a, int x_dep, int y_dep, int taille, t_entite_type type) {
   if (!texture || !name || !t_a)
     return NULL;
   if (mana > mana_max || pv > pv_max) {
@@ -117,6 +119,7 @@ t_entite *creer_entite(char *name, uint32_t mana, uint32_t mana_max, uint32_t pv
   entite->accY = 0.5;
   entite->velX = 0;
   entite->velY = 0;
+  entite->type = type;
 
   return entite;
 }
@@ -887,4 +890,112 @@ t_erreur Print_Entite_Screen (SDL_Renderer * renderer, t_entite * entite_ref, t_
   }
 
   return OK;
+}
+
+/****** FONCTION SAVE ET LOAD ENTITE ******/
+
+/**
+ * \fn t_erreur Save_Entite (t_entite * entite,char * dossier, char * nom_fichier)
+ * \brief Sauvegarde dans un fichier JSON une entité.
+ * \brief Un fichier ne peut contenir qu'une seule entité.
+ * \param entite L'entité à sauvegarder.
+ * \param dossier Le dossier où enregistrer le fichier.
+ * \param nom_fichier Le nom du fichier.
+ * \return Une erreur s'il y en a une.
+*/
+t_erreur Save_Entite (t_entite * entite,char * dossier, char * nom_fichier)
+{
+  if (!entite || !dossier || !nom_fichier) return PTR_NULL;
+
+  FILE * fic = open_json(dossier,nom_fichier,"w");
+  if (!fic) return OPEN_FILE_ERROR;
+
+  // Save descriptif entité
+  open_json_obj(fic);
+  write_json(fic,"id",&(entite->id),"d");
+  write_json(fic,"type",&(entite->type),"d");
+  write_json(fic,"name",entite->name,"s");
+  close_json_obj(fic);
+
+  // Save stats entité
+  open_json_obj(fic);
+  write_json(fic,"xp",&(entite->xp),"u");
+  write_json(fic,"mana",&(entite->mana),"u");
+  write_json(fic,"mana_max",&(entite->mana_max),"u");
+  write_json(fic,"pv",&(entite->pv),"u");
+  write_json(fic,"pv_max",&(entite->pv_max),"u");
+  write_json(fic,"faim",&(entite->faim),"u");
+  write_json(fic,"faim_max",&(entite->faim_max),"u");
+  close_json_obj(fic);
+
+  // Save position entité
+  open_json_obj(fic);
+  write_json(fic,"hitboxX",&(entite->hitbox.x),"d");
+  write_json(fic,"hitboxY",&(entite->hitbox.y),"d");
+  write_json(fic,"hitboxW",&(entite->hitbox.w),"d");
+  write_json(fic,"hitboxH",&(entite->hitbox.h),"d");
+  close_json_obj(fic);
+
+  fclose(fic);
+  return OK;
+}
+
+/**
+ * \fn t_entite * Load_Entite (char * dossier, char * nom_fichier)
+ * \brief Charge une entité depuis un fichier.
+ * \param dossier Le dossier où se trouve le fichier.
+ * \param nom_fichier Le nom du fichier.
+ * \return Un pointeur sur l'entité chargée.
+*/
+t_entite * Load_Entite (char * dossier, char * nom_fichier)
+{
+  if (!dossier || !nom_fichier) return NULL;
+
+  FILE * fic = open_json(dossier,nom_fichier,"r");
+  if (!fic) return NULL;
+
+  char * objet;
+
+  // Récup descriptif entité
+  int id;
+  t_entite_type type;
+  char name[100];
+  extract_json_obj(fic,&objet);
+  read_json_obj(objet,"id",&id,"d");
+  read_json_obj(objet,"type",&type,"d");
+  read_json_obj(objet,"name",name,"s");
+  free(objet);
+
+  // Récup stats entité
+  uint64_t xp;
+  uint32_t mana, pv, faim;
+  uint32_t mana_max, pv_max, faim_max;
+  extract_json_obj(fic,&objet);
+  read_json_obj(objet,"xp",&xp,"u");
+  read_json_obj(objet,"mana",&mana,"u");
+  read_json_obj(objet,"mana_max",&mana_max,"u");
+  read_json_obj(objet,"pv",&pv,"u");
+  read_json_obj(objet,"pv_max",&pv_max,"u");
+  read_json_obj(objet,"faim",&faim,"u");
+  read_json_obj(objet,"faim_max",&faim_max,"u");
+  free(objet);
+
+  // Récup position entité
+  SDL_Rect hitbox;
+  extract_json_obj(fic,&objet);
+  read_json_obj(objet,"hitboxX",&(hitbox.x),"d");
+  read_json_obj(objet,"hitboxY",&(hitbox.y),"d");
+  read_json_obj(objet,"hitboxW",&(hitbox.w),"d");
+  read_json_obj(objet,"hitboxH",&(hitbox.h),"d");
+  free(objet);
+
+  // Création entité
+  t_entite * entite = creer_entite_defaut(name,type,hitbox.x/width_block_sdl,hitbox.y/height_block_sdl,hitbox.h);
+  Change_Name_Entite(entite,name);
+  Change_Mana_Entite(entite,mana,mana_max);
+  Change_Faim_Entite(entite,faim,faim_max);
+  Change_PV_Entite(entite,pv,pv_max);
+  Change_XP_Entite(entite,xp);
+
+  return entite;
 }

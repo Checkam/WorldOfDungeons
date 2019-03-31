@@ -33,13 +33,22 @@ int main(int argc, char **argv, char **env) {
   Init_Sprite(renderer);
 
   /* Création de l'entité */
-  t_entite *J = creer_entite_defaut(NULL, JOUEUR, 22000, 15, 60);
-  Change_Mana_Entite(J,200,250);
-  Change_PV_Entite(J,2000,2000);
-  Change_Name_Entite(J,"ziharccos");
+  t_entite *J = Load_Entite("test/ENTITE/","save_ent");
+  if (!J)
+  {
+    J = creer_entite_defaut(NULL, JOUEUR, 22000, 15, 60);
+    Change_Mana_Entite(J,200,250);
+    Change_PV_Entite(J,2000,2000);
+    Change_Name_Entite(J,"ziharccos");
+  }
 
   /* Création entité 2 */
-  t_entite *Mob = creer_entite_defaut("Maxence",ZOMBIE,22005,16,70);
+  t_entite *Mob = Load_Entite("test/ENTITE/","save_mob");
+  if (!Mob)
+  {
+    Mob = creer_entite_defaut("Maxence",ZOMBIE,22005,16,70);
+  }
+
   fps_init();
   double coef_fps = 1;
   uint8_t *ks;
@@ -69,6 +78,8 @@ int main(int argc, char **argv, char **env) {
     // fprintf(stderr,"Mob : Y -> %d\n",Mob->hitbox.y);
     // fprintf(stderr,"Joueur : Y -> %d\n",J->hitbox.y);
   }
+  Save_Entite(J,"test/ENTITE/","save_ent");
+  Save_Entite(Mob,"test/ENTITE/","save_mob");
 
   SDL_exit_touches(&ks, &ct);
 

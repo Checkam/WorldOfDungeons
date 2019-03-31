@@ -104,6 +104,7 @@ typedef enum e_entite_type{
 typedef struct s_entite
 {
     int id;
+    t_entite_type type; // Type de l'entité
     char * name; // Nom de l'entité
     uint64_t xp; // XP gagné
     uint32_t mana, pv, faim; // Mana, PV et Faim courante
@@ -126,7 +127,7 @@ typedef struct s_entite
 /* Crée une entité avec des paramètres par défaut */
 t_entite * creer_entite_defaut (char * name, t_entite_type type, int x_dep, int y_dep, int taille);
 /* Crée une entité */
-t_entite * creer_entite (char * name, uint32_t mana, uint32_t mana_max, uint32_t pv, uint32_t pv_max, SDL_Texture * texture, t_anim_action * t_a, int x_dep, int y_dep, int taille);
+t_entite * creer_entite (char * name, uint32_t mana, uint32_t mana_max, uint32_t pv, uint32_t pv_max, SDL_Texture * texture, t_anim_action * t_a, int x_dep, int y_dep, int taille, t_entite_type type);
 /* Détruit une entité */
 t_erreur detruire_entite (t_entite * entite);
 /* Initialise les textures d'une entité */
@@ -189,5 +190,14 @@ t_erreur Print_Info_Entite (SDL_Renderer * renderer, t_entite * entite);
 Utilisation : -> pos = CENTER_SCREEN -> affichage centre screen,
 -> pos = NOT_CENTER_SCREEN -> affichage en fonction d'une autre entité. */
 t_erreur Print_Entite_Screen (SDL_Renderer * renderer, t_entite * entite_ref, t_entite * entite_aff, t_action action, uint8_t pos);
+
+
+/****** Primitives des fonctions qui sauvegarde et charge une entité ******/
+
+/* Sauvegarde un joueur dans un fichier JSON.
+Un fichier ne peut contenir qu'une seule entité. */
+t_erreur Save_Entite (t_entite * entite,char * dossier, char * nom_fichier);
+/* Charge une entité depuis un fichier JSON */
+t_entite * Load_Entite (char * dossier, char * nom_fichier);
 
 #endif
