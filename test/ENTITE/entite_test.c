@@ -59,8 +59,9 @@ int main(int argc, char **argv, char **env) {
     Gestion_Entite(renderer, J, ks, coef_fps, NULL,GESTION_TOUCHES,ALL_ACTION,NULL);
 
     update_posY_entite(Mob,coef_fps,NULL,NOT_CENTER_SCREEN);
-    Gestion_Entite(renderer,Mob,ks,coef_fps,NULL,GESTION_ACTION,MARCHE_DEVANT,J);
-    Gestion_Entite(renderer,Mob,ks,coef_fps,NULL,GESTION_ACTION,ACCELERER,J);
+    // Gestion_Entite(renderer,Mob,ks,coef_fps,NULL,GESTION_ACTION,MARCHE_DEVANT,J);
+    // Gestion_Entite(renderer,Mob,ks,coef_fps,NULL,GESTION_ACTION,ACCELERER,J);
+    Gestion_Entite(renderer,Mob,ks,coef_fps,NULL,GESTION_ACTION,ATTAQUE_DROITE,J);
     
     SDL_RenderPresent(renderer);
     coef_fps = fps();

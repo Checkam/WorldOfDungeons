@@ -23,18 +23,22 @@
 /****** SPRITE TEXTURE ACTION ******/
 
 SDL_Texture *Textures_Joueur;
-t_anim_action t_a_joueur[NB_LIGNES_SPRITE] = {
-    {MARCHE_DROITE, 12, 9, 100}, {MARCHE_GAUCHE, 10, 9, 100}, {MARCHE_DERRIERE, 11, 9, 100}, {MARCHE_DEVANT, 9, 9, 100}, {IMMOBILE, 3, 1, 50}};
+t_anim_action t_a_joueur[NB_LIGNES_SPRITE] = {{MARCHE_DROITE, 12, 9, 100}, {MARCHE_GAUCHE, 10, 9, 100}, {MARCHE_DERRIERE, 11, 9, 100},
+                                              {MARCHE_DEVANT, 9, 9, 100}, {CREUSER_DEVANT,5,8,100}, {CREUSER_DERRIERE,7,8,100}, {CREUSER_GAUCHE,6,8,100},
+                                              {CREUSER_DROITE,8,8,100}, {ATTAQUE_DEVANT,13,6,80}, {ATTAQUE_DERRIERE,15,6,80}, {ATTAQUE_GAUCHE,14,6,80},
+                                              {ATTAQUE_DROITE,16,6,80}, {IMMOBILE, 3, 1, 50}};
 
 SDL_Texture *Textures_Zombie;
 t_anim_action t_a_zombie[NB_LIGNES_SPRITE] = {{MARCHE_DROITE, 12, 9, 100}, {MARCHE_GAUCHE, 10, 9, 100},  {MARCHE_DERRIERE, 11, 9, 100},
-                                              {MARCHE_DEVANT, 9, 9, 100},  {ATTAQUE_GAUCHE, 14, 6, 100}, {ATTAQUE_DROITE, 16, 6, 100},
-                                              {IMMOBILE, 3, 1, 50}};
+                                              {MARCHE_DEVANT, 9, 9, 100}, {CREUSER_DEVANT,5,8,100}, {CREUSER_DERRIERE,7,8,100}, {CREUSER_GAUCHE,6,8,100},
+                                              {CREUSER_DROITE,8,8,100}, {ATTAQUE_DEVANT,13,6,80}, {ATTAQUE_DERRIERE,15,6,80}, {ATTAQUE_GAUCHE,14,6,80},
+                                              {ATTAQUE_DROITE,16,6,80}, {IMMOBILE, 3, 1, 50}};
 
 SDL_Texture *Textures_Boss;
 t_anim_action t_a_boss[NB_LIGNES_SPRITE] = {{MARCHE_DROITE, 12, 9, 100}, {MARCHE_GAUCHE, 10, 9, 100},  {MARCHE_DERRIERE, 11, 9, 100},
-                                            {MARCHE_DEVANT, 9, 9, 100},  {ATTAQUE_GAUCHE, 14, 6, 100}, {ATTAQUE_DROITE, 16, 6, 100},
-                                            {IMMOBILE, 3, 1, 50}};
+                                            {MARCHE_DEVANT, 9, 9, 100}, {CREUSER_DEVANT,5,8,100}, {CREUSER_DERRIERE,7,8,100}, {CREUSER_GAUCHE,6,8,100},
+                                            {CREUSER_DROITE,8,8,100}, {ATTAQUE_DEVANT,13,6,80}, {ATTAQUE_DERRIERE,15,6,80}, {ATTAQUE_GAUCHE,14,6,80},
+                                            {ATTAQUE_DROITE,16,6,80}, {IMMOBILE, 3, 1, 50}};
 
 /****** FONCTIONS CREATION ET SUPPRESSION ENTITE ******/
 
@@ -565,7 +569,7 @@ int collision(t_entite *entite, t_collision_direction direction, t_liste *p) {
 /**
  * \fn t_erreur Gestion_Entite (SDL_Renderer * renderer, t_entite * entite, uint8_t * ks, double coef_fps, t_liste * p, uint8_t type_gestion, t_action action, t_entite * ref)
  * \brief Gère une entité (collision, déplacement, animation).
- * \brief Gère les animations ainsi que les modifications apportées à l'entité (gravité, collision, déplacement) correspondant aux différents appuis de touches.
+ * \brief Gère les animations ainsi que les modifications apportées à l'entité (gravité, collision, déplacement) correspondant aux différents appuis de touches ou non.
  * \param renderer Renderer de la fenêtre.
  * \param entite L'entité à gérer.
  * \param ks Etat du clavier pour la gestion de l'appui des touches.
@@ -635,7 +639,7 @@ t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, d
     /* Gravité */
     update_posY_entite(entite, coef_fps, p, CENTER_SCREEN);
   }
-  else if (type_gestion & GESTION_ACTION) /* Gestion d'une action */
+  else if (type_gestion & GESTION_ACTION) /* Gestion d'une action sans appui de touches */
   {
     if (!ref) return PTR_NULL;
 
@@ -669,7 +673,7 @@ t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, d
         Print_Entite_Screen(renderer, ref, entite, MARCHE_GAUCHE, NOT_CENTER_SCREEN);
         break;
 
-      case SAUTER:
+      case SAUTER_ENT:
         if (!(entite->velY) && collision(entite, DIRECT_BAS_COLLI, p)){
           entite->velY -= HAUTEUR_SAUT;
         }
@@ -689,6 +693,38 @@ t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, d
         Anim_Update(entite, MARCHE_GAUCHE, 100);
         Anim_Update(entite, MARCHE_DEVANT, 100);
         Anim_Update(entite, MARCHE_DERRIERE, 100);
+        break;
+
+      case ATTAQUE_DEVANT:
+        Print_Entite_Screen(renderer,ref,entite,ATTAQUE_DEVANT,NOT_CENTER_SCREEN);
+        break;
+      
+      case ATTAQUE_DERRIERE:
+        Print_Entite_Screen(renderer,ref,entite,ATTAQUE_DERRIERE,NOT_CENTER_SCREEN);
+        break;
+      
+      case ATTAQUE_DROITE:
+        Print_Entite_Screen(renderer,ref,entite,ATTAQUE_DROITE,NOT_CENTER_SCREEN);
+        break;
+      
+      case ATTAQUE_GAUCHE:
+        Print_Entite_Screen(renderer,ref,entite,ATTAQUE_GAUCHE,NOT_CENTER_SCREEN);
+        break;
+      
+      case CREUSER_DEVANT:
+        Print_Entite_Screen(renderer,ref,entite,CREUSER_DEVANT,NOT_CENTER_SCREEN);
+        break;
+      
+      case CREUSER_DERRIERE:
+        Print_Entite_Screen(renderer,ref,entite,CREUSER_DERRIERE,NOT_CENTER_SCREEN);
+        break;
+      
+      case CREUSER_DROITE:
+        Print_Entite_Screen(renderer,ref,entite,CREUSER_DROITE,NOT_CENTER_SCREEN);
+        break;
+      
+      case CREUSER_GAUCHE:
+        Print_Entite_Screen(renderer,ref,entite,CREUSER_GAUCHE,NOT_CENTER_SCREEN);
         break;
 
       default:
@@ -802,6 +838,16 @@ t_erreur Print_Info_Entite (SDL_Renderer * renderer, t_entite * entite)
   return OK;
 }
 
+/**
+ * \fn t_erreur Print_Entite_Screen (SDL_Renderer * renderer, t_entite * entite_ref, t_entite * entite_aff, t_action action, uint8_t pos)
+ * \brief Affiche une entité sur l'écran avec ses informations (pv,mana,nom), soit au centre, soit en fonction d'une autre.
+ * \param renderer Le renderer de la fenêtre.
+ * \param entite_ref L'entité de référence si affichage en fonction d'elle.
+ * \param entite_aff L'entité à afficher.
+ * \param action L'action effectuer pour effectuer le bon affichage.
+ * \param pos La position de l'entité sur l'écran, permet de savoir si elle est au centre ou non.
+ * \return Une erreur s'il y en a une.
+*/
 t_erreur Print_Entite_Screen (SDL_Renderer * renderer, t_entite * entite_ref, t_entite * entite_aff, t_action action, uint8_t pos)
 {
   if (!entite_aff) return PTR_NULL;
