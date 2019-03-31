@@ -665,9 +665,20 @@ t_erreur donjon_gestion(SDL_Renderer * renderer, t_donjon * donjon, t_entite * j
 
         /* Affichage Mob */
         t_entite * mob = NULL;
-        for(en_tete(salle->mob); !hors_liste(salle->mob); suivant(salle->mob)){
-            valeur_elt(salle->mob, (void**)&mob);
-            Print_Entite_Screen(renderer, joueur, mob, IMMOBILE, NOT_CENTER_SCREEN | INVERSION_AXE_Y);
+        t_salle_donjon *salle_ec = NULL;
+        for(en_tete(donjon->donjon); !hors_liste(donjon->donjon); suivant(donjon->donjon)){
+            valeur_elt(donjon->donjon, (void**)&salle_ec);
+
+            if(salle_ec->x <= salle->x + 1 && salle_ec->x >= salle->x - 1){
+                if(salle_ec->y <= salle->y + 1 && salle_ec->y >= salle->y - 1){
+                    if(salle_ec->mob != NULL){
+                        for(en_tete(salle_ec->mob); !hors_liste(salle_ec->mob); suivant(salle_ec->mob)){
+                            valeur_elt(salle_ec->mob, (void**)&mob);
+                            Print_Entite_Screen(renderer, joueur, mob, IMMOBILE, NOT_CENTER_SCREEN | INVERSION_AXE_Y);
+                        }
+                    }
+                }
+            }
         }
     }
 
