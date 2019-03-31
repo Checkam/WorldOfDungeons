@@ -563,7 +563,7 @@ int collision(t_entite *entite, t_collision_direction direction, t_liste *p) {
 /************** Focntion qui gère les déplacements et les animations de l'entité **************/
 
 /**
- * \fn t_erreur Gestion_Entite (SDL_Renderer * renderer, t_entite * entite, uint8_t * ks, double coef_fps, t_liste * p)
+ * \fn t_erreur Gestion_Entite (SDL_Renderer * renderer, t_entite * entite, uint8_t * ks, double coef_fps, t_liste * p, uint8_t type_gestion, t_action action, t_entite * ref)
  * \brief Gère une entité (collision, déplacement, animation).
  * \brief Gère les animations ainsi que les modifications apportées à l'entité (gravité, collision, déplacement) correspondant aux différents appuis de touches.
  * \param renderer Renderer de la fenêtre.
@@ -571,67 +571,131 @@ int collision(t_entite *entite, t_collision_direction direction, t_liste *p) {
  * \param ks Etat du clavier pour la gestion de l'appui des touches.
  * \param coef_fps Permet d'adapter les déplacements en fonction du nombre de fps.
  * \param p Liste contenant les paramètres supplémentaires de la fonction collision si il y en a besoin.
+ * \param type_gestion La gestion à appliquer à l'entité (si on veut les touches on non).
+ * \param action L'action à effectuer si jamais pas de gestion des touches.
+ * \param ref Entité de référence pour affichage.
  * \return Une erreur s'il y en a une.
 */
-t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, double coef_fps, t_liste *p) {
+t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, double coef_fps, t_liste *p, uint8_t type_gestion, t_action action, t_entite * ref) {
   if (!renderer || !entite || !ks)
     return PTR_NULL;
 
   int diff; // Profondeur de la collision
 
-  /* Modif pour la touche AVANCER */
-  if (SDL_touche_appuyer(ks, AVANCER)) {
-    Print_Entite_Screen(renderer, NULL, entite, MARCHE_DEVANT, CENTER_SCREEN);
-  }
-  /* Modif pour la touche RECULER */
-  else if (SDL_touche_appuyer(ks, RECULER)) {
-    Print_Entite_Screen(renderer, NULL, entite, MARCHE_DERRIERE, CENTER_SCREEN);
-  }
-  /* Modif pour la touche DROITE */
-  else if (SDL_touche_appuyer(ks, DROITE)) {
-    diff = collision(entite, DIRECT_DROITE_COLLI, p);
-    if (diff <= 0) {
-      entite->hitbox.x += entite->accX * coef_fps;
+  if (type_gestion & GESTION_TOUCHES) /* Gestion des touches et actions associées */
+  {
+    /* Modif pour la touche AVANCER */
+    if (SDL_touche_appuyer(ks, AVANCER)) {
+      Print_Entite_Screen(renderer, NULL, entite, MARCHE_DEVANT, CENTER_SCREEN);
     }
-    Print_Entite_Screen(renderer, NULL, entite, MARCHE_DROITE, CENTER_SCREEN);
-  }
-  /* Modif pour la touche GAUCHE */
-  else if (SDL_touche_appuyer(ks, GAUCHE)) {
-    diff = collision(entite, DIRECT_GAUCHE_COLLI, p);
-    if (diff <= 0) {
-      entite->hitbox.x -= entite->accX * coef_fps;
+    /* Modif pour la touche RECULER */
+    else if (SDL_touche_appuyer(ks, RECULER)) {
+      Print_Entite_Screen(renderer, NULL, entite, MARCHE_DERRIERE, CENTER_SCREEN);
     }
-    Print_Entite_Screen(renderer, NULL, entite, MARCHE_GAUCHE, CENTER_SCREEN);
+    /* Modif pour la touche DROITE */
+    else if (SDL_touche_appuyer(ks, DROITE)) {
+      diff = collision(entite, DIRECT_DROITE_COLLI, p);
+      if (diff <= 0) {
+        entite->hitbox.x += entite->accX * coef_fps;
+      }
+      Print_Entite_Screen(renderer, NULL, entite, MARCHE_DROITE, CENTER_SCREEN);
+    }
+    /* Modif pour la touche GAUCHE */
+    else if (SDL_touche_appuyer(ks, GAUCHE)) {
+      diff = collision(entite, DIRECT_GAUCHE_COLLI, p);
+      if (diff <= 0) {
+        entite->hitbox.x -= entite->accX * coef_fps;
+      }
+      Print_Entite_Screen(renderer, NULL, entite, MARCHE_GAUCHE, CENTER_SCREEN);
+    }
+    /* Modif quand on appui sur AUCUNE touche */
+    else
+      Print_Entite_Screen(renderer, NULL, entite, IMMOBILE, CENTER_SCREEN);
+
+    /* Modif pour la touche SHIFT (Accélérer) */
+    if (SDL_touche_appuyer(ks, SHIFT)) {
+      entite->accX = VITESSE_DEPLACEMENT * ACCELERATION;
+      Anim_Update(entite, MARCHE_DROITE, 25);
+      Anim_Update(entite, MARCHE_GAUCHE, 25);
+      Anim_Update(entite, MARCHE_DEVANT, 25);
+      Anim_Update(entite, MARCHE_DERRIERE, 25);
+    } else {
+      entite->accX = VITESSE_DEPLACEMENT;
+      Anim_Update(entite, MARCHE_DROITE, 100);
+      Anim_Update(entite, MARCHE_GAUCHE, 100);
+      Anim_Update(entite, MARCHE_DEVANT, 100);
+      Anim_Update(entite, MARCHE_DERRIERE, 100);
+    }
+
+    /* Modif pour la touche SAUTER */
+    if (!(entite->velY) && collision(entite, DIRECT_BAS_COLLI, p) && SDL_touche_appuyer(ks, SAUTER)) {
+      entite->velY -= HAUTEUR_SAUT;
+    }
+
+    /* Gravité */
+    update_posY_entite(entite, coef_fps, p, CENTER_SCREEN);
   }
-  /* Modif quand on appui sur AUCUNE touche */
-  else
-    Print_Entite_Screen(renderer, NULL, entite, IMMOBILE, CENTER_SCREEN);
+  else if (type_gestion & GESTION_ACTION) /* Gestion d'une action */
+  {
+    if (!ref) return PTR_NULL;
 
-  /* Modif pour la touche SHIFT (Accélérer) */
-  if (SDL_touche_appuyer(ks, SHIFT)) {
-    entite->accX = VITESSE_DEPLACEMENT * ACCELERATION;
-    Anim_Update(entite, MARCHE_DROITE, 25);
-    Anim_Update(entite, MARCHE_GAUCHE, 25);
-    Anim_Update(entite, MARCHE_DEVANT, 25);
-    Anim_Update(entite, MARCHE_DERRIERE, 25);
-  } else {
-    entite->accX = VITESSE_DEPLACEMENT;
-    Anim_Update(entite, MARCHE_DROITE, 100);
-    Anim_Update(entite, MARCHE_GAUCHE, 100);
-    Anim_Update(entite, MARCHE_DEVANT, 100);
-    Anim_Update(entite, MARCHE_DERRIERE, 100);
+    switch (action)
+    {
+      case IMMOBILE:
+        Print_Entite_Screen(renderer, ref, entite, IMMOBILE, NOT_CENTER_SCREEN);
+        break;
+
+      case MARCHE_DEVANT:
+        Print_Entite_Screen(renderer, ref, entite, MARCHE_DEVANT, NOT_CENTER_SCREEN);
+        break;
+
+      case MARCHE_DERRIERE:
+        Print_Entite_Screen(renderer, ref, entite, MARCHE_DERRIERE, NOT_CENTER_SCREEN);
+        break;
+      
+      case MARCHE_DROITE:
+        diff = collision(entite, DIRECT_DROITE_COLLI, p);
+        if (diff <= 0) {
+          entite->hitbox.x += entite->accX * coef_fps;
+        }
+        Print_Entite_Screen(renderer, ref, entite, MARCHE_DROITE, NOT_CENTER_SCREEN);
+        break;
+      
+      case MARCHE_GAUCHE:
+        diff = collision(entite, DIRECT_GAUCHE_COLLI, p);
+        if (diff <= 0) {
+          entite->hitbox.x -= entite->accX * coef_fps;
+        }
+        Print_Entite_Screen(renderer, ref, entite, MARCHE_GAUCHE, NOT_CENTER_SCREEN);
+        break;
+
+      case SAUTER:
+        if (!(entite->velY) && collision(entite, DIRECT_BAS_COLLI, p)){
+          entite->velY -= HAUTEUR_SAUT;
+        }
+        break;
+      
+      case ACCELERER:
+        entite->accX = VITESSE_DEPLACEMENT * ACCELERATION;
+        Anim_Update(entite, MARCHE_DROITE, 25);
+        Anim_Update(entite, MARCHE_GAUCHE, 25);
+        Anim_Update(entite, MARCHE_DEVANT, 25);
+        Anim_Update(entite, MARCHE_DERRIERE, 25);
+        break;
+      
+      case MARCHER:
+        entite->accX = VITESSE_DEPLACEMENT;
+        Anim_Update(entite, MARCHE_DROITE, 100);
+        Anim_Update(entite, MARCHE_GAUCHE, 100);
+        Anim_Update(entite, MARCHE_DEVANT, 100);
+        Anim_Update(entite, MARCHE_DERRIERE, 100);
+        break;
+
+      default:
+        break;
+    }
   }
-
-  /* Modif pour la touche SAUTER */
-  if (!(entite->velY) && collision(entite, DIRECT_BAS_COLLI, p) && SDL_touche_appuyer(ks, SAUTER)) {
-    entite->velY -= HAUTEUR_SAUT;
-  }
-
-  /* Gravité */
-  update_posY_entite(entite, coef_fps, p, CENTER_SCREEN);
-  //fprintf(stderr,"posEnt : X->%d, Y->%d / hitBox : X->%d, Y->%d\n", entite->posEnt.x, entite->posEnt.y, entite->hitbox.x, entite->hitbox.y);
-
-  Print_Info_Entite(renderer, entite);
+  else return VALUE_ERROR;
 
   return OK;
 }

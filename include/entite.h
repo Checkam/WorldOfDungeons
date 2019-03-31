@@ -44,7 +44,11 @@ typedef enum e_action{
     MARCHE_DEVANT,
     MARCHE_DERRIERE,
     ATTAQUE_GAUCHE,
-    ATTAQUE_DROITE
+    ATTAQUE_DROITE,
+    ACCELERER,
+    MARCHER,
+    SAUTER,
+    ALL_ACTION
 }t_action;
 
 /**
@@ -69,9 +73,13 @@ typedef struct s_anim_action
 #define DECALAGE_NOM_ENT 30
 #define LARGEUR_NOM_ENT 65
 #define HAUTEUR_NOM_ENT 15
+
 #define CENTER_SCREEN 1
 #define NOT_CENTER_SCREEN 2
 #define INVERSION_AXE_Y 4
+
+#define GESTION_TOUCHES 1
+#define GESTION_ACTION 2
 
 /**
  * \enum t_entite_type
@@ -168,7 +176,7 @@ t_erreur update_posY_entite(t_entite * entite, double coef_fps, t_liste * p, uin
 /****** Primitives des fonctions qui gèrent l'affichage des entités en fonction des collisions ******/
 
 /* Affiche les animations et modifie l'emplacement du joueur suivant les touches appuyées et gère les collisions en X */
-t_erreur Gestion_Entite (SDL_Renderer * renderer, t_entite * entite, uint8_t * ks, double coef_fps, t_liste * p);
+t_erreur Gestion_Entite (SDL_Renderer * renderer, t_entite * entite, uint8_t * ks, double coef_fps, t_liste * p, uint8_t type_gestion, t_action action, t_entite * ref);
 /* Affiche les informations de l'entité sur la fenêtre */
 t_erreur Print_Info_Entite (SDL_Renderer * renderer, t_entite * entite);
 /* Affiche une entité sur l'écran en focntion de la position

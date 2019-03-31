@@ -56,17 +56,23 @@ int main(int argc, char **argv, char **env) {
       continue;
     }
 
-    Gestion_Entite(renderer, J, ks, coef_fps, NULL);
+    Gestion_Entite(renderer, J, ks, coef_fps, NULL,GESTION_TOUCHES,ALL_ACTION,NULL);
+
     update_posY_entite(Mob,coef_fps,NULL,NOT_CENTER_SCREEN);
-    Print_Entite_Screen(renderer,J,Mob,IMMOBILE,NOT_CENTER_SCREEN);
+    Gestion_Entite(renderer,Mob,ks,coef_fps,NULL,GESTION_ACTION,MARCHE_DEVANT,J);
+    Gestion_Entite(renderer,Mob,ks,coef_fps,NULL,GESTION_ACTION,ACCELERER,J);
+    
     SDL_RenderPresent(renderer);
     coef_fps = fps();
     Add_PV_Entite(J,-4);
+    // fprintf(stderr,"Mob : Y -> %d\n",Mob->hitbox.y);
+    // fprintf(stderr,"Joueur : Y -> %d\n",J->hitbox.y);
   }
 
   SDL_exit_touches(&ks, &ct);
 
   detruire_entite(J);
+  detruire_entite(Mob);
   Quit_Sprite();
 
   SDL_DestroyRenderer(renderer);
