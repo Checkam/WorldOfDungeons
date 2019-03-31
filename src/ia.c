@@ -32,7 +32,7 @@ t_action ia_jouer(t_entite * entite, t_entite * adversaire, uint16_t type){
         if(rnd <= 0.95)
             return entite->act_pred;
         else
-            return (rand() % SAUTER);
+            return (rand() % CREUSER_DERRIERE);
     }
 
     if(adversaire == NULL){

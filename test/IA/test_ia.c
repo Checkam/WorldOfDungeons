@@ -101,7 +101,7 @@ int main(int argc, char **argv, char **env){
         Print_Info_Entite(renderer, joueur);
 
         /* Action mob */
-        t_action action = ia_jouer(mob, joueur, IA_FUITE | IA_ATTAQUE);
+        t_action action = ia_jouer(mob, joueur, IA_FOCUS | IA_ATTAQUE);
         Gestion_Entite(renderer, mob, ks, fps(), NULL, GESTION_ACTION, action, joueur);
         fprintf(stderr, "%d\n", action);
         //Print_Entite_Screen(renderer, joueur, mob, action, NOT_CENTER_SCREEN);
