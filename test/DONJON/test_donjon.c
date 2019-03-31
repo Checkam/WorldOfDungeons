@@ -36,17 +36,17 @@ int main(int argc, char **argv, char **env){
     pwd_init(argv[0], getenv("PWD"));
 
     if(SDL_Init(SDL_INIT_EVERYTHING) == -1){
-        printf("%s\n", SDL_GetError());
+        fprintf(stderr, "%s\n", SDL_GetError());
         return EXIT_FAILURE;
     }
 
     if(IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG | IMG_INIT_TIF | IMG_INIT_WEBP) == -1){
-        printf("%s\n", IMG_GetError());
+        fprintf(stderr, "%s\n", IMG_GetError());
         return EXIT_FAILURE;
     }
 
     if(TTF_Init() == -1){
-        printf("%s\n", TTF_GetError());
+        fprintf(stderr, "%s\n", TTF_GetError());
         return EXIT_FAILURE;
     }
 
@@ -57,13 +57,13 @@ int main(int argc, char **argv, char **env){
     height_block_sdl = height_window / NB_BLOCK_HEIGHT;
     SDL_Window *screen = SDL_CreateWindow("World Of Dungeons", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,width_window, height_window, SDL_WINDOW_SHOWN);
     if(screen == NULL){
-        printf("%s\n", SDL_GetError());
+        fprintf(stderr, "%s\n", SDL_GetError());
         return EXIT_FAILURE;
     }
 
     SDL_Renderer *renderer = SDL_CreateRenderer(screen, -1, SDL_RENDERER_ACCELERATED);
     if(renderer == NULL){
-        printf("%s\n", SDL_GetError());
+        fprintf(stderr, "%s\n", SDL_GetError());
         return EXIT_FAILURE;
     }
 
@@ -82,8 +82,13 @@ int main(int argc, char **argv, char **env){
     
 
     /* Création Donjon */
+    fprintf(stderr, "Test Création donjon ");
     t_donjon *donjon = NULL;
-    donjon_creer(&donjon, NB_SALLE, joueur);
+    if(donjon_creer(&donjon, NB_SALLE, joueur) == OK){
+        fprintf(stderr, "--> OK\n");
+    }else{
+        fprintf(stderr, "--> KO\n");
+    }
 
     
     int continuer = 1;
@@ -115,7 +120,14 @@ int main(int argc, char **argv, char **env){
     }
     
     /* Destruction Donjon */
-    donjon_detruire(&donjon);
+    fprintf(stderr, "Test destruction donjon ");
+    if(donjon_detruire(&donjon) == OK){
+        fprintf(stderr, "--> OK\n");
+    }else{
+        fprintf(stderr, "--> KO\n");
+    }
+
+    /* Libérationde la mémoire */
     BLOCK_DestroyTexture_sdl(renderer);
     SDL_exit_touches(&ks, &ct);
     Quit_Sprite();

@@ -44,6 +44,7 @@ static t_erreur creer_mob(t_salle_donjon * salle, t_entite * joueur);
  * \brief Fonction permettant de créer un donjon
  * \param liste Pointeur dans lequel sera stocké le donjon
  * \param nb_salle Nombre de salle dans le donjon
+ * \param joueur Joueur voulant entrer dans le donjon
  * \return Code erreur
 */
 t_erreur donjon_creer(t_donjon ** donjon, int nb_salle, t_entite * joueur){
@@ -96,8 +97,12 @@ t_erreur donjon_creer(t_donjon ** donjon, int nb_salle, t_entite * joueur){
 }
 
 /**
- * \fn
- * \param
+ * \fn static t_erreur donjon_ajout_salle(t_liste * donjon, int taille_donjon, t_entite * joueur)
+ * \brief Fonction d'ajout d'une salle à un donjon
+ * \param donjon Donjon dans lequel on veut ajouter la salle
+ * \param taille_donjon Taille du donjon
+ * \param joueur Joueur qui veut entrer dans le donjon
+ * \return Code erreur
 */
 static t_erreur donjon_ajout_salle(t_liste * donjon, int taille_donjon, t_entite * joueur){
     /* Vérification */
@@ -146,8 +151,13 @@ static t_erreur donjon_ajout_salle(t_liste * donjon, int taille_donjon, t_entite
 }
 
 /**
- * \fn
- * \param
+ * \fn static t_erreur donjon_creer_salle(t_salle_donjon ** salle, int x, int y, t_type_salle_donjon type)
+ * \brief Fonction qui crée une salle en remplissant ces champs par défault
+ * \param salle Double pointeur dans lequel on enregistre la salle créé
+ * \param x Position en X de la salle dans le donjon
+ * \param y Position en Y de la salle dans le donjon
+ * \param type Type de la salle
+ * \return Code erreur
 */
 static t_erreur donjon_creer_salle(t_salle_donjon ** salle, int x, int y, t_type_salle_donjon type){
     /* Vérification */
@@ -191,8 +201,10 @@ static t_erreur donjon_creer_salle(t_salle_donjon ** salle, int x, int y, t_type
 }
 
 /**
- * \fn
- * \param
+ * \fn static int nb_voisin_salle(t_salle_donjon * salle)
+ * \brief Calcule le nombre de voisin d'une salle
+ * \param salle Salle dont on veut connaitre le nombre de voisin
+ * \return Nombre de voisins de la salle
 */
 static int nb_voisin_salle(t_salle_donjon * salle){
     int nb = 0;
@@ -207,8 +219,11 @@ static int nb_voisin_salle(t_salle_donjon * salle){
 }
 
 /**
- * \fn
- * \param
+ * \fn static t_erreur selection_voisin(t_salle_donjon * salle, int * choix)
+ * \brief Fonction qui sélectionne de manière pseudo-aléatoire un voisin pour une salle donnée
+ * \param salle Salle dont on veut sélectionner un voisin
+ * \param choix Pointeur de retour sur le choix fait
+ * \return Code erreur
 */
 static t_erreur selection_voisin(t_salle_donjon * salle, int * choix){
     /* Vérification */
@@ -247,10 +262,11 @@ static t_erreur selection_voisin(t_salle_donjon * salle, int * choix){
 }
 
 /**
- * \fn
- * \brief Cherche une salle ayant au moins 1 voisin
- * \param
- * \return La position dans la liste, -1 sinon
+ * \fn static int chercher_salle(t_liste *donjon, t_entite * joueur)
+ * \brief Cherche une salle ayant au moins 1 voisin (Slot dans le quelle une autre salle peut être créer)
+ * \param donjon Donjon dans lequel on recherche la salle
+ * \param joueur Jour qui veut entrer dans le donjon
+ * \return La position de la salle dans la liste, -1 sinon
 */
 static int chercher_salle(t_liste *donjon, t_entite * joueur){
     /* On sélectionne une salle aléatoire */
@@ -277,9 +293,20 @@ static int chercher_salle(t_liste *donjon, t_entite * joueur){
 }
 
 /**
- * 
+ * \fn static t_erreur update_voisin(t_liste * donjon, int taille_donjon)
+ * \brief Met à jour le tableau des voisins de chaque salle
+ * \param donjon Donjon dans lequel on veut mettre à jour les salles
+ * \param taille_donjon Taille du donjon
+ * \return Code erreur
 */
 static t_erreur update_voisin(t_liste * donjon, int taille_donjon){
+    /* Vérification */
+    if(donjon == NULL){
+        erreur_save(PTR_NULL, "update_voisin() : Pointeur sur donjon NULL");
+        return PTR_NULL;
+    }
+
+    /* Mise à jour des voisins */
     t_salle_donjon *salle_courante, *salle_suivante;
 
     int i;
@@ -307,6 +334,7 @@ static t_erreur update_voisin(t_liste * donjon, int taille_donjon){
                     }
                 }
             }
+            /* Bordure du donjon */
             if(salle_courante->x == 0){
                 salle_courante->voisin[0] = 1;
             }else if(salle_courante->x == taille_donjon - 1){
@@ -323,7 +351,10 @@ static t_erreur update_voisin(t_liste * donjon, int taille_donjon){
 }
 
 /**
- * 
+ * \fn static t_erreur donjon_creer_structure_salle(t_salle_donjon * salle)
+ * \brief Crée la structure de la salle
+ * \param salle Salle dans laquelle on veut créer une structure
+ * \return Code erreur
 */
 static t_erreur donjon_creer_structure_salle(t_salle_donjon * salle){
     /* Vérification */
@@ -382,7 +413,11 @@ static t_erreur donjon_creer_structure_salle(t_salle_donjon * salle){
 }
 
 /**
- * 
+ * \fn static t_erreur donjon_coord_depart(t_liste * donjon, t_salle_donjon ** salle_dep)
+ * \brief Renvoie la salle de départ
+ * \param donjon Donjon dont on veut connaitre la salle de départ
+ * \param salle_dep Double pointeur de retour de la salle de départ
+ * \return Code erreur 
 */
 static t_erreur donjon_coord_depart(t_liste * donjon, t_salle_donjon ** salle_dep){
     /* Vérification */
@@ -406,7 +441,10 @@ static t_erreur donjon_coord_depart(t_liste * donjon, t_salle_donjon ** salle_de
 }
 
 /**
- * 
+ * \fn static t_erreur placer_salle_boss(t_liste * donjon)
+ * \brief Place la salle du boss dans la salle la plus éloigné de la salle de départ
+ * \param donjon Donjon dans lequel on veut placer la salle du boss
+ * \return Code erreur
 */
 static t_erreur placer_salle_boss(t_liste * donjon){
     /* Vérification */
@@ -437,7 +475,12 @@ static t_erreur placer_salle_boss(t_liste * donjon){
 }
 
 /**
- * \brief Retourne dans tab la partie du donjon à afficher
+ * \fn static t_erreur tab_fenetre(t_liste * donjon, SDL_Rect pos_perso, t_liste ** tab_fenetre)
+ * \brief Retourne dans tab la partie du donjon à afficher en fonction du joueur
+ * \param donjon Donjon que l'on veut afficher
+ * \param pos_perso Position du joueur
+ * \param tab_fenetre Double pointeur de retour de la partie du donjon à afficher
+ * \return Code erreur
 */
 static t_erreur tab_fenetre(t_liste * donjon, SDL_Rect pos_perso, t_liste ** tab_fenetre){
     /* Vérification */
@@ -516,7 +559,11 @@ static t_erreur tab_fenetre(t_liste * donjon, SDL_Rect pos_perso, t_liste ** tab
 }
 
 /**
- * 
+ * \fn t_erreur donjon_afficher_Term(t_donjon * donjon, t_entite * joueur)
+ * \brief Fonction d'affichage du donjon dans un terminal
+ * \param donjon Donjon que l'on veut afficher
+ * \param joueur Joueur qui est dans le donjon
+ * \return Code erreur
 */
 t_erreur donjon_afficher_Term(t_donjon * donjon, t_entite * joueur){
     /* Vérification */
@@ -525,7 +572,7 @@ t_erreur donjon_afficher_Term(t_donjon * donjon, t_entite * joueur){
         return PTR_NULL;
     }
 
-    /**/
+    /* Affichage du donjon */
     t_liste * fenetre = NULL;
 
     tab_fenetre(donjon->donjon, joueur->hitbox, &fenetre);
@@ -538,7 +585,11 @@ t_erreur donjon_afficher_Term(t_donjon * donjon, t_entite * joueur){
 }
 
 /**
- * 
+ * \fn t_erreur donjon_afficher_SDL(SDL_Renderer * renderer, t_donjon * donjon, t_entite * joueur)
+ * \brief Fonction d'affichage d'un donjon avec la SDL
+ * \param renderer Rendu de la fenêtre
+ * \param donjon Donjon que l'on veut afficher
+ * \param joueur Joueur qui est dans le donjon
 */
 t_erreur donjon_afficher_SDL(SDL_Renderer * renderer, t_donjon * donjon, t_entite * joueur){
     /* Vérification */
@@ -551,7 +602,7 @@ t_erreur donjon_afficher_SDL(SDL_Renderer * renderer, t_donjon * donjon, t_entit
         return PTR_NULL;
     }
 
-    /* Initialisation tableau fenetre */
+    /* Affichage du donjon */
     t_liste * fenetre = NULL;
 
     tab_fenetre(donjon->donjon, joueur->hitbox, &fenetre);
@@ -564,10 +615,19 @@ t_erreur donjon_afficher_SDL(SDL_Renderer * renderer, t_donjon * donjon, t_entit
 }
 
 /**
- * 
+ * \fn t_erreur donjon_gestion(SDL_Renderer * renderer, t_donjon * donjon, t_entite * joueur)
+ * \brief Permet de gérer un donjon comme la création et l'interaction des mobs
+ * \param renderer Rendu de la fenêtre
+ * \param donjon Donjon que l'on veut gérer
+ * \param joueur Joueur qui est dans le donjon
+ * \return Code erreur
 */
 t_erreur donjon_gestion(SDL_Renderer * renderer, t_donjon * donjon, t_entite * joueur){
     /* Vérification */
+    if(renderer == NULL){
+        erreur_save(PTR_NULL, "donjon_gestion() : Pointeur sur renderer NULL");
+        return PTR_NULL;
+    }
     if(donjon == NULL){
         erreur_save(PTR_NULL, "donjon_gestion() : Pointeur sur donjon NULL");
         return PTR_NULL;
@@ -596,10 +656,11 @@ t_erreur donjon_gestion(SDL_Renderer * renderer, t_donjon * donjon, t_entite * j
             init_liste(salle->mob);
 
             creer_mob(salle, joueur);
-            if(salle->type == DONJON_FIN)
+            /*if(salle->type == DONJON_FIN)
                 fprintf(stderr, "Salle %d,%d : %d Mobs + 1 Boss\n", salle->x, salle->y, taille_liste(salle->mob) - 1);
             else
                 fprintf(stderr, "Salle %d,%d : %d Mobs\n", salle->x, salle->y, taille_liste(salle->mob));
+            */
         }
 
         /* Affichage Mob */
@@ -607,7 +668,6 @@ t_erreur donjon_gestion(SDL_Renderer * renderer, t_donjon * donjon, t_entite * j
         for(en_tete(salle->mob); !hors_liste(salle->mob); suivant(salle->mob)){
             valeur_elt(salle->mob, (void**)&mob);
             Print_Entite_Screen(renderer, joueur, mob, IMMOBILE, NOT_CENTER_SCREEN | INVERSION_AXE_Y);
-
         }
     }
 
@@ -616,7 +676,11 @@ t_erreur donjon_gestion(SDL_Renderer * renderer, t_donjon * donjon, t_entite * j
 }
 
 /**
- * 
+ * \fn static t_erreur creer_mob(t_salle_donjon * salle, t_entite * joueur)
+ * \brief Fonction de création de mobs par rapport à une salle
+ * \param salle Salle dans laquelle on veut créer les mobs
+ * \param joueur Joueur qui est dans le donjon
+ * \return Code erreur
 */
 static t_erreur creer_mob(t_salle_donjon * salle, t_entite * joueur){
     /* Vérification */
@@ -674,7 +738,10 @@ static t_erreur creer_mob(t_salle_donjon * salle, t_entite * joueur){
 }
 
 /**
- * 
+ * \fn t_erreur donjon_detruire(t_donjon **donjon)
+ * \brief Fonction de destruction d'un donjon
+ * \param donjon Donjon que l'on veut détruire
+ * \return Code erreur
 */
 t_erreur donjon_detruire(t_donjon **donjon){
     /* Vérification */
@@ -695,15 +762,19 @@ t_erreur donjon_detruire(t_donjon **donjon){
 }
 
 /**
- * 
+ * \fn static void donjon_detruire_salle(t_salle_donjon *salle)
+ * \brief Fonction de destruction d'une salle
+ * \param salle Salle que l'on veut détruire
 */
 static void donjon_detruire_salle(t_salle_donjon *salle){
     if(salle != NULL){
         if(salle->structure != NULL){
+            /* Destruction structure salle */
             detruire_liste(salle->structure, free);
             salle->structure = NULL;
         }
         if(salle->mob != NULL){
+            /* Destruction mobs */
             detruire_liste(salle->mob, (void*)detruire_entite);
             salle->mob = NULL;
         }

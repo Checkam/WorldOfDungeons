@@ -14,12 +14,20 @@
 #include <entite.h>
 #include <stdbool.h>
 
+/**
+ * \enum t_type_salle_donjon
+ * \brief Contient les types des différentes salles d'un donjon
+*/
 typedef enum e_type_salle_donjon{
     DONJON_DEPART,
     DONJON_INTERMEDIAIRE,
     DONJON_FIN
 } t_type_salle_donjon;
 
+/**
+ * \enum t_salle_difficulte
+ * \brief Contient les différentes difficultés d'un donjon
+*/
 typedef enum e_salle_difficulte{
     AUCUNE,
     FACILE,
@@ -28,6 +36,10 @@ typedef enum e_salle_difficulte{
     FINAL
 } t_salle_difficulte;
 
+/**
+ * \struct t_salle_donjon
+ * \brief Contient toutes les informations d'une salle de donjon
+*/
 typedef struct s_salle_donjon{
     int x, y;
     t_liste * structure;
@@ -40,22 +52,38 @@ typedef struct s_salle_donjon{
     t_liste * mob;
 }t_salle_donjon;
 
+/**
+ * \struct t_donjon
+ * \brief Contient les données d'un donjon
+*/
 typedef struct s_donjon{
     int x_map_joueur, y_map_joueur;
     t_liste * donjon;
 } t_donjon;
 
+
+/*************************************/
 /* Primitive de création d'un donjon */
+/*************************************/
 t_erreur donjon_creer(t_donjon ** donjon, int nb_salle, t_entite * joueur);
 
+
+/*************************************/
 /* Primitive d'affichage d'un donjon */
+/*************************************/
 t_erreur donjon_afficher_Term(t_donjon * donjon, t_entite * joueur);
 t_erreur donjon_afficher_SDL(SDL_Renderer * renderer, t_donjon * donjon, t_entite * joueur);
 
+
+/************************************/
 /* Primitive de gestion d'un donjon */
+/************************************/
 t_erreur donjon_gestion(SDL_Renderer * renderer, t_donjon * donjon, t_entite * joueur);
 
+
+/****************************************/
 /* Primitive de destruction d'un donjon */
+/****************************************/
 t_erreur donjon_detruire(t_donjon **donjon);
 
 #endif
