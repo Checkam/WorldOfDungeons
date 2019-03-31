@@ -812,6 +812,7 @@ t_erreur Print_Entite_Screen (SDL_Renderer * renderer, t_entite * entite_ref, t_
     entite_aff->posEnt.x = POSX_ENT_SCREEN(entite_aff);
     entite_aff->posEnt.y = POSY_ENT_SCREEN(entite_aff);
     Charger_Anima(renderer,entite_aff,action);
+    Print_Info_Entite(renderer,entite_aff);
   }
   /* Affichage */
   else if (pos & NOT_CENTER_SCREEN)
