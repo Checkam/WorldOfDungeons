@@ -1,5 +1,15 @@
 #include <inventaire.h>
 
+t_inventaire *create_inventaire() {
+
+    t_inventaire *inventaire;
+    inventaire->inventaire = malloc(sizeof(t_inventaire));
+
+    printf("return\n");
+
+    return inventaire;
+}
+
 uint8_t alloc_item(t_inventaire *inventaire, const uint16_t nbItem ) {
 
     if ( inventaire->inventaire == NULL ) {
@@ -38,5 +48,9 @@ uint8_t alloc_item(t_inventaire *inventaire, const uint16_t nbItem ) {
 
 void free_inventaire( t_inventaire *inventaire ) {
 
-    free(inventaire->inventaire);
+    if ( inventaire->inventaire ) {
+
+        free(inventaire->inventaire);
+        free(inventaire);
+    }
 }

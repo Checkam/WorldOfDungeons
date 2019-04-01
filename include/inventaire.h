@@ -16,6 +16,7 @@ typedef struct inventaire_s {
     uint16_t nbItem;
 } t_inventaire;
 
+t_inventaire *create_inventaire();
 uint8_t alloc_item(t_inventaire *inventaire, const uint16_t nbItem );
 void free_inventaire( t_inventaire *inventaire );
 
