@@ -60,6 +60,7 @@ uint8_t block_to_item ( t_materiaux materiaux, t_liste_item **item ) {
 
     if ( *item )
         free(*item);
+
     (*item) = malloc( sizeof(t_liste_item) * i );
 
     #ifdef DEBUG

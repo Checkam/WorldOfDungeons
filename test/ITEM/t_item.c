@@ -14,7 +14,7 @@ int main ( int argc, char ** argv ) {
 
 	#ifdef DEBUG
 		uint8_t err;
-		if ( ( err = block_to_item( HERBE, &item )) ) {
+		if ( ( err = block_to_item( NEIGE, &item )) ) {
 			printf("Erreur : code sortie %d de block_to_item()\n", err);
 			return err;
 		}
