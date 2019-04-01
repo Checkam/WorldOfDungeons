@@ -15,7 +15,6 @@
 #include <liste.h>
 #include <math.h>
 #include <outils_SDL.h>
-#include <sauvegarde_map.h>
 #include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
