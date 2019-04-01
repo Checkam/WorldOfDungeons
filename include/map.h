@@ -38,11 +38,18 @@ t_erreur MAP_sauvegarder(t_map * map);
 char * MAP_creer_path(char * nom_map);
 t_erreur MAP_detruire_path(char ** path_dir);
 
+
+void MAP_gen(t_map *map);
 t_block *MAP_GetBlockFromList(t_map *map, int x, int y);
 t_block *MAP_GetBlock(t_map *map, int x, int y) ;
 
 void MAP_CopyListFromX(t_map *map, t_liste *list, int x_from, int x_to);
 void MAP_SetEcListe(t_liste *list, int x);
+
+
+void MAP_afficher_sdl(t_map *map, SDL_Renderer *renderer, int h_aff, int x_deb, int x_fin);
+void MAP_afficher_term(t_map *map, SDL_Renderer *renderer, int h_min_aff, int h_max_aff);
+
 
 
 

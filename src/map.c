@@ -67,6 +67,10 @@ t_erreur MAP_creer(t_map **map, char *nom_map, int SEED) {
 **/
 t_erreur MAP_charger(t_map **map, char *nom_map) {
   char *path_dir = MAP_creer_path(nom_map);
+  char *path_player = malloc(strlen(path_dir) * sizeof(char) + strlen("player/") * sizeof(char));
+  strcpy(path_player, path_dir);
+  strcat(path_player, "player/");
+
   int size = 500;
 
   char *dir_curr = malloc(sizeof(char) * size + 1);
@@ -86,16 +90,13 @@ t_erreur MAP_charger(t_map **map, char *nom_map) {
   FILE *data = open_json(path_dir, "data", "r");
   char *objet;
 
-  (*map)->joueur = creer_entite_defaut(NULL, JOUEUR, 10000, 100, width_block_sdl * 2);
-
   fstart(data);
   extract_json_obj(data, &objet);
   read_json_obj(objet, "SEED", &(*map)->SEED, "d");
-  read_json_obj(objet, "joueur.x", &(*map)->joueur->hitbox.x, "d");
-  read_json_obj(objet, "joueur.y", &(*map)->joueur->hitbox.y, "d");
   fclose(data);
   free(objet);
 
+  (*map)->joueur = Load_Entite(path_player, "player");
   //Charger map a partir d'un fichier
   (*map)->list = malloc(sizeof(t_liste));
   init_liste((*map)->list);
@@ -108,6 +109,7 @@ t_erreur MAP_charger(t_map **map, char *nom_map) {
   Close_BIN(bin_map);
 
   MAP_detruire_path(&path_dir); // Gestion des erreurs a faire
+  free(path_player);
   return OK;
 }
 
@@ -136,14 +138,17 @@ t_erreur MAP_sauvegarder(t_map *map) {
     return PTR_NULL;
 
   char *path_dir = MAP_creer_path(map->nom);
+  char *path_player = malloc(strlen(path_dir) * sizeof(char) + strlen("player/") * sizeof(char));
+  strcpy(path_player, path_dir);
+  strcat(path_player, "player/");
 
   FILE *data = open_json(path_dir, "data", "w");
   open_json_obj(data);
   write_json(data, "SEED", (void *)&(map->SEED), "d");
-  write_json(data, "joueur.x", (void *)&(map->joueur->hitbox.x), "d");
-  write_json(data, "joueur.y", (void *)&(map->joueur->hitbox.y), "d");
   close_json_obj(data);
   fclose(data);
+
+  Save_Entite(map->joueur, path_player, "player");
 
   t_binaire bin_map = Open_BIN(path_dir, map->nom, "w");
   t_block *b;
@@ -154,7 +159,7 @@ t_erreur MAP_sauvegarder(t_map *map) {
   Close_BIN(bin_map);
 
   MAP_detruire_path(&path_dir); // Gestion des erreurs a faire
-
+  free(path_player);
   return OK;
 }
 
@@ -266,11 +271,8 @@ t_block *MAP_GetBlock(t_map *map, int x, int y) {
     t_block *tab;
     for (en_tete(map->list); !hors_liste(map->list); suivant(map->list)) {
       valeur_elt(map->list, (void **)&tab);
-      for (int j = 0; j < MAX; j++) {
-        if (tab[j].x == x && tab[j].y == y) {
-          return &tab[y];
-        }
-      }
+      if (tab[0].x == x)
+        return &tab[y];
     }
   }
   return NULL;
@@ -290,5 +292,26 @@ void MAP_CopyListFromX(t_map *map, t_liste *list, int x_from, int x_to) {
   }
 }
 
-// void MAP_afficher_sdl(t_map *map, SDL_Renderer *renderer, int h_aff) { AFF_map_sdl(map->list, renderer, h_aff); }
-// void MAP_afficher_term(t_map *map, SDL_Renderer *renderer, int h_min_aff, int h_max_aff) { AFF_map_term(map->list, h_min_aff, h_max_aff); }
+void MAP_gen(t_map *map) {
+  t_block *premier = MAP_GetBlockFromList(map, 0, 0);
+  t_block *dernier = MAP_GetBlockFromList(map, taille_liste(map->list) - 1, 0);
+
+  if (dernier)
+    if (dernier->x < (map->joueur->hitbox.x / width_block_sdl) + SIZE / 2) {
+      gen_col(map->list, (map->joueur->hitbox.x / width_block_sdl) + SIZE / 2, DROITE);
+    }
+
+  if (premier)
+    if (premier->x > (map->joueur->hitbox.x / width_block_sdl) - SIZE / 2) {
+      gen_col(map->list, (map->joueur->hitbox.x / width_block_sdl) - SIZE / 2, GAUCHE);
+    }
+}
+
+void MAP_afficher_sdl(t_map *map, SDL_Renderer *renderer, int h_aff, int x_deb, int x_fin) {
+  t_liste affichage;
+  init_liste(&affichage);
+  MAP_CopyListFromX(map, &affichage, x_deb, x_fin);
+  AFF_map_sdl(&affichage, renderer, h_aff);
+  detruire_liste(&affichage, NULL);
+}
+void MAP_afficher_term(t_map *map, SDL_Renderer *renderer, int h_min_aff, int h_max_aff) { AFF_map_term(map->list, h_min_aff, h_max_aff); }
