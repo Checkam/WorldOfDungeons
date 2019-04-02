@@ -8,7 +8,7 @@ int main ( int argc, char ** argv ) {
 /* Ce main est le MINIMUM afin que le module item fonctionne */
 
 	t_liste_item *item = NULL;
-	uint8_t i = 0, t;
+	uint8_t i = 0;
 
 	init_item();
 
