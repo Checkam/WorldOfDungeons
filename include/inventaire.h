@@ -25,10 +25,10 @@ typedef struct inventaire_s {
 
 t_inventaire *create_inventaire();
 
-uint8_t alloc_item(t_inventaire *inventaire, const uint16_t nbItem );
+void alloc_item(t_inventaire *inventaire, const uint16_t nbItem );
 
-uint16_t slot_libre ( t_inventaire *inventaire );
-void ajout_item_dans_inventaire( t_inventaire *inventaire, const t_item item, const uint16_t nb );
+void slot_libre ( t_inventaire *inventaire );
+void ajout_item_dans_inventaire( t_inventaire *inventaire, t_liste *listeItem );
 
 void free_inventaire( t_inventaire *inventaire );
 
