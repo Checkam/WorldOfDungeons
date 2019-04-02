@@ -46,7 +46,7 @@ int main ( int argc, char ** argv ) {
 	en_tete(liste);
 
 	t_liste_item *item = malloc( sizeof(t_liste_item) );
-	(item)->nbDrop = 5;
+	(item)->nbDrop = 55;
 	(item)->item = I_ROCHE;
 
 	ajout_droit(liste, (void *)item );
@@ -109,6 +109,7 @@ int main ( int argc, char ** argv ) {
 	t_liste_item *aa = NULL;
 
 	exit_item(&aa);
+	detruire_liste(liste, free);
 
 	#ifdef DEBUG
 		printf(" - OK\n");
