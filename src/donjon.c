@@ -34,7 +34,6 @@ static t_erreur selection_voisin(t_salle_donjon * salle, int * choix);
 static int chercher_salle(t_liste *donjon, t_entite * joueur);
 static t_erreur update_voisin(t_liste * donjon, int taille_donjon);
 static t_erreur donjon_creer_structure_salle(t_salle_donjon * salle);
-static t_erreur tab_fenetre(t_liste * donjon, SDL_Rect pos_perso, t_liste ** tab_fenetre);
 static void donjon_detruire_salle(t_salle_donjon *salle);
 static t_erreur donjon_coord_depart(t_liste * donjon, t_salle_donjon ** salle_dep);
 static t_erreur placer_salle_boss(t_liste * donjon);
@@ -476,14 +475,14 @@ static t_erreur placer_salle_boss(t_liste * donjon){
 }
 
 /**
- * \fn static t_erreur tab_fenetre(t_liste * donjon, SDL_Rect pos_perso, t_liste ** tab_fenetre)
+ * \fn t_erreur tab_fenetre(t_liste * donjon, SDL_Rect pos_perso, t_liste ** tab_fenetre)
  * \brief Retourne dans tab la partie du donjon à afficher en fonction du joueur
  * \param donjon Donjon que l'on veut afficher
  * \param pos_perso Position du joueur
  * \param tab_fenetre Double pointeur de retour de la partie du donjon à afficher
  * \return Code erreur
 */
-static t_erreur tab_fenetre(t_liste * donjon, SDL_Rect pos_perso, t_liste ** tab_fenetre){
+t_erreur tab_fenetre(t_liste * donjon, SDL_Rect pos_perso, t_liste ** tab_fenetre){
     /* Vérification */
     if(donjon == NULL){
         erreur_save(PTR_NULL, "tab_fenetre() : Pointeur sur donjon NULL");
@@ -608,7 +607,7 @@ t_erreur donjon_afficher_SDL(SDL_Renderer * renderer, t_donjon * donjon, t_entit
 
     tab_fenetre(donjon->donjon, joueur->hitbox, &fenetre);
 
-    AFF_map_sdl(fenetre, renderer, -1);
+    AFF_map_sdl(fenetre, renderer, 0);
 
     detruire_liste(fenetre, free);
 
@@ -665,11 +664,25 @@ t_erreur donjon_gestion(SDL_Renderer * renderer, t_donjon * donjon, t_entite * j
         }
 
         t_entite * mob = NULL;
+        t_action action;
+        t_liste * fenetre = NULL;
+        tab_fenetre(donjon->donjon, joueur->hitbox, &fenetre);
 
         /* Mob jouer */
         for(en_tete(salle->mob); !hors_liste(salle->mob); suivant(salle->mob)){
             valeur_elt(salle->mob, (void**)&mob);
-            Gestion_Entite(renderer, mob, ks, coef_fps, NULL, GESTION_ACTION, ia_jouer(mob, joueur, IA_FOCUS | IA_ATTAQUE), joueur);
+
+            int x_salle_mob = (mob->hitbox.x / width_block_sdl) / SIZE;
+            
+            if(x_salle_mob < salle->x){
+                action = MARCHE_DROITE;
+            }else if(x_salle_mob > salle->x){
+                action = MARCHE_GAUCHE;
+            }else{
+                action = ia_jouer(mob, joueur, IA_ALEATOIRE);
+            }
+            //update_posY_entite(mob, coef_fps, fenetre, NOT_CENTER_SCREEN | INVERSION_AXE_Y);
+            Gestion_Entite(renderer, mob, ks, coef_fps, fenetre, GESTION_ACTION, action, joueur, NOT_CENTER_SCREEN | INVERSION_AXE_Y);
         }
 
         /* Affichage Mob */
@@ -679,10 +692,10 @@ t_erreur donjon_gestion(SDL_Renderer * renderer, t_donjon * donjon, t_entite * j
 
             if(salle_ec->x <= salle->x + 1 && salle_ec->x >= salle->x - 1){
                 if(salle_ec->y <= salle->y + 1 && salle_ec->y >= salle->y - 1){
-                    if(salle_ec->mob != NULL){
+                    if(salle_ec->mob != NULL && salle_ec != salle){
                         for(en_tete(salle_ec->mob); !hors_liste(salle_ec->mob); suivant(salle_ec->mob)){
                             valeur_elt(salle_ec->mob, (void**)&mob);
-                            Print_Entite_Screen(renderer, joueur, mob, IMMOBILE, NOT_CENTER_SCREEN | INVERSION_AXE_Y);
+                            Print_Entite_Screen(renderer, joueur, mob, mob->act_pred, NOT_CENTER_SCREEN | INVERSION_AXE_Y);
                         }
                     }
                 }
@@ -736,19 +749,19 @@ static t_erreur creer_mob(t_salle_donjon * salle, t_entite * joueur){
     nb_mob = rand() % 1 + 3;   
     nb_mob *= coef;
 
+    int taille_mob = 4;
+    int taille_boss = 6;
     int posX_mob = (salle->x * SIZE) + (SIZE / 2);
     int posY_mob = (salle->y * MAX_SCREEN) + (MAX_SCREEN - 1 - TAILLE_SOL);
-    int taille_mob = 4 * height_block_sdl;
-    int taille_boss = 6 * height_block_sdl;
     
     while(nb_mob--){
-        mob = creer_entite_defaut("Mob", ZOMBIE, posX_mob, posY_mob, taille_mob);
+        mob = creer_entite_defaut("Mob", ZOMBIE, posX_mob, posY_mob - taille_mob/3, taille_mob * height_block_sdl);
         en_queue(salle->mob);
         ajout_droit(salle->mob, (void *)mob);
     }
 
     if(salle->type == DONJON_FIN){
-        mob = creer_entite_defaut("BOSS", BOSS, posX_mob, posY_mob, taille_boss);
+        mob = creer_entite_defaut("BOSS", BOSS, posX_mob, posY_mob - taille_boss/3, taille_boss * height_block_sdl);
         en_queue(salle->mob);
         ajout_droit(salle->mob, (void *)mob);
     }

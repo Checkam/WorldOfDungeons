@@ -54,8 +54,8 @@ int main(int argc, char **argv, char **env){
     }
 
 
-    height_window = 600;
-    width_window = 1000;
+    height_window = 630;
+    width_window = 1040;
     width_block_sdl = width_window / NB_BLOCK_WIDTH;
     height_block_sdl = height_window / NB_BLOCK_HEIGHT;
     SDL_Window *screen = SDL_CreateWindow("World Of Dungeons", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,width_window, height_window, SDL_WINDOW_SHOWN);
@@ -93,14 +93,23 @@ int main(int argc, char **argv, char **env){
         fprintf(stderr, "--> KO\n");
     }
 
-    
+    double coef_fps;
+    t_liste * fenetre = NULL;
+
     int continuer = 1;
     while(continuer){
-   
+        coef_fps = fps();
     /* Affichage Donjon */
         SDL_touches( ks, ct);
+        SDL_RenderClear(renderer);
+        
+        donjon_afficher_SDL(renderer, donjon, joueur);
+        donjon_gestion(renderer, donjon, joueur, ks, coef_fps);
 
-        if ( SDL_touche_appuyer( ks, QUITTER) ) 
+        /*tab_fenetre(donjon->donjon, joueur->hitbox, &fenetre);
+        Gestion_Entite(renderer, joueur, ks, coef_fps, fenetre, GESTION_TOUCHES, ALL_ACTION, NULL, CENTER_SCREEN);*/
+
+        if ( SDL_touche_appuyer( ks, QUITTER) || SDL_touche_appuyer( ks, ESCAPE)) 
             continuer = 0;
         if ( SDL_touche_appuyer( ks, AVANCER) ) 
             joueur->hitbox.y -= 10;
@@ -111,10 +120,6 @@ int main(int argc, char **argv, char **env){
         if ( SDL_touche_appuyer( ks, GAUCHE) ) 
             joueur->hitbox.x -= 10;
 
-        SDL_RenderClear(renderer);
-        
-        donjon_afficher_SDL(renderer, donjon, joueur);
-        donjon_gestion(renderer, donjon, joueur, ks, fps());
         Charger_Anima(renderer, joueur, IMMOBILE);
         Print_Info_Entite(renderer, joueur);
         //donjon_afficher_Term(donjon, joueur);
