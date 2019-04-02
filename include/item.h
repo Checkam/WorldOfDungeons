@@ -11,6 +11,7 @@
 #define PAS_DROP_APRES_N 1
 
 #define NB_ITEMS 11
+
 typedef enum {
 
     I_TERRE=0, I_PIERRE, I_ROCHE, I_SABLE, I_GRAVIER,
@@ -25,6 +26,7 @@ typedef struct item_type_s {
 
     char *nomItem;
     uint16_t stack;
+    uint16_t durabilite;
 
     t_block_type *posable; /* si l item peut etre poser, alors non NULL */
 
@@ -56,6 +58,8 @@ typedef struct liste_item_s {
     t_item item;
 
 } t_liste_item;
+
+t_item_type *tabItem;
 
 uint8_t init_item();
 uint8_t block_to_item ( t_materiaux materiaux, t_liste_item **item );

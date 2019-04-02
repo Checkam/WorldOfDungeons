@@ -7,8 +7,6 @@
 #include <stdlib.h>
 #include <liste.h>
 
-t_item_type *tabItem = NULL;
-
 typedef struct inventaire_item_s {
     
     t_item_type *item;
@@ -29,6 +27,8 @@ void alloc_item(t_inventaire *inventaire, const uint16_t nbItem );
 
 void slot_libre ( t_inventaire *inventaire );
 void ajout_item_dans_inventaire( t_inventaire *inventaire, t_liste *listeItem );
+
+void afficher_inventaire ( t_inventaire *inventaire );
 
 void free_inventaire( t_inventaire *inventaire );
 
