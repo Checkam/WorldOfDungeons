@@ -554,7 +554,7 @@ int collision(t_entite *entite, t_collision_direction direction, t_liste *p) {
   /* Collision en BAS */
   case DIRECT_BAS_COLLI:
     y = (y - h) / height_block_sdl;
-    while(!collision && x < entite->hitbox.x)
+    while(collision <= 0 && x < entite->hitbox.x)
     {
       // Récup Block
       block = MAP_GetBlock(&map,x / width_block_sdl,y);
@@ -579,7 +579,24 @@ int collision(t_entite *entite, t_collision_direction direction, t_liste *p) {
 
   /* Collision à DROITE */
   case DIRECT_DROITE_COLLI:
-    
+    /*x = (x + w) / width_block_sdl;
+    while(collision <= 0 && y > entite->hitbox.y)
+    {
+      // Récup Block
+      block = MAP_GetBlock(&map,x / width_block_sdl,y);
+
+      // Check si collision
+      if (block && block->id != AIR)
+      {
+        SDL_Rect b = {block->x,block->y,width_block_sdl,height_block_sdl};
+        SDL_IntersectRect(&(entite->hitbox), &b, &res);
+        collision = res.h;
+      }
+
+      // Mis à jour du x
+      x += width_block_sdl;
+      fprintf(stderr,"--> %d\n", res.h);
+    }*/
     break;
 
   /* Collision à GAUCHE */
