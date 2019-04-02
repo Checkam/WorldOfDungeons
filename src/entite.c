@@ -56,23 +56,24 @@ t_anim_action t_a_boss[NB_LIGNES_SPRITE] = {{MARCHE_DROITE, 12, 9, 100}, {MARCHE
 t_entite *creer_entite_defaut(char *name, t_entite_type type, int x_dep, int y_dep, int taille) {
   switch (type) {
   case JOUEUR:
-    return creer_entite((name) ? name : "PLAYER", 20, 20, 10, 10, Textures_Joueur, t_a_joueur, x_dep, y_dep, taille,type);
+    return creer_entite((name) ? name : "PLAYER", 20, 20, 10, 10, 15, Textures_Joueur, t_a_joueur, x_dep, y_dep, taille,type);
   case ZOMBIE:
-    return creer_entite((name) ? name : "ZOMBIE", 0, 0, 10, 10, Textures_Zombie, t_a_zombie, x_dep, y_dep, taille,type);
+    return creer_entite((name) ? name : "ZOMBIE", 0, 0, 10, 10, 25, Textures_Zombie, t_a_zombie, x_dep, y_dep, taille,type);
   case BOSS:
-    return creer_entite((name) ? name : "BOSS", 50, 50, 30, 30, Textures_Boss, t_a_boss, x_dep, y_dep, taille,type);
+    return creer_entite((name) ? name : "BOSS", 50, 50, 30, 30, 35, Textures_Boss, t_a_boss, x_dep, y_dep, taille,type);
   }
   return NULL;
 }
 
 /**
- * \fn t_entite * creer_entite (char * name, uint32_t mana, uint32_t mana_max, uint32_t pv, uint32_t pv_max, SDL_Texture * texture, t_anim_action * t_a,int taille, t_entite_type type)
+ * \fn t_entite * creer_entite (char * name, uint32_t mana, uint32_t mana_max, uint32_t pv, uint32_t pv_max, uint32_t damage, SDL_Texture * texture, t_anim_action * t_a,int taille, t_entite_type type)
  * \brief Créer une entité.
  * \param name Le nom de l'entité.
  * \param mana Le mana de départ de l'entité.
  * \param mana_max Le mana max que peut avoir l'entité.
  * \param pv Les pv de départ de l'entité.
  * \param pv_max Les pv max de l'entité.
+ * \param damage Les dégats de base de l'entité.
  * \param texture La texture de l'entité.
  * \param t_a Emplacement des textures liées à une action.
  * \param x_dep Coordonnée de départ de l'entité.
@@ -81,7 +82,7 @@ t_entite *creer_entite_defaut(char *name, t_entite_type type, int x_dep, int y_d
  * \param Type de l'entité.
  * \return Un pointeur sur l'entité créée.
 */
-t_entite *creer_entite(char *name, uint32_t mana, uint32_t mana_max, uint32_t pv, uint32_t pv_max, SDL_Texture *texture, t_anim_action *t_a, int x_dep, int y_dep, int taille, t_entite_type type) {
+t_entite *creer_entite(char *name, uint32_t mana, uint32_t mana_max, uint32_t pv, uint32_t pv_max, uint32_t damage, SDL_Texture *texture, t_anim_action *t_a, int x_dep, int y_dep, int taille, t_entite_type type) {
   if (!texture || !name || !t_a)
     return NULL;
   if (mana > mana_max || pv > pv_max) {
@@ -120,6 +121,7 @@ t_entite *creer_entite(char *name, uint32_t mana, uint32_t mana_max, uint32_t pv
   entite->velX = 0;
   entite->velY = 0;
   entite->type = type;
+  entite->damage = damage;
 
   return entite;
 }
@@ -240,6 +242,24 @@ t_erreur Change_XP_Entite (t_entite * entite, uint64_t xp)
 }
 
 /**
+ * \fn t_erreur Change_Damage_Entite (t_entite * entite, uint32_t damage)
+ * \brief Change les dégats d'une entité.
+ * \brief Les dégats doivent être supérieur ou égals à 0.
+ * \param entite L'entité à modifier.
+ * \param damage Les nouveaux dégats de l'entité.
+ * \return Une erreur s'il y en a une.
+*/
+t_erreur Change_Damage_Entite (t_entite * entite, uint32_t damage)
+{
+  if (!entite) return PTR_NULL;
+  if (damage < 0) return VALUE_ERROR;
+
+  entite->damage = damage;
+
+  return OK;
+}
+
+/**
  * \fn t_erreur Add_Faim_Entite (t_entite * entite, int32_t faim)
  * \brief Ajoute ou Retire de la faim à l'entité.
  * \param entite L'entité à modifier.
@@ -317,6 +337,25 @@ t_erreur Add_XP_Entite (t_entite * entite, int64_t xp)
     entite->xp = 0;
   else
     entite->xp += xp;
+
+  return OK;
+}
+
+/**
+ * \fn t_erreur Add_Damage_Entite (t_entite * entite, int32_t damage)
+ * \brief Ajoute ou Retire de les dégats à l'entité.
+ * \param entite L'entité à modifier.
+ * \param damage Les dégats à ajouter ou retirer.
+ * \return Une erreur s'il y en a une.
+*/
+t_erreur Add_Damage_Entite (t_entite * entite, int32_t damage)
+{
+  if (!entite) return PTR_NULL;
+
+  if ((int)entite->damage + damage < 0)
+    entite->damage = 0;
+  else
+    entite->damage += damage;
 
   return OK;
 }
@@ -563,7 +602,8 @@ int collision(t_entite *entite, t_collision_direction direction, t_liste *p) {
   default:
     break;
   }
-  collision *= -1;
+  if (collision < 0)
+    collision *= -1;
   return collision;
 }
 

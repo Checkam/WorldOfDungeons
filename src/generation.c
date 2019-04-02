@@ -16,13 +16,10 @@
 #include <biome.h>
 #include <block.h>
 #include <commun.h>
-#include <couleurs.h>
 #include <generation.h>
-#include <math.h>
 #include <perlin.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <structure_block.h>
 #include <touches.h>
 
@@ -35,31 +32,19 @@ void init_map(t_block *map, int x) {
   }
 }
 
-// Initialise un tableau de n valeur a 0
-void initTab(int tab[], int n) {
-  for (int i = 0; i < n; i++)
-    tab[i] = 0;
-}
-
-//FONCTION QUI CALCUL LES PROCHAINES HAUTEUR (A REFAIRE)
-int PreviewHeight(int x, int P_Height[], int nb) {
-  int taille_max = 0;
-  for (int i = 0; i < nb; i++) {
-    taille_max = perlin2d(x + i, MAX, FREQ, DEPTH) * MAX;
-    P_Height[i] = taille_max;
-  }
-  return 1;
-}
-
 int gen_col(t_liste *list, int x, int dir) {
   int rnd, j;
-  int taille_max = perlin2d(x, MAX, FREQ, DEPTH) * MAX;
-  printf("Gen i : %d\n", x);
+
+  int taille_max = (perlin2d(x, MAX / 2, FREQ, DEPTH) * MAX / 2) + HAUTEUR_MINIMUN;
+
   t_block *tab = malloc(sizeof(t_block) * MAX);
+
   init_map(tab, x);
+
   biome = BIOME_change_type(x, taille_max);
 
-  STRUCT_generation(x, taille_max, dir, tab); //Génération a revoir
+  STRUCT_generation(x, taille_max, dir, tab);
+
   t_biome *b = BIOME_rechercheParType(biome);
 
   /* génération eau */
@@ -74,6 +59,7 @@ int gen_col(t_liste *list, int x, int dir) {
   //     (*tab)[taille_max + j].x = x;
   //   }
   // }
+
   if (b)
     for (int i = 0, layer = 0; i < b->nb_layers; i++) {
       for (int j = layer, k = 0; k < b->layers[i].nb_couche && layer <= taille_max; j++, layer++, k++) {
@@ -92,14 +78,17 @@ int gen_col(t_liste *list, int x, int dir) {
       tab[j].x = x;
     }
   }
+
   if (dir == DROITE) {
     en_queue(list);
     ajout_droit(list, tab);
+    printf("Gen i : %d DROITE\n", x);
   }
 
   if (dir == GAUCHE) {
     en_tete(list);
     ajout_gauche(list, tab);
+    printf("Gen i : %d GAUCHE\n", x);
   }
 
   return taille_max;

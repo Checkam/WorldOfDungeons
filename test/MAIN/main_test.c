@@ -95,8 +95,6 @@ int main(int argc, char *argv[], char **env) {
 
   int boucle = 1;
 
-  MAP_creer(&map, "World", 12281783);
-
   //----------------------------------------------------------------------------------------------------------------
   // Menu Début de jeux
   //----------------------------------------------------------------------------------------------------------------
@@ -110,6 +108,14 @@ int main(int argc, char *argv[], char **env) {
     menu_gestion_SDL(menu, SDL_touche_appuyer(ks, SOURIS_GAUCHE), &type_bouton);
     if (type_bouton == MENU_QUITTER) {
       boucle = 0;
+      menu_suivant(&menu, type_bouton);
+    } else if (type_bouton == MENU_NOUVELLE_PARTIE) {
+
+      MAP_creer(&map, "World", 12281783);
+      menu_suivant(&menu, type_bouton);
+    } else if (type_bouton == MENU_CHARGER_PARTIE) {
+
+      MAP_charger(&map, "World");
       menu_suivant(&menu, type_bouton);
     } else if (type_bouton != MENU_NULL) {
       menu_suivant(&menu, type_bouton);

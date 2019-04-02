@@ -11,7 +11,8 @@ int width_window;
 int width_block_sdl;
 int height_block_sdl;
 
-#define MAX 100 /* Height tab */
+#define MAX 200 /* Height tab */
+#define HAUTEUR_MINIMUN 50
 
 #define SIZE ((width_window / width_block_sdl))   /* Width of screen */
 #define MAX_SCREEN (height_window / height_block_sdl)  /* Heigth of screen */
