@@ -102,9 +102,10 @@ t_erreur MAP_charger(t_map **map, char *nom_map) {
   init_liste((*map)->list);
 
   t_binaire bin_map = Open_BIN(path_dir, (*map)->nom, "r");
-  t_block *b;
-  while (Read_BIN(b, sizeof(t_block), MAX, bin_map) == OK) {
+  t_block *b = malloc(sizeof(t_block) * MAX);
+  while (bin_map && Read_BIN(b, sizeof(t_block), MAX, bin_map) == OK) {
     ajout_droit((*map)->list, b);
+    b = malloc(sizeof(t_block) * MAX);
   }
   Close_BIN(bin_map);
 
@@ -173,14 +174,21 @@ t_erreur MAP_creer_dir(t_map *map) {
   if (map == NULL)
     return PTR_NULL;
   t_erreur erreur;
+
   char *path_dir = MAP_creer_path(map->nom);
+  char *path_player = malloc(strlen(path_dir) * sizeof(char) + strlen("player/") * sizeof(char));
+  strcpy(path_player, path_dir);
+  strcat(path_player, "player/");
 
   if (mkdir(path_dir, S_IRWXU | S_IRWXG | S_IROTH))
+    return FILE_ERROR; // MKDIR_ERROR
+  if (mkdir(path_player, S_IRWXU | S_IRWXG | S_IROTH))
     return FILE_ERROR; // MKDIR_ERROR
 
   erreur = MAP_detruire_path(&path_dir);
   if (erreur != OK)
     return erreur;
+  free(path_player);
 
   return OK;
 }
@@ -314,4 +322,5 @@ void MAP_afficher_sdl(t_map *map, SDL_Renderer *renderer, int h_aff, int x_deb, 
   AFF_map_sdl(&affichage, renderer, h_aff);
   detruire_liste(&affichage, NULL);
 }
+
 void MAP_afficher_term(t_map *map, SDL_Renderer *renderer, int h_min_aff, int h_max_aff) { AFF_map_term(map->list, h_min_aff, h_max_aff); }
