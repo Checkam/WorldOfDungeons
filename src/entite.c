@@ -610,7 +610,7 @@ int collision(t_entite *entite, t_collision_direction direction, t_liste *p) {
 /************** Focntion qui gère les déplacements et les animations de l'entité **************/
 
 /**
- * \fn t_erreur Gestion_Entite (SDL_Renderer * renderer, t_entite * entite, uint8_t * ks, double coef_fps, t_liste * p, uint8_t type_gestion, t_action action, t_entite * ref)
+ * \fn t_erreur Gestion_Entite (SDL_Renderer * renderer, t_entite * entite, uint8_t * ks, double coef_fps, t_liste * p, uint8_t type_gestion, t_action action, t_entite * ref, uint8_t pos)
  * \brief Gère une entité (collision, déplacement, animation).
  * \brief Gère les animations ainsi que les modifications apportées à l'entité (gravité, collision, déplacement) correspondant aux différents appuis de touches ou non.
  * \param renderer Renderer de la fenêtre.
@@ -621,9 +621,10 @@ int collision(t_entite *entite, t_collision_direction direction, t_liste *p) {
  * \param type_gestion La gestion à appliquer à l'entité (si on veut les touches on non).
  * \param action L'action à effectuer si jamais pas de gestion des touches.
  * \param ref Entité de référence pour affichage.
+ * \param pos La position de l'entité sur l'écran, permet de savoir si elle est au centre ou non.
  * \return Une erreur s'il y en a une.
 */
-t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, double coef_fps, t_liste *p, uint8_t type_gestion, t_action action, t_entite * ref) {
+t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, double coef_fps, t_liste *p, uint8_t type_gestion, t_action action, t_entite * ref, uint8_t pos) {
   if (!renderer || !entite || !ks)
     return PTR_NULL;
 
@@ -633,11 +634,11 @@ t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, d
   {
     /* Modif pour la touche AVANCER */
     if (SDL_touche_appuyer(ks, AVANCER)) {
-      Print_Entite_Screen(renderer, NULL, entite, MARCHE_DEVANT, CENTER_SCREEN);
+      Print_Entite_Screen(renderer, NULL, entite, MARCHE_DEVANT, pos);
     }
     /* Modif pour la touche RECULER */
     else if (SDL_touche_appuyer(ks, RECULER)) {
-      Print_Entite_Screen(renderer, NULL, entite, MARCHE_DERRIERE, CENTER_SCREEN);
+      Print_Entite_Screen(renderer, NULL, entite, MARCHE_DERRIERE, pos);
     }
     /* Modif pour la touche DROITE */
     else if (SDL_touche_appuyer(ks, DROITE)) {
@@ -645,7 +646,7 @@ t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, d
       if (diff <= 0) {
         entite->hitbox.x += entite->accX * coef_fps;
       }
-      Print_Entite_Screen(renderer, NULL, entite, MARCHE_DROITE, CENTER_SCREEN);
+      Print_Entite_Screen(renderer, NULL, entite, MARCHE_DROITE, pos);
     }
     /* Modif pour la touche GAUCHE */
     else if (SDL_touche_appuyer(ks, GAUCHE)) {
@@ -653,11 +654,11 @@ t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, d
       if (diff <= 0) {
         entite->hitbox.x -= entite->accX * coef_fps;
       }
-      Print_Entite_Screen(renderer, NULL, entite, MARCHE_GAUCHE, CENTER_SCREEN);
+      Print_Entite_Screen(renderer, NULL, entite, MARCHE_GAUCHE, pos);
     }
     /* Modif quand on appui sur AUCUNE touche */
     else
-      Print_Entite_Screen(renderer, NULL, entite, IMMOBILE, CENTER_SCREEN);
+      Print_Entite_Screen(renderer, NULL, entite, IMMOBILE, pos);
 
     /* Modif pour la touche SHIFT (Accélérer) */
     if (SDL_touche_appuyer(ks, SHIFT)) {
@@ -680,7 +681,7 @@ t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, d
     }
 
     /* Gravité */
-    update_posY_entite(entite, coef_fps, p, CENTER_SCREEN);
+    update_posY_entite(entite, coef_fps, p, pos);
   }
   else if (type_gestion & GESTION_ACTION) /* Gestion d'une action sans appui de touches */
   {
@@ -689,15 +690,15 @@ t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, d
     switch (action)
     {
       case IMMOBILE:
-        Print_Entite_Screen(renderer, ref, entite, IMMOBILE, NOT_CENTER_SCREEN);
+        Print_Entite_Screen(renderer, ref, entite, IMMOBILE, pos);
         break;
 
       case MARCHE_DEVANT:
-        Print_Entite_Screen(renderer, ref, entite, MARCHE_DEVANT, NOT_CENTER_SCREEN);
+        Print_Entite_Screen(renderer, ref, entite, MARCHE_DEVANT, pos);
         break;
 
       case MARCHE_DERRIERE:
-        Print_Entite_Screen(renderer, ref, entite, MARCHE_DERRIERE, NOT_CENTER_SCREEN);
+        Print_Entite_Screen(renderer, ref, entite, MARCHE_DERRIERE, pos);
         break;
       
       case MARCHE_DROITE:
@@ -705,7 +706,7 @@ t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, d
         if (diff <= 0) {
           entite->hitbox.x += entite->accX * coef_fps;
         }
-        Print_Entite_Screen(renderer, ref, entite, MARCHE_DROITE, NOT_CENTER_SCREEN);
+        Print_Entite_Screen(renderer, ref, entite, MARCHE_DROITE, pos);
         break;
       
       case MARCHE_GAUCHE:
@@ -713,7 +714,7 @@ t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, d
         if (diff <= 0) {
           entite->hitbox.x -= entite->accX * coef_fps;
         }
-        Print_Entite_Screen(renderer, ref, entite, MARCHE_GAUCHE, NOT_CENTER_SCREEN);
+        Print_Entite_Screen(renderer, ref, entite, MARCHE_GAUCHE, pos);
         break;
 
       case SAUTER_ENT:
@@ -739,35 +740,35 @@ t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, d
         break;
 
       case ATTAQUE_DEVANT:
-        Print_Entite_Screen(renderer,ref,entite,ATTAQUE_DEVANT,NOT_CENTER_SCREEN);
+        Print_Entite_Screen(renderer,ref,entite,ATTAQUE_DEVANT,pos);
         break;
       
       case ATTAQUE_DERRIERE:
-        Print_Entite_Screen(renderer,ref,entite,ATTAQUE_DERRIERE,NOT_CENTER_SCREEN);
+        Print_Entite_Screen(renderer,ref,entite,ATTAQUE_DERRIERE,pos);
         break;
       
       case ATTAQUE_DROITE:
-        Print_Entite_Screen(renderer,ref,entite,ATTAQUE_DROITE,NOT_CENTER_SCREEN);
+        Print_Entite_Screen(renderer,ref,entite,ATTAQUE_DROITE,pos);
         break;
       
       case ATTAQUE_GAUCHE:
-        Print_Entite_Screen(renderer,ref,entite,ATTAQUE_GAUCHE,NOT_CENTER_SCREEN);
+        Print_Entite_Screen(renderer,ref,entite,ATTAQUE_GAUCHE,pos);
         break;
       
       case CREUSER_DEVANT:
-        Print_Entite_Screen(renderer,ref,entite,CREUSER_DEVANT,NOT_CENTER_SCREEN);
+        Print_Entite_Screen(renderer,ref,entite,CREUSER_DEVANT,pos);
         break;
       
       case CREUSER_DERRIERE:
-        Print_Entite_Screen(renderer,ref,entite,CREUSER_DERRIERE,NOT_CENTER_SCREEN);
+        Print_Entite_Screen(renderer,ref,entite,CREUSER_DERRIERE,pos);
         break;
       
       case CREUSER_DROITE:
-        Print_Entite_Screen(renderer,ref,entite,CREUSER_DROITE,NOT_CENTER_SCREEN);
+        Print_Entite_Screen(renderer,ref,entite,CREUSER_DROITE,pos);
         break;
       
       case CREUSER_GAUCHE:
-        Print_Entite_Screen(renderer,ref,entite,CREUSER_GAUCHE,NOT_CENTER_SCREEN);
+        Print_Entite_Screen(renderer,ref,entite,CREUSER_GAUCHE,pos);
         break;
 
       default:
