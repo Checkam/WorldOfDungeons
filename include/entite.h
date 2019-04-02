@@ -109,6 +109,7 @@ typedef struct s_entite
     uint64_t xp; // XP gagné
     uint32_t mana, pv, faim; // Mana, PV et Faim courante
     uint32_t mana_max, pv_max, faim_max; // Mana, PV et Faim Max
+    uint32_t damage; // Dégats de l'entité
     SDL_Rect hitbox; // Hitbox de l'entité
     SDL_Rect posEnt; // Position de l'entité sur la fenêtre
     SDL_Texture * texture; // Texture contenant toutes les animations de l'entité
@@ -127,7 +128,7 @@ typedef struct s_entite
 /* Crée une entité avec des paramètres par défaut */
 t_entite * creer_entite_defaut (char * name, t_entite_type type, int x_dep, int y_dep, int taille);
 /* Crée une entité */
-t_entite * creer_entite (char * name, uint32_t mana, uint32_t mana_max, uint32_t pv, uint32_t pv_max, SDL_Texture * texture, t_anim_action * t_a, int x_dep, int y_dep, int taille, t_entite_type type);
+t_entite * creer_entite (char * name, uint32_t mana, uint32_t mana_max, uint32_t pv, uint32_t pv_max, uint32_t damage, SDL_Texture * texture, t_anim_action * t_a, int x_dep, int y_dep, int taille, t_entite_type type);
 /* Détruit une entité */
 t_erreur detruire_entite (t_entite * entite);
 /* Initialise les textures d'une entité */
@@ -146,6 +147,8 @@ t_erreur Change_Mana_Entite (t_entite * entite, uint32_t mana, uint32_t mana_max
 t_erreur Change_PV_Entite (t_entite * entite, uint32_t pv, uint32_t pv_max);
 /* Change l'xp d'une entité */
 t_erreur Change_XP_Entite (t_entite * entite, uint64_t xp);
+/* Change les dégats d'une entité */
+t_erreur Change_Damage_Entite (t_entite * entite, uint32_t damage);
 /* Ajoute ou Retire de la faim d'une entité */
 t_erreur Add_Faim_Entite (t_entite * entite, int32_t faim);
 /* Ajoute ou Retire de la mana d'une entité */
@@ -154,6 +157,8 @@ t_erreur Add_Mana_Entite (t_entite * entite, int32_t mana);
 t_erreur Add_PV_Entite (t_entite * entite, int32_t pv);
 /* Ajoute ou Retire de l'xp d'une entité */
 t_erreur Add_XP_Entite (t_entite * entite, int64_t xp);
+/* Ajoute ou Retire des dégats d'une entité */
+t_erreur Add_Damage_Entite (t_entite * entite, int32_t damage);
 
 
 /****** Primitives des fonctions qui gèrent les sprites ******/
