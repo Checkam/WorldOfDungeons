@@ -55,7 +55,7 @@ typedef struct liste_item_s {
     uint8_t nbDrop;
     t_item item;
 
-} t_liste_item ;
+} t_liste_item;
 
 uint8_t init_item();
 uint8_t block_to_item ( t_materiaux materiaux, t_liste_item **item );

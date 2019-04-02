@@ -4,7 +4,6 @@ static void default_item_drop ();
 static void default_item_type ();
 
 t_block_drop *tabItemDrop = NULL;
-t_item_type *tabItem = NULL;
 
 t_liste_item *item;
 
