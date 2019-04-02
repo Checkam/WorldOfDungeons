@@ -34,7 +34,7 @@
 #define calX_Debut ((map->joueur->hitbox.x) / width_block_sdl) - (SIZE / 2) - (map->joueur->hitbox.w / width_block_sdl)
 #define calX_Fin ((map->joueur->hitbox.x) / width_block_sdl) + (SIZE / 2)
 
-void test_souris(t_map *map, int *ks) {
+void test_souris(t_map *map, uint8_t *ks) {
   t_block *b;
   int x_mouse = 0, y_mouse = 0;
   if (SDL_touche_appuyer(ks, SOURIS_GAUCHE)) {
@@ -65,31 +65,14 @@ int main(int argc, char *argv[], char **env) {
   configTouches_t *ct;
   width_block_sdl = 25;
   height_block_sdl = 25;
+  height_window = 600;
+  width_window = 1000;
 
   //--------------------------------------------------------------------------------------------------------------
   // Initialisation SDL
   //--------------------------------------------------------------------------------------------------------------
 
-  SDL_Init(SDL_INIT_EVERYTHING);
-  TTF_Init();
-  IMG_Init(IMG_INIT_PNG);
-
-  SDL_Window *screen = SDL_CreateWindow("World Of Dungeons", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width_window, height_window,
-                                        SDL_WINDOW_SHOWN | SDL_WINDOW_FULLSCREEN_DESKTOP);
-
-  SDL_GetWindowSize(screen, &width_window, &height_window);
-
-  SDL_Rect fondRect = {0, 0, width_window, height_window};
-  SDL_Renderer *renderer = SDL_CreateRenderer(screen, -1, SDL_RENDERER_ACCELERATED);
-
-  SDL_Texture *fond;
-  Create_IMG_Texture(renderer, "./IMG/texture/fond.bmp", &fond);
-  BIOME_init();
-  Init_Sprite(renderer);
-  BLOCK_CreateTexture_sdl(renderer);
-  menu_init(renderer);
-  fps_init();
-  SDL_init_touches(&ks, &ct);
+#include "game_init.h"
 
   double coef_fps = 1;
 
@@ -146,28 +129,15 @@ int main(int argc, char *argv[], char **env) {
     //Affiche map
     MAP_afficher_sdl(map, renderer, calY_aff, calX_Debut, calX_Fin);
     //Affiche Joueur et
-    Gestion_Entite(renderer, map->joueur, ks, coef_fps, map->list, GESTION_TOUCHES, ALL_ACTION, NULL);
+    Gestion_Entite(renderer, map->joueur, ks, coef_fps, map->list, GESTION_TOUCHES, ALL_ACTION, NULL, CENTER_SCREEN);
     //Afficher le rendu final
     SDL_RenderPresent(renderer);
 
     coef_fps = fps();
   }
 
-  //Quit du jeux
-  MAP_sauvegarder(map);
-  detruire_entite(map->joueur);
-  Quit_Sprite();
-  menu_quit();
-  TTF_Quit();
-  BIOME_Quit();
-  MAP_detruction(&map);
-  SDL_exit_touches(&ks, &ct);
-  BLOCK_DestroyTexture_sdl(renderer);
-  SDL_DestroyTexture(fond);
-  SDL_DestroyRenderer(renderer);
-  SDL_DestroyWindow(screen);
-  SDL_Quit();
-  pwd_quit();
+//Quit du jeux
+#include "game_quit.h"
 
   return 0;
 }
