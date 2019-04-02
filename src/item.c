@@ -12,6 +12,8 @@ uint8_t init_item() {
     if ( tabItemDrop )
         return 1;
 
+    tabItem = NULL;
+
     uint16_t i;
 
     tabItemDrop = malloc( sizeof( t_block_drop ) * NB_BLOCK );
@@ -27,6 +29,9 @@ uint8_t init_item() {
     tabItem = malloc( sizeof( t_item_type ) * NB_ITEMS );
 
     default_item_type();
+
+    for ( i = 0 ; i < NB_ITEMS ; i++ )
+        printf("%p\n", (tabItem + i));
 
     srand(time(NULL));
 
