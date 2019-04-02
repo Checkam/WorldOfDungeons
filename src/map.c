@@ -7,6 +7,7 @@
  **/
 
 #include <block.h>
+#include <chemin.h>
 #include <commun.h>
 #include <erreur.h>
 #include <liste.h>
@@ -53,7 +54,7 @@ t_erreur MAP_creer(t_map **map, char *nom_map, int SEED) {
     gen_col((*map)->list, i, DROITE);
   }
   t_block *b = MAP_GetBlockFromList((*map), SIZE / 2, AFF_GetMidHeight((*map)->list));
-  (*map)->joueur = creer_entite_defaut("Virgile", JOUEUR, b->x, b->y, width_block_sdl * 2);
+  (*map)->joueur = creer_entite_defaut("Virgile", JOUEUR, b->x, b->y + 1, width_block_sdl * 2);
 
   MAP_sauvegarder(*map);
   return OK;
@@ -66,7 +67,7 @@ t_erreur MAP_creer(t_map **map, char *nom_map, int SEED) {
     \return Renvoie un code erreur en cas de problème sinon OK
 **/
 t_erreur MAP_charger(t_map **map, char *nom_map) {
-  char *path_dir = MAP_creer_path(nom_map);
+  char *path_dir = MAP_creer_path((*map)->nom);
   char *path_player = malloc(strlen(path_dir) * sizeof(char) + strlen("player/") * sizeof(char));
   strcpy(path_player, path_dir);
   strcat(path_player, "player/");
@@ -110,7 +111,7 @@ t_erreur MAP_charger(t_map **map, char *nom_map) {
   Close_BIN(bin_map);
 
   MAP_detruire_path(&path_dir); // Gestion des erreurs a faire
-  free(path_player);
+  MAP_detruire_path(&path_player);
   return OK;
 }
 
@@ -151,7 +152,7 @@ t_erreur MAP_sauvegarder(t_map *map) {
 
   Save_Entite(map->joueur, path_player, "player");
 
-  t_binaire bin_map = Open_BIN(path_dir, map->nom, "w");
+  t_binaire bin_map = Open_BIN(path_dir, map->nom, "wb");
   t_block *b;
   for (en_tete(map->list); !hors_liste(map->list); suivant(map->list)) {
     valeur_elt(map->list, (void **)&b);
@@ -160,7 +161,7 @@ t_erreur MAP_sauvegarder(t_map *map) {
   Close_BIN(bin_map);
 
   MAP_detruire_path(&path_dir); // Gestion des erreurs a faire
-  free(path_player);
+  MAP_detruire_path(&path_player);
   return OK;
 }
 
@@ -188,7 +189,7 @@ t_erreur MAP_creer_dir(t_map *map) {
   erreur = MAP_detruire_path(&path_dir);
   if (erreur != OK)
     return erreur;
-  free(path_player);
+  MAP_detruire_path(&path_player);
 
   return OK;
 }
@@ -241,7 +242,9 @@ t_erreur MAP_detruction(t_map **map) {
     \return Renvoie le path de la map
 **/
 char *MAP_creer_path(char *nom_map) {
+
   char *path_dir = malloc(sizeof(char) * strlen(nom_map) + sizeof(char) * 500); //Utilise PWD pour éviter de malloc 500 sizeof char
+
   strcpy(path_dir, PATH_MAP_DIR);
   strcat(path_dir, nom_map);
   strcat(path_dir, "/");
