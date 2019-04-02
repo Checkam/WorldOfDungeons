@@ -554,7 +554,7 @@ int collision(t_entite *entite, t_collision_direction direction, t_liste *p) {
   /* Collision en BAS */
   case DIRECT_BAS_COLLI:
     y = (y - h) / height_block_sdl;
-    while(collision <= 0 && x < entite->hitbox.x)
+    while(collision <= 0 && x < entite->hitbox.x + w)
     {
       // Récup Block
       block = MAP_GetBlock(&map,x / width_block_sdl,y);
@@ -569,6 +569,7 @@ int collision(t_entite *entite, t_collision_direction direction, t_liste *p) {
 
       // Mis à jour du x
       x += width_block_sdl;
+      //fprintf(stderr,"------> %d\n", res.h);
     }
     break;
 
