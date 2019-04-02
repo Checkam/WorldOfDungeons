@@ -7,25 +7,42 @@
 int main ( int argc, char ** argv ) {
 /* Ce main est le MINIMUM afin que le module inventaire fonctionne */
 
+	#ifdef DEBUG
+		printf("DEBUG enable\n");
+	#endif
+
+	/*	------------------------------------------------|
+	|	Creation d'un inventaire						|
+	|	-----------------------------------------------*/
+
 	t_inventaire *inventaire = create_inventaire();
+
+	/*	------------------------------------------------|
+	|	Allocation d'une zone memoire de 5 items		|
+	|	-----------------------------------------------*/
 
 	#ifdef DEBUG
 		if ( alloc_item(inventaire, 5) ) {
 
-			printf("erreur : impossible d'allouer la memoire necessaire\n");
+			fprintf(stderr, "erreur : impossible d'allouer la memoire necessaire ligne %d %s\n", __LINE__, __FILE__);
 			return 1;
 		}
 	#else
-		alloc_item(&inventaire, 5);
+		alloc_item(inventaire, 5);
 	#endif
 
-	printf("Taille du bloc memoire : %ld\n", sizeof(t_inventaire_item) );
+	/*	------------------------------------------------|
+	|	Ajout d'item dans l'inventaire					|
+	|	-----------------------------------------------*/
 
-	for ( uint16_t i = 0 ; i < inventaire->nbItem ; i++ )
-		printf("%p\n", (inventaire->inventaire) + i );
+
+
+	/*	------------------------------------------------|
+	|	Allocation d'une zone memoire de 10 items		|
+	|	-----------------------------------------------*/
 
 	#ifdef DEBUG
-		if ( alloc_item(&inventaire, 10) ) {
+		if ( alloc_item(inventaire, 10) ) {
 
 			printf("erreur : impossible d'allouer la memoire necessaire\n");
 			return 1;
@@ -34,10 +51,15 @@ int main ( int argc, char ** argv ) {
 		alloc_item(&inventaire, 10);
 	#endif
 
-	printf("\n");
+	/*	------------------------------------------------|
+	|	Note :											|
+	|	Les items sont tjs present dans l'inventaire	|
+	|	-----------------------------------------------*/
 
-	for ( uint16_t i = 0 ; i < inventaire->nbItem ; i++ )
-		printf("%p\n", (inventaire->inventaire) + i );
+
+	/*	------------------------------------------------|
+	|	Liberation de la zone memoire de l'inventaire	|
+	|	-----------------------------------------------*/
 
 	free_inventaire(inventaire);
 }

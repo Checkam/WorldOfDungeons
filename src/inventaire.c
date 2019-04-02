@@ -2,55 +2,87 @@
 
 t_inventaire *create_inventaire() {
 
-    t_inventaire *inventaire;
-    inventaire->inventaire = malloc(sizeof(t_inventaire));
+    t_inventaire *inventaire = malloc(sizeof(t_inventaire));
 
-    printf("return\n");
+    #ifdef DEBUG
+        assert( inventaire == NULL );
+    #endif
+
+    inventaire->inventaire = NULL;
 
     return inventaire;
 }
 
-uint8_t alloc_item(t_inventaire *inventaire, const uint16_t nbItem ) {
+void alloc_item(t_inventaire *inventaire, const uint16_t nbItem ) {
 
     if ( inventaire->inventaire == NULL ) {
 
         inventaire->inventaire = malloc(sizeof(t_inventaire_item) * nbItem);
 
-        inventaire->nbItem = nbItem;
+        inventaire->nbItemMax = nbItem;
+        inventaire->nbItem = 0;
 
         for ( uint16_t i = 0 ; i < nbItem ; i++ )
             ( (inventaire->inventaire) + i )->item = NULL;
 
     } else {
 
-        t_inventaire *ptr_realloc;
+        inventaire->inventaire = realloc(inventaire->inventaire, sizeof(t_inventaire_item) * nbItem);
 
-        ptr_realloc = realloc(inventaire->inventaire, sizeof(t_inventaire_item) * nbItem);
-
-        if ( inventaire->inventaire != ptr_realloc ) {
-
-            free(inventaire->inventaire);
-            (inventaire->inventaire) = ptr_realloc;
-        }
-
-        for ( uint16_t i = inventaire->nbItem ; i < nbItem ; i++ )
+        for ( uint16_t i = inventaire->nbItemMax ; i < nbItem ; i++ )
             ( (inventaire->inventaire) + i )->item = NULL;
 
-        inventaire->nbItem = nbItem;
+        inventaire->nbItemMax = nbItem;
     }
 
     #ifdef DEBUG
-        return inventaire->inventaire == NULL;
+        assert ( inventaire->inventaire == NULL );
+    #endif
+}
+
+void ajout_item_dans_inventaire( t_inventaire *inventaire, t_liste *listeItem ) {
+
+    en_tete( listeItem );
+
+    uint16_t placeLibre;
+    t_liste_item *ptritem;
+
+    #ifdef DEBUG 
+        assert( listeItem == NULL || inventaire == NULL );
     #endif
 
-    return 0;
+    while ( !hors_liste( listeItem ) ) {
+
+        valeur_elt( listeItem, (void **)&ptritem )
+
+        placeLibre = 0;
+
+        while ( (( inventaire->inventaire) + placeLibre)->item != tabItem + ( ptritem->item ) || placeLibre < inventaire->nbItemMax )
+
+        if ( placeLibre >= inventaire->nbItemMax ) {
+
+            placeLibre = 0;
+
+            while ( ((inventaire->inventaire) + placeLibre)->item != NULL ) {
+
+             placeLibre++;
+            }
+        }
+
+        if ( placeLibre >= inventaire->nbItemMax ) {
+
+            ( (inventaire->inventaire) + placeLibre )->item = tabItem + ( ptritem->item );
+            ( (inventaire->inventaire) + placeLibre )->stack = ptritem->nbDrop;
+            ( (inventaire->inventaire) + placeLibre )->durabilite = 
+        }
+    }
 }
 
 void free_inventaire( t_inventaire *inventaire ) {
 
-    if ( inventaire->inventaire ) {
-
+    if ( inventaire->inventaire )
         free(inventaire->inventaire);
+    
+    if ( inventaire )
         free(inventaire);
-    }
 }
