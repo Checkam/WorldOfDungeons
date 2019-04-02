@@ -78,7 +78,7 @@ t_erreur donjon_afficher_SDL(SDL_Renderer * renderer, t_donjon * donjon, t_entit
 /************************************/
 /* Primitive de gestion d'un donjon */
 /************************************/
-t_erreur donjon_gestion(SDL_Renderer * renderer, t_donjon * donjon, t_entite * joueur);
+t_erreur donjon_gestion(SDL_Renderer * renderer, t_donjon * donjon, t_entite * joueur, uint8_t *ks, double coef_fps);
 
 
 /****************************************/

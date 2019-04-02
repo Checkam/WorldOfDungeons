@@ -19,6 +19,8 @@
 #include <entite.h>
 #include <touches.h>
 #include <time.h>
+#include <fps.h>
+
 
 #define NB_SALLE 20
 
@@ -30,6 +32,7 @@ int main(int argc, char **argv, char **env){
         return EXIT_FAILURE;
     }
 
+    fps_init();
     SEED = atoi(argv[1]);
     srand(time(NULL));
     /* Initialisation */
@@ -111,7 +114,7 @@ int main(int argc, char **argv, char **env){
         SDL_RenderClear(renderer);
         
         donjon_afficher_SDL(renderer, donjon, joueur);
-        donjon_gestion(renderer, donjon, joueur);
+        donjon_gestion(renderer, donjon, joueur, ks, fps());
         Charger_Anima(renderer, joueur, IMMOBILE);
         Print_Info_Entite(renderer, joueur);
         //donjon_afficher_Term(donjon, joueur);

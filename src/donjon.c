@@ -21,6 +21,7 @@
 #include <affichage.h>
 #include <entite.h>
 #include <chemin.h>
+#include <ia.h>
 
 #define DEPTH 5
 #define TAILLE_SOL 6
@@ -615,14 +616,14 @@ t_erreur donjon_afficher_SDL(SDL_Renderer * renderer, t_donjon * donjon, t_entit
 }
 
 /**
- * \fn t_erreur donjon_gestion(SDL_Renderer * renderer, t_donjon * donjon, t_entite * joueur)
+ * \fn t_erreur donjon_gestion(SDL_Renderer * renderer, t_donjon * donjon, t_entite * joueur, uint8_t *ks, double coef_fps)
  * \brief Permet de gérer un donjon comme la création et l'interaction des mobs
  * \param renderer Rendu de la fenêtre
  * \param donjon Donjon que l'on veut gérer
  * \param joueur Joueur qui est dans le donjon
  * \return Code erreur
 */
-t_erreur donjon_gestion(SDL_Renderer * renderer, t_donjon * donjon, t_entite * joueur){
+t_erreur donjon_gestion(SDL_Renderer * renderer, t_donjon * donjon, t_entite * joueur, uint8_t *ks, double coef_fps){
     /* Vérification */
     if(renderer == NULL){
         erreur_save(PTR_NULL, "donjon_gestion() : Pointeur sur renderer NULL");
@@ -663,8 +664,15 @@ t_erreur donjon_gestion(SDL_Renderer * renderer, t_donjon * donjon, t_entite * j
             */
         }
 
-        /* Affichage Mob */
         t_entite * mob = NULL;
+
+        /* Mob jouer */
+        for(en_tete(salle->mob); !hors_liste(salle->mob); suivant(salle->mob)){
+            valeur_elt(salle->mob, (void**)&mob);
+            Gestion_Entite(renderer, mob, ks, coef_fps, NULL, GESTION_ACTION, ia_jouer(mob, joueur, IA_FOCUS | IA_ATTAQUE), joueur);
+        }
+
+        /* Affichage Mob */
         t_salle_donjon *salle_ec = NULL;
         for(en_tete(donjon->donjon); !hors_liste(donjon->donjon); suivant(donjon->donjon)){
             valeur_elt(donjon->donjon, (void**)&salle_ec);
