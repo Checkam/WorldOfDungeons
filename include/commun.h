@@ -19,7 +19,7 @@ int height_block_sdl;
 
 int SEED;
 
-typedef enum
+typedef enum e_collision_direction
 {
     DIRECT_DROITE_COLLI,
     DIRECT_GAUCHE_COLLI,

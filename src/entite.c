@@ -539,64 +539,52 @@ int collision(t_entite *entite, t_collision_direction direction, t_liste *p) {
 
   int collision = 0;
   SDL_Rect res;
+  t_block *block = NULL;
 
   /* Conversion des coordonnées SDL en coordonnées pour la MAP */
-  int x = entite->hitbox.x / width_block_sdl, y = entite->hitbox.y / height_block_sdl;
+  int x = entite->hitbox.x, y = entite->hitbox.y;
+  int w = entite->hitbox.w, h = entite->hitbox.h;
+
   /* Recréation de la MAP */
   t_map map;
   map.list = p;
-
-  /* Récupération des Blocks si il y en a, en fonction des coordonnées du Joueur */
-  t_block *blockH = NULL, *blockB = NULL, *blockHD = NULL, *blockHG = NULL;
-  blockH = MAP_GetBlock(&map, x, y + 1);
-  blockB = MAP_GetBlock(&map, x, y - 1);
-  blockHD = MAP_GetBlock(&map, x + 1, y);
-  blockHG = MAP_GetBlock(&map, x - 1, y);
 
   /* Traitement des collisions */
   switch (direction) {
   /* Collision en BAS */
   case DIRECT_BAS_COLLI:
-    if (blockB) {
-      if (blockB->id != AIR) {
-        SDL_Rect B = {width_block_sdl * blockB->x, height_block_sdl * blockB->y, width_block_sdl, height_block_sdl};
-        SDL_IntersectRect(&(entite->hitbox), &B, &res);
+    y = (y - h) / height_block_sdl;
+    while(!collision && x < entite->hitbox.x)
+    {
+      // Récup Block
+      block = MAP_GetBlock(&map,x / width_block_sdl,y);
+
+      // Check si collision
+      if (block && block->id != AIR)
+      {
+        SDL_Rect b = {block->x,block->y,width_block_sdl,height_block_sdl};
+        SDL_IntersectRect(&(entite->hitbox), &b, &res);
         collision = res.h;
       }
+
+      // Mis à jour du x
+      x += width_block_sdl;
     }
     break;
 
   /* Collision en HAUT */
   case DIRECT_HAUT_COLLI:
-    if (blockH) {
-      if (blockH->id != AIR) {
-        SDL_Rect B = {width_block_sdl * blockH->x, height_block_sdl * blockH->y, width_block_sdl, height_block_sdl};
-        SDL_IntersectRect(&(entite->hitbox), &B, &res);
-        collision = res.h;
-      }
-    }
+    
     break;
 
   /* Collision à DROITE */
   case DIRECT_DROITE_COLLI:
-    if (blockHD) {
-      if (blockHD->id != AIR) {
-        SDL_Rect B = {width_block_sdl * blockHD->x, height_block_sdl * blockHD->y, width_block_sdl, height_block_sdl};
-        SDL_IntersectRect(&(entite->hitbox), &B, &res);
-        collision = res.w;
-      }
-    }
+    
     break;
 
   /* Collision à GAUCHE */
   case DIRECT_GAUCHE_COLLI:
-    if (blockHG) {
-      if (blockHG->id != AIR) {
-        SDL_Rect B = {width_block_sdl * blockHG->x, height_block_sdl * blockHG->y, width_block_sdl, height_block_sdl};
-        SDL_IntersectRect(&(entite->hitbox), &B, &res);
-        collision = res.w;
-      }
-    }
+    
     break;
 
   default:
@@ -676,7 +664,7 @@ t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, d
     }
 
     /* Modif pour la touche SAUTER */
-    if (!(entite->velY) && collision(entite, DIRECT_BAS_COLLI, p) && SDL_touche_appuyer(ks, SAUTER)) {
+    if (collision(entite, DIRECT_BAS_COLLI, p) && SDL_touche_appuyer(ks, SAUTER)) {
       entite->velY -= HAUTEUR_SAUT;
     }
 
