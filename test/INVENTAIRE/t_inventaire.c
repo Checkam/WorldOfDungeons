@@ -57,6 +57,13 @@ int main ( int argc, char ** argv ) {
 
 	ajout_item_dans_inventaire( inventaire, liste);
 
+	#ifdef DEBUG
+		if ( liste_vide(liste))
+			fprintf(stderr, " - OK\n");
+		else
+			fprintf(stderr, "ERREUR -> liste non vide\n");
+	#endif
+
 	afficher_inventaire ( inventaire );
 
 	/*	------------------------------------------------|
@@ -64,7 +71,7 @@ int main ( int argc, char ** argv ) {
 	|	-----------------------------------------------*/
 
 	#ifdef DEBUG
-		fprintf(stderr, " - OK\nAllocation d'une nouvelle zone memoire");
+		fprintf(stderr, "Allocation d'une nouvelle zone memoire");
 	#endif
 
 	alloc_item(inventaire, 10);
