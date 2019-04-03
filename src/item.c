@@ -26,7 +26,7 @@ uint8_t init_item() {
 
     default_item_drop();
 
-    tabItem = malloc( sizeof( t_item_type ) * NB_ITEMS );
+    tabItem = malloc( sizeof( t_item_type ) * (I_END + 1) );
 
     default_item_type();
 
@@ -105,7 +105,9 @@ uint8_t block_to_item ( t_materiaux materiaux, t_liste_item **item ) {
 
 void exit_item( t_liste_item **item ) {
 
-    /*free( ( tabItemDrop + HERBE )->drop);*/
+    printf("liberation de terre adresse : %p\n", ( tabItemDrop + TERRE )->drop);
+
+    free( ( tabItemDrop + HERBE )->drop);
     free( ( tabItemDrop + TERRE )->drop);
     free( ( tabItemDrop + SABLE )->drop);
     free( ( tabItemDrop + FEUILLE )->drop);
@@ -146,7 +148,6 @@ static void default_item_drop () {
 
     (( tabItemDrop + HERBE )->drop + 1 )->item = I_END;
 
-
     /* TERRE */
     ( tabItemDrop + TERRE )->drop = malloc( sizeof(t_liste_drop) * 2 );
 
@@ -157,6 +158,8 @@ static void default_item_drop () {
     ( tabItemDrop + TERRE )->drop->pourMille = 1000;
 
     (( tabItemDrop + TERRE )->drop + 1 )->item = I_END;
+
+    printf("allocation de terre adresse : %p\n", ( tabItemDrop + TERRE )->drop);
 
 
     /* EAU */

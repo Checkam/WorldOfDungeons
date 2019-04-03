@@ -52,7 +52,7 @@ void ajout_item_dans_inventaire( t_inventaire *inventaire, t_liste *listeItem ) 
     en_tete( listeItem );
 
     uint16_t placeLibre, i;
-    t_liste_item *ptritem, *a = malloc(sizeof(t_liste_item));
+    t_liste_item *ptritem, *a;
 
     #ifdef DEBUG 
         assert( listeItem != NULL && inventaire != NULL );
@@ -95,6 +95,7 @@ void ajout_item_dans_inventaire( t_inventaire *inventaire, t_liste *listeItem ) 
             if ( ((inventaire->inventaire) + placeLibre)->stack + ptritem->nbDrop > (tabItem + ( ptritem->item ))->stack ) {
 
                 ( (inventaire->inventaire) + placeLibre )->stack = (tabItem + ( ptritem->item ))->stack;
+                a = malloc(sizeof(t_liste_item));
                 a->nbDrop = ptritem->nbDrop - (tabItem + ( ptritem->item ))->stack;
                 a->item = ptritem->item;    /* SOLUTION TEMPORAIRE */
 
@@ -128,8 +129,16 @@ void afficher_inventaire ( t_inventaire *inventaire ) {
 
 void free_inventaire( t_inventaire *inventaire ) {
 
-    if ( inventaire->inventaire )
+    if ( inventaire->inventaire ) {
+
+        /*uint16_t i;
+
+        for ( i = 0 ; i < inventaire->nbItemMax ; i++  )
+            if ( (inventaire->inventaire + i)->item )
+                free((inventaire->inventaire + i)->item);*/
+
         free(inventaire->inventaire);
+    }
     
     if ( inventaire )
         free(inventaire);
