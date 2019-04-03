@@ -52,7 +52,7 @@ void ajout_item_dans_inventaire( t_inventaire *inventaire, t_liste *listeItem ) 
     en_tete( listeItem );
 
     uint16_t placeLibre, i;
-    t_liste_item *ptritem, *t = NULL;
+    t_liste_item *ptritem, *a = malloc(sizeof(t_liste_item));
 
     #ifdef DEBUG 
         assert( listeItem != NULL && inventaire != NULL );
@@ -64,12 +64,6 @@ void ajout_item_dans_inventaire( t_inventaire *inventaire, t_liste *listeItem ) 
     while ( !hors_liste( listeItem ) ) {
 
         valeur_elt( listeItem, (void **)&ptritem );
-
-        printf("Traitement de l'element %p ...\n", ptritem);
-
-        valeur_elt( listeItem, ( void **)&t);
-        printf("\tla valeur suivante sera : %p\n", t);
-        t = NULL;
 
         i = 0;
         placeLibre = inventaire->nbItemMax;
@@ -101,21 +95,11 @@ void ajout_item_dans_inventaire( t_inventaire *inventaire, t_liste *listeItem ) 
             if ( ((inventaire->inventaire) + placeLibre)->stack + ptritem->nbDrop > (tabItem + ( ptritem->item ))->stack ) {
 
                 ( (inventaire->inventaire) + placeLibre )->stack = (tabItem + ( ptritem->item ))->stack;
-                printf("\tnb item avant : %d\n", ptritem->nbDrop);
-                ptritem->nbDrop -= (tabItem + ( ptritem->item ))->stack;
-                printf("\tnb item apres : %d\n", ptritem->nbDrop);
+                a->nbDrop = ptritem->nbDrop - (tabItem + ( ptritem->item ))->stack;
+                a->item = ptritem->item;    /* SOLUTION TEMPORAIRE */
 
-                /*printf("\tajout de l'element %p ...\n", ptritem);*/
-                ajout_droit(listeItem, (void *) ptritem);
-                /*valeur_elt( listeItem, ( void *)t);
-                printf("\tpositionnement sur l'element %p\n", t);
-                t = NULL;*/
+                ajout_droit(listeItem, (void *) a);
                 precedent(listeItem);
-                /*valeur_elt( listeItem, ( void *)t);
-                printf("\tsecond positionnement sur l'element %p\n", t);
-                t = NULL;*/
-
-                inventaire->nbItem++;
 
             /* cas 2 --> tous passe dans une seule case */
             } else
@@ -124,9 +108,6 @@ void ajout_item_dans_inventaire( t_inventaire *inventaire, t_liste *listeItem ) 
             (( (inventaire->inventaire) + placeLibre )->item) = (tabItem + ( ptritem->item ));
             ( (inventaire->inventaire) + placeLibre )->durabilite = (tabItem + ( ptritem->item ))->durabilite;
 
-            valeur_elt( listeItem, ( void **)&t);
-            printf(" ... suppression de l'element %p\n", t);
-            t = NULL;
             oter_elt( listeItem, free);
 
             en_tete(listeItem);
