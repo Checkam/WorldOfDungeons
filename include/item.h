@@ -6,6 +6,7 @@
 #include <block.h>
 #include <time.h>
 #include <stdint.h>
+#include <chemin.h>
 
 #define AUCUN_BESOIN 0
 #define PAS_DROP_APRES_N 1
@@ -61,7 +62,7 @@ typedef struct liste_item_s {
 
 t_item_type *tabItem;
 
-uint8_t init_item();
+uint8_t init_item(SDL_Renderer *renderer);
 uint8_t block_to_item ( t_materiaux materiaux, t_liste_item **item );
 void exit_item( t_liste_item **item);
 

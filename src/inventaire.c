@@ -1,5 +1,21 @@
 #include <inventaire.h>
-#include <unistd.h>
+
+SDL_Texture *bordure = NULL;
+
+void inventaire_init( SDL_Renderer *renderer ) {
+
+    #ifdef DEBUG
+        assert(renderer != NULL);
+    #endif
+
+    char *chemin;
+	creation_chemin("data/Image/Bordure_150_150.bmp", &chemin);
+	
+	SDL_Surface *img = SDL_LoadBMP(chemin);
+	bordure = SDL_CreateTextureFromSurface(renderer, img);
+
+    SDL_FreeSurface(img);
+} 
 
 t_inventaire *create_inventaire() {
 
@@ -125,6 +141,28 @@ void afficher_inventaire ( t_inventaire *inventaire ) {
 
     for ( i = 0 ; i < inventaire->nbItemMax ; i++ )
         printf("slot %d : %p    nb : %d\n", i, (inventaire->inventaire + i)->item, (inventaire->inventaire + i)->stack );
+}
+
+void SDL_afficher_barre_action ( SDL_Renderer *renderer, t_inventaire *inventaire, const uint8_t nb_affichage ) {
+
+    #ifdef DEBUG
+        assert( renderer != NULL  && inventaire != NULL && nb_affichage >= 1 && nb_affichage <= 16 && uiScale >= 50 && uiScale <= 150 && bordure != NULL );
+    #endif
+
+    SDL_Rect rect;
+    rect.w = ((DEFAULT_SIZE_IMG_W / 2) * ( uiScale / 100 )) / scaleW;
+    rect.h = ((DEFAULT_SIZE_IMG_H / 2) * ( uiScale / 100 )) / scaleH;
+    rect.x = WIDTH / 2 - ( ( rect.w  / 2 ) * nb_affichage );
+    rect.y = HEIGHT * 0.9;
+
+
+    printf(" WIDTH / 2 = %d --- WIDTH / 2 - ( ( DEFAULT_SIZE_IMG_W / 2 ) * nb_affichage ) = %d\n", WIDTH / 2, WIDTH / 2 - ( ( DEFAULT_SIZE_IMG_W / 2 ) * nb_affichage ));
+
+    for ( uint8_t i = 0 ; i < nb_affichage ; i++ ) {
+
+        SDL_RenderCopy( renderer, bordure, NULL, &rect);
+        rect.x += ((DEFAULT_SIZE_IMG_W / 2) * ( uiScale / 100 )) / scaleW;
+    }
 }
 
 void free_inventaire( t_inventaire *inventaire ) {
