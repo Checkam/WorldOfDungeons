@@ -1,25 +1,36 @@
 #include <inventaire.h>
 
-#include <SDL2/SDL.h>
-
 #include <stdio.h>
 
-int main ( int argc, char ** argv ) {
+int main ( int argc, char ** argv, char **env ) {
 /* Ce main est le MINIMUM afin que le module inventaire fonctionne */
 
-	#ifdef DEBUG
-		fprintf(stderr, "DEBUG enable\n");
-	#endif
+	WIDTH = 800;
+	HEIGHT = 450;
 
-	init_item();
+	scaleW = DEFAULT_SIZE_SCREEN_W / WIDTH;
+	scaleH = DEFAULT_SIZE_SCREEN_H / HEIGHT;
+
+	uiScale = 100;
+
+	pwd_init( argv[0], getenv("PWD"));
+
+	SDL_Init( SDL_INIT_VIDEO );
+
+	SDL_Renderer *renderer;
+	SDL_Window *window = SDL_CreateWindow("Inventaire test", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WIDTH, HEIGHT, SDL_WINDOW_OPENGL);
+	renderer = SDL_CreateRenderer( window, -1, SDL_RENDERER_ACCELERATED);
+
+	printf("initialisation item\n");
+
+	init_item(renderer);
+	inventaire_init( renderer);
 
 	/*	------------------------------------------------|
 	|	Creation d'un inventaire						|
 	|	-----------------------------------------------*/
 
-	#ifdef DEBUG
-		fprintf(stderr, "Creation d'inventaire");
-	#endif
+	printf("creation d'inventaire\n");
 
 	t_inventaire *inventaire = create_inventaire();
 
@@ -27,42 +38,25 @@ int main ( int argc, char ** argv ) {
 	|	Allocation d'une zone memoire de 5 items		|
 	|	-----------------------------------------------*/
 
-	#ifdef DEBUG
-		fprintf(stderr, " - OK\nAllocation memoire");
-	#endif
-
 	alloc_item(inventaire, 5);
 
 	/*	------------------------------------------------|
 	|	Ajout d'item dans l'inventaire					|
 	|	-----------------------------------------------*/
 
-	#ifdef DEBUG
-		fprintf(stderr, " - OK\nAjout d'item -> etape 1 : creation de la liste");
-	#endif
+	printf("ajout d'item\n");
 
 	t_liste *liste = malloc(sizeof(t_liste));
 	init_liste(liste);
 	en_tete(liste);
 
-	t_liste_item *item = malloc( sizeof(t_liste_item) );
-	(item)->nbDrop = 55;
+	/*t_liste_item *item = malloc( sizeof(t_liste_item) );
+	(item)->nbDrop = 15;
 	(item)->item = I_ROCHE;
 
 	ajout_droit(liste, (void *)item );
 
-	#ifdef DEBUG
-		fprintf(stderr, " - OK\nAjout d'item -> etape 2 : ajout dans l'inventaire");
-	#endif
-
-	ajout_item_dans_inventaire( inventaire, liste);
-
-	#ifdef DEBUG
-		if ( liste_vide(liste))
-			fprintf(stderr, " - OK\n");
-		else
-			fprintf(stderr, "ERREUR -> liste non vide\n");
-	#endif
+	ajout_item_dans_inventaire( inventaire, liste);*/
 
 	afficher_inventaire ( inventaire );
 
@@ -70,23 +64,24 @@ int main ( int argc, char ** argv ) {
 	|	Allocation d'une zone memoire de 10 items		|
 	|	-----------------------------------------------*/
 
-	#ifdef DEBUG
-		fprintf(stderr, "Allocation d'une nouvelle zone memoire");
-	#endif
-
 	alloc_item(inventaire, 10);
 
-	#ifdef DEBUG
-		fprintf(stderr, " - OK\najout de nouveaux item");
-	#endif
+	/*	------------------------------------------------|
+	|	Note :											|
+	|	Les items sont tjs present dans l'inventaire	|
+	|	-----------------------------------------------*/
 
-	en_tete(liste);
+	/*	------------------------------------------------|
+	|	Ajout d'item dans l'inventaire					|
+	|	-----------------------------------------------*/
+
+	/*en_tete(liste);
 
 	t_liste_item *item2 = malloc( sizeof(t_liste_item) );
 	(item2)->nbDrop = 15;
 	(item2)->item = I_TERRE;
 
-	ajout_droit(liste, (void *)item2 );
+	ajout_droit(liste, (void *)item2 );*/
 
 	t_liste_item *item3 = malloc( sizeof(t_liste_item) );
 	(item3)->nbDrop = 25;
@@ -99,17 +94,32 @@ int main ( int argc, char ** argv ) {
 	afficher_inventaire ( inventaire );
 
 	/*	------------------------------------------------|
-	|	Note :											|
-	|	Les items sont tjs present dans l'inventaire	|
+	|	Affichage dans la SDL							|
 	|	-----------------------------------------------*/
+
+	/*SDL_RenderCopy(renderer, ( tabItem + I_BOULE_NEIGE )->texture, NULL, &rdst );*/
+
+	/*for ( uint8_t i = 0 ; i < 10 ; i++ ) {*/
+
+		/*SDL_RenderCopy(renderer, ( tabItem + I_BOULE_NEIGE )->texture, NULL, &rdst );*/
+		/*SDL_RenderCopy(renderer, bordure, NULL, &rdst );*/
+
+	SDL_afficher_barre_action( renderer, inventaire, 9);
+	SDL_RenderPresent(renderer);
+	SDL_RenderClear(renderer);
+	SDL_Delay(3000);
+
+	/*SDL_FreeSurface(img);*/
 
 	/*	------------------------------------------------|
 	|	Liberation de la zone memoire de l'inventaire	|
 	|	-----------------------------------------------*/
 
-	#ifdef DEBUG
-		printf(" - OK\nLiberation de la zone memoire");
-	#endif
+	SDL_DestroyWindow(window);
+
+	SDL_Quit();
+
+	pwd_quit();
 
 	free_inventaire(inventaire);
 
@@ -118,7 +128,5 @@ int main ( int argc, char ** argv ) {
 	exit_item(&aa);
 	detruire_liste(liste, free);
 
-	#ifdef DEBUG
-		printf(" - OK\n");
-	#endif
+    free(liste);
 }

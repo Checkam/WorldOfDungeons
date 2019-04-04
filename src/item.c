@@ -1,5 +1,7 @@
 #include <item.h>
 
+#include <SDL2/SDL.h>
+
 static void default_item_drop ();
 static void default_item_type ();
 
@@ -7,7 +9,7 @@ t_block_drop *tabItemDrop = NULL;
 
 t_liste_item *item;
 
-uint8_t init_item() {
+uint8_t init_item( SDL_Renderer *renderer ) {
 
     if ( tabItemDrop )
         return 1;
@@ -24,11 +26,17 @@ uint8_t init_item() {
         ( tabItemDrop + i )->drop = NULL; /* aka aucun drop */
     }
 
+    printf("50\n");
+
     default_item_drop();
 
     tabItem = malloc( sizeof( t_item_type ) * (I_END + 1) );
 
-    default_item_type();
+    printf("55\n");
+
+    default_item_type(renderer);
+
+    printf("60\n");
 
     for ( i = 0 ; i < NB_ITEMS ; i++ )
         printf("%p\n", (tabItem + i));
@@ -277,7 +285,10 @@ static void default_item_drop () {
     (( tabItemDrop + GRAVIER )->drop + 2 )->item = I_END;
 }
 
-static void default_item_type () {
+static void default_item_type ( SDL_Renderer *renderer ) {
+
+    SDL_Surface *surface;
+    char *chemin;
 
     ( tabItem + I_TERRE )->nomItem = "terre";
     ( tabItem + I_TERRE )->stack = 50;
@@ -319,10 +330,19 @@ static void default_item_type () {
     ( tabItem + I_POMME )->posable = NULL;
     ( tabItem + I_POMME )->texture = NULL;
 
+    printf("terre SDL t\n");
+
     ( tabItem + I_BOULE_NEIGE )->nomItem = "boule de neige";
     ( tabItem + I_BOULE_NEIGE )->stack = 75;
     ( tabItem + I_BOULE_NEIGE )->posable = NULL;
-    ( tabItem + I_BOULE_NEIGE )->texture = NULL;
+    creation_chemin("data/Image/Boule_de_neige_192_108.bmp", &chemin);
+    surface = SDL_LoadBMP(chemin);
+    if ( surface == NULL )
+        printf("pas de surface\n");
+    SDL_SetColorKey( surface, SDL_TRUE, SDL_MapRGB( surface->format, 0, 255, 0) ); /* Enlevement du fond vert */
+    ( tabItem + I_BOULE_NEIGE )->texture = SDL_CreateTextureFromSurface( renderer, surface );
+
+    printf("fin terre SDL t\n");
 
     ( tabItem + I_SILEX )->nomItem = "silex";
     ( tabItem + I_SILEX )->stack = 75;
@@ -338,4 +358,7 @@ static void default_item_type () {
     ( tabItem + I_END )->stack = 0;
     ( tabItem + I_END )->posable = NULL;
     ( tabItem + I_END )->texture = NULL;
+
+    free(chemin);
+    SDL_FreeSurface(surface);
 }

@@ -10,7 +10,7 @@ int main ( int argc, char ** argv ) {
 	t_liste_item *item = NULL;
 	uint8_t i = 0, t;
 
-	init_item();
+	init_item(NULL);
 
 	#ifdef DEBUG
 		uint8_t err;
