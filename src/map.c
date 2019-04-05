@@ -48,13 +48,13 @@ t_erreur MAP_creer(t_map **map, char *nom_map, int SEED) {
   (*map)->list = malloc(sizeof(t_liste));
   init_liste((*map)->list);
 
-  int i = 20000;
+  int i = 19900;
   while (taille_liste((*map)->list) <= SIZE) {
     i++;
     gen_col((*map)->list, i, DROITE);
   }
   t_block *b = MAP_GetBlockFromList((*map), SIZE / 2, AFF_GetMidHeight((*map)->list));
-  (*map)->joueur = creer_entite_defaut("Virgile", JOUEUR, b->x, b->y + 1, width_block_sdl * 2);
+  (*map)->joueur = creer_entite_defaut("Virgile", JOUEUR, b->x, b->y + 1, 50);
 
   MAP_sauvegarder(*map);
   return OK;
@@ -266,6 +266,14 @@ t_erreur MAP_detruire_path(char **path_dir) {
   return OK;
 }
 
+/**
+    \fn t_block *MAP_GetBlockFromList(t_map *map, int x, int y)
+    \brief Récupére le block x , y par rapport a la liste
+    \param map Pointeur sur une t_map
+    \param x la valeur x de la liste (un tableau)
+    \param y la valeur y de la colone (un tableau)
+    \return Renvoie un pointeur sur le block
+**/
 t_block *MAP_GetBlockFromList(t_map *map, int x, int y) {
   if (y >= 0 && y < MAX) {
     t_block *tab;
@@ -277,6 +285,14 @@ t_block *MAP_GetBlockFromList(t_map *map, int x, int y) {
   return NULL;
 }
 
+/**
+    \fn t_block *MAP_GetBlock(t_map *map, int x, int y)
+    \brief Récupére le block au coordonné x, y de la map
+    \param map Pointeur sur une t_map
+    \param x coordonné x de la map
+    \param y coordonné y de la map
+    \return Renvoie un pointeur sur le block trouver NULL s'il n'a pas été trouver
+**/
 t_block *MAP_GetBlock(t_map *map, int x, int y) {
   if (y >= 0 && y < MAX) {
     t_block *tab;
@@ -289,12 +305,45 @@ t_block *MAP_GetBlock(t_map *map, int x, int y) {
   return NULL;
 }
 
+/**
+    \fn t_block *MAP_GetColX(t_map *map, int x)
+    \brief Récupére la colone de la map pour la coordonné x
+    \param map Pointeur sur une t_map
+    \param x coordonné x de la map
+    \return Renvoie un pointeur sur un tableau de block
+**/
+t_block *MAP_GetColX(t_map *map, int x) {
+  t_block *tab;
+  for (en_tete(map->list); !hors_liste(map->list); suivant(map->list)) {
+    valeur_elt(map->list, (void **)&tab);
+    if (tab && tab[0].x == x)
+      return tab;
+  }
+  return NULL;
+}
+
+/**
+    \fn void MAP_SetEcListe(t_liste *list, int x)
+    \brief Permet de ce placer dans une liste de tableau de block
+    \param list La liste dans laquelle on se deplace
+    \param x coordonné x de la map
+    \return Renvoie rien
+**/
 void MAP_SetEcListe(t_liste *list, int x) {
   t_block *b = NULL;
   for (en_tete(list); !hors_liste(list) && (b == NULL || x > b[0].x); suivant(list))
     valeur_elt(list, (void **)&b);
 }
 
+/**
+    \fn void MAP_CopyListFromX(t_map *map, t_liste *list, int x_from, int x_to)
+    \brief Copie les valeurs d'une map dans une liste de destination
+    \param map Pointeur sur une t_map
+    \param list liste de destination
+    \param x_from coordonné de début
+    \param x_to coordonné de fin
+    \return Renvoie rien
+**/
 void MAP_CopyListFromX(t_map *map, t_liste *list, int x_from, int x_to) {
   t_block *b;
   for (MAP_SetEcListe(map->list, x_from); (!hors_liste(map->list) && (b == NULL || x_to > b[0].x)); suivant(map->list)) {
@@ -303,6 +352,12 @@ void MAP_CopyListFromX(t_map *map, t_liste *list, int x_from, int x_to) {
   }
 }
 
+/**
+    \fn void MAP_gen(t_map *map)
+    \brief Génére la map par rapport au joueur
+    \param map Pointeur sur une t_map
+    \return Renvoie rien
+**/
 void MAP_gen(t_map *map) {
   t_block *premier = MAP_GetBlockFromList(map, 0, 0);
   t_block *dernier = MAP_GetBlockFromList(map, taille_liste(map->list) - 1, 0);
@@ -318,6 +373,16 @@ void MAP_gen(t_map *map) {
     }
 }
 
+/**
+    \fn void MAP_afficher_sdl(t_map *map, SDL_Renderer *renderer, int h_aff, int x_deb, int x_fin)
+    \brief Affiche une map en sdl
+    \param map Pointeur sur une t_map
+    \param renderer variable pour afficher avec SDL
+    \param h_aff hauteur minimun d'affichage
+    \param x_deb coordonné du début d'affichage
+    \param x_fin coordonné de la fin d'affichage
+    \return Renvoie rien
+**/
 void MAP_afficher_sdl(t_map *map, SDL_Renderer *renderer, int h_aff, int x_deb, int x_fin) {
   t_liste affichage;
   init_liste(&affichage);
@@ -326,4 +391,12 @@ void MAP_afficher_sdl(t_map *map, SDL_Renderer *renderer, int h_aff, int x_deb, 
   detruire_liste(&affichage, NULL);
 }
 
-void MAP_afficher_term(t_map *map, SDL_Renderer *renderer, int h_min_aff, int h_max_aff) { AFF_map_term(map->list, h_min_aff, h_max_aff); }
+/**
+    \fn void MAP_afficher_term(t_map *map, SDL_Renderer *renderer, int h_min_aff, int h_max_aff)
+    \brief Affiche une map en terminal
+    \param map Pointeur sur une t_map
+    \param h_min_aff hauteur minimun d'affichage
+    \param h_max_aff hauteur maximun d'affichage
+    \return Renvoie rien
+**/
+void MAP_afficher_term(t_map *map, int h_min_aff, int h_max_aff) { AFF_map_term(map->list, h_min_aff, h_max_aff); }
