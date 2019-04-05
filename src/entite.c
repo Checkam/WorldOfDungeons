@@ -14,32 +14,35 @@
 #include <entite.h>
 #include <erreur.h>
 #include <fps.h>
+#include <json.h>
 #include <map.h>
 #include <outils_SDL.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <touches.h>
-#include <json.h>
 
 /****** SPRITE TEXTURE ACTION ******/
 
 SDL_Texture *Textures_Joueur;
-t_anim_action t_a_joueur[NB_LIGNES_SPRITE] = {{MARCHE_DROITE, 12, 9, 100}, {MARCHE_GAUCHE, 10, 9, 100}, {MARCHE_DERRIERE, 11, 9, 100},
-                                              {MARCHE_DEVANT, 9, 9, 100}, {CREUSER_DEVANT,5,8,100}, {CREUSER_DERRIERE,7,8,100}, {CREUSER_GAUCHE,6,8,100},
-                                              {CREUSER_DROITE,8,8,100}, {ATTAQUE_DEVANT,13,6,80}, {ATTAQUE_DERRIERE,15,6,80}, {ATTAQUE_GAUCHE,14,6,80},
-                                              {ATTAQUE_DROITE,16,6,80}, {IMMOBILE, 3, 1, 50}};
+t_anim_action t_a_joueur[NB_LIGNES_SPRITE] = {{MARCHE_DROITE, 12, 9, 100},   {MARCHE_GAUCHE, 10, 9, 100}, {MARCHE_DERRIERE, 11, 9, 100},
+                                              {MARCHE_DEVANT, 9, 9, 100},    {CREUSER_DEVANT, 5, 8, 100}, {CREUSER_DERRIERE, 7, 8, 100},
+                                              {CREUSER_GAUCHE, 6, 8, 100},   {CREUSER_DROITE, 8, 8, 100}, {ATTAQUE_DEVANT, 13, 6, 80},
+                                              {ATTAQUE_DERRIERE, 15, 6, 80}, {ATTAQUE_GAUCHE, 14, 6, 80}, {ATTAQUE_DROITE, 16, 6, 80},
+                                              {IMMOBILE, 3, 1, 50}};
 
 SDL_Texture *Textures_Zombie;
-t_anim_action t_a_zombie[NB_LIGNES_SPRITE] = {{MARCHE_DROITE, 12, 9, 100}, {MARCHE_GAUCHE, 10, 9, 100},  {MARCHE_DERRIERE, 11, 9, 100},
-                                              {MARCHE_DEVANT, 9, 9, 100}, {CREUSER_DEVANT,5,8,100}, {CREUSER_DERRIERE,7,8,100}, {CREUSER_GAUCHE,6,8,100},
-                                              {CREUSER_DROITE,8,8,100}, {ATTAQUE_DEVANT,13,6,80}, {ATTAQUE_DERRIERE,15,6,80}, {ATTAQUE_GAUCHE,14,6,80},
-                                              {ATTAQUE_DROITE,16,6,80}, {IMMOBILE, 3, 1, 50}};
+t_anim_action t_a_zombie[NB_LIGNES_SPRITE] = {{MARCHE_DROITE, 12, 9, 100},   {MARCHE_GAUCHE, 10, 9, 100}, {MARCHE_DERRIERE, 11, 9, 100},
+                                              {MARCHE_DEVANT, 9, 9, 100},    {CREUSER_DEVANT, 5, 8, 100}, {CREUSER_DERRIERE, 7, 8, 100},
+                                              {CREUSER_GAUCHE, 6, 8, 100},   {CREUSER_DROITE, 8, 8, 100}, {ATTAQUE_DEVANT, 13, 6, 80},
+                                              {ATTAQUE_DERRIERE, 15, 6, 80}, {ATTAQUE_GAUCHE, 14, 6, 80}, {ATTAQUE_DROITE, 16, 6, 80},
+                                              {IMMOBILE, 3, 1, 50}};
 
 SDL_Texture *Textures_Boss;
-t_anim_action t_a_boss[NB_LIGNES_SPRITE] = {{MARCHE_DROITE, 12, 9, 100}, {MARCHE_GAUCHE, 10, 9, 100},  {MARCHE_DERRIERE, 11, 9, 100},
-                                            {MARCHE_DEVANT, 9, 9, 100}, {CREUSER_DEVANT,5,8,100}, {CREUSER_DERRIERE,7,8,100}, {CREUSER_GAUCHE,6,8,100},
-                                            {CREUSER_DROITE,8,8,100}, {ATTAQUE_DEVANT,13,6,80}, {ATTAQUE_DERRIERE,15,6,80}, {ATTAQUE_GAUCHE,14,6,80},
-                                            {ATTAQUE_DROITE,16,6,80}, {IMMOBILE, 3, 1, 50}};
+t_anim_action t_a_boss[NB_LIGNES_SPRITE] = {{MARCHE_DROITE, 12, 9, 100},   {MARCHE_GAUCHE, 10, 9, 100}, {MARCHE_DERRIERE, 11, 9, 100},
+                                            {MARCHE_DEVANT, 9, 9, 100},    {CREUSER_DEVANT, 5, 8, 100}, {CREUSER_DERRIERE, 7, 8, 100},
+                                            {CREUSER_GAUCHE, 6, 8, 100},   {CREUSER_DROITE, 8, 8, 100}, {ATTAQUE_DEVANT, 13, 6, 80},
+                                            {ATTAQUE_DERRIERE, 15, 6, 80}, {ATTAQUE_GAUCHE, 14, 6, 80}, {ATTAQUE_DROITE, 16, 6, 80},
+                                            {IMMOBILE, 3, 1, 50}};
 
 /****** FONCTIONS CREATION ET SUPPRESSION ENTITE ******/
 
@@ -56,11 +59,11 @@ t_anim_action t_a_boss[NB_LIGNES_SPRITE] = {{MARCHE_DROITE, 12, 9, 100}, {MARCHE
 t_entite *creer_entite_defaut(char *name, t_entite_type type, int x_dep, int y_dep, int taille) {
   switch (type) {
   case JOUEUR:
-    return creer_entite((name) ? name : "PLAYER", 20, 20, 10, 10, 15, Textures_Joueur, t_a_joueur, x_dep, y_dep, taille,type);
+    return creer_entite((name) ? name : "PLAYER", 20, 20, 10, 10, 15, Textures_Joueur, t_a_joueur, x_dep, y_dep, taille, type);
   case ZOMBIE:
-    return creer_entite((name) ? name : "ZOMBIE", 0, 0, 10, 10, 25, Textures_Zombie, t_a_zombie, x_dep, y_dep, taille,type);
+    return creer_entite((name) ? name : "ZOMBIE", 0, 0, 10, 10, 25, Textures_Zombie, t_a_zombie, x_dep, y_dep, taille, type);
   case BOSS:
-    return creer_entite((name) ? name : "BOSS", 50, 50, 30, 30, 35, Textures_Boss, t_a_boss, x_dep, y_dep, taille,type);
+    return creer_entite((name) ? name : "BOSS", 50, 50, 30, 30, 35, Textures_Boss, t_a_boss, x_dep, y_dep, taille, type);
   }
   return NULL;
 }
@@ -82,7 +85,8 @@ t_entite *creer_entite_defaut(char *name, t_entite_type type, int x_dep, int y_d
  * \param Type de l'entité.
  * \return Un pointeur sur l'entité créée.
 */
-t_entite *creer_entite(char *name, uint32_t mana, uint32_t mana_max, uint32_t pv, uint32_t pv_max, uint32_t damage, SDL_Texture *texture, t_anim_action *t_a, int x_dep, int y_dep, int taille, t_entite_type type) {
+t_entite *creer_entite(char *name, uint32_t mana, uint32_t mana_max, uint32_t pv, uint32_t pv_max, uint32_t damage, SDL_Texture *texture,
+                       t_anim_action *t_a, int x_dep, int y_dep, int taille, t_entite_type type) {
   if (!texture || !name || !t_a)
     return NULL;
   if (mana > mana_max || pv > pv_max) {
@@ -99,7 +103,7 @@ t_entite *creer_entite(char *name, uint32_t mana, uint32_t mana_max, uint32_t pv
   t_entite *entite = malloc(sizeof(t_entite));
   entite->id = sizeof(*name); // sizeof temporaire
   entite->name = malloc(sizeof(char) * strlen(name) + 1);
-  strcpy(entite->name,name);
+  strcpy(entite->name, name);
   entite->xp = 0;
   entite->faim = entite->faim_max = 10;
   entite->mana = mana;
@@ -140,7 +144,6 @@ t_erreur detruire_entite(t_entite *entite) {
   return OK;
 }
 
-
 /****** FONCTIONS MODIF PARAMETRE ENTITE ******/
 
 /**
@@ -150,12 +153,12 @@ t_erreur detruire_entite(t_entite *entite) {
  * \param name Le nouveau nom.
  * \return Une erreur s'il y en a une.
 */
-t_erreur Change_Name_Entite (t_entite * entite, char * name)
-{
-  if (!entite || !name || !entite->name) return PTR_NULL;
+t_erreur Change_Name_Entite(t_entite *entite, char *name) {
+  if (!entite || !name || !entite->name)
+    return PTR_NULL;
 
-  entite->name = realloc(entite->name,sizeof(char) * strlen(name) + 1);
-  strcpy(entite->name,name);
+  entite->name = realloc(entite->name, sizeof(char) * strlen(name) + 1);
+  strcpy(entite->name, name);
 
   return OK;
 }
@@ -169,11 +172,13 @@ t_erreur Change_Name_Entite (t_entite * entite, char * name)
  * \param faim_max La nouvelle faim maximale.
  * \return Une erreur s'il y en a une.
 */
-t_erreur Change_Faim_Entite (t_entite * entite, uint32_t faim, uint32_t faim_max)
-{
-  if (!entite) return PTR_NULL;
-  if (faim <= 0 || faim_max <= 0) return VALUE_ERROR;
-  if (faim > faim_max) faim = faim_max;
+t_erreur Change_Faim_Entite(t_entite *entite, uint32_t faim, uint32_t faim_max) {
+  if (!entite)
+    return PTR_NULL;
+  if (faim <= 0 || faim_max <= 0)
+    return VALUE_ERROR;
+  if (faim > faim_max)
+    faim = faim_max;
 
   entite->faim = faim;
   entite->faim_max = faim_max;
@@ -190,11 +195,13 @@ t_erreur Change_Faim_Entite (t_entite * entite, uint32_t faim, uint32_t faim_max
  * \param mana_max La nouvelle mana maximale.
  * \return Une erreur s'il y en a une.
 */
-t_erreur Change_Mana_Entite (t_entite * entite, uint32_t mana, uint32_t mana_max)
-{
-  if (!entite) return PTR_NULL;
-  if (mana <= 0 || mana_max <= 0) return VALUE_ERROR;
-  if (mana > mana_max) mana = mana_max;
+t_erreur Change_Mana_Entite(t_entite *entite, uint32_t mana, uint32_t mana_max) {
+  if (!entite)
+    return PTR_NULL;
+  if (mana <= 0 || mana_max <= 0)
+    return VALUE_ERROR;
+  if (mana > mana_max)
+    mana = mana_max;
 
   entite->mana = mana;
   entite->mana_max = mana_max;
@@ -211,11 +218,13 @@ t_erreur Change_Mana_Entite (t_entite * entite, uint32_t mana, uint32_t mana_max
  * \param pv_max Les nouveaux pv maximum.
  * \return Une erreur s'il y en a une.
 */
-t_erreur Change_PV_Entite (t_entite * entite, uint32_t pv, uint32_t pv_max)
-{
-  if (!entite) return PTR_NULL;
-  if (pv <= 0 || pv_max <= 0) return VALUE_ERROR;
-  if (pv > pv_max) pv = pv_max;
+t_erreur Change_PV_Entite(t_entite *entite, uint32_t pv, uint32_t pv_max) {
+  if (!entite)
+    return PTR_NULL;
+  if (pv <= 0 || pv_max <= 0)
+    return VALUE_ERROR;
+  if (pv > pv_max)
+    pv = pv_max;
 
   entite->pv = pv;
   entite->pv_max = pv_max;
@@ -231,10 +240,11 @@ t_erreur Change_PV_Entite (t_entite * entite, uint32_t pv, uint32_t pv_max)
  * \param pv La nouvelle xp.
  * \return Une erreur s'il y en a une.
 */
-t_erreur Change_XP_Entite (t_entite * entite, uint64_t xp)
-{
-  if (!entite) return PTR_NULL;
-  if (xp < 0) return VALUE_ERROR;
+t_erreur Change_XP_Entite(t_entite *entite, uint64_t xp) {
+  if (!entite)
+    return PTR_NULL;
+  if (xp < 0)
+    return VALUE_ERROR;
 
   entite->xp = xp;
 
@@ -249,10 +259,11 @@ t_erreur Change_XP_Entite (t_entite * entite, uint64_t xp)
  * \param damage Les nouveaux dégats de l'entité.
  * \return Une erreur s'il y en a une.
 */
-t_erreur Change_Damage_Entite (t_entite * entite, uint32_t damage)
-{
-  if (!entite) return PTR_NULL;
-  if (damage < 0) return VALUE_ERROR;
+t_erreur Change_Damage_Entite(t_entite *entite, uint32_t damage) {
+  if (!entite)
+    return PTR_NULL;
+  if (damage < 0)
+    return VALUE_ERROR;
 
   entite->damage = damage;
 
@@ -266,9 +277,9 @@ t_erreur Change_Damage_Entite (t_entite * entite, uint32_t damage)
  * \param faim La faim à ajouter ou retirer.
  * \return Une erreur s'il y en a une.
 */
-t_erreur Add_Faim_Entite (t_entite * entite, int32_t faim)
-{
-  if (!entite) return PTR_NULL;
+t_erreur Add_Faim_Entite(t_entite *entite, int32_t faim) {
+  if (!entite)
+    return PTR_NULL;
 
   if ((int)entite->faim + faim < 0)
     entite->faim = 0;
@@ -287,9 +298,9 @@ t_erreur Add_Faim_Entite (t_entite * entite, int32_t faim)
  * \param mana La mana à ajouter ou retirer.
  * \return Une erreur s'il y en a une.
 */
-t_erreur Add_Mana_Entite (t_entite * entite, int32_t mana)
-{
-  if (!entite) return PTR_NULL;
+t_erreur Add_Mana_Entite(t_entite *entite, int32_t mana) {
+  if (!entite)
+    return PTR_NULL;
 
   if ((int)entite->mana + mana < 0)
     entite->mana = 0;
@@ -308,9 +319,9 @@ t_erreur Add_Mana_Entite (t_entite * entite, int32_t mana)
  * \param pv Les pv à ajouter ou retirer.
  * \return Une erreur s'il y en a une.
 */
-t_erreur Add_PV_Entite (t_entite * entite, int32_t pv)
-{
-  if (!entite) return PTR_NULL;
+t_erreur Add_PV_Entite(t_entite *entite, int32_t pv) {
+  if (!entite)
+    return PTR_NULL;
 
   if ((int)entite->pv + pv < 0)
     entite->pv = 0;
@@ -329,9 +340,9 @@ t_erreur Add_PV_Entite (t_entite * entite, int32_t pv)
  * \param xp L'xp à ajouter ou retirer.
  * \return Une erreur s'il y en a une.
 */
-t_erreur Add_XP_Entite (t_entite * entite, int64_t xp)
-{
-  if (!entite) return PTR_NULL;
+t_erreur Add_XP_Entite(t_entite *entite, int64_t xp) {
+  if (!entite)
+    return PTR_NULL;
 
   if ((int)entite->xp + xp < 0)
     entite->xp = 0;
@@ -348,9 +359,9 @@ t_erreur Add_XP_Entite (t_entite * entite, int64_t xp)
  * \param damage Les dégats à ajouter ou retirer.
  * \return Une erreur s'il y en a une.
 */
-t_erreur Add_Damage_Entite (t_entite * entite, int32_t damage)
-{
-  if (!entite) return PTR_NULL;
+t_erreur Add_Damage_Entite(t_entite *entite, int32_t damage) {
+  if (!entite)
+    return PTR_NULL;
 
   if ((int)entite->damage + damage < 0)
     entite->damage = 0;
@@ -510,7 +521,6 @@ t_erreur update_posY_entite(t_entite *entite, double coef_fps, t_liste *p, uint8
   diff = collision(entite, DIRECT_HAUT_COLLI, p);
   if (diff > 0) {
     entite->hitbox.y -= diff;
-    entite->posEnt.y += diff;
   }
 
   if (coef_fps > 5)
@@ -520,15 +530,14 @@ t_erreur update_posY_entite(t_entite *entite, double coef_fps, t_liste *p, uint8
     entite->velY += entite->accY;
     int grav = entite->velY;
     entite->hitbox.y -= grav;
-    entite->posEnt.y += grav;
   }
   if ((diff = collision(entite, DIRECT_BAS_COLLI, p)) > 0) {
     entite->velY = 0;
     entite->hitbox.y += diff;
   } //printf("Diff : %d\n", diff);
-  if (pos&CENTER_SCREEN && ((!entite->velY && diff > 0) || entite->posEnt.y >= POSY_ENT_SCREEN(entite))) {
-    entite->posEnt.y = POSY_ENT_SCREEN(entite);
-  }
+  // if (pos & CENTER_SCREEN && ((!entite->velY && diff > 0) || entite->posEnt.y >= POSY_ENT_SCREEN(entite))) {
+  //   entite->posEnt.y = POSY_ENT_SCREEN(entite);
+  // }
 
   return OK;
 }
@@ -542,8 +551,8 @@ int collision(t_entite *entite, t_collision_direction direction, t_liste *p) {
   t_block *block = NULL;
 
   /* Conversion des coordonnées SDL en coordonnées pour la MAP */
-  int x = entite->hitbox.x, y = entite->hitbox.y;
   int w = entite->hitbox.w, h = entite->hitbox.h;
+  int x = (entite->hitbox.x) / width_block_sdl, y = (entite->hitbox.y) / height_block_sdl;
 
   /* Recréation de la MAP */
   t_map map;
@@ -553,29 +562,28 @@ int collision(t_entite *entite, t_collision_direction direction, t_liste *p) {
   switch (direction) {
   /* Collision en BAS */
   case DIRECT_BAS_COLLI:
-    y = (y - h) / height_block_sdl;
-    while(collision <= 0 && x < entite->hitbox.x + w)
-    {
+    while (collision <= 0 && x < ((entite->hitbox.x + w) / height_block_sdl)) {
+      block = MAP_GetBlock(&map, x, y - 1);
       // Récup Block
-      block = MAP_GetBlock(&map,x / width_block_sdl,y);
-
       // Check si collision
-      if (block && block->id != AIR)
-      {
-        SDL_Rect b = {block->x,block->y,width_block_sdl,height_block_sdl};
-        SDL_IntersectRect(&(entite->hitbox), &b, &res);
-        collision = res.h;
+      if (block) {
+        if (block->id != AIR) {
+          SDL_Rect B = {width_block_sdl * block->x, height_block_sdl * block->y, width_block_sdl, height_block_sdl};
+          SDL_IntersectRect(&(entite->hitbox), &B, &res);
+          collision = res.h;
+          //fprintf(stderr, " b.x:%d b.y:%d x:%d y:%d w:%d h:%d res.h:%d\n", block->x, block->y, x, y, w, h, res.h);
+        }
       }
 
       // Mis à jour du x
-      x += width_block_sdl;
+      x += 1;
       //fprintf(stderr,"------> %d\n", res.h);
     }
     break;
 
   /* Collision en HAUT */
   case DIRECT_HAUT_COLLI:
-    
+
     break;
 
   /* Collision à DROITE */
@@ -602,14 +610,14 @@ int collision(t_entite *entite, t_collision_direction direction, t_liste *p) {
 
   /* Collision à GAUCHE */
   case DIRECT_GAUCHE_COLLI:
-    
+
     break;
 
   default:
     break;
   }
-  if (collision < 0)
-    collision *= -1;
+  //if (collision < 0)
+  collision *= -1;
   return collision;
 }
 
@@ -630,7 +638,8 @@ int collision(t_entite *entite, t_collision_direction direction, t_liste *p) {
  * \param pos La position de l'entité sur l'écran, permet de savoir si elle est au centre ou non.
  * \return Une erreur s'il y en a une.
 */
-t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, double coef_fps, t_liste *p, uint8_t type_gestion, t_action action, t_entite * ref, uint8_t pos) {
+t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, double coef_fps, t_liste *p, uint8_t type_gestion, t_action action,
+                        t_entite *ref, uint8_t pos) {
   if (!renderer || !entite || !ks)
     return PTR_NULL;
 
@@ -686,103 +695,102 @@ t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, d
       entite->velY -= HAUTEUR_SAUT;
     }
 
-    /* Gravité */
-    update_posY_entite(entite, coef_fps, p, pos);
-  }
-  else if (type_gestion & GESTION_ACTION) /* Gestion d'une action sans appui de touches */
+  } else if (type_gestion & GESTION_ACTION) /* Gestion d'une action sans appui de touches */
   {
-    if (!ref) return PTR_NULL;
+    if (!ref)
+      return PTR_NULL;
 
-    switch (action)
-    {
-      case IMMOBILE:
-        Print_Entite_Screen(renderer, ref, entite, IMMOBILE, pos);
-        break;
+    switch (action) {
+    case IMMOBILE:
+      Print_Entite_Screen(renderer, ref, entite, IMMOBILE, pos);
+      break;
 
-      case MARCHE_DEVANT:
-        Print_Entite_Screen(renderer, ref, entite, MARCHE_DEVANT, pos);
-        break;
+    case MARCHE_DEVANT:
+      Print_Entite_Screen(renderer, ref, entite, MARCHE_DEVANT, pos);
+      break;
 
-      case MARCHE_DERRIERE:
-        Print_Entite_Screen(renderer, ref, entite, MARCHE_DERRIERE, pos);
-        break;
-      
-      case MARCHE_DROITE:
-        diff = collision(entite, DIRECT_DROITE_COLLI, p);
-        if (diff <= 0) {
-          entite->hitbox.x += entite->accX * coef_fps;
-        }
-        Print_Entite_Screen(renderer, ref, entite, MARCHE_DROITE, pos);
-        break;
-      
-      case MARCHE_GAUCHE:
-        diff = collision(entite, DIRECT_GAUCHE_COLLI, p);
-        if (diff <= 0) {
-          entite->hitbox.x -= entite->accX * coef_fps;
-        }
-        Print_Entite_Screen(renderer, ref, entite, MARCHE_GAUCHE, pos);
-        break;
+    case MARCHE_DERRIERE:
+      Print_Entite_Screen(renderer, ref, entite, MARCHE_DERRIERE, pos);
+      break;
 
-      case SAUTER_ENT:
-        if (!(entite->velY) && collision(entite, DIRECT_BAS_COLLI, p)){
-          entite->velY -= HAUTEUR_SAUT;
-        }
-        break;
-      
-      case ACCELERER:
-        entite->accX = VITESSE_DEPLACEMENT * ACCELERATION;
-        Anim_Update(entite, MARCHE_DROITE, 25);
-        Anim_Update(entite, MARCHE_GAUCHE, 25);
-        Anim_Update(entite, MARCHE_DEVANT, 25);
-        Anim_Update(entite, MARCHE_DERRIERE, 25);
-        break;
-      
-      case MARCHER:
-        entite->accX = VITESSE_DEPLACEMENT;
-        Anim_Update(entite, MARCHE_DROITE, 100);
-        Anim_Update(entite, MARCHE_GAUCHE, 100);
-        Anim_Update(entite, MARCHE_DEVANT, 100);
-        Anim_Update(entite, MARCHE_DERRIERE, 100);
-        break;
+    case MARCHE_DROITE:
+      diff = collision(entite, DIRECT_DROITE_COLLI, p);
+      if (diff <= 0) {
+        entite->hitbox.x += entite->accX * coef_fps;
+      }
+      Print_Entite_Screen(renderer, ref, entite, MARCHE_DROITE, pos);
+      break;
 
-      case ATTAQUE_DEVANT:
-        Print_Entite_Screen(renderer,ref,entite,ATTAQUE_DEVANT,pos);
-        break;
-      
-      case ATTAQUE_DERRIERE:
-        Print_Entite_Screen(renderer,ref,entite,ATTAQUE_DERRIERE,pos);
-        break;
-      
-      case ATTAQUE_DROITE:
-        Print_Entite_Screen(renderer,ref,entite,ATTAQUE_DROITE,pos);
-        break;
-      
-      case ATTAQUE_GAUCHE:
-        Print_Entite_Screen(renderer,ref,entite,ATTAQUE_GAUCHE,pos);
-        break;
-      
-      case CREUSER_DEVANT:
-        Print_Entite_Screen(renderer,ref,entite,CREUSER_DEVANT,pos);
-        break;
-      
-      case CREUSER_DERRIERE:
-        Print_Entite_Screen(renderer,ref,entite,CREUSER_DERRIERE,pos);
-        break;
-      
-      case CREUSER_DROITE:
-        Print_Entite_Screen(renderer,ref,entite,CREUSER_DROITE,pos);
-        break;
-      
-      case CREUSER_GAUCHE:
-        Print_Entite_Screen(renderer,ref,entite,CREUSER_GAUCHE,pos);
-        break;
+    case MARCHE_GAUCHE:
+      diff = collision(entite, DIRECT_GAUCHE_COLLI, p);
+      if (diff <= 0) {
+        entite->hitbox.x -= entite->accX * coef_fps;
+      }
+      Print_Entite_Screen(renderer, ref, entite, MARCHE_GAUCHE, pos);
+      break;
 
-      default:
-        break;
+    case SAUTER_ENT:
+      if (!(entite->velY) && collision(entite, DIRECT_BAS_COLLI, p)) {
+        entite->velY -= HAUTEUR_SAUT;
+      }
+      break;
+
+    case ACCELERER:
+      entite->accX = VITESSE_DEPLACEMENT * ACCELERATION;
+      Anim_Update(entite, MARCHE_DROITE, 25);
+      Anim_Update(entite, MARCHE_GAUCHE, 25);
+      Anim_Update(entite, MARCHE_DEVANT, 25);
+      Anim_Update(entite, MARCHE_DERRIERE, 25);
+      break;
+
+    case MARCHER:
+      entite->accX = VITESSE_DEPLACEMENT;
+      Anim_Update(entite, MARCHE_DROITE, 100);
+      Anim_Update(entite, MARCHE_GAUCHE, 100);
+      Anim_Update(entite, MARCHE_DEVANT, 100);
+      Anim_Update(entite, MARCHE_DERRIERE, 100);
+      break;
+
+    case ATTAQUE_DEVANT:
+      Print_Entite_Screen(renderer, ref, entite, ATTAQUE_DEVANT, pos);
+      break;
+
+    case ATTAQUE_DERRIERE:
+      Print_Entite_Screen(renderer, ref, entite, ATTAQUE_DERRIERE, pos);
+      break;
+
+    case ATTAQUE_DROITE:
+      Print_Entite_Screen(renderer, ref, entite, ATTAQUE_DROITE, pos);
+      break;
+
+    case ATTAQUE_GAUCHE:
+      Print_Entite_Screen(renderer, ref, entite, ATTAQUE_GAUCHE, pos);
+      break;
+
+    case CREUSER_DEVANT:
+      Print_Entite_Screen(renderer, ref, entite, CREUSER_DEVANT, pos);
+      break;
+
+    case CREUSER_DERRIERE:
+      Print_Entite_Screen(renderer, ref, entite, CREUSER_DERRIERE, pos);
+      break;
+
+    case CREUSER_DROITE:
+      Print_Entite_Screen(renderer, ref, entite, CREUSER_DROITE, pos);
+      break;
+
+    case CREUSER_GAUCHE:
+      Print_Entite_Screen(renderer, ref, entite, CREUSER_GAUCHE, pos);
+      break;
+
+    default:
+      break;
     }
-  }
-  else return VALUE_ERROR;
+  } else
+    return VALUE_ERROR;
 
+  /* Gravité */
+  update_posY_entite(entite, coef_fps, p, pos);
   return OK;
 }
 
@@ -793,26 +801,24 @@ t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, d
  * \param entite L'entité pour les infos à afficher.
  * \return Une erreur s'il y en a une.
 */
-t_erreur Print_Info_Entite (SDL_Renderer * renderer, t_entite * entite)
-{
-  if (!entite) return PTR_NULL;
+t_erreur Print_Info_Entite(SDL_Renderer *renderer, t_entite *entite) {
+  if (!entite)
+    return PTR_NULL;
 
   int x = entite->posEnt.x;
   int y = entite->posEnt.y;
   int w = entite->posEnt.w;
   //int h = entite->posEnt.h;
-  char * nom = entite->name;
+  char *nom = entite->name;
   uint32_t pv = entite->pv;
   uint32_t pv_max = entite->pv_max;
   uint32_t mana = entite->mana;
   uint32_t mana_max = entite->mana_max;
-  if (pv_max <= 0)
-  {
+  if (pv_max <= 0) {
     pv = 0;
     pv_max = 1;
   }
-  if (mana_max <= 0)
-  {
+  if (mana_max <= 0) {
     mana = 0;
     mana_max = 1;
   }
@@ -820,25 +826,20 @@ t_erreur Print_Info_Entite (SDL_Renderer * renderer, t_entite * entite)
   /******* PARTIE NOM ENTITE *******/
 
   /* Boite contenant le nom de l'entité */
-  SDL_Rect posNom = {
-    x - ((x + LARGEUR_NOM_ENT/2) - (x + w/2)),
-    y - DECALAGE_NOM_ENT,
-    LARGEUR_NOM_ENT,
-    HAUTEUR_NOM_ENT
-  };
+  SDL_Rect posNom = {x - ((x + LARGEUR_NOM_ENT / 2) - (x + w / 2)), y - DECALAGE_NOM_ENT, LARGEUR_NOM_ENT, HAUTEUR_NOM_ENT};
 
   /* Couleur du nom */
-  SDL_Color couleur = {255,255,255};
+  SDL_Color couleur = {255, 255, 255};
 
   /* Police du nom */
   int taille_police = posNom.w / (strlen(nom));
-  char * police;
-  creation_chemin("data/police/8-BIT_WONDER.ttf",&police);
+  char *police;
+  creation_chemin("data/police/8-BIT_WONDER.ttf", &police);
 
   /* Création du texte pour le nom */
-  SDL_Texture * texture;
-  Create_Text_Texture(renderer,nom,police,taille_police,couleur,BLENDED,&texture);
-  
+  SDL_Texture *texture;
+  Create_Text_Texture(renderer, nom, police, taille_police, couleur, BLENDED, &texture);
+
   /* DEBUG */
   // char * chemin;
   // creation_chemin("IMG/texture/pierre.png",&chemin);
@@ -847,14 +848,13 @@ t_erreur Print_Info_Entite (SDL_Renderer * renderer, t_entite * entite)
 
   /* Affichage */
   // SDL_RenderCopy(renderer,boite,NULL,&posNom);
-  SDL_RenderCopy(renderer,texture,NULL,&posNom);
-
+  SDL_RenderCopy(renderer, texture, NULL, &posNom);
 
   /****** PARTIE JAUGE PV ET MANA ENTITE ******/
 
   /* Boite contenant la jauge de pv de l'entité */
   SDL_Rect posPV = posNom;
-  posPV.y += HAUTEUR_NOM_ENT + HAUTEUR_NOM_ENT/4;
+  posPV.y += HAUTEUR_NOM_ENT + HAUTEUR_NOM_ENT / 4;
   posPV.h = HAUTEUR_NOM_ENT / 4;
 
   SDL_Rect pvLong = posPV;
@@ -869,22 +869,22 @@ t_erreur Print_Info_Entite (SDL_Renderer * renderer, t_entite * entite)
 
   /* Affichage des jauges */
   // PV
-  SDL_SetRenderDrawColor(renderer,91, 143, 91,80);
-  SDL_RenderFillRect(renderer,&posPV);
-  SDL_SetRenderDrawColor(renderer,255 - pv * 255 / pv_max, pv * 255 / pv_max,0,255);
-  SDL_RenderFillRect(renderer,&pvLong);
+  SDL_SetRenderDrawColor(renderer, 91, 143, 91, 80);
+  SDL_RenderFillRect(renderer, &posPV);
+  SDL_SetRenderDrawColor(renderer, 255 - pv * 255 / pv_max, pv * 255 / pv_max, 0, 255);
+  SDL_RenderFillRect(renderer, &pvLong);
   // MANA
-  SDL_SetRenderDrawColor(renderer,107,72,110,80);
-  SDL_RenderFillRect(renderer,&posMana);
-  SDL_SetRenderDrawColor(renderer,0,0,255,255);
-  SDL_RenderFillRect(renderer,&manaLong);
+  SDL_SetRenderDrawColor(renderer, 107, 72, 110, 80);
+  SDL_RenderFillRect(renderer, &posMana);
+  SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
+  SDL_RenderFillRect(renderer, &manaLong);
 
   /* Libération de la mémoire + autres */
   SDL_DestroyTexture(texture);
   // SDL_DestroyTexture(boite);
   // free(chemin);
   free(police);
-  SDL_SetRenderDrawColor(renderer,0,0,0,0);
+  SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
   return OK;
 }
 
@@ -898,23 +898,22 @@ t_erreur Print_Info_Entite (SDL_Renderer * renderer, t_entite * entite)
  * \param pos La position de l'entité sur l'écran, permet de savoir si elle est au centre ou non.
  * \return Une erreur s'il y en a une.
 */
-t_erreur Print_Entite_Screen (SDL_Renderer * renderer, t_entite * entite_ref, t_entite * entite_aff, t_action action, uint8_t pos)
-{
-  if (!entite_aff) return PTR_NULL;
+t_erreur Print_Entite_Screen(SDL_Renderer *renderer, t_entite *entite_ref, t_entite *entite_aff, t_action action, uint8_t pos) {
+  if (!entite_aff)
+    return PTR_NULL;
 
   /* Affichage au centre de l'écran */
-  if (pos & CENTER_SCREEN)
-  {
+  if (pos & CENTER_SCREEN) {
     entite_aff->posEnt.x = POSX_ENT_SCREEN(entite_aff);
     entite_aff->posEnt.y = POSY_ENT_SCREEN(entite_aff);
-    Charger_Anima(renderer,entite_aff,action);
-    Print_Info_Entite(renderer,entite_aff);
+    Charger_Anima(renderer, entite_aff, action);
+    Print_Info_Entite(renderer, entite_aff);
   }
   /* Affichage */
-  else if (pos & NOT_CENTER_SCREEN)
-  {
-    if (!entite_ref) return PTR_NULL;
-    
+  else if (pos & NOT_CENTER_SCREEN) {
+    if (!entite_ref)
+      return PTR_NULL;
+
     int x_diff = entite_ref->hitbox.x - entite_aff->hitbox.x;
     int y_diff = entite_ref->hitbox.y - entite_aff->hitbox.y;
 
@@ -926,14 +925,16 @@ t_erreur Print_Entite_Screen (SDL_Renderer * renderer, t_entite * entite_ref, t_
       newPosEntY = entite_ref->posEnt.y + y_diff;
 
     /* Entité à afficher en dehors de l'écran */
-    if (newPosEntX + entite_ref->posEnt.w < 0 || newPosEntX > width_window) return VALUE_ERROR;
-    if (newPosEntY + entite_ref->posEnt.h < 0 || newPosEntY > height_window) return VALUE_ERROR;
+    if (newPosEntX + entite_ref->posEnt.w < 0 || newPosEntX > width_window)
+      return VALUE_ERROR;
+    if (newPosEntY + entite_ref->posEnt.h < 0 || newPosEntY > height_window)
+      return VALUE_ERROR;
 
     entite_aff->posEnt.x = newPosEntX;
     entite_aff->posEnt.y = newPosEntY;
 
-    Charger_Anima(renderer,entite_aff,action);
-    Print_Info_Entite(renderer,entite_aff);
+    Charger_Anima(renderer, entite_aff, action);
+    Print_Info_Entite(renderer, entite_aff);
   }
 
   return OK;
@@ -950,37 +951,38 @@ t_erreur Print_Entite_Screen (SDL_Renderer * renderer, t_entite * entite_ref, t_
  * \param nom_fichier Le nom du fichier.
  * \return Une erreur s'il y en a une.
 */
-t_erreur Save_Entite (t_entite * entite,char * dossier, char * nom_fichier)
-{
-  if (!entite || !dossier || !nom_fichier) return PTR_NULL;
+t_erreur Save_Entite(t_entite *entite, char *dossier, char *nom_fichier) {
+  if (!entite || !dossier || !nom_fichier)
+    return PTR_NULL;
 
-  FILE * fic = open_json(dossier,nom_fichier,"w");
-  if (!fic) return OPEN_FILE_ERROR;
+  FILE *fic = open_json(dossier, nom_fichier, "w");
+  if (!fic)
+    return OPEN_FILE_ERROR;
 
   // Save descriptif entité
   open_json_obj(fic);
-  write_json(fic,"id",&(entite->id),"d");
-  write_json(fic,"type",&(entite->type),"d");
-  write_json(fic,"name",entite->name,"s");
+  write_json(fic, "id", &(entite->id), "d");
+  write_json(fic, "type", &(entite->type), "d");
+  write_json(fic, "name", entite->name, "s");
   close_json_obj(fic);
 
   // Save stats entité
   open_json_obj(fic);
-  write_json(fic,"xp",&(entite->xp),"u");
-  write_json(fic,"mana",&(entite->mana),"u");
-  write_json(fic,"mana_max",&(entite->mana_max),"u");
-  write_json(fic,"pv",&(entite->pv),"u");
-  write_json(fic,"pv_max",&(entite->pv_max),"u");
-  write_json(fic,"faim",&(entite->faim),"u");
-  write_json(fic,"faim_max",&(entite->faim_max),"u");
+  write_json(fic, "xp", &(entite->xp), "u");
+  write_json(fic, "mana", &(entite->mana), "u");
+  write_json(fic, "mana_max", &(entite->mana_max), "u");
+  write_json(fic, "pv", &(entite->pv), "u");
+  write_json(fic, "pv_max", &(entite->pv_max), "u");
+  write_json(fic, "faim", &(entite->faim), "u");
+  write_json(fic, "faim_max", &(entite->faim_max), "u");
   close_json_obj(fic);
 
   // Save position entité
   open_json_obj(fic);
-  write_json(fic,"hitboxX",&(entite->hitbox.x),"d");
-  write_json(fic,"hitboxY",&(entite->hitbox.y),"d");
-  write_json(fic,"hitboxW",&(entite->hitbox.w),"d");
-  write_json(fic,"hitboxH",&(entite->hitbox.h),"d");
+  write_json(fic, "hitboxX", &(entite->hitbox.x), "d");
+  write_json(fic, "hitboxY", &(entite->hitbox.y), "d");
+  write_json(fic, "hitboxW", &(entite->hitbox.w), "d");
+  write_json(fic, "hitboxH", &(entite->hitbox.h), "d");
   close_json_obj(fic);
 
   fclose(fic);
@@ -994,55 +996,56 @@ t_erreur Save_Entite (t_entite * entite,char * dossier, char * nom_fichier)
  * \param nom_fichier Le nom du fichier.
  * \return Un pointeur sur l'entité chargée.
 */
-t_entite * Load_Entite (char * dossier, char * nom_fichier)
-{
-  if (!dossier || !nom_fichier) return NULL;
+t_entite *Load_Entite(char *dossier, char *nom_fichier) {
+  if (!dossier || !nom_fichier)
+    return NULL;
 
-  FILE * fic = open_json(dossier,nom_fichier,"r");
-  if (!fic) return NULL;
+  FILE *fic = open_json(dossier, nom_fichier, "r");
+  if (!fic)
+    return NULL;
 
-  char * objet;
+  char *objet;
 
   // Récup descriptif entité
   int id;
   t_entite_type type;
   char name[100];
-  extract_json_obj(fic,&objet);
-  read_json_obj(objet,"id",&id,"d");
-  read_json_obj(objet,"type",&type,"d");
-  read_json_obj(objet,"name",name,"s");
+  extract_json_obj(fic, &objet);
+  read_json_obj(objet, "id", &id, "d");
+  read_json_obj(objet, "type", &type, "d");
+  read_json_obj(objet, "name", name, "s");
   free(objet);
 
   // Récup stats entité
   uint64_t xp;
   uint32_t mana, pv, faim;
   uint32_t mana_max, pv_max, faim_max;
-  extract_json_obj(fic,&objet);
-  read_json_obj(objet,"xp",&xp,"u");
-  read_json_obj(objet,"mana",&mana,"u");
-  read_json_obj(objet,"mana_max",&mana_max,"u");
-  read_json_obj(objet,"pv",&pv,"u");
-  read_json_obj(objet,"pv_max",&pv_max,"u");
-  read_json_obj(objet,"faim",&faim,"u");
-  read_json_obj(objet,"faim_max",&faim_max,"u");
+  extract_json_obj(fic, &objet);
+  read_json_obj(objet, "xp", &xp, "u");
+  read_json_obj(objet, "mana", &mana, "u");
+  read_json_obj(objet, "mana_max", &mana_max, "u");
+  read_json_obj(objet, "pv", &pv, "u");
+  read_json_obj(objet, "pv_max", &pv_max, "u");
+  read_json_obj(objet, "faim", &faim, "u");
+  read_json_obj(objet, "faim_max", &faim_max, "u");
   free(objet);
 
   // Récup position entité
   SDL_Rect hitbox;
-  extract_json_obj(fic,&objet);
-  read_json_obj(objet,"hitboxX",&(hitbox.x),"d");
-  read_json_obj(objet,"hitboxY",&(hitbox.y),"d");
-  read_json_obj(objet,"hitboxW",&(hitbox.w),"d");
-  read_json_obj(objet,"hitboxH",&(hitbox.h),"d");
+  extract_json_obj(fic, &objet);
+  read_json_obj(objet, "hitboxX", &(hitbox.x), "d");
+  read_json_obj(objet, "hitboxY", &(hitbox.y), "d");
+  read_json_obj(objet, "hitboxW", &(hitbox.w), "d");
+  read_json_obj(objet, "hitboxH", &(hitbox.h), "d");
   free(objet);
 
   // Création entité
-  t_entite * entite = creer_entite_defaut(name,type,hitbox.x/width_block_sdl,hitbox.y/height_block_sdl,hitbox.h);
-  Change_Name_Entite(entite,name);
-  Change_Mana_Entite(entite,mana,mana_max);
-  Change_Faim_Entite(entite,faim,faim_max);
-  Change_PV_Entite(entite,pv,pv_max);
-  Change_XP_Entite(entite,xp);
+  t_entite *entite = creer_entite_defaut(name, type, hitbox.x / width_block_sdl, hitbox.y / height_block_sdl, hitbox.h);
+  Change_Name_Entite(entite, name);
+  Change_Mana_Entite(entite, mana, mana_max);
+  Change_Faim_Entite(entite, faim, faim_max);
+  Change_PV_Entite(entite, pv, pv_max);
+  Change_XP_Entite(entite, xp);
 
   return entite;
 }
