@@ -1,6 +1,11 @@
 #include <inventaire.h>
 
 SDL_Texture *bordure = NULL;
+SDL_Texture *bordureSelectionne = NULL;
+
+uint8_t nbinventairebarre;
+uint16_t rectW;
+SDL_Rect rect;
 
 void inventaire_init( SDL_Renderer *renderer ) {
 
@@ -9,12 +14,17 @@ void inventaire_init( SDL_Renderer *renderer ) {
     #endif
 
     char *chemin;
-	creation_chemin("data/Image/Bordure_150_150.bmp", &chemin);
-	
+
+	creation_chemin("data/Image/Bordure_150_150.bmp", &chemin);	
 	SDL_Surface *img = SDL_LoadBMP(chemin);
 	bordure = SDL_CreateTextureFromSurface(renderer, img);
 
+    creation_chemin("data/Image/BordureSelectionne_150_150.bmp", &chemin);
+    img = SDL_LoadBMP(chemin);
+    bordureSelectionne = SDL_CreateTextureFromSurface(renderer, img);
+
     SDL_FreeSurface(img);
+    free(chemin);
 } 
 
 t_inventaire *create_inventaire() {
@@ -143,25 +153,40 @@ void afficher_inventaire ( t_inventaire *inventaire ) {
         printf("slot %d : %p    nb : %d\n", i, (inventaire->inventaire + i)->item, (inventaire->inventaire + i)->stack );
 }
 
-void SDL_afficher_barre_action ( SDL_Renderer *renderer, t_inventaire *inventaire, const uint8_t nb_affichage ) {
+void inventaire_changer_constante ( const uint8_t nbinventaire ) {
+
+    nbinventairebarre = nbinventaire;
+
+    rectW = ((DEFAULT_SIZE_IMG_W / 2) * ( uiScale / 100 )) / scaleW;
+    rect.h = ((DEFAULT_SIZE_IMG_H / 2) * ( uiScale / 100 )) / scaleH;
+    rect.x = WIDTH / 2 - ( ( rectW  / 2 ) * nbinventairebarre );
+    rect.y = HEIGHT * 0.9;
+}
+
+void SDL_afficher_barre_action ( SDL_Renderer *renderer, t_inventaire *inventaire, const int8_t scroll ) {
+
+    static int8_t selection = 0;
+
+    selection += scroll;
+    if ( selection < 0 )
+        selection = nbinventairebarre - ((-selection) % (nbinventairebarre - 1));
+    else if ( selection >= nbinventairebarre )
+        selection = selection % nbinventairebarre;
 
     #ifdef DEBUG
-        assert( renderer != NULL  && inventaire != NULL && nb_affichage >= 1 && nb_affichage <= 16 && uiScale >= 50 && uiScale <= 150 && bordure != NULL );
+        assert( renderer != NULL  && inventaire != NULL  && uiScale >= 50 && uiScale <= 150 && bordure != NULL && bordureSelectionne != NULL );
     #endif
 
-    SDL_Rect rect;
-    rect.w = ((DEFAULT_SIZE_IMG_W / 2) * ( uiScale / 100 )) / scaleW;
-    rect.h = ((DEFAULT_SIZE_IMG_H / 2) * ( uiScale / 100 )) / scaleH;
-    rect.x = WIDTH / 2 - ( ( rect.w  / 2 ) * nb_affichage );
-    rect.y = HEIGHT * 0.9;
+    rect.w = rectW;
 
+    for ( uint8_t i = 0 ; i < nbinventairebarre ; i++ ) {
 
-    printf(" WIDTH / 2 = %d --- WIDTH / 2 - ( ( DEFAULT_SIZE_IMG_W / 2 ) * nb_affichage ) = %d\n", WIDTH / 2, WIDTH / 2 - ( ( DEFAULT_SIZE_IMG_W / 2 ) * nb_affichage ));
-
-    for ( uint8_t i = 0 ; i < nb_affichage ; i++ ) {
-
-        SDL_RenderCopy( renderer, bordure, NULL, &rect);
-        rect.x += ((DEFAULT_SIZE_IMG_W / 2) * ( uiScale / 100 )) / scaleW;
+        if ( i != selection )
+            SDL_RenderCopy( renderer, bordure, NULL, &rect);
+        else
+            SDL_RenderCopy( renderer, bordureSelectionne, NULL, &rect);
+        
+        rect.x += rectW;
     }
 }
 

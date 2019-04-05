@@ -5,23 +5,28 @@
 int main ( int argc, char ** argv, char **env ) {
 /* Ce main est le MINIMUM afin que le module inventaire fonctionne */
 
-	WIDTH = 800;
-	HEIGHT = 450;
+	/*	------------------------------------------------|
+	|	Def des constantes								|
+	|	-----------------------------------------------*/
+
+	WIDTH = 1920;
+	HEIGHT = 1080;
 
 	scaleW = DEFAULT_SIZE_SCREEN_W / WIDTH;
 	scaleH = DEFAULT_SIZE_SCREEN_H / HEIGHT;
 
 	uiScale = 100;
 
-	pwd_init( argv[0], getenv("PWD"));
+	/*	------------------------------------------------|
+	|	Initialisation des modules						|
+	|	-----------------------------------------------*/
 
+	pwd_init( argv[0], getenv("PWD"));
 	SDL_Init( SDL_INIT_VIDEO );
 
 	SDL_Renderer *renderer;
-	SDL_Window *window = SDL_CreateWindow("Inventaire test", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WIDTH, HEIGHT, SDL_WINDOW_OPENGL);
+	SDL_Window *window = SDL_CreateWindow("Inventaire test", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WIDTH, HEIGHT, SDL_WINDOW_FULLSCREEN);
 	renderer = SDL_CreateRenderer( window, -1, SDL_RENDERER_ACCELERATED);
-
-	printf("initialisation item\n");
 
 	init_item(renderer);
 	inventaire_init( renderer);
@@ -103,6 +108,8 @@ int main ( int argc, char ** argv, char **env ) {
 
 		/*SDL_RenderCopy(renderer, ( tabItem + I_BOULE_NEIGE )->texture, NULL, &rdst );*/
 		/*SDL_RenderCopy(renderer, bordure, NULL, &rdst );*/
+
+	inventaire_changer_constante(9);
 
 	SDL_afficher_barre_action( renderer, inventaire, 9);
 	SDL_RenderPresent(renderer);
