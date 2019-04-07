@@ -12,7 +12,7 @@
 #include <SDL2/SDL.h>
 #include <erreur.h>
 
-#define NB_BLOCK 11
+#define NB_BLOCK 12
 
 /**
  \enum t_materiaux

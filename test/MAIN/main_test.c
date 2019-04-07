@@ -26,13 +26,16 @@
 #include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <structure_block.h>
 #include <time.h>
 #include <touches.h>
 #include <world_of_dungeons.h>
 
-#define calY_aff (((map->joueur->hitbox.y - (map->joueur->hitbox.h / 2)) / height_block_sdl) - (MAX_SCREEN / 2))
-#define calX_Debut ((map->joueur->hitbox.x) / width_block_sdl) - (SIZE / 2) - (map->joueur->hitbox.w / width_block_sdl)
-#define calX_Fin ((map->joueur->hitbox.x) / width_block_sdl) + (SIZE / 2)
+//#define calY_aff (((map->joueur->hitbox.y) / height_block_sdl) - ((MAX_SCREEN - (map->joueur->hitbox.h / height_block_sdl / 2)) / 2))
+#define calY_aff(map)                                                                                                                                \
+  (map->joueur->hitbox.y / height_block_sdl) - (POSY_ENT_SCREEN(map->joueur) / height_block_sdl) - 2 // Le moins 2 a trouver d'ou il vient
+#define calX_Debut(map) ((map->joueur->hitbox.x - map->joueur->hitbox.w) / width_block_sdl) - (SIZE / 2)
+#define calX_Fin(map) ((map->joueur->hitbox.x) / width_block_sdl) + (SIZE / 2)
 
 void test_souris(t_map *map, uint8_t *ks) {
   t_block *b;
@@ -40,18 +43,23 @@ void test_souris(t_map *map, uint8_t *ks) {
   if (SDL_touche_appuyer(ks, SOURIS_GAUCHE)) {
     SDL_coord_souris(&x_mouse, &y_mouse);
     // Récuperation d'un block dans la liste
-    b = MAP_GetBlock(map, (x_mouse / width_block_sdl) + calX_Debut + 2, MAX_SCREEN - (y_mouse / height_block_sdl) + calY_aff);
+    b = MAP_GetBlock(map, (x_mouse / width_block_sdl) + calX_Debut(map) + 2, MAX_SCREEN - (y_mouse / height_block_sdl) + calY_aff(map));
 
-    if (b)
+    if (b) {
       b->id = AIR;
+      fprintf(stderr, "%d %d %d %d\n", calY_aff(map), (POSY_ENT_SCREEN(map->joueur) / height_block_sdl), map->joueur->hitbox.y, b->y);
+    }
   }
 
   if (SDL_touche_appuyer(ks, SOURIS_DROIT)) {
     SDL_coord_souris(&x_mouse, &y_mouse);
     // Récuperation d'un block dans la liste
-    b = MAP_GetBlock(map, (x_mouse / width_block_sdl) + calX_Debut + 2, MAX_SCREEN - (y_mouse / height_block_sdl) + calY_aff);
-    if (b)
+    b = MAP_GetBlock(map, (x_mouse / width_block_sdl) + calX_Debut(map) + 2, MAX_SCREEN - (y_mouse / height_block_sdl) + calY_aff(map));
+    if (b) {
       b->id = ROCHE;
+      STRUCT_Spawn(b->x, b->y, 1, map);
+      fprintf(stderr, "%d %d %d %d\n", calY_aff(map), (POSY_ENT_SCREEN(map->joueur) / height_block_sdl), map->joueur->hitbox.y, b->y);
+    }
   }
 }
 
@@ -127,7 +135,7 @@ int main(int argc, char *argv[], char **env) {
     SDL_RenderCopy(renderer, fond, NULL, &fondRect);
 
     //Affiche map
-    MAP_afficher_sdl(map, renderer, calY_aff, calX_Debut, calX_Fin);
+    MAP_afficher_sdl(map, renderer, calY_aff(map), calX_Debut(map), calX_Fin(map));
     //Affiche Joueur et
     Gestion_Entite(renderer, map->joueur, ks, coef_fps, map->list, GESTION_TOUCHES, ALL_ACTION, NULL, CENTER_SCREEN);
     //Afficher le rendu final

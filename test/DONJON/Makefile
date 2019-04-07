@@ -9,8 +9,9 @@ PROG = DONJON_test
 #Nom du fichier .c et .h du test
 NOM_TEST=test_donjon
 
-CFLAGS = -Wall -g -lm
 RACINE=../../
+
+include $(RACINE)Makefile.conf
 
 CC = gcc
 
@@ -32,6 +33,13 @@ SRC_DIR=$(RACINE)src
 BIN_DIR=$(RACINE)bin
 INC_DIR=$(RACINE)include
 TEST_DIR=
+
+#----------------------------------------------------------------------------------
+# Messages
+#----------------------------------------------------------------------------------
+MSG_CC = @echo "  CC    " $@;
+MSG_RM_O = @echo "  RM    " *.o;
+MSG_RM_B = @echo "  RM    " $(BIN_DIR)/$(PROG);
 
 # Toutes les sources du projet
 ALL_SRC = $(wildcard $(SRC_DIR)/*.c)
@@ -55,20 +63,25 @@ $(BIN_DIR):
 	mkdir -p $(BIN_DIR)
 
 
+ifeq ($(MESSAGE), yes)
+all: DEB_CC $(DIRS) $(BIN_DIR)/$(PROG) FIN_CC
+else
 all: $(DIRS) $(BIN_DIR)/$(PROG)
-		@echo -e '\033[42m Fin Compilation : $(NOM_TEST) \033[0m'
+endif
+
+DEB_CC:
+	@echo -e '\033[42m Début Compilation : $(NOM_TEST) \033[0m'
+FIN_CC:
+	@echo -e '\033[42m Fin Compilation : $(NOM_TEST) \033[0m'
 
 $(BIN_DIR)/$(PROG): $(OBJ) $(NOM_TEST).o
-	@echo Compilation de $@ grace a $^
-	$(CC) $(CFLAGS) $^ -o $@  $(LIBS) $(INCLUDES) -I$(INC_DIR)
+	$(MSG_CC)$(CC) $(CFLAGS) $^ -o $@  $(LIBS) $(INCLUDES) -I$(INC_DIR)
 
 $(NOM_TEST).o: $(NOM_TEST).c $(NOM_TEST).h
-	@echo -e '\033[42m Début Compilation : $(NOM_TEST) \033[0m'
-	$(CC) -o $@ -c $< $(CFLAGS) $(LIBS) $(INCLUDES) -I$(INC_DIR)
+	$(MSG_CC)$(CC) -o $@ -c $< $(CFLAGS) $(LIBS) $(INCLUDES) -I$(INC_DIR)
 
 $(OBJ): $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c $(INC_DIR)/%.h
-	@echo Compilation de $@ grace a $^
-	$(CC) -o $@ -c $< $(CFLAGS) $(LIBS) $(INCLUDES) -I$(INC_DIR)
+	$(MSG_CC)$(CC) -o $@ -c $< $(CFLAGS) $(LIBS) $(INCLUDES) -I$(INC_DIR)
 
 #-----------------------------------------------------------------------------------
 # Regle pour effacer tous les objets et binaires
@@ -77,7 +90,7 @@ $(OBJ): $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c $(INC_DIR)/%.h
 .PHONY: clean mrproper
 
 clean:
-	rm -f *.o
+	$(MSG_RM_O)rm -f *.o
 
 mrproper: clean
-	rm -i $(BIN_DIR)/$(PROG)
+	$(MSG_RM_B)rm -i $(BIN_DIR)/$(PROG)
