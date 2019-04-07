@@ -122,6 +122,7 @@ t_entite *creer_entite(char *name, uint32_t mana, uint32_t mana_max, uint32_t pv
   entite->velY = 0;
   entite->type = type;
   entite->damage = damage;
+  entite->nb_saut = NB_SAUT;
 
   return entite;
 }
@@ -554,23 +555,29 @@ int collision(t_entite *entite, t_collision_direction direction, t_liste *p) {
   /* Collision en BAS */
   case DIRECT_BAS_COLLI:
     y = (y - h) / height_block_sdl;
-    while(collision <= 0 && x < entite->hitbox.x + w)
+    while(!collision && x < entite->hitbox.x + w)
     {
       // Récup Block
-      block = MAP_GetBlock(&map,x / width_block_sdl,y);
+      block = MAP_GetBlock(&map,x / width_block_sdl - 1,y);
 
       // Check si collision
       if (block && block->id != AIR)
       {
-        SDL_Rect b = {block->x,block->y,width_block_sdl,height_block_sdl};
+        SDL_Rect b = {block->x * width_block_sdl,block->y * height_block_sdl,width_block_sdl,height_block_sdl};
         SDL_IntersectRect(&(entite->hitbox), &b, &res);
         collision = res.h;
+        /*fprintf(stderr,"1 ------> %d %d", entite->hitbox.x, entite->hitbox.y);
+        fprintf(stderr," : %d %d\n", entite->hitbox.w, entite->hitbox.h);
+        fprintf(stderr,"2 ------> %d %d", b.x, b.y);
+        fprintf(stderr," : %d %d\n", b.w, b.h);
+        fprintf(stderr,"3 ------> %d %d", res.x, res.y);
+        fprintf(stderr," : %d %d\n", res.w, res.h);*/
       }
 
       // Mis à jour du x
       x += width_block_sdl;
-      //fprintf(stderr,"------> %d\n", res.h);
     }
+    if (collision) entite->nb_saut = NB_SAUT;
     break;
 
   /* Collision en HAUT */
@@ -608,6 +615,70 @@ int collision(t_entite *entite, t_collision_direction direction, t_liste *p) {
   default:
     break;
   }
+  /* ANCIENNE VERSION */
+  // /* Conversion des coordonnées SDL en coordonnées pour la MAP */
+  // int x = entite->hitbox.x / width_block_sdl, y = entite->hitbox.y / height_block_sdl;
+  // /* Recréation de la MAP */
+  // t_map map;
+  // map.list = p;
+
+  // /* Récupération des Blocks si il y en a, en fonction des coordonnées du Joueur */
+  // t_block *blockH = NULL, *blockB = NULL, *blockHD = NULL, *blockHG = NULL;
+  // blockH = MAP_GetBlock(&map, x, y + 1);
+  // blockB = MAP_GetBlock(&map, x, y - 1);
+  // blockHD = MAP_GetBlock(&map, x + 1, y);
+  // blockHG = MAP_GetBlock(&map, x - 1, y);
+
+  // /* Traitement des collisions */
+  // switch (direction) {
+  // /* Collision en BAS */
+  // case DIRECT_BAS_COLLI:
+  //   if (blockB) {
+  //     if (blockB->id != AIR) {
+  //       SDL_Rect B = {width_block_sdl * blockB->x, height_block_sdl * blockB->y, width_block_sdl, height_block_sdl};
+  //       SDL_IntersectRect(&(entite->hitbox), &B, &res);
+  //       collision = res.h;
+  //     }
+  //   }
+  //   break;
+
+  // /* Collision en HAUT */
+  // case DIRECT_HAUT_COLLI:
+  //   if (blockH) {
+  //     if (blockH->id != AIR) {
+  //       SDL_Rect B = {width_block_sdl * blockH->x, height_block_sdl * blockH->y, width_block_sdl, height_block_sdl};
+  //       SDL_IntersectRect(&(entite->hitbox), &B, &res);
+  //       collision = res.h;
+  //     }
+  //   }
+  //   break;
+
+  // /* Collision à DROITE */
+  // case DIRECT_DROITE_COLLI:
+  //   if (blockHD) {
+  //     if (blockHD->id != AIR) {
+  //       SDL_Rect B = {width_block_sdl * blockHD->x, height_block_sdl * blockHD->y, width_block_sdl, height_block_sdl};
+  //       SDL_IntersectRect(&(entite->hitbox), &B, &res);
+  //       collision = res.w;
+  //     }
+  //   }
+  //   break;
+
+  // /* Collision à GAUCHE */
+  // case DIRECT_GAUCHE_COLLI:
+  //   if (blockHG) {
+  //     if (blockHG->id != AIR) {
+  //       SDL_Rect B = {width_block_sdl * blockHG->x, height_block_sdl * blockHG->y, width_block_sdl, height_block_sdl};
+  //       SDL_IntersectRect(&(entite->hitbox), &B, &res);
+  //       collision = res.w;
+  //     }
+  //   }
+  //   break;
+
+  // default:
+  //   break;
+  // }
+  /**/
   if (collision < 0)
     collision *= -1;
   return collision;
@@ -682,8 +753,9 @@ t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, d
     }
 
     /* Modif pour la touche SAUTER */
-    if (collision(entite, DIRECT_BAS_COLLI, p) && SDL_touche_appuyer(ks, SAUTER)) {
+    if (!entite->velY && entite->nb_saut > 0 && SDL_touche_appuyer(ks, SAUTER)) {
       entite->velY -= HAUTEUR_SAUT;
+      entite->nb_saut--;
     }
 
     /* Gravité */

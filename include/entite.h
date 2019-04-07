@@ -71,7 +71,8 @@ typedef struct s_anim_action
 
 /******** PARTIE ENTITE ********/
 
-#define HAUTEUR_SAUT 9
+#define NB_SAUT 1
+#define HAUTEUR_SAUT 8
 #define VITESSE_DEPLACEMENT 5
 #define ACCELERATION 1.5
 #define POSX_ENT_SCREEN(entite) (width_window/2 - entite->hitbox.w/2)
@@ -106,6 +107,7 @@ typedef struct s_entite
     int id;
     t_entite_type type; // Type de l'entité
     char * name; // Nom de l'entité
+    uint8_t nb_saut; // Nombre de saut de l'entité
     uint64_t xp; // XP gagné
     uint32_t mana, pv, faim; // Mana, PV et Faim courante
     uint32_t mana_max, pv_max, faim_max; // Mana, PV et Faim Max

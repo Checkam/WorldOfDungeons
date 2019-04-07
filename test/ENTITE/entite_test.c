@@ -78,8 +78,8 @@ int main(int argc, char **argv, char **env) {
     // fprintf(stderr,"Mob : Y -> %d\n",Mob->hitbox.y);
     // fprintf(stderr,"Joueur : Y -> %d\n",J->hitbox.y);
   }
-  Save_Entite(J,"test/ENTITE/","save_ent");
-  Save_Entite(Mob,"test/ENTITE/","save_mob");
+  //Save_Entite(J,"test/ENTITE/","save_ent");
+  //Save_Entite(Mob,"test/ENTITE/","save_mob");
 
   SDL_exit_touches(&ks, &ct);
 
