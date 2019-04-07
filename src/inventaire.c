@@ -1,11 +1,25 @@
 #include <inventaire.h>
+#include <outils_SDL.h>
+
+#include <stdlib.h>
+#include <string.h>
+
+#define CHEMIN_POLICE "data/police/pixel.ttf"
+
+SDL_Color couleurNombre = {255, 255, 255};
+SDL_Color couleurTexte = {255, 0, 0};
 
 SDL_Texture *bordure = NULL;
 SDL_Texture *bordureSelectionne = NULL;
 
 uint8_t nbinventairebarre;
-uint16_t rectW;
+uint16_t rectX;
+uint16_t rectTexteX;
 SDL_Rect rect;
+SDL_Rect rectTexteNombre;
+SDL_Rect rectTexteItem;
+
+char *police = NULL;
 
 void inventaire_init( SDL_Renderer *renderer ) {
 
@@ -16,15 +30,14 @@ void inventaire_init( SDL_Renderer *renderer ) {
     char *chemin;
 
 	creation_chemin("data/Image/Bordure_150_150.bmp", &chemin);	
-	SDL_Surface *img = SDL_LoadBMP(chemin);
-	bordure = SDL_CreateTextureFromSurface(renderer, img);
-
-    creation_chemin("data/Image/BordureSelectionne_150_150.bmp", &chemin);
-    img = SDL_LoadBMP(chemin);
-    bordureSelectionne = SDL_CreateTextureFromSurface(renderer, img);
-
-    SDL_FreeSurface(img);
+	Create_IMG_Texture(renderer, chemin, &bordure);
     free(chemin);
+
+    creation_chemin("data/Image/selecteur_inventaire.png", &chemin);
+    Create_IMG_Texture(renderer, chemin, &bordureSelectionne);
+    free(chemin);
+
+    creation_chemin(CHEMIN_POLICE, &police);
 } 
 
 t_inventaire *create_inventaire() {
@@ -84,8 +97,6 @@ void ajout_item_dans_inventaire( t_inventaire *inventaire, t_liste *listeItem ) 
         assert( listeItem != NULL && inventaire != NULL );
     #endif
 
-    printf("\n");
-
     /* pour tous les éléments de la liste */
     while ( !hors_liste( listeItem ) ) {
 
@@ -118,24 +129,33 @@ void ajout_item_dans_inventaire( t_inventaire *inventaire, t_liste *listeItem ) 
         if ( placeLibre < inventaire->nbItemMax ) {
 
             /* cas 1 --> trop d'objet a casé pour que ca passe dans une seule case */
-            if ( ((inventaire->inventaire) + placeLibre)->stack + ptritem->nbDrop > (tabItem + ( ptritem->item ))->stack ) {
+            /*if ( ((inventaire->inventaire) + placeLibre)->stack + ptritem->nbDrop > (tabItem + ( ptritem->item ))->stack ) {
 
                 ( (inventaire->inventaire) + placeLibre )->stack = (tabItem + ( ptritem->item ))->stack;
                 a = malloc(sizeof(t_liste_item));
                 a->nbDrop = ptritem->nbDrop - (tabItem + ( ptritem->item ))->stack;
                 a->item = ptritem->item;    /* SOLUTION TEMPORAIRE */
 
-                ajout_droit(listeItem, (void *) a);
-                precedent(listeItem);
+                /*ajout_droit(listeItem, (void *) a);
+                precedent(listeItem);*/
 
             /* cas 2 --> tous passe dans une seule case */
-            } else
+            /*} else
                 ( (inventaire->inventaire) + placeLibre )->stack += ptritem->nbDrop;
 
             (( (inventaire->inventaire) + placeLibre )->item) = (tabItem + ( ptritem->item ));
             ( (inventaire->inventaire) + placeLibre )->durabilite = (tabItem + ( ptritem->item ))->durabilite;
 
-            oter_elt( listeItem, free);
+            oter_elt( listeItem, free);*/
+            ( (inventaire->inventaire) + placeLibre )->item = (tabItem + ( ptritem->item ));
+
+            if( ((inventaire->inventaire) + placeLibre)->stack + ptritem->nbDrop > (tabItem + ( ptritem->item ))->stack ){
+                ptritem->nbDrop -= (tabItem + ( ptritem->item ))->stack - ((inventaire->inventaire) + placeLibre)->stack;
+                ( (inventaire->inventaire) + placeLibre )->stack = (tabItem + ( ptritem->item ))->stack;
+            }else{
+                ( (inventaire->inventaire) + placeLibre )->stack += ptritem->nbDrop;
+                oter_elt(listeItem, free);
+            }
 
             en_tete(listeItem);
         } else
@@ -157,36 +177,78 @@ void inventaire_changer_constante ( const uint8_t nbinventaire ) {
 
     nbinventairebarre = nbinventaire;
 
-    rectW = ((DEFAULT_SIZE_IMG_W / 2) * ( uiScale / 100 )) / scaleW;
+    rect.w = ((DEFAULT_SIZE_IMG_W / 2) * ( uiScale / 100 )) / scaleW;
     rect.h = ((DEFAULT_SIZE_IMG_H / 2) * ( uiScale / 100 )) / scaleH;
-    rect.x = WIDTH / 2 - ( ( rectW  / 2 ) * nbinventairebarre );
-    rect.y = HEIGHT * 0.9;
+    rectX = WIDTH / 2 - ( ( rect.w  / 2 ) * nbinventairebarre );
+    rect.y = /*HEIGHT - 30 - rect.h*/ 30;
+
+    rectTexteNombre.w = rect.w / 3;
+    rectTexteNombre.h = rect.h / 3;
+    rectTexteX = rectX + rect.w - rectTexteNombre.w - 3;
+    rectTexteNombre.y = rect.y + rect.h - rectTexteNombre.h - 3;
 }
 
 void SDL_afficher_barre_action ( SDL_Renderer *renderer, t_inventaire *inventaire, const int8_t scroll ) {
-
-    static int8_t selection = 0;
-
-    selection += scroll;
-    if ( selection < 0 )
-        selection = nbinventairebarre - ((-selection) % (nbinventairebarre - 1));
-    else if ( selection >= nbinventairebarre )
-        selection = selection % nbinventairebarre;
 
     #ifdef DEBUG
         assert( renderer != NULL  && inventaire != NULL  && uiScale >= 50 && uiScale <= 150 && bordure != NULL && bordureSelectionne != NULL );
     #endif
 
-    rect.w = rectW;
+    static int8_t selection = 0;
+    static uint8_t changement = 0;
+
+    SDL_Texture *textureNombre = NULL;
+    char texte[20];
+
+    if ( scroll != 0 ) {
+
+        changement = 50; /* nombre de frame pendant lequel le nom de l'item dera affiché */
+        couleurTexte.r = 255;
+
+        selection += scroll;
+        if ( selection < 0 )
+            selection = nbinventairebarre - ((-selection) % (nbinventairebarre - 1));
+        else if ( selection >= nbinventairebarre )
+            selection = selection % nbinventairebarre;
+    }
+
+    rect.x = rectX;
+    rectTexteNombre.x = rectTexteX;
+
+    if ( changement > 0 && (inventaire->inventaire + selection)->item != NULL ) {
+
+        uint8_t nbLettres = strlen( ( inventaire->inventaire + selection )->item->nomItem );
+
+        rectTexteItem.y = rect.h + rect.y + 5;
+        rectTexteItem.h = rect.h / 3;
+        rectTexteItem.x = WIDTH / 2 - nbLettres / 1.5 * rectTexteItem.h / 2;
+        rectTexteItem.w = nbLettres / 1.5 * rectTexteItem.h;
+        Create_Text_Texture(renderer, ( inventaire->inventaire + selection )->item->nomItem, police, 15, couleurTexte, BLENDED, &textureNombre );
+        SDL_RenderCopy( renderer, textureNombre, NULL, &rectTexteItem);
+        changement --;
+
+        if ( changement < 25 )
+            couleurTexte.r = changement * 255 / 25;
+    }
 
     for ( uint8_t i = 0 ; i < nbinventairebarre ; i++ ) {
+
+        if ( ( inventaire->inventaire + i)->item != NULL ) {
+
+            sprintf( texte,"%d",(inventaire->inventaire + i)->stack);
+            if ( ( inventaire->inventaire + i)->item->texture != NULL )
+                SDL_RenderCopy( renderer, ( inventaire->inventaire + i)->item->texture, NULL, &rect );
+            Create_Text_Texture(renderer, texte, police, 50, couleurNombre, BLENDED, &textureNombre );
+            SDL_RenderCopy( renderer, textureNombre, NULL, &rectTexteNombre);
+        }
 
         if ( i != selection )
             SDL_RenderCopy( renderer, bordure, NULL, &rect);
         else
             SDL_RenderCopy( renderer, bordureSelectionne, NULL, &rect);
         
-        rect.x += rectW;
+        rect.x += rect.w;
+        rectTexteNombre.x += rect.w;
     }
 }
 
@@ -205,4 +267,7 @@ void free_inventaire( t_inventaire *inventaire ) {
     
     if ( inventaire )
         free(inventaire);
+
+    if( police )
+        free(police);
 }

@@ -14,7 +14,7 @@
 #define DEFAULT_SIZE_IMG_H 150
 
 #define DEFAULT_SIZE_SCREEN_W 1920
-#define DEFAULT_SIZE_SCREEN_H 1080
+#define DEFAULT_SIZE_SCREEN_H 1080 /* NE PAS CHANGER LES CONSTANTES */
 
 typedef struct inventaire_item_s {
     
