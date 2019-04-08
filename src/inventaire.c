@@ -128,25 +128,6 @@ void ajout_item_dans_inventaire( t_inventaire *inventaire, t_liste *listeItem ) 
         /* si une place a été trouvé alors ajout de l'item dans l'inventaire */
         if ( placeLibre < inventaire->nbItemMax ) {
 
-            /* cas 1 --> trop d'objet a casé pour que ca passe dans une seule case */
-            /*if ( ((inventaire->inventaire) + placeLibre)->stack + ptritem->nbDrop > (tabItem + ( ptritem->item ))->stack ) {
-
-                ( (inventaire->inventaire) + placeLibre )->stack = (tabItem + ( ptritem->item ))->stack;
-                a = malloc(sizeof(t_liste_item));
-                a->nbDrop = ptritem->nbDrop - (tabItem + ( ptritem->item ))->stack;
-                a->item = ptritem->item;    /* SOLUTION TEMPORAIRE */
-
-                /*ajout_droit(listeItem, (void *) a);
-                precedent(listeItem);*/
-
-            /* cas 2 --> tous passe dans une seule case */
-            /*} else
-                ( (inventaire->inventaire) + placeLibre )->stack += ptritem->nbDrop;
-
-            (( (inventaire->inventaire) + placeLibre )->item) = (tabItem + ( ptritem->item ));
-            ( (inventaire->inventaire) + placeLibre )->durabilite = (tabItem + ( ptritem->item ))->durabilite;
-
-            oter_elt( listeItem, free);*/
             ( (inventaire->inventaire) + placeLibre )->item = (tabItem + ( ptritem->item ));
 
             if( ((inventaire->inventaire) + placeLibre)->stack + ptritem->nbDrop > (tabItem + ( ptritem->item ))->stack ){
@@ -203,7 +184,7 @@ void SDL_afficher_barre_action ( SDL_Renderer *renderer, t_inventaire *inventair
     if ( scroll != 0 ) {
 
         changement = 50; /* nombre de frame pendant lequel le nom de l'item dera affiché */
-        couleurTexte.r = 255;
+        couleurTexte.a = 255;
 
         selection += scroll;
         if ( selection < 0 )
@@ -228,7 +209,7 @@ void SDL_afficher_barre_action ( SDL_Renderer *renderer, t_inventaire *inventair
         changement --;
 
         if ( changement < 25 )
-            couleurTexte.r = changement * 255 / 25;
+            couleurTexte.a = changement * 255 / 25;
     }
 
     for ( uint8_t i = 0 ; i < nbinventairebarre ; i++ ) {
@@ -270,4 +251,10 @@ void free_inventaire( t_inventaire *inventaire ) {
 
     if( police )
         free(police);
+
+    if ( bordure )
+        SDL_DestroyTexture(bordure);
+
+    if ( bordureSelectionne )
+        SDL_DestroyTexture(bordureSelectionne);
 }
