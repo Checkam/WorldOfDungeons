@@ -1,6 +1,7 @@
 #include <item.h>
 
 #include <assert.h>
+#include <liste.h>
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
@@ -104,6 +105,39 @@ uint8_t block_to_item ( t_materiaux materiaux, t_liste_item **item ) {
     ( *item + nbItem )->item = I_END;
 
     return 0;
+}
+
+void casser_block( t_materiaux materiaux, t_liste **listeItem ) {
+
+    t_liste_item *totalItem = NULL;
+    t_liste_item *temp;
+
+    block_to_item( materiaux, &totalItem );
+
+    printf("apres block to item\n");
+
+    uint16_t i = 0;
+
+    while ( ( totalItem + i )->item != I_END ) {
+
+	    printf("	%d fois %d\n", ( totalItem + i )->nbDrop, ( totalItem + i )->item );
+        temp = malloc( sizeof(t_liste_item));
+        temp->item = (totalItem + i)->item;
+        temp->nbDrop = (totalItem + i)->nbDrop;
+        ajout_droit(*listeItem, (void *)temp);
+		i++;
+    }
+
+    en_tete(*listeItem);
+    t_liste_item *test;
+
+    while ( !hors_liste(*listeItem) ) {
+        valeur_elt(*listeItem, (void **)&test );
+        printf("%d, %d\n", test->item, test->nbDrop );
+        suivant(*listeItem);
+    }
+
+    free(totalItem);
 }
 
 void exit_item( t_liste_item **item ) {
@@ -284,30 +318,42 @@ static void default_item_type ( SDL_Renderer *renderer ) {
     ( tabItem + I_TERRE )->nomItem = "terre";
     ( tabItem + I_TERRE )->stack = 50;
     ( tabItem + I_TERRE )->posable = NULL;
-    creation_chemin("data/Image/Terre_150_150.png", &chemin);
-    Create_IMG_Texture(renderer, chemin, &(( tabItem + I_TERRE )->texture));
-    free(chemin);
+    if ( renderer ) {
+        creation_chemin("data/Image/Terre_150_150.png", &chemin);
+        Create_IMG_Texture(renderer, chemin, &(( tabItem + I_TERRE )->texture));
+        free(chemin);
+    } else
+        (( tabItem + I_TERRE )->texture) = NULL;
 
     ( tabItem + I_PIERRE )->nomItem = "pierre";
     ( tabItem + I_PIERRE )->stack = 25;
     ( tabItem + I_PIERRE )->posable = NULL;
-    creation_chemin("data/Image/Pierre_150_150.png", &chemin);
-    Create_IMG_Texture(renderer, chemin, &( tabItem + I_PIERRE )->texture);
-    free(chemin);
+    if ( renderer ) {
+        creation_chemin("data/Image/Pierre_150_150.png", &chemin);
+        Create_IMG_Texture(renderer, chemin, &( tabItem + I_PIERRE )->texture);
+        free(chemin);
+    } else
+        ( tabItem + I_PIERRE )->texture = NULL;
 
     ( tabItem + I_ROCHE )->nomItem = "roche";
     ( tabItem + I_ROCHE )->stack = 40;
     ( tabItem + I_ROCHE )->posable = NULL;
-    creation_chemin("data/Image/Roche_150_150.png", &chemin);
-    Create_IMG_Texture(renderer, chemin, &( tabItem + I_ROCHE )->texture);
-    free(chemin);
+    if ( renderer ) {
+        creation_chemin("data/Image/Roche_150_150.png", &chemin);
+        Create_IMG_Texture(renderer, chemin, &( tabItem + I_ROCHE )->texture);
+        free(chemin);
+    } else
+        ( tabItem + I_ROCHE )->texture = NULL;
 
     ( tabItem + I_SABLE )->nomItem = "sable";
     ( tabItem + I_SABLE )->stack = 50;
     ( tabItem + I_SABLE )->posable = NULL;
-    creation_chemin("data/Image/Sable_150_150.png", &chemin);
-    Create_IMG_Texture(renderer, chemin, &( tabItem + I_SABLE )->texture);
-    free(chemin);
+    if ( renderer ) {
+        creation_chemin("data/Image/Sable_150_150.png", &chemin);
+        Create_IMG_Texture(renderer, chemin, &( tabItem + I_SABLE )->texture);
+        free(chemin);
+    } else
+        ( tabItem + I_SABLE )->texture = NULL;
 
     ( tabItem + I_GRAVIER )->nomItem = "gravier";
     ( tabItem + I_GRAVIER )->stack = 50;
@@ -332,10 +378,13 @@ static void default_item_type ( SDL_Renderer *renderer ) {
     ( tabItem + I_BOULE_NEIGE )->nomItem = "boule de neige";
     ( tabItem + I_BOULE_NEIGE )->stack = 75;
     ( tabItem + I_BOULE_NEIGE )->posable = NULL;
-    creation_chemin("data/Image/Boule_de_neige_150_150.png", &chemin);
-    Create_IMG_Texture(renderer, chemin, &( tabItem + I_BOULE_NEIGE )->texture);
-    free(chemin);
-
+    if ( renderer ) {
+        creation_chemin("data/Image/Boule_de_neige_150_150.png", &chemin);
+        Create_IMG_Texture(renderer, chemin, &( tabItem + I_BOULE_NEIGE )->texture);
+        free(chemin);
+    } else
+        ( tabItem + I_BOULE_NEIGE )->texture = NULL;
+    
     ( tabItem + I_SILEX )->nomItem = "silex";
     ( tabItem + I_SILEX )->stack = 75;
     ( tabItem + I_SILEX )->posable = NULL;

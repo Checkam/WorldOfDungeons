@@ -1,6 +1,7 @@
 #include <inventaire.h>
 
 #include <touches.h>
+#include <block.h>
 
 #include <stdio.h>
 #include <SDL2/SDL_image.h>
@@ -63,7 +64,7 @@ int main ( int argc, char ** argv, char **env ) {
 	init_liste(liste);
 	en_tete(liste);
 
-	t_liste_item *item = malloc( sizeof(t_liste_item) );
+	/*t_liste_item *item = malloc( sizeof(t_liste_item) );
 	(item)->nbDrop = 70;
 	(item)->item = I_TERRE;
 
@@ -71,7 +72,7 @@ int main ( int argc, char ** argv, char **env ) {
 
 	ajout_item_dans_inventaire( inventaire, liste);
 
-	afficher_inventaire ( inventaire );
+	afficher_inventaire ( inventaire );*/
 
 	/*	------------------------------------------------|
 	|	Allocation d'une zone memoire de 10 items		|
@@ -90,7 +91,7 @@ int main ( int argc, char ** argv, char **env ) {
 
 	/*en_tete(liste);*/
 
-	t_liste_item *item2 = malloc( sizeof(t_liste_item) );
+	/*t_liste_item *item2 = malloc( sizeof(t_liste_item) );
 	(item2)->nbDrop = 15;
 	(item2)->item = I_TERRE;
 
@@ -115,7 +116,15 @@ int main ( int argc, char ** argv, char **env ) {
 	ajout_droit(liste, (void *)item3 );
 	ajout_droit(liste, (void *)item4 );
 	ajout_droit(liste, (void *)item5 );
-	ajout_droit(liste, (void *)item6 );
+	ajout_droit(liste, (void *)item6 );*/
+
+	
+
+	casser_block( NEIGE, &liste );
+
+	ajout_item_dans_inventaire( inventaire, liste);
+
+	casser_block( TERRE, &liste );
 
 	ajout_item_dans_inventaire( inventaire, liste);
 
@@ -136,12 +145,18 @@ int main ( int argc, char ** argv, char **env ) {
 
 
 	while ( !SDL_touche_appuyer(ks, ESCAPE)) {
+
+		casser_block( TERRE, &liste );
+		ajout_item_dans_inventaire( inventaire, liste);
+		casser_block( NEIGE, &liste );
+		ajout_item_dans_inventaire( inventaire, liste);
+
 		SDL_SetRenderDrawColor(renderer, 100, 255, 255, 255);
 		SDL_reset_wheel_state(ks);
 		SDL_touches( ks, ct);
 		SDL_RenderFillRect( renderer, &r);
 		SDL_SetRenderDrawColor(renderer, 100, 255, 255, 0);
-		/*SDL_afficher_barre_action( renderer, inventaire, SDL_wheel_state(ks));*/
+		SDL_afficher_barre_action( renderer, inventaire, SDL_wheel_state(ks));
 		inventaire_afficher(renderer, inventaire);
 		SDL_RenderPresent(renderer);
 		SDL_RenderClear(renderer);
