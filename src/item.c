@@ -114,27 +114,15 @@ void casser_block( t_materiaux materiaux, t_liste **listeItem ) {
 
     block_to_item( materiaux, &totalItem );
 
-    printf("apres block to item\n");
-
     uint16_t i = 0;
 
     while ( ( totalItem + i )->item != I_END ) {
 
-	    printf("	%d fois %d\n", ( totalItem + i )->nbDrop, ( totalItem + i )->item );
         temp = malloc( sizeof(t_liste_item));
         temp->item = (totalItem + i)->item;
         temp->nbDrop = (totalItem + i)->nbDrop;
         ajout_droit(*listeItem, (void *)temp);
 		i++;
-    }
-
-    en_tete(*listeItem);
-    t_liste_item *test;
-
-    while ( !hors_liste(*listeItem) ) {
-        valeur_elt(*listeItem, (void **)&test );
-        printf("%d, %d\n", test->item, test->nbDrop );
-        suivant(*listeItem);
     }
 
     free(totalItem);
