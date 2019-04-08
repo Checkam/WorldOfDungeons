@@ -64,6 +64,7 @@ t_item_type *tabItem;
 
 uint8_t init_item(SDL_Renderer *renderer);
 uint8_t block_to_item ( t_materiaux materiaux, t_liste_item **item );
+void casser_block( t_materiaux materiaux, t_liste **listeItem );
 void exit_item( t_liste_item **item);
 
 #endif
