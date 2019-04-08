@@ -10,8 +10,8 @@
 #include <liste.h>
 #include <chemin.h>
 
-#define DEFAULT_SIZE_SCREEN_W 1920
-#define DEFAULT_SIZE_SCREEN_H 1080 /* NE PAS CHANGER LES CONSTANTES */
+#define DEFAULT_SIZE_SCREEN_W 1920.0
+#define DEFAULT_SIZE_SCREEN_H 1080.0 /* NE PAS CHANGER LES CONSTANTES */
 
 typedef struct inventaire_item_s {
     
@@ -30,8 +30,8 @@ typedef struct inventaire_s {
 uint16_t HEIGHT;
 uint16_t WIDTH;
 
-uint16_t scaleH;
-uint16_t scaleW;
+float scaleH;
+float scaleW;
 
 float uiScale;
 

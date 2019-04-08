@@ -14,8 +14,8 @@ int main ( int argc, char ** argv, char **env ) {
 	|	Def des constantes								|
 	|	-----------------------------------------------*/
 
-	WIDTH = 1920;
-	HEIGHT = 1080;
+	WIDTH = /*1920*/1000;
+	HEIGHT = /*1080*/600;
 
 	scaleW = DEFAULT_SIZE_SCREEN_W / WIDTH;
 	scaleH = DEFAULT_SIZE_SCREEN_H / HEIGHT;
@@ -36,7 +36,7 @@ int main ( int argc, char ** argv, char **env ) {
 	SDL_init_touches(&ks, &ct);
 
 	SDL_Renderer *renderer;
-	SDL_Window *window = SDL_CreateWindow("Inventaire test", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WIDTH, HEIGHT, SDL_WINDOW_FULLSCREEN);
+	SDL_Window *window = SDL_CreateWindow("Inventaire test", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WIDTH, HEIGHT, /*SDL_WINDOW_FULLSCREEN*/ NULL);
 	renderer = SDL_CreateRenderer( window, -1, SDL_RENDERER_ACCELERATED);
 
 	fprintf(stderr, "inventaire %s\n", SDL_GetError());
@@ -128,21 +128,13 @@ int main ( int argc, char ** argv, char **env ) {
 
 	ajout_item_dans_inventaire( inventaire, liste);
 
-	afficher_inventaire ( inventaire );
+	/*afficher_inventaire ( inventaire );*/
 
 	/*	------------------------------------------------|
 	|	Affichage dans la SDL							|
 	|	-----------------------------------------------*/
 
 	inventaire_changer_constante(9);
-
-	SDL_Rect r = {
-		0,
-		0,
-		WIDTH,
-		HEIGHT
-	};
-
 
 	while ( !SDL_touche_appuyer(ks, ESCAPE)) {
 
@@ -151,13 +143,10 @@ int main ( int argc, char ** argv, char **env ) {
 		casser_block( NEIGE, &liste );
 		ajout_item_dans_inventaire( inventaire, liste);
 
-		SDL_SetRenderDrawColor(renderer, 100, 255, 255, 255);
 		SDL_reset_wheel_state(ks);
 		SDL_touches( ks, ct);
-		SDL_RenderFillRect( renderer, &r);
-		SDL_SetRenderDrawColor(renderer, 100, 255, 255, 0);
 		SDL_afficher_barre_action( renderer, inventaire, SDL_wheel_state(ks));
-		inventaire_afficher(renderer, inventaire);
+		/*inventaire_afficher(renderer, inventaire);*/
 		SDL_RenderPresent(renderer);
 		SDL_RenderClear(renderer);
 		SDL_Delay(33);
@@ -176,9 +165,7 @@ int main ( int argc, char ** argv, char **env ) {
 
 	free_inventaire(inventaire);
 
-	t_liste_item *aa = NULL;
-
-	exit_item(&aa);
+	exit_item(NULL);
 	detruire_liste(liste, free);
 
     free(liste);

@@ -171,9 +171,9 @@ void inventaire_changer_constante ( const uint8_t nbinventaire ) {
 
     nbinventairebarre = nbinventaire;
 
-    barreRect.w = ((DEFAULT_SIZE_IMG_W / 2) * ( uiScale / 100 )) / scaleW;
-    barreRect.h = ((DEFAULT_SIZE_IMG_H / 2) * ( uiScale / 100 )) / scaleH;
-    rectX = WIDTH / 2 - ( ( barreRect.w  / 2 ) * nbinventairebarre );
+    barreRect.w = ((DEFAULT_SIZE_IMG_W / 2.0) * ( uiScale / 100.0 )) / scaleW;
+    barreRect.h = ((DEFAULT_SIZE_IMG_H / 2.0) * ( uiScale / 100.0 )) / scaleH;
+    rectX = WIDTH / 2 - ( ( barreRect.w  / 2.0 ) * nbinventairebarre );
     barreRect.y = /*HEIGHT - 30 - barreRect.h*/ 30;
 
     barreRectTexteNombre.w = barreRect.w / 3;
@@ -241,9 +241,8 @@ void SDL_afficher_barre_action ( SDL_Renderer *renderer, t_inventaire *inventair
             SDL_RenderCopy( renderer, textureNombre, NULL, &barreRectTexteNombre);
         }
 
-        if ( i != selection )
-            SDL_RenderCopy( renderer, bordure, NULL, &barreRect);
-        else
+        SDL_RenderCopy( renderer, bordure, NULL, &barreRect);
+        if ( i == selection )
             SDL_RenderCopy( renderer, bordureSelectionne, NULL, &barreRect);
         
         barreRect.x += barreRect.w;
