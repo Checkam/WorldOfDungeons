@@ -77,7 +77,7 @@ int main ( int argc, char ** argv, char **env ) {
 	|	Allocation d'une zone memoire de 10 items		|
 	|	-----------------------------------------------*/
 
-	alloc_item(inventaire, 9);
+	alloc_item(inventaire, 40);
 
 	/*	------------------------------------------------|
 	|	Note :											|
@@ -127,11 +127,22 @@ int main ( int argc, char ** argv, char **env ) {
 
 	inventaire_changer_constante(9);
 
+	SDL_Rect r = {
+		0,
+		0,
+		WIDTH,
+		HEIGHT
+	};
+
+
 	while ( !SDL_touche_appuyer(ks, ESCAPE)) {
-			
+		SDL_SetRenderDrawColor(renderer, 100, 255, 255, 255);
 		SDL_reset_wheel_state(ks);
 		SDL_touches( ks, ct);
-		SDL_afficher_barre_action( renderer, inventaire, SDL_wheel_state(ks));
+		SDL_RenderFillRect( renderer, &r);
+		SDL_SetRenderDrawColor(renderer, 100, 255, 255, 0);
+		/*SDL_afficher_barre_action( renderer, inventaire, SDL_wheel_state(ks));*/
+		inventaire_afficher(renderer, inventaire);
 		SDL_RenderPresent(renderer);
 		SDL_RenderClear(renderer);
 		SDL_Delay(33);

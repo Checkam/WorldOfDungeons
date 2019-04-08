@@ -4,6 +4,9 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define DEFAULT_SIZE_IMG_W 150
+#define DEFAULT_SIZE_IMG_H 150
+
 #define CHEMIN_POLICE "data/police/pixel.ttf"
 
 SDL_Color couleurNombre = {255, 255, 255};
@@ -11,13 +14,19 @@ SDL_Color couleurTexte = {255, 0, 0};
 
 SDL_Texture *bordure = NULL;
 SDL_Texture *bordureSelectionne = NULL;
+SDL_Texture *fondItem = NULL;
 
 uint8_t nbinventairebarre;
 uint16_t rectX;
 uint16_t rectTexteX;
-SDL_Rect rect;
-SDL_Rect rectTexteNombre;
-SDL_Rect rectTexteItem;
+SDL_Rect barreRect;
+SDL_Rect barreRectTexteNombre;
+SDL_Rect barreRectTexteItem;
+
+uint8_t maxLigne;
+uint16_t rectInventaireX1;
+uint16_t rectInventaireY1;
+SDL_Rect rectInventaire1;
 
 char *police = NULL;
 
@@ -35,6 +44,10 @@ void inventaire_init( SDL_Renderer *renderer ) {
 
     creation_chemin("data/Image/selecteur_inventaire.png", &chemin);
     Create_IMG_Texture(renderer, chemin, &bordureSelectionne);
+    free(chemin);
+
+    creation_chemin("data/Image/Fond_item_150_150.png", &chemin);
+    Create_IMG_Texture(renderer, chemin, &fondItem);
     free(chemin);
 
     creation_chemin(CHEMIN_POLICE, &police);
@@ -158,15 +171,21 @@ void inventaire_changer_constante ( const uint8_t nbinventaire ) {
 
     nbinventairebarre = nbinventaire;
 
-    rect.w = ((DEFAULT_SIZE_IMG_W / 2) * ( uiScale / 100 )) / scaleW;
-    rect.h = ((DEFAULT_SIZE_IMG_H / 2) * ( uiScale / 100 )) / scaleH;
-    rectX = WIDTH / 2 - ( ( rect.w  / 2 ) * nbinventairebarre );
-    rect.y = /*HEIGHT - 30 - rect.h*/ 30;
+    barreRect.w = ((DEFAULT_SIZE_IMG_W / 2) * ( uiScale / 100 )) / scaleW;
+    barreRect.h = ((DEFAULT_SIZE_IMG_H / 2) * ( uiScale / 100 )) / scaleH;
+    rectX = WIDTH / 2 - ( ( barreRect.w  / 2 ) * nbinventairebarre );
+    barreRect.y = /*HEIGHT - 30 - barreRect.h*/ 30;
 
-    rectTexteNombre.w = rect.w / 3;
-    rectTexteNombre.h = rect.h / 3;
-    rectTexteX = rectX + rect.w - rectTexteNombre.w - 3;
-    rectTexteNombre.y = rect.y + rect.h - rectTexteNombre.h - 3;
+    barreRectTexteNombre.w = barreRect.w / 3;
+    barreRectTexteNombre.h = barreRect.h / 3;
+    rectTexteX = rectX + barreRect.w - barreRectTexteNombre.w - 3;
+    barreRectTexteNombre.y = barreRect.y + barreRect.h - barreRectTexteNombre.h - 3;
+
+    rectInventaire1.w = ((DEFAULT_SIZE_IMG_W * 0.6 ) * ( uiScale / 100 )) / scaleW;
+    rectInventaire1.h = ((DEFAULT_SIZE_IMG_H * 0.6 ) * ( uiScale / 100 )) / scaleH;
+    rectInventaireX1 = 30;
+    rectInventaireY1 = 30;
+    maxLigne = ( WIDTH * 0.4 - 30 ) / rectInventaire1.w;
 }
 
 void SDL_afficher_barre_action ( SDL_Renderer *renderer, t_inventaire *inventaire, const int8_t scroll ) {
@@ -193,19 +212,19 @@ void SDL_afficher_barre_action ( SDL_Renderer *renderer, t_inventaire *inventair
             selection = selection % nbinventairebarre;
     }
 
-    rect.x = rectX;
-    rectTexteNombre.x = rectTexteX;
+    barreRect.x = rectX;
+    barreRectTexteNombre.x = rectTexteX;
 
     if ( changement > 0 && (inventaire->inventaire + selection)->item != NULL ) {
 
         uint8_t nbLettres = strlen( ( inventaire->inventaire + selection )->item->nomItem );
 
-        rectTexteItem.y = rect.h + rect.y + 5;
-        rectTexteItem.h = rect.h / 3;
-        rectTexteItem.x = WIDTH / 2 - nbLettres / 1.5 * rectTexteItem.h / 2;
-        rectTexteItem.w = nbLettres / 1.5 * rectTexteItem.h;
+        barreRectTexteItem.y = barreRect.h + barreRect.y + 5;
+        barreRectTexteItem.h = barreRect.h / 3;
+        barreRectTexteItem.x = WIDTH / 2 - nbLettres / 1.5 * barreRectTexteItem.h / 2;
+        barreRectTexteItem.w = nbLettres / 1.5 * barreRectTexteItem.h;
         Create_Text_Texture(renderer, ( inventaire->inventaire + selection )->item->nomItem, police, 15, couleurTexte, BLENDED, &textureNombre );
-        SDL_RenderCopy( renderer, textureNombre, NULL, &rectTexteItem);
+        SDL_RenderCopy( renderer, textureNombre, NULL, &barreRectTexteItem);
         changement --;
 
         if ( changement < 25 )
@@ -217,20 +236,64 @@ void SDL_afficher_barre_action ( SDL_Renderer *renderer, t_inventaire *inventair
         if ( ( inventaire->inventaire + i)->item != NULL ) {
 
             sprintf( texte,"%d",(inventaire->inventaire + i)->stack);
-            if ( ( inventaire->inventaire + i)->item->texture != NULL )
-                SDL_RenderCopy( renderer, ( inventaire->inventaire + i)->item->texture, NULL, &rect );
+            SDL_RenderCopy( renderer, ( inventaire->inventaire + i)->item->texture, NULL, &barreRect );
             Create_Text_Texture(renderer, texte, police, 50, couleurNombre, BLENDED, &textureNombre );
-            SDL_RenderCopy( renderer, textureNombre, NULL, &rectTexteNombre);
+            SDL_RenderCopy( renderer, textureNombre, NULL, &barreRectTexteNombre);
         }
 
         if ( i != selection )
-            SDL_RenderCopy( renderer, bordure, NULL, &rect);
+            SDL_RenderCopy( renderer, bordure, NULL, &barreRect);
         else
-            SDL_RenderCopy( renderer, bordureSelectionne, NULL, &rect);
+            SDL_RenderCopy( renderer, bordureSelectionne, NULL, &barreRect);
         
-        rect.x += rect.w;
-        rectTexteNombre.x += rect.w;
+        barreRect.x += barreRect.w;
+        barreRectTexteNombre.x += barreRect.w;
     }
+}
+
+void inventaire_afficher ( SDL_Renderer *renderer, t_inventaire *inventaire ) {
+
+    #ifdef DEBUG
+        assert( renderer != NULL && inventaire != NULL );
+    #endif
+
+    char texte[20];
+
+    SDL_Texture *textureNombre = NULL;
+
+    SDL_Rect rectNombre;
+    rectNombre.w = rectInventaire1.w / 3;
+    rectNombre.h = rectInventaire1.h / 3;
+
+    rectInventaire1.x = rectInventaireX1;
+    rectInventaire1.y = rectInventaireY1;
+
+    uint16_t curs = 0;
+    uint8_t j;
+
+    while ( curs < inventaire->nbItemMax ) {
+        for ( j = 0 ; j < maxLigne && curs < inventaire->nbItemMax ; j++, curs++ ) {
+
+            SDL_RenderCopy(renderer, fondItem, NULL, &rectInventaire1);
+
+            if ( ( inventaire->inventaire + curs )->item != NULL ) {
+
+                rectNombre.x = rectInventaire1.x + rectInventaire1.w - rectNombre.w - 3;
+                rectNombre.y = rectInventaire1.y + rectInventaire1.h - rectNombre.h - 3;
+
+                sprintf( texte,"%d",(inventaire->inventaire + curs)->stack);
+                SDL_RenderCopy(renderer, ( inventaire->inventaire + curs)->item->texture, NULL, &rectInventaire1);
+                Create_Text_Texture(renderer, texte, police, 50, couleurNombre, BLENDED, &textureNombre );
+                SDL_RenderCopy( renderer, textureNombre, NULL, &rectNombre);
+            }
+
+            rectInventaire1.x += rectInventaire1.w;
+        }
+        rectInventaire1.y += rectInventaire1.h;
+        rectInventaire1.x = rectInventaireX1;
+    }
+
+    SDL_DestroyTexture(textureNombre);
 }
 
 void free_inventaire( t_inventaire *inventaire ) {

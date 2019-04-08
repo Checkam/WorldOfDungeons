@@ -10,9 +10,6 @@
 #include <liste.h>
 #include <chemin.h>
 
-#define DEFAULT_SIZE_IMG_W 150
-#define DEFAULT_SIZE_IMG_H 150
-
 #define DEFAULT_SIZE_SCREEN_W 1920
 #define DEFAULT_SIZE_SCREEN_H 1080 /* NE PAS CHANGER LES CONSTANTES */
 
@@ -49,6 +46,7 @@ void inventaire_changer_constante ( const uint8_t nbinventaire );
 
 void afficher_inventaire ( t_inventaire *inventaire );
 void SDL_afficher_barre_action ( SDL_Renderer *renderer, t_inventaire *inventaire, const int8_t scroll );
+void inventaire_afficher ( SDL_Renderer *renderer, t_inventaire *inventaire );
 
 void free_inventaire( t_inventaire *inventaire );
 
