@@ -12,3 +12,7 @@ SDL_DestroyRenderer(renderer);
 SDL_DestroyWindow(screen);
 SDL_Quit();
 pwd_quit();
+
+free_inventaire(inventaire);
+detruire_liste(liste, free);
+free(liste);

@@ -18,3 +18,6 @@ BLOCK_CreateTexture_sdl(renderer);
 menu_init(renderer);
 fps_init();
 SDL_init_touches(&ks, &ct);
+
+init_item(renderer);
+inventaire_init( renderer);

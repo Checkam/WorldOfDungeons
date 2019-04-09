@@ -6,7 +6,7 @@
  *   \version 0.1
  *   \date 10 mars 2019
  */
-
+#define DEBUG
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 #include <affichage.h>
@@ -18,6 +18,8 @@
 #include <entite.h>
 #include <fps.h>
 #include <generation.h>
+#include <inventaire.h>
+#include <item.h>
 #include <liste.h>
 #include <map.h>
 #include <math.h>
@@ -31,23 +33,27 @@
 #include <touches.h>
 #include <world_of_dungeons.h>
 
-//#define calY_aff (((map->joueur->hitbox.y) / height_block_sdl) - ((MAX_SCREEN - (map->joueur->hitbox.h / height_block_sdl / 2)) / 2))
 #define calY_aff(map)                                                                                                                                \
   (map->joueur->hitbox.y / height_block_sdl) - (POSY_ENT_SCREEN(map->joueur) / height_block_sdl) - 2 // Le moins 2 a trouver d'ou il vient
+
 #define calX_Debut(map) ((map->joueur->hitbox.x - map->joueur->hitbox.w) / width_block_sdl) - (SIZE / 2)
+
 #define calX_Fin(map) ((map->joueur->hitbox.x) / width_block_sdl) + (SIZE / 2)
 
-void test_souris(t_map *map, uint8_t *ks) {
+void test_souris(t_map *map, uint8_t *ks, t_inventaire *inventaire, t_liste *liste) {
   t_block *b;
   int x_mouse = 0, y_mouse = 0;
   if (SDL_touche_appuyer(ks, SOURIS_GAUCHE)) {
     SDL_coord_souris(&x_mouse, &y_mouse);
     // Récuperation d'un block dans la liste
-    b = MAP_GetBlock(map, (x_mouse / width_block_sdl) + calX_Debut(map) + 2, MAX_SCREEN - (y_mouse / height_block_sdl) + calY_aff(map));
+    b = MAP_GetBlock(map, (x_mouse / width_block_sdl) + calX_Debut(map) + 1, MAX_SCREEN - (y_mouse / height_block_sdl) + calY_aff(map));
 
-    if (b) {
+    if (b && b->id != AIR && abs(b->x - ((map->joueur->hitbox.x) / width_block_sdl)) < 3 &&
+        abs(b->y - ((map->joueur->hitbox.y) / height_block_sdl)) < 3) {
+      casser_block((t_materiaux)b->id, &liste);
+      ajout_item_dans_inventaire(inventaire, liste);
       b->id = AIR;
-      fprintf(stderr, "%d %d %d %d\n", calY_aff(map), (POSY_ENT_SCREEN(map->joueur) / height_block_sdl), map->joueur->hitbox.y, b->y);
+      // fprintf(stderr, "%d %d %d %d\n", calY_aff(map), (POSY_ENT_SCREEN(map->joueur) / height_block_sdl), map->joueur->hitbox.y, b->y);
     }
   }
 
@@ -56,9 +62,11 @@ void test_souris(t_map *map, uint8_t *ks) {
     // Récuperation d'un block dans la liste
     b = MAP_GetBlock(map, (x_mouse / width_block_sdl) + calX_Debut(map) + 2, MAX_SCREEN - (y_mouse / height_block_sdl) + calY_aff(map));
     if (b) {
-      b->id = ROCHE;
-      STRUCT_Spawn(b->x, b->y, 1, map);
-      fprintf(stderr, "%d %d %d %d\n", calY_aff(map), (POSY_ENT_SCREEN(map->joueur) / height_block_sdl), map->joueur->hitbox.y, b->y);
+      b->id = BRIQUE;
+
+      // STRUCT_Spawn(b->x, b->y, 5, map);
+
+      // fprintf(stderr, "%d %d %d %d\n", calY_aff(map), (POSY_ENT_SCREEN(map->joueur) / height_block_sdl), map->joueur->hitbox.y, b->y);
     }
   }
 }
@@ -66,9 +74,10 @@ void test_souris(t_map *map, uint8_t *ks) {
 int main(int argc, char *argv[], char **env) {
   pwd_init(argv[0], getenv("PWD"));
   srand(time(NULL));
-  SEED = 2312234;
+  SEED = 233242;
   t_menu *menu = NULL;
   t_map *map = NULL;
+
   uint8_t *ks;
   configTouches_t *ct;
   width_block_sdl = 25;
@@ -76,11 +85,24 @@ int main(int argc, char *argv[], char **env) {
   height_window = 600;
   width_window = 1000;
 
+  WIDTH = width_window;
+  HEIGHT = height_window;
+  scaleW = DEFAULT_SIZE_SCREEN_W / WIDTH;
+  scaleH = DEFAULT_SIZE_SCREEN_H / HEIGHT;
+  uiScale = 100;
+
   //--------------------------------------------------------------------------------------------------------------
   // Initialisation SDL
   //--------------------------------------------------------------------------------------------------------------
 
 #include "game_init.h"
+
+  t_inventaire *inventaire = create_inventaire();
+  alloc_item(inventaire, 12);
+
+  t_liste *liste = malloc(sizeof(t_liste));
+  init_liste(liste);
+  en_tete(liste);
 
   double coef_fps = 1;
 
@@ -115,11 +137,13 @@ int main(int argc, char *argv[], char **env) {
     SDL_RenderPresent(renderer);
   }
 
+  inventaire_changer_constante(9);
   //----------------------------------------------------------------------------------------------------------------
   // Boucle de jeux
   //----------------------------------------------------------------------------------------------------------------
 
   while (boucle) {
+    SDL_reset_wheel_state(ks);
     SDL_touches(ks, ct);
     //QUITTER LE JEU
     if (SDL_touche_appuyer(ks, QUITTER) || SDL_touche_appuyer(ks, ESCAPE))
@@ -129,7 +153,7 @@ int main(int argc, char *argv[], char **env) {
     MAP_gen(map);
 
     //TEST SOURIS
-    test_souris(map, ks);
+    test_souris(map, ks, inventaire, liste);
 
     //Afficher le fond
     SDL_RenderCopy(renderer, fond, NULL, &fondRect);
@@ -138,6 +162,13 @@ int main(int argc, char *argv[], char **env) {
     MAP_afficher_sdl(map, renderer, calY_aff(map), calX_Debut(map), calX_Fin(map));
     //Affiche Joueur et
     Gestion_Entite(renderer, map->joueur, ks, coef_fps, map->list, GESTION_TOUCHES, ALL_ACTION, NULL, CENTER_SCREEN);
+
+    //Affichage Inventaire
+    if (SDL_touche_appuyer(ks, X)) {
+      inventaire_afficher(renderer, inventaire);
+    } else {
+      SDL_afficher_barre_action(renderer, inventaire, SDL_wheel_state(ks));
+    }
     //Afficher le rendu final
     SDL_RenderPresent(renderer);
 
