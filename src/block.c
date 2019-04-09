@@ -26,7 +26,10 @@ t_block_type blocks[NB_BLOCK] = {{AIR, "air", 0, NULL, NOIR, NULL},
                                  {ROCHE, "roche", 50, "./IMG/texture/pierre.png", GRIS, NULL},
                                  {NEIGE, "neige", 3, "./IMG/texture/neige.png", BLANC, NULL},
                                  {GLACE, "glace", 10, "./IMG/texture/glace.png", CYAN, NULL},
-                                 {GRAVIER, "gravier", 20, "./IMG/texture/gravier.png", GRIS, NULL}};
+                                 {GRAVIER, "gravier", 20, "./IMG/texture/gravier.png", GRIS, NULL},
+                                 {BRIQUE, "brique", 75, "./IMG/texture/brick_terre.png", MARRON, NULL},
+                                 {PORTAIL_HAUT, "portail_haut", 100, "./IMG/texture/portail_donjon_haut.png", NOIR, NULL},
+                                 {PORTAIL_BAS, "portail_bas", 100, "./IMG/texture/portail_donjon_bas.png", NOIR, NULL}};
 
 /**
  \fn char *BLOCK_GetTexture_term(int id)

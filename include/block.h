@@ -12,13 +12,29 @@
 #include <SDL2/SDL.h>
 #include <erreur.h>
 
-#define NB_BLOCK 12
+#define NB_BLOCK 15
 
 /**
  \enum t_materiaux
  \brief Enum de tous les materiaux qui existe
 **/
-typedef enum { AIR, HERBE, TERRE, EAU, SABLE, FEUILLE, BOIS, ROCHE, NEIGE, GLACE, DIAMAND ,GRAVIER} t_materiaux;
+typedef enum {
+  AIR=0,
+  HERBE=1,
+  TERRE=2,
+  EAU=3,
+  SABLE=4,
+  FEUILLE=5,
+  BOIS=6,
+  ROCHE=7,
+  NEIGE=8,
+  GLACE=9,
+  DIAMAND=10,
+  GRAVIER=11,
+  BRIQUE=12,
+  PORTAIL_HAUT=13,
+  PORTAIL_BAS=14
+} t_materiaux;
 
 /**
  \struct t_block_type
