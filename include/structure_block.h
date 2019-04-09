@@ -14,16 +14,17 @@
 #include <biome.h>
 #include <map.h>
 
-#define NB_STRUCT_BLOCK 5
+#define NB_STRUCT_BLOCK 6
 
 #define DIST_MAX_STRUCT 15
 
 typedef enum {
-  ARBRE_TAIGA,
-  ARBRE_FORET,
-  CACTUS,
-  BUISSON,
-  GRAND_ARBRE_FORET
+  ARBRE_TAIGA = 0,
+  ARBRE_FORET = 1,
+  CACTUS = 2,
+  BUISSON = 3,
+  GRAND_ARBRE_FORET = 4,
+  ENTRE_DONJON = 5
 } t_struct_block_type;
 
 typedef struct {

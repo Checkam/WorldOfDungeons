@@ -21,7 +21,10 @@ t_struct_block struct_block[NB_STRUCT_BLOCK] = {{ARBRE_TAIGA, 7, "structure/arbr
                                                 {ARBRE_FORET, 7, "structure/arbre_foret", 80, FORET},
                                                 {GRAND_ARBRE_FORET, 7, "structure/arbre_foret2", 10, FORET},
                                                 {BUISSON, 5, "structure/buisson", 60, FORET},
-                                                {CACTUS, 3, "structure/cactus", 30, DESERTS}};
+                                                {CACTUS, 3, "structure/cactus", 30, DESERTS},
+                                                {ENTRE_DONJON, 5, "structure/donjon", 1, FORET}
+
+};
 
 int STRUCT_GetWidth(t_struct_block_type type) {
   for (int i = 0; i < NB_STRUCT_BLOCK; i++) {
@@ -51,26 +54,31 @@ int STRUCT_Spawn(int x, int y, t_struct_block_type type_spawn, t_map *map) {
   return 0;
 }
 
+#define LECTURE 100
+
 int STRUCT_SetCol(int x_struct, int y, t_struct_block_type type_spawn, t_block *tab) {
   if (!tab)
     return -1;
 
-  char line[50];
+  char line[LECTURE];
   FILE *file = NULL;
   file = fopen(STRUCT_GetPath(type_spawn), "r");
 
   if (file != NULL) {
     for (int j = 0; j < x_struct; j++) {
-      for (int l = 0; l < 50; l++)
+      for (int l = 0; l < LECTURE; l++)
         line[l] = 0;
-      fgets(line, 50, file);
+      fgets(line, LECTURE, file);
     }
-
-    for (int j = 0; j < strlen(line) && (j + y < MAX - 1); j++) {
-      if (line[j] - '0' >= 0)
-        tab[y + j].id = line[j] - '0';
+    int var = 0, j = 0;
+    char line_temp[LECTURE];
+    while (sscanf(line, "%d:%s", &var, line_temp) == 2) {
+      tab[y + j].id = var;
+      strcpy(line, line_temp);
+      j++;
+      // printf("%s\n", line);
     }
-
+    // printf("\n");
     fclose(file);
   }
   return 0;
