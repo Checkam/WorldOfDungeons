@@ -543,6 +543,45 @@ t_erreur update_posY_entite(t_entite *entite, double coef_fps, t_liste *p, uint8
   return OK;
 }
 
+/**
+ * \fn t_erreur update_posY_Invert_entite(t_entite * entite, double coef_fps, t_liste * p, uint8_t pos)
+ * \brief Gère la position de l'entité sur Y inversé via la gravité et les collisions.
+ * \param entite L'entité à gérer.
+ * \param coef_fps Permet d'adapter les déplacements en fonction du nombre de fps.
+ * \param p Liste contenant les paramètres supplémentaires de la fonction collision si il y en a besoin.
+ * \param pos Position pour savoir si l'entité doit être bloqué dans l'affichage lorsqu'elle tombe.
+ * \return Une erreur s'il y en a une.
+*/
+t_erreur update_posY_Invert_entite(t_entite *entite, double coef_fps, t_liste *p, uint8_t pos) {
+  //fprintf(stderr,"Vel Y -> %.2f\n", entite->velY);
+  if (!entite)
+    return PTR_NULL;
+
+  int diff; // Profondeur de la collision
+  diff = collision(entite, DIRECT_HAUT_COLLI, p);
+  if (diff > 0) {
+    entite->hitbox.y += diff;
+  }
+
+  if (coef_fps > 5)
+    coef_fps = 5;
+  int i;
+  for (i = 0; i < coef_fps; i++) {
+    entite->velY += entite->accY;
+    int grav = entite->velY;
+    entite->hitbox.y += grav;
+  }
+  if ((diff = collision(entite, DIRECT_BAS_COLLI, p)) > 0) {
+    entite->velY = 0;
+    entite->hitbox.y += diff;
+  } //printf("Diff : %d\n", diff);
+  // if (pos & CENTER_SCREEN && ((!entite->velY && diff > 0) || entite->posEnt.y >= POSY_ENT_SCREEN(entite))) {
+  //   entite->posEnt.y = POSY_ENT_SCREEN(entite);
+  // }
+
+  return OK;
+}
+
 int collision(t_entite *entite, t_collision_direction direction, t_liste *p) {
   if (!entite || !p)
     return 0;
@@ -763,6 +802,9 @@ t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, d
         entite->nb_saut--;
     }
 
+    /* Gravité */
+    update_posY_entite(entite, coef_fps, p, pos);
+
   } else if (type_gestion & GESTION_ACTION) /* Gestion d'une action sans appui de touches */
   {
     if (!ref)
@@ -857,8 +899,6 @@ t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, d
   } else
     return VALUE_ERROR;
 
-  /* Gravité */
-  update_posY_entite(entite, coef_fps, p, pos);
   return OK;
 }
 

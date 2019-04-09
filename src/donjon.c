@@ -681,7 +681,7 @@ t_erreur donjon_gestion(SDL_Renderer * renderer, t_donjon * donjon, t_entite * j
             }else{
                 action = ia_jouer(mob, joueur, IA_ALEATOIRE);
             }
-            //update_posY_entite(mob, coef_fps, fenetre, NOT_CENTER_SCREEN | INVERSION_AXE_Y);
+            update_posY_Invert_entite(mob, coef_fps, fenetre, NOT_CENTER_SCREEN | INVERSION_AXE_Y);
             Gestion_Entite(renderer, mob, ks, coef_fps, fenetre, GESTION_ACTION, action, joueur, NOT_CENTER_SCREEN | INVERSION_AXE_Y);
         }
 
