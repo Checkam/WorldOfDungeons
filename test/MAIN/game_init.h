@@ -11,7 +11,7 @@ SDL_Rect fondRect = {0, 0, width_window, height_window};
 SDL_Renderer *renderer = SDL_CreateRenderer(screen, -1, SDL_RENDERER_ACCELERATED);
 
 SDL_Texture *fond;
-Create_IMG_Texture(renderer, "./IMG/texture/fond.bmp", &fond);
+Create_IMG_Texture(renderer, "./IMG/texture/environnement/ciel.png", &fond);
 BIOME_init();
 Init_Sprite(renderer);
 BLOCK_CreateTexture_sdl(renderer);
