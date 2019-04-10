@@ -17,19 +17,20 @@
   \brief tableau de tous les blocks
 **/
 t_block_type blocks[NB_BLOCK] = {{AIR, "air", 0, NULL, NOIR, NULL},
-                                 {HERBE, "herbe", 5, "./IMG/texture/herbe.png", VERT, NULL},
-                                 {TERRE, "terre", 10, "./IMG/texture/terre.png", MARRON, NULL},
-                                 {EAU, "eau", 0, "./IMG/texture/eau.png", BLEU, NULL},
-                                 {SABLE, "sable", 5, "./IMG/texture/sable.png", JAUNE, NULL},
-                                 {FEUILLE, "feuille", 3, "./IMG/texture/feuille.png", VERT, NULL},
-                                 {BOIS, "bois", 15, "./IMG/texture/tronc.png", MARRON, NULL},
-                                 {ROCHE, "roche", 50, "./IMG/texture/pierre.png", GRIS, NULL},
-                                 {NEIGE, "neige", 3, "./IMG/texture/neige.png", BLANC, NULL},
-                                 {GLACE, "glace", 10, "./IMG/texture/glace.png", CYAN, NULL},
-                                 {GRAVIER, "gravier", 20, "./IMG/texture/gravier.png", GRIS, NULL},
-                                 {BRIQUE, "brique", 75, "./IMG/texture/brick_terre.png", MARRON, NULL},
-                                 {PORTAIL_HAUT, "portail_haut", 100, "./IMG/texture/portail_donjon_haut.png", NOIR, NULL},
-                                 {PORTAIL_BAS, "portail_bas", 100, "./IMG/texture/portail_donjon_bas.png", NOIR, NULL}};
+                                 {HERBE, "herbe", 5, "./IMG/texture/block/herbe.png", VERT, NULL},
+                                 {TERRE, "terre", 10, "./IMG/texture/block/terre.png", MARRON, NULL},
+                                 {EAU, "eau", 0, "./IMG/texture/block/eau.png", BLEU, NULL},
+                                 {SABLE, "sable", 5, "./IMG/texture/block/sable.png", JAUNE, NULL},
+                                 {FEUILLE, "feuille", 3, "./IMG/texture/block/feuille.png", VERT, NULL},
+                                 {BOIS, "bois", 15, "./IMG/texture/block/tronc.png", MARRON, NULL},
+                                 {ROCHE, "roche", 50, "./IMG/texture/block/pierre.png", GRIS, NULL},
+                                 {NEIGE, "neige", 3, "./IMG/texture/block/neige.png", BLANC, NULL},
+                                 {GLACE, "glace", 10, "./IMG/texture/block/glace.png", CYAN, NULL},
+                                 {GRAVIER, "gravier", 20, "./IMG/texture/block/gravier.png", GRIS, NULL},
+                                 {BRIQUE, "brique", 75, "./IMG/texture/block/brick_terre.png", MARRON, NULL},
+                                 {PORTAIL_HAUT, "portail_haut", 100, "./IMG/texture/block/portail_donjon_haut.png", NOIR, NULL},
+                                 {PORTAIL_BAS, "portail_bas", 100, "./IMG/texture/block/portail_donjon_bas.png", NOIR, NULL},
+                                 {PLANT, "plant", 5, "./IMG/texture/block/herbe_plant.png", VERT, NULL}};
 
 /**
  \fn char *BLOCK_GetTexture_term(int id)

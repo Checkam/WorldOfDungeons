@@ -12,7 +12,7 @@
 #include <SDL2/SDL.h>
 #include <erreur.h>
 
-#define NB_BLOCK 15
+#define NB_BLOCK 16
 
 /**
  \enum t_materiaux
@@ -33,7 +33,8 @@ typedef enum {
   GRAVIER=11,
   BRIQUE=12,
   PORTAIL_HAUT=13,
-  PORTAIL_BAS=14
+  PORTAIL_BAS=14,
+  PLANT=15
 } t_materiaux;
 
 /**
