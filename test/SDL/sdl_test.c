@@ -1,91 +1,138 @@
 /**
  *
- *   \file sdl_test.c
- *   \brief Test du module affichage et avec outils_SDL
+ *   \file main_test.c
+ *   \brief Test du d'un main du programme
  *   \author {Maxence.D}
  *   \version 0.1
  *   \date 10 mars 2019
  */
-
+#define DEBUG
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
 #include <affichage.h>
 #include <biome.h>
+#include <block.h>
+#include <chemin.h>
+#include <commun.h>
 #include <couleurs.h>
+#include <entite.h>
+#include <fps.h>
 #include <generation.h>
+#include <inventaire.h>
+#include <item.h>
 #include <liste.h>
+#include <map.h>
 #include <math.h>
+#include <menu.h>
 #include <outils_SDL.h>
 #include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <structure_block.h>
 #include <time.h>
 #include <touches.h>
+#include <world_of_dungeons.h>
 
-int main(int argc, char const *argv[]) {
+#define calY_aff(map)                                                                                                                                \
+  (map->joueur->hitbox.y / height_block_sdl) - (POSY_ENT_SCREEN(map->joueur) / height_block_sdl) - 2 // Le moins 2 a trouver d'ou il vient
 
-  // ----------------------------------------------------------------- SDL
+#define calX_Debut(map) ((map->joueur->hitbox.x - map->joueur->hitbox.w / 2) / width_block_sdl) - (SIZE / 2)
 
-  SDL_Init(SDL_INIT_EVERYTHING);
-  SDL_Window *screen = SDL_CreateWindow("World Of Dungeons", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width_window, height_window,
-                                        SDL_WINDOW_SHOWN | SDL_WINDOW_FULLSCREEN_DESKTOP);
+#define calX_Fin(map) ((map->joueur->hitbox.x + map->joueur->hitbox.w / 2) / width_block_sdl) + (SIZE / 2)
 
-  SDL_GetWindowSize(screen, &width_window, &height_window);
-  //SDL_SetWindowFullscreen(screen, SDL_WINDOW_FULLSCREEN);
+int main(int argc, char *argv[], char **env) {
+  pwd_init(argv[0], getenv("PWD"));
+  srand(time(NULL));
+  SEED = 233242;
+  t_menu *menu = NULL;
+  t_map *map = NULL;
 
-  SDL_Event event;
+  uint8_t *ks;
+  configTouches_t *ct;
+  width_block_sdl = 10;
+  height_block_sdl = 10;
+  height_window = 600;
+  width_window = 1000;
 
-  SDL_Rect fondRect = {0, 0, width_window, height_window};
+  //--------------------------------------------------------------------------------------------------------------
+  // Initialisation SDL
+  //--------------------------------------------------------------------------------------------------------------
 
-  SDL_Renderer *renderer = SDL_CreateRenderer(screen, -1, SDL_RENDERER_ACCELERATED);
+#include "game_init.h"
 
-  SDL_Texture *fond;
-  Create_IMG_Texture(renderer, "./IMG/texture/fond.bmp", &fond);
-  BLOCK_CreateTexture_sdl(renderer);
-  SEED = 898989;
-  BIOME_init();
+  t_inventaire *inventaire = create_inventaire();
+  alloc_item(inventaire, 12);
 
-  int taille_max = 0;
-  int i = 100;
-  int repeat = 0;
-  int taille = 0;
+  t_liste *liste = malloc(sizeof(t_liste));
+  init_liste(liste);
+  en_tete(liste);
 
-  t_liste list;
-  init_liste(&list);
+  double coef_fps = 1;
 
-  int boucle = 10000000;
+  int boucle = 1;
 
-  while (boucle-- && !repeat) {
-    taille_max = gen_col(&list, i, DROITE);
+  //----------------------------------------------------------------------------------------------------------------
+  // Menu Début de jeux
+  //----------------------------------------------------------------------------------------------------------------
 
-    taille = AFF_GetMidHeight(&list);
+  menu_creer(MENU_PRINCIPAL, width_window, height_window, &menu);
+  t_type_menu type_bouton;
 
-    if (taille == -1)
-      taille = taille_max;
+  while (menu) {
     SDL_RenderClear(renderer);
-    SDL_RenderCopy(renderer, fond, NULL, &fondRect);
+    SDL_touches(ks, ct);
+    menu_gestion_SDL(menu, SDL_touche_appuyer(ks, SOURIS_GAUCHE), &type_bouton);
+    if (type_bouton == MENU_QUITTER) {
+      boucle = 0;
+      menu_suivant(&menu, type_bouton);
+    } else if (type_bouton == MENU_NOUVELLE_PARTIE) {
 
-    AFF_map_sdl(&list, renderer, taille - 10);
+      MAP_creer(&map, "World", 12281783);
+      menu_suivant(&menu, type_bouton);
+    } else if (type_bouton == MENU_CHARGER_PARTIE) {
+
+      MAP_charger(&map, "World");
+      menu_suivant(&menu, type_bouton);
+    } else if (type_bouton != MENU_NULL) {
+      menu_suivant(&menu, type_bouton);
+    }
+    menu_afficher_SDL(menu, renderer);
     SDL_RenderPresent(renderer);
 
-    //AFF_map_term(&list, 0, 400);
-    SDL_Delay(50);
-    while (SDL_PollEvent(&event))
-      switch (event.type) {
-      case SDL_QUIT:
-        repeat = 1;
-        break;
-      }
-    i++;
+    coef_fps = fps();
   }
 
-  BIOME_Quit();
+  inventaire_changer_constante(9);
+  //----------------------------------------------------------------------------------------------------------------
+  // Boucle de jeux
+  //----------------------------------------------------------------------------------------------------------------
 
-  BLOCK_DestroyTexture_sdl(renderer);
-  detruire_liste(&list, free);
-  SDL_DestroyTexture(fond);
-  SDL_DestroyRenderer(renderer);
-  SDL_DestroyWindow(screen);
-  SDL_Quit();
+  while (boucle) {
+    SDL_reset_wheel_state(ks);
+    SDL_touches(ks, ct);
+    //QUITTER LE JEU
+    if (SDL_touche_appuyer(ks, QUITTER) || SDL_touche_appuyer(ks, ESCAPE))
+      boucle = 0;
+
+    //GENERATION DROITE GAUCHE
+    MAP_gen(map);
+
+    //Afficher le fond
+    SDL_RenderCopy(renderer, fond, NULL, &fondRect);
+
+    //Affiche map
+    MAP_afficher_sdl(map, renderer, calY_aff(map), calX_Debut(map), calX_Fin(map)); //Modifier l'affichage de la map pour afficher des demi colone
+    //Affiche Joueur et
+    Gestion_Entite(renderer, map->joueur, ks, coef_fps, map->list, GESTION_TOUCHES, ALL_ACTION, NULL, NOT_CENTER_SCREEN);
+
+    //Afficher le rendu final
+    SDL_RenderPresent(renderer);
+
+    coef_fps = fps();
+  }
+
+//Quit du jeux
+#include "game_quit.h"
 
   return 0;
 }
