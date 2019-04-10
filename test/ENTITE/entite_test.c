@@ -11,8 +11,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <touches.h>
+#include <time.h>
 
 int main(int argc, char **argv, char **env) {
+  srand(time(NULL));
   pwd_init(argv[0], getenv("PWD"));
   SDL_Init(SDL_INIT_EVERYTHING);
 
@@ -49,6 +51,9 @@ int main(int argc, char **argv, char **env) {
     Mob = creer_entite_defaut("Maxence",ZOMBIE,22005,16,70);
   }
 
+  /* Création Liste d'entité */
+  t_liste * liste = Create_Liste_Entite(21950,22050,25,ZOMBIE,5,70);
+
   fps_init();
   double coef_fps = 1;
   uint8_t *ks;
@@ -66,12 +71,16 @@ int main(int argc, char **argv, char **env) {
     }
 
     Gestion_Entite(renderer, J, ks, coef_fps, NULL,GESTION_TOUCHES,ALL_ACTION,NULL,CENTER_SCREEN);
+    //fprintf(stderr,"Joueur : %d\n", J->hitbox.y);
 
     update_posY_entite(Mob,coef_fps,NULL,NOT_CENTER_SCREEN);
     // Gestion_Entite(renderer,Mob,ks,coef_fps,NULL,GESTION_ACTION,MARCHE_DEVANT,J);
     // Gestion_Entite(renderer,Mob,ks,coef_fps,NULL,GESTION_ACTION,ACCELERER,J);
     Gestion_Entite(renderer,Mob,ks,coef_fps,NULL,GESTION_ACTION,ATTAQUE_DROITE,J,NOT_CENTER_SCREEN);
     
+    update_posY_liste_entite(liste,coef_fps,NULL,NOT_CENTER_SCREEN);
+    Print_Liste_Entite_Screen(renderer,J,liste,IMMOBILE,NOT_CENTER_SCREEN);
+
     SDL_RenderPresent(renderer);
     coef_fps = fps();
     Add_PV_Entite(J,-4);
@@ -85,6 +94,7 @@ int main(int argc, char **argv, char **env) {
 
   detruire_entite(J);
   detruire_entite(Mob);
+  Destroy_Liste_Entite(&liste);
   Quit_Sprite();
 
   SDL_DestroyRenderer(renderer);
