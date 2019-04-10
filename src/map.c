@@ -22,6 +22,7 @@
 #include <string.h>
 #include <touches.h>
 
+#include <errno.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 
@@ -179,10 +180,21 @@ t_erreur MAP_creer_dir(t_map *map) {
   strcpy(path_player, path_dir);
   strcat(path_player, "player/");
 
-  if (mkdir(path_dir, S_IRWXU | S_IRWXG | S_IROTH))
+  int result = mkdir(PATH_MAP_DIR, S_IRWXU | S_IRWXG | S_IROTH);
+  if (result == 0 || errno == EEXIST) {
+    result = mkdir(path_dir, S_IRWXU | S_IRWXG | S_IROTH);
+    if (result == 0 || errno == EEXIST) {
+      if (result == 0 || errno == EEXIST) {
+        result = mkdir(path_player, S_IRWXU | S_IRWXG | S_IROTH);
+      } else {
+        return FILE_ERROR; // MKDIR_ERROR
+      }
+    } else {
+      return FILE_ERROR; // MKDIR_ERROR
+    }
+  } else {
     return FILE_ERROR; // MKDIR_ERROR
-  if (mkdir(path_player, S_IRWXU | S_IRWXG | S_IROTH))
-    return FILE_ERROR; // MKDIR_ERROR
+  }
 
   erreur = MAP_detruire_path(&path_dir);
   if (erreur != OK)
