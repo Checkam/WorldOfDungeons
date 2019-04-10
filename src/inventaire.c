@@ -104,7 +104,7 @@ void ajout_item_dans_inventaire( t_inventaire *inventaire, t_liste *listeItem ) 
     en_tete( listeItem );
 
     uint16_t placeLibre, i;
-    t_liste_item *ptritem, *a;
+    t_liste_item *ptritem;
 
     #ifdef DEBUG 
         assert( listeItem != NULL && inventaire != NULL );
@@ -121,6 +121,8 @@ void ajout_item_dans_inventaire( t_inventaire *inventaire, t_liste *listeItem ) 
         /* recherche d'une place d'inventaire deja occupé par l'item que l'on souhaite mettre && que cette case ne soit pas rempli */
         while ( i < inventaire->nbItemMax ) {
 
+            printf("test : %p == %p && %d < %d\n", ((( inventaire->inventaire) + i)->item), (tabItem + ( ptritem->item )), (( inventaire->inventaire) + i)->stack, (tabItem + ( ptritem->item ))->stack);
+
             if ( ((( inventaire->inventaire) + i)->item) == (tabItem + ( ptritem->item )) && (( inventaire->inventaire) + i)->stack < (tabItem + ( ptritem->item ))->stack ) {
 
                 placeLibre = i;
@@ -128,13 +130,13 @@ void ajout_item_dans_inventaire( t_inventaire *inventaire, t_liste *listeItem ) 
             }
             i++;
         }
-        
+
         /* si aucune place trouvé alors recherche d'un case d'inventaire libre */
         if ( placeLibre >= inventaire->nbItemMax ) {
 
             placeLibre = 0;
 
-            while ( ((inventaire->inventaire) + placeLibre)->item != NULL )
+            while ( placeLibre < inventaire->nbItemMax && ((inventaire->inventaire) + placeLibre)->item != NULL)
                 placeLibre++;
         }
 

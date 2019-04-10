@@ -31,15 +31,13 @@ int main ( int argc, char ** argv, char **env ) {
 
 	pwd_init( argv[0], getenv("PWD"));
 	SDL_Init( SDL_INIT_VIDEO );
-	IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG | IMG_INIT_TIF | IMG_INIT_WEBP);
+	IMG_Init(IMG_INIT_PNG);
 	TTF_Init();
 	SDL_init_touches(&ks, &ct);
 
 	SDL_Renderer *renderer;
 	SDL_Window *window = SDL_CreateWindow("Inventaire test", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WIDTH, HEIGHT, /*SDL_WINDOW_FULLSCREEN*/ NULL);
 	renderer = SDL_CreateRenderer( window, -1, SDL_RENDERER_ACCELERATED);
-
-	fprintf(stderr, "inventaire %s\n", SDL_GetError());
 
 	init_item(renderer);
 	inventaire_init( renderer);
@@ -78,7 +76,7 @@ int main ( int argc, char ** argv, char **env ) {
 	|	Allocation d'une zone memoire de 10 items		|
 	|	-----------------------------------------------*/
 
-	alloc_item(inventaire, 40);
+	alloc_item(inventaire, 2);
 
 	/*	------------------------------------------------|
 	|	Note :											|
@@ -118,38 +116,44 @@ int main ( int argc, char ** argv, char **env ) {
 	ajout_droit(liste, (void *)item5 );
 	ajout_droit(liste, (void *)item6 );*/
 
-	
-
-	casser_block( NEIGE, &liste );
-
-	ajout_item_dans_inventaire( inventaire, liste);
-
-	casser_block( TERRE, &liste );
-
-	ajout_item_dans_inventaire( inventaire, liste);
-
-	/*afficher_inventaire ( inventaire );*/
-
 	/*	------------------------------------------------|
 	|	Affichage dans la SDL							|
 	|	-----------------------------------------------*/
 
-	inventaire_changer_constante(9);
+	inventaire_changer_constante(5);
+
+	uint8_t ii;
 
 	while ( !SDL_touche_appuyer(ks, ESCAPE)) {
 
 		casser_block( TERRE, &liste );
-		ajout_item_dans_inventaire( inventaire, liste);
 		casser_block( NEIGE, &liste );
+		ii = 0;
+		en_tete(liste);
+
+		while ( !hors_liste( liste ) ) {
+
+        	ii++;
+        	suivant(liste);
+    	}
+		printf("ii : %d---\n", ii);
 		ajout_item_dans_inventaire( inventaire, liste);
+
+		en_tete(liste);
+
+		while ( !hors_liste( liste ) ) {
+			
+			oter_elt(liste, free);
+			en_tete(liste);
+		}
 
 		SDL_reset_wheel_state(ks);
 		SDL_touches( ks, ct);
-		SDL_afficher_barre_action( renderer, inventaire, SDL_wheel_state(ks));
-		/*inventaire_afficher(renderer, inventaire);*/
+		/*SDL_afficher_barre_action( renderer, inventaire, SDL_wheel_state(ks));*/
+		inventaire_afficher(renderer, inventaire);
 		SDL_RenderPresent(renderer);
 		SDL_RenderClear(renderer);
-		SDL_Delay(33);
+		SDL_Delay(100);
 	}
 
 	/*	------------------------------------------------|
