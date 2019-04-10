@@ -90,7 +90,7 @@ t_erreur donjon_creer(t_donjon ** donjon, int nb_salle, t_entite * joueur){
     salle = NULL;
     donjon_coord_depart((*donjon)->donjon, &salle);
     joueur->hitbox.x = (salle->x * SIZE + (SIZE / 2)) * width_block_sdl;
-    joueur->hitbox.y = (salle->y * MAX_SCREEN + (MAX_SCREEN - 1 - TAILLE_SOL)) * height_block_sdl;
+    joueur->hitbox.y = (salle->y * MAX_SCREEN + (TAILLE_SOL)) * height_block_sdl;
 
     
     return OK;
@@ -377,14 +377,14 @@ static t_erreur donjon_creer_structure_salle(t_salle_donjon * salle){
         int hauteur;
 
         /* Génération relief plafond */
-        hauteur = perlin2d(i, salle->x * salle->y, FREQ * 20, DEPTH) * (MAX_SCREEN - (MAX_SCREEN / 2));
+        hauteur = perlin2d(i, salle->x * salle->y, FREQ * 20, DEPTH) * ((MAX_SCREEN / 2));
         if(hauteur >= MAX_SCREEN - 1)
             hauteur = MAX_SCREEN - 1;
         
         int j;
         for(j = 0; j < MAX_SCREEN; j++){
             tab[j].x = i;
-            tab[j].y = j;
+            tab[j].y = MAX_SCREEN - 1 - j;
 
             
             if(j <= hauteur && (i == SIZE / 2 || i == SIZE / 2 + 1) && salle->voisin[1] == 1){
@@ -514,6 +514,8 @@ t_erreur tab_fenetre(t_liste * donjon, SDL_Rect pos_perso, t_liste ** tab_fenetr
     int y_salle_max = (pos_perso.y / height_block_sdl) + (MAX_SCREEN / 2);
     int y_donjon_max = y_salle_max / MAX_SCREEN;
     
+    //fprintf(stderr, "------------------------\njoueur : %d:%d\n", pos_perso.x / width_block_sdl, pos_perso.y / height_block_sdl);
+    
     /* On ajoute les blocks à la map */
     t_salle_donjon * salle = NULL;
     t_block *colonne = NULL;
@@ -529,6 +531,9 @@ t_erreur tab_fenetre(t_liste * donjon, SDL_Rect pos_perso, t_liste ** tab_fenetr
                         int x_donjon = salle->x * SIZE + colonne[i].x;
                         int y_donjon = salle->y * MAX_SCREEN + colonne[i].y;
                         
+                        /*if(x_donjon == pos_perso.x / width_block_sdl)
+                            fprintf(stderr, "%d:%d:%d:%d\n", x_donjon, y_donjon, colonne[i].id, AIR);*/
+
                         if(x_donjon >= x_salle_min && x_donjon < x_salle_max){
                             if(y_donjon >= y_salle_min && y_donjon < y_salle_max){
                                 tab[y_donjon - y_salle_min][x_donjon - x_salle_min].id = colonne[i].id;
@@ -681,8 +686,8 @@ t_erreur donjon_gestion(SDL_Renderer * renderer, t_donjon * donjon, t_entite * j
             }else{
                 action = ia_jouer(mob, joueur, IA_ALEATOIRE);
             }
-            update_posY_entite(mob, coef_fps, fenetre, NOT_CENTER_SCREEN | INVERSION_AXE_Y);
-            Gestion_Entite(renderer, mob, ks, coef_fps, fenetre, GESTION_ACTION, action, joueur, NOT_CENTER_SCREEN | INVERSION_AXE_Y);
+            //update_posY_entite(mob, coef_fps, fenetre, NOT_CENTER_SCREEN);
+            Gestion_Entite(renderer, mob, ks, coef_fps, fenetre, GESTION_ACTION, action, joueur, NOT_CENTER_SCREEN);
         }
 
         /* Affichage Mob */
@@ -695,7 +700,7 @@ t_erreur donjon_gestion(SDL_Renderer * renderer, t_donjon * donjon, t_entite * j
                     if(salle_ec->mob != NULL && salle_ec != salle){
                         for(en_tete(salle_ec->mob); !hors_liste(salle_ec->mob); suivant(salle_ec->mob)){
                             valeur_elt(salle_ec->mob, (void**)&mob);
-                            Print_Entite_Screen(renderer, joueur, mob, mob->act_pred, NOT_CENTER_SCREEN | INVERSION_AXE_Y);
+                            Print_Entite_Screen(renderer, joueur, mob, mob->act_pred, NOT_CENTER_SCREEN);
                         }
                     }
                 }
@@ -752,7 +757,7 @@ static t_erreur creer_mob(t_salle_donjon * salle, t_entite * joueur){
     int taille_mob = 4;
     int taille_boss = 6;
     int posX_mob = (salle->x * SIZE) + (SIZE / 2);
-    int posY_mob = (salle->y * MAX_SCREEN) + (MAX_SCREEN - 1 - TAILLE_SOL);
+    int posY_mob = (salle->y * MAX_SCREEN) + (TAILLE_SOL + taille_mob);
     
     while(nb_mob--){
         mob = creer_entite_defaut("Mob", ZOMBIE, posX_mob, posY_mob - taille_mob/3, taille_mob * height_block_sdl);

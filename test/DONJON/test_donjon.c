@@ -106,21 +106,21 @@ int main(int argc, char **argv, char **env){
         donjon_afficher_SDL(renderer, donjon, joueur);
         donjon_gestion(renderer, donjon, joueur, ks, coef_fps);
 
-        /*tab_fenetre(donjon->donjon, joueur->hitbox, &fenetre);
-        Gestion_Entite(renderer, joueur, ks, coef_fps, fenetre, GESTION_TOUCHES, ALL_ACTION, NULL, CENTER_SCREEN);*/
+        tab_fenetre(donjon->donjon, joueur->hitbox, &fenetre);
+        Gestion_Entite(renderer, joueur, ks, coef_fps, fenetre, GESTION_TOUCHES, ALL_ACTION, NULL, CENTER_SCREEN);
 
         if ( SDL_touche_appuyer( ks, QUITTER) || SDL_touche_appuyer( ks, ESCAPE)) 
             continuer = 0;
-        if ( SDL_touche_appuyer( ks, AVANCER) ) 
-            joueur->hitbox.y -= 10;
+        /*if ( SDL_touche_appuyer( ks, AVANCER) ) 
+            joueur->hitbox.y += 10;
         if ( SDL_touche_appuyer( ks, DROITE) ) 
             joueur->hitbox.x += 10;
         if ( SDL_touche_appuyer( ks, RECULER) ) 
-            joueur->hitbox.y += 10;
+            joueur->hitbox.y -= 10;
         if ( SDL_touche_appuyer( ks, GAUCHE) ) 
             joueur->hitbox.x -= 10;
 
-        Charger_Anima(renderer, joueur, IMMOBILE);
+        Charger_Anima(renderer, joueur, IMMOBILE);*/
         Print_Info_Entite(renderer, joueur);
         //donjon_afficher_Term(donjon, joueur);
         
