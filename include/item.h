@@ -11,11 +11,12 @@
 #define AUCUN_BESOIN 0
 #define PAS_DROP_APRES_N 1
 
-#define NB_ITEMS 11
+#define NB_ITEMS 12
 
 typedef enum {
 
     I_TERRE=0, I_PIERRE, I_ROCHE, I_SABLE, I_GRAVIER,
+    I_BRIQUE,
     I_BOIS, I_POUSSE_ARBRE, I_POMME,
     I_BOULE_NEIGE,
     I_SILEX,

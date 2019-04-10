@@ -121,8 +121,6 @@ void ajout_item_dans_inventaire( t_inventaire *inventaire, t_liste *listeItem ) 
         /* recherche d'une place d'inventaire deja occupé par l'item que l'on souhaite mettre && que cette case ne soit pas rempli */
         while ( i < inventaire->nbItemMax ) {
 
-            printf("test : %p == %p && %d < %d\n", ((( inventaire->inventaire) + i)->item), (tabItem + ( ptritem->item )), (( inventaire->inventaire) + i)->stack, (tabItem + ( ptritem->item ))->stack);
-
             if ( ((( inventaire->inventaire) + i)->item) == (tabItem + ( ptritem->item )) && (( inventaire->inventaire) + i)->stack < (tabItem + ( ptritem->item ))->stack ) {
 
                 placeLibre = i;

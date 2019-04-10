@@ -131,19 +131,15 @@ void casser_block( t_materiaux materiaux, t_liste **listeItem ) {
 
 void exit_item( t_liste_item **item ) {
 
-    for ( uint16_t i = 0 ; i < I_END ; i++ )
+    uint16_t i;
+
+    for ( i = 0 ; i < I_END ; i++ )
         if ( ( tabItem + i )->texture != NULL )
             SDL_DestroyTexture(( tabItem + i )->texture);
 
-    free( ( tabItemDrop + HERBE )->drop);
-    free( ( tabItemDrop + TERRE )->drop);
-    free( ( tabItemDrop + SABLE )->drop);
-    free( ( tabItemDrop + FEUILLE )->drop);
-    free( ( tabItemDrop + BOIS )->drop);
-    free( ( tabItemDrop + ROCHE )->drop);
-    free( ( tabItemDrop + NEIGE )->drop);
-    free( ( tabItemDrop + DIAMAND )->drop);
-    free( ( tabItemDrop + GRAVIER )->drop);
+    for ( i = 0 ; i < NB_BLOCK ; i++ )
+        if ( ( tabItemDrop + i )->drop != NULL )
+            free( ( tabItemDrop + i )->drop );
 
     if ( item != NULL)
         if ( *item != NULL )
@@ -220,6 +216,18 @@ static void default_item_drop () {
     (( tabItemDrop + FEUILLE )->drop + 1 )->pourMille = 50; /* 5% de chance de drop */
 
     (( tabItemDrop + FEUILLE )->drop + 2 )->item = I_END;
+
+
+    /* BRIQUE */
+    ( tabItemDrop + BRIQUE )->drop = malloc( sizeof(t_liste_drop) * 2 );
+
+    ( tabItemDrop + BRIQUE )->drop->item = I_BRIQUE;
+    ( tabItemDrop + BRIQUE )->drop->nombre = 1;
+    ( tabItemDrop + BRIQUE )->drop->besoin = AUCUN_BESOIN;
+    ( tabItemDrop + BRIQUE )->drop->info = 0;
+    ( tabItemDrop + BRIQUE )->drop->pourMille = 1000;
+
+    (( tabItemDrop + BRIQUE )->drop + 1)->item = I_END;
 
 
     /* BOIS */
@@ -354,6 +362,11 @@ static void default_item_type ( SDL_Renderer *renderer ) {
     ( tabItem + I_GRAVIER )->posable = GRAVIER;
     ( tabItem + I_GRAVIER )->texture = NULL;
 
+    ( tabItem + I_BRIQUE )->nomItem = "brique";
+    ( tabItem + I_BRIQUE )->stack = 30;
+    ( tabItem + I_BRIQUE )->posable = BRIQUE;
+    ( tabItem + I_BRIQUE )->texture = NULL;
+
     ( tabItem + I_BOIS )->nomItem = "bois brut";
     ( tabItem + I_BOIS )->stack = 40;
     ( tabItem + I_BOIS )->posable = BOIS;
@@ -372,6 +385,11 @@ static void default_item_type ( SDL_Renderer *renderer ) {
     ( tabItem + I_POMME )->nomItem = "pomme";
     ( tabItem + I_POMME )->stack = 50;
     ( tabItem + I_POMME )->posable = AIR;
+    if ( renderer ) {
+        creation_chemin("data/Image/Pomme_150_150.png", &chemin);
+        Create_IMG_Texture(renderer, chemin, &( tabItem + I_POMME )->texture);
+        free(chemin);
+    } else
     ( tabItem + I_POMME )->texture = NULL;
 
     ( tabItem + I_BOULE_NEIGE )->nomItem = "boule de neige";
