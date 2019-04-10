@@ -225,6 +225,7 @@ void SDL_afficher_barre_action ( SDL_Renderer *renderer, t_inventaire *inventair
         barreRectTexteItem.w = nbLettres / 1.5 * barreRectTexteItem.h;
         Create_Text_Texture(renderer, ( inventaire->inventaire + selection )->item->nomItem, police, 15, couleurTexte, BLENDED, &textureNombre );
         SDL_RenderCopy( renderer, textureNombre, NULL, &barreRectTexteItem);
+        SDL_DestroyTexture(textureNombre);
         changement --;
 
         if ( changement < 25 )
@@ -239,6 +240,7 @@ void SDL_afficher_barre_action ( SDL_Renderer *renderer, t_inventaire *inventair
             SDL_RenderCopy( renderer, ( inventaire->inventaire + i)->item->texture, NULL, &barreRect );
             Create_Text_Texture(renderer, texte, police, 50, couleurNombre, BLENDED, &textureNombre );
             SDL_RenderCopy( renderer, textureNombre, NULL, &barreRectTexteNombre);
+            SDL_DestroyTexture(textureNombre);
         }
 
         SDL_RenderCopy( renderer, bordure, NULL, &barreRect);

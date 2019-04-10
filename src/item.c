@@ -119,6 +119,7 @@ void casser_block( t_materiaux materiaux, t_liste **listeItem ) {
     while ( ( totalItem + i )->item != I_END ) {
 
         temp = malloc( sizeof(t_liste_item));
+        /* ne pas free temp ici, sinon l'objet de la liste sera free et ne sera plus recuperable */
         temp->item = (totalItem + i)->item;
         temp->nbDrop = (totalItem + i)->nbDrop;
         ajout_droit(*listeItem, (void *)temp);
@@ -130,6 +131,10 @@ void casser_block( t_materiaux materiaux, t_liste **listeItem ) {
 
 void exit_item( t_liste_item **item ) {
 
+    for ( uint16_t i = 0 ; i < I_END ; i++ )
+        if ( ( tabItem + i )->texture != NULL )
+            SDL_DestroyTexture(( tabItem + i )->texture);
+
     free( ( tabItemDrop + HERBE )->drop);
     free( ( tabItemDrop + TERRE )->drop);
     free( ( tabItemDrop + SABLE )->drop);
@@ -140,8 +145,9 @@ void exit_item( t_liste_item **item ) {
     free( ( tabItemDrop + DIAMAND )->drop);
     free( ( tabItemDrop + GRAVIER )->drop);
 
-    if ( *item != NULL )
-        free(*item);
+    if ( item != NULL)
+        if ( *item != NULL )
+            free(*item);
 
     free(tabItemDrop);
     free(tabItem);
