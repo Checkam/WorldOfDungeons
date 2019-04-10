@@ -45,12 +45,12 @@ t_erreur MAP_creer(t_map **map, char *nom_map, int SEED) {
   strcpy((*map)->nom, nom_map);
   (*map)->SEED = SEED;
 
+  (*map)->joueur = creer_entite_defaut("player", JOUEUR, 19800, 200, 50);
+
   MAP_creer_dir(*map);
 
   (*map)->list = malloc(sizeof(t_liste));
   init_liste((*map)->list);
-
-  (*map)->joueur = creer_entite_defaut("player", JOUEUR, 19800, 200, 50);
 
   MAP_gen(*map);
   MAP_sauvegarder(*map);
@@ -64,7 +64,8 @@ t_erreur MAP_creer(t_map **map, char *nom_map, int SEED) {
     \return Renvoie un code erreur en cas de problème sinon OK
 **/
 t_erreur MAP_charger(t_map **map, char *nom_map) {
-  char *path_dir = MAP_creer_path((*map)->nom);
+
+  char *path_dir = MAP_creer_path(nom_map);
   char *path_player = malloc(strlen(path_dir) * sizeof(char) + strlen("player/") * sizeof(char));
   strcpy(path_player, path_dir);
   strcat(path_player, "player/");
@@ -240,7 +241,8 @@ t_erreur MAP_detruction(t_map **map) {
 **/
 char *MAP_creer_path(char *nom_map) {
 
-  char *path_dir = malloc(sizeof(char) * strlen(nom_map) + sizeof(char) * 500); //Utilise PWD pour éviter de malloc 500 sizeof char
+  char *path_dir =
+      malloc(sizeof(char) * strlen(nom_map) + sizeof(char) * strlen(PATH_MAP_DIR) + 2); //Utilise PWD pour éviter de malloc 500 sizeof char
 
   strcpy(path_dir, PATH_MAP_DIR);
   strcat(path_dir, nom_map);
@@ -360,7 +362,7 @@ void MAP_gen(t_map *map) {
   t_block *dernier = MAP_GetBlockFromList(map, taille_liste(map->list) - 1, 0);
 
   if (!premier)
-    gen_col(map->list, (map->joueur->hitbox.x / width_block_sdl) + 1, DROITE);
+    gen_col(map->list, (map->joueur->hitbox.x / width_block_sdl), DROITE);
 
   if (dernier) {
     while (dernier->x < (map->joueur->hitbox.x / width_block_sdl) + DISTANCE_GEN) {
