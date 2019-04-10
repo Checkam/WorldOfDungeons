@@ -185,6 +185,8 @@ t_erreur Anim_Update (t_entite * entite, t_action action, int new_time);
 int collision (t_entite * entite, t_collision_direction direction, t_liste * p);
 /* Gère la position de l'entité en Y avec la gravité et les collisions */
 t_erreur update_posY_entite(t_entite * entite, double coef_fps, t_liste * p, uint8_t pos);
+/* Gère la position de l'entité en Y inversé avec la gravité et les collisions */
+t_erreur update_posY_Invert_entite(t_entite * entite, double coef_fps, t_liste * p, uint8_t pos);
 
 
 /****** Primitives des fonctions qui gèrent l'affichage des entités en fonction des collisions ******/
