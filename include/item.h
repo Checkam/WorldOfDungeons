@@ -29,7 +29,7 @@ typedef struct item_type_s {
     uint16_t stack;
     uint16_t durabilite;
 
-    t_block_type *posable; /* si l item peut etre poser, alors non NULL */
+    t_materiaux posable; /* si l item peut etre poser, alors non NULL */
 
     SDL_Texture *texture;
 
