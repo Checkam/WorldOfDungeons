@@ -61,12 +61,9 @@ void test_souris(t_map *map, uint8_t *ks, t_inventaire *inventaire, t_liste *lis
     SDL_coord_souris(&x_mouse, &y_mouse);
     // Récuperation d'un block dans la liste
     b = MAP_GetBlock(map, (x_mouse / width_block_sdl) + calX_Debut(map) + 1, MAX_SCREEN - (y_mouse / height_block_sdl) + calY_aff(map));
-    if (b) {
-      b->id = BRIQUE;
-
-      // STRUCT_Spawn(b->x, b->y, 5, map);
-
-      // fprintf(stderr, "%d %d %d %d\n", calY_aff(map), (POSY_ENT_SCREEN(map->joueur) / height_block_sdl), map->joueur->hitbox.y, b->y);
+    if (b && b->id == AIR && abs(b->x - ((map->joueur->hitbox.x) / width_block_sdl)) < 3 &&
+        abs(b->y - ((map->joueur->hitbox.y) / height_block_sdl)) < 3) {
+      b->id = ROCHE;
     }
   }
 }
