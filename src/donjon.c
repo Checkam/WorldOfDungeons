@@ -134,11 +134,11 @@ static t_erreur donjon_ajout_salle(t_liste * donjon, int taille_donjon, t_entite
     if(choix == 0){
         x--;
     }else if(choix == 1){
-        y--;
+        y++;
     }else if(choix == 2){
         x++;
     }else if(choix == 3){
-        y++;
+        y--;
     }
     
     /* On crée la salle puis on l'ajoute à la liste */
@@ -326,11 +326,11 @@ static t_erreur update_voisin(t_liste * donjon, int taille_donjon){
                     }
                 }else if(salle_courante->x == salle_suivante->x){
                     if(salle_courante->y - 1 == salle_suivante->y){
-                        salle_courante->voisin[1] = 1;
-                        salle_suivante->voisin[3] = 1;
-                    }else if(salle_courante->y + 1 == salle_suivante->y){
                         salle_courante->voisin[3] = 1;
                         salle_suivante->voisin[1] = 1;
+                    }else if(salle_courante->y + 1 == salle_suivante->y){
+                        salle_courante->voisin[1] = 1;
+                        salle_suivante->voisin[3] = 1;
                     }
                 }
             }
@@ -340,9 +340,9 @@ static t_erreur update_voisin(t_liste * donjon, int taille_donjon){
             }else if(salle_courante->x == taille_donjon - 1){
                 salle_courante->voisin[2] = 1;
             }else if(salle_courante->y == 0){
-                salle_courante->voisin[1] = 1;
-            }else if(salle_courante->y == taille_donjon - 1){
                 salle_courante->voisin[3] = 1;
+            }else if(salle_courante->y == taille_donjon - 1){
+                salle_courante->voisin[1] = 1;
             }
         }
     }
@@ -377,7 +377,7 @@ static t_erreur donjon_creer_structure_salle(t_salle_donjon * salle){
         int hauteur;
 
         /* Génération relief plafond */
-        hauteur = perlin2d(i, salle->x * salle->y, FREQ * 20, DEPTH) * (MAX_SCREEN / 2);
+        hauteur = perlin2d(i, salle->x * salle->y, FREQ * 20, DEPTH) * (MAX_SCREEN - (MAX_SCREEN / 2));
         if(hauteur >= MAX_SCREEN - 1)
             hauteur = MAX_SCREEN - 1;
         
@@ -549,7 +549,7 @@ t_erreur tab_fenetre(t_liste * donjon, SDL_Rect pos_perso, t_liste ** tab_fenetr
     for(j = 0; j < SIZE; j++){
         t_block * colonne = malloc(sizeof(t_block) * MAX_SCREEN);
         for(i = 0; i < MAX_SCREEN; i++){
-            colonne[MAX_SCREEN - 1 - i] = tab[i][j];
+            colonne[i] = tab[i][j];
         }
         en_queue(*tab_fenetre);
         ajout_droit(*tab_fenetre, (void*)colonne);
@@ -681,7 +681,7 @@ t_erreur donjon_gestion(SDL_Renderer * renderer, t_donjon * donjon, t_entite * j
             }else{
                 action = ia_jouer(mob, joueur, IA_ALEATOIRE);
             }
-            update_posY_Invert_entite(mob, coef_fps, fenetre, NOT_CENTER_SCREEN | INVERSION_AXE_Y);
+            update_posY_entite(mob, coef_fps, fenetre, NOT_CENTER_SCREEN | INVERSION_AXE_Y);
             Gestion_Entite(renderer, mob, ks, coef_fps, fenetre, GESTION_ACTION, action, joueur, NOT_CENTER_SCREEN | INVERSION_AXE_Y);
         }
 
