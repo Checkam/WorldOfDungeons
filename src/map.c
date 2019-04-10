@@ -27,6 +27,8 @@
 
 #include <unistd.h>
 
+#define DISTANCE_GEN 200
+
 /**
     \fn t_erreur MAP_creer(t_map ** map, char * nom_map, int SEED)
     \brief Créer une map (le dossier de saugarde et le pointeur pour manipuler cette map)
@@ -48,14 +50,9 @@ t_erreur MAP_creer(t_map **map, char *nom_map, int SEED) {
   (*map)->list = malloc(sizeof(t_liste));
   init_liste((*map)->list);
 
-  int i = 19900;
-  while (taille_liste((*map)->list) <= SIZE) {
-    i++;
-    gen_col((*map)->list, i, DROITE);
-  }
-  t_block *b = MAP_GetBlockFromList((*map), SIZE / 2, AFF_GetMidHeight((*map)->list));
-  (*map)->joueur = creer_entite_defaut("Virgile", JOUEUR, b->x, b->y + 1, 50);
+  (*map)->joueur = creer_entite_defaut("player", JOUEUR, 19800, 200, 50);
 
+  MAP_gen(*map);
   MAP_sauvegarder(*map);
   return OK;
 }
@@ -362,15 +359,22 @@ void MAP_gen(t_map *map) {
   t_block *premier = MAP_GetBlockFromList(map, 0, 0);
   t_block *dernier = MAP_GetBlockFromList(map, taille_liste(map->list) - 1, 0);
 
-  if (dernier)
-    if (dernier->x < (map->joueur->hitbox.x / width_block_sdl) + SIZE / 2) {
-      gen_col(map->list, (map->joueur->hitbox.x / width_block_sdl) + SIZE / 2, DROITE);
-    }
+  if (!premier)
+    gen_col(map->list, (map->joueur->hitbox.x / width_block_sdl) + 1, DROITE);
 
-  if (premier)
-    if (premier->x > (map->joueur->hitbox.x / width_block_sdl) - SIZE / 2) {
-      gen_col(map->list, (map->joueur->hitbox.x / width_block_sdl) - SIZE / 2, GAUCHE);
+  if (dernier) {
+    while (dernier->x < (map->joueur->hitbox.x / width_block_sdl) + DISTANCE_GEN) {
+      gen_col(map->list, dernier->x + 1, DROITE);
+      dernier = MAP_GetBlockFromList(map, taille_liste(map->list) - 1, 0);
     }
+  }
+
+  if (premier) {
+    while (premier->x > (map->joueur->hitbox.x / width_block_sdl) - DISTANCE_GEN) {
+      gen_col(map->list, premier->x - 1, GAUCHE);
+      premier = MAP_GetBlockFromList(map, 0, 0);
+    }
+  }
 }
 
 /**
