@@ -135,6 +135,8 @@ int main(int argc, char *argv[], char **env) {
     }
     menu_afficher_SDL(menu, renderer);
     SDL_RenderPresent(renderer);
+
+    coef_fps = fps();
   }
 
   inventaire_changer_constante(9);
