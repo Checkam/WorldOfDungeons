@@ -563,7 +563,7 @@ int collision(t_entite *entite, t_collision_direction direction, t_liste *p) {
   switch (direction) {
   /* Collision en BAS */
   case DIRECT_BAS_COLLI:
-    while (collision <= 0 && x < ((entite->hitbox.x + w) / height_block_sdl)) {
+    while (collision <= 0 && x < ((entite->hitbox.x + w) / width_block_sdl)) {
       block = MAP_GetBlock(&map, x, y - 1);
       // Récup Block
       // Check si collision
@@ -580,39 +580,71 @@ int collision(t_entite *entite, t_collision_direction direction, t_liste *p) {
       x += 1;
       //fprintf(stderr,"------> %d\n", res.h);
     }
-    if (collision) entite->nb_saut = NB_SAUT;
+    if (collision)
+      entite->nb_saut = NB_SAUT;
     break;
 
   /* Collision en HAUT */
   case DIRECT_HAUT_COLLI:
+    while (collision <= 0 && x < ((entite->hitbox.x + w) / width_block_sdl)) {
+      block = MAP_GetBlock(&map, x, y);
+      // Récup Block
+      // Check si collision
+      if (block) {
+        if (block->id != AIR) {
+          SDL_Rect B = {width_block_sdl * block->x, height_block_sdl * block->y, width_block_sdl, height_block_sdl};
+          SDL_IntersectRect(&(entite->hitbox), &B, &res);
+          collision = res.h;
+          //fprintf(stderr, " b.x:%d b.y:%d x:%d y:%d w:%d h:%d res.h:%d\n", block->x, block->y, x, y, w, h, res.h);
+        }
+      }
 
+      // Mis à jour du x
+      x += 1;
+      //fprintf(stderr,"------> %d\n", res.h);
+    }
     break;
 
   /* Collision à DROITE */
   case DIRECT_DROITE_COLLI:
-    /*x = (x + w) / width_block_sdl;
-    while(collision <= 0 && y > entite->hitbox.y)
-    {
+    while (collision <= 0 && y > ((entite->hitbox.y - h) / height_block_sdl)) {
+      block = MAP_GetBlock(&map, x + 1, y);
       // Récup Block
-      block = MAP_GetBlock(&map,x / width_block_sdl,y);
-
       // Check si collision
-      if (block && block->id != AIR)
-      {
-        SDL_Rect b = {block->x,block->y,width_block_sdl,height_block_sdl};
-        SDL_IntersectRect(&(entite->hitbox), &b, &res);
-        collision = res.h;
+      if (block) {
+        if (block->id != AIR) {
+          SDL_Rect B = {width_block_sdl * block->x, height_block_sdl * block->y, width_block_sdl, height_block_sdl};
+          SDL_IntersectRect(&(entite->hitbox), &B, &res);
+          collision = res.h;
+          //fprintf(stderr, " b.x:%d b.y:%d x:%d y:%d w:%d h:%d res.h:%d\n", block->x, block->y, x, y, w, h, res.h);
+        }
       }
 
       // Mis à jour du x
-      x += width_block_sdl;
-      fprintf(stderr,"--> %d\n", res.h);
-    }*/
+      y -= 1;
+      //fprintf(stderr,"------> %d\n", res.h);
+    }
     break;
 
   /* Collision à GAUCHE */
   case DIRECT_GAUCHE_COLLI:
+    while (collision <= 0 && y > ((entite->hitbox.y - h) / height_block_sdl)) {
+      block = MAP_GetBlock(&map, x - 1, y);
+      // Récup Block
+      // Check si collision
+      if (block) {
+        if (block->id != AIR) {
+          SDL_Rect B = {width_block_sdl * block->x, height_block_sdl * block->y, width_block_sdl, height_block_sdl};
+          SDL_IntersectRect(&(entite->hitbox), &B, &res);
+          collision = res.h;
+          //fprintf(stderr, " b.x:%d b.y:%d x:%d y:%d w:%d h:%d res.h:%d\n", block->x, block->y, x, y, w, h, res.h);
+        }
+      }
 
+      // Mis à jour du x
+      y -= 1;
+      //fprintf(stderr,"------> %d\n", res.h);
+    }
     break;
 
   default:
@@ -723,18 +755,18 @@ t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, d
     }
     /* Modif pour la touche DROITE */
     else if (SDL_touche_appuyer(ks, DROITE)) {
+
       diff = collision(entite, DIRECT_DROITE_COLLI, p);
-      if (diff <= 0) {
+      if (diff <= 0)
         entite->hitbox.x += entite->accX * coef_fps;
-      }
       Print_Entite_Screen(renderer, NULL, entite, MARCHE_DROITE, pos);
     }
     /* Modif pour la touche GAUCHE */
     else if (SDL_touche_appuyer(ks, GAUCHE)) {
+
       diff = collision(entite, DIRECT_GAUCHE_COLLI, p);
-      if (diff <= 0) {
+      if (diff <= 0)
         entite->hitbox.x -= entite->accX * coef_fps;
-      }
       Print_Entite_Screen(renderer, NULL, entite, MARCHE_GAUCHE, pos);
     }
     /* Modif quand on appui sur AUCUNE touche */
@@ -976,6 +1008,7 @@ t_erreur Print_Entite_Screen(SDL_Renderer *renderer, t_entite *entite_ref, t_ent
     entite_aff->posEnt.y = POSY_ENT_SCREEN(entite_aff);
     Charger_Anima(renderer, entite_aff, action);
     Print_Info_Entite(renderer, entite_aff);
+
   }
   /* Affichage */
   else if (pos & NOT_CENTER_SCREEN) {
