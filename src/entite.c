@@ -20,6 +20,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <touches.h>
+#include <perlin.h>
+#include <commun.h>
 
 /****** SPRITE TEXTURE ACTION ******/
 
@@ -142,6 +144,65 @@ t_erreur detruire_entite(t_entite *entite) {
     return PTR_NULL;
   free(entite->name);
   free(entite);
+  return OK;
+}
+
+/**
+ * \fn t_liste * Create_Liste_Entite (int x1, int x2, int y, t_entite_type type, int nb_entite, int taille)
+ * \brief Créer une liste d'entité d'un certain type entre 2 points.
+ * \brief Si le y est négatif, il est créé avec le bruit de perlin.
+ * \param x1 Le x de gauche dans l'intervalle.
+ * \param x2 Le x de droite dans l'intervalle.
+ * \param y Le y de création.
+ * \param type Le type de l'entité à créer.
+ * \param nb_entite Le nombre d'entité à créer dans l'intervale [x1;x2].
+ * \param taille La taille des entités à créer.
+ * \return La liste d'entités créées.
+*/
+t_liste * Create_Liste_Entite (int x1, int x2, int y, t_entite_type type, int nb_entite, int taille)
+{
+  t_entite * entite;
+  uint8_t perlin = 0;
+  int x;
+
+  /* Vérif paramètre */
+  if (x2 < x1) x2 = x1;
+  if (nb_entite <= 0) return NULL;
+  if (y < 0) perlin = 1;
+
+  /* Initialisation liste */
+  t_liste * liste = malloc(sizeof(t_liste));
+  init_liste(liste);
+
+  /* Création des entités */
+  int i;
+  for (i = 0; i < nb_entite; i++)
+  {
+    x = RAND_AB(x1,x2);
+    if (perlin)
+      y = (perlin2d(x, MAX / 2, FREQ, DEPTH) * MAX / 2) + HAUTEUR_MINIMUN;
+    entite = creer_entite_defaut(NULL,type,x,y,taille);
+    ajout_droit(liste,(void *)entite);
+    fprintf(stderr,"Entite %d -> %d:%d\n",i+1,x,y);
+  }
+
+  return liste;
+}
+
+/**
+ * \fn t_erreur Destroy_Liste_Entite (t_liste ** entite)
+ * \brief Détruit une liste d'entités.
+ * \param entite Un pointeur sur la liste à détruire.
+ * \return Une erreur s'il y en a une.
+*/
+t_erreur Destroy_Liste_Entite (t_liste ** entite)
+{
+  if (!entite) return PTR_NULL;
+  if (!*entite) return PTR_VALUE_ERROR;
+
+  detruire_liste(*entite,free);
+  *entite = NULL;
+
   return OK;
 }
 
@@ -544,45 +605,36 @@ t_erreur update_posY_entite(t_entite *entite, double coef_fps, t_liste *p, uint8
 }
 
 /**
- * \fn t_erreur update_posY_Invert_entite(t_entite * entite, double coef_fps, t_liste * p, uint8_t pos)
- * \brief Gère la position de l'entité sur Y inversé via la gravité et les collisions.
- * \param entite L'entité à gérer.
+ * \fn t_erreur update_posY_Liste_entite(t_liste * entite, double coef_fps, t_liste * p, uint8_t pos)
+ * \brief Update la position en Y d'une liste d'entités.
+ * \param entite La liste d'entités à update.
  * \param coef_fps Permet d'adapter les déplacements en fonction du nombre de fps.
  * \param p Liste contenant les paramètres supplémentaires de la fonction collision si il y en a besoin.
  * \param pos Position pour savoir si l'entité doit être bloqué dans l'affichage lorsqu'elle tombe.
  * \return Une erreur s'il y en a une.
 */
-t_erreur update_posY_Invert_entite(t_entite *entite, double coef_fps, t_liste *p, uint8_t pos) {
-  //fprintf(stderr,"Vel Y -> %.2f\n", entite->velY);
-  if (!entite)
-    return PTR_NULL;
-
-  int diff; // Profondeur de la collision
-  diff = collision(entite, DIRECT_HAUT_COLLI, p);
-  if (diff > 0) {
-    entite->hitbox.y += diff;
+t_erreur update_posY_liste_entite(t_liste * entite, double coef_fps, t_liste * p, uint8_t pos)
+{
+  if (!entite) return PTR_NULL;
+  t_entite * ent;
+  for(en_tete(entite);!hors_liste(entite);suivant(entite))
+  {
+    valeur_elt(entite,(void **)&ent);
+    update_posY_entite(ent,coef_fps,p,pos);
   }
-
-  if (coef_fps > 5)
-    coef_fps = 5;
-  int i;
-  for (i = 0; i < coef_fps; i++) {
-    entite->velY += entite->accY;
-    int grav = entite->velY;
-    entite->hitbox.y += grav;
-  }
-  if ((diff = collision(entite, DIRECT_BAS_COLLI, p)) > 0) {
-    entite->velY = 0;
-    entite->hitbox.y += diff;
-  } //printf("Diff : %d\n", diff);
-  // if (pos & CENTER_SCREEN && ((!entite->velY && diff > 0) || entite->posEnt.y >= POSY_ENT_SCREEN(entite))) {
-  //   entite->posEnt.y = POSY_ENT_SCREEN(entite);
-  // }
-
   return OK;
 }
 
-int collision(t_entite *entite, t_collision_direction direction, t_liste *p) {
+/**
+ * \fn int collision(t_entite *entite, t_collision_direction direction, t_liste *p)
+ * \brief Calcul la profondeur d'une collision en fonction d'une direction et d'une entité.
+ * \param entite L'entité à collisionner.
+ * \param direction Direction de la direction.
+ * \param p La liste de blocs permettant de calculer les collisions.
+ * \return La profondeur de la collision, 0 sinon.
+*/
+int collision(t_entite *entite, t_collision_direction direction, t_liste *p)
+{
   if (!entite || !p)
     return 0;
 
@@ -1078,6 +1130,30 @@ t_erreur Print_Entite_Screen(SDL_Renderer *renderer, t_entite *entite_ref, t_ent
     Print_Info_Entite(renderer, entite_aff);
   }
 
+  return OK;
+}
+
+/**
+ * \fn t_erreur Print_Entite_Screen (SDL_Renderer * renderer, t_entite * entite_ref, t_liste * entite_aff, t_action action, uint8_t pos)
+ * \brief Affiche une liste d'entités sur l'écran avec ses informations (pv,mana,nom), soit au centre, soit en fonction d'une autre.
+ * \param renderer Le renderer de la fenêtre.
+ * \param entite_ref L'entité de référence si affichage en fonction d'elle.
+ * \param entite_aff La liste d'entités à afficher.
+ * \param action L'action effectuer pour effectuer le bon affichage.
+ * \param pos La position de l'entité sur l'écran, permet de savoir si elle est au centre ou non.
+ * \return Une erreur s'il y en a une.
+*/
+t_erreur Print_Liste_Entite_Screen (SDL_Renderer * renderer, t_entite * entite_ref, t_liste * entite_aff, t_action action, uint8_t pos)
+{
+  if (!entite_aff) return PTR_NULL;
+  t_entite * entite;
+  for (en_tete(entite_aff);!hors_liste(entite_aff);suivant(entite_aff))
+  {
+    valeur_elt(entite_aff,(void **)&entite);
+    Print_Entite_Screen(renderer,entite_ref,entite,action,pos);
+    //fprintf(stderr,"%d / ",entite->hitbox.y);
+  }
+  //fprintf(stderr,"\n");
   return OK;
 }
 
