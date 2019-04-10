@@ -81,6 +81,8 @@ typedef struct s_anim_action
 #define LARGEUR_NOM_ENT 65
 #define HAUTEUR_NOM_ENT 15
 
+#define RAND_AB(a,b) (rand()%(b-a) + a)
+
 #define CENTER_SCREEN 1
 #define NOT_CENTER_SCREEN 2
 #define INVERSION_AXE_Y 4
@@ -135,6 +137,10 @@ t_entite * creer_entite (char * name, uint32_t mana, uint32_t mana_max, uint32_t
 t_erreur detruire_entite (t_entite * entite);
 /* Initialise les textures d'une entité */
 t_erreur init_texture_entite (t_entite * entite, t_entite_type type);
+/* Création d'une liste d'entité entre 2 points, mettre un y négatif pour générer avec perlin */
+t_liste * Create_Liste_Entite (int x1, int x2, int y, t_entite_type type, int nb_entite, int taille);
+/* Destruction d'une liste d'entité */
+t_erreur Destroy_Liste_Entite (t_liste ** entite);
 
 
 /****** Primitives des fonctions de modification des paramètres des entités ******/
@@ -185,8 +191,8 @@ t_erreur Anim_Update (t_entite * entite, t_action action, int new_time);
 int collision (t_entite * entite, t_collision_direction direction, t_liste * p);
 /* Gère la position de l'entité en Y avec la gravité et les collisions */
 t_erreur update_posY_entite(t_entite * entite, double coef_fps, t_liste * p, uint8_t pos);
-/* Gère la position de l'entité en Y inversé avec la gravité et les collisions */
-t_erreur update_posY_Invert_entite(t_entite * entite, double coef_fps, t_liste * p, uint8_t pos);
+/* Update la position d'une liste d'entité en Y */
+t_erreur update_posY_liste_entite(t_liste * entite, double coef_fps, t_liste * p, uint8_t pos);
 
 
 /****** Primitives des fonctions qui gèrent l'affichage des entités en fonction des collisions ******/
@@ -199,7 +205,8 @@ t_erreur Print_Info_Entite (SDL_Renderer * renderer, t_entite * entite);
 Utilisation : -> pos = CENTER_SCREEN -> affichage centre screen,
 -> pos = NOT_CENTER_SCREEN -> affichage en fonction d'une autre entité. */
 t_erreur Print_Entite_Screen (SDL_Renderer * renderer, t_entite * entite_ref, t_entite * entite_aff, t_action action, uint8_t pos);
-
+/* Affiche une liste d'entité sur l'écran */
+t_erreur Print_Liste_Entite_Screen (SDL_Renderer * renderer, t_entite * entite_ref, t_liste * entite_aff, t_action action, uint8_t pos);
 
 /****** Primitives des fonctions qui sauvegarde et charge une entité ******/
 
