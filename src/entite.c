@@ -150,6 +150,14 @@ t_erreur detruire_entite(t_entite *entite) {
 /**
  * \fn t_liste * Create_Liste_Entite (int x1, int x2, int y, t_entite_type type, int nb_entite, int taille)
  * \brief Créer une liste d'entité d'un certain type entre 2 points.
+ * \brief Si le y est négatif, il est créé avec le bruit de perlin.
+ * \param x1 Le x de gauche dans l'intervalle.
+ * \param x2 Le x de droite dans l'intervalle.
+ * \param y Le y de création.
+ * \param type Le type de l'entité à créer.
+ * \param nb_entite Le nombre d'entité à créer dans l'intervale [x1;x2].
+ * \param taille La taille des entités à créer.
+ * \return La liste d'entités créées.
 */
 t_liste * Create_Liste_Entite (int x1, int x2, int y, t_entite_type type, int nb_entite, int taille)
 {
@@ -181,6 +189,12 @@ t_liste * Create_Liste_Entite (int x1, int x2, int y, t_entite_type type, int nb
   return liste;
 }
 
+/**
+ * \fn t_erreur Destroy_Liste_Entite (t_liste ** entite)
+ * \brief Détruit une liste d'entités.
+ * \param entite Un pointeur sur la liste à détruire.
+ * \return Une erreur s'il y en a une.
+*/
 t_erreur Destroy_Liste_Entite (t_liste ** entite)
 {
   if (!entite) return PTR_NULL;
@@ -590,6 +604,15 @@ t_erreur update_posY_entite(t_entite *entite, double coef_fps, t_liste *p, uint8
   return OK;
 }
 
+/**
+ * \fn t_erreur update_posY_Liste_entite(t_liste * entite, double coef_fps, t_liste * p, uint8_t pos)
+ * \brief Update la position en Y d'une liste d'entités.
+ * \param entite La liste d'entités à update.
+ * \param coef_fps Permet d'adapter les déplacements en fonction du nombre de fps.
+ * \param p Liste contenant les paramètres supplémentaires de la fonction collision si il y en a besoin.
+ * \param pos Position pour savoir si l'entité doit être bloqué dans l'affichage lorsqu'elle tombe.
+ * \return Une erreur s'il y en a une.
+*/
 t_erreur update_posY_liste_entite(t_liste * entite, double coef_fps, t_liste * p, uint8_t pos)
 {
   if (!entite) return PTR_NULL;
@@ -1110,6 +1133,16 @@ t_erreur Print_Entite_Screen(SDL_Renderer *renderer, t_entite *entite_ref, t_ent
   return OK;
 }
 
+/**
+ * \fn t_erreur Print_Entite_Screen (SDL_Renderer * renderer, t_entite * entite_ref, t_liste * entite_aff, t_action action, uint8_t pos)
+ * \brief Affiche une liste d'entités sur l'écran avec ses informations (pv,mana,nom), soit au centre, soit en fonction d'une autre.
+ * \param renderer Le renderer de la fenêtre.
+ * \param entite_ref L'entité de référence si affichage en fonction d'elle.
+ * \param entite_aff La liste d'entités à afficher.
+ * \param action L'action effectuer pour effectuer le bon affichage.
+ * \param pos La position de l'entité sur l'écran, permet de savoir si elle est au centre ou non.
+ * \return Une erreur s'il y en a une.
+*/
 t_erreur Print_Liste_Entite_Screen (SDL_Renderer * renderer, t_entite * entite_ref, t_liste * entite_aff, t_action action, uint8_t pos)
 {
   if (!entite_aff) return PTR_NULL;
