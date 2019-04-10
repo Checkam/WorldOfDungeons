@@ -82,13 +82,13 @@ int gen_col(t_liste *list, int x, int dir) {
   if (dir == DROITE) {
     en_queue(list);
     ajout_droit(list, tab);
-    printf("Gen i : %d DROITE\n", x);
+    // printf("Gen i : %d DROITE\n", x);
   }
 
   if (dir == GAUCHE) {
     en_tete(list);
     ajout_gauche(list, tab);
-    printf("Gen i : %d GAUCHE\n", x);
+    // printf("Gen i : %d GAUCHE\n", x);
   }
 
   return taille_max;
