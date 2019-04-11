@@ -36,9 +36,9 @@
 #define calY_aff(map)                                                                                                                                \
   (map->joueur->hitbox.y / height_block_sdl) - (POSY_ENT_SCREEN(map->joueur) / height_block_sdl) - 2 // Le moins 2 a trouver d'ou il vient
 
-#define calX_Debut(map) ((map->joueur->hitbox.x - map->joueur->hitbox.w / 2) / width_block_sdl) - (SIZE / 2)
+#define calX_Debut(map) ((map->joueur->hitbox.x) / width_block_sdl) - (SIZE / 2)
 
-#define calX_Fin(map) ((map->joueur->hitbox.x + map->joueur->hitbox.w / 2) / width_block_sdl) + (SIZE / 2)
+#define calX_Fin(map) ((map->joueur->hitbox.x) / width_block_sdl) + (SIZE / 2)
 
 void test_souris(t_map *map, uint8_t *ks, t_inventaire *inventaire, t_liste *liste) {
   t_block *b;

@@ -20,6 +20,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include <touches.h>
 
 #include <errno.h>
@@ -30,6 +31,13 @@
 
 #define DISTANCE_GEN 200
 
+#define calY_aff(map)                                                                                                                                \
+  ((map->joueur->hitbox.y / height_block_sdl) - (POSY_ENT_SCREEN(map->joueur) / height_block_sdl) - 2) // Le moins 2 a trouver d'ou il vient
+
+#define calX_Debut(map) (((map->joueur->hitbox.x) / width_block_sdl) - (SIZE / 2))
+
+#define calX_Fin(map) (((map->joueur->hitbox.x) / width_block_sdl) + (SIZE / 2))
+
 /**
     \fn t_erreur MAP_creer(t_map ** map, char * nom_map, int SEED)
     \brief Créer une map (le dossier de saugarde et le pointeur pour manipuler cette map)
@@ -39,14 +47,14 @@
     \return Renvoie un code erreur en cas de problème sinon OK
 **/
 t_erreur MAP_creer(t_map **map, char *nom_map, int SEED) {
-
+  srand(time(NULL));
   (*map) = malloc(sizeof(t_map));
   (*map)->nom = malloc(sizeof(char) * strlen(nom_map) + 1);
 
   strcpy((*map)->nom, nom_map);
   (*map)->SEED = SEED;
 
-  (*map)->joueur = creer_entite_defaut("player", JOUEUR, 19800, 200, 50);
+  (*map)->joueur = creer_entite_defaut("player", JOUEUR, rand() % 320000, 200, 50);
 
   MAP_creer_dir(*map);
 
@@ -237,7 +245,10 @@ t_erreur MAP_detruction(t_map **map) {
     free((*map)->nom);
     (*map)->nom = NULL;
   }
-  detruire_liste((*map)->list, free);
+  if ((*map)->joueur)
+    detruire_entite((*map)->joueur);
+  if ((*map)->list)
+    detruire_liste((*map)->list, free);
   free((*map)->list);
   (*map)->list = NULL;
   free(*map);
@@ -356,7 +367,7 @@ void MAP_SetEcListe(t_liste *list, int x) {
     \return Renvoie rien
 **/
 void MAP_CopyListFromX(t_map *map, t_liste *list, int x_from, int x_to) {
-  t_block *b;
+  t_block *b = NULL;
   for (MAP_SetEcListe(map->list, x_from); (!hors_liste(map->list) && (b == NULL || x_to > b[0].x)); suivant(map->list)) {
     valeur_elt(map->list, (void **)&b);
     ajout_droit(list, b);
@@ -401,11 +412,13 @@ void MAP_gen(t_map *map) {
     \param x_fin coordonné de la fin d'affichage
     \return Renvoie rien
 **/
-void MAP_afficher_sdl(t_map *map, SDL_Renderer *renderer, int h_aff, int x_deb, int x_fin) {
+void MAP_afficher_sdl(t_map *map, SDL_Renderer *renderer) {
   t_liste affichage;
   init_liste(&affichage);
-  MAP_CopyListFromX(map, &affichage, x_deb, x_fin);
-  AFF_map_sdl(&affichage, renderer, h_aff);
+
+  MAP_CopyListFromX(map, &affichage, calX_Debut(map) - (map->joueur->hitbox.w / width_block_sdl), calX_Fin(map));
+
+  AFF_map_sdl(&affichage, renderer, calY_aff(map));
   detruire_liste(&affichage, NULL);
 }
 
