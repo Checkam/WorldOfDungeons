@@ -320,8 +320,12 @@ t_block *MAP_GetBlock(t_map *map, int x, int y) {
     t_block *tab;
     for (en_tete(map->list); !hors_liste(map->list); suivant(map->list)) {
       valeur_elt(map->list, (void **)&tab);
-      if (tab[0].x == x)
-        return &tab[y];
+      if (tab[0].x == x) {
+        for (int i = 0; i < MAX; i++) {
+          if (tab[i].y == y)
+            return &tab[i];
+        }
+      }
     }
   }
   return NULL;
