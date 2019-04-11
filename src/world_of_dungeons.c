@@ -131,80 +131,23 @@ char *InputText(SDL_Renderer *renderer, char *titre) {
   return text;
 }
 
-int main(int argc, char *argv[], char **env) {
-  pwd_init(argv[0], getenv("PWD"));
-  srand(time(NULL));
-  t_menu *menu = NULL;
-  t_map *map = NULL;
-
+void startPlayMap(t_map *map, SDL_Renderer *renderer) {
+  int boucle = 1;
   uint8_t *ks;
   configTouches_t *ct;
-  width_block_sdl = 25;
-  height_block_sdl = 25;
-  height_window = 600;
-  width_window = 1000;
-
-  WIDTH = width_window;
-  HEIGHT = height_window;
-  scaleW = DEFAULT_SIZE_SCREEN_W / WIDTH;
-  scaleH = DEFAULT_SIZE_SCREEN_H / HEIGHT;
-  uiScale = 100;
-
-  //--------------------------------------------------------------------------------------------------------------
-  // Initialisation SDL
-  //--------------------------------------------------------------------------------------------------------------
-
-#include <game_init.h>
-
+  int coef_fps = 1;
+  SDL_init_touches(&ks, &ct);
+  inventaire_init(renderer);
   t_inventaire *inventaire = create_inventaire();
-  alloc_item(inventaire, 12);
-
+  alloc_item(inventaire, 20);
+  inventaire_changer_constante(9);
   t_liste *liste = malloc(sizeof(t_liste));
   init_liste(liste);
   en_tete(liste);
 
-  double coef_fps = 1;
-
-  int boucle = 1;
-
-  //----------------------------------------------------------------------------------------------------------------
-  // Menu Début de jeux
-  //----------------------------------------------------------------------------------------------------------------
-
-  menu_creer(MENU_PRINCIPAL, width_window, height_window, &menu);
-  t_type_menu type_bouton;
-
-  while (menu) {
-    SDL_RenderClear(renderer);
-    SDL_touches(ks, ct);
-    menu_gestion_SDL(menu, SDL_touche_appuyer(ks, SOURIS_GAUCHE), &type_bouton);
-    if (type_bouton == MENU_QUITTER) {
-      boucle = 0;
-      menu_suivant(&menu, type_bouton);
-    } else if (type_bouton == MENU_NOUVELLE_PARTIE) {
-
-      char *nom_map = InputText(renderer, "Nom de la map");
-      MAP_creer(&map, nom_map, rand());
-      free(nom_map);
-
-      menu_suivant(&menu, type_bouton);
-    } else if (type_bouton == MENU_CHARGER_PARTIE) {
-
-      MAP_charger(&map, "World");
-      menu_suivant(&menu, type_bouton);
-    } else if (type_bouton != MENU_NULL) {
-      menu_suivant(&menu, type_bouton);
-    }
-    menu_afficher_SDL(menu, renderer);
-    SDL_RenderPresent(renderer);
-
-    coef_fps = fps();
-  }
-
-  inventaire_changer_constante(9);
-  //----------------------------------------------------------------------------------------------------------------
-  // Boucle de jeux
-  //----------------------------------------------------------------------------------------------------------------
+  SDL_Rect fondRect = {0, 0, width_window, height_window};
+  SDL_Texture *fond;
+  Create_IMG_Texture(renderer, "./IMG/texture/environnement/ciel.png", &fond);
 
   while (boucle) {
     SDL_reset_wheel_state(ks);
@@ -226,19 +169,8 @@ int main(int argc, char *argv[], char **env) {
 
     //Affichage Inventaire
     //QUITTER LE JEU
-    if (SDL_touche_appuyer(ks, QUITTER) || SDL_touche_appuyer(ks, ESCAPE))
+    if (SDL_touche_appuyer(ks, QUITTER) || SDL_touche_appuyer(ks, ESCAPE)) {
       boucle = 0;
-    else if (SDL_touche_appuyer(ks, G)) {
-
-      SDL_SetWindowFullscreen(screen, SDL_WINDOW_FULLSCREEN_DESKTOP);
-      SDL_GetWindowSize(screen, &width_window, &height_window);
-      WIDTH = width_window;
-      HEIGHT = height_window;
-      scaleW = DEFAULT_SIZE_SCREEN_W / WIDTH;
-      scaleH = DEFAULT_SIZE_SCREEN_H / HEIGHT;
-      fondRect.w = width_window;
-      fondRect.h = height_window;
-
     } else if (SDL_touche_appuyer(ks, X)) {
       inventaire_afficher(renderer, inventaire);
     } else {
@@ -248,6 +180,132 @@ int main(int argc, char *argv[], char **env) {
     SDL_RenderPresent(renderer);
 
     coef_fps = fps();
+  }
+  MAP_sauvegarder(map);
+  free_inventaire(inventaire);
+  detruire_liste(liste, free);
+  free(liste);
+  SDL_DestroyTexture(fond);
+  SDL_exit_touches(&ks, &ct);
+}
+
+int main(int argc, char *argv[], char **env) {
+  pwd_init(argv[0], getenv("PWD"));
+  srand(time(NULL));
+  t_menu *menu = NULL;
+  t_map *map = NULL;
+  uint8_t *ks;
+  configTouches_t *ct;
+  width_block_sdl = 25;
+  height_block_sdl = 25;
+  height_window = 600;
+  width_window = 1000;
+
+  WIDTH = width_window;
+  HEIGHT = height_window;
+  scaleW = DEFAULT_SIZE_SCREEN_W / WIDTH;
+  scaleH = DEFAULT_SIZE_SCREEN_H / HEIGHT;
+  uiScale = 100;
+
+  //--------------------------------------------------------------------------------------------------------------
+  // Initialisation SDL
+  //--------------------------------------------------------------------------------------------------------------
+
+#include <game_init.h>
+
+  double coef_fps = 1;
+
+  int game = 1;
+
+  //----------------------------------------------------------------------------------------------------------------
+  // Menu Début de jeux
+  //----------------------------------------------------------------------------------------------------------------
+
+  while (game) {
+    menu_creer(MENU_PRINCIPAL, width_window, height_window, &menu);
+    t_type_menu type_bouton;
+    while (menu) {
+      SDL_RenderClear(renderer);
+      SDL_touches(ks, ct);
+      menu_gestion_SDL(menu, SDL_touche_appuyer(ks, SOURIS_GAUCHE), &type_bouton);
+      if (type_bouton == MENU_QUITTER) {
+        game = 0;
+        menu_suivant(&menu, type_bouton);
+      } else if (type_bouton == MENU_NOUVELLE_PARTIE) {
+
+        char *nom_map = InputText(renderer, "Nom de la map");
+        MAP_creer(&map, nom_map, rand());
+        free(nom_map);
+
+        menu_suivant(&menu, type_bouton);
+
+        if (map) {
+          startPlayMap(map, renderer);
+          MAP_detruction(&map);
+        } else {
+
+          char *chemin_police;
+          creation_chemin("data/police/8-BIT_WONDER.ttf", &chemin_police);
+          SDL_Texture *fond;
+          Create_IMG_Texture(renderer, "./IMG/texture/menu/fond_text.png", &fond);
+
+          SDL_Color couleur = {255, 255, 255};
+          char *titre = "ERREUR MAP";
+          SDL_Rect posTitre = {width_window / 2 - (strlen(titre) * 25), height_window / 2, 50 * strlen(titre), 50};
+
+          SDL_Texture *text_texture;
+          SDL_RenderClear(renderer);
+          Create_Text_Texture(renderer, titre, chemin_police, 20, couleur, BLENDED, &text_texture);
+          SDL_RenderCopy(renderer, text_texture, NULL, &posTitre);
+
+          SDL_RenderPresent(renderer);
+          while (!SDL_touche_appuyer(ks, QUITTER) && !SDL_touche_appuyer(ks, ESCAPE))
+            SDL_touches(ks, ct);
+        }
+
+      } else if (type_bouton == MENU_CHARGER_PARTIE) {
+
+        char *nom_map = InputText(renderer, "Nom de la map");
+        MAP_charger(&map, nom_map);
+        free(nom_map);
+
+        menu_suivant(&menu, type_bouton);
+
+        if (map) {
+          startPlayMap(map, renderer);
+          MAP_detruction(&map);
+        } else {
+
+          char *chemin_police;
+          creation_chemin("data/police/8-BIT_WONDER.ttf", &chemin_police);
+
+          SDL_Texture *fond;
+          Create_IMG_Texture(renderer, "./IMG/texture/menu/fond_text.png", &fond);
+          SDL_Color couleur = {255, 255, 255};
+          char *titre = "ERREUR MAP";
+          SDL_Rect posTitre = {width_window / 2 - (strlen(titre) * 25), height_window / 2, 50 * strlen(titre), 50};
+
+          SDL_Texture *text_texture;
+          SDL_RenderClear(renderer);
+          Create_Text_Texture(renderer, titre, chemin_police, 20, couleur, BLENDED, &text_texture);
+          SDL_RenderCopy(renderer, text_texture, NULL, &posTitre);
+
+          SDL_RenderPresent(renderer);
+          while (!SDL_touche_appuyer(ks, QUITTER) && !SDL_touche_appuyer(ks, ESCAPE))
+            SDL_touches(ks, ct);
+        }
+      } else if (type_bouton != MENU_NULL) {
+        menu_suivant(&menu, type_bouton);
+      }
+      menu_afficher_SDL(menu, renderer);
+      SDL_RenderPresent(renderer);
+
+      coef_fps = fps();
+    }
+
+    //----------------------------------------------------------------------------------------------------------------
+    // Boucle de jeux
+    //----------------------------------------------------------------------------------------------------------------
   }
 
 //Quit du jeux
