@@ -22,7 +22,9 @@
  * \param r un carré SDL
  * \return un int 1 si dans la fenetre sinon 0
  **/
-int AFF_RectInWindow(SDL_Rect r) { return (r.x < width_window && r.x > -width_block_sdl && r.y > -height_block_sdl && r.y < height_window); }
+int AFF_RectInWindow(SDL_Rect r) {
+  return (r.x < width_window + width_block_sdl && r.x > -width_block_sdl && r.y > -height_block_sdl && r.y < height_window + height_block_sdl);
+}
 
 //FONCTION PROVISOIR POUR L'AFFICHAGE
 /**
@@ -65,7 +67,7 @@ void AFF_map_sdl(t_liste *list, SDL_Renderer *renderer, int min) {
   for (j = 0, en_tete(list); !hors_liste(list); suivant(list)) {
     valeur_elt(list, (void **)&map);
     for (i = MAX_SCREEN + 1; i >= 0; i--) {
-      r.x = (j * width_block_sdl);
+      r.x = (j * width_block_sdl) - width_block_sdl / 2;
       r.y = (height_window - (i * height_block_sdl));
       r.h = height_block_sdl;
       r.w = width_block_sdl;

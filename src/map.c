@@ -31,6 +31,13 @@
 
 #define DISTANCE_GEN 200
 
+#define calY_aff(map)                                                                                                                                \
+  ((map->joueur->hitbox.y / height_block_sdl) - (POSY_ENT_SCREEN(map->joueur) / height_block_sdl) - 2) // Le moins 2 a trouver d'ou il vient
+
+#define calX_Debut(map) (((map->joueur->hitbox.x) / width_block_sdl) - (SIZE / 2))
+
+#define calX_Fin(map) (((map->joueur->hitbox.x) / width_block_sdl) + (SIZE / 2))
+
 /**
     \fn t_erreur MAP_creer(t_map ** map, char * nom_map, int SEED)
     \brief Créer une map (le dossier de saugarde et le pointeur pour manipuler cette map)
@@ -405,11 +412,13 @@ void MAP_gen(t_map *map) {
     \param x_fin coordonné de la fin d'affichage
     \return Renvoie rien
 **/
-void MAP_afficher_sdl(t_map *map, SDL_Renderer *renderer, int h_aff, int x_deb, int x_fin) {
+void MAP_afficher_sdl(t_map *map, SDL_Renderer *renderer) {
   t_liste affichage;
   init_liste(&affichage);
-  MAP_CopyListFromX(map, &affichage, x_deb, x_fin);
-  AFF_map_sdl(&affichage, renderer, h_aff);
+
+  MAP_CopyListFromX(map, &affichage, calX_Debut(map) - (map->joueur->hitbox.w / width_block_sdl), calX_Fin(map));
+
+  AFF_map_sdl(&affichage, renderer, calY_aff(map));
   detruire_liste(&affichage, NULL);
 }
 
