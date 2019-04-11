@@ -29,6 +29,7 @@ void init_map(t_block *map, int x) {
     map[i].id = AIR;
     map[i].x = x;
     map[i].y = i;
+    map[i].plan = ARRIERE_PLAN;
   }
 }
 
@@ -66,6 +67,7 @@ int gen_col(t_liste *list, int x, int dir) {
         tab[taille_max - j].id = b->layers[i].block_type;
         tab[taille_max - j].y = taille_max - j;
         tab[taille_max - j].x = x;
+        tab[taille_max - j].plan = PREMIER_PLAN;
       }
     }
 
@@ -76,6 +78,7 @@ int gen_col(t_liste *list, int x, int dir) {
       tab[j].id = AIR;
       tab[j].y = j;
       tab[j].x = x;
+      tab[j].plan = ARRIERE_PLAN;
     }
   }
 

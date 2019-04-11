@@ -74,6 +74,7 @@ int STRUCT_SetCol(int x_struct, int y, t_struct_block_type type_spawn, t_block *
     char line_temp[LECTURE];
     while (sscanf(line, "%d:%s", &var, line_temp) == 2) {
       tab[y + j].id = var;
+      tab[y + j].plan = ARRIERE_PLAN;
       strcpy(line, line_temp);
       j++;
       // printf("%s\n", line);
@@ -93,7 +94,7 @@ int STRUCT_SetCol(int x_struct, int y, t_struct_block_type type_spawn, t_block *
 **/
 void STRUCT_generation(int x, int y, int dir, t_block tab[MAX]) {
   y++;
-  static int struct_spawn = 0, new_struct = 0, struct_spawn_dir1, new_struct_dir1;
+  static int struct_spawn = 0, new_struct = 0, struct_spawn_dir1 = 0, new_struct_dir1 = 0;
   static t_struct_block_type type_spawn;
   static t_struct_block_type type_can_spawn[NB_STRUCT_BLOCK];
   static int last_dir;
@@ -102,6 +103,7 @@ void STRUCT_generation(int x, int y, int dir, t_block tab[MAX]) {
   int struct_random = 0;
 
   if (last_dir != dir) {
+    //Echange de valeur
     struct_spawn_dir1 ^= struct_spawn ^= struct_spawn_dir1 ^= struct_spawn;
     new_struct_dir1 ^= new_struct ^= new_struct_dir1 ^= new_struct;
 

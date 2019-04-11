@@ -47,10 +47,11 @@ void test_souris(t_map *map, uint8_t *ks, t_inventaire *inventaire, t_liste *lis
     b = MAP_GetBlock(map, calX_Souris(map, x_mouse), calY_Souris(map, y_mouse));
 
     if (b && b->id != AIR && abs(b->x - ((map->joueur->hitbox.x) / width_block_sdl)) < 3 &&
-        abs(b->y - ((map->joueur->hitbox.y) / height_block_sdl)) < 3) {
+        abs(b->y - ((map->joueur->hitbox.y) / height_block_sdl)) <= 3) {
       casser_block((t_materiaux)b->id, &liste);
       ajout_item_dans_inventaire(inventaire, liste);
       b->id = AIR;
+      b->plan = ARRIERE_PLAN;
       // fprintf(stderr, "%d %d %d %d\n", calY_aff(map), (POSY_ENT_SCREEN(map->joueur) / height_block_sdl), map->joueur->hitbox.y, b->y);
     }
   }
@@ -60,8 +61,9 @@ void test_souris(t_map *map, uint8_t *ks, t_inventaire *inventaire, t_liste *lis
     // Récuperation d'un block dans la liste
     b = MAP_GetBlock(map, calX_Souris(map, x_mouse), calY_Souris(map, y_mouse));
     if (b && b->id == AIR && abs(b->x - ((map->joueur->hitbox.x) / width_block_sdl)) < 3 &&
-        abs(b->y - ((map->joueur->hitbox.y) / height_block_sdl)) < 3) {
+        abs(b->y - ((map->joueur->hitbox.y) / height_block_sdl)) <= 3) {
       b->id = ROCHE;
+      b->plan = PREMIER_PLAN;
     }
   }
 }

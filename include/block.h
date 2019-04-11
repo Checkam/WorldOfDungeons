@@ -37,6 +37,12 @@ typedef enum {
   PLANT=15
 } t_materiaux;
 
+typedef enum {
+  PREMIER_PLAN,
+  ARRIERE_PLAN
+} t_plan;
+
+
 /**
  \struct t_block_type
  \brief Structure d'une type de block
@@ -58,7 +64,7 @@ typedef struct block_type_s {
  \brief Structure d'un block
 **/
 typedef struct block_s {
-  int id, x, y;
+  int id, x, y, plan;
 } t_block;
 
 #endif
