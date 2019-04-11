@@ -13,6 +13,7 @@
 #include <chemin.h>
 #include <erreur.h>
 #include <fichier.h>
+#include <stdint.h>
 #include <inttypes.h>
 
 /* Variables Globales */
@@ -90,10 +91,10 @@ t_erreur write_json (FILE * file, char * key, void * value, char * value_type)
     else if (!strcmp(value_type,"s")) fprintf(file,"\"%s\":\"%s\"",key,(char *)value);
     /* U_INT */
     else if (!strcmp(value_type,"u")) fprintf(file,"\"%s\":%u",key,*(unsigned int *)value);
-    else if (!strcmp(value_type,"u8")) fprintf(file,"\"%s\":%"PRIu8"",key,*(u_int8_t *)value);
-    else if (!strcmp(value_type,"u16")) fprintf(file,"\"%s\":%"PRIu16"",key,*(u_int16_t *)value);
-    else if (!strcmp(value_type,"u32")) fprintf(file,"\"%s\":%"PRIu32"",key,*(u_int32_t *)value);
-    else if (!strcmp(value_type,"u64")) fprintf(file,"\"%s\":%"PRIu64"",key,*(u_int64_t *)value);
+    else if (!strcmp(value_type,"u8")) fprintf(file,"\"%s\":%"PRIu8"",key,*(uint8_t *)value);
+    else if (!strcmp(value_type,"u16")) fprintf(file,"\"%s\":%"PRIu16"",key,*(uint16_t *)value);
+    else if (!strcmp(value_type,"u32")) fprintf(file,"\"%s\":%"PRIu32"",key,*(uint32_t *)value);
+    else if (!strcmp(value_type,"u64")) fprintf(file,"\"%s\":%"PRIu64"",key,*(uint64_t *)value);
     else return TYPE_ERROR;
 
     crt_car = '#';

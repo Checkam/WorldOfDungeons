@@ -301,46 +301,82 @@ void inventaire_afficher ( SDL_Renderer *renderer, t_inventaire *inventaire ) {
 
 void inventaire_enregistrer ( const char *path, t_enr_inventaire *enr_inventaire ) {
 
-    FILE *enr = open_json( path, "inventaire", "w+");
+    FILE *enr = open_json( path, "inventaire", "a+");
 
     int nil = -1, intBuf;
-    char buffer[6];
+    long int longBuf;
+    char buffer[7];
 
     open_json_obj(enr);
 
-    write_json(enr, "x", &(enr_inventaire->x), "d");
-    write_json(enr, "y", &(enr_inventaire->x), "d");
-    write_json(enr, "nbItems", &(enr_inventaire->inventaire->nbItemMax), "d");
+    write_json(enr, "x", &(enr_inventaire->x), "d64");
+    write_json(enr, "y", &(enr_inventaire->y), "d32");
+    write_json(enr, "nbItems", &(enr_inventaire->inventaire->nbItemMax), "u16");
 
     for ( uint16_t i = 0 ; i < enr_inventaire->inventaire->nbItemMax ; i++ ) {
 
         sprintf(buffer, "%d", i);
 
         if ( (enr_inventaire->inventaire->inventaire + i )->item != NULL ){
-            intBuf = ((enr_inventaire->inventaire->inventaire + i )->item->id);
-            write_json(enr, buffer, &intBuf, "d" );
-            printf("%d : %u\n", i, intBuf);
+
+            write_json(enr, buffer, &((enr_inventaire->inventaire->inventaire + i )->item->id), "u16" );
+            write_json(enr, strcat(buffer, "n"), &((enr_inventaire->inventaire->inventaire + i)->stack), "u16");
         }
-        else {
+        else
             write_json(enr, buffer, &nil, "d" );
-            printf("%d : nil\n", i);
-        }
     }
         
     close_json_obj(enr);
+    fclose(enr);
 }
 
-uint8_t inventaire_recuperer ( const char *path, t_inventaire **inventaire ) {
+uint8_t inventaire_recuperer ( const char *path, t_inventaire **inventaire, const int64_t x, const int32_t y ) {
 
     FILE *enr = open_json( path, "inventaire", "r");
 
+    char *obj, buffer[7];
+    int *val, *val2, nbItems;
+
     fstart(enr);
 
-    /*do {
+    do {
 
-        
+        extract_json_obj( enr, &obj);
 
-    } while ();*/
+        read_json_obj( obj, "x", val, "d");
+        read_json_obj( obj, "y", val2, "d");       
+
+        if ( *val != x && *val2 != y )
+            free(obj);
+
+    } while ( *val != x && *val2 != y );
+
+    read_json_obj( obj, "nbItems", &nbItems, "d");
+
+    *inventaire = malloc(sizeof(t_inventaire));
+    (*inventaire)->inventaire = malloc(sizeof(t_inventaire_item) * nbItems);
+
+    for ( uint16_t i = 0 ; i < nbItems ; i++ ) {
+
+        sprintf(buffer, "%d", i);
+
+        read_json_obj( obj, buffer, val, "d");
+
+        if ( *val != -1 ) {
+
+            read_json_obj(obj, strcat(buffer, "n"), val2, "d");
+
+            ((*inventaire)->inventaire + i)->item = (tabItem + *val);
+            ((*inventaire)->inventaire + i)->stack = *val2;
+
+        } else {
+
+            ((*inventaire)->inventaire + i)->item = NULL;
+           ((*inventaire)->inventaire + i)->stack = 0;
+        }
+    }
+
+    fclose(enr);
 }
 
 void free_inventaire( t_inventaire *inventaire ) {

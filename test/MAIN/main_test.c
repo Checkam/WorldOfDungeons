@@ -158,7 +158,7 @@ int main(int argc, char *argv[], char **env) {
     SDL_RenderCopy(renderer, fond, NULL, &fondRect);
 
     //Affiche map
-    MAP_afficher_sdl(map, renderer, calY_aff(map), calX_Debut(map), calX_Fin(map)); //Modifier l'affichage de la map pour afficher des demi colone
+    MAP_afficher_sdl(map, renderer/*, calY_aff(map), calX_Debut(map), calX_Fin(map)*/); //Modifier l'affichage de la map pour afficher des demi colone
     //Affiche Joueur et
     Gestion_Entite(renderer, map->joueur, ks, coef_fps, map->list, GESTION_TOUCHES, ALL_ACTION, NULL, CENTER_SCREEN);
 
