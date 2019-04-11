@@ -28,6 +28,7 @@
 #include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <structure_block.h>
 #include <time.h>
 #include <touches.h>
@@ -68,10 +69,74 @@ void test_souris(t_map *map, uint8_t *ks, t_inventaire *inventaire, t_liste *lis
   }
 }
 
+char *InputText(SDL_Renderer *renderer, char *titre) {
+  char *chemin_police;
+  creation_chemin("data/police/8-BIT_WONDER.ttf", &chemin_police);
+
+  char *text = malloc(sizeof(char) * 100);
+  strcpy(text, "\0");
+  int done = 0;
+
+  SDL_Texture *fond;
+  Create_IMG_Texture(renderer, "./IMG/texture/menu/fond_text.png", &fond);
+  SDL_Color couleur = {255, 255, 255};
+
+  SDL_Rect posText = {width_window / 2, height_window / 2 - 15, 30, 30};
+  SDL_Rect posTitre = {width_window / 2 - (strlen(titre) * 25), height_window / 2 - 150, 50 * strlen(titre), 50};
+  SDL_Rect fondRect = {0, 0, width_window, height_window};
+  SDL_Texture *text_texture;
+
+  SDL_RenderClear(renderer);
+
+  SDL_RenderCopy(renderer, fond, NULL, &fondRect);
+
+  Create_Text_Texture(renderer, titre, chemin_police, 14, couleur, BLENDED, &text_texture);
+  SDL_RenderCopy(renderer, text_texture, NULL, &posTitre);
+
+  SDL_RenderPresent(renderer);
+  SDL_StartTextInput();
+  while ((!done && strlen(text) < 100) || (strlen(text) == 0)) {
+    SDL_Event event;
+    if (SDL_PollEvent(&event)) {
+      switch (event.type) {
+      case SDL_TEXTINPUT:
+        strcat(text, event.text.text);
+        posText.w += 30;
+        posText.x -= 15;
+        break;
+      case SDL_KEYDOWN:
+        if (event.key.keysym.sym == SDLK_BACKSPACE) {
+          if (strlen(text) > 0) {
+            text[strlen(text) - 1] = '\0';
+            posText.w -= 30;
+            posText.x += 15;
+          }
+        } else if (event.key.keysym.sym == SDLK_RETURN) {
+          if (strlen(text) > 0) {
+            done = 1;
+          }
+        }
+      }
+      SDL_RenderClear(renderer);
+
+      SDL_RenderCopy(renderer, fond, NULL, &fondRect);
+      if (strlen(text) > 0) {
+        Create_Text_Texture(renderer, text, chemin_police, 20, couleur, BLENDED, &text_texture);
+        SDL_RenderCopy(renderer, text_texture, NULL, &posText);
+      }
+      Create_Text_Texture(renderer, titre, chemin_police, 14, couleur, BLENDED, &text_texture);
+      SDL_RenderCopy(renderer, text_texture, NULL, &posTitre);
+
+      SDL_RenderPresent(renderer);
+    }
+  }
+  free(chemin_police);
+  return text;
+}
+
 int main(int argc, char *argv[], char **env) {
   pwd_init(argv[0], getenv("PWD"));
   srand(time(NULL));
-  SEED = 233242;
   t_menu *menu = NULL;
   t_map *map = NULL;
 
@@ -121,7 +186,10 @@ int main(int argc, char *argv[], char **env) {
       menu_suivant(&menu, type_bouton);
     } else if (type_bouton == MENU_NOUVELLE_PARTIE) {
 
-      MAP_creer(&map, "World", 12281783);
+      char *nom_map = InputText(renderer, "Nom de la map");
+      MAP_creer(&map, nom_map, rand());
+      free(nom_map);
+
       menu_suivant(&menu, type_bouton);
     } else if (type_bouton == MENU_CHARGER_PARTIE) {
 
@@ -144,9 +212,6 @@ int main(int argc, char *argv[], char **env) {
   while (boucle) {
     SDL_reset_wheel_state(ks);
     SDL_touches(ks, ct);
-    //QUITTER LE JEU
-    if (SDL_touche_appuyer(ks, QUITTER) || SDL_touche_appuyer(ks, ESCAPE))
-      boucle = 0;
 
     //GENERATION DROITE GAUCHE
     MAP_gen(map);
@@ -163,7 +228,21 @@ int main(int argc, char *argv[], char **env) {
     Gestion_Entite(renderer, map->joueur, ks, coef_fps, map->list, GESTION_TOUCHES, ALL_ACTION, NULL, CENTER_SCREEN);
 
     //Affichage Inventaire
-    if (SDL_touche_appuyer(ks, X)) {
+    //QUITTER LE JEU
+    if (SDL_touche_appuyer(ks, QUITTER) || SDL_touche_appuyer(ks, ESCAPE))
+      boucle = 0;
+    else if (SDL_touche_appuyer(ks, G)) {
+
+      SDL_SetWindowFullscreen(screen, SDL_WINDOW_FULLSCREEN_DESKTOP);
+      SDL_GetWindowSize(screen, &width_window, &height_window);
+      WIDTH = width_window;
+      HEIGHT = height_window;
+      scaleW = DEFAULT_SIZE_SCREEN_W / WIDTH;
+      scaleH = DEFAULT_SIZE_SCREEN_H / HEIGHT;
+      fondRect.w = width_window;
+      fondRect.h = height_window;
+
+    } else if (SDL_touche_appuyer(ks, X)) {
       inventaire_afficher(renderer, inventaire);
     } else {
       SDL_afficher_barre_action(renderer, inventaire, SDL_wheel_state(ks));
