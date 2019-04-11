@@ -64,7 +64,8 @@ typedef struct block_type_s {
  \brief Structure d'un block
 **/
 typedef struct block_s {
-  int id, x, y, plan;
+  int x, y;
+  uint8_t id,plan;
 } t_block;
 
 #endif
