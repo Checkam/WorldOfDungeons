@@ -33,12 +33,9 @@
 #include <touches.h>
 #include <world_of_dungeons.h>
 
-#define calY_aff(map)                                                                                                                                \
-  (map->joueur->hitbox.y / height_block_sdl) - (POSY_ENT_SCREEN(map->joueur) / height_block_sdl) - 2 // Le moins 2 a trouver d'ou il vient
-
-#define calX_Debut(map) ((map->joueur->hitbox.x - map->joueur->hitbox.w / 2) / width_block_sdl) - (SIZE / 2)
-
-#define calX_Fin(map) ((map->joueur->hitbox.x + map->joueur->hitbox.w / 2) / width_block_sdl) + (SIZE / 2)
+#define calX_Souris(map, x_mouse) ((x_mouse / width_block_sdl) + ((map->joueur->hitbox.x) / width_block_sdl) - (SIZE / 2))
+#define calY_Souris(map, y_mouse)                                                                                                                    \
+  (MAX_SCREEN - (y_mouse / height_block_sdl) + (map->joueur->hitbox.y / height_block_sdl) - (POSY_ENT_SCREEN(map->joueur) / height_block_sdl) - 2)
 
 void test_souris(t_map *map, uint8_t *ks, t_inventaire *inventaire, t_liste *liste) {
   t_block *b;
@@ -46,7 +43,7 @@ void test_souris(t_map *map, uint8_t *ks, t_inventaire *inventaire, t_liste *lis
   if (SDL_touche_appuyer(ks, SOURIS_GAUCHE)) {
     SDL_coord_souris(&x_mouse, &y_mouse);
     // Récuperation d'un block dans la liste
-    b = MAP_GetBlock(map, (x_mouse / width_block_sdl) + calX_Debut(map) + 1, MAX_SCREEN - (y_mouse / height_block_sdl) + calY_aff(map));
+    b = MAP_GetBlock(map, calX_Souris(map, x_mouse), calY_Souris(map, y_mouse));
 
     if (b && b->id != AIR && abs(b->x - ((map->joueur->hitbox.x) / width_block_sdl)) < 3 &&
         abs(b->y - ((map->joueur->hitbox.y) / height_block_sdl)) < 3) {
@@ -60,7 +57,7 @@ void test_souris(t_map *map, uint8_t *ks, t_inventaire *inventaire, t_liste *lis
   if (SDL_touche_appuyer(ks, SOURIS_DROIT)) {
     SDL_coord_souris(&x_mouse, &y_mouse);
     // Récuperation d'un block dans la liste
-    b = MAP_GetBlock(map, (x_mouse / width_block_sdl) + calX_Debut(map) + 1, MAX_SCREEN - (y_mouse / height_block_sdl) + calY_aff(map));
+    b = MAP_GetBlock(map, calX_Souris(map, x_mouse), calY_Souris(map, y_mouse));
     if (b && b->id == AIR && abs(b->x - ((map->joueur->hitbox.x) / width_block_sdl)) < 3 &&
         abs(b->y - ((map->joueur->hitbox.y) / height_block_sdl)) < 3) {
       b->id = ROCHE;
@@ -158,7 +155,7 @@ int main(int argc, char *argv[], char **env) {
     SDL_RenderCopy(renderer, fond, NULL, &fondRect);
 
     //Affiche map
-    MAP_afficher_sdl(map, renderer, calY_aff(map), calX_Debut(map), calX_Fin(map)); //Modifier l'affichage de la map pour afficher des demi colone
+    MAP_afficher_sdl(map, renderer); //Modifier l'affichage de la map pour afficher des demi colone
     //Affiche Joueur et
     Gestion_Entite(renderer, map->joueur, ks, coef_fps, map->list, GESTION_TOUCHES, ALL_ACTION, NULL, CENTER_SCREEN);
 
