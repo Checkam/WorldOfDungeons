@@ -20,6 +20,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include <touches.h>
 
 #include <errno.h>
@@ -39,14 +40,14 @@
     \return Renvoie un code erreur en cas de problème sinon OK
 **/
 t_erreur MAP_creer(t_map **map, char *nom_map, int SEED) {
-
+  srand(time(NULL));
   (*map) = malloc(sizeof(t_map));
   (*map)->nom = malloc(sizeof(char) * strlen(nom_map) + 1);
 
   strcpy((*map)->nom, nom_map);
   (*map)->SEED = SEED;
 
-  (*map)->joueur = creer_entite_defaut("player", JOUEUR, 19800, 200, 50);
+  (*map)->joueur = creer_entite_defaut("player", JOUEUR, rand() % 320000, 200, 50);
 
   MAP_creer_dir(*map);
 
@@ -237,7 +238,10 @@ t_erreur MAP_detruction(t_map **map) {
     free((*map)->nom);
     (*map)->nom = NULL;
   }
-  detruire_liste((*map)->list, free);
+  if ((*map)->joueur)
+    detruire_entite((*map)->joueur);
+  if ((*map)->list)
+    detruire_liste((*map)->list, free);
   free((*map)->list);
   (*map)->list = NULL;
   free(*map);
@@ -356,7 +360,7 @@ void MAP_SetEcListe(t_liste *list, int x) {
     \return Renvoie rien
 **/
 void MAP_CopyListFromX(t_map *map, t_liste *list, int x_from, int x_to) {
-  t_block *b;
+  t_block *b = NULL;
   for (MAP_SetEcListe(map->list, x_from); (!hors_liste(map->list) && (b == NULL || x_to > b[0].x)); suivant(map->list)) {
     valeur_elt(map->list, (void **)&b);
     ajout_droit(list, b);

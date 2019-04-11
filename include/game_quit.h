@@ -1,5 +1,4 @@
 MAP_sauvegarder(map);
-detruire_entite(map->joueur);
 Quit_Sprite();
 menu_quit();
 TTF_Quit();
