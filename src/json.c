@@ -13,6 +13,7 @@
 #include <chemin.h>
 #include <erreur.h>
 #include <fichier.h>
+#include <inttypes.h>
 
 /* Variables Globales */
 /**
@@ -79,20 +80,20 @@ t_erreur write_json (FILE * file, char * key, void * value, char * value_type)
 
     /* ENTIER */
     if (!strcmp(value_type,"d")) fprintf(file,"\"%s\":%d",key,*(int *)value);
-    else if (!strcmp(value_type,"d8")) fprintf(file,"\"%s\":%hhd",key,*(int8_t *)value);
-    else if (!strcmp(value_type,"d16")) fprintf(file,"\"%s\":%hd",key,*(int16_t *)value);
-    else if (!strcmp(value_type,"d32")) fprintf(file,"\"%s\":%I32d",key,*(int32_t *)value);
-    else if (!strcmp(value_type,"d64")) fprintf(file,"\"%s\":%I64ld",key,*(int64_t *)value);
+    else if (!strcmp(value_type,"d8")) fprintf(file,"\"%s\":%"PRId8"",key,*(int8_t *)value);
+    else if (!strcmp(value_type,"d16")) fprintf(file,"\"%s\":%"PRId16"",key,*(int16_t *)value);
+    else if (!strcmp(value_type,"d32")) fprintf(file,"\"%s\":%"PRId32"",key,*(int32_t *)value);
+    else if (!strcmp(value_type,"d64")) fprintf(file,"\"%s\":%"PRId64"",key,*(int64_t *)value);
     /* FLOAT */
     else if (!strcmp(value_type,"f")) fprintf(file,"\"%s\":%.2f",key,*(float *)value);
     /* STRING */
     else if (!strcmp(value_type,"s")) fprintf(file,"\"%s\":\"%s\"",key,(char *)value);
     /* U_INT */
     else if (!strcmp(value_type,"u")) fprintf(file,"\"%s\":%u",key,*(unsigned int *)value);
-    else if (!strcmp(value_type,"u8")) fprintf(file,"\"%s\":%hhu",key,*(u_int8_t *)value);
-    else if (!strcmp(value_type,"u16")) fprintf(file,"\"%s\":%hu",key,*(u_int16_t *)value);
-    else if (!strcmp(value_type,"u32")) fprintf(file,"\"%s\":%I32u",key,*(u_int32_t *)value);
-    else if (!strcmp(value_type,"u64")) fprintf(file,"\"%s\":%I64lu",key,*(u_int64_t *)value);
+    else if (!strcmp(value_type,"u8")) fprintf(file,"\"%s\":%"PRIu8"",key,*(u_int8_t *)value);
+    else if (!strcmp(value_type,"u16")) fprintf(file,"\"%s\":%"PRIu16"",key,*(u_int16_t *)value);
+    else if (!strcmp(value_type,"u32")) fprintf(file,"\"%s\":%"PRIu32"",key,*(u_int32_t *)value);
+    else if (!strcmp(value_type,"u64")) fprintf(file,"\"%s\":%"PRIu64"",key,*(u_int64_t *)value);
     else return TYPE_ERROR;
 
     crt_car = '#';
