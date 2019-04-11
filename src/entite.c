@@ -880,7 +880,7 @@ t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, d
     }
 
     /* Modif pour la touche SAUTER */
-    if (!entite->velY && entite->nb_saut > 0 && SDL_touche_appuyer(ks, SAUTER)) {
+    if (entite->nb_saut > 0 && SDL_touche_appuyer(ks, SAUTER)) {
       entite->velY -= HAUTEUR_SAUT;
       if (entite->nb_saut != 0)
         entite->nb_saut--;
