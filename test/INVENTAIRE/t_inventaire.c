@@ -76,7 +76,7 @@ int main ( int argc, char ** argv, char **env ) {
 	|	Allocation d'une zone memoire de 10 items		|
 	|	-----------------------------------------------*/
 
-	alloc_item(inventaire, 2);
+	alloc_item(inventaire, 3);
 
 	/*	------------------------------------------------|
 	|	Note :											|
@@ -122,30 +122,11 @@ int main ( int argc, char ** argv, char **env ) {
 
 	inventaire_changer_constante(5);
 
-	uint8_t ii;
-
-	while ( !SDL_touche_appuyer(ks, ESCAPE)) {
+	/*while ( !SDL_touche_appuyer(ks, ESCAPE)) {*/
 
 		casser_block( TERRE, &liste );
 		casser_block( NEIGE, &liste );
-		ii = 0;
-		en_tete(liste);
-
-		while ( !hors_liste( liste ) ) {
-
-        	ii++;
-        	suivant(liste);
-    	}
-		printf("ii : %d---\n", ii);
 		ajout_item_dans_inventaire( inventaire, liste);
-
-		en_tete(liste);
-
-		while ( !hors_liste( liste ) ) {
-			
-			oter_elt(liste, free);
-			en_tete(liste);
-		}
 
 		SDL_reset_wheel_state(ks);
 		SDL_touches( ks, ct);
@@ -154,7 +135,15 @@ int main ( int argc, char ** argv, char **env ) {
 		SDL_RenderPresent(renderer);
 		SDL_RenderClear(renderer);
 		SDL_Delay(100);
-	}
+
+		t_enr_inventaire enrInv;
+
+		enrInv.x = 10;
+		enrInv.y = 20;
+		enrInv.inventaire = inventaire;
+
+		inventaire_enregistrer("", &enrInv);
+	/*}*/
 
 	/*	------------------------------------------------|
 	|	Liberation de la zone memoire de l'inventaire	|

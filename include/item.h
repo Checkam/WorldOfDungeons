@@ -26,6 +26,8 @@ typedef enum {
 
 typedef struct item_type_s {
 
+    uint16_t id;
+
     char *nomItem;
     uint16_t stack;
     uint16_t durabilite;

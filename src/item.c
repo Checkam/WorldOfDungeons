@@ -317,6 +317,7 @@ static void default_item_type ( SDL_Renderer *renderer ) {
     char *chemin;
     SDL_Surface *surface = NULL;
 
+    ( tabItem + I_TERRE )->id = I_TERRE;
     ( tabItem + I_TERRE )->nomItem = "terre";
     ( tabItem + I_TERRE )->stack = 50;
     ( tabItem + I_TERRE )->posable = TERRE;
@@ -327,6 +328,7 @@ static void default_item_type ( SDL_Renderer *renderer ) {
     } else
         (( tabItem + I_TERRE )->texture) = NULL;
 
+    ( tabItem + I_PIERRE )->id = I_TERRE;
     ( tabItem + I_PIERRE )->nomItem = "pierre";
     ( tabItem + I_PIERRE )->stack = 25;
     ( tabItem + I_PIERRE )->posable = ROCHE;
@@ -337,6 +339,7 @@ static void default_item_type ( SDL_Renderer *renderer ) {
     } else
         ( tabItem + I_PIERRE )->texture = NULL;
 
+    ( tabItem + I_ROCHE )->id = I_ROCHE;
     ( tabItem + I_ROCHE )->nomItem = "roche";
     ( tabItem + I_ROCHE )->stack = 40;
     ( tabItem + I_ROCHE )->posable = ROCHE;
@@ -347,6 +350,7 @@ static void default_item_type ( SDL_Renderer *renderer ) {
     } else
         ( tabItem + I_ROCHE )->texture = NULL;
 
+    ( tabItem + I_SABLE )->id = I_SABLE;
     ( tabItem + I_SABLE )->nomItem = "sable";
     ( tabItem + I_SABLE )->stack = 50;
     ( tabItem + I_SABLE )->posable = SABLE;
@@ -357,16 +361,19 @@ static void default_item_type ( SDL_Renderer *renderer ) {
     } else
         ( tabItem + I_SABLE )->texture = NULL;
 
+    ( tabItem + I_GRAVIER )->id = I_GRAVIER;
     ( tabItem + I_GRAVIER )->nomItem = "gravier";
     ( tabItem + I_GRAVIER )->stack = 50;
     ( tabItem + I_GRAVIER )->posable = GRAVIER;
     ( tabItem + I_GRAVIER )->texture = NULL;
 
+    ( tabItem + I_BRIQUE )->id = I_BRIQUE;
     ( tabItem + I_BRIQUE )->nomItem = "brique";
     ( tabItem + I_BRIQUE )->stack = 30;
     ( tabItem + I_BRIQUE )->posable = BRIQUE;
     ( tabItem + I_BRIQUE )->texture = NULL;
 
+    ( tabItem + I_BOIS )->id = I_BOIS;
     ( tabItem + I_BOIS )->nomItem = "bois brut";
     ( tabItem + I_BOIS )->stack = 40;
     ( tabItem + I_BOIS )->posable = BOIS;
@@ -377,11 +384,13 @@ static void default_item_type ( SDL_Renderer *renderer ) {
     } else
     ( tabItem + I_BOIS )->texture = NULL;
 
+    ( tabItem + I_POUSSE_ARBRE )->id = I_POUSSE_ARBRE;
     ( tabItem + I_POUSSE_ARBRE )->nomItem = "pousse d'arbre";
     ( tabItem + I_POUSSE_ARBRE )->stack = 50;
     ( tabItem + I_POUSSE_ARBRE )->posable = AIR;
     ( tabItem + I_POUSSE_ARBRE )->texture = NULL;
 
+    ( tabItem + I_POMME )->id = I_POMME;
     ( tabItem + I_POMME )->nomItem = "pomme";
     ( tabItem + I_POMME )->stack = 50;
     ( tabItem + I_POMME )->posable = AIR;
@@ -392,6 +401,7 @@ static void default_item_type ( SDL_Renderer *renderer ) {
     } else
     ( tabItem + I_POMME )->texture = NULL;
 
+    ( tabItem + I_BOULE_NEIGE )->id = I_BOULE_NEIGE;
     ( tabItem + I_BOULE_NEIGE )->nomItem = "boule de neige";
     ( tabItem + I_BOULE_NEIGE )->stack = 75;
     ( tabItem + I_BOULE_NEIGE )->posable = AIR;
@@ -402,16 +412,19 @@ static void default_item_type ( SDL_Renderer *renderer ) {
     } else
         ( tabItem + I_BOULE_NEIGE )->texture = NULL;
     
+    ( tabItem + I_SILEX )->id = I_SILEX;
     ( tabItem + I_SILEX )->nomItem = "silex";
     ( tabItem + I_SILEX )->stack = 75;
     ( tabItem + I_SILEX )->posable = AIR;
     ( tabItem + I_SILEX )->texture = NULL;
 
+    ( tabItem + I_DIAMAND )->id = I_DIAMAND;
     ( tabItem + I_DIAMAND )->nomItem = "diamant";
     ( tabItem + I_DIAMAND )->stack = 25;
     ( tabItem + I_DIAMAND )->posable = DIAMAND;
     ( tabItem + I_DIAMAND )->texture = NULL;
 
+    ( tabItem + I_END )->id = I_END;
     ( tabItem + I_END )->nomItem = "end";
     ( tabItem + I_END )->stack = 0;
     ( tabItem + I_END )->posable = AIR;

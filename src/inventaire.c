@@ -1,4 +1,5 @@
 #include <inventaire.h>
+#include <json.h>
 #include <outils_SDL.h>
 
 #include <stdlib.h>
@@ -224,6 +225,7 @@ void SDL_afficher_barre_action ( SDL_Renderer *renderer, t_inventaire *inventair
         barreRectTexteItem.x = WIDTH / 2 - nbLettres / 1.5 * barreRectTexteItem.h / 2;
         barreRectTexteItem.w = nbLettres / 1.5 * barreRectTexteItem.h;
         Create_Text_Texture(renderer, ( inventaire->inventaire + selection )->item->nomItem, police, 15, couleurTexte, BLENDED, &textureNombre );
+        SDL_SetTextureAlphaMod( textureNombre, couleurTexte.a);
         SDL_RenderCopy( renderer, textureNombre, NULL, &barreRectTexteItem);
         SDL_DestroyTexture(textureNombre);
         changement --;
@@ -295,6 +297,50 @@ void inventaire_afficher ( SDL_Renderer *renderer, t_inventaire *inventaire ) {
     }
 
     SDL_DestroyTexture(textureNombre);
+}
+
+void inventaire_enregistrer ( const char *path, t_enr_inventaire *enr_inventaire ) {
+
+    FILE *enr = open_json( path, "inventaire", "w+");
+
+    int nil = -1, intBuf;
+    char buffer[6];
+
+    open_json_obj(enr);
+
+    write_json(enr, "x", &(enr_inventaire->x), "d");
+    write_json(enr, "y", &(enr_inventaire->x), "d");
+    write_json(enr, "nbItems", &(enr_inventaire->inventaire->nbItemMax), "d");
+
+    for ( uint16_t i = 0 ; i < enr_inventaire->inventaire->nbItemMax ; i++ ) {
+
+        sprintf(buffer, "%d", i);
+
+        if ( (enr_inventaire->inventaire->inventaire + i )->item != NULL ){
+            intBuf = ((enr_inventaire->inventaire->inventaire + i )->item->id);
+            write_json(enr, buffer, &intBuf, "d" );
+            printf("%d : %u\n", i, intBuf);
+        }
+        else {
+            write_json(enr, buffer, &nil, "d" );
+            printf("%d : nil\n", i);
+        }
+    }
+        
+    close_json_obj(enr);
+}
+
+uint8_t inventaire_recuperer ( const char *path, t_inventaire **inventaire ) {
+
+    FILE *enr = open_json( path, "inventaire", "r");
+
+    fstart(enr);
+
+    /*do {
+
+        
+
+    } while ();*/
 }
 
 void free_inventaire( t_inventaire *inventaire ) {

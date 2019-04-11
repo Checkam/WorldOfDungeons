@@ -27,6 +27,13 @@ typedef struct inventaire_s {
     uint16_t nbItemMax;
 } t_inventaire;
 
+typedef struct enr_inventaire_s {
+
+    int64_t x;
+    int32_t y;
+    t_inventaire *inventaire;
+} t_enr_inventaire;
+
 uint16_t HEIGHT;
 uint16_t WIDTH;
 
@@ -47,6 +54,8 @@ void inventaire_changer_constante ( const uint8_t nbinventaire );
 void afficher_inventaire ( t_inventaire *inventaire );
 void SDL_afficher_barre_action ( SDL_Renderer *renderer, t_inventaire *inventaire, const int8_t scroll );
 void inventaire_afficher ( SDL_Renderer *renderer, t_inventaire *inventaire );
+
+void inventaire_enregistrer ( const char *path, t_enr_inventaire *enr_inventaire );
 
 void free_inventaire( t_inventaire *inventaire );
 
