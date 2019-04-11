@@ -79,12 +79,20 @@ t_erreur write_json (FILE * file, char * key, void * value, char * value_type)
 
     /* ENTIER */
     if (!strcmp(value_type,"d")) fprintf(file,"\"%s\":%d",key,*(int *)value);
+    else if (!strcmp(value_type,"d8")) fprintf(file,"\"%s\":%hhd",key,*(int8_t *)value);
+    else if (!strcmp(value_type,"d16")) fprintf(file,"\"%s\":%hd",key,*(int16_t *)value);
+    else if (!strcmp(value_type,"d32")) fprintf(file,"\"%s\":%I32d",key,*(int32_t *)value);
+    else if (!strcmp(value_type,"d64")) fprintf(file,"\"%s\":%I64ld",key,*(int64_t *)value);
     /* FLOAT */
     else if (!strcmp(value_type,"f")) fprintf(file,"\"%s\":%.2f",key,*(float *)value);
     /* STRING */
     else if (!strcmp(value_type,"s")) fprintf(file,"\"%s\":\"%s\"",key,(char *)value);
     /* U_INT */
     else if (!strcmp(value_type,"u")) fprintf(file,"\"%s\":%u",key,*(unsigned int *)value);
+    else if (!strcmp(value_type,"u8")) fprintf(file,"\"%s\":%hhu",key,*(u_int8_t *)value);
+    else if (!strcmp(value_type,"u16")) fprintf(file,"\"%s\":%hu",key,*(u_int16_t *)value);
+    else if (!strcmp(value_type,"u32")) fprintf(file,"\"%s\":%I32u",key,*(u_int32_t *)value);
+    else if (!strcmp(value_type,"u64")) fprintf(file,"\"%s\":%I64lu",key,*(u_int64_t *)value);
     else return TYPE_ERROR;
 
     crt_car = '#';
@@ -211,7 +219,11 @@ t_erreur read_json_obj (char * obj, char * key, void * value, char * value_type)
     /* STRING */
     else if (!strcmp(value_type,"s")) strncpy((char *)value,save_val+1,sizeof(char) * strlen(save_val));
     /* U_INT */
-    else if (!strcmp(value_type,"u")) *(unsigned int *)value = atoi(save_val);
+    else if (!strcmp(value_type,"u")) *(unsigned int *)value = strtoull(save_val,NULL,0);
+    else if (!strcmp(value_type,"u8")) *(u_int8_t *)value = strtoull(save_val,NULL,0);
+    else if (!strcmp(value_type,"u16")) *(u_int16_t *)value = strtoull(save_val,NULL,0);
+    else if (!strcmp(value_type,"u32")) *(u_int32_t *)value = strtoull(save_val,NULL,0);
+    else if (!strcmp(value_type,"u64")) *(u_int64_t *)value = strtoull(save_val,NULL,0);
     else return TYPE_ERROR;
 
     return OK;
