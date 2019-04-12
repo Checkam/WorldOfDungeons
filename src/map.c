@@ -23,6 +23,7 @@
 #include <time.h>
 #include <touches.h>
 
+#include <dirent.h>
 #include <errno.h>
 #include <sys/stat.h>
 #include <sys/types.h>
@@ -129,8 +130,18 @@ t_erreur MAP_charger(t_map **map, char *nom_map) {
     \return Renvoie un code erreur en cas de problème sinon OK
 **/
 t_erreur MAP_lister() {
-  ;
-  ;
+  DIR *dp;
+  struct dirent *ep;
+  dp = opendir(PATH_MAP_DIR);
+  if (dp != NULL) {
+    while ((ep = readdir(dp)) != NULL) {
+      if (ep->d_name[0] != '.')
+        puts(ep->d_name);
+    }
+    (void)closedir(dp);
+  } else {
+    return FILE_ERROR;
+  }
   return OK;
 }
 
