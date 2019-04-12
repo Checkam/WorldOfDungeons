@@ -33,9 +33,36 @@ void init_map(t_block *map, int x) {
   }
 }
 
-int gen_col(t_liste *list, int x, int dir) {
-  int rnd, j;
+void gen_minerai(t_block *tab, int x, int taille_max) {
+  double rnd;
+  for (int j = 0; j <= taille_max - HAUTEUR_SURFACE; j++) {
+    rnd = perlin2d(x, j, 0.1, DEPTH);
 
+    if ((rnd >= 0.73555 && rnd <= 0.74) && j >= 30 && j <= HAUTEUR_MINIMUN) {
+      tab[j].id = MINERAI_CHARBON;
+      tab[j].y = j;
+      tab[j].x = x;
+      tab[j].plan = PREMIER_PLAN;
+      printf("MINERAI_CHARBON %f\n", rnd);
+    } else if ((rnd >= 0.43555 && rnd <= 0.44) && j <= HAUTEUR_MINIMUN && j >= 30) {
+      tab[j].id = MINERAI_CUIVRE;
+      tab[j].y = j;
+      tab[j].x = x;
+      tab[j].plan = PREMIER_PLAN;
+      printf("MINERAI_CUIVRE %f\n", rnd);
+    } else if ((rnd >= 0.39111 && rnd <= 0.39333) && j <= 30) {
+      tab[j].id = MINERAI_OR;
+      tab[j].y = j;
+      tab[j].x = x;
+      tab[j].plan = PREMIER_PLAN;
+      printf("MINERAI_OR %f\n", rnd);
+    }
+  }
+}
+
+int gen_col(t_liste *list, int x, int dir) {
+  int j;
+  double rnd;
   int taille_max = (perlin2d(x, MAX / 2, FREQ, DEPTH) * MAX / 2) + HAUTEUR_MINIMUN;
 
   t_block *tab = malloc(sizeof(t_block) * MAX);
@@ -71,7 +98,9 @@ int gen_col(t_liste *list, int x, int dir) {
       }
     }
 
+  gen_minerai(tab, x, taille_max);
   /* Génération profondeur */
+
   for (j = 0; j <= taille_max - HAUTEUR_SURFACE; j++) {
     rnd = perlin2d(x, j, FREQ, DEPTH) * MAX;
     if (taille_max - j > PROFONDEUR_GROTTE && j >= BEDROCK && rnd >= (MAX / 2 - SIZE_GROTTE) && rnd <= (MAX / 2 + SIZE_GROTTE)) { /* grotte */
