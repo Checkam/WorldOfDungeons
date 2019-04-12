@@ -46,16 +46,17 @@ void test_souris(t_map *map, uint8_t *ks, t_inventaire *inventaire, t_liste *lis
     // Récuperation d'un block dans la liste
     b = MAP_GetBlock(map, calX_Souris(map, x_mouse), calY_Souris(map, y_mouse));
 
-    if (b && b->id != AIR && abs(b->x - ((map->joueur->hitbox.x) / width_block_sdl)) < 3 &&
+    //CASSER UN BLOCK
+    if (b && BLOCK_estCassable(b->id) && abs(b->x - ((map->joueur->hitbox.x) / width_block_sdl)) < 3 &&
         abs(b->y - ((map->joueur->hitbox.y) / height_block_sdl)) <= 3) {
       casser_block((t_materiaux)b->id, &liste);
       ajout_item_dans_inventaire(inventaire, liste);
       b->id = AIR;
       b->plan = ARRIERE_PLAN;
-      // fprintf(stderr, "%d %d %d %d\n", calY_aff(map), (POSY_ENT_SCREEN(map->joueur) / height_block_sdl), map->joueur->hitbox.y, b->y);
     }
   }
 
+  //POSER UN BLOCK
   if (SDL_touche_appuyer(ks, SOURIS_DROIT)) {
     SDL_coord_souris(&x_mouse, &y_mouse);
     // Récuperation d'un block dans la liste
@@ -148,8 +149,11 @@ void startPlayMap(t_map *map, SDL_Renderer *renderer) {
   en_tete(liste);
 
   SDL_Rect fondRect = {0, 0, width_window, height_window};
-  SDL_Texture *fond;
-  Create_IMG_Texture(renderer, "./IMG/texture/environnement/ciel.png", &fond);
+  SDL_Texture *ciel;
+  Create_IMG_Texture(renderer, "./IMG/texture/environnement/ciel.png", &ciel);
+
+  SDL_Texture *sous_terre;
+  Create_IMG_Texture(renderer, "./IMG/texture/environnement/grotte.png", &sous_terre);
 
   while (boucle) {
     SDL_reset_wheel_state(ks);
@@ -162,7 +166,10 @@ void startPlayMap(t_map *map, SDL_Renderer *renderer) {
     test_souris(map, ks, inventaire, liste);
 
     //Afficher le fond
-    SDL_RenderCopy(renderer, fond, NULL, &fondRect);
+    if (map->joueur->hitbox.y / height_block_sdl > HAUTEUR_MINIMUN)
+      SDL_RenderCopy(renderer, ciel, NULL, &fondRect);
+    else
+      SDL_RenderCopy(renderer, sous_terre, NULL, &fondRect);
 
     //Affiche map
     MAP_afficher_sdl(map, renderer); //Modifier l'affichage de la map pour afficher des demi colone
@@ -183,11 +190,13 @@ void startPlayMap(t_map *map, SDL_Renderer *renderer) {
 
     coef_fps = fps();
   }
+  printf("Nb col : %d\n", taille_liste(map->list));
   MAP_sauvegarder(map);
   free_inventaire(inventaire);
   detruire_liste(liste, free);
   free(liste);
-  SDL_DestroyTexture(fond);
+  SDL_DestroyTexture(ciel);
+  SDL_DestroyTexture(sous_terre);
   SDL_exit_touches(&ks, &ct);
 }
 
@@ -242,6 +251,7 @@ int main(int argc, char *argv[], char **env) {
         menu_suivant(&menu, type_bouton);
 
         if (map) {
+
           startPlayMap(map, renderer);
           MAP_detruction(&map);
         } else {
@@ -266,6 +276,8 @@ int main(int argc, char *argv[], char **env) {
         }
 
       } else if (type_bouton == MENU_CHARGER_PARTIE) {
+
+        MAP_lister();
 
         char *nom_map = InputText(renderer, "Nom de la map");
         MAP_charger(&map, nom_map);
