@@ -45,8 +45,11 @@ MSG_RM_B = @echo "  RM    " $(BIN_DIR)/$(PROG);
 ALL_SRC = $(wildcard $(SRC_DIR)/*.c)
 ALL_INC = $(wildcard $(INC_DIR)/*.h)
 
-SRC = $(filter-out $(SRC_DIR)/world_of_dungeons.c,$(ALL_SRC))
-INC = $(filter-out $(INC_DIR)/world_of_dungeons.h,$(ALL_INC))
+SRC_SUP = $(SRC_DIR)/world_of_dungeons.c $(SRC_DIR)/touches.c $(SRC_DIR)/map.c $(SRC_DIR)/inventaire.c $(SRC_DIR)/entite.c $(SRC_DIR)/donjon.c $(SRC_DIR)/structure_block.c $(SRC_DIR)/generation.c
+INC_SUP = $(INC_DIR)/world_of_dungeons.h
+# $(INC_DIR)/touches.h $(INC_DIR)/map.h $(INC_DIR)/inventaire.h $(INC_DIR)/entite.h $(INC_DIR)/donjon.h
+SRC = $(filter-out $(SRC_SUP),$(ALL_SRC))
+INC = $(filter-out $(INC_SUP),$(ALL_INC))
 
 OBJ := $(subst .c,.o,$(SRC))
 OBJ := $(subst src,obj,$(OBJ))

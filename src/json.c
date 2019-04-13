@@ -15,6 +15,7 @@
 #include <fichier.h>
 #include <stdint.h>
 #include <inttypes.h>
+#include <liste.h>
 
 /* Variables Globales */
 /**
@@ -24,35 +25,100 @@
 */
 char crt_car = '#';
 
+char * save_dossier; // Sauvegarde du dossier où se trouve le fichier JSON.
+char * save_name; // Sauvegarde du nom du fichier JSON.
+uint8_t object_open = 0; // Indique si un objet est ouvert (en cours d'écriture).
+
 /*################################################
   ###### Création, Ouverture, Suppression, #######
   ########## Fermeture de Fichier JSON ###########
   ################################################*/
 
 /**
- * \fn FILE * open_json (char * dossier, char * name, char * mode)
+ * \fn t_erreur JSON_Open (char * dossier, char * name, char * mode)
  * \brief Créer, s'il ne l'est pas, le fichier JSON et l'ouvre.
  * \param dossier Chaine de caractère représentant le dossier ou se trouve le json.
  * \param name Chaine de caractère représenant le nom du fichier sans le '.json'.
  * \param mode Mode d'ouverture du fichier.
- * \return Un pointeur sur le fichier ouvert.
+ * \return Une erreur s'il y en a une.
 */
-FILE * open_json (char * dossier, char * name, char * mode)
+t_erreur JSON_Open (char * dossier, char * name, char * mode)
 {
+    if (object_open) return FILE_ERROR;
     crt_car = '#';
-    return open_file(dossier,name,".json",mode);
+    t_json file;
+    file = open_file(dossier,name,".json",mode);
+    if (!file) return OPEN_FILE_ERROR;
+    object_open = 0;
+
+    /* Récup contenu du fichier */
+    fstart(file);
+    init_liste(&json_objects);
+    char * obj;
+    for (en_tete(&json_objects); JSON_Extract_Object(file,&obj) != FILE_ERROR; suivant(&json_objects))
+    {
+        ajout_droit(&json_objects,obj);
+    }
+    fclose(file);
+
+    /* Save dossier et nom fichier */
+    save_dossier = malloc(strlen(dossier) + 1);
+    save_name = malloc(strlen(name) + 1);
+    strcpy(save_dossier,dossier);
+    strcpy(save_name,name);
+
+    return OK;
 }
 
 /**
- * \fn int del_json (char * dossier, char * name)
+ * \fn int JSON_Delete (char * dossier, char * name)
  * \brief Supprime un fichier JSON.
  * \param dossier Chaine de caractère représentant le dossier ou se trouve le json.
  * \param name Chaine de caractère représenant le nom du fichier sans le '.json' à supprimer.
  * \return Une erreur s'il y en a une.
 */
-t_erreur del_json (char * dossier, char * name)
+t_erreur JSON_Delete (char * dossier, char * name)
 {
     return del_file(dossier,name,".json");
+}
+
+/**
+ * \fn t_erreur JSON_Close ()
+ * \brief Ferme un fichier JSON.
+ * \return Une erreur s'il y en a une.
+*/
+t_erreur JSON_Close ()
+{
+    if (object_open) return FILE_ERROR;
+    t_json file;
+
+    /* Ouverture du fichier pour enregistrement */
+    file = open_file(save_dossier,save_name,".json","w");
+    if (!file) return OPEN_FILE_ERROR;
+    object_open = 0;
+
+    /* Enregistrement */
+    char * obj;
+    for (en_tete(&json_objects); !hors_liste(&json_objects); suivant(&json_objects))
+    {
+        valeur_elt(&json_objects,(void **)&obj);
+        fprintf(file,"%s\n",obj);
+    }
+
+    /* Suppression de la liste */
+    detruire_liste(&json_objects,free);
+
+    /* Fermeture du fichier */
+    fclose(file);
+    file = NULL;
+
+    /* Suppression nom et dossier du fichier */
+    free(save_dossier);
+    save_dossier = NULL;
+    free(save_name);
+    save_name = NULL;
+
+    return OK;
 }
 
 /*################################################
@@ -61,41 +127,135 @@ t_erreur del_json (char * dossier, char * name)
   ################################################*/
 
 /**
- * \fn t_erreur write_json (FILE * file, char * key, void * value, char * value_type)
- * \brief Ecrit une clé/valeur au format JSON dans un fichier.
- * \brief L'écriture s'effectue dans le fichier 'file' en ajout avec pour contenu le couple clé/valeur 'key:value'.
- * \param file Le fichier ou écrire.
+ * \fn t_erreur JSON_Write (char * key, void * value, char * value_type)
+ * \brief Ecrit une clé/valeur au format JSON dans une liste.
  * \param key La clé correspondant à la valeur.
  * \param value La valeur à écrire.
  * \param value_type Le type de la valeur à écrire.
  * \return Une erreur s'il y en a une.
 */
-t_erreur write_json (FILE * file, char * key, void * value, char * value_type)
+t_erreur JSON_Write (char * key, void * value, char * value_type)
 {
     /* FILE_ERROR */
-    if (!file) return FILE_ERROR;
+    if (!object_open) return FILE_ERROR;
     /* PTR_NULL */
     if (!key || !value || !value_type) return PTR_NULL;
 
-    if(crt_car != '{') fprintf(file,",");
+    char * obj;
+    valeur_elt(&json_objects,(void **)&obj);
+    oter_elt(&json_objects,NULL);
+    char * new_obj;
+    int taille = sizeof(char) * (strlen(key) + strlen(obj) + 10);
+    new_obj = malloc(taille);
+
+    if(crt_car != '{') sprintf(new_obj,"%s,",obj);
+    else sprintf(new_obj,"%s",obj);
 
     /* ENTIER */
-    if (!strcmp(value_type,"d")) fprintf(file,"\"%s\":%d",key,*(int *)value);
-    else if (!strcmp(value_type,"d8")) fprintf(file,"\"%s\":%"PRId8"",key,*(int8_t *)value);
-    else if (!strcmp(value_type,"d16")) fprintf(file,"\"%s\":%"PRId16"",key,*(int16_t *)value);
-    else if (!strcmp(value_type,"d32")) fprintf(file,"\"%s\":%"PRId32"",key,*(int32_t *)value);
-    else if (!strcmp(value_type,"d64")) fprintf(file,"\"%s\":%"PRId64"",key,*(int64_t *)value);
+    if (!strcmp(value_type,"d"))
+    {
+        taille += sizeof(char) * 6;
+        obj = realloc(obj,taille);
+        sprintf(obj,"%s\"%s\":%d",new_obj,key,*(int *)value);
+        free(new_obj);
+        ajout_droit(&json_objects,obj);
+    }
+    else if (!strcmp(value_type,"d8"))
+    {
+        taille += sizeof(char) * 4;
+        obj = realloc(obj,taille);
+        sprintf(obj,"%s\"%s\":%"PRId8"",new_obj,key,*(int8_t *)value);
+        free(new_obj);
+        ajout_droit(&json_objects,obj);
+    }
+    else if (!strcmp(value_type,"d16"))
+    {
+        taille += sizeof(char) * 6;
+        obj = realloc(obj,taille);
+        sprintf(obj,"%s\"%s\":%"PRId16"",new_obj,key,*(int16_t *)value);
+        free(new_obj);
+        ajout_droit(&json_objects,obj);
+    }
+    else if (!strcmp(value_type,"d32"))
+    {
+        taille += sizeof(char) * 11;
+        obj = realloc(obj,taille);
+        sprintf(obj,"%s\"%s\":%"PRId32"",new_obj,key,*(int32_t *)value);
+        free(new_obj);
+        ajout_droit(&json_objects,obj);
+    }
+    else if (!strcmp(value_type,"d64"))
+    {
+        taille += sizeof(char) * 20;
+        obj = realloc(obj,taille);
+        sprintf(obj,"%s\"%s\":%"PRId64"",new_obj,key,*(int64_t *)value);
+        free(new_obj);
+        ajout_droit(&json_objects,obj);
+    }
     /* FLOAT */
-    else if (!strcmp(value_type,"f")) fprintf(file,"\"%s\":%.2f",key,*(float *)value);
+    else if (!strcmp(value_type,"f"))
+    {
+        taille += sizeof(char) * 11;
+        obj = realloc(obj,taille);
+        sprintf(obj,"%s\"%s\":%f",new_obj,key,*(float *)value);
+        free(new_obj);
+        ajout_droit(&json_objects,obj);
+    }
     /* STRING */
-    else if (!strcmp(value_type,"s")) fprintf(file,"\"%s\":\"%s\"",key,(char *)value);
+    else if (!strcmp(value_type,"s"))
+    {
+        taille += sizeof(char) * strlen((char *)value);
+        obj = realloc(obj,taille);
+        sprintf(obj,"%s\"%s\":\"%s\"",new_obj,key,(char *)value);
+        free(new_obj);
+        ajout_droit(&json_objects,obj);
+    }
     /* U_INT */
-    else if (!strcmp(value_type,"u")) fprintf(file,"\"%s\":%u",key,*(unsigned int *)value);
-    else if (!strcmp(value_type,"u8")) fprintf(file,"\"%s\":%"PRIu8"",key,*(uint8_t *)value);
-    else if (!strcmp(value_type,"u16")) fprintf(file,"\"%s\":%"PRIu16"",key,*(uint16_t *)value);
-    else if (!strcmp(value_type,"u32")) fprintf(file,"\"%s\":%"PRIu32"",key,*(uint32_t *)value);
-    else if (!strcmp(value_type,"u64")) fprintf(file,"\"%s\":%"PRIu64"",key,*(uint64_t *)value);
-    else return TYPE_ERROR;
+    else if (!strcmp(value_type,"u"))
+    {
+        taille += sizeof(char) * 5;
+        obj = realloc(obj,taille);
+        sprintf(obj,"%s\"%s\":%u",new_obj,key,*(unsigned int *)value);
+        free(new_obj);
+        ajout_droit(&json_objects,obj);
+    }
+    else if (!strcmp(value_type,"u8"))
+    {
+        taille += sizeof(char) * 3;
+        obj = realloc(obj,taille);
+        sprintf(obj,"%s\"%s\":%"PRIu8"",new_obj,key,*(uint8_t *)value);
+        free(new_obj);
+        ajout_droit(&json_objects,obj);
+    }
+    else if (!strcmp(value_type,"u16"))
+    {
+        taille += sizeof(char) * 5;
+        obj = realloc(obj,taille);
+        sprintf(obj,"%s\"%s\":%"PRIu16"",new_obj,key,*(uint16_t *)value);
+        free(new_obj);
+        ajout_droit(&json_objects,obj);
+    }
+    else if (!strcmp(value_type,"u32"))
+    {
+        taille += sizeof(char) * 10;
+        obj = realloc(obj,taille);
+        sprintf(obj,"%s\"%s\":%"PRIu32"",new_obj,key,*(uint32_t *)value);
+        free(new_obj);
+        ajout_droit(&json_objects,obj);
+    }
+    else if (!strcmp(value_type,"u64"))
+    {
+        taille += sizeof(char) * 20;
+        obj = realloc(obj,taille);
+        sprintf(obj,"%s\"%s\":%"PRIu64"",new_obj,key,*(uint64_t *)value);
+        free(new_obj);
+        ajout_droit(&json_objects,obj);
+    }
+    else
+    {
+        free(new_obj);
+        return TYPE_ERROR;
+    }
 
     crt_car = '#';
 
@@ -103,36 +263,52 @@ t_erreur write_json (FILE * file, char * key, void * value, char * value_type)
 }
 
 /**
- * \fn t_erreur open_json_obj (FILE * file)
- * \brief Démarre un nouvelle objet au format JSON dans un fichier.
- * \brief L'écriture s'effectue dans le fichier 'file' en ajout avec pour contenu '{' et la variable crt_car est mis à jour.
+ * \fn t_erreur JSON_Open_Object ()
+ * \brief Démarre un nouvel objet au format JSON dans une liste.
+ * \brief Le contenu est '{' et la variable crt_car est mis à jour.
  * \param file Le fichier ou écrire.
  * \return Une erreur s'il y en a une.
 */
-t_erreur open_json_obj (FILE * file)
+t_erreur JSON_Open_Object ()
 {
     /* FILE_ERROR */
-    if (!file) return FILE_ERROR;
+    if (object_open) return FILE_ERROR;
+    object_open = 1;
 
-    fprintf(file,"{");
+    char * obj = malloc(sizeof(char) * 2);
+    sprintf(obj,"{");
     crt_car = '{';
+
+    en_queue(&json_objects);
+    ajout_droit(&json_objects,obj);
+    en_queue(&json_objects);
 
     return OK;
 }
 
 /**
- * \fn int close_json_obj (FILE * file)
+ * \fn t_erreur JSON_Close_Object ()
  * \brief Ferme l'objet JSON.
- * \brief L'écriture s'effectue dans le fichier 'file' en ajout avec pour contenu '}' et la variable crt_car est mis à jour.
+ * \brief Le contenu est '}' et la variable crt_car est mis à jour.
  * \param file Le fichier ou écrire.
  * \return Une erreur s'il y en a une.
 */
-t_erreur close_json_obj (FILE * file)
+t_erreur JSON_Close_Object ()
 {
     /* FILE_ERROR */
-    if (!file) return FILE_ERROR;
+    if (!object_open) return FILE_ERROR;
+    object_open = 0;
 
-    fprintf(file,"}\n");
+    en_queue(&json_objects);
+    char * obj;
+    valeur_elt(&json_objects,(void **)&obj);
+    oter_elt(&json_objects,NULL);
+
+    int taille = strlen(obj) + 2 * sizeof(char);
+    obj = realloc(obj,taille);
+    obj[taille-2] = '}';
+    obj[taille-1] = '\0';
+    ajout_droit(&json_objects,obj);
     crt_car = '#';
 
     return OK;
@@ -144,14 +320,14 @@ t_erreur close_json_obj (FILE * file)
   ################################################*/
 
 /**
- * \fn t_erreur extract_json_obj (FILE * file, char ** obj)
+ * \fn t_erreur JSON_Extract_Object (t_json file, char ** obj)
  * \brief Récupère un objet JSON dans un fichier.
  * \brief La lecture s'effectue dans le fichier 'file' et on récupère un objet.
  * \param file Le fichier à lire.
  * \param obj L'endroit ou enregistrer l'objet.
  * \return Une erreur s'il y en a une.
 */
-t_erreur extract_json_obj (FILE * file, char ** obj)
+t_erreur JSON_Extract_Object (t_json file, char ** obj)
 {
     /* FILE_ERROR */
     if (!file) return FILE_ERROR;
@@ -160,6 +336,7 @@ t_erreur extract_json_obj (FILE * file, char ** obj)
 
     int pas = 15, i = 0;
     while (crt_car != '{' && fscanf(file,"%c",&crt_car) != EOF);
+    if (feof(file)) return FILE_ERROR;
     *obj = malloc(sizeof(char) * pas);
     (*obj)[i++] = crt_car;
     for (;crt_car != '}' && fscanf(file,"%c",&crt_car) != EOF; i++)
@@ -175,16 +352,16 @@ t_erreur extract_json_obj (FILE * file, char ** obj)
 }
 
 /**
- * \fn t_erreur read_json_obj (FILE * file, char * key, void * value, char * value_type)
+ * \fn t_erreur JSON_Read_Object (char * obj, char * key, void * value, char * value_type)
  * \brief Lit un objet JSON.
- * \brief La lecture s'effectue dans le fichier 'file' et on va chercher la valeur correspondant à la 'key'.
- * \param file Le fichier à lire.
+ * \brief La lecture s'effectue dans l'objet 'obj' et on va chercher la valeur correspondant à la 'key'.
+ * \param obj L'objet à lire.
  * \param key La clé à chercher.
  * \param value La valeur à modifier.
  * \param value_type Le type de la valeur recherché.
  * \return Une erreur s'il y en a une.
 */
-t_erreur read_json_obj (char * obj, char * key, void * value, char * value_type)
+t_erreur JSON_Read_Object (char * obj, char * key, void * value, char * value_type)
 {
     /* PTR_NULL */
     if (!key || !obj) return PTR_NULL;
@@ -208,14 +385,10 @@ t_erreur read_json_obj (char * obj, char * key, void * value, char * value_type)
     /* On traite la valeur */
     /* ENTIER */
     if (!strcmp(value_type,"d")) *(int *)value = atoi(save_val);
-    /* ENTIER 8_T*/
     if (!strcmp(value_type,"d8")) *(int8_t *)value = atoi(save_val);
-    /* ENTIER 16_T*/
     if (!strcmp(value_type,"d16")) *(int16_t *)value = atoi(save_val);
-    /* ENTIER 32_T*/
-    if (!strcmp(value_type,"d32")) *(int32_t *)value = atoi(save_val);
-    /* ENTIER 64_T*/
-    if (!strcmp(value_type,"d64")) *(int64_t *)value = atoi(save_val);
+    if (!strcmp(value_type,"d32")) *(int32_t *)value = atol(save_val);
+    if (!strcmp(value_type,"d64")) *(int64_t *)value = atoll(save_val);
     /* FLOAT */
     else if (!strcmp(value_type,"f")) *(float *)value = atof(save_val);
     /* STRING */
@@ -236,12 +409,12 @@ t_erreur read_json_obj (char * obj, char * key, void * value, char * value_type)
   ################################################*/
 
 /**
- * \fn t_erreur fstart (FILE * file)
+ * \fn t_erreur fstart (t_json file)
  * \brief Remet le pointeur file au début du fichier.
  * \param file Le fichier où repartir du début.
  * \return Une erreur s'il y en a une.
 */
-t_erreur fstart (FILE * file)
+t_erreur fstart (t_json file)
 {
     if (!file) return FILE_ERROR;
     fseek(file, 0, SEEK_SET);
