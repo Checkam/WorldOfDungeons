@@ -662,7 +662,10 @@ int collision(t_entite *entite, t_collision_direction direction, t_liste *p)
         if (block->id != AIR) {
           SDL_Rect B = {width_block_sdl * block->x, height_block_sdl * block->y, width_block_sdl, height_block_sdl};
           SDL_IntersectRect(&(entite->hitbox), &B, &res);
-          collision = res.h;
+          if(block->y * height_block_sdl > entite->hitbox.y - h)
+            collision = block->y * height_block_sdl - (entite->hitbox.y - h) + 1;
+          
+          //collision = res.h;
           //fprintf(stderr, " b.x:%d b.y:%d x:%d y:%d w:%d h:%d res.h:%d\n", block->x, block->y, x, y, w, h, res.h);
         }
       }
@@ -838,11 +841,11 @@ t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, d
   {
     /* Modif pour la touche AVANCER */
     if (SDL_touche_appuyer(ks, AVANCER)) {
-      Print_Entite_Screen(renderer, NULL, entite, MARCHE_DEVANT, pos);
+      Print_Entite_Screen(renderer, ref, entite, MARCHE_DEVANT, pos);
     }
     /* Modif pour la touche RECULER */
     else if (SDL_touche_appuyer(ks, RECULER)) {
-      Print_Entite_Screen(renderer, NULL, entite, MARCHE_DERRIERE, pos);
+      Print_Entite_Screen(renderer, ref, entite, MARCHE_DERRIERE, pos);
     }
     /* Modif pour la touche DROITE */
     else if (SDL_touche_appuyer(ks, DROITE)) {
@@ -850,7 +853,7 @@ t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, d
       diff = collision(entite, DIRECT_DROITE_COLLI, p);
       if (diff <= 0)
         entite->hitbox.x += entite->accX * coef_fps;
-      Print_Entite_Screen(renderer, NULL, entite, MARCHE_DROITE, pos);
+      Print_Entite_Screen(renderer, ref, entite, MARCHE_DROITE, pos);
     }
     /* Modif pour la touche GAUCHE */
     else if (SDL_touche_appuyer(ks, GAUCHE)) {
@@ -858,11 +861,11 @@ t_erreur Gestion_Entite(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, d
       diff = collision(entite, DIRECT_GAUCHE_COLLI, p);
       if (diff <= 0)
         entite->hitbox.x -= entite->accX * coef_fps;
-      Print_Entite_Screen(renderer, NULL, entite, MARCHE_GAUCHE, pos);
+      Print_Entite_Screen(renderer, ref, entite, MARCHE_GAUCHE, pos);
     }
     /* Modif quand on appui sur AUCUNE touche */
     else
-      Print_Entite_Screen(renderer, NULL, entite, IMMOBILE, pos);
+      Print_Entite_Screen(renderer, ref, entite, IMMOBILE, pos);
 
     /* Modif pour la touche SHIFT (Accélérer) */
     if (SDL_touche_appuyer(ks, SHIFT)) {
