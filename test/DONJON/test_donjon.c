@@ -95,10 +95,9 @@ int main(int argc, char **argv, char **env){
     }
 
     double coef_fps;
-    t_liste * fenetre = NULL;
 
     int continuer = 1;
-    while(continuer){
+    while(continuer && !(donjon->quitter)){
         coef_fps = fps();
     /* Affichage Donjon */
         SDL_touches( ks, ct);
@@ -107,18 +106,15 @@ int main(int argc, char **argv, char **env){
         donjon_afficher_SDL(renderer, donjon, joueur);
         donjon_gestion(renderer, donjon, joueur, ks, coef_fps);
 
-
         if ( SDL_touche_appuyer( ks, QUITTER) || SDL_touche_appuyer( ks, ESCAPE)) 
             continuer = 0;
-
-        //donjon_afficher_Term(donjon, joueur);
         
         SDL_RenderPresent(renderer);
     }
     
     /* Destruction Donjon */
     fprintf(stderr, "Test destruction donjon ");
-    if(donjon_detruire(&donjon) == OK){
+    if(donjon_quitter(donjon, joueur) == OK){
         fprintf(stderr, "--> OK\n");
     }else{
         fprintf(stderr, "--> KO\n");

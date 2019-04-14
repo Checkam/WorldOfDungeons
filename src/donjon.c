@@ -22,6 +22,7 @@
 #include <entite.h>
 #include <chemin.h>
 #include <ia.h>
+#include <math.h>
 
 #define DEPTH 5
 #define TAILLE_SOL 6
@@ -39,6 +40,7 @@ static t_erreur donjon_coord_depart(t_liste * donjon, t_salle_donjon ** salle_de
 static t_erreur placer_salle_boss(t_liste * donjon);
 static t_erreur creer_mob(t_salle_donjon * salle, t_entite * joueur);
 static t_erreur salle_joueur(t_liste * donjon, SDL_Rect pos_perso, t_salle_donjon ** salle_j);
+static t_erreur attaque(t_entite * attaquant, t_entite * cible);
 
 /**
  * \fn t_erreur donjon_creer(t_donjon ** donjon, int nb_salle, t_entite * joueur)
@@ -632,11 +634,6 @@ t_erreur donjon_gestion(SDL_Renderer * renderer, t_donjon * donjon, t_entite * j
             init_liste(salle->mob);
 
             creer_mob(salle, joueur);
-            /*if(salle->type == DONJON_FIN)
-                fprintf(stderr, "Salle %d,%d : %d Mobs + 1 Boss\n", salle->x, salle->y, taille_liste(salle->mob) - 1);
-            else
-                fprintf(stderr, "Salle %d,%d : %d Mobs\n", salle->x, salle->y, taille_liste(salle->mob));
-            */
         }
 
         t_entite * mob = NULL;
@@ -646,18 +643,27 @@ t_erreur donjon_gestion(SDL_Renderer * renderer, t_donjon * donjon, t_entite * j
         for(en_tete(salle->mob); !hors_liste(salle->mob); suivant(salle->mob)){
             valeur_elt(salle->mob, (void**)&mob);
 
-            int x_salle_mob = (mob->hitbox.x / width_block_sdl) / SIZE;
-            
-            if(x_salle_mob < salle->x){
-                action = MARCHE_DROITE;
-            }else if(x_salle_mob > salle->x){
-                action = MARCHE_GAUCHE;
+            if(mob->pv > 0 || mob->type == BOSS){
+                int x_salle_mob = (mob->hitbox.x / width_block_sdl) / SIZE;
+                
+                if(x_salle_mob < salle->x){
+                    action = MARCHE_DROITE;
+                }else if(x_salle_mob > salle->x){
+                    action = MARCHE_GAUCHE;
+                }else{
+                    action = ia_jouer(mob, joueur, IA_ALEATOIRE);
+                }
+                attaque(joueur, mob);
+                attaque(mob, joueur);
+
+                update_posY_entite(mob, coef_fps, salle->structure, NOT_CENTER_SCREEN);
+                Gestion_Entite(renderer, mob, ks, coef_fps, salle->structure, GESTION_ACTION, action, ref, NOT_CENTER_SCREEN);
             }else{
-                action = ia_jouer(mob, joueur, IA_ALEATOIRE);
+                salle->completed = true;
             }
-            update_posY_entite(mob, coef_fps, salle->structure, NOT_CENTER_SCREEN);
-            Gestion_Entite(renderer, mob, ks, coef_fps, salle->structure, GESTION_ACTION, action, ref, NOT_CENTER_SCREEN);
         }
+    }else if(salle->type == DONJON_FIN){
+        donjon->quitter = true;
     }
 
     /* Libération Mémoire */
@@ -732,6 +738,43 @@ static t_erreur creer_mob(t_salle_donjon * salle, t_entite * joueur){
     return OK;
 }
 
+/**
+ * 
+*/
+static t_erreur attaque(t_entite * attaquant, t_entite * cible){
+    /* Vérification */
+    if(attaquant == NULL){
+        erreur_save(PTR_NULL, "attaque() : Pointeur sur attaquant NULL");
+        return PTR_NULL;
+    }
+    if(cible == NULL){
+        erreur_save(PTR_NULL, "attaque() : Pointeur sur attaquant NULL");
+        return PTR_NULL;
+    }
+
+    if(attaquant->type == JOUEUR){
+        int mouseX, mouseY;
+        SDL_GetMouseState(&mouseX, &mouseY);
+        SDL_Point p = {
+            mouseX,
+            mouseY
+        };
+
+        if(SDL_PointInRect(&p, &(cible->posEnt))){
+            if(abs(attaquant->hitbox.x - cible->hitbox.x) <= 2 * width_block_sdl){
+                if(abs(attaquant->hitbox.y - cible->hitbox.y) <= 2 * height_block_sdl){
+                    Add_PV_Entite(cible, -(attaquant->damage));
+                }
+            }
+        }
+    }else{
+        if(attaquant->act_pred == ATTAQUE_DROITE && cible->hitbox.x >= attaquant->hitbox.x){
+            Add_PV_Entite(cible, -(attaquant->damage));
+        }else if(attaquant->act_pred == ATTAQUE_GAUCHE && cible->hitbox.x <= attaquant->hitbox.x){
+            Add_PV_Entite(cible, -(attaquant->damage));
+        }
+    }
+}
 
 /**
  * 
