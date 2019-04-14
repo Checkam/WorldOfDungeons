@@ -59,6 +59,7 @@ typedef struct s_salle_donjon{
 typedef struct s_donjon{
     int x_map_joueur, y_map_joueur;
     t_liste * donjon;
+    bool quitter;
 } t_donjon;
 
 
@@ -79,12 +80,12 @@ t_erreur donjon_afficher_SDL(SDL_Renderer * renderer, t_donjon * donjon, t_entit
 /* Primitive de gestion d'un donjon */
 /************************************/
 t_erreur donjon_gestion(SDL_Renderer * renderer, t_donjon * donjon, t_entite * joueur, uint8_t *ks, double coef_fps);
-t_erreur tab_fenetre(t_liste * donjon, SDL_Rect pos_perso, t_liste ** tab_fenetre);
 
 
 /****************************************/
 /* Primitive de destruction d'un donjon */
 /****************************************/
+t_erreur donjon_quitter(t_donjon * donjon, t_entite * joueur);
 t_erreur donjon_detruire(t_donjon **donjon);
 
 #endif

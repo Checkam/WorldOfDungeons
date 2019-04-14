@@ -327,15 +327,14 @@ t_block *MAP_GetBlockFromList(t_map *map, int x, int y) {
     \return Renvoie un pointeur sur le block trouver NULL s'il n'a pas été trouver
 **/
 t_block *MAP_GetBlock(t_map *map, int x, int y) {
-  if (y >= 0 && y < MAX) {
-    t_block *tab;
-    for (en_tete(map->list); !hors_liste(map->list); suivant(map->list)) {
-      valeur_elt(map->list, (void **)&tab);
-      if (tab[0].x == x) {
-        for (int i = 0; i < MAX; i++) {
-          if (tab[i].y == y)
-            return &tab[i];
-        }
+  
+  t_block *tab;
+  for (en_tete(map->list); !hors_liste(map->list); suivant(map->list)) {
+    valeur_elt(map->list, (void **)&tab);
+    if (tab[0].x == x) {
+      for (int i = 0; i < MAX; i++) {
+        if (tab[i].y == y)
+          return &tab[i];
       }
     }
   }
