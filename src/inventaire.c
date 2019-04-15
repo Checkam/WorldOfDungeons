@@ -202,13 +202,12 @@ t_materiaux poser_block ( t_inventaire *inventaire ) {
 
     ( inventaire->inventaire + selection )->stack --;
 
-    if ( (inventaire->inventaire + selection )->stack == 0 ) {
+    t_materiaux mat = ( inventaire->inventaire + selection)->item->posable;
 
-        free((inventaire->inventaire + selection)->item);
+    if ( (inventaire->inventaire + selection )->stack == 0 )
         (inventaire->inventaire + selection)->item = NULL;
-    }
 
-    return ( inventaire->inventaire + selection)->item->posable;
+    return mat;
 }
 
 void SDL_afficher_barre_action ( SDL_Renderer *renderer, t_inventaire *inventaire, const int8_t scroll ) {
