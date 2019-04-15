@@ -33,29 +33,18 @@ void init_map(t_block *map, int x) {
   }
 }
 
-void gen_minerai(t_block *tab, int x, int taille_max) {
-  double rnd;
-  for (int j = 0; j <= taille_max - HAUTEUR_SURFACE; j++) {
-    rnd = perlin2d(x, j, 0.1, DEPTH);
-
-    if ((rnd >= 0.73555 && rnd <= 0.74) && j >= 30 && j <= HAUTEUR_MINIMUN) {
-      tab[j].id = MINERAI_CHARBON;
-      tab[j].y = j;
-      tab[j].x = x;
-      tab[j].plan = PREMIER_PLAN;
-      printf("MINERAI_CHARBON %f\n", rnd);
-    } else if ((rnd >= 0.43555 && rnd <= 0.44) && j <= HAUTEUR_MINIMUN && j >= 30) {
-      tab[j].id = MINERAI_CUIVRE;
-      tab[j].y = j;
-      tab[j].x = x;
-      tab[j].plan = PREMIER_PLAN;
-      printf("MINERAI_CUIVRE %f\n", rnd);
-    } else if ((rnd >= 0.39111 && rnd <= 0.39333) && j <= 30) {
-      tab[j].id = MINERAI_OR;
-      tab[j].y = j;
-      tab[j].x = x;
-      tab[j].plan = PREMIER_PLAN;
-      printf("MINERAI_OR %f\n", rnd);
+void gen_minerai(t_minerai *minerais, t_block *tab, int x, int taille_max) {
+  double rnd = 0;
+  for (int y = 0; y <= taille_max - HAUTEUR_SURFACE; y++) {
+    rnd = perlin2d(x, y, 0.1, DEPTH);
+    for (int i = 0; i < NB_MINERAI; i++) {
+      if ((rnd >= minerais[i].valeur_min && rnd <= minerais[i].valeur_max) && (y >= minerais[i].hauteur_min && y <= minerais[i].hauteur_max)) {
+        tab[y].id = ((uint8_t)minerais[i].type);
+        tab[y].x = x;
+        tab[y].y = y;
+        tab[y].plan = PREMIER_PLAN;
+        printf("ID:%d\n", tab[y].id);
+      }
     }
   }
 }
@@ -98,18 +87,22 @@ int gen_col(t_liste *list, int x, int dir) {
       }
     }
 
-  gen_minerai(tab, x, taille_max);
-  /* Génération profondeur */
+  /* Génération de minerais */
+  gen_minerai(BLOCK_GetMinerai(), tab, x, taille_max);
 
+  /* Génération profondeur */
   for (j = 0; j <= taille_max - HAUTEUR_SURFACE; j++) {
     rnd = perlin2d(x, j, FREQ, DEPTH) * MAX;
-    if (taille_max - j > PROFONDEUR_GROTTE && j >= BEDROCK && rnd >= (MAX / 2 - SIZE_GROTTE) && rnd <= (MAX / 2 + SIZE_GROTTE)) { /* grotte */
+    if (taille_max - j > PROFONDEUR_GROTTE && j >= HAUTEUR_MIN_GROTTE && rnd >= (MAX / 2 - SIZE_GROTTE) &&
+        rnd <= (MAX / 2 + SIZE_GROTTE)) { /* grotte */
       tab[j].id = AIR;
       tab[j].y = j;
       tab[j].x = x;
       tab[j].plan = ARRIERE_PLAN;
     }
   }
+
+  tab[0].id = BEDROCK;
 
   if (dir == DROITE) {
     en_queue(list);

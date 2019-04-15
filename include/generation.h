@@ -11,10 +11,12 @@
 #include <block.h>
 
 #define HAUTEUR_SURFACE 4
-#define PROFONDEUR_GROTTE 15
-#define BEDROCK 3
-#define SIZE_GROTTE 3
 #define HAUTEUR_EAU MAX / 2.5
+
+#define HAUTEUR_MIN_GROTTE 3
+#define PROFONDEUR_GROTTE 15
+#define SIZE_GROTTE 3
+
 
 
 #endif
