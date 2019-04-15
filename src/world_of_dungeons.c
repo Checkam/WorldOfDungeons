@@ -15,6 +15,7 @@
 #include <chemin.h>
 #include <commun.h>
 #include <couleurs.h>
+#include <donjon.h>
 #include <entite.h>
 #include <fps.h>
 #include <generation.h>
@@ -37,6 +38,44 @@
 #define calX_Souris(map, x_mouse) ((x_mouse / width_block_sdl) + ((map->joueur->hitbox.x) / width_block_sdl) - (SIZE / 2))
 #define calY_Souris(map, y_mouse)                                                                                                                    \
   (MAX_SCREEN - (y_mouse / height_block_sdl) + (map->joueur->hitbox.y / height_block_sdl) - (POSY_ENT_SCREEN(map->joueur) / height_block_sdl) - 2)
+
+void entre_donjon(SDL_Renderer *renderer, t_map *map) {
+
+  if (map->joueur->act_pred == MARCHE_DEVANT &&
+      MAP_GetBlock(map, map->joueur->hitbox.x / width_block_sdl, map->joueur->hitbox.y / height_block_sdl)->id == PORTAIL_HAUT) {
+    t_donjon *donjon = NULL;
+    printf("JOUEUR %d %d\n", map->joueur->hitbox.x, map->joueur->hitbox.y);
+    uint8_t *ks;
+    configTouches_t *ct;
+    SDL_init_touches(&ks, &ct);
+
+    donjon_creer(&donjon, 20, map->joueur);
+    double coef_fps;
+
+    int parcours = 1;
+
+    while (parcours && !(donjon->quitter)) {
+      coef_fps = fps();
+      /* Affichage Donjon */
+      SDL_touches(ks, ct);
+      SDL_RenderClear(renderer);
+
+      donjon_afficher_SDL(renderer, donjon, map->joueur);
+      donjon_gestion(renderer, donjon, map->joueur, ks, coef_fps);
+
+      if (SDL_touche_appuyer(ks, QUITTER) || SDL_touche_appuyer(ks, ESCAPE))
+        parcours = 0;
+
+      SDL_RenderPresent(renderer);
+    }
+
+    /* Destruction Donjon */
+    donjon_quitter(donjon, map->joueur);
+    map->joueur->act_pred = IMMOBILE;
+    printf("JOUEUR %d %d\n", map->joueur->hitbox.x, map->joueur->hitbox.y);
+    SDL_exit_touches(&ks, &ct);
+  }
+}
 
 void test_souris(t_map *map, uint8_t *ks, t_inventaire *inventaire, t_liste *liste) {
   t_block *b;
@@ -61,10 +100,14 @@ void test_souris(t_map *map, uint8_t *ks, t_inventaire *inventaire, t_liste *lis
     SDL_coord_souris(&x_mouse, &y_mouse);
     // Récuperation d'un block dans la liste
     b = MAP_GetBlock(map, calX_Souris(map, x_mouse), calY_Souris(map, y_mouse));
+
     if (b && b->id == AIR && abs(b->x - ((map->joueur->hitbox.x) / width_block_sdl)) < 3 &&
         abs(b->y - ((map->joueur->hitbox.y) / height_block_sdl)) <= 3) {
-      b->id = ROCHE;
-      b->plan = PREMIER_PLAN;
+      t_materiaux mat = poser_block(inventaire);
+      if (map != AIR) {
+        b->id = mat;
+        b->plan = PREMIER_PLAN;
+      }
     }
   }
 }
@@ -155,6 +198,9 @@ void startPlayMap(t_map *map, SDL_Renderer *renderer) {
   SDL_Texture *sous_terre;
   Create_IMG_Texture(renderer, "./IMG/texture/environnement/grotte.png", &sous_terre);
 
+  SDL_Texture *brouillard;
+  Create_IMG_Texture(renderer, "./IMG/texture/environnement/brouillard.png", &brouillard);
+
   while (boucle) {
     SDL_reset_wheel_state(ks);
     SDL_touches(ks, ct);
@@ -175,16 +221,18 @@ void startPlayMap(t_map *map, SDL_Renderer *renderer) {
     MAP_afficher_sdl(map, renderer); //Modifier l'affichage de la map pour afficher des demi colone
     //Affiche Joueur et
     Gestion_Entite(renderer, map->joueur, ks, coef_fps, map->list, GESTION_TOUCHES, ALL_ACTION, NULL, CENTER_SCREEN);
+    //Test d'entrée dans un donjon
+    //entre_donjon(renderer, map);
 
-    //Affichage Inventaire
-    //QUITTER LE JEU
-    if (SDL_touche_appuyer(ks, QUITTER) || SDL_touche_appuyer(ks, ESCAPE)) {
+    if (SDL_touche_appuyer(ks, QUITTER) || SDL_touche_appuyer(ks, ESCAPE)) { //QUITTER LE JEU
       boucle = 0;
-    } else if (SDL_touche_appuyer(ks, X)) {
+    } else if (SDL_touche_appuyer(ks, X)) { //Affichage Inventaire
       inventaire_afficher(renderer, inventaire);
     } else {
       SDL_afficher_barre_action(renderer, inventaire, SDL_wheel_state(ks));
     }
+    if (map->joueur->hitbox.y / height_block_sdl <= HAUTEUR_MINIMUN)
+      SDL_RenderCopy(renderer, brouillard, NULL, &fondRect);
     //Afficher le rendu final
     SDL_RenderPresent(renderer);
 
@@ -316,10 +364,6 @@ int main(int argc, char *argv[], char **env) {
 
       coef_fps = fps();
     }
-
-    //----------------------------------------------------------------------------------------------------------------
-    // Boucle de jeux
-    //----------------------------------------------------------------------------------------------------------------
   }
 
 //Quit du jeux
