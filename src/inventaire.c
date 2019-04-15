@@ -197,13 +197,16 @@ void inventaire_changer_constante ( const uint8_t nbinventaire ) {
 
 t_materiaux poser_block ( t_inventaire *inventaire ) {
 
-    if ( ( inventaire->inventaire + selection )->item == NULL )
+    if ( ( inventaire->inventaire + selection )->item == NULL || ( inventaire->inventaire + selection )->item->posable == AIR )
         return AIR;
 
     ( inventaire->inventaire + selection )->stack --;
 
-    if ( (inventaire->inventaire + selection )->stack == 0 )
+    if ( (inventaire->inventaire + selection )->stack == 0 ) {
+
+        free((inventaire->inventaire + selection)->item);
         (inventaire->inventaire + selection)->item = NULL;
+    }
 
     return ( inventaire->inventaire + selection)->item->posable;
 }
