@@ -52,6 +52,7 @@ void ajout_item_dans_inventaire( t_inventaire *inventaire, t_liste *listeItem );
 void inventaire_changer_constante ( const uint8_t nbinventaire );
 
 void afficher_inventaire ( t_inventaire *inventaire );
+t_materiaux poser_block ( t_inventaire *inventaire );
 void SDL_afficher_barre_action ( SDL_Renderer *renderer, t_inventaire *inventaire, const int8_t scroll );
 void inventaire_afficher ( SDL_Renderer *renderer, t_inventaire *inventaire );
 

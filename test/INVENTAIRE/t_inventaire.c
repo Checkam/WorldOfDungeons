@@ -114,7 +114,7 @@ int main ( int argc, char ** argv, char **env ) {
 	ajout_droit(liste, (void *)item3 );
 	ajout_droit(liste, (void *)item4 );
 	ajout_droit(liste, (void *)item5 );
-	ajout_droit(liste, (void *)item6 );*/
+	ajout_droit(liste, (void *)item6 );
 
 	/*	------------------------------------------------|
 	|	Affichage dans la SDL							|
@@ -136,7 +136,7 @@ int main ( int argc, char ** argv, char **env ) {
 		SDL_RenderClear(renderer);
 		SDL_Delay(100);
 
-		t_enr_inventaire enrInv;
+		/*t_enr_inventaire enrInv;
 
 		enrInv.x = 10;
 		enrInv.y = 20;
@@ -150,8 +150,10 @@ int main ( int argc, char ** argv, char **env ) {
 
 		inventaire_recuperer( "", &inventaire, 10, 20);
 
-		afficher_inventaire( inventaire);
+		afficher_inventaire( inventaire);*/
 	/*}*/
+
+	printf(" test 1 : %%d : %d\n", poser_block(inventaire));
 
 	/*	------------------------------------------------|
 	|	Liberation de la zone memoire de l'inventaire	|

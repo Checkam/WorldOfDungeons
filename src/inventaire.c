@@ -29,6 +29,8 @@ uint16_t rectInventaireX1;
 uint16_t rectInventaireY1;
 SDL_Rect rectInventaire1;
 
+int8_t selection = 0;
+
 char *police = NULL;
 
 void inventaire_init( SDL_Renderer *renderer ) {
@@ -193,13 +195,17 @@ void inventaire_changer_constante ( const uint8_t nbinventaire ) {
     maxLigne = ( WIDTH * 0.4 - 30 ) / rectInventaire1.w;
 }
 
+t_materiaux poser_block ( t_inventaire *inventaire ) {
+
+    return ( inventaire->inventaire + selection)->item->posable;
+}
+
 void SDL_afficher_barre_action ( SDL_Renderer *renderer, t_inventaire *inventaire, const int8_t scroll ) {
 
     #ifdef DEBUG
         assert( renderer != NULL  && inventaire != NULL  && uiScale >= 50 && uiScale <= 150 && bordure != NULL && bordureSelectionne != NULL );
     #endif
 
-    static int8_t selection = 0;
     static uint8_t changement = 0;
 
     SDL_Texture *textureNombre = NULL;
