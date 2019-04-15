@@ -282,15 +282,75 @@ static void default_item_drop () {
 
 
     /* DIAMAND */
-    ( tabItemDrop + DIAMAND )->drop = malloc( sizeof(t_liste_drop) * 2 );
+    ( tabItemDrop + MINERAI_DIAMAND )->drop = malloc( sizeof(t_liste_drop) * 2 );
 
-    ( tabItemDrop + DIAMAND )->drop->item = I_DIAMAND;
-    ( tabItemDrop + DIAMAND )->drop->nombre = 1;
-    ( tabItemDrop + DIAMAND )->drop->besoin = AUCUN_BESOIN;
-    ( tabItemDrop + DIAMAND )->drop->info = 0;
-    ( tabItemDrop + DIAMAND )->drop->pourMille = 1000;
+    ( tabItemDrop + MINERAI_DIAMAND )->drop->item = I_DIAMAND;
+    ( tabItemDrop + MINERAI_DIAMAND )->drop->nombre = 1;
+    ( tabItemDrop + MINERAI_DIAMAND )->drop->besoin = AUCUN_BESOIN;
+    ( tabItemDrop + MINERAI_DIAMAND )->drop->info = 0;
+    ( tabItemDrop + MINERAI_DIAMAND )->drop->pourMille = 1000;
 
-    (( tabItemDrop + DIAMAND )->drop + 1 )->item = I_END;
+    (( tabItemDrop + MINERAI_DIAMAND )->drop + 1 )->item = I_END;
+
+
+    /* FER */
+    ( tabItemDrop + MINERAI_FER )->drop = malloc( sizeof(t_liste_drop) * 2 );
+
+    ( tabItemDrop + MINERAI_FER )->drop->item = I_MINERAI_FER;
+    ( tabItemDrop + MINERAI_FER )->drop->nombre = 1;
+    ( tabItemDrop + MINERAI_FER )->drop->besoin = AUCUN_BESOIN;
+    ( tabItemDrop + MINERAI_FER )->drop->info = 0;
+    ( tabItemDrop + MINERAI_FER )->drop->pourMille = 1000;
+
+    (( tabItemDrop + MINERAI_FER )->drop + 1 )->item = I_END;
+
+
+    /* CUIVRE */
+    ( tabItemDrop + MINERAI_CUIVRE )->drop = malloc( sizeof(t_liste_drop) * 2 );
+
+    ( tabItemDrop + MINERAI_CUIVRE )->drop->item = I_MINERAI_CUIVRE;
+    ( tabItemDrop + MINERAI_CUIVRE )->drop->nombre = 1;
+    ( tabItemDrop + MINERAI_CUIVRE )->drop->besoin = AUCUN_BESOIN;
+    ( tabItemDrop + MINERAI_CUIVRE )->drop->info = 0;
+    ( tabItemDrop + MINERAI_CUIVRE )->drop->pourMille = 1000;
+
+    (( tabItemDrop + MINERAI_CUIVRE )->drop + 1 )->item = I_END;
+
+
+    /* ARGENT */
+    ( tabItemDrop + MINERAI_ARGENT )->drop = malloc( sizeof(t_liste_drop) * 2 );
+
+    ( tabItemDrop + MINERAI_ARGENT )->drop->item = I_MINERAI_ARGENT;
+    ( tabItemDrop + MINERAI_ARGENT )->drop->nombre = 1;
+    ( tabItemDrop + MINERAI_ARGENT )->drop->besoin = AUCUN_BESOIN;
+    ( tabItemDrop + MINERAI_ARGENT )->drop->info = 0;
+    ( tabItemDrop + MINERAI_ARGENT )->drop->pourMille = 1000;
+
+    (( tabItemDrop + MINERAI_ARGENT )->drop + 1 )->item = I_END;
+
+
+    /* OR */
+    ( tabItemDrop + MINERAI_OR )->drop = malloc( sizeof(t_liste_drop) * 2 );
+
+    ( tabItemDrop + MINERAI_OR )->drop->item = I_MINERAI_OR;
+    ( tabItemDrop + MINERAI_OR )->drop->nombre = 1;
+    ( tabItemDrop + MINERAI_OR )->drop->besoin = AUCUN_BESOIN;
+    ( tabItemDrop + MINERAI_OR )->drop->info = 0;
+    ( tabItemDrop + MINERAI_OR )->drop->pourMille = 1000;
+
+    (( tabItemDrop + MINERAI_OR )->drop + 1 )->item = I_END;
+
+
+    /* CHARBON */
+    ( tabItemDrop + MINERAI_CHARBON )->drop = malloc( sizeof(t_liste_drop) * 2 );
+
+    ( tabItemDrop + MINERAI_CHARBON )->drop->item = I_CHARBON;
+    ( tabItemDrop + MINERAI_CHARBON )->drop->nombre = 1;
+    ( tabItemDrop + MINERAI_CHARBON )->drop->besoin = AUCUN_BESOIN;
+    ( tabItemDrop + MINERAI_CHARBON )->drop->info = 0;
+    ( tabItemDrop + MINERAI_CHARBON )->drop->pourMille = 1000;
+
+    (( tabItemDrop + MINERAI_CHARBON )->drop + 1 )->item = I_END;
 
 
     /* GRAVIER */
@@ -417,6 +477,36 @@ static void default_item_type ( SDL_Renderer *renderer ) {
     ( tabItem + I_SILEX )->stack = 75;
     ( tabItem + I_SILEX )->posable = AIR;
     ( tabItem + I_SILEX )->texture = NULL;
+
+    ( tabItem + I_MINERAI_FER )->id = I_MINERAI_FER;
+    ( tabItem + I_MINERAI_FER )->nomItem = "minerais de fer";
+    ( tabItem + I_MINERAI_FER )->stack = 25;
+    ( tabItem + I_MINERAI_FER )->posable = MINERAI_FER;
+    ( tabItem + I_MINERAI_FER )->texture = NULL;
+
+    ( tabItem + I_MINERAI_CUIVRE )->id = I_MINERAI_CUIVRE;
+    ( tabItem + I_MINERAI_CUIVRE )->nomItem = "minerais de cuivre";
+    ( tabItem + I_MINERAI_CUIVRE )->stack = 25;
+    ( tabItem + I_MINERAI_CUIVRE )->posable = MINERAI_CUIVRE;
+    ( tabItem + I_MINERAI_CUIVRE )->texture = NULL;
+
+    ( tabItem + I_MINERAI_ARGENT )->id = I_MINERAI_ARGENT;
+    ( tabItem + I_MINERAI_ARGENT )->nomItem = "minerais de argent";
+    ( tabItem + I_MINERAI_ARGENT )->stack = 25;
+    ( tabItem + I_MINERAI_ARGENT )->posable = MINERAI_ARGENT;
+    ( tabItem + I_MINERAI_ARGENT )->texture = NULL;
+
+    ( tabItem + I_MINERAI_OR )->id = I_MINERAI_OR;
+    ( tabItem + I_MINERAI_OR )->nomItem = "minerais de cuivre";
+    ( tabItem + I_MINERAI_OR )->stack = 25;
+    ( tabItem + I_MINERAI_OR )->posable = MINERAI_ARGENT;
+    ( tabItem + I_MINERAI_OR )->texture = NULL;
+
+    ( tabItem + I_CHARBON )->id = I_CHARBON;
+    ( tabItem + I_CHARBON )->nomItem = "charbon";
+    ( tabItem + I_CHARBON )->stack = 50;
+    ( tabItem + I_CHARBON )->posable = AIR;
+    ( tabItem + I_CHARBON )->texture = NULL;
 
     ( tabItem + I_DIAMAND )->id = I_DIAMAND;
     ( tabItem + I_DIAMAND )->nomItem = "diamant";
