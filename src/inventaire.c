@@ -197,7 +197,17 @@ void inventaire_changer_constante ( const uint8_t nbinventaire ) {
 
 t_materiaux poser_block ( t_inventaire *inventaire ) {
 
-    return ( inventaire->inventaire + selection)->item->posable;
+    if ( ( inventaire->inventaire + selection )->item == NULL || ( inventaire->inventaire + selection )->item->posable == AIR )
+        return AIR;
+
+    ( inventaire->inventaire + selection )->stack --;
+
+    t_materiaux mat = ( inventaire->inventaire + selection)->item->posable;
+
+    if ( (inventaire->inventaire + selection )->stack == 0 )
+        (inventaire->inventaire + selection)->item = NULL;
+
+    return mat;
 }
 
 void SDL_afficher_barre_action ( SDL_Renderer *renderer, t_inventaire *inventaire, const int8_t scroll ) {
