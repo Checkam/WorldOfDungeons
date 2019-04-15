@@ -39,15 +39,12 @@
 #define calY_Souris(map, y_mouse)                                                                                                                    \
   (MAX_SCREEN - (y_mouse / height_block_sdl) + (map->joueur->hitbox.y / height_block_sdl) - (POSY_ENT_SCREEN(map->joueur) / height_block_sdl) - 2)
 
-void entre_donjon(SDL_Renderer *renderer, t_map *map) {
+void entre_donjon(SDL_Renderer *renderer, t_map *map, uint8_t *ks, configTouches_t *ct) {
 
   if (map->joueur->act_pred == MARCHE_DEVANT &&
       MAP_GetBlock(map, map->joueur->hitbox.x / width_block_sdl, map->joueur->hitbox.y / height_block_sdl)->id == PORTAIL_HAUT) {
     t_donjon *donjon = NULL;
     printf("JOUEUR %d %d\n", map->joueur->hitbox.x, map->joueur->hitbox.y);
-    uint8_t *ks;
-    configTouches_t *ct;
-    SDL_init_touches(&ks, &ct);
 
     donjon_creer(&donjon, 20, map->joueur);
     double coef_fps;
@@ -63,8 +60,10 @@ void entre_donjon(SDL_Renderer *renderer, t_map *map) {
       donjon_afficher_SDL(renderer, donjon, map->joueur);
       donjon_gestion(renderer, donjon, map->joueur, ks, coef_fps);
 
-      if (SDL_touche_appuyer(ks, QUITTER) || SDL_touche_appuyer(ks, ESCAPE))
+      if (SDL_touche_appuyer(ks, ESCAPE)) {
         parcours = 0;
+        donjon->quitter = 1;
+      }
 
       SDL_RenderPresent(renderer);
     }
@@ -72,8 +71,8 @@ void entre_donjon(SDL_Renderer *renderer, t_map *map) {
     /* Destruction Donjon */
     donjon_quitter(donjon, map->joueur);
     map->joueur->act_pred = IMMOBILE;
-    printf("JOUEUR %d %d\n", map->joueur->hitbox.x, map->joueur->hitbox.y);
-    SDL_exit_touches(&ks, &ct);
+    while (SDL_touche_appuyer(ks, ESCAPE))
+      SDL_touches(ks, ct);
   }
 }
 
@@ -104,7 +103,7 @@ void test_souris(t_map *map, uint8_t *ks, t_inventaire *inventaire, t_liste *lis
     if (b && b->id == AIR && abs(b->x - ((map->joueur->hitbox.x) / width_block_sdl)) < 3 &&
         abs(b->y - ((map->joueur->hitbox.y) / height_block_sdl)) <= 3) {
       t_materiaux mat = poser_block(inventaire);
-      if (map != AIR) {
+      if (mat != AIR) {
         b->id = mat;
         b->plan = PREMIER_PLAN;
       }
@@ -222,7 +221,9 @@ void startPlayMap(t_map *map, SDL_Renderer *renderer) {
     //Affiche Joueur et
     Gestion_Entite(renderer, map->joueur, ks, coef_fps, map->list, GESTION_TOUCHES, ALL_ACTION, NULL, CENTER_SCREEN);
     //Test d'entrée dans un donjon
-    //entre_donjon(renderer, map);
+
+    if (map->joueur->hitbox.y / height_block_sdl <= HAUTEUR_MINIMUN)
+      SDL_RenderCopy(renderer, brouillard, NULL, &fondRect);
 
     if (SDL_touche_appuyer(ks, QUITTER) || SDL_touche_appuyer(ks, ESCAPE)) { //QUITTER LE JEU
       boucle = 0;
@@ -231,8 +232,9 @@ void startPlayMap(t_map *map, SDL_Renderer *renderer) {
     } else {
       SDL_afficher_barre_action(renderer, inventaire, SDL_wheel_state(ks));
     }
-    if (map->joueur->hitbox.y / height_block_sdl <= HAUTEUR_MINIMUN)
-      SDL_RenderCopy(renderer, brouillard, NULL, &fondRect);
+
+    entre_donjon(renderer, map, ks, ct);
+
     //Afficher le rendu final
     SDL_RenderPresent(renderer);
 
