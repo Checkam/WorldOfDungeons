@@ -389,7 +389,6 @@ static t_erreur donjon_creer_structure_salle(t_salle_donjon * salle){
         for(j = 0; j < MAX_SCREEN; j++){
             tab[j].x = salle->x * SIZE + i;
             tab[j].y = salle->y * MAX_SCREEN + j;
-            tab[j].plan = PREMIER_PLAN;
 
             
             /* Trou échelle Plafond */
@@ -414,6 +413,11 @@ static t_erreur donjon_creer_structure_salle(t_salle_donjon * salle){
             }else{
                 tab[j].id = AIR;
             }
+
+            if(tab[j].id == AIR)
+                tab[j].plan = ARRIERE_PLAN;
+            else
+                tab[j].plan = PREMIER_PLAN;
         }
         en_queue(liste);
         ajout_droit(liste, tab);

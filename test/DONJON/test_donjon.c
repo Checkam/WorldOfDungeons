@@ -54,10 +54,11 @@ int main(int argc, char **argv, char **env){
     }
 
 
-    height_window = 630;
-    width_window = 1040;
-    width_block_sdl = width_window / NB_BLOCK_WIDTH;
-    height_block_sdl = height_window / NB_BLOCK_HEIGHT;
+    width_block_sdl = 25;
+    height_block_sdl = 25;
+    height_window = 600;
+    width_window = 1000;
+    
     SDL_Window *screen = SDL_CreateWindow("World Of Dungeons", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,width_window, height_window, SDL_WINDOW_SHOWN);
     if(screen == NULL){
         fprintf(stderr, "%s\n", SDL_GetError());
