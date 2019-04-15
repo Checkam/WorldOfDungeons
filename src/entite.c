@@ -11,17 +11,17 @@
 #include <SDL2/SDL_ttf.h>
 #include <block.h>
 #include <chemin.h>
+#include <commun.h>
 #include <entite.h>
 #include <erreur.h>
 #include <fps.h>
 #include <json.h>
 #include <map.h>
 #include <outils_SDL.h>
+#include <perlin.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <touches.h>
-#include <perlin.h>
-#include <commun.h>
 
 /****** SPRITE TEXTURE ACTION ******/
 
@@ -159,31 +159,32 @@ t_erreur detruire_entite(t_entite *entite) {
  * \param taille La taille des entités à créer.
  * \return La liste d'entités créées.
 */
-t_liste * Create_Liste_Entite (int x1, int x2, int y, t_entite_type type, int nb_entite, int taille)
-{
-  t_entite * entite;
+t_liste *Create_Liste_Entite(int x1, int x2, int y, t_entite_type type, int nb_entite, int taille) {
+  t_entite *entite;
   uint8_t perlin = 0;
   int x;
 
   /* Vérif paramètre */
-  if (x2 < x1) x2 = x1;
-  if (nb_entite <= 0) return NULL;
-  if (y < 0) perlin = 1;
+  if (x2 < x1)
+    x2 = x1;
+  if (nb_entite <= 0)
+    return NULL;
+  if (y < 0)
+    perlin = 1;
 
   /* Initialisation liste */
-  t_liste * liste = malloc(sizeof(t_liste));
+  t_liste *liste = malloc(sizeof(t_liste));
   init_liste(liste);
 
   /* Création des entités */
   int i;
-  for (i = 0; i < nb_entite; i++)
-  {
-    x = RAND_AB(x1,x2);
+  for (i = 0; i < nb_entite; i++) {
+    x = RAND_AB(x1, x2);
     if (perlin)
       y = (perlin2d(x, MAX / 2, FREQ, DEPTH) * MAX / 2) + HAUTEUR_MINIMUN;
-    entite = creer_entite_defaut(NULL,type,x,y,taille);
-    ajout_droit(liste,(void *)entite);
-    fprintf(stderr,"Entite %d -> %d:%d\n",i+1,x,y);
+    entite = creer_entite_defaut(NULL, type, x, y, taille);
+    ajout_droit(liste, (void *)entite);
+    fprintf(stderr, "Entite %d -> %d:%d\n", i + 1, x, y);
   }
 
   return liste;
@@ -195,12 +196,13 @@ t_liste * Create_Liste_Entite (int x1, int x2, int y, t_entite_type type, int nb
  * \param entite Un pointeur sur la liste à détruire.
  * \return Une erreur s'il y en a une.
 */
-t_erreur Destroy_Liste_Entite (t_liste ** entite)
-{
-  if (!entite) return PTR_NULL;
-  if (!*entite) return PTR_VALUE_ERROR;
+t_erreur Destroy_Liste_Entite(t_liste **entite) {
+  if (!entite)
+    return PTR_NULL;
+  if (!*entite)
+    return PTR_VALUE_ERROR;
 
-  detruire_liste(*entite,free);
+  detruire_liste(*entite, free);
   *entite = NULL;
 
   return OK;
@@ -613,14 +615,13 @@ t_erreur update_posY_entite(t_entite *entite, double coef_fps, t_liste *p, uint8
  * \param pos Position pour savoir si l'entité doit être bloqué dans l'affichage lorsqu'elle tombe.
  * \return Une erreur s'il y en a une.
 */
-t_erreur update_posY_liste_entite(t_liste * entite, double coef_fps, t_liste * p, uint8_t pos)
-{
-  if (!entite) return PTR_NULL;
-  t_entite * ent;
-  for(en_tete(entite);!hors_liste(entite);suivant(entite))
-  {
-    valeur_elt(entite,(void **)&ent);
-    update_posY_entite(ent,coef_fps,p,pos);
+t_erreur update_posY_liste_entite(t_liste *entite, double coef_fps, t_liste *p, uint8_t pos) {
+  if (!entite)
+    return PTR_NULL;
+  t_entite *ent;
+  for (en_tete(entite); !hors_liste(entite); suivant(entite)) {
+    valeur_elt(entite, (void **)&ent);
+    update_posY_entite(ent, coef_fps, p, pos);
   }
   return OK;
 }
@@ -633,8 +634,7 @@ t_erreur update_posY_liste_entite(t_liste * entite, double coef_fps, t_liste * p
  * \param p La liste de blocs permettant de calculer les collisions.
  * \return La profondeur de la collision, 0 sinon.
 */
-int collision(t_entite *entite, t_collision_direction direction, t_liste *p)
-{
+int collision(t_entite *entite, t_collision_direction direction, t_liste *p) {
   if (!entite || !p)
     return 0;
 
@@ -659,12 +659,12 @@ int collision(t_entite *entite, t_collision_direction direction, t_liste *p)
       // Récup Block
       // Check si collision
       if (block) {
-        if (block->id != AIR) {
+        if (block->plan != ARRIERE_PLAN) {
           SDL_Rect B = {width_block_sdl * block->x, height_block_sdl * block->y, width_block_sdl, height_block_sdl};
           SDL_IntersectRect(&(entite->hitbox), &B, &res);
-          if(block->y * height_block_sdl > entite->hitbox.y - h)
+          if (block->y * height_block_sdl > entite->hitbox.y - h)
             collision = block->y * height_block_sdl - (entite->hitbox.y - h) + 1;
-          
+
           //collision = res.h;
           //fprintf(stderr, " b.x:%d b.y:%d x:%d y:%d w:%d h:%d res.h:%d\n", block->x, block->y, x, y, w, h, res.h);
         }
@@ -685,7 +685,7 @@ int collision(t_entite *entite, t_collision_direction direction, t_liste *p)
       // Récup Block
       // Check si collision
       if (block) {
-        if (block->id != AIR) {
+        if (block->plan != ARRIERE_PLAN) {
           SDL_Rect B = {width_block_sdl * block->x, height_block_sdl * block->y, width_block_sdl, height_block_sdl};
           SDL_IntersectRect(&(entite->hitbox), &B, &res);
           collision = res.h;
@@ -706,7 +706,7 @@ int collision(t_entite *entite, t_collision_direction direction, t_liste *p)
       // Récup Block
       // Check si collision
       if (block) {
-        if (block->id != AIR) {
+        if (block->plan != ARRIERE_PLAN) {
           SDL_Rect B = {width_block_sdl * block->x, height_block_sdl * block->y, width_block_sdl, height_block_sdl};
           SDL_IntersectRect(&(entite->hitbox), &B, &res);
           collision = res.h;
@@ -727,7 +727,7 @@ int collision(t_entite *entite, t_collision_direction direction, t_liste *p)
       // Récup Block
       // Check si collision
       if (block) {
-        if (block->id != AIR) {
+        if (block->plan != ARRIERE_PLAN) {
           SDL_Rect B = {width_block_sdl * block->x, height_block_sdl * block->y, width_block_sdl, height_block_sdl};
           SDL_IntersectRect(&(entite->hitbox), &B, &res);
           collision = res.h;
@@ -744,70 +744,7 @@ int collision(t_entite *entite, t_collision_direction direction, t_liste *p)
   default:
     break;
   }
-  /* ANCIENNE VERSION */
-  // /* Conversion des coordonnées SDL en coordonnées pour la MAP */
-  // int x = entite->hitbox.x / width_block_sdl, y = entite->hitbox.y / height_block_sdl;
-  // /* Recréation de la MAP */
-  // t_map map;
-  // map.list = p;
 
-  // /* Récupération des Blocks si il y en a, en fonction des coordonnées du Joueur */
-  // t_block *blockH = NULL, *blockB = NULL, *blockHD = NULL, *blockHG = NULL;
-  // blockH = MAP_GetBlock(&map, x, y + 1);
-  // blockB = MAP_GetBlock(&map, x, y - 1);
-  // blockHD = MAP_GetBlock(&map, x + 1, y);
-  // blockHG = MAP_GetBlock(&map, x - 1, y);
-
-  // /* Traitement des collisions */
-  // switch (direction) {
-  // /* Collision en BAS */
-  // case DIRECT_BAS_COLLI:
-  //   if (blockB) {
-  //     if (blockB->id != AIR) {
-  //       SDL_Rect B = {width_block_sdl * blockB->x, height_block_sdl * blockB->y, width_block_sdl, height_block_sdl};
-  //       SDL_IntersectRect(&(entite->hitbox), &B, &res);
-  //       collision = res.h;
-  //     }
-  //   }
-  //   break;
-
-  // /* Collision en HAUT */
-  // case DIRECT_HAUT_COLLI:
-  //   if (blockH) {
-  //     if (blockH->id != AIR) {
-  //       SDL_Rect B = {width_block_sdl * blockH->x, height_block_sdl * blockH->y, width_block_sdl, height_block_sdl};
-  //       SDL_IntersectRect(&(entite->hitbox), &B, &res);
-  //       collision = res.h;
-  //     }
-  //   }
-  //   break;
-
-  // /* Collision à DROITE */
-  // case DIRECT_DROITE_COLLI:
-  //   if (blockHD) {
-  //     if (blockHD->id != AIR) {
-  //       SDL_Rect B = {width_block_sdl * blockHD->x, height_block_sdl * blockHD->y, width_block_sdl, height_block_sdl};
-  //       SDL_IntersectRect(&(entite->hitbox), &B, &res);
-  //       collision = res.w;
-  //     }
-  //   }
-  //   break;
-
-  // /* Collision à GAUCHE */
-  // case DIRECT_GAUCHE_COLLI:
-  //   if (blockHG) {
-  //     if (blockHG->id != AIR) {
-  //       SDL_Rect B = {width_block_sdl * blockHG->x, height_block_sdl * blockHG->y, width_block_sdl, height_block_sdl};
-  //       SDL_IntersectRect(&(entite->hitbox), &B, &res);
-  //       collision = res.w;
-  //     }
-  //   }
-  //   break;
-
-  // default:
-  //   break;
-  // }
-  /**/
   if (collision < 0)
     collision *= -1;
   return collision;
@@ -1146,14 +1083,13 @@ t_erreur Print_Entite_Screen(SDL_Renderer *renderer, t_entite *entite_ref, t_ent
  * \param pos La position de l'entité sur l'écran, permet de savoir si elle est au centre ou non.
  * \return Une erreur s'il y en a une.
 */
-t_erreur Print_Liste_Entite_Screen (SDL_Renderer * renderer, t_entite * entite_ref, t_liste * entite_aff, t_action action, uint8_t pos)
-{
-  if (!entite_aff) return PTR_NULL;
-  t_entite * entite;
-  for (en_tete(entite_aff);!hors_liste(entite_aff);suivant(entite_aff))
-  {
-    valeur_elt(entite_aff,(void **)&entite);
-    Print_Entite_Screen(renderer,entite_ref,entite,action,pos);
+t_erreur Print_Liste_Entite_Screen(SDL_Renderer *renderer, t_entite *entite_ref, t_liste *entite_aff, t_action action, uint8_t pos) {
+  if (!entite_aff)
+    return PTR_NULL;
+  t_entite *entite;
+  for (en_tete(entite_aff); !hors_liste(entite_aff); suivant(entite_aff)) {
+    valeur_elt(entite_aff, (void **)&entite);
+    Print_Entite_Screen(renderer, entite_ref, entite, action, pos);
     //fprintf(stderr,"%d / ",entite->hitbox.y);
   }
   //fprintf(stderr,"\n");
