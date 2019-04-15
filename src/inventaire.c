@@ -164,8 +164,12 @@ void afficher_inventaire ( t_inventaire *inventaire ) {
 
     printf("\n");
 
+    printf("nbItems : %d\n", inventaire->nbItemMax );
+
     for ( i = 0 ; i < inventaire->nbItemMax ; i++ )
         printf("slot %d : %p    nb : %d\n", i, (inventaire->inventaire + i)->item, (inventaire->inventaire + i)->stack );
+
+    printf("Fin de l'affichage\n");
 }
 
 void inventaire_changer_constante ( const uint8_t nbinventaire ) {
@@ -303,8 +307,7 @@ void inventaire_enregistrer ( const char *path, t_enr_inventaire *enr_inventaire
 
     FILE *enr = open_json( path, "inventaire", "a+");
 
-    int nil = -1, intBuf;
-    long int longBuf;
+    int nil = -1;
     char buffer[7];
 
     open_json_obj(enr);
@@ -330,31 +333,35 @@ void inventaire_enregistrer ( const char *path, t_enr_inventaire *enr_inventaire
     fclose(enr);
 }
 
-uint8_t inventaire_recuperer ( const char *path, t_inventaire **inventaire, const int64_t x, const int32_t y ) {
+void inventaire_recuperer ( const char *path, t_inventaire **inventaire, const int64_t x, const int32_t y ) {
 
     FILE *enr = open_json( path, "inventaire", "r");
 
     char *obj, buffer[7];
-    int *val, *val2, nbItems;
+    int64_t *val;
+    int32_t *val2;
+    uint16_t nbItems;
 
     fstart(enr);
 
     do {
 
         extract_json_obj( enr, &obj);
-
-        read_json_obj( obj, "x", val, "d");
-        read_json_obj( obj, "y", val2, "d");       
+        fprintf(stderr,"%s\n",obj);
+        read_json_obj( obj, "x", val, "d64");
+        fprintf(stderr, "1\n");
+        read_json_obj( obj, "y", val2, "d32");       
 
         if ( *val != x && *val2 != y )
             free(obj);
 
     } while ( *val != x && *val2 != y );
 
-    read_json_obj( obj, "nbItems", &nbItems, "d");
+    read_json_obj( obj, "nbItems", &nbItems, "u16");
 
     *inventaire = malloc(sizeof(t_inventaire));
     (*inventaire)->inventaire = malloc(sizeof(t_inventaire_item) * nbItems);
+    (*inventaire)->nbItemMax = nbItems;
 
     for ( uint16_t i = 0 ; i < nbItems ; i++ ) {
 

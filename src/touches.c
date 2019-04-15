@@ -46,7 +46,7 @@ int SDL_init_touches( uint8_t **keyboardState, configTouches_t **configuration )
 			extract_json_obj( config, &ligne);
 
 			read_json_obj( ligne, "keyID", &keyID, "d16");
-			read_json_obj( ligne, "value", &value, "u");
+			read_json_obj( ligne, "value", &value, "u32");
 			read_json_obj( ligne, "descr", descr, "s");
 
 			free(ligne);

@@ -209,22 +209,22 @@ t_erreur read_json_obj (char * obj, char * key, void * value, char * value_type)
     /* ENTIER */
     if (!strcmp(value_type,"d")) *(int *)value = atoi(save_val);
     /* ENTIER 8_T*/
-    if (!strcmp(value_type,"d8")) *(int8_t *)value = atoi(save_val);
+    else if (!strcmp(value_type,"d8")) *(int8_t *)value = atoi(save_val);
     /* ENTIER 16_T*/
-    if (!strcmp(value_type,"d16")) *(int16_t *)value = atoi(save_val);
+    else if (!strcmp(value_type,"d16")) *(int16_t *)value = atoi(save_val);
     /* ENTIER 32_T*/
-    if (!strcmp(value_type,"d32")) *(int32_t *)value = atoi(save_val);
+    else if (!strcmp(value_type,"d32")) *(int32_t *)value = atol(save_val);
     /* ENTIER 64_T*/
-    if (!strcmp(value_type,"d64")) *(int64_t *)value = atoi(save_val);
+    else if (!strcmp(value_type,"d64")) *(int64_t *)value = atoll(save_val);
     /* FLOAT */
     else if (!strcmp(value_type,"f")) *(float *)value = atof(save_val);
     /* STRING */
     else if (!strcmp(value_type,"s")) strncpy((char *)value,save_val+1,sizeof(char) * strlen(save_val));
     /* U_INT */
-    else if (!strcmp(value_type,"u")) *(unsigned int *)value = strtoull(save_val,NULL,0);
-    else if (!strcmp(value_type,"u8")) *(uint8_t *)value = strtoull(save_val,NULL,0);
-    else if (!strcmp(value_type,"u16")) *(uint16_t *)value = strtoull(save_val,NULL,0);
-    else if (!strcmp(value_type,"u32")) *(uint32_t *)value = strtoull(save_val,NULL,0);
+    else if (!strcmp(value_type,"u")) *(unsigned int *)value = strtoul(save_val,NULL,0);
+    else if (!strcmp(value_type,"u8")) *(uint8_t *)value = strtoul(save_val,NULL,0);
+    else if (!strcmp(value_type,"u16")) *(uint16_t *)value = strtoul(save_val,NULL,0);
+    else if (!strcmp(value_type,"u32")) *(uint32_t *)value = strtoul(save_val,NULL,0);
     else if (!strcmp(value_type,"u64")) *(uint64_t *)value = strtoull(save_val,NULL,0);
     else return TYPE_ERROR;
 

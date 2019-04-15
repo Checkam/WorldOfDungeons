@@ -56,6 +56,7 @@ void SDL_afficher_barre_action ( SDL_Renderer *renderer, t_inventaire *inventair
 void inventaire_afficher ( SDL_Renderer *renderer, t_inventaire *inventaire );
 
 void inventaire_enregistrer ( const char *path, t_enr_inventaire *enr_inventaire );
+void inventaire_recuperer ( const char *path, t_inventaire **inventaire, const int64_t x, const int32_t y );
 
 void free_inventaire( t_inventaire *inventaire );
 

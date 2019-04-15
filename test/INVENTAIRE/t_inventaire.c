@@ -36,7 +36,7 @@ int main ( int argc, char ** argv, char **env ) {
 	SDL_init_touches(&ks, &ct);
 
 	SDL_Renderer *renderer;
-	SDL_Window *window = SDL_CreateWindow("Inventaire test", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WIDTH, HEIGHT, /*SDL_WINDOW_FULLSCREEN*/ NULL);
+	SDL_Window *window = SDL_CreateWindow("Inventaire test", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WIDTH, HEIGHT, /*SDL_WINDOW_FULLSCREEN*/ SDL_WINDOW_SHOWN);
 	renderer = SDL_CreateRenderer( window, -1, SDL_RENDERER_ACCELERATED);
 
 	init_item(renderer);
@@ -143,6 +143,14 @@ int main ( int argc, char ** argv, char **env ) {
 		enrInv.inventaire = inventaire;
 
 		inventaire_enregistrer("", &enrInv);
+
+		afficher_inventaire( inventaire);
+
+		free_inventaire( inventaire);
+
+		inventaire_recuperer( "", &inventaire, 10, 20);
+
+		afficher_inventaire( inventaire);
 	/*}*/
 
 	/*	------------------------------------------------|
