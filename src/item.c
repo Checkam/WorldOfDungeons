@@ -448,6 +448,11 @@ static void default_item_type ( SDL_Renderer *renderer ) {
     ( tabItem + I_POUSSE_ARBRE )->nomItem = "pousse d'arbre";
     ( tabItem + I_POUSSE_ARBRE )->stack = 50;
     ( tabItem + I_POUSSE_ARBRE )->posable = AIR;
+    if ( renderer ) {
+        creation_chemin("data/Image/Pousse_arbre_150_150.png", &chemin);
+        Create_IMG_Texture(renderer, chemin, &( tabItem + I_POUSSE_ARBRE )->texture);
+        free(chemin);
+    } else
     ( tabItem + I_POUSSE_ARBRE )->texture = NULL;
 
     ( tabItem + I_POMME )->id = I_POMME;
@@ -482,37 +487,67 @@ static void default_item_type ( SDL_Renderer *renderer ) {
     ( tabItem + I_MINERAI_FER )->nomItem = "minerais de fer";
     ( tabItem + I_MINERAI_FER )->stack = 25;
     ( tabItem + I_MINERAI_FER )->posable = MINERAI_FER;
-    ( tabItem + I_MINERAI_FER )->texture = NULL;
+    if ( renderer ) {
+        creation_chemin("data/Image/Fer_150_150.png", &chemin);
+        Create_IMG_Texture(renderer, chemin, &( tabItem + I_MINERAI_FER )->texture);
+        free(chemin);
+    } else
+        ( tabItem + I_MINERAI_FER )->texture = NULL;
 
     ( tabItem + I_MINERAI_CUIVRE )->id = I_MINERAI_CUIVRE;
     ( tabItem + I_MINERAI_CUIVRE )->nomItem = "minerais de cuivre";
     ( tabItem + I_MINERAI_CUIVRE )->stack = 25;
     ( tabItem + I_MINERAI_CUIVRE )->posable = MINERAI_CUIVRE;
-    ( tabItem + I_MINERAI_CUIVRE )->texture = NULL;
+    if ( renderer ) {
+        creation_chemin("data/Image/Cuivre_150_150.png", &chemin);
+        Create_IMG_Texture(renderer, chemin, &( tabItem + I_MINERAI_CUIVRE )->texture);
+        free(chemin);
+    } else
+        ( tabItem + I_MINERAI_CUIVRE )->texture = NULL;
 
     ( tabItem + I_MINERAI_ARGENT )->id = I_MINERAI_ARGENT;
     ( tabItem + I_MINERAI_ARGENT )->nomItem = "minerais de argent";
     ( tabItem + I_MINERAI_ARGENT )->stack = 25;
     ( tabItem + I_MINERAI_ARGENT )->posable = MINERAI_ARGENT;
-    ( tabItem + I_MINERAI_ARGENT )->texture = NULL;
+    if ( renderer ) {
+        creation_chemin("data/Image/Argent_150_150.png", &chemin);
+        Create_IMG_Texture(renderer, chemin, &( tabItem + I_MINERAI_ARGENT )->texture);
+        free(chemin);
+    } else
+        ( tabItem + I_MINERAI_ARGENT )->texture = NULL;
 
     ( tabItem + I_MINERAI_OR )->id = I_MINERAI_OR;
     ( tabItem + I_MINERAI_OR )->nomItem = "minerais de cuivre";
     ( tabItem + I_MINERAI_OR )->stack = 25;
     ( tabItem + I_MINERAI_OR )->posable = MINERAI_ARGENT;
-    ( tabItem + I_MINERAI_OR )->texture = NULL;
+    if ( renderer ) {
+        creation_chemin("data/Image/Or_150_150.png", &chemin);
+        Create_IMG_Texture(renderer, chemin, &( tabItem + I_MINERAI_OR )->texture);
+        free(chemin);
+    } else
+        ( tabItem + I_MINERAI_OR )->texture = NULL;
 
     ( tabItem + I_CHARBON )->id = I_CHARBON;
     ( tabItem + I_CHARBON )->nomItem = "charbon";
     ( tabItem + I_CHARBON )->stack = 50;
     ( tabItem + I_CHARBON )->posable = AIR;
-    ( tabItem + I_CHARBON )->texture = NULL;
+    if ( renderer ) {
+        creation_chemin("data/Image/Charbon_150_150.png", &chemin);
+        Create_IMG_Texture(renderer, chemin, &( tabItem + I_CHARBON )->texture);
+        free(chemin);
+    } else
+        ( tabItem + I_CHARBON )->texture = NULL;
 
     ( tabItem + I_DIAMAND )->id = I_DIAMAND;
     ( tabItem + I_DIAMAND )->nomItem = "diamant";
     ( tabItem + I_DIAMAND )->stack = 25;
     ( tabItem + I_DIAMAND )->posable = DIAMAND;
-    ( tabItem + I_DIAMAND )->texture = NULL;
+    if ( renderer ) {
+        creation_chemin("data/Image/Diamant_150_150.png", &chemin);
+        Create_IMG_Texture(renderer, chemin, &( tabItem + I_DIAMAND )->texture);
+        free(chemin);
+    } else
+        ( tabItem + I_DIAMAND )->texture = NULL;
 
     ( tabItem + I_END )->id = I_END;
     ( tabItem + I_END )->nomItem = "end";
