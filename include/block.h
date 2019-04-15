@@ -12,7 +12,9 @@
 #include <SDL2/SDL.h>
 #include <erreur.h>
 
-#define NB_BLOCK 23
+#define NB_BLOCK 24
+
+#define NB_MINERAI 6
 
 /**
  \enum t_materiaux
@@ -41,6 +43,7 @@ typedef enum {
   MINERAI_ARGENT=20,
   MINERAI_OR=21,
   MINERAI_DIAMAND=22,
+  BEDROCK=23
 } t_materiaux;
 
 
@@ -76,7 +79,7 @@ typedef struct block_type_s {
 **/
 typedef struct {
 
-  t_block_type type;
+  t_materiaux type;
   double valeur_min,valeur_max;
   int hauteur_min,hauteur_max;
 
@@ -92,12 +95,14 @@ typedef struct block_s {
   uint8_t id,plan;
 } t_block;
 
-#endif
+t_minerai *BLOCK_GetMinerai();
+
 
 SDL_Texture *BLOCK_GetTexture_sdl(int id);
 char *BLOCK_GetTexture_term(int id);
-
 int BLOCK_estCassable(int id);
 
 t_erreur BLOCK_DestroyTexture_sdl(SDL_Renderer *renderer);
 t_erreur BLOCK_CreateTexture_sdl(SDL_Renderer *renderer);
+
+#endif
