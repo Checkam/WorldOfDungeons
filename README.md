@@ -20,6 +20,9 @@ Maxence Despres, Mathieu Vaudeleau, Tibane et Jasmin Galbrun
 - Système Unix
 - La librairie SDL2
 
+## Systeme verifiée :
+- Ubuntu 18.04
+
 #### Installation de la SDL2 sur Linux
 
 Commande à éxecuter dans un terminal.
