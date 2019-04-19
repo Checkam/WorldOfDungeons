@@ -38,7 +38,7 @@ t_type_titre tab_menu_titre[NB_TITRE] = {{MENU_PRINCIPAL, "World Of Dungeons"}, 
 
 /**
  * \fn t_erreur menu_init(SDL_Renderer * renderer)
- * \brief Initialise Menu
+ * \brief Initialise le module Menu
  * \param renderer Renderer de la fenetre
  * \return t_erreur Code erreur
 */
@@ -63,7 +63,7 @@ t_erreur menu_init(SDL_Renderer *renderer) {
 
 /**
  * \fn t_erreur menu_quit(void)
- * \brief Quitte Menu
+ * \brief Quitte le module Menu
  * \return Code erreur
 */
 t_erreur menu_quit(void) {
@@ -76,6 +76,7 @@ t_erreur menu_quit(void) {
 /**
  * \fn t_erreur menu_ajout_bouton(t_menu * menu, SDL_Rect rect, char * titre, t_type_menu type)
  * \brief Ajoute un bouton au menu
+ * \param menu Menu sur lequel on veut ajouter un bouton
  * \param rect Informations de position et de taille du bouton
  * \param titre Titre du bouton
  * \param type Type du menu suivant
@@ -189,7 +190,7 @@ t_erreur menu_creer(t_type_menu type, int width, int height, t_menu **menu) {
  * \fn t_erreur menu_afficher_titre_SDL(SDL_Renderer * renderer, t_menu * menu)
  * \brief Affiche le titre du Menu
  * \param renderer Renderer de la fenetre
- * \param menu Pointeur sur le menu
+ * \param menu Pointeur sur le menu que l'on veut afficher
  * \return Code erreur
 */
 t_erreur menu_afficher_titre_SDL(SDL_Renderer *renderer, t_menu *menu) {
@@ -238,7 +239,7 @@ t_erreur menu_afficher_titre_SDL(SDL_Renderer *renderer, t_menu *menu) {
 
 /**
  * \fn t_erreur menu_afficher_SDL(t_menu * menu, SDL_Renderer * renderer)
- * \brief Affiche le menu
+ * \brief Affiche le menu en SDL
  * \param menu Pointeur sur le menu que l'on veut afficher
  * \param renderer Renderer sur le lequel on veut afficher le menu
  * \return Code erreur
@@ -309,7 +310,9 @@ t_erreur menu_afficher_SDL(t_menu *menu, SDL_Renderer *renderer) {
 
 /**
  * \fn t_erreur menu_afficher_Term(t_menu * menu)
- * \param menu
+ * \brief Affiche le menu dans le terminal
+ * \param menu Menu que l'on veut afficher
+ * \return Code erreur
 */
 t_erreur menu_afficher_Term(t_menu *menu) {
   /* Vérification */
@@ -360,8 +363,8 @@ t_erreur menu_detruire(t_menu **menu) {
  * \fn t_erreur menu_gestion_SDL(t_menu * menu, int mouseState, t_type_menu * type_menu_suivant)
  * \brief Met à jour le menu
  * \param menu Menu que l'on veut gérer
- * \param mouse Info de la souris
- * \param type_menu_suivant Pointeur sur le menu suivant, MENU_NULL sinon
+ * \param mouseState Etat du clique gauche de la souris
+ * \param type_menu_suivant Type du menu suivant, MENU_NULL sinon
  * \return Code erreur
 */
 t_erreur menu_gestion_SDL(t_menu *menu, int mouseState, t_type_menu *type_menu_suivant) {

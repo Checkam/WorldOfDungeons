@@ -3,7 +3,7 @@
  * \brief Module de création + de gestion d'un donjon
  * \author Jasmin GALBRUN
  * \version 1
- * \date 26/03/2019
+ * \date 16/04/2019
 */
 
 #include <stdlib.h>
@@ -45,7 +45,7 @@ static t_erreur attaque(t_entite * attaquant, t_entite * cible);
 /**
  * \fn t_erreur donjon_creer(t_donjon ** donjon, int nb_salle, t_entite * joueur)
  * \brief Fonction permettant de créer un donjon
- * \param liste Pointeur dans lequel sera stocké le donjon
+ * \param donjon Pointeur dans lequel sera stocké le donjon
  * \param nb_salle Nombre de salle dans le donjon
  * \param joueur Joueur voulant entrer dans le donjon
  * \return Code erreur
@@ -157,7 +157,7 @@ static t_erreur donjon_ajout_salle(t_liste * donjon, int taille_donjon, t_entite
 /**
  * \fn static t_erreur donjon_creer_salle(t_salle_donjon ** salle, int x, int y, t_type_salle_donjon type)
  * \brief Fonction qui crée une salle en remplissant ces champs par défault
- * \param salle Double pointeur dans lequel on enregistre la salle créé
+ * \param salle Pointeur dans lequel on enregistre la salle créé
  * \param x Position en X de la salle dans le donjon
  * \param y Position en Y de la salle dans le donjon
  * \param type Type de la salle
@@ -493,7 +493,7 @@ static t_erreur placer_salle_boss(t_liste * donjon){
  * \brief Retourne dans tab la partie du donjon à afficher en fonction du joueur
  * \param donjon Donjon que l'on veut afficher
  * \param pos_perso Position du joueur
- * \param tab_fenetre Double pointeur de retour de la partie du donjon à afficher
+ * \param salle_j Double pointeur de retour de la salle dans laquelle se trouve le joueur
  * \return Code erreur
 */
 static t_erreur salle_joueur(t_liste * donjon, SDL_Rect pos_perso, t_salle_donjon ** salle_j){
@@ -507,9 +507,11 @@ static t_erreur salle_joueur(t_liste * donjon, SDL_Rect pos_perso, t_salle_donjo
         return PTR_NULL;
     }
 
+    //Coordonnées de la salle où se trouve le joueur
     int x_salle = (float)(pos_perso.x / width_block_sdl) / SIZE;
     int y_salle = (float)(pos_perso.y / height_block_sdl) / MAX_SCREEN;
     
+    //On cherche la salle dans le donjon
     t_salle_donjon * salle = NULL;
     for(en_tete(donjon); !hors_liste(donjon) && (salle == NULL || (salle->x != x_salle || salle->y != y_salle)); suivant(donjon)){
         valeur_elt(donjon, (void**)&salle);
@@ -600,6 +602,8 @@ t_erreur donjon_afficher_SDL(SDL_Renderer * renderer, t_donjon * donjon, t_entit
  * \param renderer Rendu de la fenêtre
  * \param donjon Donjon que l'on veut gérer
  * \param joueur Joueur qui est dans le donjon
+ * \param ks Pointeur sur l'état des touches
+ * \param coef_fps Coefficient de retard de fps
  * \return Code erreur
 */
 t_erreur donjon_gestion(SDL_Renderer * renderer, t_donjon * donjon, t_entite * joueur, uint8_t *ks, double coef_fps){
@@ -743,7 +747,11 @@ static t_erreur creer_mob(t_salle_donjon * salle, t_entite * joueur){
 }
 
 /**
- * 
+ * \fn static t_erreur attaque(t_entite * attaquant, t_entite * cible)
+ * \brief Fonction d'attaque d'une entité sur une autre
+ * \param attaquant Entité qui veut attaquer
+ * \param cible Entité ciblé par l'attaque
+ * \return Code Erreur
 */
 static t_erreur attaque(t_entite * attaquant, t_entite * cible){
     /* Vérification */
@@ -781,7 +789,11 @@ static t_erreur attaque(t_entite * attaquant, t_entite * cible){
 }
 
 /**
- * 
+ * \fn t_erreur donjon_quitter(t_donjon * donjon, t_entite * joueur)
+ * \brief Fonction pour quitter un donjon
+ * \param donjon Donjon que l'on veut quitter
+ * \param joueur Joueur qui veut quitter le donjon
+ * \return Code erreur
 */
 t_erreur donjon_quitter(t_donjon * donjon, t_entite * joueur){
     /* Vérification */

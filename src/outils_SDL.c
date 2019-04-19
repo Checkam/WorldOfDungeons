@@ -1,6 +1,6 @@
 /**
- * \file outils.c
- * \brief Contient une boite à outils de fonctions utiles
+ * \file outils_SDL.c
+ * \brief Contient une boite à outils de fonctions SDL
  * \author Jasmin GALBRUN
  * \date 09/03/2019
  * \version 1

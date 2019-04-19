@@ -1,6 +1,6 @@
 /**
- * \file outils.h
- * \brief Contient une boite à outils de primitives de fonctions utiles
+ * \file outils_SDL.h
+ * \brief Contient une boite à outils de primitives de fonctions SDL
  * \author Jasmin GALBRUN
  * \date 09/03/2019
  * \version 1
@@ -11,6 +11,10 @@
 #include <SDL2/SDL.h>
 #include <erreur.h>
 
+/**
+ * \enum t_type_dessin_texte
+ * \brief Contient les différents types de dessins de texte possibles
+*/
 typedef enum e_type_dessin_texte{
     SOLID,
     SHADED,

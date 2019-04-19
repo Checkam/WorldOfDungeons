@@ -41,8 +41,10 @@ t_erreur_s tab_err[NB_ERREUR] = {
 };
 
 /**
- * \fn t_erreur aff_erreur(t_erreur code_erreur, char * msg_detail)
- * \param code_erreur Code erreur que le programme doit afficher
+ * \fn t_erreur erreur_save(t_erreur code_erreur, char * msg_detail)
+ * \brief Fonction permettant de sauvegarder une erreur
+ * \param code_erreur Code erreur que le programme doit sauvegarder
+ * \param msg_detail Message que l'on veut ajouter pour préciser l'erreur
  * \return Retourne une erreur, OK si tout c'est bien passé
 */
 t_erreur erreur_save(t_erreur code_erreur, char * msg_detail)
@@ -94,7 +96,10 @@ t_erreur erreur_save(t_erreur code_erreur, char * msg_detail)
 
 /**
  * \fn t_erreur erreur_afficher(t_erreur code_erreur, char * msg_detail)
- * \param
+ * \brief Fonction permettant d'afficher une erreur dans la sortie erreur du terminal
+ * \param code_erreur Code erreur que le programme doit afficher
+ * \param msg_detail Message que l'on veut ajouter pour préciser l'erreur
+ * \return Retourne une erreur, OK si tout c'est bien passé
 */
 t_erreur erreur_afficher(t_erreur code_erreur, char * msg_detail){
     /* On cherche l'erreur */
