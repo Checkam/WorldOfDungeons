@@ -13,6 +13,12 @@
 
 #define NB_ITEMS 12
 
+
+
+
+
+/* ----- STRUCTURES ----- */
+
 typedef enum {
 
     I_TERRE=0, I_PIERRE, I_ROCHE, I_SABLE, I_GRAVIER,
@@ -65,11 +71,35 @@ typedef struct liste_item_s {
 
 } t_liste_item;
 
+
+
+
+
+/* ----- VARIABLES ----- */
+
+/* tableau global contenant tous les items et leurs caracteristiques */
 t_item_type *tabItem;
 
+
+
+
+
+/* ----- FONCTIONS ----- */
+
+/* initialisation du module item */
 uint8_t init_item(SDL_Renderer *renderer);
+
+
+
+/* transforme un bloc en un/plusieurs items ( cette fonction n'est pas compatible avec les autres modules, casser_block devrait être apeller dans la majorité des cas ) */
 uint8_t block_to_item ( t_materiaux materiaux, t_liste_item **item );
+
+/* transforme un bloc en un/plusieurs items ( en appelant la fonction block_to_item ), puis place les items dans une liste utilisable par le module inventaire */
 void casser_block( t_materiaux materiaux, t_liste **listeItem );
+
+
+
+/* fermeture propre du module item */
 void exit_item( t_liste_item **item);
 
 #endif
