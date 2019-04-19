@@ -49,7 +49,7 @@ t_anim_action t_a_boss[NB_LIGNES_SPRITE] = {{MARCHE_DROITE, 12, 9, 100},   {MARC
 /****** FONCTIONS CREATION ET SUPPRESSION ENTITE ******/
 
 /**
- * \fn t_entite * creer_entite_defaut (char * name, t_entite_type type, int taille)
+ * \fn t_entite * creer_entite_defaut (char * name, t_entite_type type, int x_dep, int y_dep, int taille)
  * \brief Créer une entité avec des paramètres par défaut.
  * \param name Le nom de l'entité.
  * \param type Le type de l'entité.
@@ -71,7 +71,7 @@ t_entite *creer_entite_defaut(char *name, t_entite_type type, int x_dep, int y_d
 }
 
 /**
- * \fn t_entite * creer_entite (char * name, uint32_t mana, uint32_t mana_max, uint32_t pv, uint32_t pv_max, uint32_t damage, SDL_Texture * texture, t_anim_action * t_a,int taille, t_entite_type type)
+ * \fn t_entite * creer_entite (char * name, uint32_t mana, uint32_t mana_max, uint32_t pv, uint32_t pv_max, uint32_t damage, SDL_Texture * texture, t_anim_action * t_a, int x_dep, int y_dep, int taille, t_entite_type type)
  * \brief Créer une entité.
  * \param name Le nom de l'entité.
  * \param mana Le mana de départ de l'entité.
@@ -581,12 +581,14 @@ t_erreur update_posY_entite(t_entite *entite, double coef_fps, t_liste *p, uint8
   if (!entite)
     return PTR_NULL;
 
+  // On check s'il y a une collision au-dessus de l'entité
   int diff; // Profondeur de la collision
   diff = collision(entite, DIRECT_HAUT_COLLI, p);
   if (diff > 0) {
     entite->hitbox.y -= diff;
   }
 
+  // On met à jour la position
   if (coef_fps > 5)
     coef_fps = 5;
   int i;
@@ -595,6 +597,8 @@ t_erreur update_posY_entite(t_entite *entite, double coef_fps, t_liste *p, uint8
     int grav = entite->velY;
     entite->hitbox.y -= grav;
   }
+
+  // On check s'il y a une collision en-dessous de l'entité
   if ((diff = collision(entite, DIRECT_BAS_COLLI, p)) > 0) {
     entite->velY = 0;
     entite->hitbox.y += diff;
@@ -655,8 +659,8 @@ int collision(t_entite *entite, t_collision_direction direction, t_liste *p) {
   /* Collision en BAS */
   case DIRECT_BAS_COLLI:
     while (collision <= 0 && x < ((entite->hitbox.x + w) / width_block_sdl)) {
-      block = MAP_GetBlock(&map, x, y - 1);
       // Récup Block
+      block = MAP_GetBlock(&map, x, y - 1);
       // Check si collision
       if (block) {
         if (block->plan != ARRIERE_PLAN) {
@@ -681,8 +685,8 @@ int collision(t_entite *entite, t_collision_direction direction, t_liste *p) {
   /* Collision en HAUT */
   case DIRECT_HAUT_COLLI:
     while (collision <= 0 && x < ((entite->hitbox.x + w) / width_block_sdl)) {
-      block = MAP_GetBlock(&map, x, y);
       // Récup Block
+      block = MAP_GetBlock(&map, x, y);
       // Check si collision
       if (block) {
         if (block->plan != ARRIERE_PLAN) {
@@ -702,8 +706,8 @@ int collision(t_entite *entite, t_collision_direction direction, t_liste *p) {
   /* Collision à DROITE */
   case DIRECT_DROITE_COLLI:
     while (collision <= 0 && y > ((entite->hitbox.y - h) / height_block_sdl)) {
-      block = MAP_GetBlock(&map, x + 1, y);
       // Récup Block
+      block = MAP_GetBlock(&map, x + 1, y);
       // Check si collision
       if (block) {
         if (block->plan != ARRIERE_PLAN) {
@@ -723,8 +727,8 @@ int collision(t_entite *entite, t_collision_direction direction, t_liste *p) {
   /* Collision à GAUCHE */
   case DIRECT_GAUCHE_COLLI:
     while (collision <= 0 && y > ((entite->hitbox.y - h) / height_block_sdl)) {
-      block = MAP_GetBlock(&map, x - 1, y);
       // Récup Block
+      block = MAP_GetBlock(&map, x - 1, y);
       // Check si collision
       if (block) {
         if (block->plan != ARRIERE_PLAN) {
@@ -1042,14 +1046,16 @@ t_erreur Print_Entite_Screen(SDL_Renderer *renderer, t_entite *entite_ref, t_ent
     Print_Info_Entite(renderer, entite_aff);
 
   }
-  /* Affichage */
+  /* Affichage par rapport à une entité de référence */
   else if (pos & NOT_CENTER_SCREEN) {
     if (!entite_ref)
       return PTR_NULL;
 
+    // Calcul de l'écart entre les deux entités
     int x_diff = entite_ref->hitbox.x - entite_aff->hitbox.x;
     int y_diff = entite_ref->hitbox.y - entite_aff->hitbox.y;
 
+    // Création position sur l'écran en fonction de l'écart
     int newPosEntX = entite_ref->posEnt.x - x_diff;
     int newPosEntY;
     if (pos & INVERSION_AXE_Y)
@@ -1057,7 +1063,7 @@ t_erreur Print_Entite_Screen(SDL_Renderer *renderer, t_entite *entite_ref, t_ent
     else
       newPosEntY = entite_ref->posEnt.y + y_diff;
 
-    /* Entité à afficher en dehors de l'écran */
+    // Affichage de l'entité si pas en dehors de l'écran
     if (newPosEntX + entite_ref->posEnt.w < 0 || newPosEntX > width_window)
       return VALUE_ERROR;
     if (newPosEntY + entite_ref->posEnt.h < 0 || newPosEntY > height_window)

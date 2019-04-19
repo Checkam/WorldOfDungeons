@@ -16,6 +16,10 @@ int main(int argc, char ** argv, char ** env)
 {
     printf("----- Programme de Test de Récupération du PWD de WoD -----\n");
 
+    printf("Variables du main :\n");
+    printf("ARGV[0] : %s\n", argv[0]);
+    printf("ENV[\"PWD\"] : %s\n", getenv("PWD"));
+
     printf("Création de WOD_PWD :\n");
     assert(pwd_init(argv[0], getenv("PWD")) == OK);
     printf("\t-- OK\n");
