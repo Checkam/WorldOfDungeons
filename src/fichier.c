@@ -41,7 +41,7 @@ FILE * open_file (char * dossier, char * name, char * ext, char * mode)
 }
 
 /**
- * \fn int del_file (char * dossier, char * name, char * ext)
+ * \fn t_erreur del_file (char * dossier, char * name, char * ext)
  * \brief Supprime un fichier.
  * \param dossier Chaine de caractère représentant le dossier ou se trouve le fichier.
  * \param name Chaine de caractère représenant le nom du fichier à supprimer.

@@ -22,7 +22,7 @@ typedef struct element{
 
 /**
  * \struct t_liste
- * \brief Liste contenant des t_element.
+ * \brief Structure représentant le début et la fin d'une liste ainsi que son élément courant.
 */
 typedef struct s_liste{
     t_element * drapeau;
