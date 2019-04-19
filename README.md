@@ -22,6 +22,8 @@ Maxence Despres, Mathieu Vaudeleau, Tibane et Jasmin Galbrun
 
 ## Systeme verifiée :
 - Ubuntu 18.04
+- Fedora
+- kali linux
 
 #### Installation de la SDL2 sur Linux
 
