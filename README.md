@@ -12,3 +12,42 @@ Maxence Despres, Mathieu Vaudeleau, Tibane et Jasmin Galbrun
 ## Inspiration
 * [Minecraft](https://www.minecraft.net/fr-fr/)
 * [Terraria](https://terraria.org/)
+
+
+# Installation
+
+## Prérequis
+- Système Unix
+- La librairie SDL2
+
+#### Installation de la SDL2 sur Linux
+
+Commande à éxecuter dans un terminal.
+```shell
+sudo apt-get install libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev
+```
+
+## Clonage du jeu
+Récupérer le dépôt Git :
+```shell
+git clone https://github.com/Checkam/WorldOfDungeons
+```
+
+## Compilation du jeu
+Ouvrir un terminal et se placer dans le dossier du jeu.
+
+Pour accéder aux options de compilation :
+```shell
+make help
+```
+
+Pour compiler le jeu :
+```shell
+make clean all
+```
+
+Pour compiler les tests :
+```shell
+make clean test
+```
+Les éxecutables se trouvent dans le dossier bin/
