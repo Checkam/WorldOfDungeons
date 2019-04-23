@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="biome_8h" kind="file" language="C++">
     <compoundname>biome.h</compoundname>
     <includes refid="commun_8h" local="no">commun.h</includes>
@@ -8,76 +8,77 @@
     <includedby refid="biome_8c" local="no">src/biome.c</includedby>
     <includedby refid="generation_8c" local="no">src/generation.c</includedby>
     <includedby refid="structure__block_8c" local="no">src/structure_block.c</includedby>
+    <includedby refid="world__of__dungeons_8c" local="no">src/world_of_dungeons.c</includedby>
     <includedby refid="structure__block_8h" local="no">include/structure_block.h</includedby>
     <incdepgraph>
-      <node id="15">
-        <label>commun.h</label>
-        <link refid="commun_8h_source"/>
-      </node>
-      <node id="14">
-        <label>include/biome.h</label>
-        <link refid="biome_8h"/>
-        <childnode refid="15" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-        <childnode refid="20" relation="include">
-        </childnode>
-      </node>
       <node id="20">
-        <label>liste.h</label>
-        <link refid="liste_8h"/>
-        <childnode refid="19" relation="include">
-        </childnode>
-      </node>
-      <node id="17">
-        <label>couleurs.h</label>
-        <link refid="couleurs_8h_source"/>
-      </node>
-      <node id="18">
-        <label>SDL2/SDL.h</label>
-      </node>
-      <node id="19">
         <label>erreur.h</label>
         <link refid="erreur_8h"/>
       </node>
-      <node id="16">
+      <node id="17">
         <label>block.h</label>
         <link refid="block_8h"/>
-        <childnode refid="17" relation="include">
-        </childnode>
         <childnode refid="18" relation="include">
         </childnode>
         <childnode refid="19" relation="include">
         </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>liste.h</label>
+        <link refid="liste_8h"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>couleurs.h</label>
+        <link refid="couleurs_8h_source"/>
+      </node>
+      <node id="19">
+        <label>SDL2/SDL.h</label>
+      </node>
+      <node id="16">
+        <label>commun.h</label>
+        <link refid="commun_8h_source"/>
+      </node>
+      <node id="15">
+        <label>include/biome.h</label>
+        <link refid="biome_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="24">
+      <node id="25">
         <label>include/structure_block.h</label>
         <link refid="structure__block_8h"/>
-        <childnode refid="22" relation="include">
-        </childnode>
-        <childnode refid="23" relation="include">
-        </childnode>
-      </node>
-      <node id="23">
-        <label>src/structure_block.c</label>
-        <link refid="structure__block_8c"/>
-      </node>
-      <node id="22">
-        <label>src/generation.c</label>
-        <link refid="generation_8c"/>
-      </node>
-      <node id="21">
-        <label>include/biome.h</label>
-        <link refid="biome_8h"/>
-        <childnode refid="22" relation="include">
-        </childnode>
         <childnode refid="23" relation="include">
         </childnode>
         <childnode refid="24" relation="include">
         </childnode>
+      </node>
+      <node id="24">
+        <label>src/structure_block.c</label>
+        <link refid="structure__block_8c"/>
+      </node>
+      <node id="22">
+        <label>include/biome.h</label>
+        <link refid="biome_8h"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>src/generation.c</label>
+        <link refid="generation_8c"/>
       </node>
     </invincdepgraph>
     <innerclass refid="structt__layer" prot="public">t_layer</innerclass>
@@ -107,8 +108,7 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="enum">
-      <memberdef kind="enum" id="biome_8h_1a88cfbc9884749042980d5910ea44e231" prot="public" static="no" strong="no">
-        <type></type>
+      <memberdef kind="enum" id="biome_8h_1a88cfbc9884749042980d5910ea44e231" prot="public" static="no">
         <name>t_biome_type</name>
         <enumvalue id="biome_8h_1a88cfbc9884749042980d5910ea44e231ac07a78a3f64770aadf8db7ecd78b8465" prot="public">
           <name>TAIGA</name>

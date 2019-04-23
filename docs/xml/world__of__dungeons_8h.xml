@@ -1,20 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="world__of__dungeons_8h" kind="file" language="C++">
     <compoundname>world_of_dungeons.h</compoundname>
     <includedby refid="world__of__dungeons_8c" local="no">src/world_of_dungeons.c</includedby>
-    <invincdepgraph>
-      <node id="236">
-        <label>src/world_of_dungeons.c</label>
-        <link refid="world__of__dungeons_8c"/>
-      </node>
-      <node id="235">
-        <label>include/world_of_dungeons.h</label>
-        <link refid="world__of__dungeons_8h"/>
-        <childnode refid="236" relation="include">
-        </childnode>
-      </node>
-    </invincdepgraph>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

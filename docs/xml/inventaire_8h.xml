@@ -1,0 +1,572 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="inventaire_8h" kind="file" language="C++">
+    <compoundname>inventaire.h</compoundname>
+    <includes local="no">SDL2/SDL.h</includes>
+    <includes local="no">assert.h</includes>
+    <includes refid="item_8h" local="no">item.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes refid="liste_8h" local="no">liste.h</includes>
+    <includes refid="chemin_8h" local="no">chemin.h</includes>
+    <includedby refid="inventaire_8c" local="no">src/inventaire.c</includedby>
+    <includedby refid="world__of__dungeons_8c" local="no">src/world_of_dungeons.c</includedby>
+    <incdepgraph>
+      <node id="212">
+        <label>assert.h</label>
+      </node>
+      <node id="216">
+        <label>erreur.h</label>
+        <link refid="erreur_8h"/>
+      </node>
+      <node id="218">
+        <label>stdint.h</label>
+      </node>
+      <node id="221">
+        <label>stdlib.h</label>
+      </node>
+      <node id="210">
+        <label>include/inventaire.h</label>
+        <link refid="inventaire_8h"/>
+        <childnode refid="211" relation="include">
+        </childnode>
+        <childnode refid="212" relation="include">
+        </childnode>
+        <childnode refid="213" relation="include">
+        </childnode>
+        <childnode refid="221" relation="include">
+        </childnode>
+        <childnode refid="220" relation="include">
+        </childnode>
+        <childnode refid="219" relation="include">
+        </childnode>
+      </node>
+      <node id="214">
+        <label>block.h</label>
+        <link refid="block_8h"/>
+        <childnode refid="215" relation="include">
+        </childnode>
+        <childnode refid="211" relation="include">
+        </childnode>
+        <childnode refid="216" relation="include">
+        </childnode>
+      </node>
+      <node id="220">
+        <label>liste.h</label>
+        <link refid="liste_8h"/>
+        <childnode refid="216" relation="include">
+        </childnode>
+      </node>
+      <node id="215">
+        <label>couleurs.h</label>
+        <link refid="couleurs_8h_source"/>
+      </node>
+      <node id="211">
+        <label>SDL2/SDL.h</label>
+      </node>
+      <node id="213">
+        <label>item.h</label>
+        <link refid="item_8h_source"/>
+        <childnode refid="214" relation="include">
+        </childnode>
+        <childnode refid="217" relation="include">
+        </childnode>
+        <childnode refid="218" relation="include">
+        </childnode>
+        <childnode refid="219" relation="include">
+        </childnode>
+      </node>
+      <node id="217">
+        <label>time.h</label>
+      </node>
+      <node id="219">
+        <label>chemin.h</label>
+        <link refid="chemin_8h"/>
+        <childnode refid="220" relation="include">
+        </childnode>
+        <childnode refid="216" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structinventaire__item__s" prot="public">inventaire_item_s</innerclass>
+    <innerclass refid="structinventaire__s" prot="public">inventaire_s</innerclass>
+    <innerclass refid="structenr__inventaire__s" prot="public">enr_inventaire_s</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="inventaire_8h_1a2510097ff9dbcc20d0a8bca16455191b" prot="public" static="no">
+        <name>DEFAULT_SIZE_SCREEN_W</name>
+        <initializer>1920.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/inventaire.h" line="13" column="9" bodyfile="include/inventaire.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="inventaire_8h_1ae66a4ece4431a4f9f846364df1203d5b" prot="public" static="no">
+        <name>DEFAULT_SIZE_SCREEN_H</name>
+        <initializer>1080.0 /* NE PAS CHANGER LES CONSTANTES */</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/inventaire.h" line="14" column="9" bodyfile="include/inventaire.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="inventaire_8h_1ad6e7d53136ab460f5249fec3f3b68be5" prot="public" static="no">
+        <type>struct <ref refid="structinventaire__item__s" kindref="compound">inventaire_item_s</ref></type>
+        <definition>typedef struct inventaire_item_s  t_inventaire_item</definition>
+        <argsstring></argsstring>
+        <name>t_inventaire_item</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/inventaire.h" line="26" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="inventaire_8h_1a7450e91e3ac6cfe2bfdf000bf7b8674e" prot="public" static="no">
+        <type>struct <ref refid="structinventaire__s" kindref="compound">inventaire_s</ref></type>
+        <definition>typedef struct inventaire_s  t_inventaire</definition>
+        <argsstring></argsstring>
+        <name>t_inventaire</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/inventaire.h" line="33" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="inventaire_8h_1ac8c021005ccc1b107d0839a3f3845c8a" prot="public" static="no">
+        <type>struct <ref refid="structenr__inventaire__s" kindref="compound">enr_inventaire_s</ref></type>
+        <definition>typedef struct enr_inventaire_s  t_enr_inventaire</definition>
+        <argsstring></argsstring>
+        <name>t_enr_inventaire</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/inventaire.h" line="40" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="inventaire_8h_1a86b0f2e3dbb99f17c514557aa2be0bf7" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t HEIGHT</definition>
+        <argsstring></argsstring>
+        <name>HEIGHT</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/inventaire.h" line="47" column="1" bodyfile="include/inventaire.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="inventaire_8h_1aeaf09a95d18250fbc1d8d1ec7308cc88" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t WIDTH</definition>
+        <argsstring></argsstring>
+        <name>WIDTH</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/inventaire.h" line="48" column="1" bodyfile="include/inventaire.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="inventaire_8h_1a070f511cdf16e323f31223d7fdc19a2e" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float scaleH</definition>
+        <argsstring></argsstring>
+        <name>scaleH</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/inventaire.h" line="50" column="1" bodyfile="include/inventaire.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="inventaire_8h_1a79e1dc9efddb49b5cea3163b52c26000" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float scaleW</definition>
+        <argsstring></argsstring>
+        <name>scaleW</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/inventaire.h" line="51" column="1" bodyfile="include/inventaire.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="inventaire_8h_1a531e584c335e363ae3827340d700c3b8" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float uiScale</definition>
+        <argsstring></argsstring>
+        <name>uiScale</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/inventaire.h" line="53" column="1" bodyfile="include/inventaire.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="inventaire_8h_1a6cfa86b2594a44ee3f6c42aaa87fa4f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void inventaire_init</definition>
+        <argsstring>(SDL_Renderer *renderer)</argsstring>
+        <name>inventaire_init</name>
+        <param>
+          <type>SDL_Renderer *</type>
+          <declname>renderer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/inventaire.h" line="61" column="1" bodyfile="src/inventaire.c" bodystart="36" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="inventaire_8h_1a5e2076e6e71750d35165a2b0be20fe07" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structinventaire__s" kindref="compound">t_inventaire</ref> *</type>
+        <definition>t_inventaire* create_inventaire</definition>
+        <argsstring>()</argsstring>
+        <name>create_inventaire</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/inventaire.h" line="64" column="1" bodyfile="src/inventaire.c" bodystart="59" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="inventaire_8h_1a2cfed12bf7030875e6cc3c3ebc885f93" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void alloc_item</definition>
+        <argsstring>(t_inventaire *inventaire, const uint16_t nbItem)</argsstring>
+        <name>alloc_item</name>
+        <param>
+          <type><ref refid="structinventaire__s" kindref="compound">t_inventaire</ref> *</type>
+          <declname>inventaire</declname>
+        </param>
+        <param>
+          <type>const uint16_t</type>
+          <declname>nbItem</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/inventaire.h" line="67" column="1" bodyfile="src/inventaire.c" bodystart="72" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="inventaire_8h_1aff3b29fde46c30dd8ad24883c74e1530" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ajout_item_dans_inventaire</definition>
+        <argsstring>(t_inventaire *inventaire, t_liste *listeItem)</argsstring>
+        <name>ajout_item_dans_inventaire</name>
+        <param>
+          <type><ref refid="structinventaire__s" kindref="compound">t_inventaire</ref> *</type>
+          <declname>inventaire</declname>
+        </param>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>listeItem</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/inventaire.h" line="72" column="1" bodyfile="src/inventaire.c" bodystart="105" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="inventaire_8h_1a88d1049025034668b998aad50b8a8b89" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void inventaire_changer_constante</definition>
+        <argsstring>(const uint8_t nbinventaire)</argsstring>
+        <name>inventaire_changer_constante</name>
+        <param>
+          <type>const uint8_t</type>
+          <declname>nbinventaire</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/inventaire.h" line="75" column="1" bodyfile="src/inventaire.c" bodystart="177" bodyend="196"/>
+      </memberdef>
+      <memberdef kind="function" id="inventaire_8h_1a980a6839b9acb117b6a92dc9897a07db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void afficher_inventaire</definition>
+        <argsstring>(t_inventaire *inventaire)</argsstring>
+        <name>afficher_inventaire</name>
+        <param>
+          <type><ref refid="structinventaire__s" kindref="compound">t_inventaire</ref> *</type>
+          <declname>inventaire</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/inventaire.h" line="78" column="1" bodyfile="src/inventaire.c" bodystart="163" bodyend="175"/>
+      </memberdef>
+      <memberdef kind="function" id="inventaire_8h_1af1116b05ccc7079a9e4f28bd233307af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="block_8h_1a4030ebe0eea609635f372f2e86d4332a" kindref="member">t_materiaux</ref></type>
+        <definition>t_materiaux poser_block</definition>
+        <argsstring>(t_inventaire *inventaire)</argsstring>
+        <name>poser_block</name>
+        <param>
+          <type><ref refid="structinventaire__s" kindref="compound">t_inventaire</ref> *</type>
+          <declname>inventaire</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/inventaire.h" line="81" column="1" bodyfile="src/inventaire.c" bodystart="198" bodyend="211"/>
+      </memberdef>
+      <memberdef kind="function" id="inventaire_8h_1a47c6ffb6eff81615b05455d9c0d24297" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SDL_afficher_barre_action</definition>
+        <argsstring>(SDL_Renderer *renderer, t_inventaire *inventaire, const int8_t scroll)</argsstring>
+        <name>SDL_afficher_barre_action</name>
+        <param>
+          <type>SDL_Renderer *</type>
+          <declname>renderer</declname>
+        </param>
+        <param>
+          <type><ref refid="structinventaire__s" kindref="compound">t_inventaire</ref> *</type>
+          <declname>inventaire</declname>
+        </param>
+        <param>
+          <type>const int8_t</type>
+          <declname>scroll</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/inventaire.h" line="84" column="1" bodyfile="src/inventaire.c" bodystart="213" bodyend="275"/>
+      </memberdef>
+      <memberdef kind="function" id="inventaire_8h_1a5a5dc6b0cf93a45f4bb777d855baffbe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void inventaire_afficher</definition>
+        <argsstring>(SDL_Renderer *renderer, t_inventaire *inventaire)</argsstring>
+        <name>inventaire_afficher</name>
+        <param>
+          <type>SDL_Renderer *</type>
+          <declname>renderer</declname>
+        </param>
+        <param>
+          <type><ref refid="structinventaire__s" kindref="compound">t_inventaire</ref> *</type>
+          <declname>inventaire</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/inventaire.h" line="87" column="1" bodyfile="src/inventaire.c" bodystart="277" bodyend="320"/>
+      </memberdef>
+      <memberdef kind="function" id="inventaire_8h_1ad59c3f674c9512358e4ea00cf1657624" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void inventaire_enregistrer</definition>
+        <argsstring>(const char *path, t_enr_inventaire *enr_inventaire)</argsstring>
+        <name>inventaire_enregistrer</name>
+        <param>
+          <type>const char *</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type><ref refid="structenr__inventaire__s" kindref="compound">t_enr_inventaire</ref> *</type>
+          <declname>enr_inventaire</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/inventaire.h" line="93" column="1" bodyfile="src/inventaire.c" bodystart="322" bodyend="350"/>
+      </memberdef>
+      <memberdef kind="function" id="inventaire_8h_1aab40829ce39045538cd9ccbf1eacf5e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void inventaire_recuperer</definition>
+        <argsstring>(const char *path, t_inventaire **inventaire, const int64_t x, const int32_t y)</argsstring>
+        <name>inventaire_recuperer</name>
+        <param>
+          <type>const char *</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type><ref refid="structinventaire__s" kindref="compound">t_inventaire</ref> **</type>
+          <declname>inventaire</declname>
+        </param>
+        <param>
+          <type>const int64_t</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>const int32_t</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/inventaire.h" line="94" column="1" bodyfile="src/inventaire.c" bodystart="352" bodyend="403"/>
+      </memberdef>
+      <memberdef kind="function" id="inventaire_8h_1a9b9d4d89e88380285b66e26f468fa8f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void free_inventaire</definition>
+        <argsstring>(t_inventaire *inventaire)</argsstring>
+        <name>free_inventaire</name>
+        <param>
+          <type><ref refid="structinventaire__s" kindref="compound">t_inventaire</ref> *</type>
+          <declname>inventaire</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/inventaire.h" line="99" column="1" bodyfile="src/inventaire.c" bodystart="405" bodyend="429"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>__INVENTAIRE_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__INVENTAIRE_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;SDL2/SDL.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;assert.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;item.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="liste_8h" kindref="compound">liste.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="chemin_8h" kindref="compound">chemin.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEFAULT_SIZE_SCREEN_W<sp/>1920.0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEFAULT_SIZE_SCREEN_H<sp/>1080.0<sp/></highlight><highlight class="comment">/*<sp/>NE<sp/>PAS<sp/>CHANGER<sp/>LES<sp/>CONSTANTES<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>-----<sp/>STRUCTURE<sp/>-----<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="structinventaire__item__s" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structinventaire__item__s" kindref="compound">inventaire_item_s</ref><sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structitem__type__s" kindref="compound">t_item_type</ref><sp/>*item;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>stack;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>durabilite;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">}<sp/><ref refid="structinventaire__item__s" kindref="compound">t_inventaire_item</ref>;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="structinventaire__s" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structinventaire__s" kindref="compound">inventaire_s</ref><sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structinventaire__item__s" kindref="compound">t_inventaire_item</ref><sp/>*inventaire;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>nbItem;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>nbItemMax;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">}<sp/><ref refid="structinventaire__s" kindref="compound">t_inventaire</ref>;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="structenr__inventaire__s" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structenr__inventaire__s" kindref="compound">enr_inventaire_s</ref><sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>int64_t<sp/>x;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>int32_t<sp/>y;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structinventaire__s" kindref="compound">t_inventaire</ref><sp/>*inventaire;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal">}<sp/><ref refid="structenr__inventaire__s" kindref="compound">t_enr_inventaire</ref>;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>-----<sp/>VARIABLES<sp/>------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal">uint16_t<sp/>HEIGHT;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">uint16_t<sp/>WIDTH;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>scaleH;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>scaleW;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>uiScale;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>-----<sp/>FONCTIONS<sp/>------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>initialisation<sp/>du<sp/>module<sp/>inventaire<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>inventaire_init(<sp/>SDL_Renderer<sp/>*renderer<sp/>);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>renvoie<sp/>un<sp/>inventaire<sp/>ne<sp/>pouvant<sp/>pas<sp/>contenir<sp/>d&apos;item.<sp/>alloc_item<sp/>devrait<sp/>etre<sp/>apellé<sp/>apres<sp/>cette<sp/>fonction<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><ref refid="structinventaire__s" kindref="compound">t_inventaire</ref><sp/>*create_inventaire();</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>alloue<sp/>nbItem<sp/>place<sp/>dans<sp/>l&apos;inventaire.<sp/>peut<sp/>etre<sp/>apeller<sp/>meme<sp/>si<sp/>inventaire<sp/>a<sp/>deja<sp/>ete<sp/>passer<sp/>dans<sp/>alloc_item,<sp/>dans<sp/>le<sp/>cas<sp/>d&apos;un<sp/>ré-apelle<sp/>garde<sp/>les<sp/>items<sp/>deja<sp/>présent<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>alloc_item(<ref refid="structinventaire__s" kindref="compound">t_inventaire</ref><sp/>*inventaire,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint16_t<sp/>nbItem<sp/>);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>ajoute<sp/>le<sp/>maximum<sp/>d&apos;item<sp/>possible<sp/>contenu<sp/>dans<sp/>la<sp/>liste<sp/>dans<sp/>l&apos;inventaire<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ajout_item_dans_inventaire(<sp/><ref refid="structinventaire__s" kindref="compound">t_inventaire</ref><sp/>*inventaire,<sp/><ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*listeItem<sp/>);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>si<sp/>une<sp/>constante<sp/>change<sp/>(<sp/>taille<sp/>de<sp/>la<sp/>fenetre,<sp/>nb<sp/>d&apos;item<sp/>dans<sp/>la<sp/>barre<sp/>d&apos;action<sp/>),<sp/>doit<sp/>etre<sp/>apeller.<sp/>Ne<sp/>PAS<sp/>apeller<sp/>a<sp/>chaque<sp/>image<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>inventaire_changer_constante<sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>nbinventaire<sp/>);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>affiche<sp/>l&apos;inventaire<sp/>dans<sp/>le<sp/>terminal<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>afficher_inventaire<sp/>(<sp/><ref refid="structinventaire__s" kindref="compound">t_inventaire</ref><sp/>*inventaire<sp/>);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>doit<sp/>etre<sp/>apeller<sp/>uniquement<sp/>lorsque<sp/>le<sp/>joueur<sp/>veut<sp/>poser<sp/>un<sp/>bloc.<sp/>renvoie<sp/>le<sp/>bloc<sp/>qui<sp/>doit<sp/>etre<sp/>posé,<sp/>AIR<sp/>si<sp/>il<sp/>n&apos;y<sp/>a<sp/>pas<sp/>de<sp/>bloc<sp/>a<sp/>posé<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><ref refid="block_8h_1a4030ebe0eea609635f372f2e86d4332a" kindref="member">t_materiaux</ref><sp/>poser_block<sp/>(<sp/><ref refid="structinventaire__s" kindref="compound">t_inventaire</ref><sp/>*inventaire<sp/>);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>affiche<sp/>la<sp/>barre<sp/>d&apos;action.<sp/>Ne<sp/>doit<sp/>pas<sp/>etre<sp/>apeller<sp/>avec<sp/>inventaire_afficher<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>SDL_afficher_barre_action<sp/>(<sp/>SDL_Renderer<sp/>*renderer,<sp/><ref refid="structinventaire__s" kindref="compound">t_inventaire</ref><sp/>*inventaire,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>int8_t<sp/>scroll<sp/>);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>affiche<sp/>l&apos;inventaire<sp/>en<sp/>entier<sp/>dans<sp/>la<sp/>fentre.<sp/>Ne<sp/>doit<sp/>pas<sp/>etre<sp/>apeller<sp/>avec<sp/>SDL_afficher_barre_action<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>inventaire_afficher<sp/>(<sp/>SDL_Renderer<sp/>*renderer,<sp/><ref refid="structinventaire__s" kindref="compound">t_inventaire</ref><sp/>*inventaire<sp/>);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>En<sp/>cours<sp/>de<sp/>construction<sp/>...<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>inventaire_enregistrer<sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*path,<sp/><ref refid="structenr__inventaire__s" kindref="compound">t_enr_inventaire</ref><sp/>*enr_inventaire<sp/>);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>inventaire_recuperer<sp/>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*path,<sp/><ref refid="structinventaire__s" kindref="compound">t_inventaire</ref><sp/>**inventaire,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>int64_t<sp/>x,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>int32_t<sp/>y<sp/>);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>permet<sp/>une<sp/>fermeture<sp/>propre<sp/>du<sp/>module<sp/>inventaire<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>free_inventaire(<sp/><ref refid="structinventaire__s" kindref="compound">t_inventaire</ref><sp/>*inventaire<sp/>);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="include/inventaire.h"/>
+  </compounddef>
+</doxygen>

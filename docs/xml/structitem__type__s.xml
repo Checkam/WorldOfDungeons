@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structitem__type__s" kind="struct" language="C++" prot="public">
+    <compoundname>item_type_s</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structitem__type__s_1a28e426ed0fb2b14f84597e9b04e775d8" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t item_type_s::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/item.h" line="37" column="1" bodyfile="include/item.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structitem__type__s_1a46214e105081f0942d875768342193c3" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* item_type_s::nomItem</definition>
+        <argsstring></argsstring>
+        <name>nomItem</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/item.h" line="39" column="1" bodyfile="include/item.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structitem__type__s_1a0a1b8bdd1f7ddb07bbd115413162dc61" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t item_type_s::stack</definition>
+        <argsstring></argsstring>
+        <name>stack</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/item.h" line="40" column="1" bodyfile="include/item.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structitem__type__s_1a619208f9ea31bfea798ff980d16fb94f" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t item_type_s::durabilite</definition>
+        <argsstring></argsstring>
+        <name>durabilite</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/item.h" line="41" column="1" bodyfile="include/item.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structitem__type__s_1a60f699deeb1870d2b504b54ec3a00b29" prot="public" static="no" mutable="no">
+        <type><ref refid="block_8h_1a4030ebe0eea609635f372f2e86d4332a" kindref="member">t_materiaux</ref></type>
+        <definition>t_materiaux item_type_s::posable</definition>
+        <argsstring></argsstring>
+        <name>posable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/item.h" line="43" column="1" bodyfile="include/item.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structitem__type__s_1a15ee5e58c50052bf3674ca48a8c54a62" prot="public" static="no" mutable="no">
+        <type>SDL_Texture *</type>
+        <definition>SDL_Texture* item_type_s::texture</definition>
+        <argsstring></argsstring>
+        <name>texture</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/item.h" line="45" column="1" bodyfile="include/item.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/item.h" line="35" column="1" bodyfile="include/item.h" bodystart="35" bodyend="47"/>
+    <listofallmembers>
+      <member refid="structitem__type__s_1a619208f9ea31bfea798ff980d16fb94f" prot="public" virt="non-virtual"><scope>item_type_s</scope><name>durabilite</name></member>
+      <member refid="structitem__type__s_1a28e426ed0fb2b14f84597e9b04e775d8" prot="public" virt="non-virtual"><scope>item_type_s</scope><name>id</name></member>
+      <member refid="structitem__type__s_1a46214e105081f0942d875768342193c3" prot="public" virt="non-virtual"><scope>item_type_s</scope><name>nomItem</name></member>
+      <member refid="structitem__type__s_1a60f699deeb1870d2b504b54ec3a00b29" prot="public" virt="non-virtual"><scope>item_type_s</scope><name>posable</name></member>
+      <member refid="structitem__type__s_1a0a1b8bdd1f7ddb07bbd115413162dc61" prot="public" virt="non-virtual"><scope>item_type_s</scope><name>stack</name></member>
+      <member refid="structitem__type__s_1a15ee5e58c50052bf3674ca48a8c54a62" prot="public" virt="non-virtual"><scope>item_type_s</scope><name>texture</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="outils__SDL_8c" kind="file" language="C++">
     <compoundname>outils_SDL.c</compoundname>
     <includes local="no">stdio.h</includes>
@@ -11,55 +11,55 @@
     <includes local="no">SDL2/SDL_ttf.h</includes>
     <includes refid="outils__SDL_8h" local="no">outils_SDL.h</includes>
     <incdepgraph>
-      <node id="421">
-        <label>SDL2/SDL_image.h</label>
-      </node>
-      <node id="417">
-        <label>stdlib.h</label>
-      </node>
-      <node id="423">
-        <label>outils_SDL.h</label>
-        <link refid="outils__SDL_8h_source"/>
-        <childnode refid="420" relation="include">
-        </childnode>
-        <childnode refid="419" relation="include">
-        </childnode>
-      </node>
-      <node id="420">
-        <label>SDL2/SDL.h</label>
-      </node>
-      <node id="418">
-        <label>string.h</label>
-      </node>
-      <node id="419">
+      <node id="592">
         <label>erreur.h</label>
         <link refid="erreur_8h"/>
       </node>
-      <node id="416">
-        <label>stdio.h</label>
+      <node id="594">
+        <label>SDL2/SDL_image.h</label>
       </node>
-      <node id="422">
-        <label>SDL2/SDL_ttf.h</label>
+      <node id="590">
+        <label>stdlib.h</label>
       </node>
-      <node id="415">
+      <node id="596">
+        <label>outils_SDL.h</label>
+        <link refid="outils__SDL_8h"/>
+        <childnode refid="593" relation="include">
+        </childnode>
+        <childnode refid="592" relation="include">
+        </childnode>
+      </node>
+      <node id="593">
+        <label>SDL2/SDL.h</label>
+      </node>
+      <node id="591">
+        <label>string.h</label>
+      </node>
+      <node id="588">
         <label>src/outils_SDL.c</label>
         <link refid="outils__SDL_8c"/>
-        <childnode refid="416" relation="include">
+        <childnode refid="589" relation="include">
         </childnode>
-        <childnode refid="417" relation="include">
+        <childnode refid="590" relation="include">
         </childnode>
-        <childnode refid="418" relation="include">
+        <childnode refid="591" relation="include">
         </childnode>
-        <childnode refid="419" relation="include">
+        <childnode refid="592" relation="include">
         </childnode>
-        <childnode refid="420" relation="include">
+        <childnode refid="593" relation="include">
         </childnode>
-        <childnode refid="421" relation="include">
+        <childnode refid="594" relation="include">
         </childnode>
-        <childnode refid="422" relation="include">
+        <childnode refid="595" relation="include">
         </childnode>
-        <childnode refid="423" relation="include">
+        <childnode refid="596" relation="include">
         </childnode>
+      </node>
+      <node id="589">
+        <label>stdio.h</label>
+      </node>
+      <node id="595">
+        <label>SDL2/SDL_ttf.h</label>
       </node>
     </incdepgraph>
       <sectiondef kind="func">
@@ -201,13 +201,16 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/outils_SDL.c" line="63" column="1" bodyfile="src/outils_SDL.c" bodystart="63" bodyend="101"/>
+        <location file="src/outils_SDL.c" line="63" column="1" bodyfile="src/outils_SDL.c" bodystart="63" bodyend="105"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
-    </briefdescription>
+<para>Contient une boite à outils de fonctions SDL. </para>    </briefdescription>
     <detaileddescription>
-    </detaileddescription>
+<para><simplesect kind="author"><para>Jasmin GALBRUN </para></simplesect>
+<simplesect kind="date"><para>09/03/2019 </para></simplesect>
+<simplesect kind="version"><para>1 </para></simplesect>
+</para>    </detaileddescription>
     <programlisting>
 <codeline lineno="1"></codeline>
 <codeline lineno="9"><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
@@ -217,9 +220,9 @@
 <codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;SDL2/SDL.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;SDL2/SDL_image.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;SDL2/SDL_ttf.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;outils_SDL.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="outils__SDL_8h" kindref="compound">outils_SDL.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="17"><highlight class="normal"></highlight></codeline>
-<codeline lineno="26"><highlight class="normal">t_erreur<sp/>Create_IMG_Texture(SDL_Renderer<sp/>*<sp/>renderer,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>chemin_img,<sp/>SDL_Texture<sp/>*<sp/>*texture_dest){</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">t_erreur<sp/><ref refid="outils__SDL_8c_1a17717a1787c318f04c2b3050aad4c319" kindref="member">Create_IMG_Texture</ref>(SDL_Renderer<sp/>*<sp/>renderer,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>chemin_img,<sp/>SDL_Texture<sp/>*<sp/>*texture_dest){</highlight></codeline>
 <codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Vérification<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(renderer<sp/>==<sp/>NULL){</highlight></codeline>
 <codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_NULL;</highlight></codeline>
@@ -244,7 +247,7 @@
 <codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
 <codeline lineno="49"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="50"><highlight class="normal"></highlight></codeline>
-<codeline lineno="63"><highlight class="normal">t_erreur<sp/>Create_Text_Texture(SDL_Renderer<sp/>*<sp/>renderer,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>texte,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>chemin_police,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>taille_police,<sp/>SDL_Color<sp/>couleur,<sp/>t_type_dessin_texte<sp/>type,<sp/>SDL_Texture<sp/>*<sp/>*texture_dest){</highlight></codeline>
+<codeline lineno="63"><highlight class="normal">t_erreur<sp/><ref refid="outils__SDL_8c_1a05fb01fd866f77718813d6fce20670c1" kindref="member">Create_Text_Texture</ref>(SDL_Renderer<sp/>*<sp/>renderer,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>texte,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>chemin_police,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>taille_police,<sp/>SDL_Color<sp/>couleur,<sp/>t_type_dessin_texte<sp/>type,<sp/>SDL_Texture<sp/>*<sp/>*texture_dest){</highlight></codeline>
 <codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Vérification<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(renderer<sp/>==<sp/>NULL){</highlight></codeline>
 <codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_NULL;</highlight></codeline>
@@ -264,25 +267,29 @@
 <codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>SDL_Surface<sp/>*<sp/>texte_surface<sp/>=<sp/>NULL;</highlight></codeline>
 <codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(type<sp/>==<sp/>BLENDED){</highlight></codeline>
 <codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>texte_surface<sp/>=<sp/>TTF_RenderText_Blended(police,<sp/>texte,<sp/>couleur);</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>TYPE_ERROR;</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(texte_surface<sp/>==<sp/>NULL){</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_NULL;</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="89"><highlight class="normal"></highlight></codeline>
-<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Création<sp/>Texture<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>*texture_dest<sp/>=<sp/>SDL_CreateTextureFromSurface(renderer,<sp/>texte_surface);</highlight></codeline>
-<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(*texture_dest<sp/>==<sp/>NULL){</highlight></codeline>
-<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_NULL;</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="95"><highlight class="normal"></highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Destruction<sp/>pointeur<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>SDL_FreeSurface(texte_surface);</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>TTF_CloseFont(police);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(type<sp/>==<sp/>SOLID){</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>texte_surface<sp/>=<sp/>TTF_RenderText_Solid(police,texte,couleur);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(type<sp/>==<sp/>SHADED){</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>texte_surface<sp/>=<sp/>TTF_RenderText_Shaded(police,texte,couleur,couleur);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>TYPE_ERROR;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(texte_surface<sp/>==<sp/>NULL){</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_NULL;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Création<sp/>Texture<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>*texture_dest<sp/>=<sp/>SDL_CreateTextureFromSurface(renderer,<sp/>texte_surface);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(*texture_dest<sp/>==<sp/>NULL){</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_NULL;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="99"><highlight class="normal"></highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
-<codeline lineno="101"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Destruction<sp/>pointeur<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>SDL_FreeSurface(texte_surface);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>TTF_CloseFont(police);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="src/outils_SDL.c"/>
   </compounddef>

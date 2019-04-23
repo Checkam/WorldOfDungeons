@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir">
     <compoundname>src</compoundname>
     <innerfile refid="affichage_8c">affichage.c</innerfile>
@@ -13,13 +13,15 @@
     <innerfile refid="fichier_8c">fichier.c</innerfile>
     <innerfile refid="fps_8c">fps.c</innerfile>
     <innerfile refid="generation_8c">generation.c</innerfile>
+    <innerfile refid="ia_8c">ia.c</innerfile>
+    <innerfile refid="inventaire_8c">inventaire.c</innerfile>
+    <innerfile refid="item_8c">item.c</innerfile>
     <innerfile refid="json_8c">json.c</innerfile>
     <innerfile refid="liste_8c">liste.c</innerfile>
     <innerfile refid="map_8c">map.c</innerfile>
     <innerfile refid="menu_8c">menu.c</innerfile>
     <innerfile refid="outils__SDL_8c">outils_SDL.c</innerfile>
     <innerfile refid="perlin_8c">perlin.c</innerfile>
-    <innerfile refid="sauvegarde__map_8c">sauvegarde_map.c</innerfile>
     <innerfile refid="structure__block_8c">structure_block.c</innerfile>
     <innerfile refid="touches_8c">touches.c</innerfile>
     <innerfile refid="world__of__dungeons_8c">world_of_dungeons.c</innerfile>

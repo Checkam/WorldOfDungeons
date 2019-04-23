@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structinventaire__item__s" kind="struct" language="C++" prot="public">
+    <compoundname>inventaire_item_s</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structinventaire__item__s_1ae0401a583482030efe9be6f152e24510" prot="public" static="no" mutable="no">
+        <type><ref refid="structitem__type__s" kindref="compound">t_item_type</ref> *</type>
+        <definition>t_item_type* inventaire_item_s::item</definition>
+        <argsstring></argsstring>
+        <name>item</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/inventaire.h" line="23" column="1" bodyfile="include/inventaire.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structinventaire__item__s_1a1c2841d4985b4a94a41f2b2e4905a769" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t inventaire_item_s::stack</definition>
+        <argsstring></argsstring>
+        <name>stack</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/inventaire.h" line="24" column="1" bodyfile="include/inventaire.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structinventaire__item__s_1a6e9d66d75d0450a94d7d971aede3829d" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t inventaire_item_s::durabilite</definition>
+        <argsstring></argsstring>
+        <name>durabilite</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/inventaire.h" line="25" column="1" bodyfile="include/inventaire.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="17">
+        <label>inventaire_item_s</label>
+        <link refid="structinventaire__item__s"/>
+        <childnode refid="18" relation="usage">
+          <edgelabel>item</edgelabel>
+        </childnode>
+      </node>
+      <node id="18">
+        <label>item_type_s</label>
+        <link refid="structitem__type__s"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/inventaire.h" line="21" column="1" bodyfile="include/inventaire.h" bodystart="21" bodyend="26"/>
+    <listofallmembers>
+      <member refid="structinventaire__item__s_1a6e9d66d75d0450a94d7d971aede3829d" prot="public" virt="non-virtual"><scope>inventaire_item_s</scope><name>durabilite</name></member>
+      <member refid="structinventaire__item__s_1ae0401a583482030efe9be6f152e24510" prot="public" virt="non-virtual"><scope>inventaire_item_s</scope><name>item</name></member>
+      <member refid="structinventaire__item__s_1a1c2841d4985b4a94a41f2b2e4905a769" prot="public" virt="non-virtual"><scope>inventaire_item_s</scope><name>stack</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="structblock__type__s" kind="struct" language="C++" prot="public">
     <compoundname>block_type_s</compoundname>
       <sectiondef kind="public-attrib">
@@ -14,7 +14,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/block.h" line="28" column="1" bodyfile="include/block.h" bodystart="28" bodyend="-1"/>
+        <location file="include/block.h" line="65" column="1" bodyfile="include/block.h" bodystart="65" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structblock__type__s_1ab0dd44baaeba77af372111aab407b32b" prot="public" static="no" mutable="no">
         <type>const char *</type>
@@ -27,7 +27,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/block.h" line="29" column="1" bodyfile="include/block.h" bodystart="29" bodyend="-1"/>
+        <location file="include/block.h" line="66" column="1" bodyfile="include/block.h" bodystart="66" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structblock__type__s_1aa46c6fcc0946c131911e020403c12020" prot="public" static="no" mutable="no">
         <type>const int</type>
@@ -40,7 +40,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/block.h" line="30" column="1" bodyfile="include/block.h" bodystart="30" bodyend="-1"/>
+        <location file="include/block.h" line="67" column="1" bodyfile="include/block.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structblock__type__s_1a07e050e19b7ba8647270b1982b9a7012" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int block_type_s::cassable</definition>
+        <argsstring></argsstring>
+        <name>cassable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/block.h" line="68" column="1" bodyfile="include/block.h" bodystart="68" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structblock__type__s_1aa6d3c4bdb3ac3bd5972f4495870e2986" prot="public" static="no" mutable="no">
         <type>char *</type>
@@ -53,7 +66,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/block.h" line="32" column="1" bodyfile="include/block.h" bodystart="32" bodyend="-1"/>
+        <location file="include/block.h" line="70" column="1" bodyfile="include/block.h" bodystart="70" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structblock__type__s_1a0018e7e74b665cfb61fea3546fcb0d1a" prot="public" static="no" mutable="no">
         <type>char *</type>
@@ -66,7 +79,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/block.h" line="33" column="1" bodyfile="include/block.h" bodystart="33" bodyend="-1"/>
+        <location file="include/block.h" line="71" column="1" bodyfile="include/block.h" bodystart="71" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structblock__type__s_1a16aca64b354d48a0f675743097d36b75" prot="public" static="no" mutable="no">
         <type>SDL_Texture *</type>
@@ -79,15 +92,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/block.h" line="35" column="1" bodyfile="include/block.h" bodystart="35" bodyend="-1"/>
+        <location file="include/block.h" line="73" column="1" bodyfile="include/block.h" bodystart="73" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="include/block.h" line="27" column="1" bodyfile="include/block.h" bodystart="27" bodyend="36"/>
+    <location file="include/block.h" line="64" column="1" bodyfile="include/block.h" bodystart="64" bodyend="74"/>
     <listofallmembers>
+      <member refid="structblock__type__s_1a07e050e19b7ba8647270b1982b9a7012" prot="public" virt="non-virtual"><scope>block_type_s</scope><name>cassable</name></member>
       <member refid="structblock__type__s_1ab23b1a3e2c3a26ec847636a758888ae0" prot="public" virt="non-virtual"><scope>block_type_s</scope><name>materiau</name></member>
       <member refid="structblock__type__s_1ab0dd44baaeba77af372111aab407b32b" prot="public" virt="non-virtual"><scope>block_type_s</scope><name>nom</name></member>
       <member refid="structblock__type__s_1aa46c6fcc0946c131911e020403c12020" prot="public" virt="non-virtual"><scope>block_type_s</scope><name>resistance</name></member>

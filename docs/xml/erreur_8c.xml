@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="erreur_8c" kind="file" language="C++">
     <compoundname>erreur.c</compoundname>
     <includes local="no">stdio.h</includes>
@@ -10,55 +10,55 @@
     <includes refid="erreur_8h" local="no">erreur.h</includes>
     <includes refid="chemin_8h" local="no">chemin.h</includes>
     <incdepgraph>
-      <node id="327">
+      <node id="438">
         <label>sys/stat.h</label>
       </node>
-      <node id="323">
-        <label>src/erreur.c</label>
-        <link refid="erreur_8c"/>
-        <childnode refid="324" relation="include">
-        </childnode>
-        <childnode refid="325" relation="include">
-        </childnode>
-        <childnode refid="326" relation="include">
-        </childnode>
-        <childnode refid="327" relation="include">
-        </childnode>
-        <childnode refid="328" relation="include">
-        </childnode>
-        <childnode refid="329" relation="include">
-        </childnode>
-        <childnode refid="330" relation="include">
-        </childnode>
-      </node>
-      <node id="325">
-        <label>stdlib.h</label>
-      </node>
-      <node id="331">
-        <label>liste.h</label>
-        <link refid="liste_8h"/>
-        <childnode refid="329" relation="include">
-        </childnode>
-      </node>
-      <node id="330">
-        <label>chemin.h</label>
-        <link refid="chemin_8h"/>
-        <childnode refid="331" relation="include">
-        </childnode>
-        <childnode refid="329" relation="include">
-        </childnode>
-      </node>
-      <node id="328">
-        <label>sys/types.h</label>
-      </node>
-      <node id="329">
+      <node id="440">
         <label>erreur.h</label>
         <link refid="erreur_8h"/>
       </node>
-      <node id="326">
+      <node id="436">
+        <label>stdlib.h</label>
+      </node>
+      <node id="434">
+        <label>src/erreur.c</label>
+        <link refid="erreur_8c"/>
+        <childnode refid="435" relation="include">
+        </childnode>
+        <childnode refid="436" relation="include">
+        </childnode>
+        <childnode refid="437" relation="include">
+        </childnode>
+        <childnode refid="438" relation="include">
+        </childnode>
+        <childnode refid="439" relation="include">
+        </childnode>
+        <childnode refid="440" relation="include">
+        </childnode>
+        <childnode refid="441" relation="include">
+        </childnode>
+      </node>
+      <node id="442">
+        <label>liste.h</label>
+        <link refid="liste_8h"/>
+        <childnode refid="440" relation="include">
+        </childnode>
+      </node>
+      <node id="439">
+        <label>sys/types.h</label>
+      </node>
+      <node id="437">
         <label>time.h</label>
       </node>
-      <node id="324">
+      <node id="441">
+        <label>chemin.h</label>
+        <link refid="chemin_8h"/>
+        <childnode refid="442" relation="include">
+        </childnode>
+        <childnode refid="440" relation="include">
+        </childnode>
+      </node>
+      <node id="435">
         <label>stdio.h</label>
       </node>
     </incdepgraph>
@@ -123,12 +123,28 @@
           <declname>msg_detail</declname>
         </param>
         <briefdescription>
-        </briefdescription>
+<para>Fonction permettant de sauvegarder une erreur. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>code_erreur</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Code erreur que le programme doit sauvegarder </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>msg_detail</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Message que l&apos;on veut ajouter pour préciser l&apos;erreur </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Retourne une erreur, OK si tout c&apos;est bien passé </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/erreur.c" line="48" column="1" bodyfile="src/erreur.c" bodystart="48" bodyend="93"/>
+        <location file="src/erreur.c" line="50" column="1" bodyfile="src/erreur.c" bodystart="50" bodyend="95"/>
       </memberdef>
       <memberdef kind="function" id="erreur_8c_1aea956e8dad695907bca24fd0b608587e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>t_erreur</type>
@@ -144,19 +160,28 @@
           <declname>msg_detail</declname>
         </param>
         <briefdescription>
-        </briefdescription>
+<para>Fonction permettant d&apos;afficher une erreur dans la sortie erreur du terminal. </para>        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
+<parametername>code_erreur</parametername>
 </parameternamelist>
 <parameterdescription>
-</parameterdescription>
+<para>Code erreur que le programme doit afficher </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>msg_detail</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Message que l&apos;on veut ajouter pour préciser l&apos;erreur </para></parameterdescription>
 </parameteritem>
 </parameterlist>
+<simplesect kind="return"><para>Retourne une erreur, OK si tout c&apos;est bien passé </para></simplesect>
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/erreur.c" line="99" column="1" bodyfile="src/erreur.c" bodystart="99" bodyend="117"/>
+        <location file="src/erreur.c" line="104" column="1" bodyfile="src/erreur.c" bodystart="104" bodyend="122"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -199,72 +224,72 @@
 <codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>{OK,<sp/></highlight><highlight class="stringliteral">&quot;OK&quot;</highlight><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//Toujours<sp/>laisser<sp/>OK<sp/>en<sp/>dernier</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="41"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="42"><highlight class="normal"></highlight></codeline>
-<codeline lineno="48"><highlight class="normal">t_erreur<sp/>erreur_save(t_erreur<sp/>code_erreur,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>msg_detail)</highlight></codeline>
-<codeline lineno="49"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>On<sp/>cherche<sp/>l&apos;erreur<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i<sp/>=<sp/>0;<sp/>tab_err[i].id<sp/>!=<sp/>OK<sp/>&amp;&amp;<sp/>tab_err[i].id<sp/>!=<sp/>code_erreur;<sp/>i++);</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>On<sp/>affiche<sp/>msg<sp/>erreur<sp/>si<sp/>erreur<sp/>non<sp/>trouve<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(tab_err[i].</highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>!=<sp/>code_erreur){</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>erreur_save(ERROR_NOT_EXIST,<sp/>NULL);</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ERROR_NOT_EXIST;</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"></highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Création<sp/>ou<sp/>ajout<sp/>du<sp/>fichier<sp/>d&apos;enregistrement<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>time_t<sp/>timestamp<sp/>=<sp/>time(NULL);</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">tm<sp/>*<sp/>temps<sp/>=<sp/>localtime(&amp;timestamp);</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>nom_fichier[300];</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>fichier_log<sp/>=<sp/>NULL;</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>path_dir<sp/>=<sp/>NULL;</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"></highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>sprintf(nom_fichier,<sp/></highlight><highlight class="stringliteral">&quot;log/%d:%d:%d-erreur_log.txt&quot;</highlight><highlight class="normal">,<sp/>temps-&gt;tm_mday,<sp/>temps-&gt;tm_mon<sp/>+<sp/>1,<sp/>temps-&gt;tm_year<sp/>+<sp/>1900);</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="chemin_8c_1a426a590237f668eca1627c0cc3985cd2" kindref="member">creation_chemin</ref>(nom_fichier,<sp/>&amp;fichier_log)<sp/>!=<sp/>OK){</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_NULL;</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="chemin_8c_1a426a590237f668eca1627c0cc3985cd2" kindref="member">creation_chemin</ref>(</highlight><highlight class="stringliteral">&quot;log&quot;</highlight><highlight class="normal">,<sp/>&amp;path_dir)<sp/>!=<sp/>OK){</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_NULL;</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Création<sp/>du<sp/>dossier<sp/>log<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>mkdir(path_dir,<sp/>S_IRWXU<sp/>|<sp/>S_IRWXG<sp/>|<sp/>S_IROTH);</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>FILE<sp/>*<sp/>log_erreur<sp/>=<sp/>fopen(fichier_log,<sp/></highlight><highlight class="stringliteral">&quot;a&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(log_erreur<sp/>==<sp/>NULL){</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_NULL;</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"></highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(msg_detail){</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fprintf(log_erreur,<sp/></highlight><highlight class="stringliteral">&quot;%d:%d:%d<sp/>-<sp/>%s<sp/>:<sp/>%s\n&quot;</highlight><highlight class="normal">,<sp/>temps-&gt;tm_hour,<sp/>temps-&gt;tm_min,<sp/>temps-&gt;tm_sec,<sp/>tab_err[i].msg,<sp/>msg_detail);</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fprintf(log_erreur,<sp/></highlight><highlight class="stringliteral">&quot;%d:%d:%d<sp/>-<sp/>%s\n&quot;</highlight><highlight class="normal">,<sp/>temps-&gt;tm_hour,<sp/>temps-&gt;tm_min,<sp/>temps-&gt;tm_sec,<sp/>tab_err[i].msg);</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"></highlight></codeline>
-<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>free(path_dir);</highlight></codeline>
-<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>free(fichier_log);</highlight></codeline>
-<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>fclose(log_erreur);</highlight></codeline>
-<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
-<codeline lineno="93"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"></highlight></codeline>
-<codeline lineno="99"><highlight class="normal">t_erreur<sp/><ref refid="erreur_8c_1aea956e8dad695907bca24fd0b608587e" kindref="member">erreur_afficher</ref>(t_erreur<sp/>code_erreur,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>msg_detail){</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>On<sp/>cherche<sp/>l&apos;erreur<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
-<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i<sp/>=<sp/>0;<sp/>tab_err[i].id<sp/>!=<sp/>OK<sp/>&amp;&amp;<sp/>tab_err[i].id<sp/>!=<sp/>code_erreur;<sp/>i++);</highlight></codeline>
-<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>On<sp/>affiche<sp/>msg<sp/>erreur<sp/>si<sp/>erreur<sp/>non<sp/>trouve<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(tab_err[i].</highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>!=<sp/>code_erreur){</highlight></codeline>
-<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>erreur_save(ERROR_NOT_EXIST,<sp/>NULL);</highlight></codeline>
-<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ERROR_NOT_EXIST;</highlight></codeline>
-<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="109"><highlight class="normal"></highlight></codeline>
-<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(msg_detail){</highlight></codeline>
-<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fprintf(stderr,<sp/></highlight><highlight class="stringliteral">&quot;%s<sp/>-<sp/>%s\n&quot;</highlight><highlight class="normal">,<sp/>tab_err[i].msg,<sp/>msg_detail);</highlight></codeline>
-<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fprintf(stderr,<sp/></highlight><highlight class="stringliteral">&quot;%s\n&quot;</highlight><highlight class="normal">,<sp/>tab_err[i].msg);</highlight></codeline>
-<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="115"><highlight class="normal"></highlight></codeline>
-<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
-<codeline lineno="117"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal">t_erreur<sp/><ref refid="erreur_8c_1a86eae7e8299b116054bf5168b60fa3fb" kindref="member">erreur_save</ref>(t_erreur<sp/>code_erreur,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>msg_detail)</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>On<sp/>cherche<sp/>l&apos;erreur<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i<sp/>=<sp/>0;<sp/>tab_err[i].id<sp/>!=<sp/>OK<sp/>&amp;&amp;<sp/>tab_err[i].id<sp/>!=<sp/>code_erreur;<sp/>i++);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>On<sp/>affiche<sp/>msg<sp/>erreur<sp/>si<sp/>erreur<sp/>non<sp/>trouve<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(tab_err[i].</highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>!=<sp/>code_erreur){</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="erreur_8c_1a86eae7e8299b116054bf5168b60fa3fb" kindref="member">erreur_save</ref>(ERROR_NOT_EXIST,<sp/>NULL);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ERROR_NOT_EXIST;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Création<sp/>ou<sp/>ajout<sp/>du<sp/>fichier<sp/>d&apos;enregistrement<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>time_t<sp/>timestamp<sp/>=<sp/>time(NULL);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">tm<sp/>*<sp/>temps<sp/>=<sp/>localtime(&amp;timestamp);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>nom_fichier[300];</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>fichier_log<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>path_dir<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>sprintf(nom_fichier,<sp/></highlight><highlight class="stringliteral">&quot;log/%d:%d:%d-erreur_log.txt&quot;</highlight><highlight class="normal">,<sp/>temps-&gt;tm_mday,<sp/>temps-&gt;tm_mon<sp/>+<sp/>1,<sp/>temps-&gt;tm_year<sp/>+<sp/>1900);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="chemin_8c_1a426a590237f668eca1627c0cc3985cd2" kindref="member">creation_chemin</ref>(nom_fichier,<sp/>&amp;fichier_log)<sp/>!=<sp/>OK){</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_NULL;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="chemin_8c_1a426a590237f668eca1627c0cc3985cd2" kindref="member">creation_chemin</ref>(</highlight><highlight class="stringliteral">&quot;log&quot;</highlight><highlight class="normal">,<sp/>&amp;path_dir)<sp/>!=<sp/>OK){</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_NULL;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Création<sp/>du<sp/>dossier<sp/>log<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>mkdir(path_dir,<sp/>S_IRWXU<sp/>|<sp/>S_IRWXG<sp/>|<sp/>S_IROTH);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>FILE<sp/>*<sp/>log_erreur<sp/>=<sp/>fopen(fichier_log,<sp/></highlight><highlight class="stringliteral">&quot;a&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(log_erreur<sp/>==<sp/>NULL){</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PTR_NULL;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(msg_detail){</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fprintf(log_erreur,<sp/></highlight><highlight class="stringliteral">&quot;%d:%d:%d<sp/>-<sp/>%s<sp/>:<sp/>%s\n&quot;</highlight><highlight class="normal">,<sp/>temps-&gt;tm_hour,<sp/>temps-&gt;tm_min,<sp/>temps-&gt;tm_sec,<sp/>tab_err[i].msg,<sp/>msg_detail);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fprintf(log_erreur,<sp/></highlight><highlight class="stringliteral">&quot;%d:%d:%d<sp/>-<sp/>%s\n&quot;</highlight><highlight class="normal">,<sp/>temps-&gt;tm_hour,<sp/>temps-&gt;tm_min,<sp/>temps-&gt;tm_sec,<sp/>tab_err[i].msg);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>free(path_dir);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>free(fichier_log);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>fclose(log_erreur);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal">t_erreur<sp/><ref refid="erreur_8c_1aea956e8dad695907bca24fd0b608587e" kindref="member">erreur_afficher</ref>(t_erreur<sp/>code_erreur,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>msg_detail){</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>On<sp/>cherche<sp/>l&apos;erreur<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i<sp/>=<sp/>0;<sp/>tab_err[i].id<sp/>!=<sp/>OK<sp/>&amp;&amp;<sp/>tab_err[i].id<sp/>!=<sp/>code_erreur;<sp/>i++);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>On<sp/>affiche<sp/>msg<sp/>erreur<sp/>si<sp/>erreur<sp/>non<sp/>trouve<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(tab_err[i].</highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>!=<sp/>code_erreur){</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="erreur_8c_1a86eae7e8299b116054bf5168b60fa3fb" kindref="member">erreur_save</ref>(ERROR_NOT_EXIST,<sp/>NULL);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ERROR_NOT_EXIST;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(msg_detail){</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fprintf(stderr,<sp/></highlight><highlight class="stringliteral">&quot;%s<sp/>-<sp/>%s\n&quot;</highlight><highlight class="normal">,<sp/>tab_err[i].msg,<sp/>msg_detail);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fprintf(stderr,<sp/></highlight><highlight class="stringliteral">&quot;%s\n&quot;</highlight><highlight class="normal">,<sp/>tab_err[i].msg);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="src/erreur.c"/>
   </compounddef>

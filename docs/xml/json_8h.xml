@@ -1,51 +1,59 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="json_8h" kind="file" language="C++">
     <compoundname>json.h</compoundname>
     <includes local="no">stdio.h</includes>
     <includes local="no">stdlib.h</includes>
     <includes refid="erreur_8h" local="no">erreur.h</includes>
+    <includedby refid="entite_8c" local="no">src/entite.c</includedby>
+    <includedby refid="inventaire_8c" local="no">src/inventaire.c</includedby>
     <includedby refid="json_8c" local="no">src/json.c</includedby>
     <includedby refid="map_8c" local="no">src/map.c</includedby>
     <includedby refid="touches_8c" local="no">src/touches.c</includedby>
     <incdepgraph>
-      <node id="154">
-        <label>include/json.h</label>
-        <link refid="json_8h"/>
-        <childnode refid="155" relation="include">
-        </childnode>
-        <childnode refid="156" relation="include">
-        </childnode>
-        <childnode refid="157" relation="include">
-        </childnode>
-      </node>
-      <node id="156">
-        <label>stdlib.h</label>
-      </node>
-      <node id="157">
+      <node id="237">
         <label>erreur.h</label>
         <link refid="erreur_8h"/>
       </node>
-      <node id="155">
+      <node id="234">
+        <label>include/json.h</label>
+        <link refid="json_8h"/>
+        <childnode refid="235" relation="include">
+        </childnode>
+        <childnode refid="236" relation="include">
+        </childnode>
+        <childnode refid="237" relation="include">
+        </childnode>
+      </node>
+      <node id="236">
+        <label>stdlib.h</label>
+      </node>
+      <node id="235">
         <label>stdio.h</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="158">
+      <node id="238">
         <label>include/json.h</label>
         <link refid="json_8h"/>
-        <childnode refid="159" relation="include">
+        <childnode refid="239" relation="include">
         </childnode>
-        <childnode refid="160" relation="include">
+        <childnode refid="240" relation="include">
+        </childnode>
+        <childnode refid="241" relation="include">
         </childnode>
       </node>
-      <node id="160">
+      <node id="241">
         <label>src/map.c</label>
         <link refid="map_8c"/>
       </node>
-      <node id="159">
+      <node id="240">
         <label>src/json.c</label>
         <link refid="json_8c"/>
+      </node>
+      <node id="239">
+        <label>src/entite.c</label>
+        <link refid="entite_8c"/>
       </node>
     </invincdepgraph>
       <sectiondef kind="func">
@@ -95,7 +103,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/json.h" line="19" column="1" bodyfile="src/json.c" bodystart="38" bodyend="42"/>
+        <location file="include/json.h" line="19" column="1" bodyfile="src/json.c" bodystart="40" bodyend="44"/>
       </memberdef>
       <memberdef kind="function" id="json_8h_1a5a8741c615a1e8641a153f9c63ffaa10" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>t_erreur</type>
@@ -132,7 +140,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/json.h" line="22" column="1" bodyfile="src/json.c" bodystart="51" bodyend="54"/>
+        <location file="include/json.h" line="22" column="1" bodyfile="src/json.c" bodystart="53" bodyend="56"/>
       </memberdef>
       <memberdef kind="function" id="json_8h_1aef1b0866438f726985d55d84571526c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>t_erreur</type>
@@ -191,7 +199,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/json.h" line="28" column="1" bodyfile="src/json.c" bodystart="71" bodyend="93"/>
+        <location file="include/json.h" line="28" column="1" bodyfile="src/json.c" bodystart="73" bodyend="103"/>
       </memberdef>
       <memberdef kind="function" id="json_8h_1a6dd5ea7284f649e178e13e99c43600b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>t_erreur</type>
@@ -217,7 +225,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/json.h" line="31" column="1" bodyfile="src/json.c" bodystart="102" bodyend="111"/>
+        <location file="include/json.h" line="31" column="1" bodyfile="src/json.c" bodystart="112" bodyend="121"/>
       </memberdef>
       <memberdef kind="function" id="json_8h_1a9d89aa163032048c68e8e4c3736c0b9c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>t_erreur</type>
@@ -243,7 +251,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/json.h" line="34" column="1" bodyfile="src/json.c" bodystart="120" bodyend="129"/>
+        <location file="include/json.h" line="34" column="1" bodyfile="src/json.c" bodystart="130" bodyend="139"/>
       </memberdef>
       <memberdef kind="function" id="json_8h_1a10b95a250726186ac4ddfdda6adad3e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>t_erreur</type>
@@ -280,7 +288,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/json.h" line="40" column="1" bodyfile="src/json.c" bodystart="144" bodyend="165"/>
+        <location file="include/json.h" line="40" column="1" bodyfile="src/json.c" bodystart="154" bodyend="175"/>
       </memberdef>
       <memberdef kind="function" id="json_8h_1a44c9b298308109129b3ecac1ad911db8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>t_erreur</type>
@@ -309,7 +317,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/json.h" line="44" column="1" bodyfile="src/json.c" bodystart="177" bodyend="218"/>
+        <location file="include/json.h" line="44" column="1" bodyfile="src/json.c" bodystart="187" bodyend="232"/>
       </memberdef>
       <memberdef kind="function" id="json_8h_1acd75e719d37a9c3f57167eeadfede913" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>t_erreur</type>
@@ -335,7 +343,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/json.h" line="47" column="1" bodyfile="src/json.c" bodystart="230" bodyend="235"/>
+        <location file="include/json.h" line="47" column="1" bodyfile="src/json.c" bodystart="244" bodyend="249"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structt__minerai" kind="struct" language="C++" prot="public">
+    <compoundname>t_minerai</compoundname>
+    <includes refid="block_8h" local="no">block.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structt__minerai_1af19e4c968a9d43d8354002c89db5d188" prot="public" static="no" mutable="no">
+        <type><ref refid="block_8h_1a4030ebe0eea609635f372f2e86d4332a" kindref="member">t_materiaux</ref></type>
+        <definition>t_materiaux t_minerai::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/block.h" line="82" column="1" bodyfile="include/block.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structt__minerai_1aba0f66c5403690da92f9f339fe3c1a0c" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double t_minerai::valeur_min</definition>
+        <argsstring></argsstring>
+        <name>valeur_min</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/block.h" line="83" column="1" bodyfile="include/block.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structt__minerai_1a23437931c55fe2fef093cc7484f0054a" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double t_minerai::valeur_max</definition>
+        <argsstring></argsstring>
+        <name>valeur_max</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/block.h" line="83" column="1" bodyfile="include/block.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structt__minerai_1abe47fa99263b9ec3c08b71a0bac68935" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int t_minerai::hauteur_min</definition>
+        <argsstring></argsstring>
+        <name>hauteur_min</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/block.h" line="84" column="1" bodyfile="include/block.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structt__minerai_1ac661b42596309ed9c48e6e0ec6ed1b15" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int t_minerai::hauteur_max</definition>
+        <argsstring></argsstring>
+        <name>hauteur_max</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/block.h" line="84" column="1" bodyfile="include/block.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Structure d&apos;un minerai. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/block.h" line="80" column="1" bodyfile="include/block.h" bodystart="80" bodyend="86"/>
+    <listofallmembers>
+      <member refid="structt__minerai_1ac661b42596309ed9c48e6e0ec6ed1b15" prot="public" virt="non-virtual"><scope>t_minerai</scope><name>hauteur_max</name></member>
+      <member refid="structt__minerai_1abe47fa99263b9ec3c08b71a0bac68935" prot="public" virt="non-virtual"><scope>t_minerai</scope><name>hauteur_min</name></member>
+      <member refid="structt__minerai_1af19e4c968a9d43d8354002c89db5d188" prot="public" virt="non-virtual"><scope>t_minerai</scope><name>type</name></member>
+      <member refid="structt__minerai_1a23437931c55fe2fef093cc7484f0054a" prot="public" virt="non-virtual"><scope>t_minerai</scope><name>valeur_max</name></member>
+      <member refid="structt__minerai_1aba0f66c5403690da92f9f339fe3c1a0c" prot="public" virt="non-virtual"><scope>t_minerai</scope><name>valeur_min</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

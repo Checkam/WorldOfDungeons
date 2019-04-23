@@ -1,50 +1,50 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="menu_8h" kind="file" language="C++">
     <compoundname>menu.h</compoundname>
     <includes local="no">SDL2/SDL.h</includes>
     <includes local="no">stdbool.h</includes>
     <includes refid="erreur_8h" local="no">erreur.h</includes>
     <includedby refid="menu_8c" local="no">src/menu.c</includedby>
+    <includedby refid="world__of__dungeons_8c" local="no">src/world_of_dungeons.c</includedby>
     <incdepgraph>
-      <node id="196">
+      <node id="290">
         <label>stdbool.h</label>
       </node>
-      <node id="194">
-        <label>include/menu.h</label>
-        <link refid="menu_8h"/>
-        <childnode refid="195" relation="include">
-        </childnode>
-        <childnode refid="196" relation="include">
-        </childnode>
-        <childnode refid="197" relation="include">
-        </childnode>
-      </node>
-      <node id="195">
-        <label>SDL2/SDL.h</label>
-      </node>
-      <node id="197">
+      <node id="291">
         <label>erreur.h</label>
         <link refid="erreur_8h"/>
       </node>
-    </incdepgraph>
-    <invincdepgraph>
-      <node id="199">
-        <label>src/menu.c</label>
-        <link refid="menu_8c"/>
-      </node>
-      <node id="198">
+      <node id="288">
         <label>include/menu.h</label>
         <link refid="menu_8h"/>
-        <childnode refid="199" relation="include">
+        <childnode refid="289" relation="include">
         </childnode>
+        <childnode refid="290" relation="include">
+        </childnode>
+        <childnode refid="291" relation="include">
+        </childnode>
+      </node>
+      <node id="289">
+        <label>SDL2/SDL.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="292">
+        <label>include/menu.h</label>
+        <link refid="menu_8h"/>
+        <childnode refid="293" relation="include">
+        </childnode>
+      </node>
+      <node id="293">
+        <label>src/menu.c</label>
+        <link refid="menu_8c"/>
       </node>
     </invincdepgraph>
     <innerclass refid="structs__bouton__menu" prot="public">s_bouton_menu</innerclass>
     <innerclass refid="structs__menu" prot="public">s_menu</innerclass>
       <sectiondef kind="enum">
-      <memberdef kind="enum" id="menu_8h_1ab393fa3859e79b41b1c21064e9106e1e" prot="public" static="no" strong="no">
-        <type></type>
+      <memberdef kind="enum" id="menu_8h_1ab393fa3859e79b41b1c21064e9106e1e" prot="public" static="no">
         <name>e_type_menu</name>
         <enumvalue id="menu_8h_1ab393fa3859e79b41b1c21064e9106e1ead84154820fb7cc5480aa99b8e888ef2e" prot="public">
           <name>MENU_PRINCIPAL</name>
@@ -177,7 +177,7 @@
           <declname>renderer</declname>
         </param>
         <briefdescription>
-<para>Initialise Menu. </para>        </briefdescription>
+<para>Initialise le module Menu. </para>        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
@@ -202,7 +202,7 @@
           <type>void</type>
         </param>
         <briefdescription>
-<para>Quitte Menu. </para>        </briefdescription>
+<para>Quitte le module Menu. </para>        </briefdescription>
         <detaileddescription>
 <para><simplesect kind="return"><para>Code erreur </para></simplesect>
 </para>        </detaileddescription>
@@ -236,6 +236,13 @@
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
+<parametername>menu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Menu sur lequel on veut ajouter un bouton </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
 <parametername>rect</parametername>
 </parameternamelist>
 <parameterdescription>
@@ -260,7 +267,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/menu.h" line="59" column="1" bodyfile="src/menu.c" bodystart="84" bodyend="122"/>
+        <location file="include/menu.h" line="59" column="1" bodyfile="src/menu.c" bodystart="85" bodyend="123"/>
       </memberdef>
       <memberdef kind="function" id="menu_8h_1a5e4bbd12d3e5748c418095f36fd603fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>t_erreur</type>
@@ -319,7 +326,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/menu.h" line="60" column="1" bodyfile="src/menu.c" bodystart="133" bodyend="186"/>
+        <location file="include/menu.h" line="60" column="1" bodyfile="src/menu.c" bodystart="134" bodyend="187"/>
       </memberdef>
       <memberdef kind="function" id="menu_8h_1ac891d8c3b720e8c042eb00768981a389" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>t_erreur</type>
@@ -335,7 +342,7 @@
           <declname>renderer</declname>
         </param>
         <briefdescription>
-<para>Affiche le menu. </para>        </briefdescription>
+<para>Affiche le menu en SDL. </para>        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
@@ -356,7 +363,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/menu.h" line="63" column="1" bodyfile="src/menu.c" bodystart="246" bodyend="308"/>
+        <location file="include/menu.h" line="63" column="1" bodyfile="src/menu.c" bodystart="247" bodyend="309"/>
       </memberdef>
       <memberdef kind="function" id="menu_8h_1a261f1344f6059bdf0834f0f3b878bea8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>t_erreur</type>
@@ -382,7 +389,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/menu.h" line="66" column="1" bodyfile="src/menu.c" bodystart="325" bodyend="335"/>
+        <location file="include/menu.h" line="66" column="1" bodyfile="src/menu.c" bodystart="328" bodyend="338"/>
       </memberdef>
       <memberdef kind="function" id="menu_8h_1a4f02e01d48394849997786c138baf862" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>t_erreur</type>
@@ -408,7 +415,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/menu.h" line="67" column="1" bodyfile="src/menu.c" bodystart="343" bodyend="357"/>
+        <location file="include/menu.h" line="67" column="1" bodyfile="src/menu.c" bodystart="346" bodyend="360"/>
       </memberdef>
       <memberdef kind="function" id="menu_8h_1a28006b7b9d53bcc0b3828ec01906c7cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>t_erreur</type>
@@ -439,24 +446,24 @@
 </parameteritem>
 <parameteritem>
 <parameternamelist>
-<parametername>mouse</parametername>
+<parametername>mouseState</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Info de la souris </para></parameterdescription>
+<para>Etat du clique gauche de la souris </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>type_menu_suivant</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Pointeur sur le menu suivant, MENU_NULL sinon </para></parameterdescription>
+<para>Type du menu suivant, MENU_NULL sinon </para></parameterdescription>
 </parameteritem>
 </parameterlist>
 <simplesect kind="return"><para>Code erreur </para></simplesect>
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/menu.h" line="70" column="1" bodyfile="src/menu.c" bodystart="367" bodyend="406"/>
+        <location file="include/menu.h" line="70" column="1" bodyfile="src/menu.c" bodystart="370" bodyend="409"/>
       </memberdef>
       <memberdef kind="function" id="menu_8h_1a65c9e5cd5164e3b622fae7d2dc09ef23" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>t_erreur</type>
@@ -493,7 +500,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/menu.h" line="71" column="1" bodyfile="src/menu.c" bodystart="415" bodyend="433"/>
+        <location file="include/menu.h" line="71" column="1" bodyfile="src/menu.c" bodystart="418" bodyend="436"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

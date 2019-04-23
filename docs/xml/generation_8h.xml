@@ -1,62 +1,63 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="generation_8h" kind="file" language="C++">
     <compoundname>generation.h</compoundname>
     <includes refid="block_8h" local="no">block.h</includes>
     <includedby refid="generation_8c" local="no">src/generation.c</includedby>
+    <includedby refid="map_8c" local="no">src/map.c</includedby>
     <includedby refid="structure__block_8c" local="no">src/structure_block.c</includedby>
     <includedby refid="world__of__dungeons_8c" local="no">src/world_of_dungeons.c</includedby>
     <incdepgraph>
-      <node id="143">
-        <label>include/generation.h</label>
-        <link refid="generation_8h"/>
-        <childnode refid="144" relation="include">
-        </childnode>
-      </node>
-      <node id="145">
-        <label>couleurs.h</label>
-        <link refid="couleurs_8h_source"/>
-      </node>
-      <node id="146">
-        <label>SDL2/SDL.h</label>
-      </node>
-      <node id="147">
+      <node id="189">
         <label>erreur.h</label>
         <link refid="erreur_8h"/>
       </node>
-      <node id="144">
+      <node id="186">
         <label>block.h</label>
         <link refid="block_8h"/>
-        <childnode refid="145" relation="include">
+        <childnode refid="187" relation="include">
         </childnode>
-        <childnode refid="146" relation="include">
+        <childnode refid="188" relation="include">
         </childnode>
-        <childnode refid="147" relation="include">
+        <childnode refid="189" relation="include">
+        </childnode>
+      </node>
+      <node id="187">
+        <label>couleurs.h</label>
+        <link refid="couleurs_8h_source"/>
+      </node>
+      <node id="188">
+        <label>SDL2/SDL.h</label>
+      </node>
+      <node id="185">
+        <label>include/generation.h</label>
+        <link refid="generation_8h"/>
+        <childnode refid="186" relation="include">
         </childnode>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="148">
-        <label>include/generation.h</label>
-        <link refid="generation_8h"/>
-        <childnode refid="149" relation="include">
-        </childnode>
-        <childnode refid="150" relation="include">
-        </childnode>
-        <childnode refid="151" relation="include">
-        </childnode>
-      </node>
-      <node id="150">
+      <node id="193">
         <label>src/structure_block.c</label>
         <link refid="structure__block_8c"/>
       </node>
-      <node id="149">
+      <node id="192">
+        <label>src/map.c</label>
+        <link refid="map_8c"/>
+      </node>
+      <node id="191">
         <label>src/generation.c</label>
         <link refid="generation_8c"/>
       </node>
-      <node id="151">
-        <label>src/world_of_dungeons.c</label>
-        <link refid="world__of__dungeons_8c"/>
+      <node id="190">
+        <label>include/generation.h</label>
+        <link refid="generation_8h"/>
+        <childnode refid="191" relation="include">
+        </childnode>
+        <childnode refid="192" relation="include">
+        </childnode>
+        <childnode refid="193" relation="include">
+        </childnode>
       </node>
     </invincdepgraph>
       <sectiondef kind="define">
@@ -71,6 +72,28 @@
         </inbodydescription>
         <location file="include/generation.h" line="13" column="9" bodyfile="include/generation.h" bodystart="13" bodyend="-1"/>
       </memberdef>
+      <memberdef kind="define" id="generation_8h_1a84ef257dd5f4f0c4fccea513783d609d" prot="public" static="no">
+        <name>HAUTEUR_EAU</name>
+        <initializer>MAX / 2.5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/generation.h" line="14" column="9" bodyfile="include/generation.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="generation_8h_1a60cfa3095fcb2fc9b6fa1105cd6636ed" prot="public" static="no">
+        <name>HAUTEUR_MIN_GROTTE</name>
+        <initializer>3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/generation.h" line="16" column="9" bodyfile="include/generation.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
       <memberdef kind="define" id="generation_8h_1a619867e5a9ebab1dd9ee2151b1d90586" prot="public" static="no">
         <name>PROFONDEUR_GROTTE</name>
         <initializer>15</initializer>
@@ -80,18 +103,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/generation.h" line="14" column="9" bodyfile="include/generation.h" bodystart="14" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="define" id="generation_8h_1a93d050707744a50de04189dbfe0024d4" prot="public" static="no">
-        <name>BEDROCK</name>
-        <initializer>3</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/generation.h" line="15" column="9" bodyfile="include/generation.h" bodystart="15" bodyend="-1"/>
+        <location file="include/generation.h" line="17" column="9" bodyfile="include/generation.h" bodystart="17" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="generation_8h_1a75f69fa326bd0e66b1af94fcfb63683b" prot="public" static="no">
         <name>SIZE_GROTTE</name>
@@ -102,18 +114,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/generation.h" line="16" column="9" bodyfile="include/generation.h" bodystart="16" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="define" id="generation_8h_1a84ef257dd5f4f0c4fccea513783d609d" prot="public" static="no">
-        <name>HAUTEUR_EAU</name>
-        <initializer>MAX / 2.5</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/generation.h" line="17" column="9" bodyfile="include/generation.h" bodystart="17" bodyend="-1"/>
+        <location file="include/generation.h" line="18" column="9" bodyfile="include/generation.h" bodystart="18" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -140,7 +141,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/generation.h" line="22" column="1" bodyfile="src/generation.c" bodystart="54" bodyend="106"/>
+        <location file="include/generation.h" line="24" column="1" bodyfile="src/generation.c" bodystart="52" bodyend="120"/>
       </memberdef>
       <memberdef kind="function" id="generation_8h_1a2677b3737807a60f53c04e19a843e383" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -148,7 +149,7 @@
         <argsstring>(t_block *map, int x)</argsstring>
         <name>init_map</name>
         <param>
-          <type><ref refid="structblock__s" kindref="compound">t_block</ref> *</type>
+          <type><ref refid="structt__block" kindref="compound">t_block</ref> *</type>
           <declname>map</declname>
         </param>
         <param>
@@ -161,7 +162,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/generation.h" line="23" column="1" bodyfile="src/generation.c" bodystart="29" bodyend="36"/>
+        <location file="include/generation.h" line="25" column="1" bodyfile="src/generation.c" bodystart="26" bodyend="34"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -179,16 +180,18 @@
 <codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="block_8h" kindref="compound">block.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="12"><highlight class="normal"></highlight></codeline>
 <codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>HAUTEUR_SURFACE<sp/>4</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PROFONDEUR_GROTTE<sp/>15</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BEDROCK<sp/>3</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SIZE_GROTTE<sp/>3</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>HAUTEUR_EAU<sp/>MAX<sp/>/<sp/>2.5</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>HAUTEUR_EAU<sp/>MAX<sp/>/<sp/>2.5</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>HAUTEUR_MIN_GROTTE<sp/>3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PROFONDEUR_GROTTE<sp/>15</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SIZE_GROTTE<sp/>3</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="19"><highlight class="normal"></highlight></codeline>
-<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Generation<sp/>d&apos;un<sp/>colone<sp/>grace<sp/>a<sp/>la<sp/>coordonné<sp/>en<sp/>abcisse<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>gen_col(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*list,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dir);</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>init_map(<ref refid="structblock__s" kindref="compound">t_block</ref><sp/>*map,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Generation<sp/>d&apos;un<sp/>colone<sp/>grace<sp/>a<sp/>la<sp/>coordonné<sp/>en<sp/>abcisse<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>gen_col(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*list,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dir);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>init_map(<ref refid="structt__block" kindref="compound">t_block</ref><sp/>*map,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x);</highlight></codeline>
     </programlisting>
     <location file="include/generation.h"/>
   </compounddef>

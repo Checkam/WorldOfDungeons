@@ -1,0 +1,233 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="ia_8h" kind="file" language="C++">
+    <compoundname>ia.h</compoundname>
+    <includes refid="entite_8h" local="no">entite.h</includes>
+    <includedby refid="donjon_8c" local="no">src/donjon.c</includedby>
+    <includedby refid="ia_8c" local="no">src/ia.c</includedby>
+    <incdepgraph>
+      <node id="203">
+        <label>erreur.h</label>
+        <link refid="erreur_8h"/>
+      </node>
+      <node id="199">
+        <label>SDL2/SDL_image.h</label>
+      </node>
+      <node id="197">
+        <label>stdlib.h</label>
+      </node>
+      <node id="194">
+        <label>include/ia.h</label>
+        <link refid="ia_8h"/>
+        <childnode refid="195" relation="include">
+        </childnode>
+      </node>
+      <node id="202">
+        <label>liste.h</label>
+        <link refid="liste_8h"/>
+        <childnode refid="203" relation="include">
+        </childnode>
+      </node>
+      <node id="198">
+        <label>SDL2/SDL.h</label>
+      </node>
+      <node id="195">
+        <label>entite.h</label>
+        <link refid="entite_8h"/>
+        <childnode refid="196" relation="include">
+        </childnode>
+        <childnode refid="197" relation="include">
+        </childnode>
+        <childnode refid="198" relation="include">
+        </childnode>
+        <childnode refid="199" relation="include">
+        </childnode>
+        <childnode refid="200" relation="include">
+        </childnode>
+        <childnode refid="201" relation="include">
+        </childnode>
+        <childnode refid="203" relation="include">
+        </childnode>
+        <childnode refid="204" relation="include">
+        </childnode>
+        <childnode refid="202" relation="include">
+        </childnode>
+      </node>
+      <node id="204">
+        <label>commun.h</label>
+        <link refid="commun_8h_source"/>
+      </node>
+      <node id="201">
+        <label>chemin.h</label>
+        <link refid="chemin_8h"/>
+        <childnode refid="202" relation="include">
+        </childnode>
+        <childnode refid="203" relation="include">
+        </childnode>
+      </node>
+      <node id="196">
+        <label>stdio.h</label>
+      </node>
+      <node id="200">
+        <label>SDL2/SDL_ttf.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="205">
+        <label>include/ia.h</label>
+        <link refid="ia_8h"/>
+        <childnode refid="206" relation="include">
+        </childnode>
+        <childnode refid="207" relation="include">
+        </childnode>
+      </node>
+      <node id="206">
+        <label>src/donjon.c</label>
+        <link refid="donjon_8c"/>
+      </node>
+      <node id="207">
+        <label>src/ia.c</label>
+        <link refid="ia_8c"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="ia_8h_1a7f5530842de27e577871e43918e69933" prot="public" static="no">
+        <name>e_type_ia</name>
+        <enumvalue id="ia_8h_1a7f5530842de27e577871e43918e69933af7c33add11fadb4d2828b00fca00308c" prot="public">
+          <name>IA_ALEATOIRE</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="ia_8h_1a7f5530842de27e577871e43918e69933ac122822550093309deb36bfe561a8940" prot="public">
+          <name>IA_ATTAQUE</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="ia_8h_1a7f5530842de27e577871e43918e69933a2c4a167d9cda9d25b4426226a0b5c34b" prot="public">
+          <name>IA_FOCUS</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="ia_8h_1a7f5530842de27e577871e43918e69933aaa19cd70d762a0ce4de82c589958fb61" prot="public">
+          <name>IA_FUITE</name>
+          <initializer>= 8</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ia.h" line="17" column="1" bodyfile="include/ia.h" bodystart="17" bodyend="22"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="ia_8h_1a19a1c3c8739cc706552ab1c2b2f56d7c" prot="public" static="no">
+        <type>enum e_type_ia</type>
+        <definition>typedef enum e_type_ia  t_type_ia</definition>
+        <argsstring></argsstring>
+        <name>t_type_ia</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ia.h" line="22" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="ia_8h_1a8632f51cc798445e4fe6cdc3159a103d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_action</type>
+        <definition>t_action ia_jouer</definition>
+        <argsstring>(t_entite *entite, t_entite *adversaire, uint16_t type)</argsstring>
+        <name>ia_jouer</name>
+        <param>
+          <type><ref refid="structt__entite" kindref="compound">t_entite</ref> *</type>
+          <declname>entite</declname>
+        </param>
+        <param>
+          <type><ref refid="structt__entite" kindref="compound">t_entite</ref> *</type>
+          <declname>adversaire</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+<para>IA faisant jouer l&apos;entite en fonction du comportement demandé </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>entite</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Entite voulant être jouer par l&apos;IA </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>adversaire</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Adversaire dont on veut que l&apos;IA tienne compte </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Comportement de l&apos;IA </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>L&apos;action que doit faire l&apos;entite </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ia.h" line="28" column="1" bodyfile="src/ia.c" bodystart="24" bodyend="66"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Module de création + de gestion d&apos;une IA. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Jasmin GALBRUN </para></simplesect>
+<simplesect kind="date"><para>31/03/2019 </para></simplesect>
+<simplesect kind="version"><para>1 </para></simplesect>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="8"><highlight class="preprocessor">#ifndef<sp/>__IA_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__IA_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="entite_8h" kindref="compound">entite.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>e_type_ia<sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>IA_ALEATOIRE<sp/>=<sp/>1,</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>IA_ATTAQUE<sp/>=<sp/>2,</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>IA_FOCUS<sp/>=<sp/>4,</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>IA_FUITE<sp/>=<sp/>8</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">}<sp/>t_type_ia;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="comment">/*******************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Jouer<sp/>avec<sp/>l&apos;IA<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="comment">/*******************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal">t_action<sp/><ref refid="ia_8h_1a8632f51cc798445e4fe6cdc3159a103d" kindref="member">ia_jouer</ref>(<ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/>entite,<sp/><ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/>adversaire,<sp/>uint16_t<sp/>type);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="include/ia.h"/>
+  </compounddef>
+</doxygen>

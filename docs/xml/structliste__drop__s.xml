@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structliste__drop__s" kind="struct" language="C++" prot="public">
+    <compoundname>liste_drop_s</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structliste__drop__s_1ae98830446aa680679432811cb7ebfa5f" prot="public" static="no" mutable="no">
+        <type>t_item</type>
+        <definition>t_item liste_drop_s::item</definition>
+        <argsstring></argsstring>
+        <name>item</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/item.h" line="51" column="1" bodyfile="include/item.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structliste__drop__s_1aba88c13e0a869f3cf8e9e2fb2fcad7d5" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t liste_drop_s::nombre</definition>
+        <argsstring></argsstring>
+        <name>nombre</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/item.h" line="52" column="1" bodyfile="include/item.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structliste__drop__s_1aeb28ef9ba70b8153b0eb87a19dc1d430" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t liste_drop_s::besoin</definition>
+        <argsstring></argsstring>
+        <name>besoin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/item.h" line="53" column="1" bodyfile="include/item.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structliste__drop__s_1a5d1d439cd183d4699aa27bd488db5d19" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t liste_drop_s::info</definition>
+        <argsstring></argsstring>
+        <name>info</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/item.h" line="54" column="1" bodyfile="include/item.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structliste__drop__s_1a45d6670208c557342ae9cd1c19a89ffe" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t liste_drop_s::pourMille</definition>
+        <argsstring></argsstring>
+        <name>pourMille</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/item.h" line="55" column="1" bodyfile="include/item.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/item.h" line="49" column="1" bodyfile="include/item.h" bodystart="49" bodyend="57"/>
+    <listofallmembers>
+      <member refid="structliste__drop__s_1aeb28ef9ba70b8153b0eb87a19dc1d430" prot="public" virt="non-virtual"><scope>liste_drop_s</scope><name>besoin</name></member>
+      <member refid="structliste__drop__s_1a5d1d439cd183d4699aa27bd488db5d19" prot="public" virt="non-virtual"><scope>liste_drop_s</scope><name>info</name></member>
+      <member refid="structliste__drop__s_1ae98830446aa680679432811cb7ebfa5f" prot="public" virt="non-virtual"><scope>liste_drop_s</scope><name>item</name></member>
+      <member refid="structliste__drop__s_1aba88c13e0a869f3cf8e9e2fb2fcad7d5" prot="public" virt="non-virtual"><scope>liste_drop_s</scope><name>nombre</name></member>
+      <member refid="structliste__drop__s_1a45d6670208c557342ae9cd1c19a89ffe" prot="public" virt="non-virtual"><scope>liste_drop_s</scope><name>pourMille</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

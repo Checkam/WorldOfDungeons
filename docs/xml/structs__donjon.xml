@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structs__donjon" kind="struct" language="C++" prot="public">
+    <compoundname>s_donjon</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structs__donjon_1a845919248a2ff2376aa584264d94cd4d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int s_donjon::x_map_joueur</definition>
+        <argsstring></argsstring>
+        <name>x_map_joueur</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/donjon.h" line="60" column="1" bodyfile="include/donjon.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__donjon_1a35876b07b9f40fdf4e9aec6bd602661d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int s_donjon::y_map_joueur</definition>
+        <argsstring></argsstring>
+        <name>y_map_joueur</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/donjon.h" line="60" column="1" bodyfile="include/donjon.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__donjon_1aae774583658b4b9da82492a72f402e60" prot="public" static="no" mutable="no">
+        <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+        <definition>t_liste* s_donjon::donjon</definition>
+        <argsstring></argsstring>
+        <name>donjon</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/donjon.h" line="61" column="1" bodyfile="include/donjon.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__donjon_1acc0bc169015e6b7b4d0420e1112972a1" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool s_donjon::quitter</definition>
+        <argsstring></argsstring>
+        <name>quitter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/donjon.h" line="62" column="1" bodyfile="include/donjon.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="34">
+        <label>s_donjon</label>
+        <link refid="structs__donjon"/>
+        <childnode refid="35" relation="usage">
+          <edgelabel>donjon</edgelabel>
+        </childnode>
+      </node>
+      <node id="35">
+        <label>t_liste</label>
+        <link refid="structt__liste"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/donjon.h" line="59" column="1" bodyfile="include/donjon.h" bodystart="59" bodyend="63"/>
+    <listofallmembers>
+      <member refid="structs__donjon_1aae774583658b4b9da82492a72f402e60" prot="public" virt="non-virtual"><scope>s_donjon</scope><name>donjon</name></member>
+      <member refid="structs__donjon_1acc0bc169015e6b7b4d0420e1112972a1" prot="public" virt="non-virtual"><scope>s_donjon</scope><name>quitter</name></member>
+      <member refid="structs__donjon_1a845919248a2ff2376aa584264d94cd4d" prot="public" virt="non-virtual"><scope>s_donjon</scope><name>x_map_joueur</name></member>
+      <member refid="structs__donjon_1a35876b07b9f40fdf4e9aec6bd602661d" prot="public" virt="non-virtual"><scope>s_donjon</scope><name>y_map_joueur</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

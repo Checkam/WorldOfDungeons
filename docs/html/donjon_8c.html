@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>src/donjon.c file | World Of Dungeons Jeu de Survie</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
-  <link rel="stylesheet" href="m-dark+doxygen.compiled.css" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
   <link rel="icon" href="favicon-dark.png" type="image/png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#22272e" />
@@ -15,7 +15,7 @@
     <div class="m-row">
       <a href="index.html" id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">World Of Dungeons <span class="m-thin">Jeu de Survie</span></a>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
-        <a href="#search" class="m-dox-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path d="m6 0c-3.3144 0-6 2.6856-6 6 0 3.3144 2.6856 6 6 6 1.4858 0 2.8463-0.54083 3.8945-1.4355-0.0164 0.33797 0.14734 0.75854 0.5 1.1504l3.2227 3.7891c0.55185 0.6139 1.4517 0.66544 2.002 0.11524 0.55022-0.55022 0.49866-1.4501-0.11524-2.002l-3.7891-3.2246c-0.39184-0.35266-0.81242-0.51469-1.1504-0.5 0.89472-1.0482 1.4355-2.4088 1.4355-3.8945 0-3.3128-2.6856-5.998-6-5.998zm0 1.5625a4.4375 4.4375 0 0 1 4.4375 4.4375 4.4375 4.4375 0 0 1-4.4375 4.4375 4.4375 4.4375 0 0 1-4.4375-4.4375 4.4375 4.4375 0 0 1 4.4375-4.4375z"/>
         </svg></a>
         <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
@@ -28,7 +28,7 @@
           <ol class="m-col-t-6 m-col-m-none" start="1">
             <li><a href="annotated.html">Classes</a></li>
             <li><a href="files.html">Files</a></li>
-            <li class="m-show-m"><a href="#search" class="m-dox-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
               <path d="m6 0c-3.3144 0-6 2.6856-6 6 0 3.3144 2.6856 6 6 6 1.4858 0 2.8463-0.54083 3.8945-1.4355-0.0164 0.33797 0.14734 0.75854 0.5 1.1504l3.2227 3.7891c0.55185 0.6139 1.4517 0.66544 2.002 0.11524 0.55022-0.55022 0.49866-1.4501-0.11524-2.002l-3.7891-3.2246c-0.39184-0.35266-0.81242-0.51469-1.1504-0.5 0.89472-1.0482 1.4355-2.4088 1.4355-3.8945 0-3.3128-2.6856-5.998-6-5.998zm0 1.5625a4.4375 4.4375 0 0 1 4.4375 4.4375 4.4375 4.4375 0 0 1-4.4375 4.4375 4.4375 4.4375 0 0 1-4.4375-4.4375 4.4375 4.4375 0 0 1 4.4375-4.4375z"/>
             </svg></a></li>
           </ol>
@@ -56,29 +56,476 @@
             </li>
           </ul>
         </div>
-<aside class="m-note m-default"><h4>Author</h4><p>Jasmin GALBRUN</p></aside><aside class="m-note m-default"><h4>Version</h4><p>1</p></aside><aside class="m-note m-default"><h4>Date</h4><p>24/03/2019</p></aside>
+<aside class="m-note m-default"><h4>Author</h4><p>Jasmin GALBRUN</p></aside><aside class="m-note m-default"><h4>Version</h4><p>1</p></aside><aside class="m-note m-default"><h4>Date</h4><p>16/04/2019</p></aside>
         <section id="func-members">
           <h2><a href="#func-members">Functions</a></h2>
-          <dl class="m-dox">
+          <dl class="m-doc">
             <dt>
-              <span class="m-dox-wrap-bumper">static auto <a href="#a0fc9cfb12dfac6c992798e22a1c4a698" class="m-dox-self" name="a0fc9cfb12dfac6c992798e22a1c4a698">tab_fenetre</a>(</span><span class="m-dox-wrap"><a href="structt__liste.html" class="m-dox">t_<wbr />liste</a>* donjon,
-              SDL_Rect pos_perso,
-              <a href="block_8h.html#a4030ebe0eea609635f372f2e86d4332a" class="m-dox">t_<wbr />materiaux</a> tab[MAX_SCREEN][SIZE]) -&gt; t_erreur</span>
+              <span class="m-doc-wrap-bumper">static auto <a href="#a1b6863064984a11f0679a495308d1dc2" class="m-doc">donjon_creer_salle</a>(</span><span class="m-doc-wrap"><a href="structt__salle__donjon.html" class="m-doc">t_<wbr />salle_<wbr />donjon</a>** salle,
+              int x,
+              int y,
+              t_type_salle_donjon type) -&gt; t_erreur</span>
             </dt>
-            <dd>Retourne dans tab la partie du donjon à afficher.</dd>
+            <dd>Fonction qui crée une salle en remplissant ces champs par défault.</dd>
             <dt>
-              <span class="m-dox-wrap-bumper">auto <a href="#aad46d0672f5fb023e60ef6bd6b076e37" class="m-dox">donjon_creer</a>(</span><span class="m-dox-wrap"><a href="structt__liste.html" class="m-dox">t_<wbr />liste</a>** liste,
-              int nb_salle) -&gt; t_erreur</span>
+              <span class="m-doc-wrap-bumper">static auto <a href="#ad98a2f6cd179a68ad0a3b69e75372dbf" class="m-doc">donjon_ajout_salle</a>(</span><span class="m-doc-wrap"><a href="structt__liste.html" class="m-doc">t_<wbr />liste</a>* donjon,
+              int taille_donjon,
+              <a href="structt__entite.html" class="m-doc">t_<wbr />entite</a>* joueur) -&gt; t_erreur</span>
+            </dt>
+            <dd>Fonction d&#x27;ajout d&#x27;une salle à un donjon.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">static auto <a href="#aacfd67065226cce8523fca491f7ad9f5" class="m-doc">nb_voisin_salle</a>(</span><span class="m-doc-wrap"><a href="structt__salle__donjon.html" class="m-doc">t_<wbr />salle_<wbr />donjon</a>* salle) -&gt; int</span>
+            </dt>
+            <dd>Calcule le nombre de voisin d&#x27;une salle.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">static auto <a href="#a98f63c788024a13ce933f896ff0894c6" class="m-doc">selection_voisin</a>(</span><span class="m-doc-wrap"><a href="structt__salle__donjon.html" class="m-doc">t_<wbr />salle_<wbr />donjon</a>* salle,
+              int* choix) -&gt; t_erreur</span>
+            </dt>
+            <dd>Fonction qui sélectionne de manière pseudo-aléatoire un voisin pour une salle donnée.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">static auto <a href="#a4af47ab19e449f7be0189b4354db86a9" class="m-doc">chercher_salle</a>(</span><span class="m-doc-wrap"><a href="structt__liste.html" class="m-doc">t_<wbr />liste</a>* donjon,
+              <a href="structt__entite.html" class="m-doc">t_<wbr />entite</a>* joueur) -&gt; int</span>
+            </dt>
+            <dd>Cherche une salle ayant au moins 1 voisin (Slot dans le quelle une autre salle peut être créer)</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">static auto <a href="#a348d3a4b077396c2e33dd5e024e1bf8d" class="m-doc">update_voisin</a>(</span><span class="m-doc-wrap"><a href="structt__liste.html" class="m-doc">t_<wbr />liste</a>* donjon,
+              int taille_donjon) -&gt; t_erreur</span>
+            </dt>
+            <dd>Met à jour le tableau des voisins de chaque salle.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">static auto <a href="#a789a707ffdb00d34a531912b8ccfd3ee" class="m-doc">donjon_creer_structure_salle</a>(</span><span class="m-doc-wrap"><a href="structt__salle__donjon.html" class="m-doc">t_<wbr />salle_<wbr />donjon</a>* salle) -&gt; t_erreur</span>
+            </dt>
+            <dd>Crée la structure de la salle.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">static void <a href="#a955dff1c22c69df0e178786927080c6f" class="m-doc">donjon_detruire_salle</a>(</span><span class="m-doc-wrap"><a href="structt__salle__donjon.html" class="m-doc">t_<wbr />salle_<wbr />donjon</a>* salle)</span>
+            </dt>
+            <dd>Fonction de destruction d&#x27;une salle.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">static auto <a href="#a3374e55dda9112b781432928351de1fd" class="m-doc">donjon_coord_depart</a>(</span><span class="m-doc-wrap"><a href="structt__liste.html" class="m-doc">t_<wbr />liste</a>* donjon,
+              <a href="structt__salle__donjon.html" class="m-doc">t_<wbr />salle_<wbr />donjon</a>** salle_dep) -&gt; t_erreur</span>
+            </dt>
+            <dd>Renvoie la salle de départ.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">static auto <a href="#a283d7ff2f5defc294902a5b8e54ab9bf" class="m-doc">placer_salle_boss</a>(</span><span class="m-doc-wrap"><a href="structt__liste.html" class="m-doc">t_<wbr />liste</a>* donjon) -&gt; t_erreur</span>
+            </dt>
+            <dd>Place la salle du boss dans la salle la plus éloigné de la salle de départ.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">static auto <a href="#a7b14671f4e701476ec63e5582f4e4da9" class="m-doc">creer_mob</a>(</span><span class="m-doc-wrap"><a href="structt__salle__donjon.html" class="m-doc">t_<wbr />salle_<wbr />donjon</a>* salle,
+              <a href="structt__entite.html" class="m-doc">t_<wbr />entite</a>* joueur) -&gt; t_erreur</span>
+            </dt>
+            <dd>Fonction de création de mobs par rapport à une salle.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">static auto <a href="#a3bf52478e53fbbb8013ba35191efa371" class="m-doc">salle_joueur</a>(</span><span class="m-doc-wrap"><a href="structt__liste.html" class="m-doc">t_<wbr />liste</a>* donjon,
+              SDL_Rect pos_perso,
+              <a href="structt__salle__donjon.html" class="m-doc">t_<wbr />salle_<wbr />donjon</a>** salle_j) -&gt; t_erreur</span>
+            </dt>
+            <dd>Retourne dans tab la partie du donjon à afficher en fonction du joueur.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">static auto <a href="#a7240cada82c7784b44239ff5c93ef6f9" class="m-doc">attaque</a>(</span><span class="m-doc-wrap"><a href="structt__entite.html" class="m-doc">t_<wbr />entite</a>* attaquant,
+              <a href="structt__entite.html" class="m-doc">t_<wbr />entite</a>* cible) -&gt; t_erreur</span>
+            </dt>
+            <dd>Fonction d&#x27;attaque d&#x27;une entité sur une autre.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#af7c1579cda78be0576f9de57eea5063a" class="m-doc">donjon_creer</a>(</span><span class="m-doc-wrap"><a href="structt__donjon.html" class="m-doc">t_<wbr />donjon</a>** donjon,
+              int nb_salle,
+              <a href="structt__entite.html" class="m-doc">t_<wbr />entite</a>* joueur) -&gt; t_erreur</span>
             </dt>
             <dd>Fonction permettant de créer un donjon.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a58610b3b3acb6edfdbdc92ccfbff1a1b" class="m-doc">donjon_afficher_Term</a>(</span><span class="m-doc-wrap"><a href="structt__donjon.html" class="m-doc">t_<wbr />donjon</a>* donjon,
+              <a href="structt__entite.html" class="m-doc">t_<wbr />entite</a>* joueur) -&gt; t_erreur</span>
+            </dt>
+            <dd>Fonction d&#x27;affichage du donjon dans un terminal.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#ad92853204a6a84645e490e03b982451d" class="m-doc">donjon_afficher_SDL</a>(</span><span class="m-doc-wrap">SDL_Renderer* renderer,
+              <a href="structt__donjon.html" class="m-doc">t_<wbr />donjon</a>* donjon,
+              <a href="structt__entite.html" class="m-doc">t_<wbr />entite</a>* joueur) -&gt; t_erreur</span>
+            </dt>
+            <dd>Fonction d&#x27;affichage d&#x27;un donjon avec la SDL.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a8a1eae23567ffde325e6669dffc7fc9c" class="m-doc">donjon_gestion</a>(</span><span class="m-doc-wrap">SDL_Renderer* renderer,
+              <a href="structt__donjon.html" class="m-doc">t_<wbr />donjon</a>* donjon,
+              <a href="structt__entite.html" class="m-doc">t_<wbr />entite</a>* joueur,
+              uint8_t* ks,
+              double coef_fps) -&gt; t_erreur</span>
+            </dt>
+            <dd>Permet de gérer un donjon comme la création et l&#x27;interaction des mobs.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#aafdabc099758c3305ccffad18869707c" class="m-doc">donjon_quitter</a>(</span><span class="m-doc-wrap"><a href="structt__donjon.html" class="m-doc">t_<wbr />donjon</a>* donjon,
+              <a href="structt__entite.html" class="m-doc">t_<wbr />entite</a>* joueur) -&gt; t_erreur</span>
+            </dt>
+            <dd>Fonction pour quitter un donjon.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#abde7f3f8fad222e1eabe14f5646b8358" class="m-doc">donjon_detruire</a>(</span><span class="m-doc-wrap"><a href="structt__donjon.html" class="m-doc">t_<wbr />donjon</a>** donjon) -&gt; t_erreur</span>
+            </dt>
+            <dd>Fonction de destruction d&#x27;un donjon.</dd>
           </dl>
         </section>
         <section>
           <h2>Function documentation</h2>
-          <section class="m-dox-details" id="aad46d0672f5fb023e60ef6bd6b076e37"><div>
+          <section class="m-doc-details" id="a1b6863064984a11f0679a495308d1dc2"><div>
             <h3>
-              <span class="m-dox-wrap-bumper">t_erreur </span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#aad46d0672f5fb023e60ef6bd6b076e37" class="m-dox-self">donjon_creer</a>(</span><span class="m-dox-wrap"><a href="structt__liste.html" class="m-dox">t_<wbr />liste</a>** liste,
-              int nb_salle)</span></span>
+              <span class="m-doc-wrap-bumper">static t_erreur </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a1b6863064984a11f0679a495308d1dc2" class="m-doc-self">donjon_creer_salle</a>(</span><span class="m-doc-wrap"><a href="structt__salle__donjon.html" class="m-doc">t_<wbr />salle_<wbr />donjon</a>** salle,
+              int x,
+              int y,
+              t_type_salle_donjon type)</span></span>
+            </h3>
+            <p>Fonction qui crée une salle en remplissant ces champs par défault.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">salle</td>
+                  <td>Pointeur dans lequel on enregistre la salle créé</td>
+                </tr>
+                <tr>
+                  <td>x</td>
+                  <td>Position en X de la salle dans le donjon</td>
+                </tr>
+                <tr>
+                  <td>y</td>
+                  <td>Position en Y de la salle dans le donjon</td>
+                </tr>
+                <tr>
+                  <td>type</td>
+                  <td>Type de la salle</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Code erreur</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="ad98a2f6cd179a68ad0a3b69e75372dbf"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">static t_erreur </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ad98a2f6cd179a68ad0a3b69e75372dbf" class="m-doc-self">donjon_ajout_salle</a>(</span><span class="m-doc-wrap"><a href="structt__liste.html" class="m-doc">t_<wbr />liste</a>* donjon,
+              int taille_donjon,
+              <a href="structt__entite.html" class="m-doc">t_<wbr />entite</a>* joueur)</span></span>
+            </h3>
+            <p>Fonction d&#x27;ajout d&#x27;une salle à un donjon.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">donjon</td>
+                  <td>Donjon dans lequel on veut ajouter la salle</td>
+                </tr>
+                <tr>
+                  <td>taille_donjon</td>
+                  <td>Taille du donjon</td>
+                </tr>
+                <tr>
+                  <td>joueur</td>
+                  <td>Joueur qui veut entrer dans le donjon</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Code erreur</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="aacfd67065226cce8523fca491f7ad9f5"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">static int </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aacfd67065226cce8523fca491f7ad9f5" class="m-doc-self">nb_voisin_salle</a>(</span><span class="m-doc-wrap"><a href="structt__salle__donjon.html" class="m-doc">t_<wbr />salle_<wbr />donjon</a>* salle)</span></span>
+            </h3>
+            <p>Calcule le nombre de voisin d&#x27;une salle.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">salle</td>
+                  <td>Salle dont on veut connaitre le nombre de voisin</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Nombre de voisins de la salle</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a98f63c788024a13ce933f896ff0894c6"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">static t_erreur </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a98f63c788024a13ce933f896ff0894c6" class="m-doc-self">selection_voisin</a>(</span><span class="m-doc-wrap"><a href="structt__salle__donjon.html" class="m-doc">t_<wbr />salle_<wbr />donjon</a>* salle,
+              int* choix)</span></span>
+            </h3>
+            <p>Fonction qui sélectionne de manière pseudo-aléatoire un voisin pour une salle donnée.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">salle</td>
+                  <td>Salle dont on veut sélectionner un voisin</td>
+                </tr>
+                <tr>
+                  <td>choix</td>
+                  <td>Pointeur de retour sur le choix fait</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Code erreur</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a4af47ab19e449f7be0189b4354db86a9"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">static int </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a4af47ab19e449f7be0189b4354db86a9" class="m-doc-self">chercher_salle</a>(</span><span class="m-doc-wrap"><a href="structt__liste.html" class="m-doc">t_<wbr />liste</a>* donjon,
+              <a href="structt__entite.html" class="m-doc">t_<wbr />entite</a>* joueur)</span></span>
+            </h3>
+            <p>Cherche une salle ayant au moins 1 voisin (Slot dans le quelle une autre salle peut être créer)</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">donjon</td>
+                  <td>Donjon dans lequel on recherche la salle</td>
+                </tr>
+                <tr>
+                  <td>joueur</td>
+                  <td>Jour qui veut entrer dans le donjon</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>La position de la salle dans la liste, -1 sinon</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a348d3a4b077396c2e33dd5e024e1bf8d"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">static t_erreur </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a348d3a4b077396c2e33dd5e024e1bf8d" class="m-doc-self">update_voisin</a>(</span><span class="m-doc-wrap"><a href="structt__liste.html" class="m-doc">t_<wbr />liste</a>* donjon,
+              int taille_donjon)</span></span>
+            </h3>
+            <p>Met à jour le tableau des voisins de chaque salle.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">donjon</td>
+                  <td>Donjon dans lequel on veut mettre à jour les salles</td>
+                </tr>
+                <tr>
+                  <td>taille_donjon</td>
+                  <td>Taille du donjon</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Code erreur</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a789a707ffdb00d34a531912b8ccfd3ee"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">static t_erreur </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a789a707ffdb00d34a531912b8ccfd3ee" class="m-doc-self">donjon_creer_structure_salle</a>(</span><span class="m-doc-wrap"><a href="structt__salle__donjon.html" class="m-doc">t_<wbr />salle_<wbr />donjon</a>* salle)</span></span>
+            </h3>
+            <p>Crée la structure de la salle.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">salle</td>
+                  <td>Salle dans laquelle on veut créer une structure</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Code erreur</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a955dff1c22c69df0e178786927080c6f"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">static void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a955dff1c22c69df0e178786927080c6f" class="m-doc-self">donjon_detruire_salle</a>(</span><span class="m-doc-wrap"><a href="structt__salle__donjon.html" class="m-doc">t_<wbr />salle_<wbr />donjon</a>* salle)</span></span>
+            </h3>
+            <p>Fonction de destruction d&#x27;une salle.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">salle</td>
+                  <td>Salle que l&#x27;on veut détruire</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a3374e55dda9112b781432928351de1fd"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">static t_erreur </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a3374e55dda9112b781432928351de1fd" class="m-doc-self">donjon_coord_depart</a>(</span><span class="m-doc-wrap"><a href="structt__liste.html" class="m-doc">t_<wbr />liste</a>* donjon,
+              <a href="structt__salle__donjon.html" class="m-doc">t_<wbr />salle_<wbr />donjon</a>** salle_dep)</span></span>
+            </h3>
+            <p>Renvoie la salle de départ.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">donjon</td>
+                  <td>Donjon dont on veut connaitre la salle de départ</td>
+                </tr>
+                <tr>
+                  <td>salle_dep</td>
+                  <td>Double pointeur de retour de la salle de départ</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Code erreur</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a283d7ff2f5defc294902a5b8e54ab9bf"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">static t_erreur </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a283d7ff2f5defc294902a5b8e54ab9bf" class="m-doc-self">placer_salle_boss</a>(</span><span class="m-doc-wrap"><a href="structt__liste.html" class="m-doc">t_<wbr />liste</a>* donjon)</span></span>
+            </h3>
+            <p>Place la salle du boss dans la salle la plus éloigné de la salle de départ.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">donjon</td>
+                  <td>Donjon dans lequel on veut placer la salle du boss</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Code erreur</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a7b14671f4e701476ec63e5582f4e4da9"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">static t_erreur </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a7b14671f4e701476ec63e5582f4e4da9" class="m-doc-self">creer_mob</a>(</span><span class="m-doc-wrap"><a href="structt__salle__donjon.html" class="m-doc">t_<wbr />salle_<wbr />donjon</a>* salle,
+              <a href="structt__entite.html" class="m-doc">t_<wbr />entite</a>* joueur)</span></span>
+            </h3>
+            <p>Fonction de création de mobs par rapport à une salle.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">salle</td>
+                  <td>Salle dans laquelle on veut créer les mobs</td>
+                </tr>
+                <tr>
+                  <td>joueur</td>
+                  <td>Joueur qui est dans le donjon</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Code erreur</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a3bf52478e53fbbb8013ba35191efa371"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">static t_erreur </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a3bf52478e53fbbb8013ba35191efa371" class="m-doc-self">salle_joueur</a>(</span><span class="m-doc-wrap"><a href="structt__liste.html" class="m-doc">t_<wbr />liste</a>* donjon,
+              SDL_Rect pos_perso,
+              <a href="structt__salle__donjon.html" class="m-doc">t_<wbr />salle_<wbr />donjon</a>** salle_j)</span></span>
+            </h3>
+            <p>Retourne dans tab la partie du donjon à afficher en fonction du joueur.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">donjon</td>
+                  <td>Donjon que l&#x27;on veut afficher</td>
+                </tr>
+                <tr>
+                  <td>pos_perso</td>
+                  <td>Position du joueur</td>
+                </tr>
+                <tr>
+                  <td>salle_j</td>
+                  <td>Double pointeur de retour de la salle dans laquelle se trouve le joueur</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Code erreur</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a7240cada82c7784b44239ff5c93ef6f9"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">static t_erreur </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a7240cada82c7784b44239ff5c93ef6f9" class="m-doc-self">attaque</a>(</span><span class="m-doc-wrap"><a href="structt__entite.html" class="m-doc">t_<wbr />entite</a>* attaquant,
+              <a href="structt__entite.html" class="m-doc">t_<wbr />entite</a>* cible)</span></span>
+            </h3>
+            <p>Fonction d&#x27;attaque d&#x27;une entité sur une autre.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">attaquant</td>
+                  <td>Entité qui veut attaquer</td>
+                </tr>
+                <tr>
+                  <td>cible</td>
+                  <td>Entité ciblé par l&#x27;attaque</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Code Erreur</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="af7c1579cda78be0576f9de57eea5063a"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">t_erreur </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#af7c1579cda78be0576f9de57eea5063a" class="m-doc-self">donjon_creer</a>(</span><span class="m-doc-wrap"><a href="structt__donjon.html" class="m-doc">t_<wbr />donjon</a>** donjon,
+              int nb_salle,
+              <a href="structt__entite.html" class="m-doc">t_<wbr />entite</a>* joueur)</span></span>
             </h3>
             <p>Fonction permettant de créer un donjon.</p>
             <table class="m-table m-fullwidth m-flat">
@@ -87,12 +534,165 @@
               </thead>
               <tbody>
                 <tr>
-                  <td style="width: 1%">liste</td>
+                  <td style="width: 1%">donjon</td>
                   <td>Pointeur dans lequel sera stocké le donjon</td>
                 </tr>
                 <tr>
                   <td>nb_salle</td>
                   <td>Nombre de salle dans le donjon</td>
+                </tr>
+                <tr>
+                  <td>joueur</td>
+                  <td>Joueur voulant entrer dans le donjon</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Code erreur</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a58610b3b3acb6edfdbdc92ccfbff1a1b"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">t_erreur </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a58610b3b3acb6edfdbdc92ccfbff1a1b" class="m-doc-self">donjon_afficher_Term</a>(</span><span class="m-doc-wrap"><a href="structt__donjon.html" class="m-doc">t_<wbr />donjon</a>* donjon,
+              <a href="structt__entite.html" class="m-doc">t_<wbr />entite</a>* joueur)</span></span>
+            </h3>
+            <p>Fonction d&#x27;affichage du donjon dans un terminal.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">donjon</td>
+                  <td>Donjon que l&#x27;on veut afficher</td>
+                </tr>
+                <tr>
+                  <td>joueur</td>
+                  <td>Joueur qui est dans le donjon</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Code erreur</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="ad92853204a6a84645e490e03b982451d"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">t_erreur </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ad92853204a6a84645e490e03b982451d" class="m-doc-self">donjon_afficher_SDL</a>(</span><span class="m-doc-wrap">SDL_Renderer* renderer,
+              <a href="structt__donjon.html" class="m-doc">t_<wbr />donjon</a>* donjon,
+              <a href="structt__entite.html" class="m-doc">t_<wbr />entite</a>* joueur)</span></span>
+            </h3>
+            <p>Fonction d&#x27;affichage d&#x27;un donjon avec la SDL.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">renderer</td>
+                  <td>Rendu de la fenêtre</td>
+                </tr>
+                <tr>
+                  <td>donjon</td>
+                  <td>Donjon que l&#x27;on veut afficher</td>
+                </tr>
+                <tr>
+                  <td>joueur</td>
+                  <td>Joueur qui est dans le donjon</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a8a1eae23567ffde325e6669dffc7fc9c"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">t_erreur </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a8a1eae23567ffde325e6669dffc7fc9c" class="m-doc-self">donjon_gestion</a>(</span><span class="m-doc-wrap">SDL_Renderer* renderer,
+              <a href="structt__donjon.html" class="m-doc">t_<wbr />donjon</a>* donjon,
+              <a href="structt__entite.html" class="m-doc">t_<wbr />entite</a>* joueur,
+              uint8_t* ks,
+              double coef_fps)</span></span>
+            </h3>
+            <p>Permet de gérer un donjon comme la création et l&#x27;interaction des mobs.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">renderer</td>
+                  <td>Rendu de la fenêtre</td>
+                </tr>
+                <tr>
+                  <td>donjon</td>
+                  <td>Donjon que l&#x27;on veut gérer</td>
+                </tr>
+                <tr>
+                  <td>joueur</td>
+                  <td>Joueur qui est dans le donjon</td>
+                </tr>
+                <tr>
+                  <td>ks</td>
+                  <td>Pointeur sur l&#x27;état des touches</td>
+                </tr>
+                <tr>
+                  <td>coef_fps</td>
+                  <td>Coefficient de retard de fps</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Code erreur</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="aafdabc099758c3305ccffad18869707c"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">t_erreur </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aafdabc099758c3305ccffad18869707c" class="m-doc-self">donjon_quitter</a>(</span><span class="m-doc-wrap"><a href="structt__donjon.html" class="m-doc">t_<wbr />donjon</a>* donjon,
+              <a href="structt__entite.html" class="m-doc">t_<wbr />entite</a>* joueur)</span></span>
+            </h3>
+            <p>Fonction pour quitter un donjon.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">donjon</td>
+                  <td>Donjon que l&#x27;on veut quitter</td>
+                </tr>
+                <tr>
+                  <td>joueur</td>
+                  <td>Joueur qui veut quitter le donjon</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Code erreur</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="abde7f3f8fad222e1eabe14f5646b8358"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">t_erreur </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#abde7f3f8fad222e1eabe14f5646b8358" class="m-doc-self">donjon_detruire</a>(</span><span class="m-doc-wrap"><a href="structt__donjon.html" class="m-doc">t_<wbr />donjon</a>** donjon)</span></span>
+            </h3>
+            <p>Fonction de destruction d&#x27;un donjon.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">donjon</td>
+                  <td>Donjon que l&#x27;on veut détruire</td>
                 </tr>
               </tbody>
               <tfoot>
@@ -108,16 +708,16 @@
     </div>
   </div>
 </article></main>
-<div class="m-dox-search" id="search">
+<div class="m-doc-search" id="search">
   <a href="#!" onclick="return hideSearch()"></a>
   <div class="m-container">
     <div class="m-row">
       <div class="m-col-m-8 m-push-m-2">
-        <div class="m-dox-search-header m-text m-small">
+        <div class="m-doc-search-header m-text m-small">
           <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
           <div id="search-symbolcount">&hellip;</div>
         </div>
-        <div class="m-dox-search-content">
+        <div class="m-doc-search-content">
           <form>
             <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
           </form>
@@ -149,7 +749,7 @@
   <div class="m-container">
     <div class="m-row">
       <div class="m-col-l-10 m-push-l-1">
-        <p>World Of Dungeons Jeu de Survie. Created by <a href="https://doxygen.org/">Doxygen</a> 1.8.14 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+        <p>World Of Dungeons Jeu de Survie. Created by <a href="https://doxygen.org/">Doxygen</a> 1.8.13 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
       </div>
     </div>
   </div>

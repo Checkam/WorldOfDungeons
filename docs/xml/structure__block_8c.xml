@@ -1,110 +1,188 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="structure__block_8c" kind="file" language="C++">
     <compoundname>structure_block.c</compoundname>
     <includes refid="biome_8h" local="no">biome.h</includes>
     <includes refid="block_8h" local="no">block.h</includes>
     <includes refid="commun_8h" local="no">commun.h</includes>
     <includes refid="generation_8h" local="no">generation.h</includes>
+    <includes refid="map_8h" local="no">map.h</includes>
     <includes refid="perlin_8h" local="no">perlin.h</includes>
     <includes local="no">stdio.h</includes>
     <includes local="no">stdlib.h</includes>
     <includes local="no">string.h</includes>
     <includes refid="structure__block_8h" local="no">structure_block.h</includes>
+    <includes refid="touches_8h" local="no">touches.h</includes>
     <incdepgraph>
-      <node id="447">
-        <label>structure_block.h</label>
-        <link refid="structure__block_8h"/>
-        <childnode refid="436" relation="include">
-        </childnode>
-        <childnode refid="437" relation="include">
-        </childnode>
-        <childnode refid="435" relation="include">
-        </childnode>
-      </node>
-      <node id="442">
-        <label>generation.h</label>
-        <link refid="generation_8h"/>
-        <childnode refid="437" relation="include">
-        </childnode>
-      </node>
-      <node id="436">
-        <label>commun.h</label>
-        <link refid="commun_8h_source"/>
-      </node>
-      <node id="434">
-        <label>src/structure_block.c</label>
-        <link refid="structure__block_8c"/>
-        <childnode refid="435" relation="include">
-        </childnode>
-        <childnode refid="437" relation="include">
-        </childnode>
-        <childnode refid="436" relation="include">
-        </childnode>
-        <childnode refid="442" relation="include">
-        </childnode>
-        <childnode refid="443" relation="include">
-        </childnode>
-        <childnode refid="444" relation="include">
-        </childnode>
-        <childnode refid="445" relation="include">
-        </childnode>
-        <childnode refid="446" relation="include">
-        </childnode>
-        <childnode refid="447" relation="include">
-        </childnode>
-      </node>
-      <node id="445">
-        <label>stdlib.h</label>
-      </node>
-      <node id="435">
-        <label>biome.h</label>
-        <link refid="biome_8h"/>
-        <childnode refid="436" relation="include">
-        </childnode>
-        <childnode refid="437" relation="include">
-        </childnode>
-        <childnode refid="441" relation="include">
-        </childnode>
-      </node>
-      <node id="441">
-        <label>liste.h</label>
-        <link refid="liste_8h"/>
-        <childnode refid="440" relation="include">
-        </childnode>
-      </node>
-      <node id="438">
-        <label>couleurs.h</label>
-        <link refid="couleurs_8h_source"/>
-      </node>
-      <node id="439">
-        <label>SDL2/SDL.h</label>
-      </node>
-      <node id="446">
-        <label>string.h</label>
-      </node>
-      <node id="440">
+      <node id="609">
         <label>erreur.h</label>
         <link refid="erreur_8h"/>
       </node>
-      <node id="444">
-        <label>stdio.h</label>
+      <node id="623">
+        <label>stdint.h</label>
       </node>
-      <node id="443">
+      <node id="616">
+        <label>SDL2/SDL_image.h</label>
+      </node>
+      <node id="615">
+        <label>stdlib.h</label>
+      </node>
+      <node id="622">
+        <label>touches.h</label>
+        <link refid="touches_8h_source"/>
+        <childnode refid="623" relation="include">
+        </childnode>
+      </node>
+      <node id="612">
+        <label>map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="609" relation="include">
+        </childnode>
+        <childnode refid="610" relation="include">
+        </childnode>
+        <childnode refid="606" relation="include">
+        </childnode>
+        <childnode refid="613" relation="include">
+        </childnode>
+      </node>
+      <node id="619">
         <label>perlin.h</label>
         <link refid="perlin_8h"/>
       </node>
-      <node id="437">
+      <node id="621">
+        <label>structure_block.h</label>
+        <link refid="structure__block_8h"/>
+        <childnode refid="605" relation="include">
+        </childnode>
+        <childnode refid="606" relation="include">
+        </childnode>
+        <childnode refid="604" relation="include">
+        </childnode>
+        <childnode refid="612" relation="include">
+        </childnode>
+      </node>
+      <node id="603">
+        <label>src/structure_block.c</label>
+        <link refid="structure__block_8c"/>
+        <childnode refid="604" relation="include">
+        </childnode>
+        <childnode refid="606" relation="include">
+        </childnode>
+        <childnode refid="605" relation="include">
+        </childnode>
+        <childnode refid="611" relation="include">
+        </childnode>
+        <childnode refid="612" relation="include">
+        </childnode>
+        <childnode refid="619" relation="include">
+        </childnode>
+        <childnode refid="614" relation="include">
+        </childnode>
+        <childnode refid="615" relation="include">
+        </childnode>
+        <childnode refid="620" relation="include">
+        </childnode>
+        <childnode refid="621" relation="include">
+        </childnode>
+        <childnode refid="622" relation="include">
+        </childnode>
+      </node>
+      <node id="606">
         <label>block.h</label>
         <link refid="block_8h"/>
-        <childnode refid="438" relation="include">
+        <childnode refid="607" relation="include">
         </childnode>
-        <childnode refid="439" relation="include">
+        <childnode refid="608" relation="include">
         </childnode>
-        <childnode refid="440" relation="include">
+        <childnode refid="609" relation="include">
+        </childnode>
+      </node>
+      <node id="610">
+        <label>liste.h</label>
+        <link refid="liste_8h"/>
+        <childnode refid="609" relation="include">
+        </childnode>
+      </node>
+      <node id="607">
+        <label>couleurs.h</label>
+        <link refid="couleurs_8h_source"/>
+      </node>
+      <node id="608">
+        <label>SDL2/SDL.h</label>
+      </node>
+      <node id="613">
+        <label>entite.h</label>
+        <link refid="entite_8h"/>
+        <childnode refid="614" relation="include">
+        </childnode>
+        <childnode refid="615" relation="include">
+        </childnode>
+        <childnode refid="608" relation="include">
+        </childnode>
+        <childnode refid="616" relation="include">
+        </childnode>
+        <childnode refid="617" relation="include">
+        </childnode>
+        <childnode refid="618" relation="include">
+        </childnode>
+        <childnode refid="609" relation="include">
+        </childnode>
+        <childnode refid="605" relation="include">
+        </childnode>
+        <childnode refid="610" relation="include">
+        </childnode>
+      </node>
+      <node id="620">
+        <label>string.h</label>
+      </node>
+      <node id="605">
+        <label>commun.h</label>
+        <link refid="commun_8h_source"/>
+      </node>
+      <node id="604">
+        <label>biome.h</label>
+        <link refid="biome_8h"/>
+        <childnode refid="605" relation="include">
+        </childnode>
+        <childnode refid="606" relation="include">
+        </childnode>
+        <childnode refid="610" relation="include">
+        </childnode>
+      </node>
+      <node id="618">
+        <label>chemin.h</label>
+        <link refid="chemin_8h"/>
+        <childnode refid="610" relation="include">
+        </childnode>
+        <childnode refid="609" relation="include">
+        </childnode>
+      </node>
+      <node id="614">
+        <label>stdio.h</label>
+      </node>
+      <node id="617">
+        <label>SDL2/SDL_ttf.h</label>
+      </node>
+      <node id="611">
+        <label>generation.h</label>
+        <link refid="generation_8h"/>
+        <childnode refid="606" relation="include">
         </childnode>
       </node>
     </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="structure__block_8c_1a37f8f1dd8e5bcf088d89b5f002a3c8bc" prot="public" static="no">
+        <name>LECTURE</name>
+        <initializer>100</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure_block.c" line="57" column="9" bodyfile="src/structure_block.c" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
       <sectiondef kind="var">
       <memberdef kind="variable" id="structure__block_8c_1ae7d734d808a48c03431e893d3afb3cca" prot="public" static="no" mutable="no">
         <type><ref refid="structt__struct__block" kindref="compound">t_struct_block</ref></type>
@@ -115,27 +193,26 @@
                                                 {ARBRE_FORET, 7, &quot;structure/arbre_foret&quot;, 80, FORET},
                                                 {GRAND_ARBRE_FORET, 7, &quot;structure/arbre_foret2&quot;, 10, FORET},
                                                 {BUISSON, 5, &quot;structure/buisson&quot;, 60, FORET},
-                                                {CACTUS, 3, &quot;structure/cactus&quot;, 30, DESERTS}}</initializer>
+                                                {CACTUS, 3, &quot;structure/cactus&quot;, 30, DESERTS},
+                                                {ENTRE_DONJON, 5, &quot;structure/donjon&quot;, 1, FORET}
+
+}</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/structure_block.c" line="18" column="1" bodyfile="src/structure_block.c" bodystart="18" bodyend="-1"/>
+        <location file="src/structure_block.c" line="20" column="1" bodyfile="src/structure_block.c" bodystart="20" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
-      <memberdef kind="function" id="structure__block_8c_1a26e9f11667a1d6426b42e37383880457" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structure__block_8c_1a00986126ebda943f0a54e333e6b17757" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
         <definition>int STRUCT_GetWidth</definition>
-        <argsstring>(t_struct_block *struct_block, t_struct_block_type type)</argsstring>
+        <argsstring>(t_struct_block_type type)</argsstring>
         <name>STRUCT_GetWidth</name>
         <param>
-          <type><ref refid="structt__struct__block" kindref="compound">t_struct_block</ref> *</type>
-          <declname>struct_block</declname>
-        </param>
-        <param>
           <type>t_struct_block_type</type>
           <declname>type</declname>
         </param>
@@ -145,17 +222,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/structure_block.c" line="24" column="1" bodyfile="src/structure_block.c" bodystart="24" bodyend="30"/>
+        <location file="src/structure_block.c" line="29" column="1" bodyfile="src/structure_block.c" bodystart="29" bodyend="35"/>
       </memberdef>
-      <memberdef kind="function" id="structure__block_8c_1a2b7c53336e2449c2a04a134b365211c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structure__block_8c_1a262f092e6ae1d88903f4993f94645694" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>char *</type>
         <definition>char* STRUCT_GetPath</definition>
-        <argsstring>(t_struct_block *struct_block, t_struct_block_type type)</argsstring>
+        <argsstring>(t_struct_block_type type)</argsstring>
         <name>STRUCT_GetPath</name>
-        <param>
-          <type><ref refid="structt__struct__block" kindref="compound">t_struct_block</ref> *</type>
-          <declname>struct_block</declname>
-        </param>
         <param>
           <type>t_struct_block_type</type>
           <declname>type</declname>
@@ -166,7 +239,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/structure_block.c" line="32" column="1" bodyfile="src/structure_block.c" bodystart="32" bodyend="38"/>
+        <location file="src/structure_block.c" line="37" column="1" bodyfile="src/structure_block.c" bodystart="37" bodyend="43"/>
       </memberdef>
       <memberdef kind="function" id="structure__block_8c_1aae2b563d93d982fa2f50c8497ef7abc3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -187,12 +260,70 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/structure_block.c" line="40" column="1" bodyfile="src/structure_block.c" bodystart="40" bodyend="40"/>
+        <location file="src/structure_block.c" line="45" column="1" bodyfile="src/structure_block.c" bodystart="45" bodyend="45"/>
       </memberdef>
-      <memberdef kind="function" id="structure__block_8c_1ac9510e7b192d204235e27cfd896b91ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structure__block_8c_1a774d330e726bfcf28be0ed728423d9bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int STRUCT_Spawn</definition>
+        <argsstring>(int x, int y, t_struct_block_type type_spawn, t_map *map)</argsstring>
+        <name>STRUCT_Spawn</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>t_struct_block_type</type>
+          <declname>type_spawn</declname>
+        </param>
+        <param>
+          <type><ref refid="structt__map" kindref="compound">t_map</ref> *</type>
+          <declname>map</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure_block.c" line="47" column="1" bodyfile="src/structure_block.c" bodystart="47" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="structure__block_8c_1a6dc2edaf95135068d827c13146b39d7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int STRUCT_SetCol</definition>
+        <argsstring>(int x_struct, int y, t_struct_block_type type_spawn, t_block *tab)</argsstring>
+        <name>STRUCT_SetCol</name>
+        <param>
+          <type>int</type>
+          <declname>x_struct</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>t_struct_block_type</type>
+          <declname>type_spawn</declname>
+        </param>
+        <param>
+          <type><ref refid="structt__block" kindref="compound">t_block</ref> *</type>
+          <declname>tab</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure_block.c" line="59" column="1" bodyfile="src/structure_block.c" bodystart="59" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="structure__block_8c_1ab22f974c373d650778178c3c4684dce3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void STRUCT_generation</definition>
-        <argsstring>(int x, int y, int dir, t_block map[MAX])</argsstring>
+        <argsstring>(int x, int y, int dir, t_block tab[MAX])</argsstring>
         <name>STRUCT_generation</name>
         <param>
           <type>int</type>
@@ -207,8 +338,8 @@
           <declname>dir</declname>
         </param>
         <param>
-          <type><ref refid="structblock__s" kindref="compound">t_block</ref></type>
-          <declname>map</declname>
+          <type><ref refid="structt__block" kindref="compound">t_block</ref></type>
+          <declname>tab</declname>
           <array>[MAX]</array>
         </param>
         <briefdescription>
@@ -217,7 +348,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/structure_block.c" line="49" column="1" bodyfile="src/structure_block.c" bodystart="49" bodyend="101"/>
+        <location file="src/structure_block.c" line="95" column="1" bodyfile="src/structure_block.c" bodystart="95" bodyend="139"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -233,89 +364,127 @@
 <codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="block_8h" kindref="compound">block.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;commun.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="generation_8h" kindref="compound">generation.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="perlin_8h" kindref="compound">perlin.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="structure__block_8h" kindref="compound">structure_block.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="17"><highlight class="normal"></highlight></codeline>
-<codeline lineno="18"><highlight class="normal"><ref refid="structt__struct__block" kindref="compound">t_struct_block</ref><sp/>struct_block[NB_STRUCT_BLOCK]<sp/>=<sp/>{{ARBRE_TAIGA,<sp/>7,<sp/></highlight><highlight class="stringliteral">&quot;structure/arbre_taiga&quot;</highlight><highlight class="normal">,<sp/>30,<sp/>TAIGA},</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{ARBRE_FORET,<sp/>7,<sp/></highlight><highlight class="stringliteral">&quot;structure/arbre_foret&quot;</highlight><highlight class="normal">,<sp/>80,<sp/>FORET},</highlight></codeline>
-<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{GRAND_ARBRE_FORET,<sp/>7,<sp/></highlight><highlight class="stringliteral">&quot;structure/arbre_foret2&quot;</highlight><highlight class="normal">,<sp/>10,<sp/>FORET},</highlight></codeline>
-<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{BUISSON,<sp/>5,<sp/></highlight><highlight class="stringliteral">&quot;structure/buisson&quot;</highlight><highlight class="normal">,<sp/>60,<sp/>FORET},</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{CACTUS,<sp/>3,<sp/></highlight><highlight class="stringliteral">&quot;structure/cactus&quot;</highlight><highlight class="normal">,<sp/>30,<sp/>DESERTS}};</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight></codeline>
-<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>STRUCT_GetWidth(<ref refid="structt__struct__block" kindref="compound">t_struct_block</ref><sp/>*struct_block,<sp/>t_struct_block_type<sp/>type)<sp/>{</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>NB_STRUCT_BLOCK;<sp/>i++)<sp/>{</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(struct_block[i].type<sp/>==<sp/>type)</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>struct_block[i].largeur;</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
-<codeline lineno="30"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="31"><highlight class="normal"></highlight></codeline>
-<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*STRUCT_GetPath(<ref refid="structt__struct__block" kindref="compound">t_struct_block</ref><sp/>*struct_block,<sp/>t_struct_block_type<sp/>type)<sp/>{</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>NB_STRUCT_BLOCK;<sp/>i++)<sp/>{</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(struct_block[i].type<sp/>==<sp/>type)</highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>struct_block[i].path;</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
-<codeline lineno="38"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"></highlight></codeline>
-<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>STRUCT_CanSpawn(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;<sp/>}</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"></highlight></codeline>
-<codeline lineno="49"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>STRUCT_generation(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dir,<sp/><ref refid="structblock__s" kindref="compound">t_block</ref><sp/>map[MAX])<sp/>{</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/>y++;</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>struct_spawn<sp/>=<sp/>0,<sp/>new_struct<sp/>=<sp/>0,<sp/>struct_spawn_dir1,<sp/>struct_spawn_dir2,<sp/>new_struct_dir1,<sp/>new_struct_dir2;</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>t_struct_block_type<sp/>type_spawn;</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>t_struct_block_type<sp/>type_can_spawn[NB_STRUCT_BLOCK];</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>last_dir;</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"></highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nb_can_spawn<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>struct_random<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="map_8h" kindref="compound">map.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="perlin_8h" kindref="compound">perlin.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="structure__block_8h" kindref="compound">structure_block.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;touches.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><ref refid="structt__struct__block" kindref="compound">t_struct_block</ref><sp/>struct_block[NB_STRUCT_BLOCK]<sp/>=<sp/>{{ARBRE_TAIGA,<sp/>7,<sp/></highlight><highlight class="stringliteral">&quot;structure/arbre_taiga&quot;</highlight><highlight class="normal">,<sp/>30,<sp/>TAIGA},</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{ARBRE_FORET,<sp/>7,<sp/></highlight><highlight class="stringliteral">&quot;structure/arbre_foret&quot;</highlight><highlight class="normal">,<sp/>80,<sp/>FORET},</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{GRAND_ARBRE_FORET,<sp/>7,<sp/></highlight><highlight class="stringliteral">&quot;structure/arbre_foret2&quot;</highlight><highlight class="normal">,<sp/>10,<sp/>FORET},</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{BUISSON,<sp/>5,<sp/></highlight><highlight class="stringliteral">&quot;structure/buisson&quot;</highlight><highlight class="normal">,<sp/>60,<sp/>FORET},</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{CACTUS,<sp/>3,<sp/></highlight><highlight class="stringliteral">&quot;structure/cactus&quot;</highlight><highlight class="normal">,<sp/>30,<sp/>DESERTS},</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{ENTRE_DONJON,<sp/>5,<sp/></highlight><highlight class="stringliteral">&quot;structure/donjon&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>FORET}</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>STRUCT_GetWidth(t_struct_block_type<sp/>type)<sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>NB_STRUCT_BLOCK;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(struct_block[i].type<sp/>==<sp/>type)</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>struct_block[i].largeur;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*STRUCT_GetPath(t_struct_block_type<sp/>type)<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>NB_STRUCT_BLOCK;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(struct_block[i].type<sp/>==<sp/>type)</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>struct_block[i].path;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>STRUCT_CanSpawn(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;<sp/>}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>STRUCT_Spawn(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y,<sp/>t_struct_block_type<sp/>type_spawn,<sp/><ref refid="structt__map" kindref="compound">t_map</ref><sp/>*map)<sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><ref refid="structt__block" kindref="compound">t_block</ref><sp/>*tab;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/>x<sp/>-=<sp/>STRUCT_GetWidth(type_spawn)<sp/>/<sp/>2;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;=<sp/>STRUCT_GetWidth(type_spawn);<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>tab<sp/>=<sp/><ref refid="map_8c_1a0339fa9d4d968d8d42bcc2c8b17a951d" kindref="member">MAP_GetColX</ref>(map,<sp/>x<sp/>+<sp/>i);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>STRUCT_SetCol(i,<sp/>y,<sp/>type_spawn,<sp/>tab);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LECTURE<sp/>100</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="58"><highlight class="normal"></highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(last_dir<sp/>!=<sp/>dir)<sp/>{</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>struct_spawn_dir1<sp/>^=<sp/>struct_spawn<sp/>^=<sp/>struct_spawn_dir1<sp/>^=<sp/>struct_spawn;</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>new_struct_dir1<sp/>^=<sp/>new_struct<sp/>^=<sp/>new_struct_dir1<sp/>^=<sp/>new_struct;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>STRUCT_SetCol(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x_struct,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y,<sp/>t_struct_block_type<sp/>type_spawn,<sp/><ref refid="structt__block" kindref="compound">t_block</ref><sp/>*tab)<sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!tab)</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
 <codeline lineno="62"><highlight class="normal"></highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>last_dir<sp/>=<sp/>dir;</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"></highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(struct_spawn)<sp/>{<sp/></highlight><highlight class="comment">//<sp/>Permet<sp/>de<sp/>prendre<sp/>la<sp/>ligne<sp/>du<sp/>block<sp/>a<sp/>test</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>line[50];</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>FILE<sp/>*file<sp/>=<sp/>NULL;</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>file<sp/>=<sp/>fopen(STRUCT_GetPath(struct_block,<sp/>type_spawn),<sp/></highlight><highlight class="stringliteral">&quot;r&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"></highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(file<sp/>!=<sp/>NULL)<sp/>{</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>struct_spawn;<sp/>j++)<sp/>{</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l<sp/>=<sp/>0;<sp/>l<sp/>&lt;<sp/>50;<sp/>l++)</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>line[l]<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fgets(line,<sp/>50,<sp/>file);</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"></highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>strlen(line)<sp/>&amp;&amp;<sp/>(j<sp/>+<sp/>y<sp/>&lt;<sp/>MAX<sp/>-<sp/>1);<sp/>j++)</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>map[y<sp/>+<sp/>j].</highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/>line[j]<sp/>-<sp/></highlight><highlight class="charliteral">&apos;0&apos;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"></highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>fclose(file);</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>struct_spawn--;</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!struct_spawn<sp/>&amp;&amp;<sp/>new_struct<sp/>&gt;<sp/>0)<sp/>{<sp/></highlight><highlight class="comment">//Attente<sp/>avant<sp/>une<sp/>nouvelle<sp/>ligne</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>new_struct--;</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>line[LECTURE];</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/>FILE<sp/>*file<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>file<sp/>=<sp/>fopen(STRUCT_GetPath(type_spawn),<sp/></highlight><highlight class="stringliteral">&quot;r&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(file<sp/>!=<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>x_struct;<sp/>j++)<sp/>{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l<sp/>=<sp/>0;<sp/>l<sp/>&lt;<sp/>LECTURE;<sp/>l++)</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>line[l]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>fgets(line,<sp/>LECTURE,<sp/>file);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>var<sp/>=<sp/>0,<sp/>j<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>line_temp[LECTURE];</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(sscanf(line,<sp/></highlight><highlight class="stringliteral">&quot;%d:%s&quot;</highlight><highlight class="normal">,<sp/>&amp;var,<sp/>line_temp)<sp/>==<sp/>2)<sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>tab[y<sp/>+<sp/>j].id<sp/>=<sp/>var;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>tab[y<sp/>+<sp/>j].plan<sp/>=<sp/>ARRIERE_PLAN;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>strcpy(line,<sp/>line_temp);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>j++;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>printf(&quot;%s\n&quot;,<sp/>line);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>printf(&quot;\n&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>fclose(file);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="87"><highlight class="normal"></highlight></codeline>
-<codeline lineno="88"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>NB_STRUCT_BLOCK;<sp/>i++)<sp/>{</highlight></codeline>
-<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nb_can_spawn<sp/>&lt;<sp/>NB_STRUCT_BLOCK<sp/>&amp;&amp;<sp/>!new_struct<sp/>&amp;&amp;<sp/>struct_block[i].biome<sp/>==<sp/>biome)<sp/>{</highlight></codeline>
-<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>type_can_spawn[nb_can_spawn]<sp/>=<sp/>struct_block[i].type;</highlight></codeline>
-<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>nb_can_spawn++;</highlight></codeline>
-<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="93"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"></highlight></codeline>
-<codeline lineno="95"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!struct_spawn<sp/>&amp;&amp;<sp/>!new_struct<sp/>&amp;&amp;<sp/>nb_can_spawn<sp/>&gt;<sp/>0)<sp/>{</highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>new_struct<sp/>=<sp/>(int)((</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)x<sp/>*<sp/><ref refid="perlin_8h_1a2af0d3d29624c62a028497de1bdadcbe" kindref="member">perlin2d</ref>(x,<sp/>MAX,<sp/>FREQ,<sp/>DEPTH)<sp/>*<sp/>(double)W_BIOME<sp/>+<sp/>1)<sp/>%<sp/>DIST_MAX_STRUCT;</highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>struct_random<sp/>=<sp/>(int)((</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)x<sp/>*<sp/><ref refid="perlin_8h_1a2af0d3d29624c62a028497de1bdadcbe" kindref="member">perlin2d</ref>(x,<sp/>MAX,<sp/>FREQ,<sp/>DEPTH)<sp/>*<sp/>(double)W_BIOME<sp/>+<sp/>1)<sp/>%<sp/>nb_can_spawn;</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>type_spawn<sp/>=<sp/>type_can_spawn[struct_random];</highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>struct_spawn<sp/>=<sp/>STRUCT_GetWidth(struct_block,<sp/>type_spawn);</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="101"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="95"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>STRUCT_generation(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dir,<sp/><ref refid="structt__block" kindref="compound">t_block</ref><sp/>tab[MAX])<sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/>y++;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>struct_spawn<sp/>=<sp/>0,<sp/>new_struct<sp/>=<sp/>0,<sp/>struct_spawn_dir1<sp/>=<sp/>0,<sp/>new_struct_dir1<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>t_struct_block_type<sp/>type_spawn;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>t_struct_block_type<sp/>type_can_spawn[NB_STRUCT_BLOCK];</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>last_dir;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nb_can_spawn<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>struct_random<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(last_dir<sp/>!=<sp/>dir)<sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Echange<sp/>de<sp/>valeur</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>struct_spawn_dir1<sp/>^=<sp/>struct_spawn<sp/>^=<sp/>struct_spawn_dir1<sp/>^=<sp/>struct_spawn;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>new_struct_dir1<sp/>^=<sp/>new_struct<sp/>^=<sp/>new_struct_dir1<sp/>^=<sp/>new_struct;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>last_dir<sp/>=<sp/>dir;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(dir<sp/>==<sp/>DROITE)<sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>x<sp/>+=<sp/>3;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(dir<sp/>==<sp/>GAUCHE)<sp/>{</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>x<sp/>-=<sp/>3;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(struct_spawn)<sp/>{<sp/></highlight><highlight class="comment">//<sp/>Permet<sp/>de<sp/>prendre<sp/>la<sp/>ligne<sp/>du<sp/>block<sp/>a<sp/>test</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>STRUCT_SetCol(struct_spawn,<sp/>y,<sp/>type_spawn,<sp/>tab);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>struct_spawn--;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!struct_spawn<sp/>&amp;&amp;<sp/>new_struct<sp/>&gt;<sp/>0)<sp/>{<sp/></highlight><highlight class="comment">//Attente<sp/>avant<sp/>une<sp/>nouvelle<sp/>ligne</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>new_struct--;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>NB_STRUCT_BLOCK;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nb_can_spawn<sp/>&lt;<sp/>NB_STRUCT_BLOCK<sp/>&amp;&amp;<sp/>!new_struct<sp/>&amp;&amp;<sp/>struct_block[i].biome<sp/>==<sp/>biome)<sp/>{</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>type_can_spawn[nb_can_spawn]<sp/>=<sp/>struct_block[i].type;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>nb_can_spawn++;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!struct_spawn<sp/>&amp;&amp;<sp/>!new_struct<sp/>&amp;&amp;<sp/>nb_can_spawn<sp/>&gt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>new_struct<sp/>=<sp/>(int)((</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)x<sp/>*<sp/><ref refid="perlin_8h_1a2af0d3d29624c62a028497de1bdadcbe" kindref="member">perlin2d</ref>(x,<sp/>MAX,<sp/>FREQ,<sp/>DEPTH)<sp/>*<sp/>(double)W_BIOME<sp/>+<sp/>1)<sp/>%<sp/>DIST_MAX_STRUCT;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>struct_random<sp/>=<sp/>(int)((</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)x<sp/>*<sp/><ref refid="perlin_8h_1a2af0d3d29624c62a028497de1bdadcbe" kindref="member">perlin2d</ref>(x,<sp/>MAX,<sp/>FREQ,<sp/>DEPTH)<sp/>*<sp/>(double)W_BIOME<sp/>+<sp/>1)<sp/>%<sp/>nb_can_spawn;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>type_spawn<sp/>=<sp/>type_can_spawn[struct_random];</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>struct_spawn<sp/>=<sp/>STRUCT_GetWidth(type_spawn);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="139"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="src/structure_block.c"/>
   </compounddef>

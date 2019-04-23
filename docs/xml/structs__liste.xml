@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="structs__liste" kind="struct" language="C++" prot="public">
     <compoundname>s_liste</compoundname>
       <sectiondef kind="public-attrib">
@@ -35,15 +35,15 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="18">
+      <node id="42">
         <label>s_liste</label>
         <link refid="structs__liste"/>
-        <childnode refid="19" relation="usage">
+        <childnode refid="43" relation="usage">
           <edgelabel>drapeau</edgelabel>
           <edgelabel>ec</edgelabel>
         </childnode>
       </node>
-      <node id="19">
+      <node id="43">
         <label>t_element</label>
         <link refid="structt__element"/>
       </node>

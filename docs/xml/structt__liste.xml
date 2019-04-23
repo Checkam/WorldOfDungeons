@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="structt__liste" kind="struct" language="C++" prot="public">
     <compoundname>t_liste</compoundname>
     <includes refid="liste_8h" local="no">liste.h</includes>
     <briefdescription>
-<para>Liste contenant des <ref refid="structt__element" kindref="compound">t_element</ref>. </para>    </briefdescription>
+<para>Structure représentant le début et la fin d&apos;une liste ainsi que son élément courant. </para>    </briefdescription>
     <detaileddescription>
     </detaileddescription>
     <location file="include/liste.h" line="24" column="1"/>

@@ -1,33 +1,40 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="perlin_8h" kind="file" language="C++">
     <compoundname>perlin.h</compoundname>
     <includedby refid="biome_8c" local="no">src/biome.c</includedby>
     <includedby refid="donjon_8c" local="no">src/donjon.c</includedby>
+    <includedby refid="entite_8c" local="no">src/entite.c</includedby>
     <includedby refid="generation_8c" local="no">src/generation.c</includedby>
     <includedby refid="structure__block_8c" local="no">src/structure_block.c</includedby>
     <invincdepgraph>
-      <node id="211">
-        <label>src/donjon.c</label>
-        <link refid="donjon_8c"/>
+      <node id="305">
+        <label>include/perlin.h</label>
+        <link refid="perlin_8h"/>
+        <childnode refid="306" relation="include">
+        </childnode>
+        <childnode refid="307" relation="include">
+        </childnode>
+        <childnode refid="308" relation="include">
+        </childnode>
+        <childnode refid="309" relation="include">
+        </childnode>
       </node>
-      <node id="213">
+      <node id="309">
         <label>src/structure_block.c</label>
         <link refid="structure__block_8c"/>
       </node>
-      <node id="212">
+      <node id="306">
+        <label>src/donjon.c</label>
+        <link refid="donjon_8c"/>
+      </node>
+      <node id="308">
         <label>src/generation.c</label>
         <link refid="generation_8c"/>
       </node>
-      <node id="210">
-        <label>include/perlin.h</label>
-        <link refid="perlin_8h"/>
-        <childnode refid="211" relation="include">
-        </childnode>
-        <childnode refid="212" relation="include">
-        </childnode>
-        <childnode refid="213" relation="include">
-        </childnode>
+      <node id="307">
+        <label>src/entite.c</label>
+        <link refid="entite_8c"/>
       </node>
     </invincdepgraph>
       <sectiondef kind="define">

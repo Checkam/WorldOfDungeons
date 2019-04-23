@@ -1,50 +1,211 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="donjon_8h" kind="file" language="C++">
     <compoundname>donjon.h</compoundname>
     <includes refid="erreur_8h" local="no">erreur.h</includes>
     <includes refid="liste_8h" local="no">liste.h</includes>
     <includes local="no">SDL2/SDL.h</includes>
+    <includes refid="entite_8h" local="no">entite.h</includes>
+    <includes local="no">stdbool.h</includes>
     <includedby refid="donjon_8c" local="no">src/donjon.c</includedby>
+    <includedby refid="world__of__dungeons_8c" local="no">src/world_of_dungeons.c</includedby>
     <incdepgraph>
-      <node id="82">
-        <label>include/donjon.h</label>
-        <link refid="donjon_8h"/>
-        <childnode refid="83" relation="include">
-        </childnode>
-        <childnode refid="84" relation="include">
-        </childnode>
-        <childnode refid="85" relation="include">
-        </childnode>
+      <node id="110">
+        <label>stdbool.h</label>
       </node>
-      <node id="84">
-        <label>liste.h</label>
-        <link refid="liste_8h"/>
-        <childnode refid="83" relation="include">
-        </childnode>
-      </node>
-      <node id="85">
-        <label>SDL2/SDL.h</label>
-      </node>
-      <node id="83">
+      <node id="100">
         <label>erreur.h</label>
         <link refid="erreur_8h"/>
       </node>
+      <node id="106">
+        <label>SDL2/SDL_image.h</label>
+      </node>
+      <node id="105">
+        <label>stdlib.h</label>
+      </node>
+      <node id="101">
+        <label>liste.h</label>
+        <link refid="liste_8h"/>
+        <childnode refid="100" relation="include">
+        </childnode>
+      </node>
+      <node id="102">
+        <label>SDL2/SDL.h</label>
+      </node>
+      <node id="103">
+        <label>entite.h</label>
+        <link refid="entite_8h"/>
+        <childnode refid="104" relation="include">
+        </childnode>
+        <childnode refid="105" relation="include">
+        </childnode>
+        <childnode refid="102" relation="include">
+        </childnode>
+        <childnode refid="106" relation="include">
+        </childnode>
+        <childnode refid="107" relation="include">
+        </childnode>
+        <childnode refid="108" relation="include">
+        </childnode>
+        <childnode refid="100" relation="include">
+        </childnode>
+        <childnode refid="109" relation="include">
+        </childnode>
+        <childnode refid="101" relation="include">
+        </childnode>
+      </node>
+      <node id="109">
+        <label>commun.h</label>
+        <link refid="commun_8h_source"/>
+      </node>
+      <node id="108">
+        <label>chemin.h</label>
+        <link refid="chemin_8h"/>
+        <childnode refid="101" relation="include">
+        </childnode>
+        <childnode refid="100" relation="include">
+        </childnode>
+      </node>
+      <node id="104">
+        <label>stdio.h</label>
+      </node>
+      <node id="99">
+        <label>include/donjon.h</label>
+        <link refid="donjon_8h"/>
+        <childnode refid="100" relation="include">
+        </childnode>
+        <childnode refid="101" relation="include">
+        </childnode>
+        <childnode refid="102" relation="include">
+        </childnode>
+        <childnode refid="103" relation="include">
+        </childnode>
+        <childnode refid="110" relation="include">
+        </childnode>
+      </node>
+      <node id="107">
+        <label>SDL2/SDL_ttf.h</label>
+      </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="87">
+      <node id="112">
         <label>src/donjon.c</label>
         <link refid="donjon_8c"/>
       </node>
-      <node id="86">
+      <node id="111">
         <label>include/donjon.h</label>
         <link refid="donjon_8h"/>
-        <childnode refid="87" relation="include">
+        <childnode refid="112" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
     <innerclass refid="structs__salle__donjon" prot="public">s_salle_donjon</innerclass>
+    <innerclass refid="structs__donjon" prot="public">s_donjon</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="donjon_8h_1aa0422798b44ca4eba5e25bf27ca0cdfe" prot="public" static="no">
+        <name>e_type_salle_donjon</name>
+        <enumvalue id="donjon_8h_1aa0422798b44ca4eba5e25bf27ca0cdfead301d2db3eef9fc4733e2c3efed7d850" prot="public">
+          <name>DONJON_DEPART</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="donjon_8h_1aa0422798b44ca4eba5e25bf27ca0cdfea5abc69638bc82d402de34400129a8b41" prot="public">
+          <name>DONJON_INTERMEDIAIRE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="donjon_8h_1aa0422798b44ca4eba5e25bf27ca0cdfea94242d9f2a8df882c8f6bc78d9a51e0c" prot="public">
+          <name>DONJON_FIN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/donjon.h" line="21" column="1" bodyfile="include/donjon.h" bodystart="21" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="enum" id="donjon_8h_1a4bd9558fca27f5ca194f7774e1a33f92" prot="public" static="no">
+        <name>e_salle_difficulte</name>
+        <enumvalue id="donjon_8h_1a4bd9558fca27f5ca194f7774e1a33f92ada12fe19f4d0f33e8b72265183214f36" prot="public">
+          <name>AUCUNE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="donjon_8h_1a4bd9558fca27f5ca194f7774e1a33f92aa944be7e4435f82ea4785ae3943070e9" prot="public">
+          <name>FACILE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="donjon_8h_1a4bd9558fca27f5ca194f7774e1a33f92aee96574eabbfbe329a44b059e4652351" prot="public">
+          <name>MOYEN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="donjon_8h_1a4bd9558fca27f5ca194f7774e1a33f92ab3ec94a39459557e25ffaf508467329b" prot="public">
+          <name>DIFFICILE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="donjon_8h_1a4bd9558fca27f5ca194f7774e1a33f92afb43b8264ea4d3dd9957ba1b3fd3f3d5" prot="public">
+          <name>FINAL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/donjon.h" line="31" column="1" bodyfile="include/donjon.h" bodystart="31" bodyend="37"/>
+      </memberdef>
+      </sectiondef>
       <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="donjon_8h_1ada320ed1c450ace53ccb1628ed271981" prot="public" static="no">
+        <type>enum e_type_salle_donjon</type>
+        <definition>typedef enum e_type_salle_donjon  t_type_salle_donjon</definition>
+        <argsstring></argsstring>
+        <name>t_type_salle_donjon</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/donjon.h" line="25" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="donjon_8h_1a46b30662f9a9fa05b0cb54e5ff366ac5" prot="public" static="no">
+        <type>enum e_salle_difficulte</type>
+        <definition>typedef enum e_salle_difficulte  t_salle_difficulte</definition>
+        <argsstring></argsstring>
+        <name>t_salle_difficulte</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/donjon.h" line="37" column="1"/>
+      </memberdef>
       <memberdef kind="typedef" id="donjon_8h_1a6dab2b816053e68c641df7783f3ae863" prot="public" static="no">
         <type>struct <ref refid="structs__salle__donjon" kindref="compound">s_salle_donjon</ref></type>
         <definition>typedef struct s_salle_donjon t_salle_donjon</definition>
@@ -56,29 +217,46 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/donjon.h" line="19" column="1"/>
+        <location file="include/donjon.h" line="53" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="donjon_8h_1a1099503854db964481db9c4aa353fea7" prot="public" static="no">
+        <type>struct <ref refid="structs__donjon" kindref="compound">s_donjon</ref></type>
+        <definition>typedef struct s_donjon  t_donjon</definition>
+        <argsstring></argsstring>
+        <name>t_donjon</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/donjon.h" line="63" column="1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
-      <memberdef kind="function" id="donjon_8h_1aad46d0672f5fb023e60ef6bd6b076e37" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="donjon_8h_1af7c1579cda78be0576f9de57eea5063a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>t_erreur</type>
         <definition>t_erreur donjon_creer</definition>
-        <argsstring>(t_liste **liste, int nb_salle)</argsstring>
+        <argsstring>(t_donjon **donjon, int nb_salle, t_entite *joueur)</argsstring>
         <name>donjon_creer</name>
         <param>
-          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> **</type>
-          <declname>liste</declname>
+          <type><ref refid="structt__donjon" kindref="compound">t_donjon</ref> **</type>
+          <declname>donjon</declname>
         </param>
         <param>
           <type>int</type>
           <declname>nb_salle</declname>
+        </param>
+        <param>
+          <type><ref refid="structt__entite" kindref="compound">t_entite</ref> *</type>
+          <declname>joueur</declname>
         </param>
         <briefdescription>
 <para>Fonction permettant de créer un donjon. </para>        </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
-<parametername>liste</parametername>
+<parametername>donjon</parametername>
 </parameternamelist>
 <parameterdescription>
 <para>Pointeur dans lequel sera stocké le donjon </para></parameterdescription>
@@ -90,75 +268,236 @@
 <parameterdescription>
 <para>Nombre de salle dans le donjon </para></parameterdescription>
 </parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>joueur</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Joueur voulant entrer dans le donjon </para></parameterdescription>
+</parameteritem>
 </parameterlist>
 <simplesect kind="return"><para>Code erreur </para></simplesect>
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/donjon.h" line="22" column="1" bodyfile="src/donjon.c" bodystart="42" bodyend="73"/>
+        <location file="include/donjon.h" line="69" column="1" bodyfile="src/donjon.c" bodystart="53" bodyend="101"/>
       </memberdef>
-      <memberdef kind="function" id="donjon_8h_1a3a57a2b178eee2c77b8c1342f1af746c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="donjon_8h_1a58610b3b3acb6edfdbdc92ccfbff1a1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>t_erreur</type>
         <definition>t_erreur donjon_afficher_Term</definition>
-        <argsstring>(t_liste *donjon, SDL_Rect pos_perso)</argsstring>
+        <argsstring>(t_donjon *donjon, t_entite *joueur)</argsstring>
         <name>donjon_afficher_Term</name>
         <param>
-          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <type><ref refid="structt__donjon" kindref="compound">t_donjon</ref> *</type>
           <declname>donjon</declname>
         </param>
         <param>
-          <type>SDL_Rect</type>
-          <declname>pos_perso</declname>
+          <type><ref refid="structt__entite" kindref="compound">t_entite</ref> *</type>
+          <declname>joueur</declname>
         </param>
         <briefdescription>
-        </briefdescription>
+<para>Fonction d&apos;affichage du donjon dans un terminal. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>donjon</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Donjon que l&apos;on veut afficher </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>joueur</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Joueur qui est dans le donjon </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Code erreur </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/donjon.h" line="25" column="1" bodyfile="src/donjon.c" bodystart="388" bodyend="412"/>
+        <location file="include/donjon.h" line="75" column="1" bodyfile="src/donjon.c" bodystart="532" bodyend="550"/>
       </memberdef>
-      <memberdef kind="function" id="donjon_8h_1aafaa710b6ddc0fa5e6d71471ec3db7f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="donjon_8h_1ad92853204a6a84645e490e03b982451d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>t_erreur</type>
         <definition>t_erreur donjon_afficher_SDL</definition>
-        <argsstring>(SDL_Renderer *renderer, t_liste *donjon, SDL_Rect pos_perso)</argsstring>
+        <argsstring>(SDL_Renderer *renderer, t_donjon *donjon, t_entite *joueur)</argsstring>
         <name>donjon_afficher_SDL</name>
         <param>
           <type>SDL_Renderer *</type>
           <declname>renderer</declname>
         </param>
         <param>
-          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <type><ref refid="structt__donjon" kindref="compound">t_donjon</ref> *</type>
           <declname>donjon</declname>
         </param>
         <param>
-          <type>SDL_Rect</type>
-          <declname>pos_perso</declname>
+          <type><ref refid="structt__entite" kindref="compound">t_entite</ref> *</type>
+          <declname>joueur</declname>
         </param>
         <briefdescription>
-        </briefdescription>
+<para>Fonction d&apos;affichage d&apos;un donjon avec la SDL. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>renderer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Rendu de la fenêtre </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>donjon</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Donjon que l&apos;on veut afficher </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>joueur</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Joueur qui est dans le donjon </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/donjon.h" line="26" column="1" bodyfile="src/donjon.c" bodystart="417" bodyend="464"/>
+        <location file="include/donjon.h" line="76" column="1" bodyfile="src/donjon.c" bodystart="559" bodyend="597"/>
       </memberdef>
-      <memberdef kind="function" id="donjon_8h_1aff223fbb17cfc4ddde8bae2b1e4af22e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="donjon_8h_1a8a1eae23567ffde325e6669dffc7fc9c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur donjon_gestion</definition>
+        <argsstring>(SDL_Renderer *renderer, t_donjon *donjon, t_entite *joueur, uint8_t *ks, double coef_fps)</argsstring>
+        <name>donjon_gestion</name>
+        <param>
+          <type>SDL_Renderer *</type>
+          <declname>renderer</declname>
+        </param>
+        <param>
+          <type><ref refid="structt__donjon" kindref="compound">t_donjon</ref> *</type>
+          <declname>donjon</declname>
+        </param>
+        <param>
+          <type><ref refid="structt__entite" kindref="compound">t_entite</ref> *</type>
+          <declname>joueur</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>ks</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>coef_fps</declname>
+        </param>
+        <briefdescription>
+<para>Permet de gérer un donjon comme la création et l&apos;interaction des mobs. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>renderer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Rendu de la fenêtre </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>donjon</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Donjon que l&apos;on veut gérer </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>joueur</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Joueur qui est dans le donjon </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ks</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointeur sur l&apos;état des touches </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>coef_fps</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Coefficient de retard de fps </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Code erreur </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/donjon.h" line="82" column="1" bodyfile="src/donjon.c" bodystart="609" bodyend="681"/>
+      </memberdef>
+      <memberdef kind="function" id="donjon_8h_1aafdabc099758c3305ccffad18869707c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur donjon_quitter</definition>
+        <argsstring>(t_donjon *donjon, t_entite *joueur)</argsstring>
+        <name>donjon_quitter</name>
+        <param>
+          <type><ref refid="structt__donjon" kindref="compound">t_donjon</ref> *</type>
+          <declname>donjon</declname>
+        </param>
+        <param>
+          <type><ref refid="structt__entite" kindref="compound">t_entite</ref> *</type>
+          <declname>joueur</declname>
+        </param>
+        <briefdescription>
+<para>Fonction pour quitter un donjon. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>donjon</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Donjon que l&apos;on veut quitter </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>joueur</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Joueur qui veut quitter le donjon </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Code erreur </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/donjon.h" line="88" column="1" bodyfile="src/donjon.c" bodystart="798" bodyend="816"/>
+      </memberdef>
+      <memberdef kind="function" id="donjon_8h_1abde7f3f8fad222e1eabe14f5646b8358" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>t_erreur</type>
         <definition>t_erreur donjon_detruire</definition>
-        <argsstring>(t_liste **liste)</argsstring>
+        <argsstring>(t_donjon **donjon)</argsstring>
         <name>donjon_detruire</name>
         <param>
-          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> **</type>
-          <declname>liste</declname>
+          <type><ref refid="structt__donjon" kindref="compound">t_donjon</ref> **</type>
+          <declname>donjon</declname>
         </param>
         <briefdescription>
-        </briefdescription>
+<para>Fonction de destruction d&apos;un donjon. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>donjon</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Donjon que l&apos;on veut détruire </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Code erreur </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/donjon.h" line="32" column="1" bodyfile="src/donjon.c" bodystart="469" bodyend="485"/>
+        <location file="include/donjon.h" line="89" column="1" bodyfile="src/donjon.c" bodystart="824" bodyend="846"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -166,7 +505,7 @@
     <detaileddescription>
 <para><simplesect kind="author"><para>Jasmin GALBRUN </para></simplesect>
 <simplesect kind="version"><para>1 </para></simplesect>
-<simplesect kind="date"><para>24/03/2019 </para></simplesect>
+<simplesect kind="date"><para>16/04/2019 </para></simplesect>
 </para>    </detaileddescription>
     <programlisting>
 <codeline lineno="1"></codeline>
@@ -176,27 +515,68 @@
 <codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="erreur_8h" kindref="compound">erreur.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="liste_8h" kindref="compound">liste.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;SDL2/SDL.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="14"><highlight class="normal"></highlight></codeline>
-<codeline lineno="15" refid="structs__salle__donjon" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structs__salle__donjon" kindref="compound">s_salle_donjon</ref>{</highlight></codeline>
-<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/>y;</highlight></codeline>
-<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>structure;</highlight></codeline>
-<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>voisin[4];<sp/></highlight><highlight class="comment">//LEFT-TOP-RIGHT-BOTTOM</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="19"><highlight class="normal">}<ref refid="structs__salle__donjon" kindref="compound">t_salle_donjon</ref>;</highlight></codeline>
-<codeline lineno="20"><highlight class="normal"></highlight></codeline>
-<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Primitive<sp/>de<sp/>création<sp/>d&apos;un<sp/>donjon<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="22"><highlight class="normal">t_erreur<sp/><ref refid="donjon_8h_1aad46d0672f5fb023e60ef6bd6b076e37" kindref="member">donjon_creer</ref>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>**<sp/>liste,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nb_salle);</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight></codeline>
-<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Primitive<sp/>d&apos;affichage<sp/>d&apos;un<sp/>donjon<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="25"><highlight class="normal">t_erreur<sp/>donjon_afficher_Term(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>donjon,<sp/>SDL_Rect<sp/>pos_perso);</highlight></codeline>
-<codeline lineno="26"><highlight class="normal">t_erreur<sp/>donjon_afficher_SDL(SDL_Renderer<sp/>*<sp/>renderer,<sp/><ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>donjon,<sp/>SDL_Rect<sp/>pos_perso);</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"></highlight></codeline>
-<codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Primitive<sp/>de<sp/>gestion<sp/>d&apos;un<sp/>donjon<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="29"><highlight class="normal"></highlight></codeline>
-<codeline lineno="30"><highlight class="normal"></highlight></codeline>
-<codeline lineno="31"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Primitive<sp/>de<sp/>destruction<sp/>d&apos;un<sp/>donjon<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="32"><highlight class="normal">t_erreur<sp/>donjon_detruire(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>**liste);</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="entite_8h" kindref="compound">entite.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdbool.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>e_type_salle_donjon{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>DONJON_DEPART,</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>DONJON_INTERMEDIAIRE,</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>DONJON_FIN</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">}<sp/>t_type_salle_donjon;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>e_salle_difficulte{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>AUCUNE,</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>FACILE,</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>MOYEN,</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>DIFFICILE,</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>FINAL</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">}<sp/>t_salle_difficulte;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="structs__salle__donjon" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structs__salle__donjon" kindref="compound">s_salle_donjon</ref>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/>y;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>structure;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>voisin[4];<sp/></highlight><highlight class="comment">//LEFT-TOP-RIGHT-BOTTOM</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>t_type_salle_donjon<sp/>type;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>t_salle_difficulte<sp/>difficulte;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>completed;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>mob;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal">}<ref refid="structt__salle__donjon" kindref="compound">t_salle_donjon</ref>;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="structs__donjon" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structs__donjon" kindref="compound">s_donjon</ref>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x_map_joueur,<sp/>y_map_joueur;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>donjon;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>quitter;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal">}<sp/><ref refid="structt__donjon" kindref="compound">t_donjon</ref>;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="comment">/*************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Primitive<sp/>de<sp/>création<sp/>d&apos;un<sp/>donjon<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="comment">/*************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal">t_erreur<sp/><ref refid="donjon_8h_1af7c1579cda78be0576f9de57eea5063a" kindref="member">donjon_creer</ref>(<ref refid="structt__donjon" kindref="compound">t_donjon</ref><sp/>**<sp/>donjon,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nb_salle,<sp/><ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/>joueur);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="comment">/*************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Primitive<sp/>d&apos;affichage<sp/>d&apos;un<sp/>donjon<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="comment">/*************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal">t_erreur<sp/><ref refid="donjon_8h_1a58610b3b3acb6edfdbdc92ccfbff1a1b" kindref="member">donjon_afficher_Term</ref>(<ref refid="structt__donjon" kindref="compound">t_donjon</ref><sp/>*<sp/>donjon,<sp/><ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/>joueur);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal">t_erreur<sp/><ref refid="donjon_8h_1ad92853204a6a84645e490e03b982451d" kindref="member">donjon_afficher_SDL</ref>(SDL_Renderer<sp/>*<sp/>renderer,<sp/><ref refid="structt__donjon" kindref="compound">t_donjon</ref><sp/>*<sp/>donjon,<sp/><ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/>joueur);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="comment">/************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Primitive<sp/>de<sp/>gestion<sp/>d&apos;un<sp/>donjon<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="comment">/************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal">t_erreur<sp/><ref refid="donjon_8h_1a8a1eae23567ffde325e6669dffc7fc9c" kindref="member">donjon_gestion</ref>(SDL_Renderer<sp/>*<sp/>renderer,<sp/><ref refid="structt__donjon" kindref="compound">t_donjon</ref><sp/>*<sp/>donjon,<sp/><ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/>joueur,<sp/>uint8_t<sp/>*ks,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>coef_fps);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="comment">/****************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Primitive<sp/>de<sp/>destruction<sp/>d&apos;un<sp/>donjon<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="comment">/****************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal">t_erreur<sp/><ref refid="donjon_8h_1aafdabc099758c3305ccffad18869707c" kindref="member">donjon_quitter</ref>(<ref refid="structt__donjon" kindref="compound">t_donjon</ref><sp/>*<sp/>donjon,<sp/><ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/>joueur);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal">t_erreur<sp/><ref refid="donjon_8h_1abde7f3f8fad222e1eabe14f5646b8358" kindref="member">donjon_detruire</ref>(<ref refid="structt__donjon" kindref="compound">t_donjon</ref><sp/>**donjon);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="include/donjon.h"/>
   </compounddef>

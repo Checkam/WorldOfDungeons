@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structblock__drop__s" kind="struct" language="C++" prot="public">
+    <compoundname>block_drop_s</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structblock__drop__s_1a6f38d922e1480a40ef9d1272a37503c7" prot="public" static="no" mutable="no">
+        <type><ref refid="block_8h_1a4030ebe0eea609635f372f2e86d4332a" kindref="member">t_materiaux</ref></type>
+        <definition>t_materiaux block_drop_s::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/item.h" line="61" column="1" bodyfile="include/item.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structblock__drop__s_1a64c2ea0532fc588706d17d78c2dbef94" prot="public" static="no" mutable="no">
+        <type><ref refid="structliste__drop__s" kindref="compound">t_liste_drop</ref> *</type>
+        <definition>t_liste_drop* block_drop_s::drop</definition>
+        <argsstring></argsstring>
+        <name>drop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/item.h" line="63" column="1" bodyfile="include/item.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>liste_drop_s</label>
+        <link refid="structliste__drop__s"/>
+      </node>
+      <node id="1">
+        <label>block_drop_s</label>
+        <link refid="structblock__drop__s"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>drop</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/item.h" line="59" column="1" bodyfile="include/item.h" bodystart="59" bodyend="65"/>
+    <listofallmembers>
+      <member refid="structblock__drop__s_1a64c2ea0532fc588706d17d78c2dbef94" prot="public" virt="non-virtual"><scope>block_drop_s</scope><name>drop</name></member>
+      <member refid="structblock__drop__s_1a6f38d922e1480a40ef9d1272a37503c7" prot="public" virt="non-virtual"><scope>block_drop_s</scope><name>id</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

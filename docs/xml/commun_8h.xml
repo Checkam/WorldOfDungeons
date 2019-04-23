@@ -1,99 +1,145 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="commun_8h" kind="file" language="C++">
     <compoundname>commun.h</compoundname>
     <includedby refid="affichage_8c" local="no">src/affichage.c</includedby>
     <includedby refid="biome_8c" local="no">src/biome.c</includedby>
+    <includedby refid="block_8c" local="no">src/block.c</includedby>
     <includedby refid="donjon_8c" local="no">src/donjon.c</includedby>
+    <includedby refid="entite_8c" local="no">src/entite.c</includedby>
     <includedby refid="generation_8c" local="no">src/generation.c</includedby>
+    <includedby refid="ia_8c" local="no">src/ia.c</includedby>
     <includedby refid="map_8c" local="no">src/map.c</includedby>
     <includedby refid="perlin_8c" local="no">src/perlin.c</includedby>
-    <includedby refid="sauvegarde__map_8c" local="no">src/sauvegarde_map.c</includedby>
     <includedby refid="structure__block_8c" local="no">src/structure_block.c</includedby>
     <includedby refid="world__of__dungeons_8c" local="no">src/world_of_dungeons.c</includedby>
     <includedby refid="biome_8h" local="no">include/biome.h</includedby>
     <includedby refid="entite_8h" local="no">include/entite.h</includedby>
     <includedby refid="structure__block_8h" local="no">include/structure_block.h</includedby>
     <invincdepgraph>
-      <node id="58">
-        <label>src/donjon.c</label>
-        <link refid="donjon_8c"/>
+      <node id="81">
+        <label>include/ia.h</label>
+        <link refid="ia_8h"/>
+        <childnode refid="71" relation="include">
+        </childnode>
+        <childnode refid="74" relation="include">
+        </childnode>
       </node>
-      <node id="64">
+      <node id="82">
+        <label>include/map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="72" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="76" relation="include">
+        </childnode>
+        <childnode refid="78" relation="include">
+        </childnode>
+      </node>
+      <node id="78">
         <label>include/structure_block.h</label>
         <link refid="structure__block_8h"/>
-        <childnode refid="59" relation="include">
+        <childnode refid="73" relation="include">
         </childnode>
-        <childnode refid="61" relation="include">
-        </childnode>
-      </node>
-      <node id="56">
-        <label>include/commun.h</label>
-        <link refid="commun_8h"/>
-        <childnode refid="57" relation="include">
-        </childnode>
-        <childnode refid="58" relation="include">
-        </childnode>
-        <childnode refid="59" relation="include">
-        </childnode>
-        <childnode refid="60" relation="include">
-        </childnode>
-        <childnode refid="61" relation="include">
-        </childnode>
-        <childnode refid="62" relation="include">
-        </childnode>
-        <childnode refid="63" relation="include">
-        </childnode>
-        <childnode refid="65" relation="include">
-        </childnode>
-        <childnode refid="64" relation="include">
+        <childnode refid="76" relation="include">
         </childnode>
       </node>
-      <node id="61">
+      <node id="76">
         <label>src/structure_block.c</label>
         <link refid="structure__block_8c"/>
       </node>
-      <node id="59">
-        <label>src/generation.c</label>
-        <link refid="generation_8c"/>
+      <node id="70">
+        <label>src/block.c</label>
+        <link refid="block_8c"/>
       </node>
-      <node id="63">
-        <label>include/biome.h</label>
-        <link refid="biome_8h"/>
-        <childnode refid="59" relation="include">
-        </childnode>
-        <childnode refid="61" relation="include">
-        </childnode>
-        <childnode refid="64" relation="include">
-        </childnode>
-      </node>
-      <node id="62">
-        <label>src/world_of_dungeons.c</label>
-        <link refid="world__of__dungeons_8c"/>
-      </node>
-      <node id="57">
-        <label>src/affichage.c</label>
-        <link refid="affichage_8c"/>
-      </node>
-      <node id="66">
-        <label>src/entite.c</label>
-        <link refid="entite_8c"/>
-      </node>
-      <node id="60">
+      <node id="75">
         <label>src/map.c</label>
         <link refid="map_8c"/>
       </node>
-      <node id="65">
+      <node id="71">
+        <label>src/donjon.c</label>
+        <link refid="donjon_8c"/>
+      </node>
+      <node id="69">
+        <label>src/affichage.c</label>
+        <link refid="affichage_8c"/>
+      </node>
+      <node id="79">
         <label>include/entite.h</label>
         <link refid="entite_8h"/>
-        <childnode refid="66" relation="include">
+        <childnode refid="71" relation="include">
+        </childnode>
+        <childnode refid="72" relation="include">
+        </childnode>
+        <childnode refid="74" relation="include">
+        </childnode>
+        <childnode refid="80" relation="include">
+        </childnode>
+        <childnode refid="81" relation="include">
+        </childnode>
+        <childnode refid="82" relation="include">
+        </childnode>
+      </node>
+      <node id="74">
+        <label>src/ia.c</label>
+        <link refid="ia_8c"/>
+      </node>
+      <node id="68">
+        <label>include/commun.h</label>
+        <link refid="commun_8h"/>
+        <childnode refid="69" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+        <childnode refid="71" relation="include">
+        </childnode>
+        <childnode refid="72" relation="include">
+        </childnode>
+        <childnode refid="73" relation="include">
+        </childnode>
+        <childnode refid="74" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="76" relation="include">
+        </childnode>
+        <childnode refid="77" relation="include">
+        </childnode>
+        <childnode refid="79" relation="include">
+        </childnode>
+        <childnode refid="78" relation="include">
+        </childnode>
+      </node>
+      <node id="77">
+        <label>include/biome.h</label>
+        <link refid="biome_8h"/>
+        <childnode refid="73" relation="include">
+        </childnode>
+        <childnode refid="76" relation="include">
+        </childnode>
+        <childnode refid="78" relation="include">
+        </childnode>
+      </node>
+      <node id="73">
+        <label>src/generation.c</label>
+        <link refid="generation_8c"/>
+      </node>
+      <node id="72">
+        <label>src/entite.c</label>
+        <link refid="entite_8c"/>
+      </node>
+      <node id="80">
+        <label>include/donjon.h</label>
+        <link refid="donjon_8h"/>
+        <childnode refid="71" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
       <sectiondef kind="define">
       <memberdef kind="define" id="commun_8h_1acc5ae0f19f4594c29f67bf38e2792219" prot="public" static="no">
         <name>NB_BLOCK_WIDTH</name>
-        <initializer>76</initializer>
+        <initializer>80</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -104,7 +150,7 @@
       </memberdef>
       <memberdef kind="define" id="commun_8h_1a10803ab34d4a3fe068584300f7954b7f" prot="public" static="no">
         <name>NB_BLOCK_HEIGHT</name>
-        <initializer>51</initializer>
+        <initializer>45</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -115,7 +161,7 @@
       </memberdef>
       <memberdef kind="define" id="commun_8h_1a392fb874e547e582e9c66a08a1f23326" prot="public" static="no">
         <name>MAX</name>
-        <initializer>100 /* Height tab */</initializer>
+        <initializer>300 /* Height tab */</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -124,16 +170,27 @@
         </inbodydescription>
         <location file="include/commun.h" line="14" column="9" bodyfile="include/commun.h" bodystart="14" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="define" id="commun_8h_1a70ed59adcb4159ac551058053e649640" prot="public" static="no">
-        <name>SIZE</name>
-        <initializer>(width_window / width_block_sdl)    /* Width of screen */</initializer>
+      <memberdef kind="define" id="commun_8h_1af2bceb7466c62fecc5d537ac421a0aa0" prot="public" static="no">
+        <name>HAUTEUR_MINIMUN</name>
+        <initializer>100</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/commun.h" line="16" column="9" bodyfile="include/commun.h" bodystart="16" bodyend="-1"/>
+        <location file="include/commun.h" line="15" column="9" bodyfile="include/commun.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="commun_8h_1a70ed59adcb4159ac551058053e649640" prot="public" static="no">
+        <name>SIZE</name>
+        <initializer>((width_window / width_block_sdl))   /* Width of screen */</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/commun.h" line="17" column="9" bodyfile="include/commun.h" bodystart="17" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="commun_8h_1a2c159c811c62af3e758323ba086087f5" prot="public" static="no">
         <name>MAX_SCREEN</name>
@@ -144,35 +201,34 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/commun.h" line="17" column="9" bodyfile="include/commun.h" bodystart="17" bodyend="-1"/>
+        <location file="include/commun.h" line="18" column="9" bodyfile="include/commun.h" bodystart="18" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="enum">
-      <memberdef kind="enum" id="commun_8h_1a75a269f2333ab02cb10621f58b432ff4" prot="public" static="no" strong="no">
-        <type></type>
-        <name>t_collision_direction</name>
-        <enumvalue id="commun_8h_1a75a269f2333ab02cb10621f58b432ff4a264cb055f27ec7b984dac12192298fcf" prot="public">
+      <memberdef kind="enum" id="commun_8h_1aee47a5ee59774c0b32d6039f18d5b832" prot="public" static="no">
+        <name>e_collision_direction</name>
+        <enumvalue id="commun_8h_1aee47a5ee59774c0b32d6039f18d5b832a264cb055f27ec7b984dac12192298fcf" prot="public">
           <name>DIRECT_DROITE_COLLI</name>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
           </detaileddescription>
         </enumvalue>
-        <enumvalue id="commun_8h_1a75a269f2333ab02cb10621f58b432ff4a72f0432bb0318b9048cf539876e1615f" prot="public">
+        <enumvalue id="commun_8h_1aee47a5ee59774c0b32d6039f18d5b832a72f0432bb0318b9048cf539876e1615f" prot="public">
           <name>DIRECT_GAUCHE_COLLI</name>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
           </detaileddescription>
         </enumvalue>
-        <enumvalue id="commun_8h_1a75a269f2333ab02cb10621f58b432ff4a16c40eea43b7cf254b3385c427aa4906" prot="public">
+        <enumvalue id="commun_8h_1aee47a5ee59774c0b32d6039f18d5b832a16c40eea43b7cf254b3385c427aa4906" prot="public">
           <name>DIRECT_HAUT_COLLI</name>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
           </detaileddescription>
         </enumvalue>
-        <enumvalue id="commun_8h_1a75a269f2333ab02cb10621f58b432ff4a5007178596a7152c726c4247e3a006b5" prot="public">
+        <enumvalue id="commun_8h_1aee47a5ee59774c0b32d6039f18d5b832a5007178596a7152c726c4247e3a006b5" prot="public">
           <name>DIRECT_BAS_COLLI</name>
           <briefdescription>
           </briefdescription>
@@ -185,7 +241,22 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/commun.h" line="22" column="1" bodyfile="include/commun.h" bodystart="21" bodyend="27"/>
+        <location file="include/commun.h" line="23" column="1" bodyfile="include/commun.h" bodystart="22" bodyend="28"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="commun_8h_1a45a9a0609c2dd1fe07160196518c9d50" prot="public" static="no">
+        <type>enum e_collision_direction</type>
+        <definition>typedef enum e_collision_direction t_collision_direction</definition>
+        <argsstring></argsstring>
+        <name>t_collision_direction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/commun.h" line="28" column="1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="var">
@@ -252,7 +323,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/commun.h" line="19" column="1" bodyfile="include/commun.h" bodystart="19" bodyend="-1"/>
+        <location file="include/commun.h" line="20" column="1" bodyfile="include/commun.h" bodystart="20" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -263,8 +334,8 @@
 <codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>__COMMUN_H__</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__COMMUN_H__</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="3"><highlight class="normal"></highlight></codeline>
-<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NB_BLOCK_WIDTH<sp/>76</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NB_BLOCK_HEIGHT<sp/>51</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NB_BLOCK_WIDTH<sp/>80</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NB_BLOCK_HEIGHT<sp/>45</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="6"><highlight class="normal"></highlight></codeline>
 <codeline lineno="7"><highlight class="normal"></highlight></codeline>
 <codeline lineno="8"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>height_window;</highlight></codeline>
@@ -273,22 +344,23 @@
 <codeline lineno="11"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>width_block_sdl;</highlight></codeline>
 <codeline lineno="12"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>height_block_sdl;</highlight></codeline>
 <codeline lineno="13"><highlight class="normal"></highlight></codeline>
-<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX<sp/>100<sp/></highlight><highlight class="comment">/*<sp/>Height<sp/>tab<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="15"><highlight class="normal"></highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SIZE<sp/>(width_window<sp/>/<sp/>width_block_sdl)<sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Width<sp/>of<sp/>screen<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_SCREEN<sp/>(height_window<sp/>/<sp/>height_block_sdl)<sp/><sp/></highlight><highlight class="comment">/*<sp/>Heigth<sp/>of<sp/>screen<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="18"><highlight class="normal"></highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>SEED;</highlight></codeline>
-<codeline lineno="20"><highlight class="normal"></highlight></codeline>
-<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="22"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>DIRECT_DROITE_COLLI,</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>DIRECT_GAUCHE_COLLI,</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>DIRECT_HAUT_COLLI,</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>DIRECT_BAS_COLLI</highlight></codeline>
-<codeline lineno="27"><highlight class="normal">}t_collision_direction;</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"></highlight></codeline>
-<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX<sp/>300<sp/></highlight><highlight class="comment">/*<sp/>Height<sp/>tab<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>HAUTEUR_MINIMUN<sp/>100</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SIZE<sp/>((width_window<sp/>/<sp/>width_block_sdl))<sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Width<sp/>of<sp/>screen<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_SCREEN<sp/>(height_window<sp/>/<sp/>height_block_sdl)<sp/><sp/></highlight><highlight class="comment">/*<sp/>Heigth<sp/>of<sp/>screen<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>SEED;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>e_collision_direction</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>DIRECT_DROITE_COLLI,</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>DIRECT_GAUCHE_COLLI,</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>DIRECT_HAUT_COLLI,</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>DIRECT_BAS_COLLI</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">}t_collision_direction;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="include/commun.h"/>
   </compounddef>

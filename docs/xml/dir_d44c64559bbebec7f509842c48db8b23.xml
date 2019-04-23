@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="dir_d44c64559bbebec7f509842c48db8b23" kind="dir">
     <compoundname>include</compoundname>
     <innerfile refid="affichage_8h">affichage.h</innerfile>
@@ -14,15 +14,19 @@
     <innerfile refid="erreur_8h">erreur.h</innerfile>
     <innerfile refid="fichier_8h">fichier.h</innerfile>
     <innerfile refid="fps_8h">fps.h</innerfile>
+    <innerfile refid="game__init_8h">game_init.h</innerfile>
+    <innerfile refid="game__quit_8h">game_quit.h</innerfile>
     <innerfile refid="generation_8h">generation.h</innerfile>
+    <innerfile refid="ia_8h">ia.h</innerfile>
     <innerfile refid="init__biome_8h">init_biome.h</innerfile>
+    <innerfile refid="inventaire_8h">inventaire.h</innerfile>
+    <innerfile refid="item_8h">item.h</innerfile>
     <innerfile refid="json_8h">json.h</innerfile>
     <innerfile refid="liste_8h">liste.h</innerfile>
     <innerfile refid="map_8h">map.h</innerfile>
     <innerfile refid="menu_8h">menu.h</innerfile>
     <innerfile refid="outils__SDL_8h">outils_SDL.h</innerfile>
     <innerfile refid="perlin_8h">perlin.h</innerfile>
-    <innerfile refid="sauvegarde__map_8h">sauvegarde_map.h</innerfile>
     <innerfile refid="structure__block_8h">structure_block.h</innerfile>
     <innerfile refid="touches_8h">touches.h</innerfile>
     <innerfile refid="world__of__dungeons_8h">world_of_dungeons.h</innerfile>

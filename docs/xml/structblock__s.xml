@@ -1,21 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="structblock__s" kind="struct" language="C++" prot="public">
     <compoundname>block_s</compoundname>
       <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="structblock__s_1aa9dd98ce8df8bed4703396a0618131d8" prot="public" static="no" mutable="no">
-        <type>int</type>
-        <definition>int block_s::id</definition>
-        <argsstring></argsstring>
-        <name>id</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/block.h" line="44" column="1" bodyfile="include/block.h" bodystart="44" bodyend="-1"/>
-      </memberdef>
       <memberdef kind="variable" id="structblock__s_1a78f591039c69f901f75461990bd0e343" prot="public" static="no" mutable="no">
         <type>int</type>
         <definition>int block_s::x</definition>
@@ -27,7 +14,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/block.h" line="44" column="1" bodyfile="include/block.h" bodystart="44" bodyend="-1"/>
+        <location file="include/block.h" line="94" column="1" bodyfile="include/block.h" bodystart="94" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structblock__s_1a03e2e847627473292542d6dcd3677ad2" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -40,16 +27,43 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/block.h" line="44" column="1" bodyfile="include/block.h" bodystart="44" bodyend="-1"/>
+        <location file="include/block.h" line="94" column="1" bodyfile="include/block.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structblock__s_1ade13c3cd59b01a44dbf4bbc5e10a9763" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t block_s::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/block.h" line="95" column="1" bodyfile="include/block.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structblock__s_1ab0eb942d9a7f2ed54f87c0a0342d0acc" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t block_s::plan</definition>
+        <argsstring></argsstring>
+        <name>plan</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/block.h" line="95" column="1" bodyfile="include/block.h" bodystart="95" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="include/block.h" line="43" column="1" bodyfile="include/block.h" bodystart="43" bodyend="45"/>
+    <location file="include/block.h" line="93" column="1" bodyfile="include/block.h" bodystart="93" bodyend="96"/>
     <listofallmembers>
-      <member refid="structblock__s_1aa9dd98ce8df8bed4703396a0618131d8" prot="public" virt="non-virtual"><scope>block_s</scope><name>id</name></member>
+      <member refid="structblock__s_1ade13c3cd59b01a44dbf4bbc5e10a9763" prot="public" virt="non-virtual"><scope>block_s</scope><name>id</name></member>
+      <member refid="structblock__s_1ab0eb942d9a7f2ed54f87c0a0342d0acc" prot="public" virt="non-virtual"><scope>block_s</scope><name>plan</name></member>
       <member refid="structblock__s_1a78f591039c69f901f75461990bd0e343" prot="public" virt="non-virtual"><scope>block_s</scope><name>x</name></member>
       <member refid="structblock__s_1a03e2e847627473292542d6dcd3677ad2" prot="public" virt="non-virtual"><scope>block_s</scope><name>y</name></member>
     </listofallmembers>

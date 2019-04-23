@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="structs__salle__donjon" kind="struct" language="C++" prot="public">
     <compoundname>s_salle_donjon</compoundname>
       <sectiondef kind="public-attrib">
@@ -14,7 +14,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/donjon.h" line="16" column="1" bodyfile="include/donjon.h" bodystart="16" bodyend="-1"/>
+        <location file="include/donjon.h" line="44" column="1" bodyfile="include/donjon.h" bodystart="44" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structs__salle__donjon_1a2fe8d01eac3346b4d5bd14706a18bac5" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -27,7 +27,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/donjon.h" line="16" column="1" bodyfile="include/donjon.h" bodystart="16" bodyend="-1"/>
+        <location file="include/donjon.h" line="44" column="1" bodyfile="include/donjon.h" bodystart="44" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structs__salle__donjon_1ae1bf291229a587b51c9bf6884d87aaa6" prot="public" static="no" mutable="no">
         <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
@@ -40,7 +40,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/donjon.h" line="17" column="1" bodyfile="include/donjon.h" bodystart="17" bodyend="-1"/>
+        <location file="include/donjon.h" line="45" column="1" bodyfile="include/donjon.h" bodystart="45" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structs__salle__donjon_1a10c32aa69ef9513c44b7e18e4411fa32" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -53,7 +53,59 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/donjon.h" line="18" column="1" bodyfile="include/donjon.h" bodystart="18" bodyend="-1"/>
+        <location file="include/donjon.h" line="46" column="1" bodyfile="include/donjon.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__salle__donjon_1ae683d4acf9b1aef747fd8fe8b914e010" prot="public" static="no" mutable="no">
+        <type>t_type_salle_donjon</type>
+        <definition>t_type_salle_donjon s_salle_donjon::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/donjon.h" line="48" column="1" bodyfile="include/donjon.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__salle__donjon_1aedef8a54378268a037878e4a68709551" prot="public" static="no" mutable="no">
+        <type>t_salle_difficulte</type>
+        <definition>t_salle_difficulte s_salle_donjon::difficulte</definition>
+        <argsstring></argsstring>
+        <name>difficulte</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/donjon.h" line="49" column="1" bodyfile="include/donjon.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__salle__donjon_1a1fcf229e9fd39046fd45515a5f16aa9a" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool s_salle_donjon::completed</definition>
+        <argsstring></argsstring>
+        <name>completed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/donjon.h" line="51" column="1" bodyfile="include/donjon.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__salle__donjon_1a9e69b5bb853e09da4f981e138859cfde" prot="public" static="no" mutable="no">
+        <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+        <definition>t_liste* s_salle_donjon::mob</definition>
+        <argsstring></argsstring>
+        <name>mob</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/donjon.h" line="52" column="1" bodyfile="include/donjon.h" bodystart="52" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -61,21 +113,26 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="28">
+      <node id="53">
         <label>t_liste</label>
         <link refid="structt__liste"/>
       </node>
-      <node id="27">
+      <node id="52">
         <label>s_salle_donjon</label>
         <link refid="structs__salle__donjon"/>
-        <childnode refid="28" relation="usage">
+        <childnode refid="53" relation="usage">
           <edgelabel>structure</edgelabel>
+          <edgelabel>mob</edgelabel>
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="include/donjon.h" line="15" column="1" bodyfile="include/donjon.h" bodystart="15" bodyend="19"/>
+    <location file="include/donjon.h" line="43" column="1" bodyfile="include/donjon.h" bodystart="43" bodyend="53"/>
     <listofallmembers>
+      <member refid="structs__salle__donjon_1a1fcf229e9fd39046fd45515a5f16aa9a" prot="public" virt="non-virtual"><scope>s_salle_donjon</scope><name>completed</name></member>
+      <member refid="structs__salle__donjon_1aedef8a54378268a037878e4a68709551" prot="public" virt="non-virtual"><scope>s_salle_donjon</scope><name>difficulte</name></member>
+      <member refid="structs__salle__donjon_1a9e69b5bb853e09da4f981e138859cfde" prot="public" virt="non-virtual"><scope>s_salle_donjon</scope><name>mob</name></member>
       <member refid="structs__salle__donjon_1ae1bf291229a587b51c9bf6884d87aaa6" prot="public" virt="non-virtual"><scope>s_salle_donjon</scope><name>structure</name></member>
+      <member refid="structs__salle__donjon_1ae683d4acf9b1aef747fd8fe8b914e010" prot="public" virt="non-virtual"><scope>s_salle_donjon</scope><name>type</name></member>
       <member refid="structs__salle__donjon_1a10c32aa69ef9513c44b7e18e4411fa32" prot="public" virt="non-virtual"><scope>s_salle_donjon</scope><name>voisin</name></member>
       <member refid="structs__salle__donjon_1a77e2dd7841d45e12649c8a3715800a5d" prot="public" virt="non-virtual"><scope>s_salle_donjon</scope><name>x</name></member>
       <member refid="structs__salle__donjon_1a2fe8d01eac3346b4d5bd14706a18bac5" prot="public" virt="non-virtual"><scope>s_salle_donjon</scope><name>y</name></member>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="outils__SDL_8h" kind="file" language="C++">
     <compoundname>outils_SDL.h</compoundname>
     <includes local="no">SDL2/SDL.h</includes>
@@ -8,64 +8,72 @@
     <includedby refid="block_8c" local="no">src/block.c</includedby>
     <includedby refid="donjon_8c" local="no">src/donjon.c</includedby>
     <includedby refid="entite_8c" local="no">src/entite.c</includedby>
+    <includedby refid="inventaire_8c" local="no">src/inventaire.c</includedby>
+    <includedby refid="item_8c" local="no">src/item.c</includedby>
     <includedby refid="menu_8c" local="no">src/menu.c</includedby>
     <includedby refid="outils__SDL_8c" local="no">src/outils_SDL.c</includedby>
+    <includedby refid="world__of__dungeons_8c" local="no">src/world_of_dungeons.c</includedby>
     <incdepgraph>
-      <node id="200">
-        <label>include/outils_SDL.h</label>
-        <link refid="outils__SDL_8h"/>
-        <childnode refid="201" relation="include">
-        </childnode>
-        <childnode refid="202" relation="include">
-        </childnode>
-      </node>
-      <node id="201">
-        <label>SDL2/SDL.h</label>
-      </node>
-      <node id="202">
+      <node id="296">
         <label>erreur.h</label>
         <link refid="erreur_8h"/>
       </node>
+      <node id="294">
+        <label>include/outils_SDL.h</label>
+        <link refid="outils__SDL_8h"/>
+        <childnode refid="295" relation="include">
+        </childnode>
+        <childnode refid="296" relation="include">
+        </childnode>
+      </node>
+      <node id="295">
+        <label>SDL2/SDL.h</label>
+      </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="206">
-        <label>src/donjon.c</label>
-        <link refid="donjon_8c"/>
-      </node>
-      <node id="208">
+      <node id="302">
         <label>src/menu.c</label>
         <link refid="menu_8c"/>
       </node>
-      <node id="205">
+      <node id="299">
         <label>src/block.c</label>
         <link refid="block_8c"/>
       </node>
-      <node id="203">
+      <node id="297">
         <label>include/outils_SDL.h</label>
         <link refid="outils__SDL_8h"/>
-        <childnode refid="204" relation="include">
+        <childnode refid="298" relation="include">
         </childnode>
-        <childnode refid="205" relation="include">
+        <childnode refid="299" relation="include">
         </childnode>
-        <childnode refid="206" relation="include">
+        <childnode refid="300" relation="include">
         </childnode>
-        <childnode refid="207" relation="include">
+        <childnode refid="301" relation="include">
         </childnode>
-        <childnode refid="208" relation="include">
+        <childnode refid="302" relation="include">
+        </childnode>
+        <childnode refid="303" relation="include">
         </childnode>
       </node>
-      <node id="204">
+      <node id="300">
+        <label>src/donjon.c</label>
+        <link refid="donjon_8c"/>
+      </node>
+      <node id="298">
         <label>src/affichage.c</label>
         <link refid="affichage_8c"/>
       </node>
-      <node id="207">
+      <node id="303">
+        <label>src/outils_SDL.c</label>
+        <link refid="outils__SDL_8c"/>
+      </node>
+      <node id="301">
         <label>src/entite.c</label>
         <link refid="entite_8c"/>
       </node>
     </invincdepgraph>
       <sectiondef kind="enum">
-      <memberdef kind="enum" id="outils__SDL_8h_1aad26427a7d324174e4d65a8e4d2399e9" prot="public" static="no" strong="no">
-        <type></type>
+      <memberdef kind="enum" id="outils__SDL_8h_1aad26427a7d324174e4d65a8e4d2399e9" prot="public" static="no">
         <name>e_type_dessin_texte</name>
         <enumvalue id="outils__SDL_8h_1aad26427a7d324174e4d65a8e4d2399e9a1b45f84e1f6603b52e5ef442836df9af" prot="public">
           <name>SOLID</name>
@@ -94,7 +102,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/outils_SDL.h" line="14" column="1" bodyfile="include/outils_SDL.h" bodystart="14" bodyend="18"/>
+        <location file="include/outils_SDL.h" line="18" column="1" bodyfile="include/outils_SDL.h" bodystart="18" bodyend="22"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="typedef">
@@ -109,7 +117,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/outils_SDL.h" line="18" column="1"/>
+        <location file="include/outils_SDL.h" line="22" column="1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -159,7 +167,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/outils_SDL.h" line="20" column="1" bodyfile="src/outils_SDL.c" bodystart="26" bodyend="49"/>
+        <location file="include/outils_SDL.h" line="24" column="1" bodyfile="src/outils_SDL.c" bodystart="26" bodyend="49"/>
       </memberdef>
       <memberdef kind="function" id="outils__SDL_8h_1a05fb01fd866f77718813d6fce20670c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>t_erreur</type>
@@ -251,13 +259,16 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/outils_SDL.h" line="21" column="1" bodyfile="src/outils_SDL.c" bodystart="63" bodyend="101"/>
+        <location file="include/outils_SDL.h" line="25" column="1" bodyfile="src/outils_SDL.c" bodystart="63" bodyend="105"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
-    </briefdescription>
+<para>Contient une boite à outils de primitives de fonctions SDL. </para>    </briefdescription>
     <detaileddescription>
-    </detaileddescription>
+<para><simplesect kind="author"><para>Jasmin GALBRUN </para></simplesect>
+<simplesect kind="date"><para>09/03/2019 </para></simplesect>
+<simplesect kind="version"><para>1 </para></simplesect>
+</para>    </detaileddescription>
     <programlisting>
 <codeline lineno="1"></codeline>
 <codeline lineno="8"><highlight class="preprocessor">#ifndef<sp/>__OUTILS_SDL_H__</highlight><highlight class="normal"></highlight></codeline>
@@ -266,16 +277,16 @@
 <codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;SDL2/SDL.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="erreur_8h" kindref="compound">erreur.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="13"><highlight class="normal"></highlight></codeline>
-<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>e_type_dessin_texte{</highlight></codeline>
-<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>SOLID,</highlight></codeline>
-<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>SHADED,</highlight></codeline>
-<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>BLENDED</highlight></codeline>
-<codeline lineno="18"><highlight class="normal">}t_type_dessin_texte;</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight></codeline>
-<codeline lineno="20"><highlight class="normal">t_erreur<sp/>Create_IMG_Texture(SDL_Renderer<sp/>*<sp/>renderer,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>chemin_img,<sp/>SDL_Texture<sp/>*<sp/>*texture_dest);</highlight></codeline>
-<codeline lineno="21"><highlight class="normal">t_erreur<sp/>Create_Text_Texture(SDL_Renderer<sp/>*<sp/>renderer,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>texte,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>chemin_police,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>taille_police,<sp/>SDL_Color<sp/>couleur,<sp/>t_type_dessin_texte<sp/>type,<sp/>SDL_Texture<sp/>*<sp/>*texture_dest);</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"></highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="18"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>e_type_dessin_texte{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>SOLID,</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>SHADED,</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>BLENDED</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">}t_type_dessin_texte;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal">t_erreur<sp/><ref refid="outils__SDL_8h_1a17717a1787c318f04c2b3050aad4c319" kindref="member">Create_IMG_Texture</ref>(SDL_Renderer<sp/>*<sp/>renderer,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>chemin_img,<sp/>SDL_Texture<sp/>*<sp/>*texture_dest);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">t_erreur<sp/><ref refid="outils__SDL_8h_1a05fb01fd866f77718813d6fce20670c1" kindref="member">Create_Text_Texture</ref>(SDL_Renderer<sp/>*<sp/>renderer,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>texte,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>chemin_police,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>taille_police,<sp/>SDL_Color<sp/>couleur,<sp/>t_type_dessin_texte<sp/>type,<sp/>SDL_Texture<sp/>*<sp/>*texture_dest);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="include/outils_SDL.h"/>
   </compounddef>

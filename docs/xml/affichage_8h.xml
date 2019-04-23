@@ -1,21 +1,13 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="affichage_8h" kind="file" language="C++">
     <compoundname>affichage.h</compoundname>
     <includes refid="liste_8h" local="no">liste.h</includes>
     <includes local="no">SDL2/SDL.h</includes>
+    <includedby refid="donjon_8c" local="no">src/donjon.c</includedby>
     <includedby refid="map_8c" local="no">src/map.c</includedby>
     <includedby refid="world__of__dungeons_8c" local="no">src/world_of_dungeons.c</includedby>
     <incdepgraph>
-      <node id="1">
-        <label>liste.h</label>
-        <link refid="liste_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-      </node>
-      <node id="3">
-        <label>SDL2/SDL.h</label>
-      </node>
       <node id="2">
         <label>erreur.h</label>
         <link refid="erreur_8h"/>
@@ -28,12 +20,17 @@
         <childnode refid="3" relation="include">
         </childnode>
       </node>
+      <node id="1">
+        <label>liste.h</label>
+        <link refid="liste_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>SDL2/SDL.h</label>
+      </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="6">
-        <label>src/world_of_dungeons.c</label>
-        <link refid="world__of__dungeons_8c"/>
-      </node>
       <node id="4">
         <label>include/affichage.h</label>
         <link refid="affichage_8h"/>
@@ -42,9 +39,13 @@
         <childnode refid="6" relation="include">
         </childnode>
       </node>
-      <node id="5">
+      <node id="6">
         <label>src/map.c</label>
         <link refid="map_8c"/>
+      </node>
+      <node id="5">
+        <label>src/donjon.c</label>
+        <link refid="donjon_8c"/>
       </node>
     </invincdepgraph>
       <sectiondef kind="func">
@@ -72,7 +73,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/affichage.h" line="16" column="1" bodyfile="src/affichage.c" bodystart="25" bodyend="25"/>
+        <location file="include/affichage.h" line="16" column="1" bodyfile="src/affichage.c" bodystart="25" bodyend="27"/>
       </memberdef>
       <memberdef kind="function" id="affichage_8h_1a1bc8c979188d7c9dce4ececfc56a551c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -98,7 +99,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/affichage.h" line="17" column="1" bodyfile="src/affichage.c" bodystart="34" bodyend="50"/>
+        <location file="include/affichage.h" line="17" column="1" bodyfile="src/affichage.c" bodystart="36" bodyend="52"/>
       </memberdef>
       <memberdef kind="function" id="affichage_8h_1a8317142dd0b92ca5481d2263c4475ca2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -146,7 +147,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/affichage.h" line="19" column="1" bodyfile="src/affichage.c" bodystart="60" bodyend="83"/>
+        <location file="include/affichage.h" line="19" column="1" bodyfile="src/affichage.c" bodystart="62" bodyend="85"/>
       </memberdef>
       <memberdef kind="function" id="affichage_8h_1ab1833fe0bc53d1fbb83d155b40724f56" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -194,7 +195,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/affichage.h" line="22" column="1" bodyfile="src/affichage.c" bodystart="93" bodyend="104"/>
+        <location file="include/affichage.h" line="22" column="1" bodyfile="src/affichage.c" bodystart="95" bodyend="106"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

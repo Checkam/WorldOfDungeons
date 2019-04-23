@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="structs__map" kind="struct" language="C++" prot="public">
     <compoundname>s_map</compoundname>
       <sectiondef kind="public-attrib">
@@ -14,7 +14,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/map.h" line="22" column="1" bodyfile="include/map.h" bodystart="22" bodyend="-1"/>
+        <location file="include/map.h" line="23" column="1" bodyfile="include/map.h" bodystart="23" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structs__map_1ac4f52200210d1e78a779bd17505aa821" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -27,7 +27,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/map.h" line="23" column="1" bodyfile="include/map.h" bodystart="23" bodyend="-1"/>
+        <location file="include/map.h" line="24" column="1" bodyfile="include/map.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structs__map_1a9b50132d7348b567350c95eb78f83bff" prot="public" static="no" mutable="no">
+        <type><ref refid="structt__entite" kindref="compound">t_entite</ref> *</type>
+        <definition>t_entite* s_map::joueur</definition>
+        <argsstring></argsstring>
+        <name>joueur</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/map.h" line="25" column="1" bodyfile="include/map.h" bodystart="25" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structs__map_1a0014bbd4846d6ef5babe9e3980a5cda4" prot="public" static="no" mutable="no">
         <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
@@ -40,7 +53,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/map.h" line="24" column="1" bodyfile="include/map.h" bodystart="24" bodyend="-1"/>
+        <location file="include/map.h" line="26" column="1" bodyfile="include/map.h" bodystart="26" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -48,20 +61,28 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="21">
+      <node id="45">
         <label>s_map</label>
         <link refid="structs__map"/>
-        <childnode refid="22" relation="usage">
+        <childnode refid="46" relation="usage">
           <edgelabel>list</edgelabel>
         </childnode>
+        <childnode refid="47" relation="usage">
+          <edgelabel>joueur</edgelabel>
+        </childnode>
       </node>
-      <node id="22">
+      <node id="46">
         <label>t_liste</label>
         <link refid="structt__liste"/>
       </node>
+      <node id="47">
+        <label>t_entite</label>
+        <link refid="structt__entite"/>
+      </node>
     </collaborationgraph>
-    <location file="include/map.h" line="21" column="1" bodyfile="include/map.h" bodystart="21" bodyend="25"/>
+    <location file="include/map.h" line="22" column="1" bodyfile="include/map.h" bodystart="22" bodyend="27"/>
     <listofallmembers>
+      <member refid="structs__map_1a9b50132d7348b567350c95eb78f83bff" prot="public" virt="non-virtual"><scope>s_map</scope><name>joueur</name></member>
       <member refid="structs__map_1a0014bbd4846d6ef5babe9e3980a5cda4" prot="public" virt="non-virtual"><scope>s_map</scope><name>list</name></member>
       <member refid="structs__map_1a6e477491ca38a20e97858e4bfc15bb76" prot="public" virt="non-virtual"><scope>s_map</scope><name>nom</name></member>
       <member refid="structs__map_1ac4f52200210d1e78a779bd17505aa821" prot="public" virt="non-virtual"><scope>s_map</scope><name>SEED</name></member>

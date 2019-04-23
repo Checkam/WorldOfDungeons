@@ -1,137 +1,383 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="world__of__dungeons_8c" kind="file" language="C++">
     <compoundname>world_of_dungeons.c</compoundname>
     <includes local="no">SDL2/SDL.h</includes>
+    <includes local="no">SDL2/SDL_ttf.h</includes>
     <includes refid="affichage_8h" local="no">affichage.h</includes>
+    <includes refid="biome_8h" local="no">biome.h</includes>
     <includes refid="block_8h" local="no">block.h</includes>
+    <includes refid="chemin_8h" local="no">chemin.h</includes>
     <includes refid="commun_8h" local="no">commun.h</includes>
     <includes refid="couleurs_8h" local="no">couleurs.h</includes>
+    <includes refid="donjon_8h" local="no">donjon.h</includes>
+    <includes refid="entite_8h" local="no">entite.h</includes>
+    <includes refid="fps_8h" local="no">fps.h</includes>
     <includes refid="generation_8h" local="no">generation.h</includes>
+    <includes refid="inventaire_8h" local="no">inventaire.h</includes>
+    <includes refid="item_8h" local="no">item.h</includes>
     <includes refid="liste_8h" local="no">liste.h</includes>
+    <includes refid="map_8h" local="no">map.h</includes>
     <includes local="no">math.h</includes>
-    <includes refid="sauvegarde__map_8h" local="no">sauvegarde_map.h</includes>
+    <includes refid="menu_8h" local="no">menu.h</includes>
+    <includes refid="outils__SDL_8h" local="no">outils_SDL.h</includes>
     <includes local="no">signal.h</includes>
     <includes local="no">stdio.h</includes>
     <includes local="no">stdlib.h</includes>
+    <includes local="no">string.h</includes>
+    <includes refid="structure__block_8h" local="no">structure_block.h</includes>
     <includes local="no">time.h</includes>
+    <includes refid="touches_8h" local="no">touches.h</includes>
     <includes refid="world__of__dungeons_8h" local="no">world_of_dungeons.h</includes>
+    <includes refid="game__init_8h" local="no">game_init.h</includes>
+    <includes refid="game__quit_8h" local="no">game_quit.h</includes>
     <incdepgraph>
-      <node id="466">
-        <label>generation.h</label>
-        <link refid="generation_8h"/>
-        <childnode refid="463" relation="include">
-        </childnode>
+      <node id="650">
+        <label>stdbool.h</label>
       </node>
-      <node id="465">
-        <label>commun.h</label>
-        <link refid="commun_8h_source"/>
+      <node id="654">
+        <label>assert.h</label>
       </node>
-      <node id="471">
-        <label>stdlib.h</label>
-      </node>
-      <node id="461">
-        <label>liste.h</label>
-        <link refid="liste_8h"/>
-        <childnode refid="462" relation="include">
-        </childnode>
-      </node>
-      <node id="464">
-        <label>couleurs.h</label>
-        <link refid="couleurs_8h_source"/>
-      </node>
-      <node id="459">
-        <label>SDL2/SDL.h</label>
-      </node>
-      <node id="458">
-        <label>src/world_of_dungeons.c</label>
-        <link refid="world__of__dungeons_8c"/>
-        <childnode refid="459" relation="include">
-        </childnode>
-        <childnode refid="460" relation="include">
-        </childnode>
-        <childnode refid="463" relation="include">
-        </childnode>
-        <childnode refid="465" relation="include">
-        </childnode>
-        <childnode refid="464" relation="include">
-        </childnode>
-        <childnode refid="466" relation="include">
-        </childnode>
-        <childnode refid="461" relation="include">
-        </childnode>
-        <childnode refid="467" relation="include">
-        </childnode>
-        <childnode refid="468" relation="include">
-        </childnode>
-        <childnode refid="469" relation="include">
-        </childnode>
-        <childnode refid="470" relation="include">
-        </childnode>
-        <childnode refid="471" relation="include">
-        </childnode>
-        <childnode refid="472" relation="include">
-        </childnode>
-        <childnode refid="473" relation="include">
-        </childnode>
-      </node>
-      <node id="469">
-        <label>signal.h</label>
-      </node>
-      <node id="462">
+      <node id="639">
         <label>erreur.h</label>
         <link refid="erreur_8h"/>
       </node>
-      <node id="473">
+      <node id="660">
+        <label>menu.h</label>
+        <link refid="menu_8h"/>
+        <childnode refid="635" relation="include">
+        </childnode>
+        <childnode refid="650" relation="include">
+        </childnode>
+        <childnode refid="639" relation="include">
+        </childnode>
+      </node>
+      <node id="657">
+        <label>stdint.h</label>
+      </node>
+      <node id="649">
+        <label>SDL2/SDL_image.h</label>
+      </node>
+      <node id="648">
+        <label>stdlib.h</label>
+      </node>
+      <node id="637">
+        <label>affichage.h</label>
+        <link refid="affichage_8h"/>
+        <childnode refid="638" relation="include">
+        </childnode>
+        <childnode refid="635" relation="include">
+        </childnode>
+      </node>
+      <node id="665">
+        <label>touches.h</label>
+        <link refid="touches_8h_source"/>
+        <childnode refid="657" relation="include">
+        </childnode>
+      </node>
+      <node id="668">
+        <label>game_quit.h</label>
+        <link refid="game__quit_8h_source"/>
+      </node>
+      <node id="658">
+        <label>map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="639" relation="include">
+        </childnode>
+        <childnode refid="638" relation="include">
+        </childnode>
+        <childnode refid="642" relation="include">
+        </childnode>
+        <childnode refid="646" relation="include">
+        </childnode>
+      </node>
+      <node id="653">
+        <label>inventaire.h</label>
+        <link refid="inventaire_8h_source"/>
+        <childnode refid="635" relation="include">
+        </childnode>
+        <childnode refid="654" relation="include">
+        </childnode>
+        <childnode refid="655" relation="include">
+        </childnode>
+        <childnode refid="648" relation="include">
+        </childnode>
+        <childnode refid="638" relation="include">
+        </childnode>
+        <childnode refid="644" relation="include">
+        </childnode>
+      </node>
+      <node id="664">
+        <label>structure_block.h</label>
+        <link refid="structure__block_8h"/>
+        <childnode refid="641" relation="include">
+        </childnode>
+        <childnode refid="642" relation="include">
+        </childnode>
+        <childnode refid="640" relation="include">
+        </childnode>
+        <childnode refid="658" relation="include">
+        </childnode>
+      </node>
+      <node id="642">
+        <label>block.h</label>
+        <link refid="block_8h"/>
+        <childnode refid="643" relation="include">
+        </childnode>
+        <childnode refid="635" relation="include">
+        </childnode>
+        <childnode refid="639" relation="include">
+        </childnode>
+      </node>
+      <node id="638">
+        <label>liste.h</label>
+        <link refid="liste_8h"/>
+        <childnode refid="639" relation="include">
+        </childnode>
+      </node>
+      <node id="661">
+        <label>outils_SDL.h</label>
+        <link refid="outils__SDL_8h"/>
+        <childnode refid="635" relation="include">
+        </childnode>
+        <childnode refid="639" relation="include">
+        </childnode>
+      </node>
+      <node id="643">
+        <label>couleurs.h</label>
+        <link refid="couleurs_8h_source"/>
+      </node>
+      <node id="651">
+        <label>fps.h</label>
+        <link refid="fps_8h_source"/>
+      </node>
+      <node id="635">
+        <label>SDL2/SDL.h</label>
+      </node>
+      <node id="646">
+        <label>entite.h</label>
+        <link refid="entite_8h"/>
+        <childnode refid="647" relation="include">
+        </childnode>
+        <childnode refid="648" relation="include">
+        </childnode>
+        <childnode refid="635" relation="include">
+        </childnode>
+        <childnode refid="649" relation="include">
+        </childnode>
+        <childnode refid="636" relation="include">
+        </childnode>
+        <childnode refid="644" relation="include">
+        </childnode>
+        <childnode refid="639" relation="include">
+        </childnode>
+        <childnode refid="641" relation="include">
+        </childnode>
+        <childnode refid="638" relation="include">
+        </childnode>
+      </node>
+      <node id="663">
+        <label>string.h</label>
+      </node>
+      <node id="634">
+        <label>src/world_of_dungeons.c</label>
+        <link refid="world__of__dungeons_8c"/>
+        <childnode refid="635" relation="include">
+        </childnode>
+        <childnode refid="636" relation="include">
+        </childnode>
+        <childnode refid="637" relation="include">
+        </childnode>
+        <childnode refid="640" relation="include">
+        </childnode>
+        <childnode refid="642" relation="include">
+        </childnode>
+        <childnode refid="644" relation="include">
+        </childnode>
+        <childnode refid="641" relation="include">
+        </childnode>
+        <childnode refid="643" relation="include">
+        </childnode>
+        <childnode refid="645" relation="include">
+        </childnode>
+        <childnode refid="646" relation="include">
+        </childnode>
+        <childnode refid="651" relation="include">
+        </childnode>
+        <childnode refid="652" relation="include">
+        </childnode>
+        <childnode refid="653" relation="include">
+        </childnode>
+        <childnode refid="655" relation="include">
+        </childnode>
+        <childnode refid="638" relation="include">
+        </childnode>
+        <childnode refid="658" relation="include">
+        </childnode>
+        <childnode refid="659" relation="include">
+        </childnode>
+        <childnode refid="660" relation="include">
+        </childnode>
+        <childnode refid="661" relation="include">
+        </childnode>
+        <childnode refid="662" relation="include">
+        </childnode>
+        <childnode refid="647" relation="include">
+        </childnode>
+        <childnode refid="648" relation="include">
+        </childnode>
+        <childnode refid="663" relation="include">
+        </childnode>
+        <childnode refid="664" relation="include">
+        </childnode>
+        <childnode refid="656" relation="include">
+        </childnode>
+        <childnode refid="665" relation="include">
+        </childnode>
+        <childnode refid="666" relation="include">
+        </childnode>
+        <childnode refid="667" relation="include">
+        </childnode>
+        <childnode refid="668" relation="include">
+        </childnode>
+      </node>
+      <node id="667">
+        <label>game_init.h</label>
+        <link refid="game__init_8h_source"/>
+      </node>
+      <node id="655">
+        <label>item.h</label>
+        <link refid="item_8h_source"/>
+        <childnode refid="642" relation="include">
+        </childnode>
+        <childnode refid="656" relation="include">
+        </childnode>
+        <childnode refid="657" relation="include">
+        </childnode>
+        <childnode refid="644" relation="include">
+        </childnode>
+      </node>
+      <node id="641">
+        <label>commun.h</label>
+        <link refid="commun_8h_source"/>
+      </node>
+      <node id="662">
+        <label>signal.h</label>
+      </node>
+      <node id="640">
+        <label>biome.h</label>
+        <link refid="biome_8h"/>
+        <childnode refid="641" relation="include">
+        </childnode>
+        <childnode refid="642" relation="include">
+        </childnode>
+        <childnode refid="638" relation="include">
+        </childnode>
+      </node>
+      <node id="666">
         <label>world_of_dungeons.h</label>
         <link refid="world__of__dungeons_8h_source"/>
       </node>
-      <node id="460">
-        <label>affichage.h</label>
-        <link refid="affichage_8h"/>
-        <childnode refid="461" relation="include">
-        </childnode>
-        <childnode refid="459" relation="include">
-        </childnode>
-      </node>
-      <node id="472">
+      <node id="656">
         <label>time.h</label>
       </node>
-      <node id="467">
+      <node id="659">
         <label>math.h</label>
       </node>
-      <node id="468">
-        <label>sauvegarde_map.h</label>
-        <link refid="sauvegarde__map_8h_source"/>
+      <node id="644">
+        <label>chemin.h</label>
+        <link refid="chemin_8h"/>
+        <childnode refid="638" relation="include">
+        </childnode>
+        <childnode refid="639" relation="include">
+        </childnode>
       </node>
-      <node id="470">
+      <node id="647">
         <label>stdio.h</label>
       </node>
-      <node id="463">
-        <label>block.h</label>
-        <link refid="block_8h"/>
-        <childnode refid="464" relation="include">
+      <node id="645">
+        <label>donjon.h</label>
+        <link refid="donjon_8h"/>
+        <childnode refid="639" relation="include">
         </childnode>
-        <childnode refid="459" relation="include">
+        <childnode refid="638" relation="include">
         </childnode>
-        <childnode refid="462" relation="include">
+        <childnode refid="635" relation="include">
+        </childnode>
+        <childnode refid="646" relation="include">
+        </childnode>
+        <childnode refid="650" relation="include">
+        </childnode>
+      </node>
+      <node id="636">
+        <label>SDL2/SDL_ttf.h</label>
+      </node>
+      <node id="652">
+        <label>generation.h</label>
+        <link refid="generation_8h"/>
+        <childnode refid="642" relation="include">
         </childnode>
       </node>
     </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="world__of__dungeons_8c_1ad72dbcf6d0153db1b8d8a58001feed83" prot="public" static="no">
+        <name>DEBUG</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/world_of_dungeons.c" line="9" column="9" bodyfile="src/world_of_dungeons.c" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="world__of__dungeons_8c_1a4d87cdebe488d2a639b1598f30d85044" prot="public" static="no">
+        <name>calX_Souris</name>
+        <param><defname>map</defname></param>
+        <param><defname>x_mouse</defname></param>
+        <initializer>((x_mouse / width_block_sdl) + ((map-&gt;joueur-&gt;hitbox.x) / width_block_sdl) - (SIZE / 2))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/world_of_dungeons.c" line="38" column="9" bodyfile="src/world_of_dungeons.c" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="world__of__dungeons_8c_1a89d44e8d75cf03a6943232bb7cdec0d2" prot="public" static="no">
+        <name>calY_Souris</name>
+        <param><defname>map</defname></param>
+        <param><defname>y_mouse</defname></param>
+        <initializer>(MAX_SCREEN - (y_mouse / height_block_sdl) + (map-&gt;joueur-&gt;hitbox.y / height_block_sdl) - (POSY_ENT_SCREEN(map-&gt;joueur) / height_block_sdl) - 2)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/world_of_dungeons.c" line="39" column="9" bodyfile="src/world_of_dungeons.c" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
       <sectiondef kind="func">
-      <memberdef kind="function" id="world__of__dungeons_8c_1abf9e6b7e6f15df4b525a2e7705ba3089" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>int</type>
-        <definition>int main</definition>
-        <argsstring>(int argc, char const *argv[])</argsstring>
-        <name>main</name>
+      <memberdef kind="function" id="world__of__dungeons_8c_1aa650f84156e5b64f9d8313094675bfb8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void entre_donjon</definition>
+        <argsstring>(SDL_Renderer *renderer, t_map *map, uint8_t *ks, configTouches_t *ct)</argsstring>
+        <name>entre_donjon</name>
         <param>
-          <type>int</type>
-          <declname>argc</declname>
+          <type>SDL_Renderer *</type>
+          <declname>renderer</declname>
         </param>
         <param>
-          <type>char const *</type>
-          <declname>argv</declname>
-          <array>[]</array>
+          <type><ref refid="structt__map" kindref="compound">t_map</ref> *</type>
+          <declname>map</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>ks</declname>
+        </param>
+        <param>
+          <type><ref refid="structconfigTouches__s" kindref="compound">configTouches_t</ref> *</type>
+          <declname>ct</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -139,38 +385,479 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/world_of_dungeons.c" line="24" column="1" bodyfile="src/world_of_dungeons.c" bodystart="24" bodyend="28"/>
+        <location file="src/world_of_dungeons.c" line="42" column="1" bodyfile="src/world_of_dungeons.c" bodystart="42" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="world__of__dungeons_8c_1ab2ffa067a6e8f5dba6144a80f8559b74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void test_souris</definition>
+        <argsstring>(t_map *map, uint8_t *ks, t_inventaire *inventaire, t_liste *liste)</argsstring>
+        <name>test_souris</name>
+        <param>
+          <type><ref refid="structt__map" kindref="compound">t_map</ref> *</type>
+          <declname>map</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>ks</declname>
+        </param>
+        <param>
+          <type><ref refid="structinventaire__s" kindref="compound">t_inventaire</ref> *</type>
+          <declname>inventaire</declname>
+        </param>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>liste</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/world_of_dungeons.c" line="79" column="1" bodyfile="src/world_of_dungeons.c" bodystart="79" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="world__of__dungeons_8c_1acf17d1f0a44b72e7033b412503d017c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char *</type>
+        <definition>char* InputText</definition>
+        <argsstring>(SDL_Renderer *renderer, char *titre)</argsstring>
+        <name>InputText</name>
+        <param>
+          <type>SDL_Renderer *</type>
+          <declname>renderer</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>titre</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/world_of_dungeons.c" line="114" column="1" bodyfile="src/world_of_dungeons.c" bodystart="114" bodyend="177"/>
+      </memberdef>
+      <memberdef kind="function" id="world__of__dungeons_8c_1a7d39ad7fcb8cc79658f6e327a3fdfe41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void startPlayMap</definition>
+        <argsstring>(t_map *map, SDL_Renderer *renderer)</argsstring>
+        <name>startPlayMap</name>
+        <param>
+          <type><ref refid="structt__map" kindref="compound">t_map</ref> *</type>
+          <declname>map</declname>
+        </param>
+        <param>
+          <type>SDL_Renderer *</type>
+          <declname>renderer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/world_of_dungeons.c" line="179" column="1" bodyfile="src/world_of_dungeons.c" bodystart="179" bodyend="251"/>
+      </memberdef>
+      <memberdef kind="function" id="world__of__dungeons_8c_1a1aabce0760eec882190c6639111cdddb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int main</definition>
+        <argsstring>(int argc, char *argv[], char **env)</argsstring>
+        <name>main</name>
+        <param>
+          <type>int</type>
+          <declname>argc</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>argv</declname>
+          <array>[]</array>
+        </param>
+        <param>
+          <type>char **</type>
+          <declname>env</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/world_of_dungeons.c" line="253" column="1" bodyfile="src/world_of_dungeons.c" bodystart="253" bodyend="375"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
-<para>Fichier main du projet World Of Dungeons. </para>    </briefdescription>
+    </briefdescription>
     <detaileddescription>
-<para><simplesect kind="author"><para>{Maxence.D, Jasmin.G, Tibane.G, Mathieu.V} </para></simplesect>
-<simplesect kind="version"><para>0.1 </para></simplesect>
-<simplesect kind="date"><para>30 Janvier 2019 </para></simplesect>
-</para>    </detaileddescription>
+    </detaileddescription>
     <programlisting>
 <codeline lineno="1"></codeline>
-<codeline lineno="9"><highlight class="preprocessor">#include<sp/>&lt;SDL2/SDL.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="affichage_8h" kindref="compound">affichage.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="block_8h" kindref="compound">block.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;commun.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;couleurs.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="generation_8h" kindref="compound">generation.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="liste_8h" kindref="compound">liste.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;math.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sauvegarde_map.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;signal.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;time.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;world_of_dungeons.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight></codeline>
-<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*argv[])<sp/>{</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"></highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Programme<sp/>main<sp/>a<sp/>faire<sp/></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
-<codeline lineno="28"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="9"><highlight class="preprocessor">#define<sp/>DEBUG</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;SDL2/SDL.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;SDL2/SDL_ttf.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="affichage_8h" kindref="compound">affichage.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="biome_8h" kindref="compound">biome.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="block_8h" kindref="compound">block.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="chemin_8h" kindref="compound">chemin.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;commun.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;couleurs.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="donjon_8h" kindref="compound">donjon.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="entite_8h" kindref="compound">entite.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fps.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="generation_8h" kindref="compound">generation.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;inventaire.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;item.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="liste_8h" kindref="compound">liste.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="map_8h" kindref="compound">map.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;math.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="menu_8h" kindref="compound">menu.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="outils__SDL_8h" kindref="compound">outils_SDL.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;signal.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="structure__block_8h" kindref="compound">structure_block.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;time.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;touches.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;world_of_dungeons.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>calX_Souris(map,<sp/>x_mouse)<sp/>((x_mouse<sp/>/<sp/>width_block_sdl)<sp/>+<sp/>((map-&gt;joueur-&gt;hitbox.x)<sp/>/<sp/>width_block_sdl)<sp/>-<sp/>(SIZE<sp/>/<sp/>2))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>calY_Souris(map,<sp/>y_mouse)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="40"><highlight class="preprocessor"><sp/><sp/>(MAX_SCREEN<sp/>-<sp/>(y_mouse<sp/>/<sp/>height_block_sdl)<sp/>+<sp/>(map-&gt;joueur-&gt;hitbox.y<sp/>/<sp/>height_block_sdl)<sp/>-<sp/>(POSY_ENT_SCREEN(map-&gt;joueur)<sp/>/<sp/>height_block_sdl)<sp/>-<sp/>2)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>entre_donjon(SDL_Renderer<sp/>*renderer,<sp/><ref refid="structt__map" kindref="compound">t_map</ref><sp/>*map,<sp/>uint8_t<sp/>*ks,<sp/><ref refid="structconfigTouches__s" kindref="compound">configTouches_t</ref><sp/>*ct)<sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(map-&gt;joueur-&gt;act_pred<sp/>==<sp/>MARCHE_DEVANT<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="map_8c_1a2a4055a8b8ca8285e5cf0662d8c66886" kindref="member">MAP_GetBlock</ref>(map,<sp/>map-&gt;joueur-&gt;hitbox.x<sp/>/<sp/>width_block_sdl,<sp/>map-&gt;joueur-&gt;hitbox.y<sp/>/<sp/>height_block_sdl)-&gt;id<sp/>==<sp/>PORTAIL_HAUT)<sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structt__donjon" kindref="compound">t_donjon</ref><sp/>*donjon<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;JOUEUR<sp/>%d<sp/>%d\n&quot;</highlight><highlight class="normal">,<sp/>map-&gt;joueur-&gt;hitbox.x,<sp/>map-&gt;joueur-&gt;hitbox.y);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="donjon_8c_1af7c1579cda78be0576f9de57eea5063a" kindref="member">donjon_creer</ref>(&amp;donjon,<sp/>20,<sp/>map-&gt;joueur);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>coef_fps;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>parcours<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(parcours<sp/>&amp;&amp;<sp/>!(donjon-&gt;quitter))<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>coef_fps<sp/>=<sp/>fps();</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Affichage<sp/>Donjon<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>SDL_touches(ks,<sp/>ct);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>SDL_RenderClear(renderer);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="donjon_8c_1ad92853204a6a84645e490e03b982451d" kindref="member">donjon_afficher_SDL</ref>(renderer,<sp/>donjon,<sp/>map-&gt;joueur);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="donjon_8c_1a8a1eae23567ffde325e6669dffc7fc9c" kindref="member">donjon_gestion</ref>(renderer,<sp/>donjon,<sp/>map-&gt;joueur,<sp/>ks,<sp/>coef_fps);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(SDL_touche_appuyer(ks,<sp/>ESCAPE))<sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>parcours<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>donjon-&gt;quitter<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>SDL_RenderPresent(renderer);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Destruction<sp/>Donjon<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="donjon_8c_1aafdabc099758c3305ccffad18869707c" kindref="member">donjon_quitter</ref>(donjon,<sp/>map-&gt;joueur);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>map-&gt;joueur-&gt;act_pred<sp/>=<sp/>IMMOBILE;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(SDL_touche_appuyer(ks,<sp/>ESCAPE))</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>SDL_touches(ks,<sp/>ct);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>test_souris(<ref refid="structt__map" kindref="compound">t_map</ref><sp/>*map,<sp/>uint8_t<sp/>*ks,<sp/><ref refid="structinventaire__s" kindref="compound">t_inventaire</ref><sp/>*inventaire,<sp/><ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*liste)<sp/>{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><ref refid="structt__block" kindref="compound">t_block</ref><sp/>*b;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x_mouse<sp/>=<sp/>0,<sp/>y_mouse<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(SDL_touche_appuyer(ks,<sp/>SOURIS_GAUCHE))<sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>SDL_coord_souris(&amp;x_mouse,<sp/>&amp;y_mouse);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Récuperation<sp/>d&apos;un<sp/>block<sp/>dans<sp/>la<sp/>liste</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>b<sp/>=<sp/><ref refid="map_8c_1a2a4055a8b8ca8285e5cf0662d8c66886" kindref="member">MAP_GetBlock</ref>(map,<sp/>calX_Souris(map,<sp/>x_mouse),<sp/>calY_Souris(map,<sp/>y_mouse));</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//CASSER<sp/>UN<sp/>BLOCK</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(b<sp/>&amp;&amp;<sp/><ref refid="block_8c_1a87a18dfdfc07c04beada04ed1985207a" kindref="member">BLOCK_estCassable</ref>(b-&gt;id)<sp/>&amp;&amp;<sp/>abs(b-&gt;x<sp/>-<sp/>((map-&gt;joueur-&gt;hitbox.x)<sp/>/<sp/>width_block_sdl))<sp/>&lt;<sp/>3<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>abs(b-&gt;y<sp/>-<sp/>((map-&gt;joueur-&gt;hitbox.y)<sp/>/<sp/>height_block_sdl))<sp/>&lt;=<sp/>3)<sp/>{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>casser_block((<ref refid="block_8h_1a4030ebe0eea609635f372f2e86d4332a" kindref="member">t_materiaux</ref>)b-&gt;id,<sp/>&amp;liste);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ajout_item_dans_inventaire(inventaire,<sp/>liste);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>b-&gt;id<sp/>=<sp/>AIR;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>b-&gt;plan<sp/>=<sp/>ARRIERE_PLAN;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//POSER<sp/>UN<sp/>BLOCK</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(SDL_touche_appuyer(ks,<sp/>SOURIS_DROIT))<sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>SDL_coord_souris(&amp;x_mouse,<sp/>&amp;y_mouse);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Récuperation<sp/>d&apos;un<sp/>block<sp/>dans<sp/>la<sp/>liste</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>b<sp/>=<sp/><ref refid="map_8c_1a2a4055a8b8ca8285e5cf0662d8c66886" kindref="member">MAP_GetBlock</ref>(map,<sp/>calX_Souris(map,<sp/>x_mouse),<sp/>calY_Souris(map,<sp/>y_mouse));</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(b<sp/>&amp;&amp;<sp/>b-&gt;id<sp/>==<sp/>AIR<sp/>&amp;&amp;<sp/>abs(b-&gt;x<sp/>-<sp/>((map-&gt;joueur-&gt;hitbox.x)<sp/>/<sp/>width_block_sdl))<sp/>&lt;<sp/>3<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>abs(b-&gt;y<sp/>-<sp/>((map-&gt;joueur-&gt;hitbox.y)<sp/>/<sp/>height_block_sdl))<sp/>&lt;=<sp/>3)<sp/>{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="block_8h_1a4030ebe0eea609635f372f2e86d4332a" kindref="member">t_materiaux</ref><sp/>mat<sp/>=<sp/>poser_block(inventaire);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(mat<sp/>!=<sp/>AIR)<sp/>{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b-&gt;id<sp/>=<sp/>mat;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b-&gt;plan<sp/>=<sp/>PREMIER_PLAN;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*InputText(SDL_Renderer<sp/>*renderer,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*titre)<sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*chemin_police;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><ref refid="chemin_8c_1a426a590237f668eca1627c0cc3985cd2" kindref="member">creation_chemin</ref>(</highlight><highlight class="stringliteral">&quot;data/police/8-BIT_WONDER.ttf&quot;</highlight><highlight class="normal">,<sp/>&amp;chemin_police);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*text<sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">)<sp/>*<sp/>100);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/>strcpy(text,<sp/></highlight><highlight class="stringliteral">&quot;\0&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>done<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/>SDL_Texture<sp/>*fond;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><ref refid="outils__SDL_8c_1a17717a1787c318f04c2b3050aad4c319" kindref="member">Create_IMG_Texture</ref>(renderer,<sp/></highlight><highlight class="stringliteral">&quot;./IMG/texture/menu/fond_text.png&quot;</highlight><highlight class="normal">,<sp/>&amp;fond);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/>SDL_Color<sp/>couleur<sp/>=<sp/>{255,<sp/>255,<sp/>255};</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/>SDL_Rect<sp/>posText<sp/>=<sp/>{width_window<sp/>/<sp/>2,<sp/>height_window<sp/>/<sp/>2<sp/>-<sp/>15,<sp/>30,<sp/>30};</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/>SDL_Rect<sp/>posTitre<sp/>=<sp/>{width_window<sp/>/<sp/>2<sp/>-<sp/>(strlen(titre)<sp/>*<sp/>25),<sp/>height_window<sp/>/<sp/>2<sp/>-<sp/>150,<sp/>50<sp/>*<sp/>strlen(titre),<sp/>50};</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/>SDL_Rect<sp/>fondRect<sp/>=<sp/>{0,<sp/>0,<sp/>width_window,<sp/>height_window};</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/>SDL_Texture<sp/>*text_texture;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/>SDL_RenderClear(renderer);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/>SDL_RenderCopy(renderer,<sp/>fond,<sp/>NULL,<sp/>&amp;fondRect);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><ref refid="outils__SDL_8c_1a05fb01fd866f77718813d6fce20670c1" kindref="member">Create_Text_Texture</ref>(renderer,<sp/>titre,<sp/>chemin_police,<sp/>14,<sp/>couleur,<sp/>BLENDED,<sp/>&amp;text_texture);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/>SDL_RenderCopy(renderer,<sp/>text_texture,<sp/>NULL,<sp/>&amp;posTitre);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/>SDL_RenderPresent(renderer);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/>SDL_StartTextInput();</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>((!done<sp/>&amp;&amp;<sp/>strlen(text)<sp/>&lt;<sp/>100)<sp/>||<sp/>(strlen(text)<sp/>==<sp/>0))<sp/>{</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>SDL_Event<sp/>event;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(SDL_PollEvent(&amp;event))<sp/>{</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(event.type)<sp/>{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>SDL_TEXTINPUT:</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>strcat(text,<sp/>event.text.text);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>posText.w<sp/>+=<sp/>30;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>posText.x<sp/>-=<sp/>15;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>SDL_KEYDOWN:</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(event.key.keysym.sym<sp/>==<sp/>SDLK_BACKSPACE)<sp/>{</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(strlen(text)<sp/>&gt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>text[strlen(text)<sp/>-<sp/>1]<sp/>=<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>posText.w<sp/>-=<sp/>30;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>posText.x<sp/>+=<sp/>15;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(event.key.keysym.sym<sp/>==<sp/>SDLK_RETURN)<sp/>{</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(strlen(text)<sp/>&gt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>done<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>SDL_RenderClear(renderer);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>SDL_RenderCopy(renderer,<sp/>fond,<sp/>NULL,<sp/>&amp;fondRect);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(strlen(text)<sp/>&gt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="outils__SDL_8c_1a05fb01fd866f77718813d6fce20670c1" kindref="member">Create_Text_Texture</ref>(renderer,<sp/>text,<sp/>chemin_police,<sp/>20,<sp/>couleur,<sp/>BLENDED,<sp/>&amp;text_texture);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SDL_RenderCopy(renderer,<sp/>text_texture,<sp/>NULL,<sp/>&amp;posText);</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="outils__SDL_8c_1a05fb01fd866f77718813d6fce20670c1" kindref="member">Create_Text_Texture</ref>(renderer,<sp/>titre,<sp/>chemin_police,<sp/>14,<sp/>couleur,<sp/>BLENDED,<sp/>&amp;text_texture);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>SDL_RenderCopy(renderer,<sp/>text_texture,<sp/>NULL,<sp/>&amp;posTitre);</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>SDL_RenderPresent(renderer);</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/>free(chemin_police);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>text;</highlight></codeline>
+<codeline lineno="177"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>startPlayMap(<ref refid="structt__map" kindref="compound">t_map</ref><sp/>*map,<sp/>SDL_Renderer<sp/>*renderer)<sp/>{</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>boucle<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/>uint8_t<sp/>*ks;</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><ref refid="structconfigTouches__s" kindref="compound">configTouches_t</ref><sp/>*ct;</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>coef_fps<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/>SDL_init_touches(&amp;ks,<sp/>&amp;ct);</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/>inventaire_init(renderer);</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><ref refid="structinventaire__s" kindref="compound">t_inventaire</ref><sp/>*inventaire<sp/>=<sp/>create_inventaire();</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/>alloc_item(inventaire,<sp/>20);</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/>inventaire_changer_constante(9);</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*liste<sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structt__liste" kindref="compound">t_liste</ref>));</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><ref refid="liste_8c_1ae54cf55c0d15211e5433ce9b5abf099d" kindref="member">init_liste</ref>(liste);</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><ref refid="liste_8c_1a9a2af94927570339b5708b99c4831cf3" kindref="member">en_tete</ref>(liste);</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/>SDL_Rect<sp/>fondRect<sp/>=<sp/>{0,<sp/>0,<sp/>width_window,<sp/>height_window};</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/>SDL_Texture<sp/>*ciel;</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><ref refid="outils__SDL_8c_1a17717a1787c318f04c2b3050aad4c319" kindref="member">Create_IMG_Texture</ref>(renderer,<sp/></highlight><highlight class="stringliteral">&quot;./IMG/texture/environnement/ciel.png&quot;</highlight><highlight class="normal">,<sp/>&amp;ciel);</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/>SDL_Texture<sp/>*sous_terre;</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><ref refid="outils__SDL_8c_1a17717a1787c318f04c2b3050aad4c319" kindref="member">Create_IMG_Texture</ref>(renderer,<sp/></highlight><highlight class="stringliteral">&quot;./IMG/texture/environnement/grotte.png&quot;</highlight><highlight class="normal">,<sp/>&amp;sous_terre);</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/>SDL_Texture<sp/>*brouillard;</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><ref refid="outils__SDL_8c_1a17717a1787c318f04c2b3050aad4c319" kindref="member">Create_IMG_Texture</ref>(renderer,<sp/></highlight><highlight class="stringliteral">&quot;./IMG/texture/environnement/brouillard.png&quot;</highlight><highlight class="normal">,<sp/>&amp;brouillard);</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(boucle)<sp/>{</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/>SDL_reset_wheel_state(ks);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/>SDL_touches(ks,<sp/>ct);</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//GENERATION<sp/>DROITE<sp/>GAUCHE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="map_8c_1ab95773bce378baf82a7d2ecdf069b86f" kindref="member">MAP_gen</ref>(map);</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//TEST<sp/>SOURIS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/>test_souris(map,<sp/>ks,<sp/>inventaire,<sp/>liste);</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Afficher<sp/>le<sp/>fond</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(map-&gt;joueur-&gt;hitbox.y<sp/>/<sp/>height_block_sdl<sp/>&gt;<sp/>HAUTEUR_MINIMUN)</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>SDL_RenderCopy(renderer,<sp/>ciel,<sp/>NULL,<sp/>&amp;fondRect);</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>SDL_RenderCopy(renderer,<sp/>sous_terre,<sp/>NULL,<sp/>&amp;fondRect);</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Affiche<sp/>map</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/>MAP_afficher_sdl(map,<sp/>renderer);<sp/></highlight><highlight class="comment">//Modifier<sp/>l&apos;affichage<sp/>de<sp/>la<sp/>map<sp/>pour<sp/>afficher<sp/>des<sp/>demi<sp/>colone</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Affiche<sp/>Joueur<sp/>et</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="entite_8c_1af3ace6db92e0c66ddb230d5e9c602146" kindref="member">Gestion_Entite</ref>(renderer,<sp/>map-&gt;joueur,<sp/>ks,<sp/>coef_fps,<sp/>map-&gt;list,<sp/>GESTION_TOUCHES,<sp/>ALL_ACTION,<sp/>NULL,<sp/>CENTER_SCREEN);</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Test<sp/>d&apos;entrée<sp/>dans<sp/>un<sp/>donjon</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(map-&gt;joueur-&gt;hitbox.y<sp/>/<sp/>height_block_sdl<sp/>&lt;=<sp/>HAUTEUR_MINIMUN)</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>SDL_RenderCopy(renderer,<sp/>brouillard,<sp/>NULL,<sp/>&amp;fondRect);</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"></highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(SDL_touche_appuyer(ks,<sp/>QUITTER)<sp/>||<sp/>SDL_touche_appuyer(ks,<sp/>ESCAPE))<sp/>{<sp/></highlight><highlight class="comment">//QUITTER<sp/>LE<sp/>JEU</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>boucle<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(SDL_touche_appuyer(ks,<sp/>X))<sp/>{<sp/></highlight><highlight class="comment">//Affichage<sp/>Inventaire</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>inventaire_afficher(renderer,<sp/>inventaire);</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>SDL_afficher_barre_action(renderer,<sp/>inventaire,<sp/>SDL_wheel_state(ks));</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/>entre_donjon(renderer,<sp/>map,<sp/>ks,<sp/>ct);</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Afficher<sp/>le<sp/>rendu<sp/>final</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/>SDL_RenderPresent(renderer);</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/>coef_fps<sp/>=<sp/>fps();</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Nb<sp/>col<sp/>:<sp/>%d\n&quot;</highlight><highlight class="normal">,<sp/><ref refid="liste_8c_1a591fc3936d195adcc3fb62f521dcd2ed" kindref="member">taille_liste</ref>(map-&gt;list));</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><ref refid="map_8c_1a9cbabb7d85f1c202fe4365129d1a4fd9" kindref="member">MAP_sauvegarder</ref>(map);</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/>free_inventaire(inventaire);</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><ref refid="liste_8c_1a4be7faf10eecc64ca729578b1b8cdbb4" kindref="member">detruire_liste</ref>(liste,<sp/>free);</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/>free(liste);</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/>SDL_DestroyTexture(ciel);</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/>SDL_DestroyTexture(sous_terre);</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/>SDL_exit_touches(&amp;ks,<sp/>&amp;ct);</highlight></codeline>
+<codeline lineno="251"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"></highlight></codeline>
+<codeline lineno="253"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*argv[],<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**env)<sp/>{</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/>pwd_init(argv[0],<sp/>getenv(</highlight><highlight class="stringliteral">&quot;PWD&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/>srand(time(NULL));</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><ref refid="structt__menu" kindref="compound">t_menu</ref><sp/>*menu<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><ref refid="structt__map" kindref="compound">t_map</ref><sp/>*map<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/>uint8_t<sp/>*ks;</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><ref refid="structconfigTouches__s" kindref="compound">configTouches_t</ref><sp/>*ct;</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/>width_block_sdl<sp/>=<sp/>25;</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/>height_block_sdl<sp/>=<sp/>25;</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/>height_window<sp/>=<sp/>600;</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/>width_window<sp/>=<sp/>1000;</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"></highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/>WIDTH<sp/>=<sp/>width_window;</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/>HEIGHT<sp/>=<sp/>height_window;</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/>scaleW<sp/>=<sp/>DEFAULT_SIZE_SCREEN_W<sp/>/<sp/>WIDTH;</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/>scaleH<sp/>=<sp/>DEFAULT_SIZE_SCREEN_H<sp/>/<sp/>HEIGHT;</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/>uiScale<sp/>=<sp/>100;</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//--------------------------------------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Initialisation<sp/>SDL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//--------------------------------------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="274"><highlight class="normal"></highlight></codeline>
+<codeline lineno="275"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;game_init.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="276"><highlight class="normal"></highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>coef_fps<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"></highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>game<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"></highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//----------------------------------------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Menu<sp/>Début<sp/>de<sp/>jeux</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//----------------------------------------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="284"><highlight class="normal"></highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(game)<sp/>{</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="menu_8c_1a5e4bbd12d3e5748c418095f36fd603fc" kindref="member">menu_creer</ref>(MENU_PRINCIPAL,<sp/>width_window,<sp/>height_window,<sp/>&amp;menu);</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/>t_type_menu<sp/>type_bouton;</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(menu)<sp/>{</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>SDL_RenderClear(renderer);</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>SDL_touches(ks,<sp/>ct);</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="menu_8c_1a28006b7b9d53bcc0b3828ec01906c7cd" kindref="member">menu_gestion_SDL</ref>(menu,<sp/>SDL_touche_appuyer(ks,<sp/>SOURIS_GAUCHE),<sp/>&amp;type_bouton);</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(type_bouton<sp/>==<sp/>MENU_QUITTER)<sp/>{</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>game<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="menu_8c_1a65c9e5cd5164e3b622fae7d2dc09ef23" kindref="member">menu_suivant</ref>(&amp;menu,<sp/>type_bouton);</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(type_bouton<sp/>==<sp/>MENU_NOUVELLE_PARTIE)<sp/>{</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"></highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*nom_map<sp/>=<sp/>InputText(renderer,<sp/></highlight><highlight class="stringliteral">&quot;Nom<sp/>de<sp/>la<sp/>map&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="map_8c_1aef056582e45db1e9b9f32ed94ce342a3" kindref="member">MAP_creer</ref>(&amp;map,<sp/>nom_map,<sp/>rand());</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>free(nom_map);</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"></highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="menu_8c_1a65c9e5cd5164e3b622fae7d2dc09ef23" kindref="member">menu_suivant</ref>(&amp;menu,<sp/>type_bouton);</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"></highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(map)<sp/>{</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"></highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>startPlayMap(map,<sp/>renderer);</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MAP_detruction(&amp;map);</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"></highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*chemin_police;</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="chemin_8c_1a426a590237f668eca1627c0cc3985cd2" kindref="member">creation_chemin</ref>(</highlight><highlight class="stringliteral">&quot;data/police/8-BIT_WONDER.ttf&quot;</highlight><highlight class="normal">,<sp/>&amp;chemin_police);</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SDL_Texture<sp/>*fond;</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="outils__SDL_8c_1a17717a1787c318f04c2b3050aad4c319" kindref="member">Create_IMG_Texture</ref>(renderer,<sp/></highlight><highlight class="stringliteral">&quot;./IMG/texture/menu/fond_text.png&quot;</highlight><highlight class="normal">,<sp/>&amp;fond);</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"></highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SDL_Color<sp/>couleur<sp/>=<sp/>{255,<sp/>255,<sp/>255};</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*titre<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;ERREUR<sp/>MAP&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SDL_Rect<sp/>posTitre<sp/>=<sp/>{width_window<sp/>/<sp/>2<sp/>-<sp/>(strlen(titre)<sp/>*<sp/>25),<sp/>height_window<sp/>/<sp/>2,<sp/>50<sp/>*<sp/>strlen(titre),<sp/>50};</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"></highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SDL_Texture<sp/>*text_texture;</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SDL_RenderClear(renderer);</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="outils__SDL_8c_1a05fb01fd866f77718813d6fce20670c1" kindref="member">Create_Text_Texture</ref>(renderer,<sp/>titre,<sp/>chemin_police,<sp/>20,<sp/>couleur,<sp/>BLENDED,<sp/>&amp;text_texture);</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SDL_RenderCopy(renderer,<sp/>text_texture,<sp/>NULL,<sp/>&amp;posTitre);</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"></highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SDL_RenderPresent(renderer);</highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(!SDL_touche_appuyer(ks,<sp/>QUITTER)<sp/>&amp;&amp;<sp/>!SDL_touche_appuyer(ks,<sp/>ESCAPE))</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SDL_touches(ks,<sp/>ct);</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="327"><highlight class="normal"></highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(type_bouton<sp/>==<sp/>MENU_CHARGER_PARTIE)<sp/>{</highlight></codeline>
+<codeline lineno="329"><highlight class="normal"></highlight></codeline>
+<codeline lineno="330"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="map_8c_1af37676b15409d8011fab9afb3dceaf48" kindref="member">MAP_lister</ref>();</highlight></codeline>
+<codeline lineno="331"><highlight class="normal"></highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*nom_map<sp/>=<sp/>InputText(renderer,<sp/></highlight><highlight class="stringliteral">&quot;Nom<sp/>de<sp/>la<sp/>map&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="333"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="map_8c_1a924b98cbf202b64bbf0d220799b85618" kindref="member">MAP_charger</ref>(&amp;map,<sp/>nom_map);</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>free(nom_map);</highlight></codeline>
+<codeline lineno="335"><highlight class="normal"></highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="menu_8c_1a65c9e5cd5164e3b622fae7d2dc09ef23" kindref="member">menu_suivant</ref>(&amp;menu,<sp/>type_bouton);</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"></highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(map)<sp/>{</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>startPlayMap(map,<sp/>renderer);</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MAP_detruction(&amp;map);</highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="342"><highlight class="normal"></highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*chemin_police;</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="chemin_8c_1a426a590237f668eca1627c0cc3985cd2" kindref="member">creation_chemin</ref>(</highlight><highlight class="stringliteral">&quot;data/police/8-BIT_WONDER.ttf&quot;</highlight><highlight class="normal">,<sp/>&amp;chemin_police);</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"></highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SDL_Texture<sp/>*fond;</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="outils__SDL_8c_1a17717a1787c318f04c2b3050aad4c319" kindref="member">Create_IMG_Texture</ref>(renderer,<sp/></highlight><highlight class="stringliteral">&quot;./IMG/texture/menu/fond_text.png&quot;</highlight><highlight class="normal">,<sp/>&amp;fond);</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SDL_Color<sp/>couleur<sp/>=<sp/>{255,<sp/>255,<sp/>255};</highlight></codeline>
+<codeline lineno="349"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*titre<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;ERREUR<sp/>MAP&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="350"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SDL_Rect<sp/>posTitre<sp/>=<sp/>{width_window<sp/>/<sp/>2<sp/>-<sp/>(strlen(titre)<sp/>*<sp/>25),<sp/>height_window<sp/>/<sp/>2,<sp/>50<sp/>*<sp/>strlen(titre),<sp/>50};</highlight></codeline>
+<codeline lineno="351"><highlight class="normal"></highlight></codeline>
+<codeline lineno="352"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SDL_Texture<sp/>*text_texture;</highlight></codeline>
+<codeline lineno="353"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SDL_RenderClear(renderer);</highlight></codeline>
+<codeline lineno="354"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="outils__SDL_8c_1a05fb01fd866f77718813d6fce20670c1" kindref="member">Create_Text_Texture</ref>(renderer,<sp/>titre,<sp/>chemin_police,<sp/>20,<sp/>couleur,<sp/>BLENDED,<sp/>&amp;text_texture);</highlight></codeline>
+<codeline lineno="355"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SDL_RenderCopy(renderer,<sp/>text_texture,<sp/>NULL,<sp/>&amp;posTitre);</highlight></codeline>
+<codeline lineno="356"><highlight class="normal"></highlight></codeline>
+<codeline lineno="357"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SDL_RenderPresent(renderer);</highlight></codeline>
+<codeline lineno="358"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(!SDL_touche_appuyer(ks,<sp/>QUITTER)<sp/>&amp;&amp;<sp/>!SDL_touche_appuyer(ks,<sp/>ESCAPE))</highlight></codeline>
+<codeline lineno="359"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SDL_touches(ks,<sp/>ct);</highlight></codeline>
+<codeline lineno="360"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="361"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(type_bouton<sp/>!=<sp/>MENU_NULL)<sp/>{</highlight></codeline>
+<codeline lineno="362"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="menu_8c_1a65c9e5cd5164e3b622fae7d2dc09ef23" kindref="member">menu_suivant</ref>(&amp;menu,<sp/>type_bouton);</highlight></codeline>
+<codeline lineno="363"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="364"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="menu_8c_1ac891d8c3b720e8c042eb00768981a389" kindref="member">menu_afficher_SDL</ref>(menu,<sp/>renderer);</highlight></codeline>
+<codeline lineno="365"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>SDL_RenderPresent(renderer);</highlight></codeline>
+<codeline lineno="366"><highlight class="normal"></highlight></codeline>
+<codeline lineno="367"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>coef_fps<sp/>=<sp/>fps();</highlight></codeline>
+<codeline lineno="368"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="369"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="370"><highlight class="normal"></highlight></codeline>
+<codeline lineno="371"><highlight class="normal"></highlight><highlight class="comment">//Quit<sp/>du<sp/>jeux</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="372"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;game_quit.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="373"><highlight class="normal"></highlight></codeline>
+<codeline lineno="374"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="375"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="src/world_of_dungeons.c"/>
   </compounddef>

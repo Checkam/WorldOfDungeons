@@ -1,128 +1,163 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="generation_8c" kind="file" language="C++">
     <compoundname>generation.c</compoundname>
     <includes refid="biome_8h" local="no">biome.h</includes>
     <includes refid="block_8h" local="no">block.h</includes>
     <includes refid="commun_8h" local="no">commun.h</includes>
-    <includes refid="couleurs_8h" local="no">couleurs.h</includes>
     <includes refid="generation_8h" local="no">generation.h</includes>
-    <includes local="no">math.h</includes>
     <includes refid="perlin_8h" local="no">perlin.h</includes>
     <includes local="no">stdio.h</includes>
     <includes local="no">stdlib.h</includes>
-    <includes local="no">string.h</includes>
     <includes refid="structure__block_8h" local="no">structure_block.h</includes>
     <includes refid="touches_8h" local="no">touches.h</includes>
     <incdepgraph>
-      <node id="363">
-        <label>structure_block.h</label>
-        <link refid="structure__block_8h"/>
-        <childnode refid="351" relation="include">
-        </childnode>
-        <childnode refid="352" relation="include">
-        </childnode>
-        <childnode refid="350" relation="include">
-        </childnode>
-      </node>
-      <node id="357">
-        <label>generation.h</label>
-        <link refid="generation_8h"/>
-        <childnode refid="352" relation="include">
-        </childnode>
-      </node>
-      <node id="351">
-        <label>commun.h</label>
-        <link refid="commun_8h_source"/>
-      </node>
-      <node id="365">
-        <label>stdint.h</label>
-      </node>
-      <node id="361">
-        <label>stdlib.h</label>
-      </node>
-      <node id="364">
-        <label>touches.h</label>
-        <link refid="touches_8h_source"/>
-        <childnode refid="365" relation="include">
-        </childnode>
-      </node>
-      <node id="349">
-        <label>src/generation.c</label>
-        <link refid="generation_8c"/>
-        <childnode refid="350" relation="include">
-        </childnode>
-        <childnode refid="352" relation="include">
-        </childnode>
-        <childnode refid="351" relation="include">
-        </childnode>
-        <childnode refid="353" relation="include">
-        </childnode>
-        <childnode refid="357" relation="include">
-        </childnode>
-        <childnode refid="358" relation="include">
-        </childnode>
-        <childnode refid="359" relation="include">
-        </childnode>
-        <childnode refid="360" relation="include">
-        </childnode>
-        <childnode refid="361" relation="include">
-        </childnode>
-        <childnode refid="362" relation="include">
-        </childnode>
-        <childnode refid="363" relation="include">
-        </childnode>
-        <childnode refid="364" relation="include">
-        </childnode>
-      </node>
-      <node id="350">
-        <label>biome.h</label>
-        <link refid="biome_8h"/>
-        <childnode refid="351" relation="include">
-        </childnode>
-        <childnode refid="352" relation="include">
-        </childnode>
-        <childnode refid="356" relation="include">
-        </childnode>
-      </node>
-      <node id="356">
-        <label>liste.h</label>
-        <link refid="liste_8h"/>
-        <childnode refid="355" relation="include">
-        </childnode>
-      </node>
-      <node id="353">
-        <label>couleurs.h</label>
-        <link refid="couleurs_8h_source"/>
-      </node>
-      <node id="354">
-        <label>SDL2/SDL.h</label>
-      </node>
-      <node id="362">
-        <label>string.h</label>
-      </node>
-      <node id="355">
+      <node id="466">
         <label>erreur.h</label>
         <link refid="erreur_8h"/>
       </node>
-      <node id="358">
-        <label>math.h</label>
+      <node id="479">
+        <label>stdint.h</label>
       </node>
-      <node id="360">
-        <label>stdio.h</label>
+      <node id="475">
+        <label>SDL2/SDL_image.h</label>
       </node>
-      <node id="359">
+      <node id="471">
+        <label>stdlib.h</label>
+      </node>
+      <node id="478">
+        <label>touches.h</label>
+        <link refid="touches_8h_source"/>
+        <childnode refid="479" relation="include">
+        </childnode>
+      </node>
+      <node id="473">
+        <label>map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="466" relation="include">
+        </childnode>
+        <childnode refid="467" relation="include">
+        </childnode>
+        <childnode refid="463" relation="include">
+        </childnode>
+        <childnode refid="474" relation="include">
+        </childnode>
+      </node>
+      <node id="469">
         <label>perlin.h</label>
         <link refid="perlin_8h"/>
       </node>
-      <node id="352">
+      <node id="472">
+        <label>structure_block.h</label>
+        <link refid="structure__block_8h"/>
+        <childnode refid="462" relation="include">
+        </childnode>
+        <childnode refid="463" relation="include">
+        </childnode>
+        <childnode refid="461" relation="include">
+        </childnode>
+        <childnode refid="473" relation="include">
+        </childnode>
+      </node>
+      <node id="463">
         <label>block.h</label>
         <link refid="block_8h"/>
-        <childnode refid="353" relation="include">
+        <childnode refid="464" relation="include">
         </childnode>
-        <childnode refid="354" relation="include">
+        <childnode refid="465" relation="include">
         </childnode>
-        <childnode refid="355" relation="include">
+        <childnode refid="466" relation="include">
+        </childnode>
+      </node>
+      <node id="467">
+        <label>liste.h</label>
+        <link refid="liste_8h"/>
+        <childnode refid="466" relation="include">
+        </childnode>
+      </node>
+      <node id="464">
+        <label>couleurs.h</label>
+        <link refid="couleurs_8h_source"/>
+      </node>
+      <node id="465">
+        <label>SDL2/SDL.h</label>
+      </node>
+      <node id="474">
+        <label>entite.h</label>
+        <link refid="entite_8h"/>
+        <childnode refid="470" relation="include">
+        </childnode>
+        <childnode refid="471" relation="include">
+        </childnode>
+        <childnode refid="465" relation="include">
+        </childnode>
+        <childnode refid="475" relation="include">
+        </childnode>
+        <childnode refid="476" relation="include">
+        </childnode>
+        <childnode refid="477" relation="include">
+        </childnode>
+        <childnode refid="466" relation="include">
+        </childnode>
+        <childnode refid="462" relation="include">
+        </childnode>
+        <childnode refid="467" relation="include">
+        </childnode>
+      </node>
+      <node id="462">
+        <label>commun.h</label>
+        <link refid="commun_8h_source"/>
+      </node>
+      <node id="461">
+        <label>biome.h</label>
+        <link refid="biome_8h"/>
+        <childnode refid="462" relation="include">
+        </childnode>
+        <childnode refid="463" relation="include">
+        </childnode>
+        <childnode refid="467" relation="include">
+        </childnode>
+      </node>
+      <node id="460">
+        <label>src/generation.c</label>
+        <link refid="generation_8c"/>
+        <childnode refid="461" relation="include">
+        </childnode>
+        <childnode refid="463" relation="include">
+        </childnode>
+        <childnode refid="462" relation="include">
+        </childnode>
+        <childnode refid="468" relation="include">
+        </childnode>
+        <childnode refid="469" relation="include">
+        </childnode>
+        <childnode refid="470" relation="include">
+        </childnode>
+        <childnode refid="471" relation="include">
+        </childnode>
+        <childnode refid="472" relation="include">
+        </childnode>
+        <childnode refid="478" relation="include">
+        </childnode>
+      </node>
+      <node id="477">
+        <label>chemin.h</label>
+        <link refid="chemin_8h"/>
+        <childnode refid="467" relation="include">
+        </childnode>
+        <childnode refid="466" relation="include">
+        </childnode>
+      </node>
+      <node id="470">
+        <label>stdio.h</label>
+      </node>
+      <node id="476">
+        <label>SDL2/SDL_ttf.h</label>
+      </node>
+      <node id="468">
+        <label>generation.h</label>
+        <link refid="generation_8h"/>
+        <childnode refid="463" relation="include">
         </childnode>
       </node>
     </incdepgraph>
@@ -133,7 +168,7 @@
         <argsstring>(t_block *map, int x)</argsstring>
         <name>init_map</name>
         <param>
-          <type><ref refid="structblock__s" kindref="compound">t_block</ref> *</type>
+          <type><ref refid="structt__block" kindref="compound">t_block</ref> *</type>
           <declname>map</declname>
         </param>
         <param>
@@ -146,47 +181,28 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/generation.c" line="29" column="1" bodyfile="src/generation.c" bodystart="29" bodyend="36"/>
+        <location file="src/generation.c" line="26" column="1" bodyfile="src/generation.c" bodystart="26" bodyend="34"/>
       </memberdef>
-      <memberdef kind="function" id="generation_8c_1ae77d3775b76faf5769fbb258fd7d5c50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="generation_8c_1a32d4f376069aba6cb13bd682ab033ce7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void initTab</definition>
-        <argsstring>(int tab[], int n)</argsstring>
-        <name>initTab</name>
+        <definition>void gen_minerai</definition>
+        <argsstring>(t_minerai *minerais, t_block *tab, int x, int taille_max)</argsstring>
+        <name>gen_minerai</name>
         <param>
-          <type>int</type>
+          <type><ref refid="structt__minerai" kindref="compound">t_minerai</ref> *</type>
+          <declname>minerais</declname>
+        </param>
+        <param>
+          <type><ref refid="structt__block" kindref="compound">t_block</ref> *</type>
           <declname>tab</declname>
-          <array>[]</array>
         </param>
-        <param>
-          <type>int</type>
-          <declname>n</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/generation.c" line="39" column="1" bodyfile="src/generation.c" bodystart="39" bodyend="42"/>
-      </memberdef>
-      <memberdef kind="function" id="generation_8c_1aec31c8debb40e6f6010c92b9339e07eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>int</type>
-        <definition>int PreviewHeight</definition>
-        <argsstring>(int x, int P_Height[], int nb)</argsstring>
-        <name>PreviewHeight</name>
         <param>
           <type>int</type>
           <declname>x</declname>
         </param>
         <param>
           <type>int</type>
-          <declname>P_Height</declname>
-          <array>[]</array>
-        </param>
-        <param>
-          <type>int</type>
-          <declname>nb</declname>
+          <declname>taille_max</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -194,7 +210,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/generation.c" line="45" column="1" bodyfile="src/generation.c" bodystart="45" bodyend="52"/>
+        <location file="src/generation.c" line="36" column="1" bodyfile="src/generation.c" bodystart="36" bodyend="50"/>
       </memberdef>
       <memberdef kind="function" id="generation_8c_1adb0c35e623fdf89aae50eb2c9dc3032a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -219,7 +235,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/generation.c" line="54" column="1" bodyfile="src/generation.c" bodystart="54" bodyend="106"/>
+        <location file="src/generation.c" line="52" column="1" bodyfile="src/generation.c" bodystart="52" bodyend="120"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -234,94 +250,108 @@
 <codeline lineno="16"><highlight class="preprocessor">#include<sp/>&lt;<ref refid="biome_8h" kindref="compound">biome.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="block_8h" kindref="compound">block.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;commun.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;couleurs.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="generation_8h" kindref="compound">generation.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;math.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="perlin_8h" kindref="compound">perlin.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="structure__block_8h" kindref="compound">structure_block.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;touches.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="28"><highlight class="normal"></highlight></codeline>
-<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>init_map(<ref refid="structblock__s" kindref="compound">t_block</ref><sp/>*map,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x)<sp/>{</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
-<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>MAX;<sp/>i++)<sp/>{</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>map[i].id<sp/>=<sp/>AIR;</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>map[i].x<sp/>=<sp/>x;</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>map[i].y<sp/>=<sp/>i;</highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="36"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"></highlight></codeline>
-<codeline lineno="38"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Initialise<sp/>un<sp/>tableau<sp/>de<sp/>n<sp/>valeur<sp/>a<sp/>0</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>initTab(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>tab[],<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n)<sp/>{</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>n;<sp/>i++)</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>tab[i]<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="42"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"></highlight></codeline>
-<codeline lineno="44"><highlight class="normal"></highlight><highlight class="comment">//FONCTION<sp/>QUI<sp/>CALCUL<sp/>LES<sp/>PROCHAINES<sp/>HAUTEUR<sp/>(A<sp/>REFAIRE)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>PreviewHeight(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>P_Height[],<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nb)<sp/>{</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>taille_max<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>nb;<sp/>i++)<sp/>{</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>taille_max<sp/>=<sp/><ref refid="perlin_8h_1a2af0d3d29624c62a028497de1bdadcbe" kindref="member">perlin2d</ref>(x<sp/>+<sp/>i,<sp/>MAX,<sp/>FREQ,<sp/>DEPTH)<sp/>*<sp/>MAX;</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>P_Height[i]<sp/>=<sp/>taille_max;</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
-<codeline lineno="52"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"></highlight></codeline>
-<codeline lineno="54"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>gen_col(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*list,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dir)<sp/>{</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>rnd,<sp/>j;</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>taille_max<sp/>=<sp/><ref refid="perlin_8h_1a2af0d3d29624c62a028497de1bdadcbe" kindref="member">perlin2d</ref>(x,<sp/>MAX,<sp/>FREQ,<sp/>DEPTH)<sp/>*<sp/>MAX;</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Gen<sp/>i<sp/>:<sp/>%d\n&quot;</highlight><highlight class="normal">,<sp/>x);</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><ref refid="structblock__s" kindref="compound">t_block</ref><sp/>*tab<sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structblock__s" kindref="compound">t_block</ref>)<sp/>*<sp/>MAX);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="generation_8h" kindref="compound">generation.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="perlin_8h" kindref="compound">perlin.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="structure__block_8h" kindref="compound">structure_block.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;touches.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>init_map(<ref refid="structt__block" kindref="compound">t_block</ref><sp/>*map,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x)<sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>MAX;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>map[i].id<sp/>=<sp/>AIR;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>map[i].x<sp/>=<sp/>x;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>map[i].y<sp/>=<sp/>i;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>map[i].plan<sp/>=<sp/>ARRIERE_PLAN;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>gen_minerai(<ref refid="structt__minerai" kindref="compound">t_minerai</ref><sp/>*<ref refid="block_8c_1a96975792701a17771f236103e57dd0a4" kindref="member">minerais</ref>,<sp/><ref refid="structt__block" kindref="compound">t_block</ref><sp/>*tab,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>taille_max)<sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>rnd<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y<sp/>=<sp/>0;<sp/>y<sp/>&lt;=<sp/>taille_max<sp/>-<sp/>HAUTEUR_SURFACE;<sp/>y++)<sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>rnd<sp/>=<sp/><ref refid="perlin_8h_1a2af0d3d29624c62a028497de1bdadcbe" kindref="member">perlin2d</ref>(x,<sp/>y,<sp/>0.1,<sp/>DEPTH);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>NB_MINERAI;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((rnd<sp/>&gt;=<sp/>minerais[i].valeur_min<sp/>&amp;&amp;<sp/>rnd<sp/>&lt;=<sp/>minerais[i].valeur_max)<sp/>&amp;&amp;<sp/>(y<sp/>&gt;=<sp/>minerais[i].hauteur_min<sp/>&amp;&amp;<sp/>y<sp/>&lt;=<sp/>minerais[i].hauteur_max))<sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tab[y].id<sp/>=<sp/>((uint8_t)minerais[i].type);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tab[y].x<sp/>=<sp/>x;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tab[y].y<sp/>=<sp/>y;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tab[y].plan<sp/>=<sp/>PREMIER_PLAN;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;ID:%d\n&quot;</highlight><highlight class="normal">,<sp/>tab[y].</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>gen_col(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*list,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dir)<sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>rnd;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>taille_max<sp/>=<sp/>(<ref refid="perlin_8h_1a2af0d3d29624c62a028497de1bdadcbe" kindref="member">perlin2d</ref>(x,<sp/>MAX<sp/>/<sp/>2,<sp/>FREQ,<sp/>DEPTH)<sp/>*<sp/>MAX<sp/>/<sp/>2)<sp/>+<sp/>HAUTEUR_MINIMUN;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><ref refid="structt__block" kindref="compound">t_block</ref><sp/>*tab<sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structt__block" kindref="compound">t_block</ref>)<sp/>*<sp/>MAX);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
 <codeline lineno="59"><highlight class="normal"><sp/><sp/>init_map(tab,<sp/>x);</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/>biome<sp/>=<sp/>BIOME_change_type(x,<sp/>taille_max);</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"></highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/>STRUCT_generation(x,<sp/>taille_max,<sp/>dir,<sp/>tab);<sp/></highlight><highlight class="comment">//Génération<sp/>a<sp/>revoir</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><ref refid="structt__biome" kindref="compound">t_biome</ref><sp/>*b<sp/>=<sp/>BIOME_rechercheParType(biome);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/>biome<sp/>=<sp/>BIOME_change_type(x,<sp/>taille_max);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>STRUCT_generation(x,<sp/>taille_max,<sp/>dir,<sp/>tab);</highlight></codeline>
 <codeline lineno="64"><highlight class="normal"></highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>génération<sp/>eau<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>for<sp/>(j<sp/>=<sp/>0;<sp/>taille_max<sp/>&lt;<sp/>HAUTEUR_EAU;<sp/>j++)<sp/>{</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>if<sp/>(j<sp/>+<sp/>taille_max<sp/>==<sp/>HAUTEUR_EAU<sp/>-<sp/>1<sp/>&amp;&amp;<sp/>(biome<sp/>==<sp/>TOUNDRA<sp/>||<sp/>biome<sp/>==<sp/>TAIGA))<sp/>{</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>(*tab)[taille_max<sp/>+<sp/>j].id<sp/>=<sp/>GLACE;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>(*tab)[taille_max<sp/>+<sp/>j].y<sp/>=<sp/>taille_max<sp/>+<sp/>j;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>(*tab)[taille_max<sp/>+<sp/>j].x<sp/>=<sp/>x;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>}<sp/>else<sp/>if<sp/>((*tab)[taille_max<sp/>+<sp/>j].id<sp/>==<sp/>AIR)<sp/>{</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>(*tab)[taille_max<sp/>+<sp/>j].id<sp/>=<sp/>EAU;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>(*tab)[taille_max<sp/>+<sp/>j].y<sp/>=<sp/>taille_max<sp/>+<sp/>j;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>(*tab)[taille_max<sp/>+<sp/>j].x<sp/>=<sp/>x;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>}</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(b)</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0,<sp/>layer<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>b-&gt;nb_layers;<sp/>i++)<sp/>{</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>layer,<sp/>k<sp/>=<sp/>0;<sp/>k<sp/>&lt;<sp/>b-&gt;layers[i].nb_couche<sp/>&amp;&amp;<sp/>layer<sp/>&lt;=<sp/>taille_max;<sp/>j++,<sp/>layer++,<sp/>k++)<sp/>{</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tab[taille_max<sp/>-<sp/>j].id<sp/>=<sp/>b-&gt;layers[i].block_type;</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tab[taille_max<sp/>-<sp/>j].y<sp/>=<sp/>taille_max<sp/>-<sp/>j;</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tab[taille_max<sp/>-<sp/>j].x<sp/>=<sp/>x;</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"></highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Génération<sp/>profondeur<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(j<sp/>=<sp/>0;<sp/>j<sp/>&lt;=<sp/>taille_max<sp/>-<sp/>HAUTEUR_SURFACE;<sp/>j++)<sp/>{</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>rnd<sp/>=<sp/><ref refid="perlin_8h_1a2af0d3d29624c62a028497de1bdadcbe" kindref="member">perlin2d</ref>(x,<sp/>j,<sp/>FREQ,<sp/>DEPTH)<sp/>*<sp/>MAX;</highlight></codeline>
-<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(taille_max<sp/>-<sp/>j<sp/>&gt;<sp/>PROFONDEUR_GROTTE<sp/>&amp;&amp;<sp/>j<sp/>&gt;=<sp/>BEDROCK<sp/>&amp;&amp;<sp/>rnd<sp/>&gt;=<sp/>(MAX<sp/>/<sp/>2<sp/>-<sp/>SIZE_GROTTE)<sp/>&amp;&amp;<sp/>rnd<sp/>&lt;=<sp/>(MAX<sp/>/<sp/>2<sp/>+<sp/>SIZE_GROTTE))<sp/>{<sp/></highlight><highlight class="comment">/*<sp/>grotte<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>tab[j].id<sp/>=<sp/>AIR;</highlight></codeline>
-<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>tab[j].y<sp/>=<sp/>j;</highlight></codeline>
-<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>tab[j].x<sp/>=<sp/>x;</highlight></codeline>
-<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="95"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(dir<sp/>==<sp/>DROITE)<sp/>{</highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="liste_8c_1a182d1a7bdc30807ebdd00d566994548d" kindref="member">en_queue</ref>(list);</highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="liste_8c_1a8d7b14b429cf2009912b48ad88e4af3a" kindref="member">ajout_droit</ref>(list,<sp/>tab);</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="99"><highlight class="normal"></highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(dir<sp/>==<sp/>GAUCHE)<sp/>{</highlight></codeline>
-<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="liste_8c_1a9a2af94927570339b5708b99c4831cf3" kindref="member">en_tete</ref>(list);</highlight></codeline>
-<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="liste_8c_1a627993b6dd4c2f5e3f7b5a5a4172d557" kindref="member">ajout_gauche</ref>(list,<sp/>tab);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><ref refid="structt__biome" kindref="compound">t_biome</ref><sp/>*b<sp/>=<sp/>BIOME_rechercheParType(biome);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>génération<sp/>eau<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>for<sp/>(j<sp/>=<sp/>0;<sp/>taille_max<sp/>&lt;<sp/>HAUTEUR_EAU;<sp/>j++)<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>if<sp/>(j<sp/>+<sp/>taille_max<sp/>==<sp/>HAUTEUR_EAU<sp/>-<sp/>1<sp/>&amp;&amp;<sp/>(biome<sp/>==<sp/>TOUNDRA<sp/>||<sp/>biome<sp/>==<sp/>TAIGA))<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>(*tab)[taille_max<sp/>+<sp/>j].id<sp/>=<sp/>GLACE;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>(*tab)[taille_max<sp/>+<sp/>j].y<sp/>=<sp/>taille_max<sp/>+<sp/>j;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>(*tab)[taille_max<sp/>+<sp/>j].x<sp/>=<sp/>x;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>}<sp/>else<sp/>if<sp/>((*tab)[taille_max<sp/>+<sp/>j].id<sp/>==<sp/>AIR)<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>(*tab)[taille_max<sp/>+<sp/>j].id<sp/>=<sp/>EAU;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>(*tab)[taille_max<sp/>+<sp/>j].y<sp/>=<sp/>taille_max<sp/>+<sp/>j;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>(*tab)[taille_max<sp/>+<sp/>j].x<sp/>=<sp/>x;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(b)</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0,<sp/>layer<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>b-&gt;nb_layers;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>layer,<sp/>k<sp/>=<sp/>0;<sp/>k<sp/>&lt;<sp/>b-&gt;layers[i].nb_couche<sp/>&amp;&amp;<sp/>layer<sp/>&lt;=<sp/>taille_max;<sp/>j++,<sp/>layer++,<sp/>k++)<sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tab[taille_max<sp/>-<sp/>j].id<sp/>=<sp/>b-&gt;layers[i].block_type;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tab[taille_max<sp/>-<sp/>j].y<sp/>=<sp/>taille_max<sp/>-<sp/>j;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tab[taille_max<sp/>-<sp/>j].x<sp/>=<sp/>x;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tab[taille_max<sp/>-<sp/>j].plan<sp/>=<sp/>PREMIER_PLAN;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Génération<sp/>de<sp/>minerais<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/>gen_minerai(BLOCK_GetMinerai(),<sp/>tab,<sp/>x,<sp/>taille_max);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Génération<sp/>profondeur<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(j<sp/>=<sp/>0;<sp/>j<sp/>&lt;=<sp/>taille_max<sp/>-<sp/>HAUTEUR_SURFACE;<sp/>j++)<sp/>{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>rnd<sp/>=<sp/><ref refid="perlin_8h_1a2af0d3d29624c62a028497de1bdadcbe" kindref="member">perlin2d</ref>(x,<sp/>j,<sp/>FREQ,<sp/>DEPTH)<sp/>*<sp/>MAX;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(taille_max<sp/>-<sp/>j<sp/>&gt;<sp/>PROFONDEUR_GROTTE<sp/>&amp;&amp;<sp/>j<sp/>&gt;=<sp/>HAUTEUR_MIN_GROTTE<sp/>&amp;&amp;<sp/>rnd<sp/>&gt;=<sp/>(MAX<sp/>/<sp/>2<sp/>-<sp/>SIZE_GROTTE)<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rnd<sp/>&lt;=<sp/>(MAX<sp/>/<sp/>2<sp/>+<sp/>SIZE_GROTTE))<sp/>{<sp/></highlight><highlight class="comment">/*<sp/>grotte<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>tab[j].id<sp/>=<sp/>AIR;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>tab[j].y<sp/>=<sp/>j;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>tab[j].x<sp/>=<sp/>x;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>tab[j].plan<sp/>=<sp/>ARRIERE_PLAN;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="103"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
 <codeline lineno="104"><highlight class="normal"></highlight></codeline>
-<codeline lineno="105"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>taille_max;</highlight></codeline>
-<codeline lineno="106"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/>tab[0].id<sp/>=<sp/>BEDROCK;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(dir<sp/>==<sp/>DROITE)<sp/>{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="liste_8c_1a182d1a7bdc30807ebdd00d566994548d" kindref="member">en_queue</ref>(list);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="liste_8c_1a8d7b14b429cf2009912b48ad88e4af3a" kindref="member">ajout_droit</ref>(list,<sp/>tab);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>printf(&quot;Gen<sp/>i<sp/>:<sp/>%d<sp/>DROITE\n&quot;,<sp/>x);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(dir<sp/>==<sp/>GAUCHE)<sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="liste_8c_1a9a2af94927570339b5708b99c4831cf3" kindref="member">en_tete</ref>(list);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="liste_8c_1a627993b6dd4c2f5e3f7b5a5a4172d557" kindref="member">ajout_gauche</ref>(list,<sp/>tab);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>printf(&quot;Gen<sp/>i<sp/>:<sp/>%d<sp/>GAUCHE\n&quot;,<sp/>x);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>taille_max;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="src/generation.c"/>
   </compounddef>

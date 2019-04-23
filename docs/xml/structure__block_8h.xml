@@ -1,79 +1,137 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="structure__block_8h" kind="file" language="C++">
     <compoundname>structure_block.h</compoundname>
     <includes refid="commun_8h" local="no">commun.h</includes>
     <includes refid="block_8h" local="no">block.h</includes>
     <includes refid="biome_8h" local="no">biome.h</includes>
+    <includes refid="map_8h" local="no">map.h</includes>
     <includedby refid="generation_8c" local="no">src/generation.c</includedby>
     <includedby refid="structure__block_8c" local="no">src/structure_block.c</includedby>
+    <includedby refid="world__of__dungeons_8c" local="no">src/world_of_dungeons.c</includedby>
     <incdepgraph>
-      <node id="217">
-        <label>include/structure_block.h</label>
-        <link refid="structure__block_8h"/>
-        <childnode refid="218" relation="include">
-        </childnode>
-        <childnode refid="219" relation="include">
-        </childnode>
-        <childnode refid="223" relation="include">
-        </childnode>
-      </node>
-      <node id="218">
-        <label>commun.h</label>
-        <link refid="commun_8h_source"/>
-      </node>
-      <node id="223">
-        <label>biome.h</label>
-        <link refid="biome_8h"/>
-        <childnode refid="218" relation="include">
-        </childnode>
-        <childnode refid="219" relation="include">
-        </childnode>
-        <childnode refid="224" relation="include">
-        </childnode>
-      </node>
-      <node id="224">
-        <label>liste.h</label>
-        <link refid="liste_8h"/>
-        <childnode refid="222" relation="include">
-        </childnode>
-      </node>
-      <node id="220">
-        <label>couleurs.h</label>
-        <link refid="couleurs_8h_source"/>
-      </node>
-      <node id="221">
-        <label>SDL2/SDL.h</label>
-      </node>
-      <node id="222">
+      <node id="315">
         <label>erreur.h</label>
         <link refid="erreur_8h"/>
       </node>
-      <node id="219">
+      <node id="322">
+        <label>SDL2/SDL_image.h</label>
+      </node>
+      <node id="321">
+        <label>stdlib.h</label>
+      </node>
+      <node id="318">
+        <label>map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="315" relation="include">
+        </childnode>
+        <childnode refid="317" relation="include">
+        </childnode>
+        <childnode refid="312" relation="include">
+        </childnode>
+        <childnode refid="319" relation="include">
+        </childnode>
+      </node>
+      <node id="310">
+        <label>include/structure_block.h</label>
+        <link refid="structure__block_8h"/>
+        <childnode refid="311" relation="include">
+        </childnode>
+        <childnode refid="312" relation="include">
+        </childnode>
+        <childnode refid="316" relation="include">
+        </childnode>
+        <childnode refid="318" relation="include">
+        </childnode>
+      </node>
+      <node id="312">
         <label>block.h</label>
         <link refid="block_8h"/>
-        <childnode refid="220" relation="include">
+        <childnode refid="313" relation="include">
         </childnode>
-        <childnode refid="221" relation="include">
+        <childnode refid="314" relation="include">
         </childnode>
-        <childnode refid="222" relation="include">
+        <childnode refid="315" relation="include">
         </childnode>
+      </node>
+      <node id="317">
+        <label>liste.h</label>
+        <link refid="liste_8h"/>
+        <childnode refid="315" relation="include">
+        </childnode>
+      </node>
+      <node id="313">
+        <label>couleurs.h</label>
+        <link refid="couleurs_8h_source"/>
+      </node>
+      <node id="314">
+        <label>SDL2/SDL.h</label>
+      </node>
+      <node id="319">
+        <label>entite.h</label>
+        <link refid="entite_8h"/>
+        <childnode refid="320" relation="include">
+        </childnode>
+        <childnode refid="321" relation="include">
+        </childnode>
+        <childnode refid="314" relation="include">
+        </childnode>
+        <childnode refid="322" relation="include">
+        </childnode>
+        <childnode refid="323" relation="include">
+        </childnode>
+        <childnode refid="324" relation="include">
+        </childnode>
+        <childnode refid="315" relation="include">
+        </childnode>
+        <childnode refid="311" relation="include">
+        </childnode>
+        <childnode refid="317" relation="include">
+        </childnode>
+      </node>
+      <node id="311">
+        <label>commun.h</label>
+        <link refid="commun_8h_source"/>
+      </node>
+      <node id="316">
+        <label>biome.h</label>
+        <link refid="biome_8h"/>
+        <childnode refid="311" relation="include">
+        </childnode>
+        <childnode refid="312" relation="include">
+        </childnode>
+        <childnode refid="317" relation="include">
+        </childnode>
+      </node>
+      <node id="324">
+        <label>chemin.h</label>
+        <link refid="chemin_8h"/>
+        <childnode refid="317" relation="include">
+        </childnode>
+        <childnode refid="315" relation="include">
+        </childnode>
+      </node>
+      <node id="320">
+        <label>stdio.h</label>
+      </node>
+      <node id="323">
+        <label>SDL2/SDL_ttf.h</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="225">
+      <node id="325">
         <label>include/structure_block.h</label>
         <link refid="structure__block_8h"/>
-        <childnode refid="226" relation="include">
+        <childnode refid="326" relation="include">
         </childnode>
-        <childnode refid="227" relation="include">
+        <childnode refid="327" relation="include">
         </childnode>
       </node>
-      <node id="227">
+      <node id="327">
         <label>src/structure_block.c</label>
         <link refid="structure__block_8c"/>
       </node>
-      <node id="226">
+      <node id="326">
         <label>src/generation.c</label>
         <link refid="generation_8c"/>
       </node>
@@ -82,14 +140,14 @@
       <sectiondef kind="define">
       <memberdef kind="define" id="structure__block_8h_1a3a9f47f10c6235b034b0e6f1b66fe36c" prot="public" static="no">
         <name>NB_STRUCT_BLOCK</name>
-        <initializer>5</initializer>
+        <initializer>6</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/structure_block.h" line="16" column="9" bodyfile="include/structure_block.h" bodystart="16" bodyend="-1"/>
+        <location file="include/structure_block.h" line="17" column="9" bodyfile="include/structure_block.h" bodystart="17" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="structure__block_8h_1acbddc546e9ec9234426151e8353022e5" prot="public" static="no">
         <name>DIST_MAX_STRUCT</name>
@@ -100,15 +158,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/structure_block.h" line="18" column="9" bodyfile="include/structure_block.h" bodystart="18" bodyend="-1"/>
+        <location file="include/structure_block.h" line="19" column="9" bodyfile="include/structure_block.h" bodystart="19" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="enum">
-      <memberdef kind="enum" id="structure__block_8h_1abe755d9ff527669b4d9e44a3bcc4abb0" prot="public" static="no" strong="no">
-        <type></type>
+      <memberdef kind="enum" id="structure__block_8h_1abe755d9ff527669b4d9e44a3bcc4abb0" prot="public" static="no">
         <name>t_struct_block_type</name>
         <enumvalue id="structure__block_8h_1abe755d9ff527669b4d9e44a3bcc4abb0a960657a0823523f7793f6779bd42b973" prot="public">
           <name>ARBRE_TAIGA</name>
+          <initializer>= 0</initializer>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
@@ -116,6 +174,7 @@
         </enumvalue>
         <enumvalue id="structure__block_8h_1abe755d9ff527669b4d9e44a3bcc4abb0a28c6b5baf79343a9a660dbe127879872" prot="public">
           <name>ARBRE_FORET</name>
+          <initializer>= 1</initializer>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
@@ -123,6 +182,7 @@
         </enumvalue>
         <enumvalue id="structure__block_8h_1abe755d9ff527669b4d9e44a3bcc4abb0a47ed990c87ae351aa96c0098db26455e" prot="public">
           <name>CACTUS</name>
+          <initializer>= 2</initializer>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
@@ -130,6 +190,7 @@
         </enumvalue>
         <enumvalue id="structure__block_8h_1abe755d9ff527669b4d9e44a3bcc4abb0ae4e0699dbf19509bedf3a84915066b37" prot="public">
           <name>BUISSON</name>
+          <initializer>= 3</initializer>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
@@ -137,6 +198,15 @@
         </enumvalue>
         <enumvalue id="structure__block_8h_1abe755d9ff527669b4d9e44a3bcc4abb0ae7fb8d24d6f04c7c829cce3473db6451" prot="public">
           <name>GRAND_ARBRE_FORET</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structure__block_8h_1abe755d9ff527669b4d9e44a3bcc4abb0a3ddfccf6b0602806e3c988a7948917c3" prot="public">
+          <name>ENTRE_DONJON</name>
+          <initializer>= 5</initializer>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
@@ -148,7 +218,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/structure_block.h" line="20" column="1" bodyfile="include/structure_block.h" bodystart="20" bodyend="26"/>
+        <location file="include/structure_block.h" line="21" column="1" bodyfile="include/structure_block.h" bodystart="21" bodyend="28"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -170,7 +240,7 @@
           <declname>dir</declname>
         </param>
         <param>
-          <type><ref refid="structblock__s" kindref="compound">t_block</ref></type>
+          <type><ref refid="structt__block" kindref="compound">t_block</ref></type>
           <declname>map</declname>
           <array>[MAX]</array>
         </param>
@@ -180,7 +250,66 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/structure_block.h" line="36" column="1" bodyfile="src/structure_block.c" bodystart="49" bodyend="101"/>
+        <location file="include/structure_block.h" line="38" column="1" bodyfile="src/structure_block.c" bodystart="95" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="structure__block_8h_1ad18ecff4f1e23d54c405afbe9b16a782" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int STRUCT_SetCol</definition>
+        <argsstring>(int x_struct, int y, t_struct_block_type type_spawn, t_block tab[MAX])</argsstring>
+        <name>STRUCT_SetCol</name>
+        <param>
+          <type>int</type>
+          <declname>x_struct</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>t_struct_block_type</type>
+          <declname>type_spawn</declname>
+        </param>
+        <param>
+          <type><ref refid="structt__block" kindref="compound">t_block</ref></type>
+          <declname>tab</declname>
+          <array>[MAX]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/structure_block.h" line="39" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structure__block_8h_1a774d330e726bfcf28be0ed728423d9bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int STRUCT_Spawn</definition>
+        <argsstring>(int x, int y, t_struct_block_type type_spawn, t_map *map)</argsstring>
+        <name>STRUCT_Spawn</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>t_struct_block_type</type>
+          <declname>type_spawn</declname>
+        </param>
+        <param>
+          <type><ref refid="structt__map" kindref="compound">t_map</ref> *</type>
+          <declname>map</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/structure_block.h" line="40" column="1" bodyfile="src/structure_block.c" bodystart="47" bodyend="55"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -198,30 +327,33 @@
 <codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;commun.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="block_8h" kindref="compound">block.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="biome_8h" kindref="compound">biome.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="15"><highlight class="normal"></highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NB_STRUCT_BLOCK<sp/>5</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="17"><highlight class="normal"></highlight></codeline>
-<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DIST_MAX_STRUCT<sp/>15</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight></codeline>
-<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="21"><highlight class="normal"><sp/><sp/>ARBRE_TAIGA,</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/>ARBRE_FORET,</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/>CACTUS,</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/>BUISSON,</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/>GRAND_ARBRE_FORET</highlight></codeline>
-<codeline lineno="26"><highlight class="normal">}<sp/>t_struct_block_type;</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"></highlight></codeline>
-<codeline lineno="28" refid="structt__struct__block" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/>t_struct_block_type<sp/>type;</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>largeur;</highlight></codeline>
-<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>path;</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>pourcent_spawn;</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>biome;</highlight></codeline>
-<codeline lineno="34"><highlight class="normal">}<sp/><ref refid="structt__struct__block" kindref="compound">t_struct_block</ref>;</highlight></codeline>
-<codeline lineno="35"><highlight class="normal"></highlight></codeline>
-<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>STRUCT_generation(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dir,<ref refid="structblock__s" kindref="compound">t_block</ref><sp/>map[MAX]<sp/>);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="map_8h" kindref="compound">map.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NB_STRUCT_BLOCK<sp/>6</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DIST_MAX_STRUCT<sp/>15</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/>ARBRE_TAIGA<sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/>ARBRE_FORET<sp/>=<sp/>1,</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/>CACTUS<sp/>=<sp/>2,</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/>BUISSON<sp/>=<sp/>3,</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>GRAND_ARBRE_FORET<sp/>=<sp/>4,</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>ENTRE_DONJON<sp/>=<sp/>5</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">}<sp/>t_struct_block_type;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="structt__struct__block" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/>t_struct_block_type<sp/>type;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>largeur;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>path;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>pourcent_spawn;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>biome;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">}<sp/><ref refid="structt__struct__block" kindref="compound">t_struct_block</ref>;</highlight></codeline>
 <codeline lineno="37"><highlight class="normal"></highlight></codeline>
-<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>STRUCT_generation(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dir,<ref refid="structt__block" kindref="compound">t_block</ref><sp/>map[MAX]<sp/>);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>STRUCT_SetCol(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x_struct,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y,<sp/>t_struct_block_type<sp/>type_spawn,<sp/><ref refid="structt__block" kindref="compound">t_block</ref><sp/>tab[MAX]);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>STRUCT_Spawn(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y,<sp/>t_struct_block_type<sp/>type_spawn,<sp/><ref refid="structt__map" kindref="compound">t_map</ref><sp/>*map);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="include/structure_block.h"/>
   </compounddef>

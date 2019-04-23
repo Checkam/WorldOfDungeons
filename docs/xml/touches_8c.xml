@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="touches_8c" kind="file" language="C++">
     <compoundname>touches.c</compoundname>
     <includes local="no">stdlib.h</includes>
@@ -8,50 +8,50 @@
     <includes refid="json_8h" local="no">json.h</includes>
     <includes local="no">SDL2/SDL.h</includes>
     <incdepgraph>
-      <node id="454">
-        <label>json.h</label>
-        <link refid="json_8h"/>
-        <childnode refid="451" relation="include">
-        </childnode>
-        <childnode refid="450" relation="include">
-        </childnode>
-        <childnode refid="455" relation="include">
-        </childnode>
-      </node>
-      <node id="453">
-        <label>stdint.h</label>
-      </node>
-      <node id="450">
-        <label>stdlib.h</label>
-      </node>
-      <node id="452">
-        <label>touches.h</label>
-        <link refid="touches_8h_source"/>
-        <childnode refid="453" relation="include">
-        </childnode>
-      </node>
-      <node id="456">
-        <label>SDL2/SDL.h</label>
-      </node>
-      <node id="455">
+      <node id="631">
         <label>erreur.h</label>
         <link refid="erreur_8h"/>
       </node>
-      <node id="449">
-        <label>src/touches.c</label>
-        <link refid="touches_8c"/>
-        <childnode refid="450" relation="include">
+      <node id="630">
+        <label>json.h</label>
+        <link refid="json_8h"/>
+        <childnode refid="627" relation="include">
         </childnode>
-        <childnode refid="451" relation="include">
+        <childnode refid="626" relation="include">
         </childnode>
-        <childnode refid="452" relation="include">
-        </childnode>
-        <childnode refid="454" relation="include">
-        </childnode>
-        <childnode refid="456" relation="include">
+        <childnode refid="631" relation="include">
         </childnode>
       </node>
-      <node id="451">
+      <node id="629">
+        <label>stdint.h</label>
+      </node>
+      <node id="626">
+        <label>stdlib.h</label>
+      </node>
+      <node id="628">
+        <label>touches.h</label>
+        <link refid="touches_8h_source"/>
+        <childnode refid="629" relation="include">
+        </childnode>
+      </node>
+      <node id="625">
+        <label>src/touches.c</label>
+        <link refid="touches_8c"/>
+        <childnode refid="626" relation="include">
+        </childnode>
+        <childnode refid="627" relation="include">
+        </childnode>
+        <childnode refid="628" relation="include">
+        </childnode>
+        <childnode refid="630" relation="include">
+        </childnode>
+        <childnode refid="632" relation="include">
+        </childnode>
+      </node>
+      <node id="632">
+        <label>SDL2/SDL.h</label>
+      </node>
+      <node id="627">
         <label>stdio.h</label>
       </node>
     </incdepgraph>
@@ -266,7 +266,7 @@
 <codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="json_8c_1a10b95a250726186ac4ddfdda6adad3e3" kindref="member">extract_json_obj</ref>(<sp/>config,<sp/>&amp;ligne);</highlight></codeline>
 <codeline lineno="47"><highlight class="normal"></highlight></codeline>
 <codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>read_json_obj(<sp/>ligne,<sp/></highlight><highlight class="stringliteral">&quot;keyID&quot;</highlight><highlight class="normal">,<sp/>&amp;keyID,<sp/></highlight><highlight class="stringliteral">&quot;d16&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>read_json_obj(<sp/>ligne,<sp/></highlight><highlight class="stringliteral">&quot;value&quot;</highlight><highlight class="normal">,<sp/>&amp;value,<sp/></highlight><highlight class="stringliteral">&quot;u&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>read_json_obj(<sp/>ligne,<sp/></highlight><highlight class="stringliteral">&quot;value&quot;</highlight><highlight class="normal">,<sp/>&amp;value,<sp/></highlight><highlight class="stringliteral">&quot;u32&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>read_json_obj(<sp/>ligne,<sp/></highlight><highlight class="stringliteral">&quot;descr&quot;</highlight><highlight class="normal">,<sp/>descr,<sp/></highlight><highlight class="stringliteral">&quot;s&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="51"><highlight class="normal"></highlight></codeline>
 <codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>free(ligne);</highlight></codeline>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="entite_8h" kind="file" language="C++">
     <compoundname>entite.h</compoundname>
     <includes local="no">stdio.h</includes>
@@ -11,77 +11,147 @@
     <includes refid="erreur_8h" local="no">erreur.h</includes>
     <includes refid="commun_8h" local="no">commun.h</includes>
     <includes refid="liste_8h" local="no">liste.h</includes>
+    <includedby refid="donjon_8c" local="no">src/donjon.c</includedby>
     <includedby refid="entite_8c" local="no">src/entite.c</includedby>
+    <includedby refid="ia_8c" local="no">src/ia.c</includedby>
+    <includedby refid="world__of__dungeons_8c" local="no">src/world_of_dungeons.c</includedby>
+    <includedby refid="donjon_8h" local="no">include/donjon.h</includedby>
+    <includedby refid="ia_8h" local="no">include/ia.h</includedby>
+    <includedby refid="map_8h" local="no">include/map.h</includedby>
     <incdepgraph>
-      <node id="97">
-        <label>commun.h</label>
-        <link refid="commun_8h_source"/>
-      </node>
-      <node id="92">
-        <label>SDL2/SDL_image.h</label>
-      </node>
-      <node id="90">
-        <label>stdlib.h</label>
-      </node>
-      <node id="95">
-        <label>liste.h</label>
-        <link refid="liste_8h"/>
-        <childnode refid="96" relation="include">
-        </childnode>
-      </node>
-      <node id="94">
-        <label>chemin.h</label>
-        <link refid="chemin_8h"/>
-        <childnode refid="95" relation="include">
-        </childnode>
-        <childnode refid="96" relation="include">
-        </childnode>
-      </node>
-      <node id="91">
-        <label>SDL2/SDL.h</label>
-      </node>
-      <node id="96">
+      <node id="121">
         <label>erreur.h</label>
         <link refid="erreur_8h"/>
       </node>
-      <node id="88">
+      <node id="117">
+        <label>SDL2/SDL_image.h</label>
+      </node>
+      <node id="115">
+        <label>stdlib.h</label>
+      </node>
+      <node id="120">
+        <label>liste.h</label>
+        <link refid="liste_8h"/>
+        <childnode refid="121" relation="include">
+        </childnode>
+      </node>
+      <node id="116">
+        <label>SDL2/SDL.h</label>
+      </node>
+      <node id="113">
         <label>include/entite.h</label>
         <link refid="entite_8h"/>
-        <childnode refid="89" relation="include">
+        <childnode refid="114" relation="include">
         </childnode>
-        <childnode refid="90" relation="include">
+        <childnode refid="115" relation="include">
         </childnode>
-        <childnode refid="91" relation="include">
+        <childnode refid="116" relation="include">
         </childnode>
-        <childnode refid="92" relation="include">
+        <childnode refid="117" relation="include">
         </childnode>
-        <childnode refid="93" relation="include">
+        <childnode refid="118" relation="include">
         </childnode>
-        <childnode refid="94" relation="include">
+        <childnode refid="119" relation="include">
         </childnode>
-        <childnode refid="96" relation="include">
+        <childnode refid="121" relation="include">
         </childnode>
-        <childnode refid="97" relation="include">
+        <childnode refid="122" relation="include">
         </childnode>
-        <childnode refid="95" relation="include">
+        <childnode refid="120" relation="include">
         </childnode>
       </node>
-      <node id="89">
+      <node id="122">
+        <label>commun.h</label>
+        <link refid="commun_8h_source"/>
+      </node>
+      <node id="119">
+        <label>chemin.h</label>
+        <link refid="chemin_8h"/>
+        <childnode refid="120" relation="include">
+        </childnode>
+        <childnode refid="121" relation="include">
+        </childnode>
+      </node>
+      <node id="114">
         <label>stdio.h</label>
       </node>
-      <node id="93">
+      <node id="118">
         <label>SDL2/SDL_ttf.h</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="99">
+      <node id="128">
+        <label>include/ia.h</label>
+        <link refid="ia_8h"/>
+        <childnode refid="124" relation="include">
+        </childnode>
+        <childnode refid="126" relation="include">
+        </childnode>
+      </node>
+      <node id="129">
+        <label>include/map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="125" relation="include">
+        </childnode>
+        <childnode refid="130" relation="include">
+        </childnode>
+        <childnode refid="131" relation="include">
+        </childnode>
+        <childnode refid="132" relation="include">
+        </childnode>
+      </node>
+      <node id="132">
+        <label>include/structure_block.h</label>
+        <link refid="structure__block_8h"/>
+        <childnode refid="133" relation="include">
+        </childnode>
+        <childnode refid="131" relation="include">
+        </childnode>
+      </node>
+      <node id="131">
+        <label>src/structure_block.c</label>
+        <link refid="structure__block_8c"/>
+      </node>
+      <node id="130">
+        <label>src/map.c</label>
+        <link refid="map_8c"/>
+      </node>
+      <node id="124">
+        <label>src/donjon.c</label>
+        <link refid="donjon_8c"/>
+      </node>
+      <node id="123">
+        <label>include/entite.h</label>
+        <link refid="entite_8h"/>
+        <childnode refid="124" relation="include">
+        </childnode>
+        <childnode refid="125" relation="include">
+        </childnode>
+        <childnode refid="126" relation="include">
+        </childnode>
+        <childnode refid="127" relation="include">
+        </childnode>
+        <childnode refid="128" relation="include">
+        </childnode>
+        <childnode refid="129" relation="include">
+        </childnode>
+      </node>
+      <node id="126">
+        <label>src/ia.c</label>
+        <link refid="ia_8c"/>
+      </node>
+      <node id="133">
+        <label>src/generation.c</label>
+        <link refid="generation_8c"/>
+      </node>
+      <node id="125">
         <label>src/entite.c</label>
         <link refid="entite_8c"/>
       </node>
-      <node id="98">
-        <label>include/entite.h</label>
-        <link refid="entite_8h"/>
-        <childnode refid="99" relation="include">
+      <node id="127">
+        <label>include/donjon.h</label>
+        <link refid="donjon_8h"/>
+        <childnode refid="124" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
@@ -176,16 +246,27 @@
         </inbodydescription>
         <location file="include/entite.h" line="34" column="9" bodyfile="include/entite.h" bodystart="34" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="define" id="entite_8h_1a97039e88395072b9182b25c6cd92dd99" prot="public" static="no">
-        <name>HAUTEUR_SAUT</name>
-        <initializer>9</initializer>
+      <memberdef kind="define" id="entite_8h_1a0466983fa06327bd9b1d792043b917a9" prot="public" static="no">
+        <name>NB_SAUT</name>
+        <initializer>1</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/entite.h" line="64" column="9" bodyfile="include/entite.h" bodystart="64" bodyend="-1"/>
+        <location file="include/entite.h" line="74" column="9" bodyfile="include/entite.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="entite_8h_1a97039e88395072b9182b25c6cd92dd99" prot="public" static="no">
+        <name>HAUTEUR_SAUT</name>
+        <initializer>8</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="75" column="9" bodyfile="include/entite.h" bodystart="75" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="entite_8h_1ae7b2d632f84e289539f4d0320a4a05fb" prot="public" static="no">
         <name>VITESSE_DEPLACEMENT</name>
@@ -196,7 +277,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/entite.h" line="65" column="9" bodyfile="include/entite.h" bodystart="65" bodyend="-1"/>
+        <location file="include/entite.h" line="76" column="9" bodyfile="include/entite.h" bodystart="76" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="entite_8h_1a3fa2d9e8a3ff5bc7ac576fda26265b44" prot="public" static="no">
         <name>ACCELERATION</name>
@@ -207,110 +288,281 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/entite.h" line="66" column="9" bodyfile="include/entite.h" bodystart="66" bodyend="-1"/>
+        <location file="include/entite.h" line="77" column="9" bodyfile="include/entite.h" bodystart="77" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="define" id="entite_8h_1a95c764374a34bd4b4b2233ff6f8778d9" prot="public" static="no">
+      <memberdef kind="define" id="entite_8h_1a80849a381cfd5d8ca6f9badce2a315cc" prot="public" static="no">
         <name>POSX_ENT_SCREEN</name>
-        <initializer>(width_window/2 - W_PART_SPRITE + width_block_sdl)</initializer>
+        <param><defname>entite</defname></param>
+        <initializer>(width_window/2 - entite-&gt;hitbox.w/2)</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/entite.h" line="67" column="9" bodyfile="include/entite.h" bodystart="67" bodyend="-1"/>
+        <location file="include/entite.h" line="78" column="9" bodyfile="include/entite.h" bodystart="78" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="define" id="entite_8h_1a616585fe46f21f79f46366c4fc17c986" prot="public" static="no">
+      <memberdef kind="define" id="entite_8h_1a77fdd349718bd5c4b6eb317feea19250" prot="public" static="no">
         <name>POSY_ENT_SCREEN</name>
-        <initializer>(height_window/2 - H_PART_SPRITE)</initializer>
+        <param><defname>entite</defname></param>
+        <initializer>(height_window/2 - entite-&gt;hitbox.h/2)</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/entite.h" line="68" column="9" bodyfile="include/entite.h" bodystart="68" bodyend="-1"/>
+        <location file="include/entite.h" line="79" column="9" bodyfile="include/entite.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="entite_8h_1a2389626b26d6d2d9c5b2ea296d6dff55" prot="public" static="no">
+        <name>DECALAGE_NOM_ENT</name>
+        <initializer>30</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="80" column="9" bodyfile="include/entite.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="entite_8h_1ad3f98033cacce9b439caf9d6292f997c" prot="public" static="no">
+        <name>LARGEUR_NOM_ENT</name>
+        <initializer>65</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="81" column="9" bodyfile="include/entite.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="entite_8h_1a9ec1343c8d640be72fc879293863bf80" prot="public" static="no">
+        <name>HAUTEUR_NOM_ENT</name>
+        <initializer>15</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="82" column="9" bodyfile="include/entite.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="entite_8h_1ac0f582c7a6eeb392d9be492618c9ebec" prot="public" static="no">
+        <name>RAND_AB</name>
+        <param><defname>a</defname></param>
+        <param><defname>b</defname></param>
+        <initializer>(rand()%(b-a) + a)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="84" column="9" bodyfile="include/entite.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="entite_8h_1a6ff025e1566bcc76f1b354670df04d48" prot="public" static="no">
+        <name>CENTER_SCREEN</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="86" column="9" bodyfile="include/entite.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="entite_8h_1a7b36b0e6101f4dcb871322694ff4b1be" prot="public" static="no">
+        <name>NOT_CENTER_SCREEN</name>
+        <initializer>2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="87" column="9" bodyfile="include/entite.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="entite_8h_1a45bc1f9bdfa69836e9bc78334beaea8e" prot="public" static="no">
+        <name>INVERSION_AXE_Y</name>
+        <initializer>4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="88" column="9" bodyfile="include/entite.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="entite_8h_1a36e523a0d122a37724f7731878b973ce" prot="public" static="no">
+        <name>GESTION_TOUCHES</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="90" column="9" bodyfile="include/entite.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="entite_8h_1afabd8e1913f5cf67edec800c9af19aa1" prot="public" static="no">
+        <name>GESTION_ACTION</name>
+        <initializer>2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="91" column="9" bodyfile="include/entite.h" bodystart="91" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="enum">
-      <memberdef kind="enum" id="entite_8h_1abf8170fe3a93ebd8f3701bbf092ece99" prot="public" static="no" strong="no">
-        <type></type>
-        <name>t_action</name>
-        <enumvalue id="entite_8h_1abf8170fe3a93ebd8f3701bbf092ece99a0e6f514bb74d93805def5cf6768b992a" prot="public">
+      <memberdef kind="enum" id="entite_8h_1a9695563ba2c3d4e59f4680439da60d8b" prot="public" static="no">
+        <name>e_action</name>
+        <enumvalue id="entite_8h_1a9695563ba2c3d4e59f4680439da60d8ba0e6f514bb74d93805def5cf6768b992a" prot="public">
           <name>IMMOBILE</name>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
           </detaileddescription>
         </enumvalue>
-        <enumvalue id="entite_8h_1abf8170fe3a93ebd8f3701bbf092ece99aceb59bdb6a4e5e90fe950d9f5f0f54b4" prot="public">
+        <enumvalue id="entite_8h_1a9695563ba2c3d4e59f4680439da60d8baceb59bdb6a4e5e90fe950d9f5f0f54b4" prot="public">
           <name>MARCHE_DROITE</name>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
           </detaileddescription>
         </enumvalue>
-        <enumvalue id="entite_8h_1abf8170fe3a93ebd8f3701bbf092ece99ad2639eb9d6b31b013b7026e2e8c8f84a" prot="public">
+        <enumvalue id="entite_8h_1a9695563ba2c3d4e59f4680439da60d8bad2639eb9d6b31b013b7026e2e8c8f84a" prot="public">
           <name>MARCHE_GAUCHE</name>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
           </detaileddescription>
         </enumvalue>
-        <enumvalue id="entite_8h_1abf8170fe3a93ebd8f3701bbf092ece99a20b3c4dfde44d4e5c5330919b74e554c" prot="public">
+        <enumvalue id="entite_8h_1a9695563ba2c3d4e59f4680439da60d8ba20b3c4dfde44d4e5c5330919b74e554c" prot="public">
           <name>MARCHE_DEVANT</name>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
           </detaileddescription>
         </enumvalue>
-        <enumvalue id="entite_8h_1abf8170fe3a93ebd8f3701bbf092ece99a4e8f817aed1a0afb80eb09701d9e0a51" prot="public">
+        <enumvalue id="entite_8h_1a9695563ba2c3d4e59f4680439da60d8ba4e8f817aed1a0afb80eb09701d9e0a51" prot="public">
           <name>MARCHE_DERRIERE</name>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
           </detaileddescription>
         </enumvalue>
-        <enumvalue id="entite_8h_1abf8170fe3a93ebd8f3701bbf092ece99a72ed41af2b94873c2458da5ca80907c4" prot="public">
+        <enumvalue id="entite_8h_1a9695563ba2c3d4e59f4680439da60d8ba72ed41af2b94873c2458da5ca80907c4" prot="public">
           <name>ATTAQUE_GAUCHE</name>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
           </detaileddescription>
         </enumvalue>
-        <enumvalue id="entite_8h_1abf8170fe3a93ebd8f3701bbf092ece99abe38a6507af34a4ecd2bcd39d879b31f" prot="public">
+        <enumvalue id="entite_8h_1a9695563ba2c3d4e59f4680439da60d8babe38a6507af34a4ecd2bcd39d879b31f" prot="public">
           <name>ATTAQUE_DROITE</name>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
           </detaileddescription>
         </enumvalue>
+        <enumvalue id="entite_8h_1a9695563ba2c3d4e59f4680439da60d8ba23347fd9e4b9608fe37c8f5c3a37ebb7" prot="public">
+          <name>ATTAQUE_DEVANT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="entite_8h_1a9695563ba2c3d4e59f4680439da60d8ba08244affee5e93411a5a75da36dcf3af" prot="public">
+          <name>ATTAQUE_DERRIERE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="entite_8h_1a9695563ba2c3d4e59f4680439da60d8ba3712e98ee35f04d112f5a0afea69fa31" prot="public">
+          <name>ACCELERER</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="entite_8h_1a9695563ba2c3d4e59f4680439da60d8ba1595eeed54b0ca929902c922a63f9e80" prot="public">
+          <name>MARCHER</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="entite_8h_1a9695563ba2c3d4e59f4680439da60d8bae8ba4488c78baae7335b8c44ba935b6e" prot="public">
+          <name>SAUTER_ENT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="entite_8h_1a9695563ba2c3d4e59f4680439da60d8ba1b09d2ee2eae0ba8b50c7c6f1432749d" prot="public">
+          <name>CREUSER_DROITE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="entite_8h_1a9695563ba2c3d4e59f4680439da60d8ba846ebe699feb758d098398ab51cc1fa9" prot="public">
+          <name>CREUSER_GAUCHE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="entite_8h_1a9695563ba2c3d4e59f4680439da60d8ba85a30e78a424226ded1fbaf217646d54" prot="public">
+          <name>CREUSER_DEVANT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="entite_8h_1a9695563ba2c3d4e59f4680439da60d8ba84222f98b901df66773cfabd055ab343" prot="public">
+          <name>CREUSER_DERRIERE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="entite_8h_1a9695563ba2c3d4e59f4680439da60d8ba4eee825876a48367da9e87d24de8a0dc" prot="public">
+          <name>ALL_ACTION</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
         <briefdescription>
-<para>Les différentes actions possible par l&apos;entité. </para>        </briefdescription>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/entite.h" line="40" column="1" bodyfile="include/entite.h" bodystart="40" bodyend="48"/>
+        <location file="include/entite.h" line="40" column="1" bodyfile="include/entite.h" bodystart="40" bodyend="58"/>
       </memberdef>
-      <memberdef kind="enum" id="entite_8h_1a4182d28438d783fe0ef6b4c58c2d743b" prot="public" static="no" strong="no">
-        <type></type>
-        <name>t_entite_type</name>
-        <enumvalue id="entite_8h_1a4182d28438d783fe0ef6b4c58c2d743bad4d15427af4b5b0f54dbed84f89cade7" prot="public">
+      <memberdef kind="enum" id="entite_8h_1aefa4ee9b76052e41cb3dbdb59476d1fb" prot="public" static="no">
+        <name>e_entite_type</name>
+        <enumvalue id="entite_8h_1aefa4ee9b76052e41cb3dbdb59476d1fbad4d15427af4b5b0f54dbed84f89cade7" prot="public">
           <name>JOUEUR</name>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
           </detaileddescription>
         </enumvalue>
-        <enumvalue id="entite_8h_1a4182d28438d783fe0ef6b4c58c2d743ba5dfb36109b24f39d54d5c3f48f53def8" prot="public">
+        <enumvalue id="entite_8h_1aefa4ee9b76052e41cb3dbdb59476d1fba5dfb36109b24f39d54d5c3f48f53def8" prot="public">
           <name>ZOMBIE</name>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
           </detaileddescription>
         </enumvalue>
-        <enumvalue id="entite_8h_1a4182d28438d783fe0ef6b4c58c2d743bab26df4373bb31a33c70ffa75477f9875" prot="public">
+        <enumvalue id="entite_8h_1aefa4ee9b76052e41cb3dbdb59476d1fbab26df4373bb31a33c70ffa75477f9875" prot="public">
           <name>BOSS</name>
           <briefdescription>
           </briefdescription>
@@ -318,15 +570,28 @@
           </detaileddescription>
         </enumvalue>
         <briefdescription>
-<para>Les différents types d&apos;entités prédéfinis. </para>        </briefdescription>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/entite.h" line="74" column="1" bodyfile="include/entite.h" bodystart="74" bodyend="78"/>
+        <location file="include/entite.h" line="97" column="1" bodyfile="include/entite.h" bodystart="97" bodyend="101"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="entite_8h_1ad2588b9a942f4a05da84140970372cdd" prot="public" static="no">
+        <type>enum e_action</type>
+        <definition>typedef enum e_action t_action</definition>
+        <argsstring></argsstring>
+        <name>t_action</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="58" column="1"/>
+      </memberdef>
       <memberdef kind="typedef" id="entite_8h_1acdffa2d2614e6d7fc2bacfe31c0e1b8f" prot="public" static="no">
         <type>struct <ref refid="structs__anim__action" kindref="compound">s_anim_action</ref></type>
         <definition>typedef struct s_anim_action t_anim_action</definition>
@@ -338,7 +603,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/entite.h" line="59" column="1"/>
+        <location file="include/entite.h" line="69" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="entite_8h_1a66a8a798c1cc9a3f677c8a49cd99e276" prot="public" static="no">
+        <type>enum e_entite_type</type>
+        <definition>typedef enum e_entite_type t_entite_type</definition>
+        <argsstring></argsstring>
+        <name>t_entite_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="101" column="1"/>
       </memberdef>
       <memberdef kind="typedef" id="entite_8h_1a2cbf188682c05adae88dc39bdd7ef995" prot="public" static="no">
         <type>struct <ref refid="structs__entite" kindref="compound">s_entite</ref></type>
@@ -351,7 +629,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/entite.h" line="101" column="1"/>
+        <location file="include/entite.h" line="127" column="1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -365,7 +643,7 @@
           <declname>name</declname>
         </param>
         <param>
-          <type><ref refid="entite_8h_1a4182d28438d783fe0ef6b4c58c2d743b" kindref="member">t_entite_type</ref></type>
+          <type>t_entite_type</type>
           <declname>type</declname>
         </param>
         <param>
@@ -381,37 +659,78 @@
           <declname>taille</declname>
         </param>
         <briefdescription>
-        </briefdescription>
+<para>Créer une entité avec des paramètres par défaut. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le nom de l&apos;entité. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le type de l&apos;entité. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>x_dep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Coordonnée de départ de l&apos;entité. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y_dep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Coordonnée de départ de l&apos;entité. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>taille</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Taille de l&apos;entité en Y. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Un pointeur sur l&apos;entité créée. </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/entite.h" line="107" column="1" bodyfile="src/entite.c" bodystart="51" bodyend="61"/>
+        <location file="include/entite.h" line="133" column="1" bodyfile="src/entite.c" bodystart="61" bodyend="71"/>
       </memberdef>
-      <memberdef kind="function" id="entite_8h_1ad59afa76cdb06ceaa346a59300d95957" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="entite_8h_1a89d3dbf9edc4d93450c28d1c66857667" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structt__entite" kindref="compound">t_entite</ref> *</type>
         <definition>t_entite* creer_entite</definition>
-        <argsstring>(char *name, int mana, int mana_max, int pv, int pv_max, SDL_Texture *texture, t_anim_action *t_a, int x_dep, int y_dep, int taille)</argsstring>
+        <argsstring>(char *name, uint32_t mana, uint32_t mana_max, uint32_t pv, uint32_t pv_max, uint32_t damage, SDL_Texture *texture, t_anim_action *t_a, int x_dep, int y_dep, int taille, t_entite_type type)</argsstring>
         <name>creer_entite</name>
         <param>
           <type>char *</type>
           <declname>name</declname>
         </param>
         <param>
-          <type>int</type>
+          <type>uint32_t</type>
           <declname>mana</declname>
         </param>
         <param>
-          <type>int</type>
+          <type>uint32_t</type>
           <declname>mana_max</declname>
         </param>
         <param>
-          <type>int</type>
+          <type>uint32_t</type>
           <declname>pv</declname>
         </param>
         <param>
-          <type>int</type>
+          <type>uint32_t</type>
           <declname>pv_max</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>damage</declname>
         </param>
         <param>
           <type>SDL_Texture *</type>
@@ -433,13 +752,103 @@
           <type>int</type>
           <declname>taille</declname>
         </param>
+        <param>
+          <type>t_entite_type</type>
+          <declname>type</declname>
+        </param>
         <briefdescription>
-        </briefdescription>
+<para>Créer une entité. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le nom de l&apos;entité. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mana</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le mana de départ de l&apos;entité. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mana_max</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le mana max que peut avoir l&apos;entité. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pv</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Les pv de départ de l&apos;entité. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pv_max</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Les pv max de l&apos;entité. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>damage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Les dégats de base de l&apos;entité. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>texture</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La texture de l&apos;entité. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>t_a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Emplacement des textures liées à une action. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>x_dep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Coordonnée de départ de l&apos;entité. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y_dep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Coordonnée de départ de l&apos;entité. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>taille</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Taille de l&apos;entité en Y. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>de l&apos;entité. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Un pointeur sur l&apos;entité créée. </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/entite.h" line="109" column="1" bodyfile="src/entite.c" bodystart="78" bodyend="118"/>
+        <location file="include/entite.h" line="135" column="1" bodyfile="src/entite.c" bodystart="90" bodyend="134"/>
       </memberdef>
       <memberdef kind="function" id="entite_8h_1aff126a9685fdd63884131ba74499aa17" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>t_erreur</type>
@@ -465,7 +874,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/entite.h" line="111" column="1" bodyfile="src/entite.c" bodystart="126" bodyend="131"/>
+        <location file="include/entite.h" line="137" column="1" bodyfile="src/entite.c" bodystart="142" bodyend="148"/>
       </memberdef>
       <memberdef kind="function" id="entite_8h_1a85c4902ba3e6c85244ba5092b9ac5d90" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>t_erreur</type>
@@ -477,7 +886,7 @@
           <declname>entite</declname>
         </param>
         <param>
-          <type><ref refid="entite_8h_1a4182d28438d783fe0ef6b4c58c2d743b" kindref="member">t_entite_type</ref></type>
+          <type>t_entite_type</type>
           <declname>type</declname>
         </param>
         <briefdescription>
@@ -486,7 +895,554 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/entite.h" line="113" column="1"/>
+        <location file="include/entite.h" line="139" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="entite_8h_1a53c3b903c9dbba795b9a7e510777bf15" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+        <definition>t_liste* Create_Liste_Entite</definition>
+        <argsstring>(int x1, int x2, int y, t_entite_type type, int nb_entite, int taille)</argsstring>
+        <name>Create_Liste_Entite</name>
+        <param>
+          <type>int</type>
+          <declname>x1</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>x2</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>t_entite_type</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nb_entite</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>taille</declname>
+        </param>
+        <briefdescription>
+<para>Créer une liste d&apos;entité d&apos;un certain type entre 2 points. </para>        </briefdescription>
+        <detaileddescription>
+<para>Si le y est négatif, il est créé avec le bruit de perlin. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le x de gauche dans l&apos;intervalle. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>x2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le x de droite dans l&apos;intervalle. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le y de création. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le type de l&apos;entité à créer. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nb_entite</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le nombre d&apos;entité à créer dans l&apos;intervale [x1;x2]. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>taille</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La taille des entités à créer. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>La liste d&apos;entités créées. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="141" column="1" bodyfile="src/entite.c" bodystart="162" bodyend="191"/>
+      </memberdef>
+      <memberdef kind="function" id="entite_8h_1afbc59b5066529903cbc2d8b2928d20c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur Destroy_Liste_Entite</definition>
+        <argsstring>(t_liste **entite)</argsstring>
+        <name>Destroy_Liste_Entite</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> **</type>
+          <declname>entite</declname>
+        </param>
+        <briefdescription>
+<para>Détruit une liste d&apos;entités. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>entite</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Un pointeur sur la liste à détruire. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="143" column="1" bodyfile="src/entite.c" bodystart="199" bodyend="209"/>
+      </memberdef>
+      <memberdef kind="function" id="entite_8h_1aa50e72e1f48fcd4d047ba1eef6600ef6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur Change_Name_Entite</definition>
+        <argsstring>(t_entite *entite, char *name)</argsstring>
+        <name>Change_Name_Entite</name>
+        <param>
+          <type><ref refid="structt__entite" kindref="compound">t_entite</ref> *</type>
+          <declname>entite</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Change le nom d&apos;une entité. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>entite</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>L&apos;entité à modifier. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le nouveau nom. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="149" column="1" bodyfile="src/entite.c" bodystart="220" bodyend="228"/>
+      </memberdef>
+      <memberdef kind="function" id="entite_8h_1ac90f183a028a759b4d2465a230aea2c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur Change_Faim_Entite</definition>
+        <argsstring>(t_entite *entite, uint32_t faim, uint32_t faim_max)</argsstring>
+        <name>Change_Faim_Entite</name>
+        <param>
+          <type><ref refid="structt__entite" kindref="compound">t_entite</ref> *</type>
+          <declname>entite</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>faim</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>faim_max</declname>
+        </param>
+        <briefdescription>
+<para>Change la faim d&apos;une entité. </para>        </briefdescription>
+        <detaileddescription>
+<para>La faim doit être inférieure à la faim maximale et supérieure à 0. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>entite</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>L&apos;entité à modifier. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>faim</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La nouvelle faim. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>faim_max</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La nouvelle faim maximale. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="151" column="1" bodyfile="src/entite.c" bodystart="239" bodyend="251"/>
+      </memberdef>
+      <memberdef kind="function" id="entite_8h_1a4310332d54f8313054572c57c5cac9aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur Change_Mana_Entite</definition>
+        <argsstring>(t_entite *entite, uint32_t mana, uint32_t mana_max)</argsstring>
+        <name>Change_Mana_Entite</name>
+        <param>
+          <type><ref refid="structt__entite" kindref="compound">t_entite</ref> *</type>
+          <declname>entite</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mana</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>mana_max</declname>
+        </param>
+        <briefdescription>
+<para>Change la mana d&apos;une entité. </para>        </briefdescription>
+        <detaileddescription>
+<para>La mana doit être inférieure à la mana maximale et supérieure à 0. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>entite</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>L&apos;entité à modifier. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mana</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La nouvelle mana. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mana_max</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La nouvelle mana maximale. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="153" column="1" bodyfile="src/entite.c" bodystart="262" bodyend="274"/>
+      </memberdef>
+      <memberdef kind="function" id="entite_8h_1af3fba054ced5c6f065aa9c163c6a7c63" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur Change_PV_Entite</definition>
+        <argsstring>(t_entite *entite, uint32_t pv, uint32_t pv_max)</argsstring>
+        <name>Change_PV_Entite</name>
+        <param>
+          <type><ref refid="structt__entite" kindref="compound">t_entite</ref> *</type>
+          <declname>entite</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>pv</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>pv_max</declname>
+        </param>
+        <briefdescription>
+<para>Change les pv d&apos;une entité. </para>        </briefdescription>
+        <detaileddescription>
+<para>Les pv doivent être inférieur aux pv maximum et supérieur à 0. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>entite</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>L&apos;entité à modifier. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pv</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Les nouveaux pv. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pv_max</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Les nouveaux pv maximum. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="155" column="1" bodyfile="src/entite.c" bodystart="285" bodyend="297"/>
+      </memberdef>
+      <memberdef kind="function" id="entite_8h_1ab221a98890b859a66a6306506af0e340" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur Change_XP_Entite</definition>
+        <argsstring>(t_entite *entite, uint64_t xp)</argsstring>
+        <name>Change_XP_Entite</name>
+        <param>
+          <type><ref refid="structt__entite" kindref="compound">t_entite</ref> *</type>
+          <declname>entite</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>xp</declname>
+        </param>
+        <briefdescription>
+<para>Change l&apos;xp d&apos;une entité. </para>        </briefdescription>
+        <detaileddescription>
+<para>L&apos;xp doit être supérieur à 0. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>entite</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>L&apos;entité à modifier. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pv</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La nouvelle xp. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="157" column="1" bodyfile="src/entite.c" bodystart="307" bodyend="316"/>
+      </memberdef>
+      <memberdef kind="function" id="entite_8h_1ac6434d3673e494cb263956b914e72e55" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur Change_Damage_Entite</definition>
+        <argsstring>(t_entite *entite, uint32_t damage)</argsstring>
+        <name>Change_Damage_Entite</name>
+        <param>
+          <type><ref refid="structt__entite" kindref="compound">t_entite</ref> *</type>
+          <declname>entite</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>damage</declname>
+        </param>
+        <briefdescription>
+<para>Change les dégats d&apos;une entité. </para>        </briefdescription>
+        <detaileddescription>
+<para>Les dégats doivent être supérieur ou égals à 0. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>entite</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>L&apos;entité à modifier. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>damage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Les nouveaux dégats de l&apos;entité. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="159" column="1" bodyfile="src/entite.c" bodystart="326" bodyend="335"/>
+      </memberdef>
+      <memberdef kind="function" id="entite_8h_1afa21ce51ae48b69da5400b5056291906" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur Add_Faim_Entite</definition>
+        <argsstring>(t_entite *entite, int32_t faim)</argsstring>
+        <name>Add_Faim_Entite</name>
+        <param>
+          <type><ref refid="structt__entite" kindref="compound">t_entite</ref> *</type>
+          <declname>entite</declname>
+        </param>
+        <param>
+          <type>int32_t</type>
+          <declname>faim</declname>
+        </param>
+        <briefdescription>
+<para>Ajoute ou Retire de la faim à l&apos;entité. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>entite</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>L&apos;entité à modifier. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>faim</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La faim à ajouter ou retirer. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="161" column="1" bodyfile="src/entite.c" bodystart="344" bodyend="356"/>
+      </memberdef>
+      <memberdef kind="function" id="entite_8h_1a1b3ce64dcf584076d50745fccb063f71" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur Add_Mana_Entite</definition>
+        <argsstring>(t_entite *entite, int32_t mana)</argsstring>
+        <name>Add_Mana_Entite</name>
+        <param>
+          <type><ref refid="structt__entite" kindref="compound">t_entite</ref> *</type>
+          <declname>entite</declname>
+        </param>
+        <param>
+          <type>int32_t</type>
+          <declname>mana</declname>
+        </param>
+        <briefdescription>
+<para>Ajoute ou Retire de la mana à l&apos;entité. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>entite</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>L&apos;entité à modifier. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mana</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La mana à ajouter ou retirer. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="163" column="1" bodyfile="src/entite.c" bodystart="365" bodyend="377"/>
+      </memberdef>
+      <memberdef kind="function" id="entite_8h_1a7b25b9a9d7f481637d5029ae3efbb45b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur Add_PV_Entite</definition>
+        <argsstring>(t_entite *entite, int32_t pv)</argsstring>
+        <name>Add_PV_Entite</name>
+        <param>
+          <type><ref refid="structt__entite" kindref="compound">t_entite</ref> *</type>
+          <declname>entite</declname>
+        </param>
+        <param>
+          <type>int32_t</type>
+          <declname>pv</declname>
+        </param>
+        <briefdescription>
+<para>Ajoute ou Retire des pv à l&apos;entité. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>entite</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>L&apos;entité à modifier. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pv</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Les pv à ajouter ou retirer. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="165" column="1" bodyfile="src/entite.c" bodystart="386" bodyend="398"/>
+      </memberdef>
+      <memberdef kind="function" id="entite_8h_1ac90b1fc3f83bac0c61fa4ca7e87c3631" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur Add_XP_Entite</definition>
+        <argsstring>(t_entite *entite, int64_t xp)</argsstring>
+        <name>Add_XP_Entite</name>
+        <param>
+          <type><ref refid="structt__entite" kindref="compound">t_entite</ref> *</type>
+          <declname>entite</declname>
+        </param>
+        <param>
+          <type>int64_t</type>
+          <declname>xp</declname>
+        </param>
+        <briefdescription>
+<para>Ajoute ou Retire de l&apos;xp à l&apos;entité. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>entite</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>L&apos;entité à modifier. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>xp</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>L&apos;xp à ajouter ou retirer. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="167" column="1" bodyfile="src/entite.c" bodystart="407" bodyend="417"/>
+      </memberdef>
+      <memberdef kind="function" id="entite_8h_1ad182188e431d9404f00a6d9f48ed99ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur Add_Damage_Entite</definition>
+        <argsstring>(t_entite *entite, int32_t damage)</argsstring>
+        <name>Add_Damage_Entite</name>
+        <param>
+          <type><ref refid="structt__entite" kindref="compound">t_entite</ref> *</type>
+          <declname>entite</declname>
+        </param>
+        <param>
+          <type>int32_t</type>
+          <declname>damage</declname>
+        </param>
+        <briefdescription>
+<para>Ajoute ou Retire de les dégats à l&apos;entité. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>entite</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>L&apos;entité à modifier. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>damage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Les dégats à ajouter ou retirer. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="169" column="1" bodyfile="src/entite.c" bodystart="426" bodyend="436"/>
       </memberdef>
       <memberdef kind="function" id="entite_8h_1a40444b4966bf5776de11ce07f2b29be9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>t_erreur</type>
@@ -512,7 +1468,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/entite.h" line="119" column="1" bodyfile="src/entite.c" bodystart="219" bodyend="228"/>
+        <location file="include/entite.h" line="175" column="1" bodyfile="src/entite.c" bodystart="524" bodyend="533"/>
       </memberdef>
       <memberdef kind="function" id="entite_8h_1ad45c5dedc31c638b7f9d2d57f7586b33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>t_erreur</type>
@@ -529,7 +1485,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/entite.h" line="121" column="1" bodyfile="src/entite.c" bodystart="235" bodyend="241"/>
+        <location file="include/entite.h" line="177" column="1" bodyfile="src/entite.c" bodystart="540" bodyend="546"/>
       </memberdef>
       <memberdef kind="function" id="entite_8h_1addb7ec76c69d39e30fd26f725e0b8b74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>SDL_Texture *</type>
@@ -566,7 +1522,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/entite.h" line="123" column="1" bodyfile="src/entite.c" bodystart="142" bodyend="154"/>
+        <location file="include/entite.h" line="179" column="1" bodyfile="src/entite.c" bodystart="447" bodyend="459"/>
       </memberdef>
       <memberdef kind="function" id="entite_8h_1a87d473ea77b31005633d03ee5a0f3db5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>t_erreur</type>
@@ -582,7 +1538,7 @@
           <declname>entite</declname>
         </param>
         <param>
-          <type><ref refid="entite_8h_1abf8170fe3a93ebd8f3701bbf092ece99" kindref="member">t_action</ref></type>
+          <type>t_action</type>
           <declname>action</declname>
         </param>
         <briefdescription>
@@ -614,7 +1570,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/entite.h" line="125" column="1" bodyfile="src/entite.c" bodystart="164" bodyend="193"/>
+        <location file="include/entite.h" line="181" column="1" bodyfile="src/entite.c" bodystart="469" bodyend="498"/>
       </memberdef>
       <memberdef kind="function" id="entite_8h_1a4377e72c0a8a6b09796f1e684bd17cad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -626,7 +1582,7 @@
           <declname>t_a</declname>
         </param>
         <param>
-          <type><ref refid="entite_8h_1abf8170fe3a93ebd8f3701bbf092ece99" kindref="member">t_action</ref></type>
+          <type>t_action</type>
           <declname>action</declname>
         </param>
         <briefdescription>
@@ -651,7 +1607,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/entite.h" line="127" column="1" bodyfile="src/entite.c" bodystart="202" bodyend="211"/>
+        <location file="include/entite.h" line="183" column="1" bodyfile="src/entite.c" bodystart="507" bodyend="516"/>
       </memberdef>
       <memberdef kind="function" id="entite_8h_1a3d029f34e956b9197a208db146cd7104" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>t_erreur</type>
@@ -663,7 +1619,7 @@
           <declname>entite</declname>
         </param>
         <param>
-          <type><ref refid="entite_8h_1abf8170fe3a93ebd8f3701bbf092ece99" kindref="member">t_action</ref></type>
+          <type>t_action</type>
           <declname>action</declname>
         </param>
         <param>
@@ -699,7 +1655,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/entite.h" line="129" column="1" bodyfile="src/entite.c" bodystart="251" bodyend="261"/>
+        <location file="include/entite.h" line="185" column="1" bodyfile="src/entite.c" bodystart="556" bodyend="566"/>
       </memberdef>
       <memberdef kind="function" id="entite_8h_1a4e2ed565107f6811c167f97a2e3abc10" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -719,17 +1675,40 @@
           <declname>p</declname>
         </param>
         <briefdescription>
-        </briefdescription>
+<para>Calcul la profondeur d&apos;une collision en fonction d&apos;une direction et d&apos;une entité. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>entite</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>L&apos;entité à collisionner. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>direction</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Direction de la direction. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La liste de blocs permettant de calculer les collisions. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>La profondeur de la collision, 0 sinon. </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/entite.h" line="133" column="1" bodyfile="src/entite.c" bodystart="305" bodyend="412"/>
+        <location file="include/entite.h" line="191" column="1" bodyfile="src/entite.c" bodystart="641" bodyend="755"/>
       </memberdef>
-      <memberdef kind="function" id="entite_8h_1a8fa69a137d3685b5dbdf2cbde07db446" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="entite_8h_1a1011035c5ea8e6d6802e9196c79e7a9b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>t_erreur</type>
         <definition>t_erreur update_posY_entite</definition>
-        <argsstring>(t_entite *entite, double coef_fps, t_liste *p)</argsstring>
+        <argsstring>(t_entite *entite, double coef_fps, t_liste *p, uint8_t pos)</argsstring>
         <name>update_posY_entite</name>
         <param>
           <type><ref refid="structt__entite" kindref="compound">t_entite</ref> *</type>
@@ -742,6 +1721,10 @@
         <param>
           <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
           <declname>p</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>pos</declname>
         </param>
         <briefdescription>
 <para>Gère la position de l&apos;entité sur Y via la gravité et les collisions. </para>        </briefdescription>
@@ -767,17 +1750,53 @@
 <parameterdescription>
 <para>Liste contenant les paramètres supplémentaires de la fonction collision si il y en a besoin. </para></parameterdescription>
 </parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Position pour savoir si l&apos;entité doit être bloqué dans l&apos;affichage lorsqu&apos;elle tombe. </para></parameterdescription>
+</parameteritem>
 </parameterlist>
 <simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/entite.h" line="134" column="1" bodyfile="src/entite.c" bodystart="273" bodyend="303"/>
+        <location file="include/entite.h" line="193" column="1" bodyfile="src/entite.c" bodystart="579" bodyend="611"/>
       </memberdef>
-      <memberdef kind="function" id="entite_8h_1a19f0ea10c79b38a44b0afaf33ddf7581" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="entite_8h_1ab43cee44fbba7bddc16977ee18d99dc4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur update_posY_liste_entite</definition>
+        <argsstring>(t_liste *entite, double coef_fps, t_liste *p, uint8_t pos)</argsstring>
+        <name>update_posY_liste_entite</name>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>entite</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>coef_fps</declname>
+        </param>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="195" column="1" bodyfile="src/entite.c" bodystart="622" bodyend="631"/>
+      </memberdef>
+      <memberdef kind="function" id="entite_8h_1af3ace6db92e0c66ddb230d5e9c602146" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>t_erreur</type>
         <definition>t_erreur Gestion_Entite</definition>
-        <argsstring>(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, double coef_fps, t_liste *p)</argsstring>
+        <argsstring>(SDL_Renderer *renderer, t_entite *entite, uint8_t *ks, double coef_fps, t_liste *p, uint8_t type_gestion, t_action action, t_entite *ref, uint8_t pos)</argsstring>
         <name>Gestion_Entite</name>
         <param>
           <type>SDL_Renderer *</type>
@@ -799,10 +1818,26 @@
           <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
           <declname>p</declname>
         </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>type_gestion</declname>
+        </param>
+        <param>
+          <type>t_action</type>
+          <declname>action</declname>
+        </param>
+        <param>
+          <type><ref refid="structt__entite" kindref="compound">t_entite</ref> *</type>
+          <declname>ref</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>pos</declname>
+        </param>
         <briefdescription>
 <para>Gère une entité (collision, déplacement, animation). </para>        </briefdescription>
         <detaileddescription>
-<para>Gère les animations ainsi que les modifications apportées à l&apos;entité (gravité, collision, déplacement) correspondant aux différents appuis de touches. <parameterlist kind="param"><parameteritem>
+<para>Gère les animations ainsi que les modifications apportées à l&apos;entité (gravité, collision, déplacement) correspondant aux différents appuis de touches ou non. <parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>renderer</parametername>
 </parameternamelist>
@@ -837,19 +1872,272 @@
 <parameterdescription>
 <para>Liste contenant les paramètres supplémentaires de la fonction collision si il y en a besoin. </para></parameterdescription>
 </parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>type_gestion</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La gestion à appliquer à l&apos;entité (si on veut les touches on non). </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>action</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>L&apos;action à effectuer si jamais pas de gestion des touches. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ref</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Entité de référence pour affichage. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La position de l&apos;entité sur l&apos;écran, permet de savoir si elle est au centre ou non. </para></parameterdescription>
+</parameteritem>
 </parameterlist>
 <simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/entite.h" line="137" column="1" bodyfile="src/entite.c" bodystart="427" bodyend="486"/>
+        <location file="include/entite.h" line="201" column="1" bodyfile="src/entite.c" bodystart="774" bodyend="931"/>
+      </memberdef>
+      <memberdef kind="function" id="entite_8h_1a846b67e300b0a484a965c68398ec0b5c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur Print_Info_Entite</definition>
+        <argsstring>(SDL_Renderer *renderer, t_entite *entite)</argsstring>
+        <name>Print_Info_Entite</name>
+        <param>
+          <type>SDL_Renderer *</type>
+          <declname>renderer</declname>
+        </param>
+        <param>
+          <type><ref refid="structt__entite" kindref="compound">t_entite</ref> *</type>
+          <declname>entite</declname>
+        </param>
+        <briefdescription>
+<para>Affiche le nom de l&apos;entité ainsi que ses pv et sa mana. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>renderer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Renderer de la fenêtre pour affichage des jauges. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>entite</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>L&apos;entité pour les infos à afficher. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="203" column="1" bodyfile="src/entite.c" bodystart="940" bodyend="1025"/>
+      </memberdef>
+      <memberdef kind="function" id="entite_8h_1af243db6f5536718f946503a6f7ccf679" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur Print_Entite_Screen</definition>
+        <argsstring>(SDL_Renderer *renderer, t_entite *entite_ref, t_entite *entite_aff, t_action action, uint8_t pos)</argsstring>
+        <name>Print_Entite_Screen</name>
+        <param>
+          <type>SDL_Renderer *</type>
+          <declname>renderer</declname>
+        </param>
+        <param>
+          <type><ref refid="structt__entite" kindref="compound">t_entite</ref> *</type>
+          <declname>entite_ref</declname>
+        </param>
+        <param>
+          <type><ref refid="structt__entite" kindref="compound">t_entite</ref> *</type>
+          <declname>entite_aff</declname>
+        </param>
+        <param>
+          <type>t_action</type>
+          <declname>action</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+<para>Affiche une entité sur l&apos;écran avec ses informations (pv,mana,nom), soit au centre, soit en fonction d&apos;une autre. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>renderer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le renderer de la fenêtre. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>entite_ref</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>L&apos;entité de référence si affichage en fonction d&apos;elle. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>entite_aff</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>L&apos;entité à afficher. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>action</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>L&apos;action effectuer pour effectuer le bon affichage. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>La position de l&apos;entité sur l&apos;écran, permet de savoir si elle est au centre ou non. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="207" column="1" bodyfile="src/entite.c" bodystart="1037" bodyend="1080"/>
+      </memberdef>
+      <memberdef kind="function" id="entite_8h_1ae68eab78a91be639b1471ec6c46cd303" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur Print_Liste_Entite_Screen</definition>
+        <argsstring>(SDL_Renderer *renderer, t_entite *entite_ref, t_liste *entite_aff, t_action action, uint8_t pos)</argsstring>
+        <name>Print_Liste_Entite_Screen</name>
+        <param>
+          <type>SDL_Renderer *</type>
+          <declname>renderer</declname>
+        </param>
+        <param>
+          <type><ref refid="structt__entite" kindref="compound">t_entite</ref> *</type>
+          <declname>entite_ref</declname>
+        </param>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> *</type>
+          <declname>entite_aff</declname>
+        </param>
+        <param>
+          <type>t_action</type>
+          <declname>action</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="209" column="1" bodyfile="src/entite.c" bodystart="1092" bodyend="1103"/>
+      </memberdef>
+      <memberdef kind="function" id="entite_8h_1a306f6836a62178b784f418bbfe619e80" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>t_erreur</type>
+        <definition>t_erreur Save_Entite</definition>
+        <argsstring>(t_entite *entite, char *dossier, char *nom_fichier)</argsstring>
+        <name>Save_Entite</name>
+        <param>
+          <type><ref refid="structt__entite" kindref="compound">t_entite</ref> *</type>
+          <declname>entite</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>dossier</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>nom_fichier</declname>
+        </param>
+        <briefdescription>
+<para>Sauvegarde dans un fichier JSON une entité. </para>        </briefdescription>
+        <detaileddescription>
+<para>Un fichier ne peut contenir qu&apos;une seule entité. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>entite</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>L&apos;entité à sauvegarder. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dossier</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le dossier où enregistrer le fichier. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nom_fichier</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le nom du fichier. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="215" column="1" bodyfile="src/entite.c" bodystart="1116" bodyend="1152"/>
+      </memberdef>
+      <memberdef kind="function" id="entite_8h_1a19f927718d394d72e7e5c8eb3f0392aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structt__entite" kindref="compound">t_entite</ref> *</type>
+        <definition>t_entite* Load_Entite</definition>
+        <argsstring>(char *dossier, char *nom_fichier)</argsstring>
+        <name>Load_Entite</name>
+        <param>
+          <type>char *</type>
+          <declname>dossier</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>nom_fichier</declname>
+        </param>
+        <briefdescription>
+<para>Charge une entité depuis un fichier. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dossier</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le dossier où se trouve le fichier. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nom_fichier</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Le nom du fichier. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Un pointeur sur l&apos;entité chargée. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/entite.h" line="217" column="1" bodyfile="src/entite.c" bodystart="1161" bodyend="1213"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
 <para>Module contenant les primitives de gestion des entités. </para>    </briefdescription>
     <detaileddescription>
 <para><simplesect kind="author"><para>GALBRUN Tibane </para></simplesect>
-<simplesect kind="date"><para>13/03/2019 </para></simplesect>
+<simplesect kind="date"><para>13 Mars 2019 </para></simplesect>
 <simplesect kind="version"><para>0.2 </para></simplesect>
 </para>    </detaileddescription>
     <programlisting>
@@ -881,94 +2169,174 @@
 <codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>W_PART_SPRITE<sp/>W_SPRITE/NB_COLONNES_SPRITE</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>H_PART_SPRITE<sp/>H_SPRITE/NB_LIGNES_SPRITE</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="35"><highlight class="normal"></highlight></codeline>
-<codeline lineno="40" refid="entite_8h_1abf8170fe3a93ebd8f3701bbf092ece99" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="40"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>e_action{</highlight></codeline>
 <codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>IMMOBILE,</highlight></codeline>
 <codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>MARCHE_DROITE,</highlight></codeline>
 <codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>MARCHE_GAUCHE,</highlight></codeline>
 <codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>MARCHE_DEVANT,</highlight></codeline>
 <codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>MARCHE_DERRIERE,</highlight></codeline>
 <codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>ATTAQUE_GAUCHE,</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>ATTAQUE_DROITE</highlight></codeline>
-<codeline lineno="48"><highlight class="normal">}<ref refid="entite_8h_1abf8170fe3a93ebd8f3701bbf092ece99" kindref="member">t_action</ref>;</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"></highlight></codeline>
-<codeline lineno="54" refid="structs__anim__action" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structs__anim__action" kindref="compound">s_anim_action</ref></highlight></codeline>
-<codeline lineno="55"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="entite_8h_1abf8170fe3a93ebd8f3701bbf092ece99" kindref="member">t_action</ref><sp/>action;</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ligne,<sp/>nb_col;</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>temps_anim;</highlight></codeline>
-<codeline lineno="59"><highlight class="normal">}<ref refid="structt__anim__action" kindref="compound">t_anim_action</ref>;</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"></highlight></codeline>
-<codeline lineno="61"><highlight class="normal"></highlight></codeline>
-<codeline lineno="62"><highlight class="normal"></highlight><highlight class="comment">/********<sp/>PARTIE<sp/>ENTITE<sp/>********/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="63"><highlight class="normal"></highlight></codeline>
-<codeline lineno="64"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>HAUTEUR_SAUT<sp/>9</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="65"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>VITESSE_DEPLACEMENT<sp/>5</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="66"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ACCELERATION<sp/>1.5</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="67"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POSX_ENT_SCREEN<sp/>(width_window/2<sp/>-<sp/>W_PART_SPRITE<sp/>+<sp/>width_block_sdl)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="68"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POSY_ENT_SCREEN<sp/>(height_window/2<sp/>-<sp/>H_PART_SPRITE)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="69"><highlight class="normal"></highlight></codeline>
-<codeline lineno="74" refid="entite_8h_1a4182d28438d783fe0ef6b4c58c2d743b" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>JOUEUR,</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>ZOMBIE,</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>BOSS</highlight></codeline>
-<codeline lineno="78"><highlight class="normal">}<ref refid="entite_8h_1a4182d28438d783fe0ef6b4c58c2d743b" kindref="member">t_entite_type</ref>;</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"></highlight></codeline>
-<codeline lineno="84" refid="structs__entite" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structs__entite" kindref="compound">s_entite</ref></highlight></codeline>
-<codeline lineno="85"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>id;</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>name;<sp/></highlight><highlight class="comment">//<sp/>Nom<sp/>de<sp/>l&apos;entité</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>xp;<sp/></highlight><highlight class="comment">//<sp/>XP<sp/>gagné</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mana,<sp/>pv,<sp/>faim;<sp/></highlight><highlight class="comment">//<sp/>Mana,<sp/>PV<sp/>et<sp/>Faim<sp/>courante</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mana_max,<sp/>pv_max,<sp/>faim_max;<sp/></highlight><highlight class="comment">//<sp/>Mana,<sp/>PV<sp/>et<sp/>Faim<sp/>Max</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>SDL_Rect<sp/>hitbox;<sp/></highlight><highlight class="comment">//<sp/>Hitbox<sp/>de<sp/>l&apos;entité</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>SDL_Rect<sp/>posEnt;<sp/></highlight><highlight class="comment">//<sp/>Position<sp/>de<sp/>l&apos;entité<sp/>sur<sp/>la<sp/>fenêtre</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>SDL_Texture<sp/>*<sp/>texture;<sp/></highlight><highlight class="comment">//<sp/>Texture<sp/>contenant<sp/>toutes<sp/>les<sp/>animations<sp/>de<sp/>l&apos;entité</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structt__anim__action" kindref="compound">t_anim_action</ref><sp/>*<sp/>texture_action;<sp/></highlight><highlight class="comment">//<sp/>Tableau<sp/>contenant<sp/>pour<sp/>chaque<sp/>action<sp/>une<sp/>animation<sp/>et<sp/>sa<sp/>durée</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>SDL_Rect<sp/>texture_part;<sp/></highlight><highlight class="comment">//<sp/>Partie<sp/>de<sp/>la<sp/>texture<sp/>à<sp/>afficher</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>col_act_prec;<sp/></highlight><highlight class="comment">//<sp/>Animation<sp/>de<sp/>l&apos;action<sp/>précèdente</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="entite_8h_1abf8170fe3a93ebd8f3701bbf092ece99" kindref="member">t_action</ref><sp/>act_pred;<sp/></highlight><highlight class="comment">//<sp/>Action<sp/>précèdente</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>temp_dep;<sp/></highlight><highlight class="comment">//<sp/>Temps<sp/>de<sp/>départ<sp/>de<sp/>l&apos;animation<sp/>courante</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>velX,<sp/>velY,<sp/>accX,<sp/>accY;</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Structure<sp/>inventaire<sp/>à<sp/>rajouter</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="101"><highlight class="normal">}<ref refid="structt__entite" kindref="compound">t_entite</ref>;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>ATTAQUE_DROITE,</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>ATTAQUE_DEVANT,</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>ATTAQUE_DERRIERE,</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>ACCELERER,</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>MARCHER,</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>SAUTER_ENT,</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>CREUSER_DROITE,</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>CREUSER_GAUCHE,</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>CREUSER_DEVANT,</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>CREUSER_DERRIERE,</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>ALL_ACTION</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">}t_action;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64" refid="structs__anim__action" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structs__anim__action" kindref="compound">s_anim_action</ref></highlight></codeline>
+<codeline lineno="65"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>t_action<sp/>action;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ligne,<sp/>nb_col;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>temps_anim;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal">}<ref refid="structt__anim__action" kindref="compound">t_anim_action</ref>;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="comment">/********<sp/>PARTIE<sp/>ENTITE<sp/>********/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NB_SAUT<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>HAUTEUR_SAUT<sp/>8</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>VITESSE_DEPLACEMENT<sp/>5</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ACCELERATION<sp/>1.5</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POSX_ENT_SCREEN(entite)<sp/>(width_window/2<sp/>-<sp/>entite-&gt;hitbox.w/2)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>POSY_ENT_SCREEN(entite)<sp/>(height_window/2<sp/>-<sp/>entite-&gt;hitbox.h/2)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DECALAGE_NOM_ENT<sp/>30</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LARGEUR_NOM_ENT<sp/>65</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>HAUTEUR_NOM_ENT<sp/>15</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RAND_AB(a,b)<sp/>(rand()%(b-a)<sp/>+<sp/>a)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CENTER_SCREEN<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NOT_CENTER_SCREEN<sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>INVERSION_AXE_Y<sp/>4</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GESTION_TOUCHES<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GESTION_ACTION<sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>e_entite_type{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>JOUEUR,</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>ZOMBIE,</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>BOSS</highlight></codeline>
+<codeline lineno="101"><highlight class="normal">}t_entite_type;</highlight></codeline>
 <codeline lineno="102"><highlight class="normal"></highlight></codeline>
-<codeline lineno="103"><highlight class="normal"></highlight></codeline>
-<codeline lineno="104"><highlight class="normal"></highlight><highlight class="comment">/******<sp/>Primitives<sp/>des<sp/>fonctions<sp/>qui<sp/>créent<sp/>et<sp/>suppriment<sp/>les<sp/>entités<sp/>******/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="105"><highlight class="normal"></highlight></codeline>
-<codeline lineno="106"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Crée<sp/>une<sp/>entité<sp/>avec<sp/>des<sp/>paramètres<sp/>par<sp/>défaut<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="107"><highlight class="normal"><ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/>creer_entite_defaut<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>name,<sp/><ref refid="entite_8h_1a4182d28438d783fe0ef6b4c58c2d743b" kindref="member">t_entite_type</ref><sp/>type,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x_dep,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y_dep,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>taille);</highlight></codeline>
-<codeline lineno="108"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Crée<sp/>une<sp/>entité<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="109"><highlight class="normal"><ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/>creer_entite<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>name,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mana,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mana_max,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>pv,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>pv_max,<sp/>SDL_Texture<sp/>*<sp/>texture,<sp/><ref refid="structt__anim__action" kindref="compound">t_anim_action</ref><sp/>*<sp/>t_a,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x_dep,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y_dep,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>taille);</highlight></codeline>
-<codeline lineno="110"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Détruit<sp/>une<sp/>entité<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="111"><highlight class="normal">t_erreur<sp/><ref refid="entite_8h_1aff126a9685fdd63884131ba74499aa17" kindref="member">detruire_entite</ref><sp/>(<ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/>entite);</highlight></codeline>
-<codeline lineno="112"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Initialise<sp/>les<sp/>textures<sp/>d&apos;une<sp/>entité<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="113"><highlight class="normal">t_erreur<sp/>init_texture_entite<sp/>(<ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/>entite,<sp/><ref refid="entite_8h_1a4182d28438d783fe0ef6b4c58c2d743b" kindref="member">t_entite_type</ref><sp/>type);</highlight></codeline>
-<codeline lineno="114"><highlight class="normal"></highlight></codeline>
-<codeline lineno="115"><highlight class="normal"></highlight></codeline>
-<codeline lineno="116"><highlight class="normal"></highlight><highlight class="comment">/******<sp/>Primitives<sp/>des<sp/>fonctions<sp/>qui<sp/>gèrent<sp/>les<sp/>sprites<sp/>******/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="117"><highlight class="normal"></highlight></codeline>
-<codeline lineno="118"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Initialise<sp/>tous<sp/>les<sp/>sprites<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="119"><highlight class="normal">t_erreur<sp/><ref refid="entite_8h_1a40444b4966bf5776de11ce07f2b29be9" kindref="member">Init_Sprite</ref>(SDL_Renderer<sp/>*<sp/>renderer);</highlight></codeline>
-<codeline lineno="120"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Détruit<sp/>tous<sp/>les<sp/>sprites<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="121"><highlight class="normal">t_erreur<sp/><ref refid="entite_8h_1ad45c5dedc31c638b7f9d2d57f7586b33" kindref="member">Quit_Sprite</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="122"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Crée<sp/>la<sp/>texture<sp/>associée<sp/>à<sp/>l&apos;image<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="123"><highlight class="normal">SDL_Texture<sp/>*<sp/><ref refid="entite_8h_1addb7ec76c69d39e30fd26f725e0b8b74" kindref="member">Create_Sprite</ref><sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>lieu,<sp/>SDL_Renderer<sp/>*<sp/>renderer);</highlight></codeline>
-<codeline lineno="124"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Charge<sp/>l&apos;animation<sp/>sur<sp/>le<sp/>renderer<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="125"><highlight class="normal">t_erreur<sp/><ref refid="entite_8h_1a87d473ea77b31005633d03ee5a0f3db5" kindref="member">Charger_Anima</ref><sp/>(SDL_Renderer<sp/>*<sp/>renderer,<sp/><ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/>entite,<sp/><ref refid="entite_8h_1abf8170fe3a93ebd8f3701bbf092ece99" kindref="member">t_action</ref><sp/>action);</highlight></codeline>
-<codeline lineno="126"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Recherche<sp/>l&apos;indice<sp/>d&apos;une<sp/>action<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="127"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="entite_8h_1a4377e72c0a8a6b09796f1e684bd17cad" kindref="member">Search_Action</ref><sp/>(<ref refid="structt__anim__action" kindref="compound">t_anim_action</ref><sp/>*<sp/>t_a,<sp/><ref refid="entite_8h_1abf8170fe3a93ebd8f3701bbf092ece99" kindref="member">t_action</ref><sp/>action);</highlight></codeline>
-<codeline lineno="128"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Modifie<sp/>le<sp/>temps<sp/>d&apos;une<sp/>animation<sp/>associée<sp/>à<sp/>une<sp/>action<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="129"><highlight class="normal">t_erreur<sp/><ref refid="entite_8h_1a3d029f34e956b9197a208db146cd7104" kindref="member">Anim_Update</ref><sp/>(<ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/>entite,<sp/><ref refid="entite_8h_1abf8170fe3a93ebd8f3701bbf092ece99" kindref="member">t_action</ref><sp/>action,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>new_time);</highlight></codeline>
-<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107" refid="structs__entite" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structs__entite" kindref="compound">s_entite</ref></highlight></codeline>
+<codeline lineno="108"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>id;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>t_entite_type<sp/>type;<sp/></highlight><highlight class="comment">//<sp/>Type<sp/>de<sp/>l&apos;entité</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>name;<sp/></highlight><highlight class="comment">//<sp/>Nom<sp/>de<sp/>l&apos;entité</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>nb_saut;<sp/></highlight><highlight class="comment">//<sp/>Nombre<sp/>de<sp/>saut<sp/>de<sp/>l&apos;entité</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/>xp;<sp/></highlight><highlight class="comment">//<sp/>XP<sp/>gagné</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>mana,<sp/>pv,<sp/>faim;<sp/></highlight><highlight class="comment">//<sp/>Mana,<sp/>PV<sp/>et<sp/>Faim<sp/>courante</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>mana_max,<sp/>pv_max,<sp/>faim_max;<sp/></highlight><highlight class="comment">//<sp/>Mana,<sp/>PV<sp/>et<sp/>Faim<sp/>Max</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>damage;<sp/></highlight><highlight class="comment">//<sp/>Dégats<sp/>de<sp/>l&apos;entité</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>SDL_Rect<sp/>hitbox;<sp/></highlight><highlight class="comment">//<sp/>Hitbox<sp/>de<sp/>l&apos;entité</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>SDL_Rect<sp/>posEnt;<sp/></highlight><highlight class="comment">//<sp/>Position<sp/>de<sp/>l&apos;entité<sp/>sur<sp/>la<sp/>fenêtre</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>SDL_Texture<sp/>*<sp/>texture;<sp/></highlight><highlight class="comment">//<sp/>Texture<sp/>contenant<sp/>toutes<sp/>les<sp/>animations<sp/>de<sp/>l&apos;entité</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structt__anim__action" kindref="compound">t_anim_action</ref><sp/>*<sp/>texture_action;<sp/></highlight><highlight class="comment">//<sp/>Tableau<sp/>contenant<sp/>pour<sp/>chaque<sp/>action<sp/>une<sp/>animation<sp/>et<sp/>sa<sp/>durée</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>SDL_Rect<sp/>texture_part;<sp/></highlight><highlight class="comment">//<sp/>Partie<sp/>de<sp/>la<sp/>texture<sp/>à<sp/>afficher</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>col_act_prec;<sp/></highlight><highlight class="comment">//<sp/>Animation<sp/>de<sp/>l&apos;action<sp/>précèdente</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>t_action<sp/>act_pred;<sp/></highlight><highlight class="comment">//<sp/>Action<sp/>précèdente</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>temp_dep;<sp/></highlight><highlight class="comment">//<sp/>Temps<sp/>de<sp/>départ<sp/>de<sp/>l&apos;animation<sp/>courante</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>velX,<sp/>velY,<sp/>accX,<sp/>accY;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Structure<sp/>inventaire<sp/>à<sp/>rajouter</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal">}<ref refid="structt__entite" kindref="compound">t_entite</ref>;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight><highlight class="comment">/******<sp/>Primitives<sp/>des<sp/>fonctions<sp/>qui<sp/>créent<sp/>et<sp/>suppriment<sp/>les<sp/>entités<sp/>******/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="131"><highlight class="normal"></highlight></codeline>
-<codeline lineno="132"><highlight class="normal"></highlight><highlight class="comment">/******<sp/>Fonctions<sp/>qui<sp/>gèrent<sp/>les<sp/>collisions<sp/>en<sp/>Y<sp/>ainsi<sp/>que<sp/>la<sp/>gravité<sp/>******/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="133"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>collision<sp/>(<ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/>entite,<sp/>t_collision_direction<sp/>direction,<sp/><ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p);</highlight></codeline>
-<codeline lineno="134"><highlight class="normal">t_erreur<sp/><ref refid="entite_8h_1a8fa69a137d3685b5dbdf2cbde07db446" kindref="member">update_posY_entite</ref>(<ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/>entite,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>coef_fps,<sp/><ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p);</highlight></codeline>
-<codeline lineno="135"><highlight class="normal"></highlight></codeline>
-<codeline lineno="136"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Affiche<sp/>les<sp/>animations<sp/>et<sp/>modifie<sp/>l&apos;emplacement<sp/>du<sp/>joueur<sp/>suivant<sp/>les<sp/>touches<sp/>appuyées<sp/>et<sp/>gère<sp/>les<sp/>collisions<sp/>en<sp/>X<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="137"><highlight class="normal">t_erreur<sp/><ref refid="entite_8h_1a19f0ea10c79b38a44b0afaf33ddf7581" kindref="member">Gestion_Entite</ref><sp/>(SDL_Renderer<sp/>*<sp/>renderer,<sp/><ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/>entite,<sp/>uint8_t<sp/>*<sp/>ks,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>coef_fps,<sp/><ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p);</highlight></codeline>
-<codeline lineno="138"><highlight class="normal"></highlight></codeline>
-<codeline lineno="139"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Crée<sp/>une<sp/>entité<sp/>avec<sp/>des<sp/>paramètres<sp/>par<sp/>défaut<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/><ref refid="entite_8h_1ae67e9421db57e8164cdbd6acbd7d9975" kindref="member">creer_entite_defaut</ref><sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>name,<sp/>t_entite_type<sp/>type,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x_dep,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y_dep,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>taille);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Crée<sp/>une<sp/>entité<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/><ref refid="entite_8h_1a89d3dbf9edc4d93450c28d1c66857667" kindref="member">creer_entite</ref><sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>name,<sp/>uint32_t<sp/>mana,<sp/>uint32_t<sp/>mana_max,<sp/>uint32_t<sp/>pv,<sp/>uint32_t<sp/>pv_max,<sp/>uint32_t<sp/>damage,<sp/>SDL_Texture<sp/>*<sp/>texture,<sp/><ref refid="structt__anim__action" kindref="compound">t_anim_action</ref><sp/>*<sp/>t_a,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x_dep,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y_dep,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>taille,<sp/>t_entite_type<sp/>type);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Détruit<sp/>une<sp/>entité<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal">t_erreur<sp/><ref refid="entite_8h_1aff126a9685fdd63884131ba74499aa17" kindref="member">detruire_entite</ref><sp/>(<ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/>entite);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Initialise<sp/>les<sp/>textures<sp/>d&apos;une<sp/>entité<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal">t_erreur<sp/>init_texture_entite<sp/>(<ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/>entite,<sp/>t_entite_type<sp/>type);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Création<sp/>d&apos;une<sp/>liste<sp/>d&apos;entité<sp/>entre<sp/>2<sp/>points,<sp/>mettre<sp/>un<sp/>y<sp/>négatif<sp/>pour<sp/>générer<sp/>avec<sp/>perlin<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/><ref refid="entite_8h_1a53c3b903c9dbba795b9a7e510777bf15" kindref="member">Create_Liste_Entite</ref><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x1,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x2,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y,<sp/>t_entite_type<sp/>type,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nb_entite,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>taille);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Destruction<sp/>d&apos;une<sp/>liste<sp/>d&apos;entité<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal">t_erreur<sp/><ref refid="entite_8h_1afbc59b5066529903cbc2d8b2928d20c5" kindref="member">Destroy_Liste_Entite</ref><sp/>(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>**<sp/>entite);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight><highlight class="comment">/******<sp/>Primitives<sp/>des<sp/>fonctions<sp/>de<sp/>modification<sp/>des<sp/>paramètres<sp/>des<sp/>entités<sp/>******/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Change<sp/>le<sp/>nom<sp/>d&apos;une<sp/>entité<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal">t_erreur<sp/><ref refid="entite_8h_1aa50e72e1f48fcd4d047ba1eef6600ef6" kindref="member">Change_Name_Entite</ref><sp/>(<ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/>entite,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>name);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Change<sp/>la<sp/>faim<sp/>d&apos;une<sp/>entité<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal">t_erreur<sp/><ref refid="entite_8h_1ac90f183a028a759b4d2465a230aea2c6" kindref="member">Change_Faim_Entite</ref><sp/>(<ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/>entite,<sp/>uint32_t<sp/>faim,<sp/>uint32_t<sp/>faim_max);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Change<sp/>le<sp/>mana<sp/>d&apos;une<sp/>entité<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal">t_erreur<sp/><ref refid="entite_8h_1a4310332d54f8313054572c57c5cac9aa" kindref="member">Change_Mana_Entite</ref><sp/>(<ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/>entite,<sp/>uint32_t<sp/>mana,<sp/>uint32_t<sp/>mana_max);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Change<sp/>les<sp/>pv<sp/>d&apos;une<sp/>entité<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal">t_erreur<sp/><ref refid="entite_8h_1af3fba054ced5c6f065aa9c163c6a7c63" kindref="member">Change_PV_Entite</ref><sp/>(<ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/>entite,<sp/>uint32_t<sp/>pv,<sp/>uint32_t<sp/>pv_max);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Change<sp/>l&apos;xp<sp/>d&apos;une<sp/>entité<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal">t_erreur<sp/><ref refid="entite_8h_1ab221a98890b859a66a6306506af0e340" kindref="member">Change_XP_Entite</ref><sp/>(<ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/>entite,<sp/>uint64_t<sp/>xp);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Change<sp/>les<sp/>dégats<sp/>d&apos;une<sp/>entité<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal">t_erreur<sp/><ref refid="entite_8h_1ac6434d3673e494cb263956b914e72e55" kindref="member">Change_Damage_Entite</ref><sp/>(<ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/>entite,<sp/>uint32_t<sp/>damage);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Ajoute<sp/>ou<sp/>Retire<sp/>de<sp/>la<sp/>faim<sp/>d&apos;une<sp/>entité<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal">t_erreur<sp/><ref refid="entite_8h_1afa21ce51ae48b69da5400b5056291906" kindref="member">Add_Faim_Entite</ref><sp/>(<ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/>entite,<sp/>int32_t<sp/>faim);</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Ajoute<sp/>ou<sp/>Retire<sp/>de<sp/>la<sp/>mana<sp/>d&apos;une<sp/>entité<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal">t_erreur<sp/><ref refid="entite_8h_1a1b3ce64dcf584076d50745fccb063f71" kindref="member">Add_Mana_Entite</ref><sp/>(<ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/>entite,<sp/>int32_t<sp/>mana);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Ajoute<sp/>ou<sp/>Retire<sp/>des<sp/>pv<sp/>d&apos;une<sp/>entité<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal">t_erreur<sp/><ref refid="entite_8h_1a7b25b9a9d7f481637d5029ae3efbb45b" kindref="member">Add_PV_Entite</ref><sp/>(<ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/>entite,<sp/>int32_t<sp/>pv);</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Ajoute<sp/>ou<sp/>Retire<sp/>de<sp/>l&apos;xp<sp/>d&apos;une<sp/>entité<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal">t_erreur<sp/><ref refid="entite_8h_1ac90b1fc3f83bac0c61fa4ca7e87c3631" kindref="member">Add_XP_Entite</ref><sp/>(<ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/>entite,<sp/>int64_t<sp/>xp);</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Ajoute<sp/>ou<sp/>Retire<sp/>des<sp/>dégats<sp/>d&apos;une<sp/>entité<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal">t_erreur<sp/><ref refid="entite_8h_1ad182188e431d9404f00a6d9f48ed99ad" kindref="member">Add_Damage_Entite</ref><sp/>(<ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/>entite,<sp/>int32_t<sp/>damage);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight><highlight class="comment">/******<sp/>Primitives<sp/>des<sp/>fonctions<sp/>qui<sp/>gèrent<sp/>les<sp/>sprites<sp/>******/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Initialise<sp/>tous<sp/>les<sp/>sprites<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal">t_erreur<sp/><ref refid="entite_8h_1a40444b4966bf5776de11ce07f2b29be9" kindref="member">Init_Sprite</ref>(SDL_Renderer<sp/>*<sp/>renderer);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Détruit<sp/>tous<sp/>les<sp/>sprites<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal">t_erreur<sp/><ref refid="entite_8h_1ad45c5dedc31c638b7f9d2d57f7586b33" kindref="member">Quit_Sprite</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Crée<sp/>la<sp/>texture<sp/>associée<sp/>à<sp/>l&apos;image<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal">SDL_Texture<sp/>*<sp/><ref refid="entite_8h_1addb7ec76c69d39e30fd26f725e0b8b74" kindref="member">Create_Sprite</ref><sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>lieu,<sp/>SDL_Renderer<sp/>*<sp/>renderer);</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Charge<sp/>l&apos;animation<sp/>sur<sp/>le<sp/>renderer<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal">t_erreur<sp/><ref refid="entite_8h_1a87d473ea77b31005633d03ee5a0f3db5" kindref="member">Charger_Anima</ref><sp/>(SDL_Renderer<sp/>*<sp/>renderer,<sp/><ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/>entite,<sp/>t_action<sp/>action);</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Recherche<sp/>l&apos;indice<sp/>d&apos;une<sp/>action<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="entite_8h_1a4377e72c0a8a6b09796f1e684bd17cad" kindref="member">Search_Action</ref><sp/>(<ref refid="structt__anim__action" kindref="compound">t_anim_action</ref><sp/>*<sp/>t_a,<sp/>t_action<sp/>action);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Modifie<sp/>le<sp/>temps<sp/>d&apos;une<sp/>animation<sp/>associée<sp/>à<sp/>une<sp/>action<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal">t_erreur<sp/><ref refid="entite_8h_1a3d029f34e956b9197a208db146cd7104" kindref="member">Anim_Update</ref><sp/>(<ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/>entite,<sp/>t_action<sp/>action,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>new_time);</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight><highlight class="comment">/******<sp/>Primitives<sp/>des<sp/>fonctions<sp/>qui<sp/>gèrent<sp/>les<sp/>collisions<sp/>ainsi<sp/>que<sp/>la<sp/>gravité<sp/>******/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Calcul<sp/>la<sp/>profondeur<sp/>d&apos;une<sp/>collision<sp/>en<sp/>fonction<sp/>d&apos;une<sp/>direction<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="entite_8h_1a4e2ed565107f6811c167f97a2e3abc10" kindref="member">collision</ref><sp/>(<ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/>entite,<sp/>t_collision_direction<sp/>direction,<sp/><ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p);</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Gère<sp/>la<sp/>position<sp/>de<sp/>l&apos;entité<sp/>en<sp/>Y<sp/>avec<sp/>la<sp/>gravité<sp/>et<sp/>les<sp/>collisions<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal">t_erreur<sp/><ref refid="entite_8h_1a1011035c5ea8e6d6802e9196c79e7a9b" kindref="member">update_posY_entite</ref>(<ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/>entite,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>coef_fps,<sp/><ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p,<sp/>uint8_t<sp/>pos);</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Update<sp/>la<sp/>position<sp/>d&apos;une<sp/>liste<sp/>d&apos;entité<sp/>en<sp/>Y<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal">t_erreur<sp/>update_posY_liste_entite(<ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>entite,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>coef_fps,<sp/><ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p,<sp/>uint8_t<sp/>pos);</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight><highlight class="comment">/******<sp/>Primitives<sp/>des<sp/>fonctions<sp/>qui<sp/>gèrent<sp/>l&apos;affichage<sp/>des<sp/>entités<sp/>en<sp/>fonction<sp/>des<sp/>collisions<sp/>******/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Affiche<sp/>les<sp/>animations<sp/>et<sp/>modifie<sp/>l&apos;emplacement<sp/>de<sp/>l&apos;entité<sp/>suivant<sp/>les<sp/>touches<sp/>appuyées<sp/>ou<sp/>non<sp/>et<sp/>les<sp/>collisions<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal">t_erreur<sp/><ref refid="entite_8h_1af3ace6db92e0c66ddb230d5e9c602146" kindref="member">Gestion_Entite</ref><sp/>(SDL_Renderer<sp/>*<sp/>renderer,<sp/><ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/>entite,<sp/>uint8_t<sp/>*<sp/>ks,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>coef_fps,<sp/><ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>p,<sp/>uint8_t<sp/>type_gestion,<sp/>t_action<sp/>action,<sp/><ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/>ref,<sp/>uint8_t<sp/>pos);</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Affiche<sp/>les<sp/>informations<sp/>de<sp/>l&apos;entité<sp/>sur<sp/>la<sp/>fenêtre<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal">t_erreur<sp/><ref refid="entite_8h_1a846b67e300b0a484a965c68398ec0b5c" kindref="member">Print_Info_Entite</ref><sp/>(SDL_Renderer<sp/>*<sp/>renderer,<sp/><ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/>entite);</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Affiche<sp/>une<sp/>entité<sp/>sur<sp/>l&apos;écran<sp/>en<sp/>focntion<sp/>de<sp/>la<sp/>position</highlight></codeline>
+<codeline lineno="205"><highlight class="comment">Utilisation<sp/>:<sp/>-&gt;<sp/>pos<sp/>=<sp/>CENTER_SCREEN<sp/>-&gt;<sp/>affichage<sp/>centre<sp/>screen,</highlight></codeline>
+<codeline lineno="206"><highlight class="comment">-&gt;<sp/>pos<sp/>=<sp/>NOT_CENTER_SCREEN<sp/>-&gt;<sp/>affichage<sp/>en<sp/>fonction<sp/>d&apos;une<sp/>autre<sp/>entité.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal">t_erreur<sp/><ref refid="entite_8h_1af243db6f5536718f946503a6f7ccf679" kindref="member">Print_Entite_Screen</ref><sp/>(SDL_Renderer<sp/>*<sp/>renderer,<sp/><ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/>entite_ref,<sp/><ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/>entite_aff,<sp/>t_action<sp/>action,<sp/>uint8_t<sp/>pos);</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Affiche<sp/>une<sp/>liste<sp/>d&apos;entité<sp/>sur<sp/>l&apos;écran<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal">t_erreur<sp/>Print_Liste_Entite_Screen<sp/>(SDL_Renderer<sp/>*<sp/>renderer,<sp/><ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/>entite_ref,<sp/><ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>*<sp/>entite_aff,<sp/>t_action<sp/>action,<sp/>uint8_t<sp/>pos);</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight><highlight class="comment">/******<sp/>Primitives<sp/>des<sp/>fonctions<sp/>qui<sp/>sauvegarde<sp/>et<sp/>charge<sp/>une<sp/>entité<sp/>******/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Sauvegarde<sp/>un<sp/>joueur<sp/>dans<sp/>un<sp/>fichier<sp/>JSON.</highlight></codeline>
+<codeline lineno="214"><highlight class="comment">Un<sp/>fichier<sp/>ne<sp/>peut<sp/>contenir<sp/>qu&apos;une<sp/>seule<sp/>entité.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal">t_erreur<sp/><ref refid="entite_8h_1a306f6836a62178b784f418bbfe619e80" kindref="member">Save_Entite</ref><sp/>(<ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/>entite,</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>dossier,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>nom_fichier);</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Charge<sp/>une<sp/>entité<sp/>depuis<sp/>un<sp/>fichier<sp/>JSON<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><ref refid="structt__entite" kindref="compound">t_entite</ref><sp/>*<sp/><ref refid="entite_8h_1a19f927718d394d72e7e5c8eb3f0392aa" kindref="member">Load_Entite</ref><sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>dossier,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>nom_fichier);</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="include/entite.h"/>
   </compounddef>

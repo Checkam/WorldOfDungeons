@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="liste_8h" kind="file" language="C++">
     <compoundname>liste.h</compoundname>
     <includes refid="erreur_8h" local="no">erreur.h</includes>
@@ -7,6 +7,7 @@
     <includedby refid="biome_8c" local="no">src/biome.c</includedby>
     <includedby refid="chemin_8c" local="no">src/chemin.c</includedby>
     <includedby refid="donjon_8c" local="no">src/donjon.c</includedby>
+    <includedby refid="item_8c" local="no">src/item.c</includedby>
     <includedby refid="liste_8c" local="no">src/liste.c</includedby>
     <includedby refid="map_8c" local="no">src/map.c</includedby>
     <includedby refid="world__of__dungeons_8c" local="no">src/world_of_dungeons.c</includedby>
@@ -15,171 +16,210 @@
     <includedby refid="chemin_8h" local="no">include/chemin.h</includedby>
     <includedby refid="donjon_8h" local="no">include/donjon.h</includedby>
     <includedby refid="entite_8h" local="no">include/entite.h</includedby>
+    <includedby refid="inventaire_8h" local="no">include/inventaire.h</includedby>
     <includedby refid="map_8h" local="no">include/map.h</includedby>
     <incdepgraph>
-      <node id="161">
-        <label>include/liste.h</label>
-        <link refid="liste_8h"/>
-        <childnode refid="162" relation="include">
-        </childnode>
-      </node>
-      <node id="162">
+      <node id="243">
         <label>erreur.h</label>
         <link refid="erreur_8h"/>
       </node>
+      <node id="242">
+        <label>include/liste.h</label>
+        <link refid="liste_8h"/>
+        <childnode refid="243" relation="include">
+        </childnode>
+      </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="178">
-        <label>src/erreur.c</label>
-        <link refid="erreur_8c"/>
-      </node>
-      <node id="184">
-        <label>include/map.h</label>
-        <link refid="map_8h"/>
-        <childnode refid="177" relation="include">
-        </childnode>
-        <childnode refid="168" relation="include">
-        </childnode>
-      </node>
-      <node id="166">
-        <label>src/donjon.c</label>
-        <link refid="donjon_8c"/>
-      </node>
-      <node id="174">
-        <label>include/structure_block.h</label>
-        <link refid="structure__block_8h"/>
-        <childnode refid="172" relation="include">
-        </childnode>
-        <childnode refid="173" relation="include">
-        </childnode>
-      </node>
-      <node id="181">
+      <node id="261">
         <label>src/menu.c</label>
         <link refid="menu_8c"/>
       </node>
-      <node id="173">
-        <label>src/structure_block.c</label>
-        <link refid="structure__block_8c"/>
+      <node id="250">
+        <label>include/affichage.h</label>
+        <link refid="affichage_8h"/>
+        <childnode refid="247" relation="include">
+        </childnode>
+        <childnode refid="249" relation="include">
+        </childnode>
       </node>
-      <node id="165">
-        <label>src/chemin.c</label>
-        <link refid="chemin_8c"/>
+      <node id="265">
+        <label>include/ia.h</label>
+        <link refid="ia_8h"/>
+        <childnode refid="247" relation="include">
+        </childnode>
+        <childnode refid="263" relation="include">
+        </childnode>
       </node>
-      <node id="176">
+      <node id="256">
         <label>src/binaire.c</label>
         <link refid="binaire_8c"/>
       </node>
-      <node id="172">
-        <label>src/generation.c</label>
-        <link refid="generation_8c"/>
+      <node id="258">
+        <label>src/erreur.c</label>
+        <link refid="erreur_8c"/>
       </node>
-      <node id="183">
-        <label>include/donjon.h</label>
-        <link refid="donjon_8h"/>
-        <childnode refid="166" relation="include">
+      <node id="266">
+        <label>include/map.h</label>
+        <link refid="map_8h"/>
+        <childnode refid="257" relation="include">
         </childnode>
-      </node>
-      <node id="171">
-        <label>include/biome.h</label>
-        <link refid="biome_8h"/>
-        <childnode refid="172" relation="include">
+        <childnode refid="249" relation="include">
         </childnode>
-        <childnode refid="173" relation="include">
+        <childnode refid="253" relation="include">
         </childnode>
-        <childnode refid="174" relation="include">
+        <childnode refid="254" relation="include">
         </childnode>
       </node>
-      <node id="163">
+      <node id="267">
+        <label>include/inventaire.h</label>
+        <link refid="inventaire_8h_source"/>
+      </node>
+      <node id="254">
+        <label>include/structure_block.h</label>
+        <link refid="structure__block_8h"/>
+        <childnode refid="252" relation="include">
+        </childnode>
+        <childnode refid="253" relation="include">
+        </childnode>
+      </node>
+      <node id="253">
+        <label>src/structure_block.c</label>
+        <link refid="structure__block_8c"/>
+      </node>
+      <node id="244">
         <label>include/liste.h</label>
         <link refid="liste_8h"/>
-        <childnode refid="164" relation="include">
+        <childnode refid="245" relation="include">
         </childnode>
-        <childnode refid="165" relation="include">
+        <childnode refid="246" relation="include">
         </childnode>
-        <childnode refid="166" relation="include">
+        <childnode refid="247" relation="include">
         </childnode>
-        <childnode refid="167" relation="include">
+        <childnode refid="248" relation="include">
         </childnode>
-        <childnode refid="168" relation="include">
+        <childnode refid="249" relation="include">
         </childnode>
-        <childnode refid="169" relation="include">
+        <childnode refid="250" relation="include">
         </childnode>
-        <childnode refid="170" relation="include">
+        <childnode refid="251" relation="include">
         </childnode>
-        <childnode refid="171" relation="include">
+        <childnode refid="255" relation="include">
         </childnode>
-        <childnode refid="175" relation="include">
+        <childnode refid="264" relation="include">
         </childnode>
-        <childnode refid="183" relation="include">
+        <childnode refid="262" relation="include">
         </childnode>
-        <childnode refid="182" relation="include">
+        <childnode refid="267" relation="include">
         </childnode>
-        <childnode refid="184" relation="include">
-        </childnode>
-      </node>
-      <node id="175">
-        <label>include/chemin.h</label>
-        <link refid="chemin_8h"/>
-        <childnode refid="176" relation="include">
-        </childnode>
-        <childnode refid="165" relation="include">
-        </childnode>
-        <childnode refid="166" relation="include">
-        </childnode>
-        <childnode refid="177" relation="include">
-        </childnode>
-        <childnode refid="178" relation="include">
-        </childnode>
-        <childnode refid="179" relation="include">
-        </childnode>
-        <childnode refid="180" relation="include">
-        </childnode>
-        <childnode refid="181" relation="include">
-        </childnode>
-        <childnode refid="182" relation="include">
+        <childnode refid="266" relation="include">
         </childnode>
       </node>
-      <node id="179">
-        <label>src/fichier.c</label>
-        <link refid="fichier_8c"/>
-      </node>
-      <node id="169">
-        <label>src/world_of_dungeons.c</label>
-        <link refid="world__of__dungeons_8c"/>
-      </node>
-      <node id="170">
-        <label>include/affichage.h</label>
-        <link refid="affichage_8h"/>
-        <childnode refid="168" relation="include">
-        </childnode>
-        <childnode refid="169" relation="include">
-        </childnode>
-      </node>
-      <node id="164">
-        <label>src/affichage.c</label>
-        <link refid="affichage_8c"/>
-      </node>
-      <node id="177">
-        <label>src/entite.c</label>
-        <link refid="entite_8c"/>
-      </node>
-      <node id="168">
+      <node id="249">
         <label>src/map.c</label>
         <link refid="map_8c"/>
       </node>
-      <node id="182">
+      <node id="246">
+        <label>src/chemin.c</label>
+        <link refid="chemin_8c"/>
+      </node>
+      <node id="247">
+        <label>src/donjon.c</label>
+        <link refid="donjon_8c"/>
+      </node>
+      <node id="245">
+        <label>src/affichage.c</label>
+        <link refid="affichage_8c"/>
+      </node>
+      <node id="248">
+        <label>src/liste.c</label>
+        <link refid="liste_8c"/>
+      </node>
+      <node id="262">
         <label>include/entite.h</label>
         <link refid="entite_8h"/>
-        <childnode refid="177" relation="include">
+        <childnode refid="247" relation="include">
+        </childnode>
+        <childnode refid="257" relation="include">
+        </childnode>
+        <childnode refid="263" relation="include">
+        </childnode>
+        <childnode refid="264" relation="include">
+        </childnode>
+        <childnode refid="265" relation="include">
+        </childnode>
+        <childnode refid="266" relation="include">
         </childnode>
       </node>
-      <node id="180">
+      <node id="263">
+        <label>src/ia.c</label>
+        <link refid="ia_8c"/>
+      </node>
+      <node id="268">
+        <label>include/item.h</label>
+        <link refid="item_8h_source"/>
+        <childnode refid="267" relation="include">
+        </childnode>
+      </node>
+      <node id="259">
+        <label>src/fichier.c</label>
+        <link refid="fichier_8c"/>
+      </node>
+      <node id="260">
         <label>src/json.c</label>
         <link refid="json_8c"/>
       </node>
-      <node id="167">
-        <label>src/liste.c</label>
-        <link refid="liste_8c"/>
+      <node id="251">
+        <label>include/biome.h</label>
+        <link refid="biome_8h"/>
+        <childnode refid="252" relation="include">
+        </childnode>
+        <childnode refid="253" relation="include">
+        </childnode>
+        <childnode refid="254" relation="include">
+        </childnode>
+      </node>
+      <node id="252">
+        <label>src/generation.c</label>
+        <link refid="generation_8c"/>
+      </node>
+      <node id="255">
+        <label>include/chemin.h</label>
+        <link refid="chemin_8h"/>
+        <childnode refid="256" relation="include">
+        </childnode>
+        <childnode refid="246" relation="include">
+        </childnode>
+        <childnode refid="247" relation="include">
+        </childnode>
+        <childnode refid="257" relation="include">
+        </childnode>
+        <childnode refid="258" relation="include">
+        </childnode>
+        <childnode refid="259" relation="include">
+        </childnode>
+        <childnode refid="260" relation="include">
+        </childnode>
+        <childnode refid="249" relation="include">
+        </childnode>
+        <childnode refid="261" relation="include">
+        </childnode>
+        <childnode refid="262" relation="include">
+        </childnode>
+        <childnode refid="267" relation="include">
+        </childnode>
+        <childnode refid="268" relation="include">
+        </childnode>
+      </node>
+      <node id="257">
+        <label>src/entite.c</label>
+        <link refid="entite_8c"/>
+      </node>
+      <node id="264">
+        <label>include/donjon.h</label>
+        <link refid="donjon_8h"/>
+        <childnode refid="247" relation="include">
+        </childnode>
       </node>
     </invincdepgraph>
     <innerclass refid="structelement" prot="public">element</innerclass>

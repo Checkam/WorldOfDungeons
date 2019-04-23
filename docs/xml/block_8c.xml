@@ -1,93 +1,145 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="block_8c" kind="file" language="C++">
     <compoundname>block.c</compoundname>
     <includes local="no">SDL2/SDL.h</includes>
     <includes refid="block_8h" local="no">block.h</includes>
+    <includes refid="commun_8h" local="no">commun.h</includes>
     <includes refid="erreur_8h" local="no">erreur.h</includes>
     <includes refid="outils__SDL_8h" local="no">outils_SDL.h</includes>
     <includes local="no">stdio.h</includes>
     <includes local="no">stdlib.h</includes>
     <incdepgraph>
-      <node id="279">
-        <label>stdlib.h</label>
-      </node>
-      <node id="272">
-        <label>src/block.c</label>
-        <link refid="block_8c"/>
-        <childnode refid="273" relation="include">
-        </childnode>
-        <childnode refid="274" relation="include">
-        </childnode>
-        <childnode refid="276" relation="include">
-        </childnode>
-        <childnode refid="277" relation="include">
-        </childnode>
-        <childnode refid="278" relation="include">
-        </childnode>
-        <childnode refid="279" relation="include">
-        </childnode>
-      </node>
-      <node id="277">
-        <label>outils_SDL.h</label>
-        <link refid="outils__SDL_8h_source"/>
-        <childnode refid="273" relation="include">
-        </childnode>
-        <childnode refid="276" relation="include">
-        </childnode>
-      </node>
-      <node id="275">
-        <label>couleurs.h</label>
-        <link refid="couleurs_8h_source"/>
-      </node>
-      <node id="273">
-        <label>SDL2/SDL.h</label>
-      </node>
-      <node id="276">
+      <node id="377">
         <label>erreur.h</label>
         <link refid="erreur_8h"/>
       </node>
-      <node id="278">
-        <label>stdio.h</label>
+      <node id="381">
+        <label>stdlib.h</label>
       </node>
-      <node id="274">
+      <node id="373">
+        <label>src/block.c</label>
+        <link refid="block_8c"/>
+        <childnode refid="374" relation="include">
+        </childnode>
+        <childnode refid="375" relation="include">
+        </childnode>
+        <childnode refid="378" relation="include">
+        </childnode>
+        <childnode refid="377" relation="include">
+        </childnode>
+        <childnode refid="379" relation="include">
+        </childnode>
+        <childnode refid="380" relation="include">
+        </childnode>
+        <childnode refid="381" relation="include">
+        </childnode>
+      </node>
+      <node id="375">
         <label>block.h</label>
         <link refid="block_8h"/>
-        <childnode refid="275" relation="include">
+        <childnode refid="376" relation="include">
         </childnode>
-        <childnode refid="273" relation="include">
+        <childnode refid="374" relation="include">
         </childnode>
-        <childnode refid="276" relation="include">
+        <childnode refid="377" relation="include">
         </childnode>
+      </node>
+      <node id="379">
+        <label>outils_SDL.h</label>
+        <link refid="outils__SDL_8h"/>
+        <childnode refid="374" relation="include">
+        </childnode>
+        <childnode refid="377" relation="include">
+        </childnode>
+      </node>
+      <node id="376">
+        <label>couleurs.h</label>
+        <link refid="couleurs_8h_source"/>
+      </node>
+      <node id="374">
+        <label>SDL2/SDL.h</label>
+      </node>
+      <node id="378">
+        <label>commun.h</label>
+        <link refid="commun_8h_source"/>
+      </node>
+      <node id="380">
+        <label>stdio.h</label>
       </node>
     </incdepgraph>
       <sectiondef kind="var">
-      <memberdef kind="variable" id="block_8c_1a7b1c0c6ee83d49a39b4f5c5205ef4140" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="block_8c_1a7b1c0c6ee83d49a39b4f5c5205ef4140" prot="public" static="yes" mutable="no">
         <type><ref refid="structt__block__type" kindref="compound">t_block_type</ref></type>
         <definition>blocks</definition>
         <argsstring>[NB_BLOCK]</argsstring>
         <name>blocks</name>
-        <initializer>= {{AIR, &quot;air&quot;, 0, NULL, NOIR, NULL},
-                                 {HERBE, &quot;herbe&quot;, 5, &quot;./IMG/texture/herbe.png&quot;, VERT, NULL},
-                                 {TERRE, &quot;terre&quot;, 10, &quot;./IMG/texture/terre.png&quot;, MARRON, NULL},
-                                 {EAU, &quot;eau&quot;, 0, &quot;./IMG/texture/eau.png&quot;, BLEU, NULL},
-                                 {SABLE, &quot;sable&quot;, 5, &quot;./IMG/texture/sable.png&quot;, JAUNE, NULL},
-                                 {FEUILLE, &quot;feuille&quot;, 3, &quot;./IMG/texture/feuille.png&quot;, VERT, NULL},
-                                 {BOIS, &quot;bois&quot;, 15, &quot;./IMG/texture/tronc.png&quot;, MARRON, NULL},
-                                 {ROCHE, &quot;roche&quot;, 50, &quot;./IMG/texture/pierre.png&quot;, GRIS, NULL},
-                                 {NEIGE, &quot;neige&quot;, 3, &quot;./IMG/texture/neige.png&quot;, BLANC, NULL},
-                                 {GLACE, &quot;glace&quot;, 10, &quot;./IMG/texture/glace.png&quot;, CYAN, NULL},
-                                 {GRAVIER, &quot;gravier&quot;, 20, &quot;./IMG/texture/gravier.png&quot;, GRIS, NULL}}</initializer>
+        <initializer>= {{AIR, &quot;air&quot;, 0, 0, NULL, NOIR, NULL},
+                                        {HERBE, &quot;herbe&quot;, 10, 1, &quot;./IMG/texture/block/herbe.png&quot;, VERT, NULL},
+                                        {TERRE, &quot;terre&quot;, 10, 1, &quot;./IMG/texture/block/terre.png&quot;, MARRON, NULL},
+                                        {EAU, &quot;eau&quot;, 0, 0, &quot;./IMG/texture/block/eau.png&quot;, BLEU, NULL},
+                                        {SABLE, &quot;sable&quot;, 5, 1, &quot;./IMG/texture/block/sable.png&quot;, JAUNE, NULL},
+                                        {FEUILLE, &quot;feuille&quot;, 3, 1, &quot;./IMG/texture/block/feuille.png&quot;, VERT, NULL},
+                                        {BOIS, &quot;bois&quot;, 15, 1, &quot;./IMG/texture/block/tronc.png&quot;, MARRON, NULL},
+                                        {ROCHE, &quot;roche&quot;, 20, 1, &quot;./IMG/texture/block/pierre.png&quot;, GRIS, NULL},
+                                        {NEIGE, &quot;neige&quot;, 3, 1, &quot;./IMG/texture/block/neige.png&quot;, BLANC, NULL},
+                                        {GLACE, &quot;glace&quot;, 10, 1, &quot;./IMG/texture/block/glace.png&quot;, CYAN, NULL},
+                                        {GRAVIER, &quot;gravier&quot;, 10, 1, &quot;./IMG/texture/block/gravier.png&quot;, GRIS, NULL},
+                                        {BRIQUE, &quot;brique&quot;, 40, 1, &quot;./IMG/texture/block/brique.png&quot;, MARRON, NULL},
+                                        {PORTAIL_HAUT, &quot;portail_haut&quot;, 100, 0, &quot;./IMG/texture/block/portail_donjon_haut.png&quot;, NOIR, NULL},
+                                        {PORTAIL_BAS, &quot;portail_bas&quot;, 100, 0, &quot;./IMG/texture/block/portail_donjon_bas.png&quot;, NOIR, NULL},
+                                        {MINERAI_CHARBON, &quot;minerai_charbon&quot;, 20, 1, &quot;./IMG/texture/block/minerai_charbon.png&quot;, NOIR, NULL},
+                                        {MINERAI_CUIVRE, &quot;minerai_cuivre&quot;, 25, 1, &quot;./IMG/texture/block/minerai_cuivre.png&quot;, JAUNE, NULL},
+                                        {MINERAI_FER, &quot;minerai_fer&quot;, 50, 1, &quot;./IMG/texture/block/minerai_fer.png&quot;, GRIS, NULL},
+                                        {MINERAI_ARGENT, &quot;minerai_argent&quot;, 55, 1, &quot;./IMG/texture/block/minerai_argent.png&quot;, GRIS, NULL},
+                                        {MINERAI_OR, &quot;minerai_or&quot;, 70, 1, &quot;./IMG/texture/block/minerai_or.png&quot;, JAUNE, NULL},
+                                        {MINERAI_DIAMAND, &quot;minerai_diamand&quot;, 150, 1, &quot;./IMG/texture/block/minerai_diamand.png&quot;, CYAN, NULL},
+                                        {PLANT, &quot;plant&quot;, 5, 0, &quot;./IMG/texture/block/herbe_plant.png&quot;, VERT, NULL},
+                                        {BEDROCK, &quot;bedrock&quot;, 1000, 0, &quot;./IMG/texture/block/bedrock.png&quot;, NOIR, NULL}}</initializer>
         <briefdescription>
 <para>tableau de tous les blocks </para>        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/block.c" line="19" column="1" bodyfile="src/block.c" bodystart="19" bodyend="-1"/>
+        <location file="src/block.c" line="20" column="1" bodyfile="src/block.c" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="block_8c_1a96975792701a17771f236103e57dd0a4" prot="public" static="no" mutable="no">
+        <type><ref refid="structt__minerai" kindref="compound">t_minerai</ref></type>
+        <definition>minerais</definition>
+        <argsstring>[NB_MINERAI]</argsstring>
+        <name>minerais</name>
+        <initializer>= {
+    {MINERAI_CHARBON, 0.73555, 0.73555 + 0.005, HAUTEUR_MINIMUN - (HAUTEUR_MINIMUN / 1.25), MAX},
+    {MINERAI_CUIVRE, 0.43555, 0.43555 + 0.005, HAUTEUR_MINIMUN - (HAUTEUR_MINIMUN / 1.25), MAX},
+    {MINERAI_FER, 0.63333, 0.63333 + 0.004, 0, HAUTEUR_MINIMUN - (HAUTEUR_MINIMUN / 10)},
+    {MINERAI_ARGENT, 0.47333, 0.47333 + 0.003, 0, HAUTEUR_MINIMUN - (HAUTEUR_MINIMUN / 4)},
+    {MINERAI_OR, 0.39111, 0.39111 + 0.003, 0, HAUTEUR_MINIMUN - (HAUTEUR_MINIMUN / 2)},
+    {MINERAI_DIAMAND, 0.55555, 0.55555 + 0.002, 0, HAUTEUR_MINIMUN - (HAUTEUR_MINIMUN / 1.25)},
+}</initializer>
+        <briefdescription>
+<para>tableau de tous les minerais </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/block.c" line="47" column="1" bodyfile="src/block.c" bodystart="47" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
+      <memberdef kind="function" id="block_8c_1afe765018af6adcb280744e028ba7adaa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structt__minerai" kindref="compound">t_minerai</ref> *</type>
+        <definition>t_minerai* BLOCK_GetMinerai</definition>
+        <argsstring>()</argsstring>
+        <name>BLOCK_GetMinerai</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/block.c" line="56" column="1" bodyfile="src/block.c" bodystart="56" bodyend="56"/>
+      </memberdef>
       <memberdef kind="function" id="block_8c_1aee81cee5a3a132e9769b9520c3e2f415" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>char *</type>
         <definition>char * BLOCK_GetTexture_term</definition>
@@ -112,7 +164,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/block.c" line="37" column="1" bodyfile="src/block.c" bodystart="37" bodyend="43"/>
+        <location file="src/block.c" line="64" column="1" bodyfile="src/block.c" bodystart="64" bodyend="70"/>
       </memberdef>
       <memberdef kind="function" id="block_8c_1abfc4c7532ca8f494ffa3e70e5aa3bb3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>SDL_Texture *</type>
@@ -138,24 +190,33 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/block.c" line="51" column="1" bodyfile="src/block.c" bodystart="51" bodyend="58"/>
+        <location file="src/block.c" line="78" column="1" bodyfile="src/block.c" bodystart="78" bodyend="85"/>
       </memberdef>
-      <memberdef kind="function" id="block_8c_1a3cf25f3b940c6b141541cf8ab24c77fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void BLOCK_afficher_type</definition>
-        <argsstring>(t_block_type b)</argsstring>
-        <name>BLOCK_afficher_type</name>
+      <memberdef kind="function" id="block_8c_1a87a18dfdfc07c04beada04ed1985207a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int BLOCK_estCassable</definition>
+        <argsstring>(int id)</argsstring>
+        <name>BLOCK_estCassable</name>
         <param>
-          <type><ref refid="structt__block__type" kindref="compound">t_block_type</ref></type>
-          <declname>b</declname>
+          <type>int</type>
+          <declname>id</declname>
         </param>
         <briefdescription>
-        </briefdescription>
+<para>Permet de savoir si un block est cassable ou non. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>l&apos;id est le materiau block rechercher </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Renvoie 1 si cassable 0 si incassable </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/block.c" line="60" column="1" bodyfile="src/block.c" bodystart="60" bodyend="63"/>
+        <location file="src/block.c" line="93" column="1" bodyfile="src/block.c" bodystart="93" bodyend="100"/>
       </memberdef>
       <memberdef kind="function" id="block_8c_1a714da3e92b414ba4736438cf0600b02d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -163,7 +224,7 @@
         <argsstring>(t_block b)</argsstring>
         <name>BLOCK_afficher_coord</name>
         <param>
-          <type><ref refid="structblock__s" kindref="compound">t_block</ref></type>
+          <type><ref refid="structt__block" kindref="compound">t_block</ref></type>
           <declname>b</declname>
         </param>
         <briefdescription>
@@ -172,7 +233,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/block.c" line="65" column="1" bodyfile="src/block.c" bodystart="65" bodyend="65"/>
+        <location file="src/block.c" line="102" column="1" bodyfile="src/block.c" bodystart="102" bodyend="102"/>
       </memberdef>
       <memberdef kind="function" id="block_8c_1a3c5ac45fcd31e6d01cffd148111d54e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>t_erreur</type>
@@ -189,7 +250,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/block.c" line="67" column="1" bodyfile="src/block.c" bodystart="67" bodyend="78"/>
+        <location file="src/block.c" line="104" column="1" bodyfile="src/block.c" bodystart="104" bodyend="115"/>
       </memberdef>
       <memberdef kind="function" id="block_8c_1a0c8b13797355fd4296b6ef7cb71d0862" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>t_erreur</type>
@@ -206,7 +267,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/block.c" line="80" column="1" bodyfile="src/block.c" bodystart="80" bodyend="88"/>
+        <location file="src/block.c" line="117" column="1" bodyfile="src/block.c" bodystart="117" bodyend="125"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -220,69 +281,96 @@
 <codeline lineno="1"></codeline>
 <codeline lineno="8"><highlight class="preprocessor">#include<sp/>&lt;SDL2/SDL.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="block_8h" kindref="compound">block.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="erreur_8h" kindref="compound">erreur.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;outils_SDL.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="14"><highlight class="normal"></highlight></codeline>
-<codeline lineno="19"><highlight class="normal"><ref refid="structt__block__type" kindref="compound">t_block_type</ref><sp/><ref refid="block_8c_1a7b1c0c6ee83d49a39b4f5c5205ef4140" kindref="member">blocks</ref>[NB_BLOCK]<sp/>=<sp/>{{AIR,<sp/></highlight><highlight class="stringliteral">&quot;air&quot;</highlight><highlight class="normal">,<sp/>0,<sp/>NULL,<sp/>NOIR,<sp/>NULL},</highlight></codeline>
-<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{HERBE,<sp/></highlight><highlight class="stringliteral">&quot;herbe&quot;</highlight><highlight class="normal">,<sp/>5,<sp/></highlight><highlight class="stringliteral">&quot;./IMG/texture/herbe.png&quot;</highlight><highlight class="normal">,<sp/>VERT,<sp/>NULL},</highlight></codeline>
-<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{TERRE,<sp/></highlight><highlight class="stringliteral">&quot;terre&quot;</highlight><highlight class="normal">,<sp/>10,<sp/></highlight><highlight class="stringliteral">&quot;./IMG/texture/terre.png&quot;</highlight><highlight class="normal">,<sp/>MARRON,<sp/>NULL},</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{EAU,<sp/></highlight><highlight class="stringliteral">&quot;eau&quot;</highlight><highlight class="normal">,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;./IMG/texture/eau.png&quot;</highlight><highlight class="normal">,<sp/>BLEU,<sp/>NULL},</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{SABLE,<sp/></highlight><highlight class="stringliteral">&quot;sable&quot;</highlight><highlight class="normal">,<sp/>5,<sp/></highlight><highlight class="stringliteral">&quot;./IMG/texture/sable.png&quot;</highlight><highlight class="normal">,<sp/>JAUNE,<sp/>NULL},</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{FEUILLE,<sp/></highlight><highlight class="stringliteral">&quot;feuille&quot;</highlight><highlight class="normal">,<sp/>3,<sp/></highlight><highlight class="stringliteral">&quot;./IMG/texture/feuille.png&quot;</highlight><highlight class="normal">,<sp/>VERT,<sp/>NULL},</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{BOIS,<sp/></highlight><highlight class="stringliteral">&quot;bois&quot;</highlight><highlight class="normal">,<sp/>15,<sp/></highlight><highlight class="stringliteral">&quot;./IMG/texture/tronc.png&quot;</highlight><highlight class="normal">,<sp/>MARRON,<sp/>NULL},</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{ROCHE,<sp/></highlight><highlight class="stringliteral">&quot;roche&quot;</highlight><highlight class="normal">,<sp/>50,<sp/></highlight><highlight class="stringliteral">&quot;./IMG/texture/pierre.png&quot;</highlight><highlight class="normal">,<sp/>GRIS,<sp/>NULL},</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{NEIGE,<sp/></highlight><highlight class="stringliteral">&quot;neige&quot;</highlight><highlight class="normal">,<sp/>3,<sp/></highlight><highlight class="stringliteral">&quot;./IMG/texture/neige.png&quot;</highlight><highlight class="normal">,<sp/>BLANC,<sp/>NULL},</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{GLACE,<sp/></highlight><highlight class="stringliteral">&quot;glace&quot;</highlight><highlight class="normal">,<sp/>10,<sp/></highlight><highlight class="stringliteral">&quot;./IMG/texture/glace.png&quot;</highlight><highlight class="normal">,<sp/>CYAN,<sp/>NULL},</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{GRAVIER,<sp/></highlight><highlight class="stringliteral">&quot;gravier&quot;</highlight><highlight class="normal">,<sp/>20,<sp/></highlight><highlight class="stringliteral">&quot;./IMG/texture/gravier.png&quot;</highlight><highlight class="normal">,<sp/>GRIS,<sp/>NULL}};</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"></highlight></codeline>
-<codeline lineno="37"><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="block_8c_1aee81cee5a3a132e9769b9520c3e2f415" kindref="member">BLOCK_GetTexture_term</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>NB_BLOCK;<sp/>i++)</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="block_8c_1a7b1c0c6ee83d49a39b4f5c5205ef4140" kindref="member">blocks</ref>[i].materiau<sp/>==<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="block_8c_1a7b1c0c6ee83d49a39b4f5c5205ef4140" kindref="member">blocks</ref>[i].texture_term;</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NOIR;</highlight></codeline>
-<codeline lineno="43"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"></highlight></codeline>
-<codeline lineno="51"><highlight class="normal">SDL_Texture<sp/>*<ref refid="block_8c_1abfc4c7532ca8f494ffa3e70e5aa3bb3e" kindref="member">BLOCK_GetTexture_sdl</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>NB_BLOCK;<sp/>i++)</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="block_8c_1a7b1c0c6ee83d49a39b4f5c5205ef4140" kindref="member">blocks</ref>[i].materiau<sp/>==<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="block_8c_1a7b1c0c6ee83d49a39b4f5c5205ef4140" kindref="member">blocks</ref>[i].texture_sdl;</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
-<codeline lineno="58"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"></highlight></codeline>
-<codeline lineno="60"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>BLOCK_afficher_type(<ref refid="structt__block__type" kindref="compound">t_block_type</ref><sp/>b)<sp/>{</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;materiau<sp/>:<sp/>%d<sp/>nom<sp/>:<sp/>%s<sp/>resistance<sp/>:<sp/>%d,<sp/>path<sp/>texture<sp/>sdl<sp/>:<sp/>%s<sp/>texture<sp/>dans<sp/>le<sp/>terminal<sp/>:<sp/>%s\n&quot;</highlight><highlight class="normal">,<sp/>b.materiau,<sp/>b.nom,<sp/>b.resistance,</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b.texture_path_sdl,<sp/>b.texture_term);</highlight></codeline>
-<codeline lineno="63"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"></highlight></codeline>
-<codeline lineno="65"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>BLOCK_afficher_coord(<ref refid="structblock__s" kindref="compound">t_block</ref><sp/>b)<sp/>{<sp/>printf(</highlight><highlight class="stringliteral">&quot;id<sp/>:<sp/>%d<sp/>,<sp/>x<sp/>:<sp/>%d<sp/>,<sp/>y<sp/>:<sp/>%d\n&quot;</highlight><highlight class="normal">,<sp/>b.id,<sp/>b.x,<sp/>b.y);<sp/>}</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"></highlight></codeline>
-<codeline lineno="67"><highlight class="normal">t_erreur<sp/>BLOCK_CreateTexture_sdl(SDL_Renderer<sp/>*renderer)<sp/>{</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>NB_BLOCK;<sp/>i++)<sp/>{</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="block_8c_1a7b1c0c6ee83d49a39b4f5c5205ef4140" kindref="member">blocks</ref>[i].texture_path_sdl<sp/>!=<sp/>NULL)<sp/>{</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>SDL_Texture<sp/>*texture_block;</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Create_IMG_Texture(renderer,<sp/><ref refid="block_8c_1a7b1c0c6ee83d49a39b4f5c5205ef4140" kindref="member">blocks</ref>[i].texture_path_sdl,<sp/>&amp;texture_block);</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="block_8c_1a7b1c0c6ee83d49a39b4f5c5205ef4140" kindref="member">blocks</ref>[i].texture_sdl<sp/>=<sp/>texture_block;</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="block_8c_1a7b1c0c6ee83d49a39b4f5c5205ef4140" kindref="member">blocks</ref>[i].texture_sdl<sp/>=<sp/>NULL;</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
-<codeline lineno="78"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"></highlight></codeline>
-<codeline lineno="80"><highlight class="normal">t_erreur<sp/>BLOCK_DestroyTexture_sdl(SDL_Renderer<sp/>*renderer)<sp/>{</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>NB_BLOCK;<sp/>i++)<sp/>{</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="block_8c_1a7b1c0c6ee83d49a39b4f5c5205ef4140" kindref="member">blocks</ref>[i].texture_sdl<sp/>!=<sp/>NULL)<sp/>{</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>SDL_DestroyTexture(<ref refid="block_8c_1a7b1c0c6ee83d49a39b4f5c5205ef4140" kindref="member">blocks</ref>[i].texture_sdl);</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="block_8c_1a7b1c0c6ee83d49a39b4f5c5205ef4140" kindref="member">blocks</ref>[i].texture_sdl<sp/>=<sp/>NULL;</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
-<codeline lineno="88"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;commun.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="erreur_8h" kindref="compound">erreur.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="outils__SDL_8h" kindref="compound">outils_SDL.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="structt__block__type" kindref="compound">t_block_type</ref><sp/>blocks[NB_BLOCK]<sp/>=<sp/>{{AIR,<sp/></highlight><highlight class="stringliteral">&quot;air&quot;</highlight><highlight class="normal">,<sp/>0,<sp/>0,<sp/>NULL,<sp/>NOIR,<sp/>NULL},</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{HERBE,<sp/></highlight><highlight class="stringliteral">&quot;herbe&quot;</highlight><highlight class="normal">,<sp/>10,<sp/>1,<sp/></highlight><highlight class="stringliteral">&quot;./IMG/texture/block/herbe.png&quot;</highlight><highlight class="normal">,<sp/>VERT,<sp/>NULL},</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{TERRE,<sp/></highlight><highlight class="stringliteral">&quot;terre&quot;</highlight><highlight class="normal">,<sp/>10,<sp/>1,<sp/></highlight><highlight class="stringliteral">&quot;./IMG/texture/block/terre.png&quot;</highlight><highlight class="normal">,<sp/>MARRON,<sp/>NULL},</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{EAU,<sp/></highlight><highlight class="stringliteral">&quot;eau&quot;</highlight><highlight class="normal">,<sp/>0,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;./IMG/texture/block/eau.png&quot;</highlight><highlight class="normal">,<sp/>BLEU,<sp/>NULL},</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{SABLE,<sp/></highlight><highlight class="stringliteral">&quot;sable&quot;</highlight><highlight class="normal">,<sp/>5,<sp/>1,<sp/></highlight><highlight class="stringliteral">&quot;./IMG/texture/block/sable.png&quot;</highlight><highlight class="normal">,<sp/>JAUNE,<sp/>NULL},</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{FEUILLE,<sp/></highlight><highlight class="stringliteral">&quot;feuille&quot;</highlight><highlight class="normal">,<sp/>3,<sp/>1,<sp/></highlight><highlight class="stringliteral">&quot;./IMG/texture/block/feuille.png&quot;</highlight><highlight class="normal">,<sp/>VERT,<sp/>NULL},</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{BOIS,<sp/></highlight><highlight class="stringliteral">&quot;bois&quot;</highlight><highlight class="normal">,<sp/>15,<sp/>1,<sp/></highlight><highlight class="stringliteral">&quot;./IMG/texture/block/tronc.png&quot;</highlight><highlight class="normal">,<sp/>MARRON,<sp/>NULL},</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{ROCHE,<sp/></highlight><highlight class="stringliteral">&quot;roche&quot;</highlight><highlight class="normal">,<sp/>20,<sp/>1,<sp/></highlight><highlight class="stringliteral">&quot;./IMG/texture/block/pierre.png&quot;</highlight><highlight class="normal">,<sp/>GRIS,<sp/>NULL},</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{NEIGE,<sp/></highlight><highlight class="stringliteral">&quot;neige&quot;</highlight><highlight class="normal">,<sp/>3,<sp/>1,<sp/></highlight><highlight class="stringliteral">&quot;./IMG/texture/block/neige.png&quot;</highlight><highlight class="normal">,<sp/>BLANC,<sp/>NULL},</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{GLACE,<sp/></highlight><highlight class="stringliteral">&quot;glace&quot;</highlight><highlight class="normal">,<sp/>10,<sp/>1,<sp/></highlight><highlight class="stringliteral">&quot;./IMG/texture/block/glace.png&quot;</highlight><highlight class="normal">,<sp/>CYAN,<sp/>NULL},</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{GRAVIER,<sp/></highlight><highlight class="stringliteral">&quot;gravier&quot;</highlight><highlight class="normal">,<sp/>10,<sp/>1,<sp/></highlight><highlight class="stringliteral">&quot;./IMG/texture/block/gravier.png&quot;</highlight><highlight class="normal">,<sp/>GRIS,<sp/>NULL},</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{BRIQUE,<sp/></highlight><highlight class="stringliteral">&quot;brique&quot;</highlight><highlight class="normal">,<sp/>40,<sp/>1,<sp/></highlight><highlight class="stringliteral">&quot;./IMG/texture/block/brique.png&quot;</highlight><highlight class="normal">,<sp/>MARRON,<sp/>NULL},</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{PORTAIL_HAUT,<sp/></highlight><highlight class="stringliteral">&quot;portail_haut&quot;</highlight><highlight class="normal">,<sp/>100,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;./IMG/texture/block/portail_donjon_haut.png&quot;</highlight><highlight class="normal">,<sp/>NOIR,<sp/>NULL},</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{PORTAIL_BAS,<sp/></highlight><highlight class="stringliteral">&quot;portail_bas&quot;</highlight><highlight class="normal">,<sp/>100,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;./IMG/texture/block/portail_donjon_bas.png&quot;</highlight><highlight class="normal">,<sp/>NOIR,<sp/>NULL},</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{MINERAI_CHARBON,<sp/></highlight><highlight class="stringliteral">&quot;minerai_charbon&quot;</highlight><highlight class="normal">,<sp/>20,<sp/>1,<sp/></highlight><highlight class="stringliteral">&quot;./IMG/texture/block/minerai_charbon.png&quot;</highlight><highlight class="normal">,<sp/>NOIR,<sp/>NULL},</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{MINERAI_CUIVRE,<sp/></highlight><highlight class="stringliteral">&quot;minerai_cuivre&quot;</highlight><highlight class="normal">,<sp/>25,<sp/>1,<sp/></highlight><highlight class="stringliteral">&quot;./IMG/texture/block/minerai_cuivre.png&quot;</highlight><highlight class="normal">,<sp/>JAUNE,<sp/>NULL},</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{MINERAI_FER,<sp/></highlight><highlight class="stringliteral">&quot;minerai_fer&quot;</highlight><highlight class="normal">,<sp/>50,<sp/>1,<sp/></highlight><highlight class="stringliteral">&quot;./IMG/texture/block/minerai_fer.png&quot;</highlight><highlight class="normal">,<sp/>GRIS,<sp/>NULL},</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{MINERAI_ARGENT,<sp/></highlight><highlight class="stringliteral">&quot;minerai_argent&quot;</highlight><highlight class="normal">,<sp/>55,<sp/>1,<sp/></highlight><highlight class="stringliteral">&quot;./IMG/texture/block/minerai_argent.png&quot;</highlight><highlight class="normal">,<sp/>GRIS,<sp/>NULL},</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{MINERAI_OR,<sp/></highlight><highlight class="stringliteral">&quot;minerai_or&quot;</highlight><highlight class="normal">,<sp/>70,<sp/>1,<sp/></highlight><highlight class="stringliteral">&quot;./IMG/texture/block/minerai_or.png&quot;</highlight><highlight class="normal">,<sp/>JAUNE,<sp/>NULL},</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{MINERAI_DIAMAND,<sp/></highlight><highlight class="stringliteral">&quot;minerai_diamand&quot;</highlight><highlight class="normal">,<sp/>150,<sp/>1,<sp/></highlight><highlight class="stringliteral">&quot;./IMG/texture/block/minerai_diamand.png&quot;</highlight><highlight class="normal">,<sp/>CYAN,<sp/>NULL},</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{PLANT,<sp/></highlight><highlight class="stringliteral">&quot;plant&quot;</highlight><highlight class="normal">,<sp/>5,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;./IMG/texture/block/herbe_plant.png&quot;</highlight><highlight class="normal">,<sp/>VERT,<sp/>NULL},</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{BEDROCK,<sp/></highlight><highlight class="stringliteral">&quot;bedrock&quot;</highlight><highlight class="normal">,<sp/>1000,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;./IMG/texture/block/bedrock.png&quot;</highlight><highlight class="normal">,<sp/>NOIR,<sp/>NULL}};</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><ref refid="structt__minerai" kindref="compound">t_minerai</ref><sp/><ref refid="block_8c_1a96975792701a17771f236103e57dd0a4" kindref="member">minerais</ref>[NB_MINERAI]<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>{MINERAI_CHARBON,<sp/>0.73555,<sp/>0.73555<sp/>+<sp/>0.005,<sp/>HAUTEUR_MINIMUN<sp/>-<sp/>(HAUTEUR_MINIMUN<sp/>/<sp/>1.25),<sp/>MAX},</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>{MINERAI_CUIVRE,<sp/>0.43555,<sp/>0.43555<sp/>+<sp/>0.005,<sp/>HAUTEUR_MINIMUN<sp/>-<sp/>(HAUTEUR_MINIMUN<sp/>/<sp/>1.25),<sp/>MAX},</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>{MINERAI_FER,<sp/>0.63333,<sp/>0.63333<sp/>+<sp/>0.004,<sp/>0,<sp/>HAUTEUR_MINIMUN<sp/>-<sp/>(HAUTEUR_MINIMUN<sp/>/<sp/>10)},</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>{MINERAI_ARGENT,<sp/>0.47333,<sp/>0.47333<sp/>+<sp/>0.003,<sp/>0,<sp/>HAUTEUR_MINIMUN<sp/>-<sp/>(HAUTEUR_MINIMUN<sp/>/<sp/>4)},</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>{MINERAI_OR,<sp/>0.39111,<sp/>0.39111<sp/>+<sp/>0.003,<sp/>0,<sp/>HAUTEUR_MINIMUN<sp/>-<sp/>(HAUTEUR_MINIMUN<sp/>/<sp/>2)},</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>{MINERAI_DIAMAND,<sp/>0.55555,<sp/>0.55555<sp/>+<sp/>0.002,<sp/>0,<sp/>HAUTEUR_MINIMUN<sp/>-<sp/>(HAUTEUR_MINIMUN<sp/>/<sp/>1.25)},</highlight></codeline>
+<codeline lineno="54"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><ref refid="structt__minerai" kindref="compound">t_minerai</ref><sp/>*BLOCK_GetMinerai()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="block_8c_1a96975792701a17771f236103e57dd0a4" kindref="member">minerais</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="block_8c_1aee81cee5a3a132e9769b9520c3e2f415" kindref="member">BLOCK_GetTexture_term</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>NB_BLOCK;<sp/>i++)</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(blocks[i].materiau<sp/>==<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>blocks[i].texture_term;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NOIR;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal">SDL_Texture<sp/>*<ref refid="block_8c_1abfc4c7532ca8f494ffa3e70e5aa3bb3e" kindref="member">BLOCK_GetTexture_sdl</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>NB_BLOCK;<sp/>i++)</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(blocks[i].materiau<sp/>==<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>blocks[i].texture_sdl;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="block_8c_1a87a18dfdfc07c04beada04ed1985207a" kindref="member">BLOCK_estCassable</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>NB_BLOCK;<sp/>i++)</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(blocks[i].materiau<sp/>==<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>blocks[i].cassable;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>BLOCK_afficher_coord(<ref refid="structt__block" kindref="compound">t_block</ref><sp/>b)<sp/>{<sp/>printf(</highlight><highlight class="stringliteral">&quot;id<sp/>:<sp/>%d<sp/>,<sp/>x<sp/>:<sp/>%d<sp/>,<sp/>y<sp/>:<sp/>%d\n&quot;</highlight><highlight class="normal">,<sp/>b.id,<sp/>b.x,<sp/>b.y);<sp/>}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal">t_erreur<sp/>BLOCK_CreateTexture_sdl(SDL_Renderer<sp/>*renderer)<sp/>{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>NB_BLOCK;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(blocks[i].texture_path_sdl<sp/>!=<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>SDL_Texture<sp/>*texture_block;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="outils__SDL_8c_1a17717a1787c318f04c2b3050aad4c319" kindref="member">Create_IMG_Texture</ref>(renderer,<sp/>blocks[i].texture_path_sdl,<sp/>&amp;texture_block);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>blocks[i].texture_sdl<sp/>=<sp/>texture_block;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>blocks[i].texture_sdl<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal">t_erreur<sp/>BLOCK_DestroyTexture_sdl(SDL_Renderer<sp/>*renderer)<sp/>{</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>NB_BLOCK;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(blocks[i].texture_sdl<sp/>!=<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>SDL_DestroyTexture(blocks[i].texture_sdl);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>blocks[i].texture_sdl<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>OK;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="src/block.c"/>
   </compounddef>

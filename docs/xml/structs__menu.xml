@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="structs__menu" kind="struct" language="C++" prot="public">
     <compoundname>s_menu</compoundname>
       <sectiondef kind="public-attrib">
@@ -74,14 +74,14 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="25">
+      <node id="50">
         <label>t_bouton_menu</label>
         <link refid="structt__bouton__menu"/>
       </node>
-      <node id="24">
+      <node id="49">
         <label>s_menu</label>
         <link refid="structs__menu"/>
-        <childnode refid="25" relation="usage">
+        <childnode refid="50" relation="usage">
           <edgelabel>tab_bouton</edgelabel>
         </childnode>
       </node>

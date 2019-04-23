@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="binaire_8c" kind="file" language="C++">
     <compoundname>binaire.c</compoundname>
     <includes local="no">stdio.h</includes>
@@ -10,70 +10,70 @@
     <includes refid="erreur_8h" local="no">erreur.h</includes>
     <includes refid="fichier_8h" local="no">fichier.h</includes>
     <incdepgraph>
-      <node id="251">
-        <label>stdlib.h</label>
-      </node>
-      <node id="249">
-        <label>src/binaire.c</label>
-        <link refid="binaire_8c"/>
-        <childnode refid="250" relation="include">
-        </childnode>
-        <childnode refid="251" relation="include">
-        </childnode>
-        <childnode refid="252" relation="include">
-        </childnode>
-        <childnode refid="253" relation="include">
-        </childnode>
-        <childnode refid="255" relation="include">
-        </childnode>
-        <childnode refid="254" relation="include">
-        </childnode>
-        <childnode refid="257" relation="include">
-        </childnode>
-      </node>
-      <node id="256">
-        <label>liste.h</label>
-        <link refid="liste_8h"/>
-        <childnode refid="254" relation="include">
-        </childnode>
-      </node>
-      <node id="255">
-        <label>chemin.h</label>
-        <link refid="chemin_8h"/>
-        <childnode refid="256" relation="include">
-        </childnode>
-        <childnode refid="254" relation="include">
-        </childnode>
-      </node>
-      <node id="257">
-        <label>fichier.h</label>
-        <link refid="fichier_8h"/>
-        <childnode refid="250" relation="include">
-        </childnode>
-        <childnode refid="251" relation="include">
-        </childnode>
-        <childnode refid="254" relation="include">
-        </childnode>
-      </node>
-      <node id="252">
-        <label>string.h</label>
-      </node>
-      <node id="254">
+      <node id="355">
         <label>erreur.h</label>
         <link refid="erreur_8h"/>
       </node>
-      <node id="253">
-        <label>binaire.h</label>
-        <link refid="binaire_8h"/>
-        <childnode refid="250" relation="include">
+      <node id="352">
+        <label>stdlib.h</label>
+      </node>
+      <node id="350">
+        <label>src/binaire.c</label>
+        <link refid="binaire_8c"/>
+        <childnode refid="351" relation="include">
         </childnode>
-        <childnode refid="251" relation="include">
+        <childnode refid="352" relation="include">
         </childnode>
-        <childnode refid="254" relation="include">
+        <childnode refid="353" relation="include">
+        </childnode>
+        <childnode refid="354" relation="include">
+        </childnode>
+        <childnode refid="356" relation="include">
+        </childnode>
+        <childnode refid="355" relation="include">
+        </childnode>
+        <childnode refid="358" relation="include">
         </childnode>
       </node>
-      <node id="250">
+      <node id="357">
+        <label>liste.h</label>
+        <link refid="liste_8h"/>
+        <childnode refid="355" relation="include">
+        </childnode>
+      </node>
+      <node id="353">
+        <label>string.h</label>
+      </node>
+      <node id="358">
+        <label>fichier.h</label>
+        <link refid="fichier_8h"/>
+        <childnode refid="351" relation="include">
+        </childnode>
+        <childnode refid="352" relation="include">
+        </childnode>
+        <childnode refid="355" relation="include">
+        </childnode>
+      </node>
+      <node id="356">
+        <label>chemin.h</label>
+        <link refid="chemin_8h"/>
+        <childnode refid="357" relation="include">
+        </childnode>
+        <childnode refid="355" relation="include">
+        </childnode>
+      </node>
+      <node id="351">
         <label>stdio.h</label>
+      </node>
+      <node id="354">
+        <label>binaire.h</label>
+        <link refid="binaire_8h"/>
+        <childnode refid="351" relation="include">
+        </childnode>
+        <childnode refid="352" relation="include">
+        </childnode>
+        <childnode refid="355" relation="include">
+        </childnode>
       </node>
     </incdepgraph>
       <sectiondef kind="func">
@@ -355,7 +355,7 @@
 <codeline lineno="35"><highlight class="normal"></highlight></codeline>
 <codeline lineno="43"><highlight class="normal">t_erreur<sp/><ref refid="binaire_8c_1a36f153273c49c8d6f30a2e1eb4420fca" kindref="member">Del_BIN</ref><sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>dossier,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>name)</highlight></codeline>
 <codeline lineno="44"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="fichier_8c_1a83d54c1eb70b338d9d72357669d6e179" kindref="member">del_file</ref>(dossier,name,</highlight><highlight class="stringliteral">&quot;.dat&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="fichier_8c_1a5c4db6cca6f318ceb70fc36c332326cb" kindref="member">del_file</ref>(dossier,name,</highlight><highlight class="stringliteral">&quot;.dat&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="46"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="47"><highlight class="normal"></highlight></codeline>
 <codeline lineno="54"><highlight class="normal">t_erreur<sp/>Close_BIN<sp/>(t_binaire<sp/>bin)</highlight></codeline>

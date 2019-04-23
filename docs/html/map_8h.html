@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>include/map.h file | World Of Dungeons Jeu de Survie</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
-  <link rel="stylesheet" href="m-dark+doxygen.compiled.css" />
+  <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
   <link rel="icon" href="favicon-dark.png" type="image/png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#22272e" />
@@ -15,7 +15,7 @@
     <div class="m-row">
       <a href="index.html" id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">World Of Dungeons <span class="m-thin">Jeu de Survie</span></a>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
-        <a href="#search" class="m-dox-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path d="m6 0c-3.3144 0-6 2.6856-6 6 0 3.3144 2.6856 6 6 6 1.4858 0 2.8463-0.54083 3.8945-1.4355-0.0164 0.33797 0.14734 0.75854 0.5 1.1504l3.2227 3.7891c0.55185 0.6139 1.4517 0.66544 2.002 0.11524 0.55022-0.55022 0.49866-1.4501-0.11524-2.002l-3.7891-3.2246c-0.39184-0.35266-0.81242-0.51469-1.1504-0.5 0.89472-1.0482 1.4355-2.4088 1.4355-3.8945 0-3.3128-2.6856-5.998-6-5.998zm0 1.5625a4.4375 4.4375 0 0 1 4.4375 4.4375 4.4375 4.4375 0 0 1-4.4375 4.4375 4.4375 4.4375 0 0 1-4.4375-4.4375 4.4375 4.4375 0 0 1 4.4375-4.4375z"/>
         </svg></a>
         <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
@@ -28,7 +28,7 @@
           <ol class="m-col-t-6 m-col-m-none" start="1">
             <li><a href="annotated.html">Classes</a></li>
             <li><a href="files.html">Files</a></li>
-            <li class="m-show-m"><a href="#search" class="m-dox-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
               <path d="m6 0c-3.3144 0-6 2.6856-6 6 0 3.3144 2.6856 6 6 6 1.4858 0 2.8463-0.54083 3.8945-1.4355-0.0164 0.33797 0.14734 0.75854 0.5 1.1504l3.2227 3.7891c0.55185 0.6139 1.4517 0.66544 2.002 0.11524 0.55022-0.55022 0.49866-1.4501-0.11524-2.002l-3.7891-3.2246c-0.39184-0.35266-0.81242-0.51469-1.1504-0.5 0.89472-1.0482 1.4355-2.4088 1.4355-3.8945 0-3.3128-2.6856-5.998-6-5.998zm0 1.5625a4.4375 4.4375 0 0 1 4.4375 4.4375 4.4375 4.4375 0 0 1-4.4375 4.4375 4.4375 4.4375 0 0 1-4.4375-4.4375 4.4375 4.4375 0 0 1 4.4375-4.4375z"/>
             </svg></a></li>
           </ol>
@@ -59,37 +59,74 @@
 <aside class="m-note m-default"><h4>Author</h4><p>{Maxence.D}</p></aside><aside class="m-note m-default"><h4>Version</h4><p>0.1</p></aside><aside class="m-note m-default"><h4>Date</h4><p>10 mars 2019</p></aside>
         <section id="func-members">
           <h2><a href="#func-members">Functions</a></h2>
-          <dl class="m-dox">
+          <dl class="m-doc">
             <dt>
-              <span class="m-dox-wrap-bumper">auto <a href="#aef056582e45db1e9b9f32ed94ce342a3" class="m-dox">MAP_creer</a>(</span><span class="m-dox-wrap"><a href="structt__map.html" class="m-dox">t_<wbr />map</a>** map,
+              <span class="m-doc-wrap-bumper">auto <a href="#aef056582e45db1e9b9f32ed94ce342a3" class="m-doc">MAP_creer</a>(</span><span class="m-doc-wrap"><a href="structt__map.html" class="m-doc">t_<wbr />map</a>** map,
               char* nom_map,
               int SEED) -&gt; t_erreur</span>
             </dt>
             <dd>Créer une map (le dossier de saugarde et le pointeur pour manipuler cette map)</dd>
             <dt>
-              <span class="m-dox-wrap-bumper">auto <a href="#a924b98cbf202b64bbf0d220799b85618" class="m-dox">MAP_charger</a>(</span><span class="m-dox-wrap"><a href="structt__map.html" class="m-dox">t_<wbr />map</a>** map,
+              <span class="m-doc-wrap-bumper">auto <a href="#a924b98cbf202b64bbf0d220799b85618" class="m-doc">MAP_charger</a>(</span><span class="m-doc-wrap"><a href="structt__map.html" class="m-doc">t_<wbr />map</a>** map,
               char* nom_map) -&gt; t_erreur</span>
             </dt>
             <dd>Charge la map a partir des fichier.</dd>
             <dt>
-              <span class="m-dox-wrap-bumper">auto <a href="#a69443211920fe8027cdf8fc881ec8099" class="m-dox">MAP_creer_dir</a>(</span><span class="m-dox-wrap"><a href="structt__map.html" class="m-dox">t_<wbr />map</a>* map) -&gt; t_erreur</span>
+              <span class="m-doc-wrap-bumper">auto <a href="#af37676b15409d8011fab9afb3dceaf48" class="m-doc">MAP_lister</a>(</span><span class="m-doc-wrap">) -&gt; t_erreur</span>
+            </dt>
+            <dd>Liste toute les map.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a69443211920fe8027cdf8fc881ec8099" class="m-doc">MAP_creer_dir</a>(</span><span class="m-doc-wrap"><a href="structt__map.html" class="m-doc">t_<wbr />map</a>* map) -&gt; t_erreur</span>
             </dt>
             <dd>Créer le repertoire d&#x27;une map.</dd>
             <dt>
-              <span class="m-dox-wrap-bumper">auto <a href="#a9cbabb7d85f1c202fe4365129d1a4fd9" class="m-dox">MAP_sauvegarder</a>(</span><span class="m-dox-wrap"><a href="structt__map.html" class="m-dox">t_<wbr />map</a>* map) -&gt; t_erreur</span>
+              <span class="m-doc-wrap-bumper">auto <a href="#a9cbabb7d85f1c202fe4365129d1a4fd9" class="m-doc">MAP_sauvegarder</a>(</span><span class="m-doc-wrap"><a href="structt__map.html" class="m-doc">t_<wbr />map</a>* map) -&gt; t_erreur</span>
             </dt>
             <dd>Sauvegarde la map dans l&#x27;état actuel.</dd>
             <dt>
-              <span class="m-dox-wrap-bumper">auto <a href="#a68ce824f54aa0ce572d085d56f533a98" class="m-dox">MAP_detruire_path</a>(</span><span class="m-dox-wrap">char** path_dir) -&gt; t_erreur</span>
+              <span class="m-doc-wrap-bumper">auto <a href="#a68ce824f54aa0ce572d085d56f533a98" class="m-doc">MAP_detruire_path</a>(</span><span class="m-doc-wrap">char** path_dir) -&gt; t_erreur</span>
             </dt>
             <dd>Libère la mémoire dynamique alloué pour le path.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#ab95773bce378baf82a7d2ecdf069b86f" class="m-doc">MAP_gen</a>(</span><span class="m-doc-wrap"><a href="structt__map.html" class="m-doc">t_<wbr />map</a>* map)</span>
+            </dt>
+            <dd>Génére la map par rapport au joueur.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#a2c2ed98ad423d0862946f907e8750443" class="m-doc">MAP_GetBlockFromList</a>(</span><span class="m-doc-wrap"><a href="structt__map.html" class="m-doc">t_<wbr />map</a>* map,
+              int x,
+              int y) -&gt; <a href="structt__block.html" class="m-doc">t_<wbr />block</a>*</span>
+            </dt>
+            <dd>Récupére le block x , y par rapport a la liste.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#acbd7e9a49a231ad9f225132302ada4f5" class="m-doc">MAP_GetBlock</a>(</span><span class="m-doc-wrap"><a href="structt__map.html" class="m-doc">t_<wbr />map</a>* map,
+              int x,
+              int y) -&gt; <a href="structt__block.html" class="m-doc">t_<wbr />block</a>*</span>
+            </dt>
+            <dd>Récupére le block au coordonné x, y de la map.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#ad4ddb5315eebad405e8c370af80cf8a1" class="m-doc">MAP_GetColX</a>(</span><span class="m-doc-wrap"><a href="structt__map.html" class="m-doc">t_<wbr />map</a>* map,
+              int x) -&gt; <a href="structt__block.html" class="m-doc">t_<wbr />block</a>*</span>
+            </dt>
+            <dd>Récupére la colone de la map pour la coordonné x.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#abb6bbd9070773c4855c1dafe5c81bdc2" class="m-doc">MAP_CopyListFromX</a>(</span><span class="m-doc-wrap"><a href="structt__map.html" class="m-doc">t_<wbr />map</a>* map,
+              <a href="structt__liste.html" class="m-doc">t_<wbr />liste</a>* list,
+              int x_from,
+              int x_to)</span>
+            </dt>
+            <dd>Copie les valeurs d&#x27;une map dans une liste de destination.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#a218ead4cdcfa4d31ac0c86a345fca1b3" class="m-doc">MAP_SetEcListe</a>(</span><span class="m-doc-wrap"><a href="structt__liste.html" class="m-doc">t_<wbr />liste</a>* list,
+              int x)</span>
+            </dt>
+            <dd>Permet de ce placer dans une liste de tableau de block.</dd>
           </dl>
         </section>
         <section>
           <h2>Function documentation</h2>
-          <section class="m-dox-details" id="aef056582e45db1e9b9f32ed94ce342a3"><div>
+          <section class="m-doc-details" id="aef056582e45db1e9b9f32ed94ce342a3"><div>
             <h3>
-              <span class="m-dox-wrap-bumper">t_erreur </span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#aef056582e45db1e9b9f32ed94ce342a3" class="m-dox-self">MAP_creer</a>(</span><span class="m-dox-wrap"><a href="structt__map.html" class="m-dox">t_<wbr />map</a>** map,
+              <span class="m-doc-wrap-bumper">t_erreur </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aef056582e45db1e9b9f32ed94ce342a3" class="m-doc-self">MAP_creer</a>(</span><span class="m-doc-wrap"><a href="structt__map.html" class="m-doc">t_<wbr />map</a>** map,
               char* nom_map,
               int SEED)</span></span>
             </h3>
@@ -120,9 +157,9 @@
               </tfoot>
             </table>
           </div></section>
-          <section class="m-dox-details" id="a924b98cbf202b64bbf0d220799b85618"><div>
+          <section class="m-doc-details" id="a924b98cbf202b64bbf0d220799b85618"><div>
             <h3>
-              <span class="m-dox-wrap-bumper">t_erreur </span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a924b98cbf202b64bbf0d220799b85618" class="m-dox-self">MAP_charger</a>(</span><span class="m-dox-wrap"><a href="structt__map.html" class="m-dox">t_<wbr />map</a>** map,
+              <span class="m-doc-wrap-bumper">t_erreur </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a924b98cbf202b64bbf0d220799b85618" class="m-doc-self">MAP_charger</a>(</span><span class="m-doc-wrap"><a href="structt__map.html" class="m-doc">t_<wbr />map</a>** map,
               char* nom_map)</span></span>
             </h3>
             <p>Charge la map a partir des fichier.</p>
@@ -148,9 +185,23 @@
               </tfoot>
             </table>
           </div></section>
-          <section class="m-dox-details" id="a69443211920fe8027cdf8fc881ec8099"><div>
+          <section class="m-doc-details" id="af37676b15409d8011fab9afb3dceaf48"><div>
             <h3>
-              <span class="m-dox-wrap-bumper">t_erreur </span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a69443211920fe8027cdf8fc881ec8099" class="m-dox-self">MAP_creer_dir</a>(</span><span class="m-dox-wrap"><a href="structt__map.html" class="m-dox">t_<wbr />map</a>* map)</span></span>
+              <span class="m-doc-wrap-bumper">t_erreur </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#af37676b15409d8011fab9afb3dceaf48" class="m-doc-self">MAP_lister</a>(</span><span class="m-doc-wrap">)</span></span>
+            </h3>
+            <p>Liste toute les map.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <tfoot>
+                <tr>
+                  <th style="width: 1%">Returns</th>
+                  <td>Renvoie un code erreur en cas de problème sinon OK</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a69443211920fe8027cdf8fc881ec8099"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">t_erreur </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a69443211920fe8027cdf8fc881ec8099" class="m-doc-self">MAP_creer_dir</a>(</span><span class="m-doc-wrap"><a href="structt__map.html" class="m-doc">t_<wbr />map</a>* map)</span></span>
             </h3>
             <p>Créer le repertoire d&#x27;une map.</p>
             <table class="m-table m-fullwidth m-flat">
@@ -171,9 +222,9 @@
               </tfoot>
             </table>
           </div></section>
-          <section class="m-dox-details" id="a9cbabb7d85f1c202fe4365129d1a4fd9"><div>
+          <section class="m-doc-details" id="a9cbabb7d85f1c202fe4365129d1a4fd9"><div>
             <h3>
-              <span class="m-dox-wrap-bumper">t_erreur </span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a9cbabb7d85f1c202fe4365129d1a4fd9" class="m-dox-self">MAP_sauvegarder</a>(</span><span class="m-dox-wrap"><a href="structt__map.html" class="m-dox">t_<wbr />map</a>* map)</span></span>
+              <span class="m-doc-wrap-bumper">t_erreur </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a9cbabb7d85f1c202fe4365129d1a4fd9" class="m-doc-self">MAP_sauvegarder</a>(</span><span class="m-doc-wrap"><a href="structt__map.html" class="m-doc">t_<wbr />map</a>* map)</span></span>
             </h3>
             <p>Sauvegarde la map dans l&#x27;état actuel.</p>
             <table class="m-table m-fullwidth m-flat">
@@ -194,9 +245,9 @@
               </tfoot>
             </table>
           </div></section>
-          <section class="m-dox-details" id="a68ce824f54aa0ce572d085d56f533a98"><div>
+          <section class="m-doc-details" id="a68ce824f54aa0ce572d085d56f533a98"><div>
             <h3>
-              <span class="m-dox-wrap-bumper">t_erreur </span><span class="m-dox-wrap"><span class="m-dox-wrap-bumper"><a href="#a68ce824f54aa0ce572d085d56f533a98" class="m-dox-self">MAP_detruire_path</a>(</span><span class="m-dox-wrap">char** path_dir)</span></span>
+              <span class="m-doc-wrap-bumper">t_erreur </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a68ce824f54aa0ce572d085d56f533a98" class="m-doc-self">MAP_detruire_path</a>(</span><span class="m-doc-wrap">char** path_dir)</span></span>
             </h3>
             <p>Libère la mémoire dynamique alloué pour le path.</p>
             <table class="m-table m-fullwidth m-flat">
@@ -208,21 +259,204 @@
               </tfoot>
             </table>
           </div></section>
+          <section class="m-doc-details" id="ab95773bce378baf82a7d2ecdf069b86f"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ab95773bce378baf82a7d2ecdf069b86f" class="m-doc-self">MAP_gen</a>(</span><span class="m-doc-wrap"><a href="structt__map.html" class="m-doc">t_<wbr />map</a>* map)</span></span>
+            </h3>
+            <p>Génére la map par rapport au joueur.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">map</td>
+                  <td>Pointeur sur une <a href="structt__map.html" class="m-doc">t_<wbr />map</a></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Renvoie rien</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a2c2ed98ad423d0862946f907e8750443"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="structt__block.html" class="m-doc">t_<wbr />block</a>* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a2c2ed98ad423d0862946f907e8750443" class="m-doc-self">MAP_GetBlockFromList</a>(</span><span class="m-doc-wrap"><a href="structt__map.html" class="m-doc">t_<wbr />map</a>* map,
+              int x,
+              int y)</span></span>
+            </h3>
+            <p>Récupére le block x , y par rapport a la liste.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">map</td>
+                  <td>Pointeur sur une <a href="structt__map.html" class="m-doc">t_<wbr />map</a></td>
+                </tr>
+                <tr>
+                  <td>x</td>
+                  <td>la valeur x de la liste (un tableau)</td>
+                </tr>
+                <tr>
+                  <td>y</td>
+                  <td>la valeur y de la colone (un tableau)</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Renvoie un pointeur sur le block</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="acbd7e9a49a231ad9f225132302ada4f5"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="structt__block.html" class="m-doc">t_<wbr />block</a>* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#acbd7e9a49a231ad9f225132302ada4f5" class="m-doc-self">MAP_GetBlock</a>(</span><span class="m-doc-wrap"><a href="structt__map.html" class="m-doc">t_<wbr />map</a>* map,
+              int x,
+              int y)</span></span>
+            </h3>
+            <p>Récupére le block au coordonné x, y de la map.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">map</td>
+                  <td>Pointeur sur une <a href="structt__map.html" class="m-doc">t_<wbr />map</a></td>
+                </tr>
+                <tr>
+                  <td>x</td>
+                  <td>coordonné x de la map</td>
+                </tr>
+                <tr>
+                  <td>y</td>
+                  <td>coordonné y de la map</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Renvoie un pointeur sur le block trouver NULL s&#x27;il n&#x27;a pas été trouver</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="ad4ddb5315eebad405e8c370af80cf8a1"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="structt__block.html" class="m-doc">t_<wbr />block</a>* </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ad4ddb5315eebad405e8c370af80cf8a1" class="m-doc-self">MAP_GetColX</a>(</span><span class="m-doc-wrap"><a href="structt__map.html" class="m-doc">t_<wbr />map</a>* map,
+              int x)</span></span>
+            </h3>
+            <p>Récupére la colone de la map pour la coordonné x.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">map</td>
+                  <td>Pointeur sur une <a href="structt__map.html" class="m-doc">t_<wbr />map</a></td>
+                </tr>
+                <tr>
+                  <td>x</td>
+                  <td>coordonné x de la map</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Renvoie un pointeur sur un tableau de block</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="abb6bbd9070773c4855c1dafe5c81bdc2"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#abb6bbd9070773c4855c1dafe5c81bdc2" class="m-doc-self">MAP_CopyListFromX</a>(</span><span class="m-doc-wrap"><a href="structt__map.html" class="m-doc">t_<wbr />map</a>* map,
+              <a href="structt__liste.html" class="m-doc">t_<wbr />liste</a>* list,
+              int x_from,
+              int x_to)</span></span>
+            </h3>
+            <p>Copie les valeurs d&#x27;une map dans une liste de destination.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">map</td>
+                  <td>Pointeur sur une <a href="structt__map.html" class="m-doc">t_<wbr />map</a></td>
+                </tr>
+                <tr>
+                  <td>list</td>
+                  <td>liste de destination</td>
+                </tr>
+                <tr>
+                  <td>x_from</td>
+                  <td>coordonné de début</td>
+                </tr>
+                <tr>
+                  <td>x_to</td>
+                  <td>coordonné de fin</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Renvoie rien</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
+          <section class="m-doc-details" id="a218ead4cdcfa4d31ac0c86a345fca1b3"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a218ead4cdcfa4d31ac0c86a345fca1b3" class="m-doc-self">MAP_SetEcListe</a>(</span><span class="m-doc-wrap"><a href="structt__liste.html" class="m-doc">t_<wbr />liste</a>* list,
+              int x)</span></span>
+            </h3>
+            <p>Permet de ce placer dans une liste de tableau de block.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">list</td>
+                  <td>La liste dans laquelle on se deplace</td>
+                </tr>
+                <tr>
+                  <td>x</td>
+                  <td>coordonné x de la map</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>Renvoie rien</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div></section>
         </section>
       </div>
     </div>
   </div>
 </article></main>
-<div class="m-dox-search" id="search">
+<div class="m-doc-search" id="search">
   <a href="#!" onclick="return hideSearch()"></a>
   <div class="m-container">
     <div class="m-row">
       <div class="m-col-m-8 m-push-m-2">
-        <div class="m-dox-search-header m-text m-small">
+        <div class="m-doc-search-header m-text m-small">
           <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
           <div id="search-symbolcount">&hellip;</div>
         </div>
-        <div class="m-dox-search-content">
+        <div class="m-doc-search-content">
           <form>
             <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
           </form>
@@ -254,7 +488,7 @@
   <div class="m-container">
     <div class="m-row">
       <div class="m-col-l-10 m-push-l-1">
-        <p>World Of Dungeons Jeu de Survie. Created by <a href="https://doxygen.org/">Doxygen</a> 1.8.14 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+        <p>World Of Dungeons Jeu de Survie. Created by <a href="https://doxygen.org/">Doxygen</a> 1.8.13 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
       </div>
     </div>
   </div>

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structt__donjon" kind="struct" language="C++" prot="public">
+    <compoundname>t_donjon</compoundname>
+    <includes refid="donjon_8h" local="no">donjon.h</includes>
+    <briefdescription>
+<para>Contient les données d&apos;un donjon. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/donjon.h" line="56" column="1"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,527 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="item_8h" kind="file" language="C++">
+    <compoundname>item.h</compoundname>
+    <includes refid="block_8h" local="no">block.h</includes>
+    <includes local="no">time.h</includes>
+    <includes local="no">stdint.h</includes>
+    <includes refid="chemin_8h" local="no">chemin.h</includes>
+    <includedby refid="item_8c" local="no">src/item.c</includedby>
+    <includedby refid="world__of__dungeons_8c" local="no">src/world_of_dungeons.c</includedby>
+    <includedby refid="inventaire_8h" local="no">include/inventaire.h</includedby>
+    <incdepgraph>
+      <node id="227">
+        <label>erreur.h</label>
+        <link refid="erreur_8h"/>
+      </node>
+      <node id="229">
+        <label>stdint.h</label>
+      </node>
+      <node id="224">
+        <label>block.h</label>
+        <link refid="block_8h"/>
+        <childnode refid="225" relation="include">
+        </childnode>
+        <childnode refid="226" relation="include">
+        </childnode>
+        <childnode refid="227" relation="include">
+        </childnode>
+      </node>
+      <node id="231">
+        <label>liste.h</label>
+        <link refid="liste_8h"/>
+        <childnode refid="227" relation="include">
+        </childnode>
+      </node>
+      <node id="225">
+        <label>couleurs.h</label>
+        <link refid="couleurs_8h_source"/>
+      </node>
+      <node id="226">
+        <label>SDL2/SDL.h</label>
+      </node>
+      <node id="223">
+        <label>include/item.h</label>
+        <link refid="item_8h"/>
+        <childnode refid="224" relation="include">
+        </childnode>
+        <childnode refid="228" relation="include">
+        </childnode>
+        <childnode refid="229" relation="include">
+        </childnode>
+        <childnode refid="230" relation="include">
+        </childnode>
+      </node>
+      <node id="228">
+        <label>time.h</label>
+      </node>
+      <node id="230">
+        <label>chemin.h</label>
+        <link refid="chemin_8h"/>
+        <childnode refid="231" relation="include">
+        </childnode>
+        <childnode refid="227" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="233">
+        <label>include/inventaire.h</label>
+        <link refid="inventaire_8h_source"/>
+      </node>
+      <node id="232">
+        <label>include/item.h</label>
+        <link refid="item_8h"/>
+        <childnode refid="233" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structitem__type__s" prot="public">item_type_s</innerclass>
+    <innerclass refid="structliste__drop__s" prot="public">liste_drop_s</innerclass>
+    <innerclass refid="structblock__drop__s" prot="public">block_drop_s</innerclass>
+    <innerclass refid="structliste__item__s" prot="public">liste_item_s</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="item_8h_1ad72dbcf6d0153db1b8d8a58001feed83" prot="public" static="no">
+        <name>DEBUG</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/item.h" line="4" column="9" bodyfile="include/item.h" bodystart="4" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="item_8h_1ae06f649a8f67314501342748a03bf7a1" prot="public" static="no">
+        <name>AUCUN_BESOIN</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/item.h" line="11" column="9" bodyfile="include/item.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="item_8h_1a78bcc96d1599271c964f3109a8e62bec" prot="public" static="no">
+        <name>PAS_DROP_APRES_N</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/item.h" line="12" column="9" bodyfile="include/item.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="item_8h_1a87f07a6ea4b53546746aacb76632a4f5" prot="public" static="no">
+        <name>NB_ITEMS</name>
+        <initializer>12</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/item.h" line="14" column="9" bodyfile="include/item.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="item_8h_1a5164672bbab2547df809744bf0af3dc9" prot="public" static="no">
+        <name>t_item</name>
+        <enumvalue id="item_8h_1a5164672bbab2547df809744bf0af3dc9a3005a0753888ee01812399fd45d952d1" prot="public">
+          <name>I_TERRE</name>
+          <initializer>=0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="item_8h_1a5164672bbab2547df809744bf0af3dc9ac440e1913756ca54ea2f3f4278a8844f" prot="public">
+          <name>I_PIERRE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="item_8h_1a5164672bbab2547df809744bf0af3dc9ad480ca77cf04f1538578b8a6ececf3f3" prot="public">
+          <name>I_ROCHE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="item_8h_1a5164672bbab2547df809744bf0af3dc9a65526da0f473c22cfc5d8e57260763aa" prot="public">
+          <name>I_SABLE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="item_8h_1a5164672bbab2547df809744bf0af3dc9a33774d96e38c3d2b64fdbb3250723885" prot="public">
+          <name>I_GRAVIER</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="item_8h_1a5164672bbab2547df809744bf0af3dc9a41f5bc62066b3f5c62f60d91c922cc5d" prot="public">
+          <name>I_BRIQUE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="item_8h_1a5164672bbab2547df809744bf0af3dc9ab4120e75916a9c031e6826616166e7bf" prot="public">
+          <name>I_MINERAI_FER</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="item_8h_1a5164672bbab2547df809744bf0af3dc9a9c2c94da2c1a3e542965a238dfeb1522" prot="public">
+          <name>I_MINERAI_CUIVRE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="item_8h_1a5164672bbab2547df809744bf0af3dc9af739e39fe166003ac67e0a006224432e" prot="public">
+          <name>I_MINERAI_ARGENT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="item_8h_1a5164672bbab2547df809744bf0af3dc9aeaaecc1ce15c2b9a8690a43d6ad5cd24" prot="public">
+          <name>I_MINERAI_OR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="item_8h_1a5164672bbab2547df809744bf0af3dc9ada056e6760a5d29ff2aa1603dcdbe82e" prot="public">
+          <name>I_CHARBON</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="item_8h_1a5164672bbab2547df809744bf0af3dc9ab490c75241eab11a187065aa622f8244" prot="public">
+          <name>I_BOIS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="item_8h_1a5164672bbab2547df809744bf0af3dc9af072dc6a4aa2a54db9c8b42649f0c62f" prot="public">
+          <name>I_POUSSE_ARBRE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="item_8h_1a5164672bbab2547df809744bf0af3dc9abe95cccae5e759eaee17d1d68ea63c62" prot="public">
+          <name>I_POMME</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="item_8h_1a5164672bbab2547df809744bf0af3dc9a48697c7400672498558322cbba7bac0f" prot="public">
+          <name>I_BOULE_NEIGE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="item_8h_1a5164672bbab2547df809744bf0af3dc9a8c383a29665855bdeeed65c921f5440f" prot="public">
+          <name>I_SILEX</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="item_8h_1a5164672bbab2547df809744bf0af3dc9ad0a82d6cde4002e98e288e5a99ad4260" prot="public">
+          <name>I_DIAMAND</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="item_8h_1a5164672bbab2547df809744bf0af3dc9ac0fefa213f5476fbbfe9f35a3c9bbad6" prot="public">
+          <name>I_END</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/item.h" line="22" column="1" bodyfile="include/item.h" bodystart="22" bodyend="33"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="item_8h_1af7be37590fb4b441931dfa5f4da3c5dc" prot="public" static="no">
+        <type>struct <ref refid="structitem__type__s" kindref="compound">item_type_s</ref></type>
+        <definition>typedef struct item_type_s  t_item_type</definition>
+        <argsstring></argsstring>
+        <name>t_item_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/item.h" line="47" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="item_8h_1a8d88c7ecdad56c951ba9791aabef080a" prot="public" static="no">
+        <type>struct <ref refid="structliste__drop__s" kindref="compound">liste_drop_s</ref></type>
+        <definition>typedef struct liste_drop_s  t_liste_drop</definition>
+        <argsstring></argsstring>
+        <name>t_liste_drop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/item.h" line="57" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="item_8h_1a8e7288d1a1f70fbfcd7f211725db4a36" prot="public" static="no">
+        <type>struct <ref refid="structblock__drop__s" kindref="compound">block_drop_s</ref></type>
+        <definition>typedef struct block_drop_s  t_block_drop</definition>
+        <argsstring></argsstring>
+        <name>t_block_drop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/item.h" line="65" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="item_8h_1aa2f2e03c772df0e4e889c87ed1450aaf" prot="public" static="no">
+        <type>struct <ref refid="structliste__item__s" kindref="compound">liste_item_s</ref></type>
+        <definition>typedef struct liste_item_s  t_liste_item</definition>
+        <argsstring></argsstring>
+        <name>t_liste_item</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/item.h" line="72" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="item_8h_1acb99c991f0e75cc56247724863eb28b5" prot="public" static="no" mutable="no">
+        <type><ref refid="structitem__type__s" kindref="compound">t_item_type</ref> *</type>
+        <definition>t_item_type* tabItem</definition>
+        <argsstring></argsstring>
+        <name>tabItem</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/item.h" line="81" column="1" bodyfile="include/item.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="item_8h_1a93bab6c98542323a6ebb6027d7b3a993" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t init_item</definition>
+        <argsstring>(SDL_Renderer *renderer)</argsstring>
+        <name>init_item</name>
+        <param>
+          <type>SDL_Renderer *</type>
+          <declname>renderer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/item.h" line="90" column="1" bodyfile="src/item.c" bodystart="17" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="item_8h_1aba755713a75f30e6933d48df7ea2cf3d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t block_to_item</definition>
+        <argsstring>(t_materiaux materiaux, t_liste_item **item)</argsstring>
+        <name>block_to_item</name>
+        <param>
+          <type><ref refid="block_8h_1a4030ebe0eea609635f372f2e86d4332a" kindref="member">t_materiaux</ref></type>
+          <declname>materiaux</declname>
+        </param>
+        <param>
+          <type><ref refid="structliste__item__s" kindref="compound">t_liste_item</ref> **</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/item.h" line="95" column="1" bodyfile="src/item.c" bodystart="45" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="item_8h_1a73ec35f7f1d278414e3015acfe78e450" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void casser_block</definition>
+        <argsstring>(t_materiaux materiaux, t_liste **listeItem)</argsstring>
+        <name>casser_block</name>
+        <param>
+          <type><ref refid="block_8h_1a4030ebe0eea609635f372f2e86d4332a" kindref="member">t_materiaux</ref></type>
+          <declname>materiaux</declname>
+        </param>
+        <param>
+          <type><ref refid="structt__liste" kindref="compound">t_liste</ref> **</type>
+          <declname>listeItem</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/item.h" line="98" column="1" bodyfile="src/item.c" bodystart="110" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="item_8h_1a309456665bb32ad65cf0433c9399d1ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void exit_item</definition>
+        <argsstring>(t_liste_item **item)</argsstring>
+        <name>exit_item</name>
+        <param>
+          <type><ref refid="structliste__item__s" kindref="compound">t_liste_item</ref> **</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/item.h" line="103" column="1" bodyfile="src/item.c" bodystart="132" bodyend="151"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>__ITEM_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__ITEM_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEBUG</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="block_8h" kindref="compound">block.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;time.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="chemin_8h" kindref="compound">chemin.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>AUCUN_BESOIN<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PAS_DROP_APRES_N<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NB_ITEMS<sp/>12</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>-----<sp/>STRUCTURES<sp/>-----<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>I_TERRE=0,<sp/>I_PIERRE,<sp/>I_ROCHE,<sp/>I_SABLE,<sp/>I_GRAVIER,</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>I_BRIQUE,</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>I_MINERAI_FER,<sp/>I_MINERAI_CUIVRE,<sp/>I_MINERAI_ARGENT,<sp/>I_MINERAI_OR,</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>I_CHARBON,</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>I_BOIS,<sp/>I_POUSSE_ARBRE,<sp/>I_POMME,</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>I_BOULE_NEIGE,</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>I_SILEX,</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>I_DIAMAND,</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>I_END</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">}<sp/>t_item;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="structitem__type__s" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structitem__type__s" kindref="compound">item_type_s</ref><sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>id;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*nomItem;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>stack;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>durabilite;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="block_8h_1a4030ebe0eea609635f372f2e86d4332a" kindref="member">t_materiaux</ref><sp/>posable;<sp/></highlight><highlight class="comment">/*<sp/>si<sp/>l<sp/>item<sp/>peut<sp/>etre<sp/>poser,<sp/>alors<sp/>non<sp/>NULL<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>SDL_Texture<sp/>*texture;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal">}<sp/><ref refid="structitem__type__s" kindref="compound">t_item_type</ref>;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="structliste__drop__s" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structliste__drop__s" kindref="compound">liste_drop_s</ref><sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>t_item<sp/>item;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>nombre;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>besoin;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>info;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>pourMille;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal">}<sp/><ref refid="structliste__drop__s" kindref="compound">t_liste_drop</ref>;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="structblock__drop__s" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structblock__drop__s" kindref="compound">block_drop_s</ref><sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="block_8h_1a4030ebe0eea609635f372f2e86d4332a" kindref="member">t_materiaux</ref><sp/>id;<sp/></highlight><highlight class="comment">/*<sp/>un<sp/>block<sp/>peut<sp/>drop<sp/>plusieurs<sp/>items*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structliste__drop__s" kindref="compound">t_liste_drop</ref><sp/>*drop;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal">}<sp/><ref refid="structblock__drop__s" kindref="compound">t_block_drop</ref>;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67" refid="structliste__item__s" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structliste__item__s" kindref="compound">liste_item_s</ref><sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>nbDrop;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>t_item<sp/>item;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal">}<sp/><ref refid="structliste__item__s" kindref="compound">t_liste_item</ref>;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>-----<sp/>VARIABLES<sp/>-----<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>tableau<sp/>global<sp/>contenant<sp/>tous<sp/>les<sp/>items<sp/>et<sp/>leurs<sp/>caracteristiques<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><ref refid="structitem__type__s" kindref="compound">t_item_type</ref><sp/>*tabItem;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>-----<sp/>FONCTIONS<sp/>-----<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>initialisation<sp/>du<sp/>module<sp/>item<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal">uint8_t<sp/>init_item(SDL_Renderer<sp/>*renderer);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>transforme<sp/>un<sp/>bloc<sp/>en<sp/>un/plusieurs<sp/>items<sp/>(<sp/>cette<sp/>fonction<sp/>n&apos;est<sp/>pas<sp/>compatible<sp/>avec<sp/>les<sp/>autres<sp/>modules,<sp/>casser_block<sp/>devrait<sp/>être<sp/>apeller<sp/>dans<sp/>la<sp/>majorité<sp/>des<sp/>cas<sp/>)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal">uint8_t<sp/>block_to_item<sp/>(<sp/><ref refid="block_8h_1a4030ebe0eea609635f372f2e86d4332a" kindref="member">t_materiaux</ref><sp/>materiaux,<sp/><ref refid="structliste__item__s" kindref="compound">t_liste_item</ref><sp/>**item<sp/>);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>transforme<sp/>un<sp/>bloc<sp/>en<sp/>un/plusieurs<sp/>items<sp/>(<sp/>en<sp/>appelant<sp/>la<sp/>fonction<sp/>block_to_item<sp/>),<sp/>puis<sp/>place<sp/>les<sp/>items<sp/>dans<sp/>une<sp/>liste<sp/>utilisable<sp/>par<sp/>le<sp/>module<sp/>inventaire<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>casser_block(<sp/><ref refid="block_8h_1a4030ebe0eea609635f372f2e86d4332a" kindref="member">t_materiaux</ref><sp/>materiaux,<sp/><ref refid="structt__liste" kindref="compound">t_liste</ref><sp/>**listeItem<sp/>);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>fermeture<sp/>propre<sp/>du<sp/>module<sp/>item<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>exit_item(<sp/><ref refid="structliste__item__s" kindref="compound">t_liste_item</ref><sp/>**item);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="include/item.h"/>
+  </compounddef>
+</doxygen>

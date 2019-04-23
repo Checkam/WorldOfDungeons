@@ -1,0 +1,171 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="game__quit_8h" kind="file" language="C++">
+    <compoundname>game_quit.h</compoundname>
+    <includedby refid="world__of__dungeons_8c" local="no">src/world_of_dungeons.c</includedby>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="game__quit_8h_1a3813a9ea31417b5ca6fe1a1b96e1a7f8" prot="public" static="no" mutable="no">
+        <type>SDL_exit_touches &amp;</type>
+        <definition>SDL_exit_touches&amp; ks</definition>
+        <argsstring></argsstring>
+        <name>ks</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/game_quit.h" line="6" column="1" bodyfile="include/game_quit.h" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="game__quit_8h_1a91316ead72c3079db1c94bd8eac9f118" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Quit_Sprite</definition>
+        <argsstring>()</argsstring>
+        <name>Quit_Sprite</name>
+        <briefdescription>
+<para>Détruit toutes les textures précédement initialisées. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/game_quit.h" line="2" column="1" bodyfile="src/entite.c" bodystart="540" bodyend="546"/>
+      </memberdef>
+      <memberdef kind="function" id="game__quit_8h_1a22c456e6647eaf7802575042d0cb6e3c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>menu_quit</definition>
+        <argsstring>()</argsstring>
+        <name>menu_quit</name>
+        <briefdescription>
+<para>Quitte le module Menu. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Code erreur </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/game_quit.h" line="3" column="1" bodyfile="src/menu.c" bodystart="69" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="game__quit_8h_1ab72917a865c4da36c39af70c6d236bda" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TTF_Quit</definition>
+        <argsstring>()</argsstring>
+        <name>TTF_Quit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/game_quit.h" line="4" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="game__quit_8h_1a6a1361cfcb2fa8f4a2234dcc9d21b2d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BIOME_Quit</definition>
+        <argsstring>()</argsstring>
+        <name>BIOME_Quit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/game_quit.h" line="5" column="1" bodyfile="src/biome.c" bodystart="54" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="game__quit_8h_1accfc3eefd139cc8deceba972744656c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BLOCK_DestroyTexture_sdl</definition>
+        <argsstring>(renderer)</argsstring>
+        <name>BLOCK_DestroyTexture_sdl</name>
+        <param>
+          <type>renderer</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/game_quit.h" line="7" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="game__quit_8h_1a38d307fe6ca8665983d788a10e0cf813" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SDL_DestroyRenderer</definition>
+        <argsstring>(renderer)</argsstring>
+        <name>SDL_DestroyRenderer</name>
+        <param>
+          <type>renderer</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/game_quit.h" line="8" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="game__quit_8h_1abf00163bc004f68ae449c05838f7ab5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SDL_DestroyWindow</definition>
+        <argsstring>(screen)</argsstring>
+        <name>SDL_DestroyWindow</name>
+        <param>
+          <type>screen</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/game_quit.h" line="9" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="game__quit_8h_1af8fd398731c9fe956deae45dbc2057eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SDL_Quit</definition>
+        <argsstring>()</argsstring>
+        <name>SDL_Quit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/game_quit.h" line="10" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="game__quit_8h_1a1565348eb0ac105420d83d7dbb76b54b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>pwd_quit</definition>
+        <argsstring>()</argsstring>
+        <name>pwd_quit</name>
+        <briefdescription>
+<para>Unset la variable globale WOD_PWD. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Une erreur s&apos;il y en a une. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/game_quit.h" line="11" column="1" bodyfile="src/chemin.c" bodystart="84" bodyend="88"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"><ref refid="entite_8c_1ad45c5dedc31c638b7f9d2d57f7586b33" kindref="member">Quit_Sprite</ref>();</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"><ref refid="menu_8c_1a400dad194316a2c134c016ebf10a2f31" kindref="member">menu_quit</ref>();</highlight></codeline>
+<codeline lineno="4"><highlight class="normal">TTF_Quit();</highlight></codeline>
+<codeline lineno="5"><highlight class="normal">BIOME_Quit();</highlight></codeline>
+<codeline lineno="6"><highlight class="normal">SDL_exit_touches(&amp;ks,<sp/>&amp;ct);</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">BLOCK_DestroyTexture_sdl(renderer);</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">SDL_DestroyRenderer(renderer);</highlight></codeline>
+<codeline lineno="9"><highlight class="normal">SDL_DestroyWindow(screen);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">SDL_Quit();</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><ref refid="chemin_8c_1a5aca441244932fa32192a79ef980d2eb" kindref="member">pwd_quit</ref>();</highlight></codeline>
+    </programlisting>
+    <location file="include/game_quit.h"/>
+  </compounddef>
+</doxygen>

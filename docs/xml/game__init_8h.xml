@@ -1,0 +1,213 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="game__init_8h" kind="file" language="C++">
+    <compoundname>game_init.h</compoundname>
+    <includedby refid="world__of__dungeons_8c" local="no">src/world_of_dungeons.c</includedby>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="game__init_8h_1ae04e09e4e3831bfc1632c509ae37dcec" prot="public" static="no" mutable="no">
+        <type>SDL_Window *</type>
+        <definition>SDL_Window* screen</definition>
+        <argsstring></argsstring>
+        <name>screen</name>
+        <initializer>=
+    SDL_CreateWindow(&quot;World Of Dungeons&quot;, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width_window, height_window, SDL_WINDOW_SHOWN)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/game_init.h" line="5" column="1" bodyfile="include/game_init.h" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="game__init_8h_1a966da7a60c4ea3ba301e26ccc5efe452" prot="public" static="no" mutable="no">
+        <type>SDL_Renderer *</type>
+        <definition>SDL_Renderer* renderer</definition>
+        <argsstring></argsstring>
+        <name>renderer</name>
+        <initializer>= SDL_CreateRenderer(screen, -1, SDL_RENDERER_ACCELERATED)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/game_init.h" line="9" column="1" bodyfile="include/game_init.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="game__init_8h_1a52755bfc4fcc7f598c898bc93db28866" prot="public" static="no" mutable="no">
+        <type>SDL_init_touches &amp;</type>
+        <definition>SDL_init_touches&amp; ks</definition>
+        <argsstring></argsstring>
+        <name>ks</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/game_init.h" line="17" column="1" bodyfile="include/game_init.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="game__init_8h_1a01a875f4ba97fd67d8d249d75e3f8beb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SDL_Init</definition>
+        <argsstring>(SDL_INIT_EVERYTHING)</argsstring>
+        <name>SDL_Init</name>
+        <param>
+          <type>SDL_INIT_EVERYTHING</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/game_init.h" line="1" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="game__init_8h_1a81d10c811a5bac0640a55d9d3adee49d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TTF_Init</definition>
+        <argsstring>()</argsstring>
+        <name>TTF_Init</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/game_init.h" line="2" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="game__init_8h_1a94ba97b14d6311656d1cc114fca02d8d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>IMG_Init</definition>
+        <argsstring>(IMG_INIT_PNG)</argsstring>
+        <name>IMG_Init</name>
+        <param>
+          <type>IMG_INIT_PNG</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/game_init.h" line="3" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="game__init_8h_1a17443d00c32a2f29cdd5edd8b6b0ad40" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BIOME_init</definition>
+        <argsstring>()</argsstring>
+        <name>BIOME_init</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/game_init.h" line="12" column="1" bodyfile="src/biome.c" bodystart="21" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="game__init_8h_1a3bd362e11132f81d2226e8916d2fdbb9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Init_Sprite</definition>
+        <argsstring>(renderer)</argsstring>
+        <name>Init_Sprite</name>
+        <param>
+          <type>renderer</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/game_init.h" line="13" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="game__init_8h_1a61b3b26df3d4e9cfd150878b0f755975" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BLOCK_CreateTexture_sdl</definition>
+        <argsstring>(renderer)</argsstring>
+        <name>BLOCK_CreateTexture_sdl</name>
+        <param>
+          <type>renderer</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/game_init.h" line="14" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="game__init_8h_1a3fbebd8b6103e23bbd7edbe347aedaae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>menu_init</definition>
+        <argsstring>(renderer)</argsstring>
+        <name>menu_init</name>
+        <param>
+          <type>renderer</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/game_init.h" line="15" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="game__init_8h_1a205805a7abc1c2e46228fe8ee1be80f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>fps_init</definition>
+        <argsstring>()</argsstring>
+        <name>fps_init</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/game_init.h" line="16" column="1" bodyfile="src/fps.c" bodystart="8" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="game__init_8h_1a5acdd68555bc3bd262b57236bd78b4b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>init_item</definition>
+        <argsstring>(renderer)</argsstring>
+        <name>init_item</name>
+        <param>
+          <type>renderer</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/game_init.h" line="18" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal">SDL_Init(SDL_INIT_EVERYTHING);</highlight></codeline>
+<codeline lineno="2"><highlight class="normal">TTF_Init();</highlight></codeline>
+<codeline lineno="3"><highlight class="normal">IMG_Init(IMG_INIT_PNG);</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal">SDL_Window<sp/>*screen<sp/>=</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/>SDL_CreateWindow(</highlight><highlight class="stringliteral">&quot;World<sp/>Of<sp/>Dungeons&quot;</highlight><highlight class="normal">,<sp/>SDL_WINDOWPOS_UNDEFINED,<sp/>SDL_WINDOWPOS_UNDEFINED,<sp/>width_window,<sp/>height_window,<sp/>SDL_WINDOW_SHOWN);</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//SDL_GetWindowSize(screen,<sp/>&amp;width_window,<sp/>&amp;height_window);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal">SDL_Renderer<sp/>*renderer<sp/>=<sp/>SDL_CreateRenderer(screen,<sp/>-1,<sp/>SDL_RENDERER_ACCELERATED);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal">BIOME_init();</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><ref refid="entite_8c_1a40444b4966bf5776de11ce07f2b29be9" kindref="member">Init_Sprite</ref>(renderer);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">BLOCK_CreateTexture_sdl(renderer);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><ref refid="menu_8c_1aa771a9769760a4f490719761ac5d052c" kindref="member">menu_init</ref>(renderer);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">fps_init();</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">SDL_init_touches(&amp;ks,<sp/>&amp;ct);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">init_item(renderer);</highlight></codeline>
+    </programlisting>
+    <location file="include/game_init.h"/>
+  </compounddef>
+</doxygen>

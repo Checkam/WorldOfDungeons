@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
   <compounddef id="block_8h" kind="file" language="C++">
     <compoundname>block.h</compoundname>
     <includes refid="couleurs_8h" local="no">couleurs.h</includes>
@@ -16,105 +16,68 @@
     <includedby refid="world__of__dungeons_8c" local="no">src/world_of_dungeons.c</includedby>
     <includedby refid="biome_8h" local="no">include/biome.h</includedby>
     <includedby refid="generation_8h" local="no">include/generation.h</includedby>
+    <includedby refid="item_8h" local="no">include/item.h</includedby>
     <includedby refid="map_8h" local="no">include/map.h</includedby>
     <includedby refid="structure__block_8h" local="no">include/structure_block.h</includedby>
     <incdepgraph>
-      <node id="26">
-        <label>couleurs.h</label>
-        <link refid="couleurs_8h_source"/>
-      </node>
-      <node id="27">
-        <label>SDL2/SDL.h</label>
-      </node>
-      <node id="28">
+      <node id="29">
         <label>erreur.h</label>
         <link refid="erreur_8h"/>
       </node>
-      <node id="25">
+      <node id="26">
         <label>include/block.h</label>
         <link refid="block_8h"/>
-        <childnode refid="26" relation="include">
-        </childnode>
         <childnode refid="27" relation="include">
         </childnode>
         <childnode refid="28" relation="include">
         </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>couleurs.h</label>
+        <link refid="couleurs_8h_source"/>
+      </node>
+      <node id="28">
+        <label>SDL2/SDL.h</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="41">
+      <node id="43">
         <label>include/map.h</label>
         <link refid="map_8h"/>
-        <childnode refid="33" relation="include">
-        </childnode>
-        <childnode refid="35" relation="include">
-        </childnode>
-      </node>
-      <node id="32">
-        <label>src/donjon.c</label>
-        <link refid="donjon_8c"/>
-      </node>
-      <node id="39">
-        <label>include/structure_block.h</label>
-        <link refid="structure__block_8h"/>
-        <childnode refid="34" relation="include">
-        </childnode>
-        <childnode refid="36" relation="include">
-        </childnode>
-      </node>
-      <node id="40">
-        <label>include/generation.h</label>
-        <link refid="generation_8h"/>
         <childnode refid="34" relation="include">
         </childnode>
         <childnode refid="36" relation="include">
         </childnode>
         <childnode refid="37" relation="include">
         </childnode>
-      </node>
-      <node id="36">
-        <label>src/structure_block.c</label>
-        <link refid="structure__block_8c"/>
-      </node>
-      <node id="34">
-        <label>src/generation.c</label>
-        <link refid="generation_8c"/>
-      </node>
-      <node id="31">
-        <label>src/block.c</label>
-        <link refid="block_8c"/>
-      </node>
-      <node id="38">
-        <label>include/biome.h</label>
-        <link refid="biome_8h"/>
-        <childnode refid="34" relation="include">
-        </childnode>
-        <childnode refid="36" relation="include">
-        </childnode>
         <childnode refid="39" relation="include">
         </childnode>
       </node>
+      <node id="42">
+        <label>include/inventaire.h</label>
+        <link refid="inventaire_8h_source"/>
+      </node>
+      <node id="39">
+        <label>include/structure_block.h</label>
+        <link refid="structure__block_8h"/>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+      </node>
       <node id="37">
-        <label>src/world_of_dungeons.c</label>
-        <link refid="world__of__dungeons_8c"/>
+        <label>src/structure_block.c</label>
+        <link refid="structure__block_8c"/>
+      </node>
+      <node id="32">
+        <label>src/block.c</label>
+        <link refid="block_8c"/>
       </node>
       <node id="30">
-        <label>src/affichage.c</label>
-        <link refid="affichage_8c"/>
-      </node>
-      <node id="33">
-        <label>src/entite.c</label>
-        <link refid="entite_8c"/>
-      </node>
-      <node id="35">
-        <label>src/map.c</label>
-        <link refid="map_8c"/>
-      </node>
-      <node id="29">
         <label>include/block.h</label>
         <link refid="block_8h"/>
-        <childnode refid="30" relation="include">
-        </childnode>
         <childnode refid="31" relation="include">
         </childnode>
         <childnode refid="32" relation="include">
@@ -135,16 +98,65 @@
         </childnode>
         <childnode refid="41" relation="include">
         </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
         <childnode refid="39" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>src/map.c</label>
+        <link refid="map_8c"/>
+      </node>
+      <node id="33">
+        <label>src/donjon.c</label>
+        <link refid="donjon_8c"/>
+      </node>
+      <node id="31">
+        <label>src/affichage.c</label>
+        <link refid="affichage_8c"/>
+      </node>
+      <node id="41">
+        <label>include/item.h</label>
+        <link refid="item_8h_source"/>
+        <childnode refid="42" relation="include">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>include/biome.h</label>
+        <link refid="biome_8h"/>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>src/generation.c</label>
+        <link refid="generation_8c"/>
+      </node>
+      <node id="34">
+        <label>src/entite.c</label>
+        <link refid="entite_8c"/>
+      </node>
+      <node id="40">
+        <label>include/generation.h</label>
+        <link refid="generation_8h"/>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
     <innerclass refid="structblock__type__s" prot="public">block_type_s</innerclass>
+    <innerclass refid="structt__minerai" prot="public">t_minerai</innerclass>
     <innerclass refid="structblock__s" prot="public">block_s</innerclass>
       <sectiondef kind="define">
       <memberdef kind="define" id="block_8h_1a5503c48093fd459e1fb171d036c26808" prot="public" static="no">
         <name>NB_BLOCK</name>
-        <initializer>11</initializer>
+        <initializer>24</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -153,13 +165,24 @@
         </inbodydescription>
         <location file="include/block.h" line="15" column="9" bodyfile="include/block.h" bodystart="15" bodyend="-1"/>
       </memberdef>
+      <memberdef kind="define" id="block_8h_1a1b8fdf3c3c245871387a078708623d8f" prot="public" static="no">
+        <name>NB_MINERAI</name>
+        <initializer>6</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/block.h" line="17" column="9" bodyfile="include/block.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
       </sectiondef>
       <sectiondef kind="enum">
-      <memberdef kind="enum" id="block_8h_1a4030ebe0eea609635f372f2e86d4332a" prot="public" static="no" strong="no">
-        <type></type>
+      <memberdef kind="enum" id="block_8h_1a4030ebe0eea609635f372f2e86d4332a" prot="public" static="no">
         <name>t_materiaux</name>
         <enumvalue id="block_8h_1a4030ebe0eea609635f372f2e86d4332aa2b284adc15b412cbd260beb887f2df87" prot="public">
           <name>AIR</name>
+          <initializer>=0</initializer>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
@@ -167,6 +190,7 @@
         </enumvalue>
         <enumvalue id="block_8h_1a4030ebe0eea609635f372f2e86d4332aab11b720308cfd1d9bba2cf599efd5ff8" prot="public">
           <name>HERBE</name>
+          <initializer>=1</initializer>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
@@ -174,6 +198,7 @@
         </enumvalue>
         <enumvalue id="block_8h_1a4030ebe0eea609635f372f2e86d4332aa0a61314700024ebd6142c8fde55197a3" prot="public">
           <name>TERRE</name>
+          <initializer>=2</initializer>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
@@ -181,6 +206,7 @@
         </enumvalue>
         <enumvalue id="block_8h_1a4030ebe0eea609635f372f2e86d4332aa27888822e7489521a065a46d95fb4acc" prot="public">
           <name>EAU</name>
+          <initializer>=3</initializer>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
@@ -188,6 +214,7 @@
         </enumvalue>
         <enumvalue id="block_8h_1a4030ebe0eea609635f372f2e86d4332aa3b9cbaad1b1e93f8522c81136863097a" prot="public">
           <name>SABLE</name>
+          <initializer>=4</initializer>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
@@ -195,6 +222,7 @@
         </enumvalue>
         <enumvalue id="block_8h_1a4030ebe0eea609635f372f2e86d4332aa895ce6ad55a6c402fcf00fe10ba8bb8c" prot="public">
           <name>FEUILLE</name>
+          <initializer>=5</initializer>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
@@ -202,6 +230,7 @@
         </enumvalue>
         <enumvalue id="block_8h_1a4030ebe0eea609635f372f2e86d4332aace7fdbfddc20b723312ee15e28c5eb2c" prot="public">
           <name>BOIS</name>
+          <initializer>=6</initializer>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
@@ -209,6 +238,7 @@
         </enumvalue>
         <enumvalue id="block_8h_1a4030ebe0eea609635f372f2e86d4332aab87597b7b9fdab26afb2749924059107" prot="public">
           <name>ROCHE</name>
+          <initializer>=7</initializer>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
@@ -216,6 +246,7 @@
         </enumvalue>
         <enumvalue id="block_8h_1a4030ebe0eea609635f372f2e86d4332aa7ebe0469bc3e10de37337f4e23ecb7fc" prot="public">
           <name>NEIGE</name>
+          <initializer>=8</initializer>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
@@ -223,6 +254,7 @@
         </enumvalue>
         <enumvalue id="block_8h_1a4030ebe0eea609635f372f2e86d4332aa36391ab3c1c65b5efb6dfe9d7d016c1b" prot="public">
           <name>GLACE</name>
+          <initializer>=9</initializer>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
@@ -230,6 +262,7 @@
         </enumvalue>
         <enumvalue id="block_8h_1a4030ebe0eea609635f372f2e86d4332aa7287ef534159b57788ed55428d891e94" prot="public">
           <name>DIAMAND</name>
+          <initializer>=10</initializer>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
@@ -237,6 +270,95 @@
         </enumvalue>
         <enumvalue id="block_8h_1a4030ebe0eea609635f372f2e86d4332aa2d8168aa32dd2bbfd8758b9c48bc46cc" prot="public">
           <name>GRAVIER</name>
+          <initializer>=11</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="block_8h_1a4030ebe0eea609635f372f2e86d4332aac257e143cfb5267269d8cffa8d0774d1" prot="public">
+          <name>BRIQUE</name>
+          <initializer>=12</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="block_8h_1a4030ebe0eea609635f372f2e86d4332aa144c98dc637c4e0a2ef8773eface5807" prot="public">
+          <name>PORTAIL_HAUT</name>
+          <initializer>=13</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="block_8h_1a4030ebe0eea609635f372f2e86d4332aa058bb226f1e0c4c39280008830252c90" prot="public">
+          <name>PORTAIL_BAS</name>
+          <initializer>=14</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="block_8h_1a4030ebe0eea609635f372f2e86d4332aa81f53f7265b4a8e966900021a9439f0c" prot="public">
+          <name>PLANT</name>
+          <initializer>=15</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="block_8h_1a4030ebe0eea609635f372f2e86d4332aa15153704fbfa6902759f45dd688742d2" prot="public">
+          <name>MINERAI_CHARBON</name>
+          <initializer>=16</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="block_8h_1a4030ebe0eea609635f372f2e86d4332aabd56c7ebcbe915233fb0563cb4881649" prot="public">
+          <name>MINERAI_CUIVRE</name>
+          <initializer>=17</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="block_8h_1a4030ebe0eea609635f372f2e86d4332aab1cbd1c824df7196f23bda96f393883a" prot="public">
+          <name>MINERAI_FER</name>
+          <initializer>=18</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="block_8h_1a4030ebe0eea609635f372f2e86d4332aa0f33f52d5235e0d00c470a659df39e1b" prot="public">
+          <name>MINERAI_ARGENT</name>
+          <initializer>=20</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="block_8h_1a4030ebe0eea609635f372f2e86d4332aa5a91900000357ef75893a9987c511ee3" prot="public">
+          <name>MINERAI_OR</name>
+          <initializer>=21</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="block_8h_1a4030ebe0eea609635f372f2e86d4332aaeda9a0aecc074d2035808441befd835d" prot="public">
+          <name>MINERAI_DIAMAND</name>
+          <initializer>=22</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="block_8h_1a4030ebe0eea609635f372f2e86d4332aa8271d2e0e11a099016af2590247c7f03" prot="public">
+          <name>BEDROCK</name>
+          <initializer>=23</initializer>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
@@ -248,7 +370,31 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/block.h" line="21" column="1" bodyfile="include/block.h" bodystart="21" bodyend="21"/>
+        <location file="include/block.h" line="23" column="1" bodyfile="include/block.h" bodystart="23" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="enum" id="block_8h_1aa033ef78d0a6fc18eae0d70c67221560" prot="public" static="no">
+        <name>t_plan</name>
+        <enumvalue id="block_8h_1aa033ef78d0a6fc18eae0d70c67221560a10f2c379d2c846cbef2edb7061138ce2" prot="public">
+          <name>PREMIER_PLAN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="block_8h_1aa033ef78d0a6fc18eae0d70c67221560ae29f9e485846c04649b96b9dc1dc4d2d" prot="public">
+          <name>ARRIERE_PLAN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Enum des plans de jeux. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/block.h" line="54" column="1" bodyfile="include/block.h" bodystart="54" bodyend="57"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="typedef">
@@ -263,7 +409,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/block.h" line="36" column="1"/>
+        <location file="include/block.h" line="74" column="1"/>
       </memberdef>
       <memberdef kind="typedef" id="block_8h_1a4bfcfc0f563d3d562344446469d3e22e" prot="public" static="no">
         <type>struct <ref refid="structblock__s" kindref="compound">block_s</ref></type>
@@ -276,10 +422,23 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/block.h" line="45" column="1"/>
+        <location file="include/block.h" line="96" column="1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
+      <memberdef kind="function" id="block_8h_1afe765018af6adcb280744e028ba7adaa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structt__minerai" kindref="compound">t_minerai</ref> *</type>
+        <definition>t_minerai* BLOCK_GetMinerai</definition>
+        <argsstring>()</argsstring>
+        <name>BLOCK_GetMinerai</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/block.h" line="98" column="1" bodyfile="src/block.c" bodystart="56" bodyend="56"/>
+      </memberdef>
       <memberdef kind="function" id="block_8h_1a567cf6af7d554e7cd896e855660a8261" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>SDL_Texture *</type>
         <definition>SDL_Texture* BLOCK_GetTexture_sdl</definition>
@@ -304,7 +463,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/block.h" line="49" column="1" bodyfile="src/block.c" bodystart="51" bodyend="58"/>
+        <location file="include/block.h" line="101" column="1" bodyfile="src/block.c" bodystart="78" bodyend="85"/>
       </memberdef>
       <memberdef kind="function" id="block_8h_1a8fd0387fcb14db6189965796e3cc2aa2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>char *</type>
@@ -330,7 +489,33 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/block.h" line="50" column="1" bodyfile="src/block.c" bodystart="37" bodyend="43"/>
+        <location file="include/block.h" line="102" column="1" bodyfile="src/block.c" bodystart="64" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="block_8h_1a87a18dfdfc07c04beada04ed1985207a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int BLOCK_estCassable</definition>
+        <argsstring>(int id)</argsstring>
+        <name>BLOCK_estCassable</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Permet de savoir si un block est cassable ou non. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>l&apos;id est le materiau block rechercher </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Renvoie 1 si cassable 0 si incassable </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/block.h" line="103" column="1" bodyfile="src/block.c" bodystart="93" bodyend="100"/>
       </memberdef>
       <memberdef kind="function" id="block_8h_1a0c8b13797355fd4296b6ef7cb71d0862" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>t_erreur</type>
@@ -347,7 +532,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/block.h" line="52" column="1" bodyfile="src/block.c" bodystart="80" bodyend="88"/>
+        <location file="include/block.h" line="105" column="1" bodyfile="src/block.c" bodystart="117" bodyend="125"/>
       </memberdef>
       <memberdef kind="function" id="block_8h_1a3c5ac45fcd31e6d01cffd148111d54e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>t_erreur</type>
@@ -364,7 +549,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/block.h" line="53" column="1" bodyfile="src/block.c" bodystart="67" bodyend="78"/>
+        <location file="include/block.h" line="106" column="1" bodyfile="src/block.c" bodystart="104" bodyend="115"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -383,33 +568,80 @@
 <codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;SDL2/SDL.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="erreur_8h" kindref="compound">erreur.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="14"><highlight class="normal"></highlight></codeline>
-<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NB_BLOCK<sp/>11</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NB_BLOCK<sp/>24</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="16"><highlight class="normal"></highlight></codeline>
-<codeline lineno="21" refid="block_8h_1a4030ebe0eea609635f372f2e86d4332a" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{<sp/>AIR,<sp/>HERBE,<sp/>TERRE,<sp/>EAU,<sp/>SABLE,<sp/>FEUILLE,<sp/>BOIS,<sp/>ROCHE,<sp/>NEIGE,<sp/>GLACE,<sp/>DIAMAND<sp/>,GRAVIER}<sp/><ref refid="block_8h_1a4030ebe0eea609635f372f2e86d4332a" kindref="member">t_materiaux</ref>;</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"></highlight></codeline>
-<codeline lineno="27" refid="structblock__type__s" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structblock__type__s" kindref="compound">block_type_s</ref><sp/>{</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="block_8h_1a4030ebe0eea609635f372f2e86d4332a" kindref="member">t_materiaux</ref><sp/>materiau;</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*nom;</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>resistance;</highlight></codeline>
-<codeline lineno="31"><highlight class="normal"></highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*texture_path_sdl;</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*texture_term;</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/>SDL_Texture<sp/>*texture_sdl;</highlight></codeline>
-<codeline lineno="36"><highlight class="normal">}<sp/><ref refid="structt__block__type" kindref="compound">t_block_type</ref>;</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"></highlight></codeline>
-<codeline lineno="38"><highlight class="normal"></highlight></codeline>
-<codeline lineno="43" refid="structblock__s" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structblock__s" kindref="compound">block_s</ref><sp/>{</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>id,<sp/>x,<sp/>y;</highlight></codeline>
-<codeline lineno="45"><highlight class="normal">}<sp/><ref refid="structblock__s" kindref="compound">t_block</ref>;</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"></highlight></codeline>
-<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NB_MINERAI<sp/>6</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="block_8h_1a4030ebe0eea609635f372f2e86d4332a" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/>AIR=0,</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/>HERBE=1,</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>TERRE=2,</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>EAU=3,</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>SABLE=4,</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/>FEUILLE=5,</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/>BOIS=6,</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/>ROCHE=7,</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>NEIGE=8,</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>GLACE=9,</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>DIAMAND=10,</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>GRAVIER=11,</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>BRIQUE=12,</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>PORTAIL_HAUT=13,</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>PORTAIL_BAS=14,</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>PLANT=15,</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>MINERAI_CHARBON=16,</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>MINERAI_CUIVRE=17,</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/>MINERAI_FER=18,</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>MINERAI_ARGENT=20,</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>MINERAI_OR=21,</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>MINERAI_DIAMAND=22,</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/>BEDROCK=23</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">}<sp/><ref refid="block_8h_1a4030ebe0eea609635f372f2e86d4332a" kindref="member">t_materiaux</ref>;</highlight></codeline>
 <codeline lineno="48"><highlight class="normal"></highlight></codeline>
-<codeline lineno="49"><highlight class="normal">SDL_Texture<sp/>*<ref refid="block_8h_1a567cf6af7d554e7cd896e855660a8261" kindref="member">BLOCK_GetTexture_sdl</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="block_8h_1a8fd0387fcb14db6189965796e3cc2aa2" kindref="member">BLOCK_GetTexture_term</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"></highlight></codeline>
-<codeline lineno="52"><highlight class="normal">t_erreur<sp/>BLOCK_DestroyTexture_sdl(SDL_Renderer<sp/>*renderer);</highlight></codeline>
-<codeline lineno="53"><highlight class="normal">t_erreur<sp/>BLOCK_CreateTexture_sdl(SDL_Renderer<sp/>*renderer);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="block_8h_1aa033ef78d0a6fc18eae0d70c67221560" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>PREMIER_PLAN,</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/>ARRIERE_PLAN</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">}<sp/><ref refid="block_8h_1aa033ef78d0a6fc18eae0d70c67221560" kindref="member">t_plan</ref>;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64" refid="structblock__type__s" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structblock__type__s" kindref="compound">block_type_s</ref><sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="block_8h_1a4030ebe0eea609635f372f2e86d4332a" kindref="member">t_materiaux</ref><sp/>materiau;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*nom;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>resistance;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cassable;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*texture_path_sdl;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*texture_term;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/>SDL_Texture<sp/>*texture_sdl;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal">}<sp/><ref refid="structt__block__type" kindref="compound">t_block_type</ref>;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80" refid="structt__minerai" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><ref refid="block_8h_1a4030ebe0eea609635f372f2e86d4332a" kindref="member">t_materiaux</ref><sp/>type;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>valeur_min,valeur_max;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>hauteur_min,hauteur_max;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal">}<sp/><ref refid="structt__minerai" kindref="compound">t_minerai</ref>;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93" refid="structblock__s" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structblock__s" kindref="compound">block_s</ref><sp/>{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/>y;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/>uint8_t<sp/>id,plan;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal">}<sp/><ref refid="structt__block" kindref="compound">t_block</ref>;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><ref refid="structt__minerai" kindref="compound">t_minerai</ref><sp/>*BLOCK_GetMinerai();</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal">SDL_Texture<sp/>*<ref refid="block_8h_1a567cf6af7d554e7cd896e855660a8261" kindref="member">BLOCK_GetTexture_sdl</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="block_8h_1a8fd0387fcb14db6189965796e3cc2aa2" kindref="member">BLOCK_GetTexture_term</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="block_8h_1a87a18dfdfc07c04beada04ed1985207a" kindref="member">BLOCK_estCassable</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal">t_erreur<sp/>BLOCK_DestroyTexture_sdl(SDL_Renderer<sp/>*renderer);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal">t_erreur<sp/>BLOCK_CreateTexture_sdl(SDL_Renderer<sp/>*renderer);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="include/block.h"/>
   </compounddef>

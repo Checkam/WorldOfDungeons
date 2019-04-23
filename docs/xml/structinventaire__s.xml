@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structinventaire__s" kind="struct" language="C++" prot="public">
+    <compoundname>inventaire_s</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structinventaire__s_1a97b1005389610a293276d31ebdff2129" prot="public" static="no" mutable="no">
+        <type><ref refid="structinventaire__item__s" kindref="compound">t_inventaire_item</ref> *</type>
+        <definition>t_inventaire_item* inventaire_s::inventaire</definition>
+        <argsstring></argsstring>
+        <name>inventaire</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/inventaire.h" line="30" column="1" bodyfile="include/inventaire.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structinventaire__s_1a97866acfb5b0c5b5f6efe39b627d06d1" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t inventaire_s::nbItem</definition>
+        <argsstring></argsstring>
+        <name>nbItem</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/inventaire.h" line="31" column="1" bodyfile="include/inventaire.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structinventaire__s_1aaea2af0c7d090bfe045d599eb418fe53" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t inventaire_s::nbItemMax</definition>
+        <argsstring></argsstring>
+        <name>nbItemMax</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/inventaire.h" line="32" column="1" bodyfile="include/inventaire.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="21">
+        <label>inventaire_item_s</label>
+        <link refid="structinventaire__item__s"/>
+        <childnode refid="22" relation="usage">
+          <edgelabel>item</edgelabel>
+        </childnode>
+      </node>
+      <node id="22">
+        <label>item_type_s</label>
+        <link refid="structitem__type__s"/>
+      </node>
+      <node id="20">
+        <label>inventaire_s</label>
+        <link refid="structinventaire__s"/>
+        <childnode refid="21" relation="usage">
+          <edgelabel>inventaire</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/inventaire.h" line="28" column="1" bodyfile="include/inventaire.h" bodystart="28" bodyend="33"/>
+    <listofallmembers>
+      <member refid="structinventaire__s_1a97b1005389610a293276d31ebdff2129" prot="public" virt="non-virtual"><scope>inventaire_s</scope><name>inventaire</name></member>
+      <member refid="structinventaire__s_1a97866acfb5b0c5b5f6efe39b627d06d1" prot="public" virt="non-virtual"><scope>inventaire_s</scope><name>nbItem</name></member>
+      <member refid="structinventaire__s_1aaea2af0c7d090bfe045d599eb418fe53" prot="public" virt="non-virtual"><scope>inventaire_s</scope><name>nbItemMax</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
