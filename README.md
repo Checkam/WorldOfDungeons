@@ -13,6 +13,8 @@ Maxence Despres, Mathieu Vaudeleau, Tibane et Jasmin Galbrun
 * [Minecraft](https://www.minecraft.net/fr-fr/)
 * [Terraria](https://terraria.org/)
 
+## Démo
+* [![Démo video](https://img.youtube.com/vi/Z1gZfjrY0bo/maxresdefault.jpg)](https://www.youtube.com/watch?v=Z1gZfjrY0bo)
 
 # Installation
 
