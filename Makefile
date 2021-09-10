@@ -68,7 +68,7 @@ FIN_CC:
 	@echo -e '\033[42m Fin Compilation : $(PROG) \033[0m'
 
 $(BIN_DIR)/$(PROG): $(OBJ)
-	$(MSG_CC)$(CC) $^ -o $@  $(LIBS) $(INCLUDES) -I./$(INC_DIR) $(CFLAGS)
+	$(MSG_CC)$(CC) $^ -o $@  $(LIBS) $(INCLUDES) -I./$(INC_DIR) $(CFLAGS) '-Wl,-rpath,$$ORIGIN/../lib'
 
 $(OBJ) : $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c $(INC_DIR)/%.h
 	$(MSG_CC)$(CC) -o $@ -c $< $(LIBS) $(INCLUDES) -I./$(INC_DIR) $(CFLAGS)
